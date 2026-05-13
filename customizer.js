@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.4.7 — built 2026-05-13T01:50:10.768Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var y="[wholesaling-crm-customizer]",K="__WS_CRM_DEBUG",X=()=>!!window[K],l={info(...e){console.log(y,...e)},warn(...e){console.warn(y,...e)},error(...e){console.error(y,...e)},debug(...e){X()&&console.log(y,"[debug]",...e)}};var F=()=>{let e=window.location.pathname;return e.includes("/contacts/detail/")?"contact-detail":e.includes("/contacts/smart-list")||e.includes("/contacts/")?"contact-list":e.includes("/opportunities/detail/")?"opportunity-detail":e.includes("/opportunities/")?"opportunity-list":e.includes("/calendars/")?"calendar":e.includes("/dashboard")?"dashboard":e.includes("/conversations")?"conversations":e.includes("/settings")?"settings":"other"},x="",b="other",I=new Set,v=()=>{if(window.location.pathname!==x){x=window.location.pathname,b=F(),l.debug("Page changed:",b,x);for(let e of I)try{e(b)}catch(o){l.error("Subscriber threw:",o)}}},$=e=>(I.add(e),setTimeout(()=>e(b),0),()=>{I.delete(e)}),B=()=>{b=F(),x=window.location.pathname,l.debug("Router init, current page:",b);let e=history.pushState.bind(history),o=history.replaceState.bind(history);history.pushState=function(t,a,n){e(t,a,n),v()},history.replaceState=function(t,a,n){o(t,a,n),v()},window.addEventListener("popstate",v),setInterval(v,1e3)};var w="0.4.7",E="2026-05-13T01:50:10.769Z";var Z=/\/contacts\/detail\/([A-Za-z0-9]+)/,J=/\/v2\/location\/([A-Za-z0-9]+)/,m=()=>{let e=window.location.pathname,o=e.match(Z);if(!o)return null;let t=e.match(J);return{contactId:o[1],locationId:t?t[1]:null}};var g=(e,o={})=>{let{timeoutMs:t=8e3,pollMs:a=100,root:n=document}=o;return new Promise((s,i)=>{let d=n.querySelector(e);if(d){s(d);return}let u,L,_=()=>{C&&C.disconnect(),u!==void 0&&window.clearTimeout(u),L!==void 0&&window.clearInterval(L)},C=new MutationObserver(()=>{let h=n.querySelector(e);h&&(_(),s(h))});C.observe(document.body,{childList:!0,subtree:!0}),L=window.setInterval(()=>{let h=n.querySelector(e);h&&(_(),s(h))},a),u=window.setTimeout(()=>{_(),l.warn(`waitForElement timed out for selector: ${e}`),i(new Error(`Selector not found within ${t}ms: ${e}`))},t)})};var r={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},p={sm:"4px",md:"6px",lg:"10px",pill:"999px"},c={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},S={purple:"#8B5CF6",green:r.emerald,orange:r.amber,red:r.crimson},R=e=>{let o=e==="emerald"?r.emeraldGlow:e==="amber"?r.amberGlow:r.slate,t=e==="emerald"?r.emeraldBorder:e==="amber"?"rgba(232, 163, 60, 0.3)":r.steel,a=e==="emerald"?r.emerald:e==="amber"?r.amber:r.bone;return`
+/* Wholesaling CRM Customizer v0.4.8 — built 2026-05-13T20:39:04.202Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var y="[wholesaling-crm-customizer]",K="__WS_CRM_DEBUG",X=()=>!!window[K],i={info(...e){console.log(y,...e)},warn(...e){console.warn(y,...e)},error(...e){console.error(y,...e)},debug(...e){X()&&console.log(y,"[debug]",...e)}};var F=()=>{let e=window.location.pathname;return e.includes("/contacts/detail/")?"contact-detail":e.includes("/contacts/smart-list")||e.includes("/contacts/")?"contact-list":e.includes("/opportunities/detail/")?"opportunity-detail":e.includes("/opportunities/")?"opportunity-list":e.includes("/calendars/")?"calendar":e.includes("/dashboard")?"dashboard":e.includes("/conversations")?"conversations":e.includes("/settings")?"settings":"other"},x="",b="other",S=new Set,v=()=>{if(window.location.pathname!==x){x=window.location.pathname,b=F(),i.debug("Page changed:",b,x);for(let e of S)try{e(b)}catch(o){i.error("Subscriber threw:",o)}}},$=e=>(S.add(e),setTimeout(()=>e(b),0),()=>{S.delete(e)}),B=()=>{b=F(),x=window.location.pathname,i.debug("Router init, current page:",b);let e=history.pushState.bind(history),o=history.replaceState.bind(history);history.pushState=function(t,a,n){e(t,a,n),v()},history.replaceState=function(t,a,n){o(t,a,n),v()},window.addEventListener("popstate",v),setInterval(v,1e3)};var w="0.4.8",E="2026-05-13T20:39:04.202Z";var Z=/\/contacts\/detail\/([A-Za-z0-9]+)/,J=/\/v2\/location\/([A-Za-z0-9]+)/,m=()=>{let e=window.location.pathname,o=e.match(Z);if(!o)return null;let t=e.match(J);return{contactId:o[1],locationId:t?t[1]:null}};var g=(e,o={})=>{let{timeoutMs:t=8e3,pollMs:a=100,root:n=document}=o;return new Promise((s,l)=>{let d=n.querySelector(e);if(d){s(d);return}let u,C,L=()=>{_&&_.disconnect(),u!==void 0&&window.clearTimeout(u),C!==void 0&&window.clearInterval(C)},_=new MutationObserver(()=>{let h=n.querySelector(e);h&&(L(),s(h))});_.observe(document.body,{childList:!0,subtree:!0}),C=window.setInterval(()=>{let h=n.querySelector(e);h&&(L(),s(h))},a),u=window.setTimeout(()=>{L(),i.warn(`waitForElement timed out for selector: ${e}`),l(new Error(`Selector not found within ${t}ms: ${e}`))},t)})};var r={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},p={sm:"4px",md:"6px",lg:"10px",pill:"999px"},c={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},I={purple:"#8B5CF6",green:r.emerald,orange:r.amber,red:r.crimson},R=e=>{let o=e==="emerald"?r.emeraldGlow:e==="amber"?r.amberGlow:r.slate,t=e==="emerald"?r.emeraldBorder:e==="amber"?"rgba(232, 163, 60, 0.3)":r.steel,a=e==="emerald"?r.emerald:e==="amber"?r.amber:r.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -52,7 +52,7 @@
   user-select: none;
   transition: border-color 0.15s ease, background 0.15s ease;
   flex-shrink: 0;
-`;var f="ws-crm-claim-release-pill",O=e=>{let o=Array.from(e.children).find(a=>{if(!(a instanceof HTMLElement))return!1;let n=a.className?.toString()??"";return n.includes("flex")&&n.includes("flex-col")});return o?o.querySelector(".flex.items-center, [class~='flex'][class~='items-center']")??null:null},Q=({contactId:e,mode:o})=>{let t=document.createElement("button");t.id=f,t.type="button",t.dataset.contactId=e,t.dataset.mode=o;let a=o==="claim"?"emerald":"amber",n=o==="claim"?r.emerald:r.amber;return t.style.cssText=R(a),t.innerHTML=`
+`;var f="ws-crm-claim-release-pill",A=e=>{let o=Array.from(e.children).find(a=>{if(!(a instanceof HTMLElement))return!1;let n=a.className?.toString()??"";return n.includes("flex")&&n.includes("flex-col")});return o?o.querySelector(".flex.items-center, [class~='flex'][class~='items-center']")??null:null},Q=({contactId:e,mode:o})=>{let t=document.createElement("button");t.id=f,t.type="button",t.dataset.contactId=e,t.dataset.mode=o;let a=o==="claim"?"emerald":"amber",n=o==="claim"?r.emerald:r.amber;return t.style.cssText=R(a),t.innerHTML=`
     <span style="
       width: 6px;
       height: 6px;
@@ -62,12 +62,12 @@
       flex-shrink: 0;
     "></span>
     <span>${o==="claim"?"Claim Lead":"Release Lead"}</span>
-  `,t.title=o==="claim"?"Take ownership of this lead":"Return this lead to the pool",t.addEventListener("mouseenter",()=>{t.style.transform="translateY(-1px)"}),t.addEventListener("mouseleave",()=>{t.style.transform="translateY(0)"}),t.addEventListener("click",()=>{l.info(`Claim/Release pill clicked for contact ${e}: ${o}`);let s=t.lastElementChild,i=s?.textContent??"";s&&(s.textContent="Working\u2026"),t.style.opacity="0.7",t.disabled=!0,setTimeout(()=>{s&&(s.textContent=i),t.style.opacity="1",t.disabled=!1},700)}),t},ee=async(e,o=1e4)=>{let t=Date.now();for(;Date.now()-t<o;){let a=O(e);if(a)return a;await new Promise(n=>setTimeout(n,150))}return null},A=(e,o)=>{let t=Q({contactId:o,mode:"claim"}),a=document.createElement("span");a.id=`${f}-wrap`,a.style.cssText=`
+  `,t.title=o==="claim"?"Take ownership of this lead":"Return this lead to the pool",t.addEventListener("mouseenter",()=>{t.style.transform="translateY(-1px)"}),t.addEventListener("mouseleave",()=>{t.style.transform="translateY(0)"}),t.addEventListener("click",()=>{i.info(`Claim/Release pill clicked for contact ${e}: ${o}`);let s=t.lastElementChild,l=s?.textContent??"";s&&(s.textContent="Working\u2026"),t.style.opacity="0.7",t.disabled=!0,setTimeout(()=>{s&&(s.textContent=l),t.style.opacity="1",t.disabled=!1},700)}),t},ee=async(e,o=1e4)=>{let t=Date.now();for(;Date.now()-t<o;){let a=A(e);if(a)return a;await new Promise(n=>setTimeout(n,150))}return null},O=(e,o)=>{let t=Q({contactId:o,mode:"claim"}),a=document.createElement("span");a.id=`${f}-wrap`,a.style.cssText=`
     display: inline-flex;
     align-items: center;
     margin-left: 12px;
     vertical-align: middle;
-  `,a.appendChild(t),e.appendChild(a)},te=async()=>{let e=m();if(!e){document.getElementById(f)?.remove();return}let o=document.getElementById(f);if(!(o&&o.dataset.contactId===e.contactId)){o&&o.remove();try{let t=await g("#record-details-lhs",{timeoutMs:1e4}),a=await ee(t),n=m();if(!n||n.contactId!==e.contactId)return;if(!a){l.warn("Claim/Release pill \u2014 name row not found within timeout; skipping mount");return}A(a,e.contactId),l.debug(`Mounted Claim/Release pill next to name for ${e.contactId}`);let s=null;s=new MutationObserver(async()=>{if(!(m()?.contactId===e.contactId)){s?.disconnect();return}if(document.getElementById(f))return;let d=O(t);d&&(A(d,e.contactId),l.debug("Re-mounted Claim/Release pill after React wipe"))}),s.observe(t,{childList:!0,subtree:!0})}catch(t){l.warn("Could not mount Claim/Release pill:",t)}}},H=()=>{te()};var k="ws-crm-contact-actions-bar",oe="ws-crm-call-status-dropdown",P="ws-crm-offer-made-modal",re=[{value:"not-contacted",label:"Not Contacted",color:"purple"},{value:"needs-offer",label:"Needs Offer",color:"green"},{value:"appointment-booked",label:"Appointment Booked",color:"green"},{value:"negotiating",label:"Negotiating",color:"green"},{value:"under-contract",label:"Under Contract",color:"green"},{value:"offer-rejected",label:"Offer Rejected",color:"orange"},{value:"not-ready",label:"Not Ready",color:"orange"},{value:"wants-retail",label:"Wants Retail",color:"orange"},{value:"already-listed",label:"Already Listed",color:"orange"},{value:"working-with-a-buyer",label:"Working with a Buyer",color:"orange"},{value:"not-interested",label:"Not Interested",color:"orange"},{value:"sold-on-market",label:"Sold on Market",color:"red"},{value:"sold-off-market",label:"Sold off Market",color:"red"},{value:"wrong-number",label:"Wrong Number",color:"red"},{value:"dead-deal",label:"Dead Deal",color:"red"}],ae=[".central-panel","[class*='central-panel']"],ne=async()=>{for(let e of ae)try{let o=await g(e,{timeoutMs:3e3});if(o)return o}catch{}try{return(await g("#contact-conversation-panel",{timeoutMs:3e3})).parentElement??null}catch{return null}},se=e=>{let o=document.createElement("div");o.id=oe,o.style.cssText="position: relative; flex-shrink: 0;";let t=document.createElement("button");t.type="button",t.style.cssText=D,t.innerHTML=`
+  `,a.appendChild(t),e.appendChild(a)},te=async()=>{let e=m();if(!e){document.getElementById(f)?.remove();return}let o=document.getElementById(f);if(!(o&&o.dataset.contactId===e.contactId)){o&&o.remove();try{let t=await g("#record-details-lhs",{timeoutMs:1e4}),a=await ee(t),n=m();if(!n||n.contactId!==e.contactId)return;if(!a){i.warn("Claim/Release pill \u2014 name row not found within timeout; skipping mount");return}O(a,e.contactId),i.debug(`Mounted Claim/Release pill next to name for ${e.contactId}`);let s=null;s=new MutationObserver(async()=>{if(!(m()?.contactId===e.contactId)){s?.disconnect();return}if(document.getElementById(f))return;let d=A(t);d&&(O(d,e.contactId),i.debug("Re-mounted Claim/Release pill after React wipe"))}),s.observe(t,{childList:!0,subtree:!0})}catch(t){i.warn("Could not mount Claim/Release pill:",t)}}},H=()=>{te()};var k="ws-crm-contact-actions-bar",oe="ws-crm-call-status-dropdown",P="ws-crm-offer-made-modal",re=[{value:"not-contacted",label:"Not Contacted",color:"purple"},{value:"needs-offer",label:"Needs Offer",color:"green"},{value:"appointment-booked",label:"Appointment Booked",color:"green"},{value:"negotiating",label:"Negotiating",color:"green"},{value:"under-contract",label:"Under Contract",color:"green"},{value:"offer-rejected",label:"Offer Rejected",color:"orange"},{value:"not-ready",label:"Not Ready",color:"orange"},{value:"wants-retail",label:"Wants Retail",color:"orange"},{value:"already-listed",label:"Already Listed",color:"orange"},{value:"working-with-a-buyer",label:"Working with a Buyer",color:"orange"},{value:"not-interested",label:"Not Interested",color:"orange"},{value:"sold-on-market",label:"Sold on Market",color:"red"},{value:"sold-off-market",label:"Sold off Market",color:"red"},{value:"wrong-number",label:"Wrong Number",color:"red"},{value:"dead-deal",label:"Dead Deal",color:"red"}],ae=[".central-panel","[class*='central-panel']"],ne=async()=>{for(let e of ae)try{let o=await g(e,{timeoutMs:3e3});if(o)return o}catch{}try{return(await g("#contact-conversation-panel",{timeoutMs:3e3})).parentElement??null}catch{return null}},se=e=>{let o=document.createElement("div");o.id=oe,o.style.cssText="position: relative; flex-shrink: 0;";let t=document.createElement("button");t.type="button",t.style.cssText=D,t.innerHTML=`
     <span style="
       display: inline-flex;
       width: 8px;
@@ -117,11 +117,11 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: ${S[n.color]};
+        background: ${I[n.color]};
         flex-shrink: 0;
       "></span>
       <span>${n.label}</span>
-    `,s.addEventListener("mouseenter",()=>{s.style.background=r.slate}),s.addEventListener("mouseleave",()=>{s.style.background="transparent"}),s.addEventListener("click",()=>{l.info(`Call Status set to "${n.label}" (${n.value}, ${n.color}) for contact ${e}`);let i=t.firstElementChild,d=t.children[1];i&&(i.style.background=S[n.color]),d&&(d.textContent=n.label),a.style.display="none"}),a.appendChild(s)}),t.addEventListener("click",n=>{n.stopPropagation(),a.style.display=a.style.display==="none"?"block":"none"}),document.addEventListener("click",n=>{o.contains(n.target)||(a.style.display="none")}),o.appendChild(t),o.appendChild(a),o},le=e=>{document.getElementById(P)?.remove();let o=document.createElement("div");o.id=P,o.style.cssText=`
+    `,s.addEventListener("mouseenter",()=>{s.style.background=r.slate}),s.addEventListener("mouseleave",()=>{s.style.background="transparent"}),s.addEventListener("click",()=>{i.info(`Call Status set to "${n.label}" (${n.value}, ${n.color}) for contact ${e}`);let l=t.firstElementChild,d=t.children[1];l&&(l.style.background=I[n.color]),d&&(d.textContent=n.label),a.style.display="none"}),a.appendChild(s)}),t.addEventListener("click",n=>{n.stopPropagation(),a.style.display=a.style.display==="none"?"block":"none"}),document.addEventListener("click",n=>{o.contains(n.target)||(a.style.display="none")}),o.appendChild(t),o.appendChild(a),o},ie=e=>{document.getElementById(P)?.remove();let o=document.createElement("div");o.id=P,o.style.cssText=`
     position: fixed;
     inset: 0;
     z-index: 999999;
@@ -225,7 +225,7 @@
         font-size: 13px;
       ">Record Offer</button>
     </div>
-  `,o.appendChild(t),document.body.appendChild(o);let s=()=>o.remove();o.addEventListener("click",i=>{i.target===o&&s()}),t.querySelector("#ws-offer-cancel")?.addEventListener("click",s),t.querySelector("#ws-offer-submit")?.addEventListener("click",()=>{let i=(t.querySelector("#ws-offer-amount")?.value??"").trim(),d=t.querySelector("#ws-offer-expires")?.value??"";if(!i||Number(i)<=0){l.warn("Offer Made submit blocked \u2014 invalid amount");return}l.info(`Offer Made recorded for contact ${e}: $${i}, expires ${d}`),s()}),setTimeout(()=>{t.querySelector("#ws-offer-amount")?.focus()},0)},N=e=>{let o=document.createElement("div");o.id=k,o.dataset.contactId=e,o.style.cssText=`
+  `,o.appendChild(t),document.body.appendChild(o);let s=()=>o.remove();o.addEventListener("click",l=>{l.target===o&&s()}),t.querySelector("#ws-offer-cancel")?.addEventListener("click",s),t.querySelector("#ws-offer-submit")?.addEventListener("click",()=>{let l=(t.querySelector("#ws-offer-amount")?.value??"").trim(),d=t.querySelector("#ws-offer-expires")?.value??"";if(!l||Number(l)<=0){i.warn("Offer Made submit blocked \u2014 invalid amount");return}i.info(`Offer Made recorded for contact ${e}: $${l}, expires ${d}`),s()}),setTimeout(()=>{t.querySelector("#ws-offer-amount")?.focus()},0)},N=e=>{let o=document.createElement("div");o.id=k,o.dataset.contactId=e,o.style.cssText=`
     display: flex;
     align-items: center;
     gap: 8px;
@@ -233,7 +233,7 @@
     background: ${r.graphite};
     border-bottom: 1px solid ${r.steel};
     flex-shrink: 0;
-  `,o.appendChild(se(e));let t=document.createElement("button");return t.type="button",t.style.cssText=M,t.textContent="Offer Made",t.addEventListener("click",()=>le(e)),o.appendChild(t),o},ie=async()=>{let e=m();if(!e){document.getElementById(k)?.remove();return}let o=document.getElementById(k);if(o&&o.dataset.contactId===e.contactId)return;o&&o.remove();let t=await ne();if(!t){l.warn("Could not mount actions bar \u2014 central panel not found within timeout");return}let a=m();if(!a||a.contactId!==e.contactId)return;let n=N(e.contactId);n.dataset.mountTarget=t.className||"central-panel",t.insertBefore(n,t.firstChild),l.debug(`Mounted contact actions bar for ${e.contactId}`);let s=null;s=new MutationObserver(()=>{let i=document.getElementById(k);if(!(m()?.contactId===e.contactId)){s?.disconnect();return}if(!i){let u=N(e.contactId);u.dataset.mountTarget=n.dataset.mountTarget??"",t.insertBefore(u,t.firstChild),l.debug(`Re-mounted actions bar after React wipe for ${e.contactId}`)}}),s.observe(t,{childList:!0})},G=()=>{ie()};var z="reos-theme-stylesheet",U="reos-theme-fonts",ce=()=>{if(document.getElementById(U))return;let e=document.createElement("link");e.rel="preconnect",e.href="https://fonts.googleapis.com",document.head.appendChild(e);let o=document.createElement("link");o.rel="preconnect",o.href="https://fonts.gstatic.com",o.crossOrigin="anonymous",document.head.appendChild(o);let t=document.createElement("link");t.id=U,t.rel="stylesheet",t.href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap",document.head.appendChild(t)},de=`
+  `,o.appendChild(se(e));let t=document.createElement("button");return t.type="button",t.style.cssText=M,t.textContent="Offer Made",t.addEventListener("click",()=>ie(e)),o.appendChild(t),o},le=async()=>{let e=m();if(!e){document.getElementById(k)?.remove();return}let o=document.getElementById(k);if(o&&o.dataset.contactId===e.contactId)return;o&&o.remove();let t=await ne();if(!t){i.warn("Could not mount actions bar \u2014 central panel not found within timeout");return}let a=m();if(!a||a.contactId!==e.contactId)return;let n=N(e.contactId);n.dataset.mountTarget=t.className||"central-panel",t.insertBefore(n,t.firstChild),i.debug(`Mounted contact actions bar for ${e.contactId}`);let s=null;s=new MutationObserver(()=>{let l=document.getElementById(k);if(!(m()?.contactId===e.contactId)){s?.disconnect();return}if(!l){let u=N(e.contactId);u.dataset.mountTarget=n.dataset.mountTarget??"",t.insertBefore(u,t.firstChild),i.debug(`Re-mounted actions bar after React wipe for ${e.contactId}`)}}),s.observe(t,{childList:!0})},G=()=>{le()};var z="reos-theme-stylesheet",U="reos-theme-fonts",ce=()=>{if(document.getElementById(U))return;let e=document.createElement("link");e.rel="preconnect",e.href="https://fonts.googleapis.com",document.head.appendChild(e);let o=document.createElement("link");o.rel="preconnect",o.href="https://fonts.gstatic.com",o.crossOrigin="anonymous",document.head.appendChild(o);let t=document.createElement("link");t.id=U,t.rel="stylesheet",t.href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap",document.head.appendChild(t)},de=`
 /* ============================================
    REINVEST OS \u2014 VAULT THEME
    Injected by Customizer at bundle load.
@@ -284,7 +284,12 @@ body,
   font-feature-settings: 'tnum' 1 !important;
 }
 
-/* 4. SIDEBAR \u2014 graphite surface, emerald active state, mono nav labels */
+/* 4. SIDEBAR \u2014 graphite surface, emerald active state, mono nav labels.
+   GHL actually uses aside.default-bg-color for the main nav sidebar
+   (default-bg-color resolves to a slate-blue-grey in their CSS), not
+   .sidebar-v2. Catch both. */
+aside.default-bg-color,
+aside[class*="default-bg-color"],
 .sidebar-v2,
 .sidebar-v2-location,
 .nav-sidebar,
@@ -295,21 +300,56 @@ nav[class*="sidebar"] {
 }
 .sidebar-v2 a,
 .sidebar-v2-location a,
+aside.default-bg-color a,
 [class*="sidebar"] a {
   color: var(--reos-ash) !important;
   font-weight: 500 !important;
 }
 .sidebar-v2 a:hover,
 .sidebar-v2-location a:hover,
+aside.default-bg-color a:hover,
 [class*="sidebar"] a:hover {
   color: var(--reos-bone) !important;
   background: var(--reos-slate) !important;
 }
 .sidebar-v2 a.active,
 .sidebar-v2 a[class*="active"],
+aside.default-bg-color a.active,
+aside.default-bg-color a[class*="active"],
 [class*="sidebar"] a.router-link-active {
   color: var(--reos-emerald) !important;
   background: var(--reos-emerald-glow) !important;
+}
+
+/* 4a. AGENCY LOGO \u2014 by default GHL renders the agency logo at its native
+   width (~78px) inside a 224px sidebar \u2014 leaves a lot of empty space.
+   Force the image to fill the container so the brand mark is prominent. */
+.agency-logo-container {
+  padding: 16px 20px !important;
+  margin-bottom: 12px !important;
+}
+.agency-logo {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 64px !important;
+  object-fit: contain !important;
+}
+
+/* 4b. BUSINESS / LOCATION SWITCHER CHIP \u2014 the "Paperwork Investments /
+   Palmdale, CA" chip below the logo. Default is gray-600 (rgb 75,85,99);
+   coerce to slate fill with steel border so it reads as a button on the
+   graphite sidebar. */
+aside.default-bg-color > div > div[class*="text-white"],
+aside.default-bg-color [class*="cursor-pointer"][class*="text-white"] {
+  background: var(--reos-slate) !important;
+  border: 1px solid var(--reos-steel) !important;
+  border-radius: 6px !important;
+  color: var(--reos-bone) !important;
+}
+aside.default-bg-color > div > div[class*="text-white"]:hover,
+aside.default-bg-color [class*="cursor-pointer"][class*="text-white"]:hover {
+  border-color: var(--reos-cool-gray) !important;
+  background: var(--reos-steel) !important;
 }
 
 /* 5. TOP BAR \u2014 match sidebar surface. .hl_header is GHL's actual top
@@ -769,7 +809,7 @@ table tr:hover td,
 }
 
 /* END REINVEST OS THEME */
-`,pe=[{selector:".hr-input__input-el, .hr-input__textarea-el, [class*='hr-input'] input, [class*='hr-input'] textarea",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".hr-collapse-item__header, .hr-collapse-item__header-main, .hr-collapse-item__title",styles:{color:"#EDEEF0","background-color":"#12161D"}},{selector:".hr-collapse-item__content, .hr-collapse-item__content-inner, .hr-collapse-item__content-wrap",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-tabs, .hr-tabs-nav, .hr-tabs-nav-scroll-content, .hr-tabs-content, .hr-tabs-pane, .hr-tabs-rail, .hr-tabs-tab-wrapper",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-tabs-capsule",styles:{"background-color":"rgba(15, 181, 126, 0.12)",border:"1px solid rgba(15, 181, 126, 0.3)"}},{selector:".hr-avatar__text, .hr-avatar__text p, .hr-avatar p",styles:{color:"#0A0D12"}},{selector:".hr-button--tertiary",styles:{"background-color":"#1A1F28",color:"#0FB57E"}},{selector:".hr-text",styles:{color:"#EDEEF0"}},{selector:"[class*='field-value'], [class*='field-display']",styles:{color:"#EDEEF0"}},{selector:"[class*='F7F9FD'], [class*='F7F9FB'], [class*='F9FAFB'], [class*='eff4ff'], [class*='EFF4FF']",styles:{"background-color":"#12161D"}},{selector:"[style*='background-color: white'], [style*='background-color:white'], [style*='background-color: #fff'], [style*='background-color:#fff']",styles:{"background-color":"#12161D"}},{selector:".bg-gray-50, .bg-white, .bg-gray-100",styles:{"background-color":"#12161D",color:"#EDEEF0"}}],T=()=>{for(let e of pe){let o;try{o=document.querySelectorAll(e.selector)}catch{continue}o.forEach(t=>{for(let[a,n]of Object.entries(e.styles)){let s=t.style.getPropertyPriority(a),i=t.style.getPropertyValue(a);s==="important"&&i===n||t.style.setProperty(a,n,"important")}})}},V=()=>{let e,o=()=>{e===void 0&&(e=window.setTimeout(()=>{e=void 0,T()},100))};T(),window.setTimeout(T,500),window.setTimeout(T,1500),new MutationObserver(()=>{o()}).observe(document.body,{childList:!0,subtree:!0,attributes:!0,attributeFilter:["class","style"]})},W=()=>{if(ce(),!document.getElementById(z)){let e=document.createElement("style");e.id=z,e.textContent=de,document.head.appendChild(e),l.info("REInvest OS theme stylesheet mounted")}window.__reosForceInstalled||(window.__reosForceInstalled=!0,document.body?V():window.addEventListener("DOMContentLoaded",V))};var q="ws-crm-customizer-version-badge",j=()=>{if(document.getElementById(q))return;let e=document.createElement("div");e.id=q,e.style.cssText=`
+`,pe=[{selector:".hr-input__input-el, .hr-input__textarea-el, [class*='hr-input'] input, [class*='hr-input'] textarea",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".hr-collapse-item__header, .hr-collapse-item__header-main, .hr-collapse-item__title",styles:{color:"#EDEEF0","background-color":"#12161D"}},{selector:".hr-collapse-item__content, .hr-collapse-item__content-inner, .hr-collapse-item__content-wrap",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-tabs, .hr-tabs-nav, .hr-tabs-nav-scroll-content, .hr-tabs-content, .hr-tabs-pane, .hr-tabs-rail, .hr-tabs-tab-wrapper",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-tabs-capsule",styles:{"background-color":"rgba(15, 181, 126, 0.12)",border:"1px solid rgba(15, 181, 126, 0.3)"}},{selector:".hr-avatar__text, .hr-avatar__text p, .hr-avatar p",styles:{color:"#0A0D12"}},{selector:".hr-button--tertiary",styles:{"background-color":"#1A1F28",color:"#0FB57E"}},{selector:".hr-text",styles:{color:"#EDEEF0"}},{selector:"[class*='field-value'], [class*='field-display']",styles:{color:"#EDEEF0"}},{selector:"[class*='F7F9FD'], [class*='F7F9FB'], [class*='F9FAFB'], [class*='eff4ff'], [class*='EFF4FF']",styles:{"background-color":"#12161D"}},{selector:"[style*='background-color: white'], [style*='background-color:white'], [style*='background-color: #fff'], [style*='background-color:#fff']",styles:{"background-color":"#12161D"}},{selector:".bg-gray-50, .bg-white, .bg-gray-100",styles:{"background-color":"#12161D",color:"#EDEEF0"}}],T=()=>{for(let e of pe){let o;try{o=document.querySelectorAll(e.selector)}catch{continue}o.forEach(t=>{for(let[a,n]of Object.entries(e.styles)){let s=t.style.getPropertyPriority(a),l=t.style.getPropertyValue(a);s==="important"&&l===n||t.style.setProperty(a,n,"important")}})}},V=()=>{let e,o=()=>{e===void 0&&(e=window.setTimeout(()=>{e=void 0,T()},100))};T(),window.setTimeout(T,500),window.setTimeout(T,1500),new MutationObserver(()=>{o()}).observe(document.body,{childList:!0,subtree:!0,attributes:!0,attributeFilter:["class","style"]})},W=()=>{if(ce(),!document.getElementById(z)){let e=document.createElement("style");e.id=z,e.textContent=de,document.head.appendChild(e),i.info("REInvest OS theme stylesheet mounted")}window.__reosForceInstalled||(window.__reosForceInstalled=!0,document.body?V():window.addEventListener("DOMContentLoaded",V))};var j="ws-crm-customizer-version-badge",q=()=>{if(document.getElementById(j))return;let e=document.createElement("div");e.id=j,e.style.cssText=`
     position: fixed;
     bottom: 12px;
     right: 12px;
@@ -787,5 +827,5 @@ table tr:hover td,
     user-select: none;
     transition: transform 0.15s ease, opacity 0.15s ease;
   `,e.textContent=`Customizer v${w}`,e.title=`Built ${E}
-Click to dismiss for this session`,e.addEventListener("mouseenter",()=>{e.style.transform="scale(1.05)"}),e.addEventListener("mouseleave",()=>{e.style.transform="scale(1)"}),e.addEventListener("click",()=>{e.style.opacity="0",setTimeout(()=>e.remove(),200)}),document.body.appendChild(e)};var Y=()=>{l.info(`Loaded v${w} (built ${E})`),W(),B(),$(e=>{l.debug("Page handler firing for:",e),j(),H(),G()})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",Y):Y();})();
+Click to dismiss for this session`,e.addEventListener("mouseenter",()=>{e.style.transform="scale(1.05)"}),e.addEventListener("mouseleave",()=>{e.style.transform="scale(1)"}),e.addEventListener("click",()=>{e.style.opacity="0",setTimeout(()=>e.remove(),200)}),document.body.appendChild(e)};var Y=()=>{i.info(`Loaded v${w} (built ${E})`),W(),B(),$(e=>{i.debug("Page handler firing for:",e),q(),H(),G()})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",Y):Y();})();
 //# sourceMappingURL=customizer.js.map

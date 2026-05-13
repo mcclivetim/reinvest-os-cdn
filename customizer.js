@@ -1,13 +1,13 @@
-/* Wholesaling CRM Customizer v0.3.0 — built 2026-05-13T00:29:40.678Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var x="[wholesaling-crm-customizer]",G="__WS_CRM_DEBUG",U=()=>!!window[G],i={info(...e){console.log(x,...e)},warn(...e){console.warn(x,...e)},error(...e){console.error(x,...e)},debug(...e){U()&&console.log(x,"[debug]",...e)}};var B=()=>{let e=window.location.pathname;return e.includes("/contacts/detail/")?"contact-detail":e.includes("/contacts/smart-list")||e.includes("/contacts/")?"contact-list":e.includes("/opportunities/detail/")?"opportunity-detail":e.includes("/opportunities/")?"opportunity-list":e.includes("/calendars/")?"calendar":e.includes("/dashboard")?"dashboard":e.includes("/conversations")?"conversations":e.includes("/settings")?"settings":"other"},h="",f="other",L=new Set,y=()=>{if(window.location.pathname!==h){h=window.location.pathname,f=B(),i.debug("Page changed:",f,h);for(let e of L)try{e(f)}catch(n){i.error("Subscriber threw:",n)}}},R=e=>(L.add(e),setTimeout(()=>e(f),0),()=>{L.delete(e)}),D=()=>{f=B(),h=window.location.pathname,i.debug("Router init, current page:",f);let e=history.pushState.bind(history),n=history.replaceState.bind(history);history.pushState=function(t,s,r){e(t,s,r),y()},history.replaceState=function(t,s,r){n(t,s,r),y()},window.addEventListener("popstate",y),setInterval(y,1e3)};var w="0.3.0",v="2026-05-13T00:29:40.678Z";var q=/\/contacts\/detail\/([A-Za-z0-9]+)/,W=/\/v2\/location\/([A-Za-z0-9]+)/,u=()=>{let e=window.location.pathname,n=e.match(q);if(!n)return null;let t=e.match(W);return{contactId:n[1],locationId:t?t[1]:null}};var b=(e,n={})=>{let{timeoutMs:t=8e3,pollMs:s=100,root:r=document}=n;return new Promise((a,l)=>{let p=r.querySelector(e);if(p){a(p);return}let m,T,$=()=>{M&&M.disconnect(),m!==void 0&&window.clearTimeout(m),T!==void 0&&window.clearInterval(T)},M=new MutationObserver(()=>{let g=r.querySelector(e);g&&($(),a(g))});M.observe(document.body,{childList:!0,subtree:!0}),T=window.setInterval(()=>{let g=r.querySelector(e);g&&($(),a(g))},s),m=window.setTimeout(()=>{$(),i.warn(`waitForElement timed out for selector: ${e}`),l(new Error(`Selector not found within ${t}ms: ${e}`))},t)})};var o={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},d={sm:"4px",md:"6px",lg:"10px",pill:"999px"},c={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},k={purple:"#8B5CF6",green:o.emerald,orange:o.amber,red:o.crimson},_=e=>{let n=e==="emerald"?o.emeraldGlow:e==="amber"?o.amberGlow:o.slate,t=e==="emerald"?o.emeraldBorder:e==="amber"?"rgba(232, 163, 60, 0.3)":o.steel,s=e==="emerald"?o.emerald:e==="amber"?o.amber:o.bone;return`
+/* Wholesaling CRM Customizer v0.3.0 — built 2026-05-13T00:35:02.552Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var y="[wholesaling-crm-customizer]",q="__WS_CRM_DEBUG",W=()=>!!window[q],s={info(...e){console.log(y,...e)},warn(...e){console.warn(y,...e)},error(...e){console.error(y,...e)},debug(...e){W()&&console.log(y,"[debug]",...e)}};var B=()=>{let e=window.location.pathname;return e.includes("/contacts/detail/")?"contact-detail":e.includes("/contacts/smart-list")||e.includes("/contacts/")?"contact-list":e.includes("/opportunities/detail/")?"opportunity-detail":e.includes("/opportunities/")?"opportunity-list":e.includes("/calendars/")?"calendar":e.includes("/dashboard")?"dashboard":e.includes("/conversations")?"conversations":e.includes("/settings")?"settings":"other"},w="",f="other",L=new Set,h=()=>{if(window.location.pathname!==w){w=window.location.pathname,f=B(),s.debug("Page changed:",f,w);for(let e of L)try{e(f)}catch(n){s.error("Subscriber threw:",n)}}},R=e=>(L.add(e),setTimeout(()=>e(f),0),()=>{L.delete(e)}),D=()=>{f=B(),w=window.location.pathname,s.debug("Router init, current page:",f);let e=history.pushState.bind(history),n=history.replaceState.bind(history);history.pushState=function(t,r,a){e(t,r,a),h()},history.replaceState=function(t,r,a){n(t,r,a),h()},window.addEventListener("popstate",h),setInterval(h,1e3)};var v="0.3.0",E="2026-05-13T00:35:02.553Z";var V=/\/contacts\/detail\/([A-Za-z0-9]+)/,j=/\/v2\/location\/([A-Za-z0-9]+)/,u=()=>{let e=window.location.pathname,n=e.match(V);if(!n)return null;let t=e.match(j);return{contactId:n[1],locationId:t?t[1]:null}};var b=(e,n={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=n;return new Promise((i,l)=>{let d=a.querySelector(e);if(d){i(d);return}let m,C,$=()=>{M&&M.disconnect(),m!==void 0&&window.clearTimeout(m),C!==void 0&&window.clearInterval(C)},M=new MutationObserver(()=>{let g=a.querySelector(e);g&&($(),i(g))});M.observe(document.body,{childList:!0,subtree:!0}),C=window.setInterval(()=>{let g=a.querySelector(e);g&&($(),i(g))},r),m=window.setTimeout(()=>{$(),s.warn(`waitForElement timed out for selector: ${e}`),l(new Error(`Selector not found within ${t}ms: ${e}`))},t)})};var o={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},p={sm:"4px",md:"6px",lg:"10px",pill:"999px"},c={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},I={purple:"#8B5CF6",green:o.emerald,orange:o.amber,red:o.crimson},_=e=>{let n=e==="emerald"?o.emeraldGlow:e==="amber"?o.amberGlow:o.slate,t=e==="emerald"?o.emeraldBorder:e==="amber"?"rgba(232, 163, 60, 0.3)":o.steel,r=e==="emerald"?o.emerald:e==="amber"?o.amber:o.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
     padding: 4px 10px;
     background: ${n};
-    color: ${s};
+    color: ${r};
     border: 1px solid ${t};
-    border-radius: ${d.pill};
+    border-radius: ${p.pill};
     font-family: ${c.mono};
     font-size: 10px;
     font-weight: 600;
@@ -18,7 +18,7 @@
     user-select: none;
     transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
     flex-shrink: 0;
-  `},I=`
+  `},k=`
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -26,7 +26,7 @@
   background: ${o.emerald};
   color: ${o.obsidian};
   border: none;
-  border-radius: ${d.sm};
+  border-radius: ${p.sm};
   font-family: ${c.sans};
   font-size: 12px;
   font-weight: 600;
@@ -43,7 +43,7 @@
   background: transparent;
   color: ${o.bone};
   border: 1px solid ${o.steel};
-  border-radius: ${d.sm};
+  border-radius: ${p.sm};
   font-family: ${c.sans};
   font-size: 12px;
   font-weight: 500;
@@ -52,22 +52,22 @@
   user-select: none;
   transition: border-color 0.15s ease, background 0.15s ease;
   flex-shrink: 0;
-`;var E="ws-crm-claim-release-pill",V=e=>{let n=Array.from(e.children).find(s=>{if(!(s instanceof HTMLElement))return!1;let r=s.className?.toString()??"";return r.includes("flex")&&r.includes("flex-col")});return n?n.querySelector(".flex.items-center, [class~='flex'][class~='items-center']")??null:null},j=({contactId:e,mode:n})=>{let t=document.createElement("button");t.id=E,t.type="button",t.dataset.contactId=e,t.dataset.mode=n;let s=n==="claim"?"emerald":"amber",r=n==="claim"?o.emerald:o.amber;return t.style.cssText=_(s),t.innerHTML=`
+`;var x="ws-crm-claim-release-pill",O=e=>{let n=Array.from(e.children).find(r=>{if(!(r instanceof HTMLElement))return!1;let a=r.className?.toString()??"";return a.includes("flex")&&a.includes("flex-col")});return n?n.querySelector(".flex.items-center, [class~='flex'][class~='items-center']")??null:null},Y=({contactId:e,mode:n})=>{let t=document.createElement("button");t.id=x,t.type="button",t.dataset.contactId=e,t.dataset.mode=n;let r=n==="claim"?"emerald":"amber",a=n==="claim"?o.emerald:o.amber;return t.style.cssText=_(r),t.innerHTML=`
     <span style="
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: ${r};
-      box-shadow: 0 0 6px ${r};
+      background: ${a};
+      box-shadow: 0 0 6px ${a};
       flex-shrink: 0;
     "></span>
     <span>${n==="claim"?"Claim Lead":"Release Lead"}</span>
-  `,t.title=n==="claim"?"Take ownership of this lead":"Return this lead to the pool",t.addEventListener("mouseenter",()=>{t.style.transform="translateY(-1px)"}),t.addEventListener("mouseleave",()=>{t.style.transform="translateY(0)"}),t.addEventListener("click",()=>{i.info(`Claim/Release pill clicked for contact ${e}: ${n}`);let a=t.lastElementChild,l=a?.textContent??"";a&&(a.textContent="Working\u2026"),t.style.opacity="0.7",t.disabled=!0,setTimeout(()=>{a&&(a.textContent=l),t.style.opacity="1",t.disabled=!1},700)}),t},Y=async()=>{let e=u();if(!e){document.getElementById(E)?.remove();return}let n=document.getElementById(E);if(!(n&&n.dataset.contactId===e.contactId)){n&&n.remove();try{let t=await b("#record-details-lhs",{timeoutMs:1e4}),s=u();if(!s||s.contactId!==e.contactId)return;let r=j({contactId:e.contactId,mode:"claim"}),a=V(t);if(a){let l=document.createElement("span");l.id=`${E}-wrap`,l.style.cssText=`
-        display: inline-flex;
-        align-items: center;
-        margin-left: 12px;
-        vertical-align: middle;
-      `,l.appendChild(r),a.appendChild(l),i.debug(`Mounted Claim/Release pill next to name for ${e.contactId}`)}else t.insertBefore(r,t.firstChild),i.debug(`Mounted Claim/Release pill at top of LHS (no name anchor) for ${e.contactId}`)}catch(t){i.warn("Could not mount Claim/Release pill:",t)}}},O=()=>{Y()};var C="ws-crm-contact-actions-bar",Z="ws-crm-call-status-dropdown",P="ws-crm-offer-made-modal",K=[{value:"not-contacted",label:"Not Contacted",color:"purple"},{value:"needs-offer",label:"Needs Offer",color:"green"},{value:"appointment-booked",label:"Appointment Booked",color:"green"},{value:"negotiating",label:"Negotiating",color:"green"},{value:"under-contract",label:"Under Contract",color:"green"},{value:"offer-rejected",label:"Offer Rejected",color:"orange"},{value:"not-ready",label:"Not Ready",color:"orange"},{value:"wants-retail",label:"Wants Retail",color:"orange"},{value:"already-listed",label:"Already Listed",color:"orange"},{value:"working-with-a-buyer",label:"Working with a Buyer",color:"orange"},{value:"not-interested",label:"Not Interested",color:"orange"},{value:"sold-on-market",label:"Sold on Market",color:"red"},{value:"sold-off-market",label:"Sold off Market",color:"red"},{value:"wrong-number",label:"Wrong Number",color:"red"},{value:"dead-deal",label:"Dead Deal",color:"red"}],X=[".central-panel","[class*='central-panel']"],J=async()=>{for(let e of X)try{let n=await b(e,{timeoutMs:3e3});if(n)return n}catch{}try{return(await b("#contact-conversation-panel",{timeoutMs:3e3})).parentElement??null}catch{return null}},Q=e=>{let n=document.createElement("div");n.id=Z,n.style.cssText="position: relative; flex-shrink: 0;";let t=document.createElement("button");t.type="button",t.style.cssText=S,t.innerHTML=`
+  `,t.title=n==="claim"?"Take ownership of this lead":"Return this lead to the pool",t.addEventListener("mouseenter",()=>{t.style.transform="translateY(-1px)"}),t.addEventListener("mouseleave",()=>{t.style.transform="translateY(0)"}),t.addEventListener("click",()=>{s.info(`Claim/Release pill clicked for contact ${e}: ${n}`);let i=t.lastElementChild,l=i?.textContent??"";i&&(i.textContent="Working\u2026"),t.style.opacity="0.7",t.disabled=!0,setTimeout(()=>{i&&(i.textContent=l),t.style.opacity="1",t.disabled=!1},700)}),t},Z=async(e,n=1e4)=>{let t=Date.now();for(;Date.now()-t<n;){let r=O(e);if(r)return r;await new Promise(a=>setTimeout(a,150))}return null},P=(e,n)=>{let t=Y({contactId:n,mode:"claim"}),r=document.createElement("span");r.id=`${x}-wrap`,r.style.cssText=`
+    display: inline-flex;
+    align-items: center;
+    margin-left: 12px;
+    vertical-align: middle;
+  `,r.appendChild(t),e.appendChild(r)},K=async()=>{let e=u();if(!e){document.getElementById(x)?.remove();return}let n=document.getElementById(x);if(!(n&&n.dataset.contactId===e.contactId)){n&&n.remove();try{let t=await b("#record-details-lhs",{timeoutMs:1e4}),r=await Z(t),a=u();if(!a||a.contactId!==e.contactId)return;if(!r){s.warn("Claim/Release pill \u2014 name row not found within timeout; skipping mount");return}P(r,e.contactId),s.debug(`Mounted Claim/Release pill next to name for ${e.contactId}`);let i=null;i=new MutationObserver(async()=>{if(!(u()?.contactId===e.contactId)){i?.disconnect();return}if(document.getElementById(x))return;let d=O(t);d&&(P(d,e.contactId),s.debug("Re-mounted Claim/Release pill after React wipe"))}),i.observe(t,{childList:!0,subtree:!0})}catch(t){s.warn("Could not mount Claim/Release pill:",t)}}},H=()=>{K()};var T="ws-crm-contact-actions-bar",X="ws-crm-call-status-dropdown",N="ws-crm-offer-made-modal",J=[{value:"not-contacted",label:"Not Contacted",color:"purple"},{value:"needs-offer",label:"Needs Offer",color:"green"},{value:"appointment-booked",label:"Appointment Booked",color:"green"},{value:"negotiating",label:"Negotiating",color:"green"},{value:"under-contract",label:"Under Contract",color:"green"},{value:"offer-rejected",label:"Offer Rejected",color:"orange"},{value:"not-ready",label:"Not Ready",color:"orange"},{value:"wants-retail",label:"Wants Retail",color:"orange"},{value:"already-listed",label:"Already Listed",color:"orange"},{value:"working-with-a-buyer",label:"Working with a Buyer",color:"orange"},{value:"not-interested",label:"Not Interested",color:"orange"},{value:"sold-on-market",label:"Sold on Market",color:"red"},{value:"sold-off-market",label:"Sold off Market",color:"red"},{value:"wrong-number",label:"Wrong Number",color:"red"},{value:"dead-deal",label:"Dead Deal",color:"red"}],Q=[".central-panel","[class*='central-panel']"],ee=async()=>{for(let e of Q)try{let n=await b(e,{timeoutMs:3e3});if(n)return n}catch{}try{return(await b("#contact-conversation-panel",{timeoutMs:3e3})).parentElement??null}catch{return null}},te=e=>{let n=document.createElement("div");n.id=X,n.style.cssText="position: relative; flex-shrink: 0;";let t=document.createElement("button");t.type="button",t.style.cssText=S,t.innerHTML=`
     <span style="
       display: inline-flex;
       width: 8px;
@@ -82,7 +82,7 @@
       color: ${o.ash};
       margin-left: 2px;
     ">\u25BE</span>
-  `;let s=document.createElement("div");return s.style.cssText=`
+  `;let r=document.createElement("div");return r.style.cssText=`
     position: absolute;
     top: calc(100% + 4px);
     left: 0;
@@ -92,11 +92,11 @@
     overflow-y: auto;
     background: ${o.graphite};
     border: 1px solid ${o.steel};
-    border-radius: ${d.md};
+    border-radius: ${p.md};
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     padding: 4px;
     display: none;
-  `,K.forEach(r=>{let a=document.createElement("button");a.type="button",a.style.cssText=`
+  `,J.forEach(a=>{let i=document.createElement("button");i.type="button",i.style.cssText=`
       display: flex;
       align-items: center;
       gap: 10px;
@@ -105,23 +105,23 @@
       background: transparent;
       color: ${o.bone};
       border: none;
-      border-radius: ${d.sm};
+      border-radius: ${p.sm};
       font-family: ${c.sans};
       font-size: 13px;
       font-weight: 400;
       text-align: left;
       cursor: pointer;
       transition: background 0.1s ease;
-    `,a.innerHTML=`
+    `,i.innerHTML=`
       <span style="
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: ${k[r.color]};
+        background: ${I[a.color]};
         flex-shrink: 0;
       "></span>
-      <span>${r.label}</span>
-    `,a.addEventListener("mouseenter",()=>{a.style.background=o.slate}),a.addEventListener("mouseleave",()=>{a.style.background="transparent"}),a.addEventListener("click",()=>{i.info(`Call Status set to "${r.label}" (${r.value}, ${r.color}) for contact ${e}`);let l=t.firstElementChild,p=t.children[1];l&&(l.style.background=k[r.color]),p&&(p.textContent=r.label),s.style.display="none"}),s.appendChild(a)}),t.addEventListener("click",r=>{r.stopPropagation(),s.style.display=s.style.display==="none"?"block":"none"}),document.addEventListener("click",r=>{n.contains(r.target)||(s.style.display="none")}),n.appendChild(t),n.appendChild(s),n},ee=e=>{document.getElementById(P)?.remove();let n=document.createElement("div");n.id=P,n.style.cssText=`
+      <span>${a.label}</span>
+    `,i.addEventListener("mouseenter",()=>{i.style.background=o.slate}),i.addEventListener("mouseleave",()=>{i.style.background="transparent"}),i.addEventListener("click",()=>{s.info(`Call Status set to "${a.label}" (${a.value}, ${a.color}) for contact ${e}`);let l=t.firstElementChild,d=t.children[1];l&&(l.style.background=I[a.color]),d&&(d.textContent=a.label),r.style.display="none"}),r.appendChild(i)}),t.addEventListener("click",a=>{a.stopPropagation(),r.style.display=r.style.display==="none"?"block":"none"}),document.addEventListener("click",a=>{n.contains(a.target)||(r.style.display="none")}),n.appendChild(t),n.appendChild(r),n},ne=e=>{document.getElementById(N)?.remove();let n=document.createElement("div");n.id=N,n.style.cssText=`
     position: fixed;
     inset: 0;
     z-index: 999999;
@@ -134,11 +134,11 @@
     width: min(420px, 92vw);
     background: ${o.graphite};
     border: 1px solid ${o.steel};
-    border-radius: ${d.lg};
+    border-radius: ${p.lg};
     padding: 24px 28px;
     color: ${o.bone};
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
-  `;let s=new Date,r=new Date(s.getTime()+5*24*60*60*1e3).toISOString().slice(0,10);t.innerHTML=`
+  `;let r=new Date,a=new Date(r.getTime()+5*24*60*60*1e3).toISOString().slice(0,10);t.innerHTML=`
     <div style="
       font-family: ${c.mono};
       font-size: 10px;
@@ -172,7 +172,7 @@
       align-items: center;
       background: ${o.slate};
       border: 1px solid ${o.steel};
-      border-radius: ${d.sm};
+      border-radius: ${p.sm};
       padding: 0 12px;
       margin-bottom: 16px;
     ">
@@ -199,12 +199,12 @@
       color: ${o.ash};
       margin-bottom: 6px;
     ">Expires</label>
-    <input id="ws-offer-expires" type="date" value="${r}"
+    <input id="ws-offer-expires" type="date" value="${a}"
       style="
         width: 100%;
         background: ${o.slate};
         border: 1px solid ${o.steel};
-        border-radius: ${d.sm};
+        border-radius: ${p.sm};
         color: ${o.bone};
         font-family: ${c.sans};
         font-size: 14px;
@@ -220,12 +220,12 @@
         font-size: 13px;
       ">Cancel</button>
       <button id="ws-offer-submit" type="button" style="
-        ${I}
+        ${k}
         padding: 8px 16px;
         font-size: 13px;
       ">Record Offer</button>
     </div>
-  `,n.appendChild(t),document.body.appendChild(n);let a=()=>n.remove();n.addEventListener("click",l=>{l.target===n&&a()}),t.querySelector("#ws-offer-cancel")?.addEventListener("click",a),t.querySelector("#ws-offer-submit")?.addEventListener("click",()=>{let l=(t.querySelector("#ws-offer-amount")?.value??"").trim(),p=t.querySelector("#ws-offer-expires")?.value??"";if(!l||Number(l)<=0){i.warn("Offer Made submit blocked \u2014 invalid amount");return}i.info(`Offer Made recorded for contact ${e}: $${l}, expires ${p}`),a()}),setTimeout(()=>{t.querySelector("#ws-offer-amount")?.focus()},0)},H=e=>{let n=document.createElement("div");n.id=C,n.dataset.contactId=e,n.style.cssText=`
+  `,n.appendChild(t),document.body.appendChild(n);let i=()=>n.remove();n.addEventListener("click",l=>{l.target===n&&i()}),t.querySelector("#ws-offer-cancel")?.addEventListener("click",i),t.querySelector("#ws-offer-submit")?.addEventListener("click",()=>{let l=(t.querySelector("#ws-offer-amount")?.value??"").trim(),d=t.querySelector("#ws-offer-expires")?.value??"";if(!l||Number(l)<=0){s.warn("Offer Made submit blocked \u2014 invalid amount");return}s.info(`Offer Made recorded for contact ${e}: $${l}, expires ${d}`),i()}),setTimeout(()=>{t.querySelector("#ws-offer-amount")?.focus()},0)},z=e=>{let n=document.createElement("div");n.id=T,n.dataset.contactId=e,n.style.cssText=`
     display: flex;
     align-items: center;
     gap: 8px;
@@ -233,7 +233,7 @@
     background: ${o.graphite};
     border-bottom: 1px solid ${o.steel};
     flex-shrink: 0;
-  `,n.appendChild(Q(e));let t=document.createElement("button");return t.type="button",t.style.cssText=I,t.textContent="Offer Made",t.addEventListener("click",()=>ee(e)),n.appendChild(t),n},te=async()=>{let e=u();if(!e){document.getElementById(C)?.remove();return}let n=document.getElementById(C);if(n&&n.dataset.contactId===e.contactId)return;n&&n.remove();let t=await J();if(!t){i.warn("Could not mount actions bar \u2014 central panel not found within timeout");return}let s=u();if(!s||s.contactId!==e.contactId)return;let r=H(e.contactId);r.dataset.mountTarget=t.className||"central-panel",t.insertBefore(r,t.firstChild),i.debug(`Mounted contact actions bar for ${e.contactId}`);let a=null;a=new MutationObserver(()=>{let l=document.getElementById(C);if(!(u()?.contactId===e.contactId)){a?.disconnect();return}if(!l){let m=H(e.contactId);m.dataset.mountTarget=r.dataset.mountTarget??"",t.insertBefore(m,t.firstChild),i.debug(`Re-mounted actions bar after React wipe for ${e.contactId}`)}}),a.observe(t,{childList:!0})},A=()=>{te()};var z="ws-crm-customizer-version-badge",N=()=>{if(document.getElementById(z))return;let e=document.createElement("div");e.id=z,e.style.cssText=`
+  `,n.appendChild(te(e));let t=document.createElement("button");return t.type="button",t.style.cssText=k,t.textContent="Offer Made",t.addEventListener("click",()=>ne(e)),n.appendChild(t),n},oe=async()=>{let e=u();if(!e){document.getElementById(T)?.remove();return}let n=document.getElementById(T);if(n&&n.dataset.contactId===e.contactId)return;n&&n.remove();let t=await ee();if(!t){s.warn("Could not mount actions bar \u2014 central panel not found within timeout");return}let r=u();if(!r||r.contactId!==e.contactId)return;let a=z(e.contactId);a.dataset.mountTarget=t.className||"central-panel",t.insertBefore(a,t.firstChild),s.debug(`Mounted contact actions bar for ${e.contactId}`);let i=null;i=new MutationObserver(()=>{let l=document.getElementById(T);if(!(u()?.contactId===e.contactId)){i?.disconnect();return}if(!l){let m=z(e.contactId);m.dataset.mountTarget=a.dataset.mountTarget??"",t.insertBefore(m,t.firstChild),s.debug(`Re-mounted actions bar after React wipe for ${e.contactId}`)}}),i.observe(t,{childList:!0})},A=()=>{oe()};var F="ws-crm-customizer-version-badge",G=()=>{if(document.getElementById(F))return;let e=document.createElement("div");e.id=F,e.style.cssText=`
     position: fixed;
     bottom: 12px;
     right: 12px;
@@ -250,6 +250,6 @@
     cursor: pointer;
     user-select: none;
     transition: transform 0.15s ease, opacity 0.15s ease;
-  `,e.textContent=`Customizer v${w}`,e.title=`Built ${v}
-Click to dismiss for this session`,e.addEventListener("mouseenter",()=>{e.style.transform="scale(1.05)"}),e.addEventListener("mouseleave",()=>{e.style.transform="scale(1)"}),e.addEventListener("click",()=>{e.style.opacity="0",setTimeout(()=>e.remove(),200)}),document.body.appendChild(e)};var F=()=>{i.info(`Loaded v${w} (built ${v})`),D(),R(e=>{i.debug("Page handler firing for:",e),N(),O(),A()})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",F):F();})();
+  `,e.textContent=`Customizer v${v}`,e.title=`Built ${E}
+Click to dismiss for this session`,e.addEventListener("mouseenter",()=>{e.style.transform="scale(1.05)"}),e.addEventListener("mouseleave",()=>{e.style.transform="scale(1)"}),e.addEventListener("click",()=>{e.style.opacity="0",setTimeout(()=>e.remove(),200)}),document.body.appendChild(e)};var U=()=>{s.info(`Loaded v${v} (built ${E})`),D(),R(e=>{s.debug("Page handler firing for:",e),G(),H(),A()})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",U):U();})();
 //# sourceMappingURL=customizer.js.map

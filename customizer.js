@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.5.24 — built 2026-05-16T05:03:25.198Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var w="[wholesaling-crm-customizer]",ne="__WS_CRM_DEBUG",se=()=>!!window[ne],d={info(...e){console.log(w,...e)},warn(...e){console.warn(w,...e)},error(...e){console.error(w,...e)},debug(...e){se()&&console.log(w,"[debug]",...e)}};var R=()=>{let e=window.location.pathname;return e.includes("/contacts/detail/")?"contact-detail":e.includes("/contacts/smart-list")||e.includes("/contacts/")?"contact-list":e.includes("/opportunities/detail/")?"opportunity-detail":e.includes("/opportunities/")?"opportunity-list":e.includes("/calendars/")?"calendar":e.includes("/dashboard")?"dashboard":e.includes("/conversations")?"conversations":e.includes("/settings")?"settings":"other"},E="",y="other",M=new Set,k=()=>{if(window.location.pathname!==E){E=window.location.pathname,y=R(),d.debug("Page changed:",y,E);for(let e of M)try{e(y)}catch(o){d.error("Subscriber threw:",o)}}},B=e=>(M.add(e),setTimeout(()=>e(y),0),()=>{M.delete(e)}),O=()=>{y=R(),E=window.location.pathname,d.debug("Router init, current page:",y);let e=history.pushState.bind(history),o=history.replaceState.bind(history);history.pushState=function(t,r,a){e(t,r,a),k()},history.replaceState=function(t,r,a){o(t,r,a),k()},window.addEventListener("popstate",k),setInterval(k,1e3)};var _="0.5.24",S="2026-05-16T05:03:25.199Z";var ie=/\/contacts\/detail\/([A-Za-z0-9]+)/,le=/\/v2\/location\/([A-Za-z0-9]+)/,g=()=>{let e=window.location.pathname,o=e.match(ie);if(!o)return null;let t=e.match(le);return{contactId:o[1],locationId:t?t[1]:null}};var v=(e,o={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=o;return new Promise((n,c)=>{let i=a.querySelector(e);if(i){n(i);return}let l,p,b=()=>{u&&u.disconnect(),l!==void 0&&window.clearTimeout(l),p!==void 0&&window.clearInterval(p)},u=new MutationObserver(()=>{let m=a.querySelector(e);m&&(b(),n(m))});u.observe(document.body,{childList:!0,subtree:!0}),p=window.setInterval(()=>{let m=a.querySelector(e);m&&(b(),n(m))},r),l=window.setTimeout(()=>{b(),d.warn(`waitForElement timed out for selector: ${e}`),c(new Error(`Selector not found within ${t}ms: ${e}`))},t)})};var s={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},f={sm:"4px",md:"6px",lg:"10px",pill:"999px"},h={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},A={purple:"#8B5CF6",green:s.emerald,orange:s.amber,red:s.crimson},H=e=>{let o=e==="emerald"?s.emeraldGlow:e==="amber"?s.amberGlow:s.slate,t=e==="emerald"?s.emeraldBorder:e==="amber"?"rgba(232, 163, 60, 0.3)":s.steel,r=e==="emerald"?s.emerald:e==="amber"?s.amber:s.bone;return`
+/* Wholesaling CRM Customizer v0.5.25 — built 2026-05-16T05:06:46.201Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var w="[wholesaling-crm-customizer]",se="__WS_CRM_DEBUG",ie=()=>!!window[se],d={info(...e){console.log(w,...e)},warn(...e){console.warn(w,...e)},error(...e){console.error(w,...e)},debug(...e){ie()&&console.log(w,"[debug]",...e)}};var R=()=>{let e=window.location.pathname;return e.includes("/contacts/detail/")?"contact-detail":e.includes("/contacts/smart-list")||e.includes("/contacts/")?"contact-list":e.includes("/opportunities/detail/")?"opportunity-detail":e.includes("/opportunities/")?"opportunity-list":e.includes("/calendars/")?"calendar":e.includes("/dashboard")?"dashboard":e.includes("/conversations")?"conversations":e.includes("/settings")?"settings":"other"},E="",y="other",M=new Set,k=()=>{if(window.location.pathname!==E){E=window.location.pathname,y=R(),d.debug("Page changed:",y,E);for(let e of M)try{e(y)}catch(o){d.error("Subscriber threw:",o)}}},B=e=>(M.add(e),setTimeout(()=>e(y),0),()=>{M.delete(e)}),P=()=>{y=R(),E=window.location.pathname,d.debug("Router init, current page:",y);let e=history.pushState.bind(history),o=history.replaceState.bind(history);history.pushState=function(t,r,a){e(t,r,a),k()},history.replaceState=function(t,r,a){o(t,r,a),k()},window.addEventListener("popstate",k),setInterval(k,1e3)};var _="0.5.25",S="2026-05-16T05:06:46.202Z";var le=/\/contacts\/detail\/([A-Za-z0-9]+)/,ce=/\/v2\/location\/([A-Za-z0-9]+)/,g=()=>{let e=window.location.pathname,o=e.match(le);if(!o)return null;let t=e.match(ce);return{contactId:o[1],locationId:t?t[1]:null}};var v=(e,o={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=o;return new Promise((n,c)=>{let s=a.querySelector(e);if(s){n(s);return}let i,u,m=()=>{p&&p.disconnect(),i!==void 0&&window.clearTimeout(i),u!==void 0&&window.clearInterval(u)},p=new MutationObserver(()=>{let h=a.querySelector(e);h&&(m(),n(h))});p.observe(document.body,{childList:!0,subtree:!0}),u=window.setInterval(()=>{let h=a.querySelector(e);h&&(m(),n(h))},r),i=window.setTimeout(()=>{m(),d.warn(`waitForElement timed out for selector: ${e}`),c(new Error(`Selector not found within ${t}ms: ${e}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},f={sm:"4px",md:"6px",lg:"10px",pill:"999px"},b={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},A={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},H=e=>{let o=e==="emerald"?l.emeraldGlow:e==="amber"?l.amberGlow:l.slate,t=e==="emerald"?l.emeraldBorder:e==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=e==="emerald"?l.emerald:e==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -8,7 +8,7 @@
     color: ${r};
     border: 1px solid ${t};
     border-radius: ${f.pill};
-    font-family: ${h.mono};
+    font-family: ${b.mono};
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -23,11 +23,11 @@
   align-items: center;
   gap: 6px;
   padding: 6px 14px;
-  background: ${s.emerald};
-  color: ${s.obsidian};
+  background: ${l.emerald};
+  color: ${l.obsidian};
   border: none;
   border-radius: ${f.sm};
-  font-family: ${h.sans};
+  font-family: ${b.sans};
   font-size: 12px;
   font-weight: 600;
   line-height: 1.2;
@@ -41,10 +41,10 @@
   gap: 8px;
   padding: 6px 12px;
   background: transparent;
-  color: ${s.bone};
-  border: 1px solid ${s.steel};
+  color: ${l.bone};
+  border: 1px solid ${l.steel};
   border-radius: ${f.sm};
-  font-family: ${h.sans};
+  font-family: ${b.sans};
   font-size: 12px;
   font-weight: 500;
   line-height: 1.2;
@@ -52,7 +52,7 @@
   user-select: none;
   transition: border-color 0.15s ease, background 0.15s ease;
   flex-shrink: 0;
-`;var x="ws-crm-claim-release-pill",N=e=>{let o=Array.from(e.children).find(r=>{if(!(r instanceof HTMLElement))return!1;let a=r.className?.toString()??"";return a.includes("flex")&&a.includes("flex-col")});return o?o.querySelector(".flex.items-center, [class~='flex'][class~='items-center']")??null:null},ce=({contactId:e,mode:o})=>{let t=document.createElement("button");t.id=x,t.type="button",t.dataset.contactId=e,t.dataset.mode=o;let r=o==="claim"?"emerald":"amber",a=o==="claim"?s.emerald:s.amber;return t.style.cssText=H(r),t.innerHTML=`
+`;var x="ws-crm-claim-release-pill",N=e=>{let o=Array.from(e.children).find(r=>{if(!(r instanceof HTMLElement))return!1;let a=r.className?.toString()??"";return a.includes("flex")&&a.includes("flex-col")});return o?o.querySelector(".flex.items-center, [class~='flex'][class~='items-center']")??null:null},de=({contactId:e,mode:o})=>{let t=document.createElement("button");t.id=x,t.type="button",t.dataset.contactId=e,t.dataset.mode=o;let r=o==="claim"?"emerald":"amber",a=o==="claim"?l.emerald:l.amber;return t.style.cssText=H(r),t.innerHTML=`
     <span style="
       width: 6px;
       height: 6px;
@@ -62,24 +62,24 @@
       flex-shrink: 0;
     "></span>
     <span>${o==="claim"?"Claim Lead":"Release Lead"}</span>
-  `,t.title=o==="claim"?"Take ownership of this lead":"Return this lead to the pool",t.addEventListener("mouseenter",()=>{t.style.transform="translateY(-1px)"}),t.addEventListener("mouseleave",()=>{t.style.transform="translateY(0)"}),t.addEventListener("click",()=>{d.info(`Claim/Release pill clicked for contact ${e}: ${o}`);let n=t.lastElementChild,c=n?.textContent??"";n&&(n.textContent="Working\u2026"),t.style.opacity="0.7",t.disabled=!0,setTimeout(()=>{n&&(n.textContent=c),t.style.opacity="1",t.disabled=!1},700)}),t},de=async(e,o=1e4)=>{let t=Date.now();for(;Date.now()-t<o;){let r=N(e);if(r)return r;await new Promise(a=>setTimeout(a,150))}return null},P=(e,o)=>{let t=ce({contactId:o,mode:"claim"}),r=document.createElement("span");r.id=`${x}-wrap`,r.style.cssText=`
+  `,t.title=o==="claim"?"Take ownership of this lead":"Return this lead to the pool",t.addEventListener("mouseenter",()=>{t.style.transform="translateY(-1px)"}),t.addEventListener("mouseleave",()=>{t.style.transform="translateY(0)"}),t.addEventListener("click",()=>{d.info(`Claim/Release pill clicked for contact ${e}: ${o}`);let n=t.lastElementChild,c=n?.textContent??"";n&&(n.textContent="Working\u2026"),t.style.opacity="0.7",t.disabled=!0,setTimeout(()=>{n&&(n.textContent=c),t.style.opacity="1",t.disabled=!1},700)}),t},pe=async(e,o=1e4)=>{let t=Date.now();for(;Date.now()-t<o;){let r=N(e);if(r)return r;await new Promise(a=>setTimeout(a,150))}return null},O=(e,o)=>{let t=de({contactId:o,mode:"claim"}),r=document.createElement("span");r.id=`${x}-wrap`,r.style.cssText=`
     display: inline-flex;
     align-items: center;
     margin-left: 12px;
     vertical-align: middle;
-  `,r.appendChild(t),e.appendChild(r)},pe=async()=>{let e=g();if(!e){document.getElementById(x)?.remove();return}let o=document.getElementById(x);if(!(o&&o.dataset.contactId===e.contactId)){o&&o.remove();try{let t=await v("#record-details-lhs",{timeoutMs:1e4}),r=await de(t),a=g();if(!a||a.contactId!==e.contactId)return;if(!r){d.warn("Claim/Release pill \u2014 name row not found within timeout; skipping mount");return}P(r,e.contactId),d.debug(`Mounted Claim/Release pill next to name for ${e.contactId}`);let n=null;n=new MutationObserver(async()=>{if(!(g()?.contactId===e.contactId)){n?.disconnect();return}if(document.getElementById(x))return;let i=N(t);i&&(P(i,e.contactId),d.debug("Re-mounted Claim/Release pill after React wipe"))}),n.observe(t,{childList:!0,subtree:!0})}catch(t){d.warn("Could not mount Claim/Release pill:",t)}}},G=()=>{pe()};var ue="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/call-status-set",me=()=>{let e=window.WS_CRM_USER_ID;if(e&&/^[A-Za-z0-9]{15,30}$/.test(e))return e;let o=window,t=[o.appState?.user?.id,o.user?.id,o.currentUser?.id,o.LCUser?.id,o.HL?.user?.id];for(let r of t)if(typeof r=="string"&&/^[A-Za-z0-9]{15,30}$/.test(r))return r;try{let r=localStorage.getItem("user");if(r){let a=JSON.parse(r),n=a.id??a._id;if(n&&/^[A-Za-z0-9]{15,30}$/.test(n))return n}for(let a of["tokenUser","currentUser","ghl_user"]){let n=localStorage.getItem(a);if(n)try{let c=JSON.parse(n),i=c.id??c._id;if(i&&/^[A-Za-z0-9]{15,30}$/.test(i))return i}catch{}}}catch{}return null},he=async({contactId:e,locationId:o,status:t,userId:r})=>{let n=await fetch(ue,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contact_id:e,location:{id:o},customData:{call_status:t,triggered_by_user_id:r??""}}),credentials:"omit"});if(!n.ok)throw new Error(`Webhook returned ${n.status} ${n.statusText}`)},C="ws-crm-contact-actions-bar",be="ws-crm-call-status-dropdown",z="ws-crm-offer-made-modal",ge=[{value:"not-contacted",label:"Not Contacted",color:"purple"},{value:"needs-offer",label:"Needs Offer",color:"green"},{value:"appointment-booked",label:"Appointment Booked",color:"green"},{value:"negotiating",label:"Negotiating",color:"green"},{value:"under-contract",label:"Under Contract",color:"green"},{value:"offer-rejected",label:"Offer Rejected",color:"orange"},{value:"not-ready",label:"Not Ready",color:"orange"},{value:"wants-retail",label:"Wants Retail",color:"orange"},{value:"already-listed",label:"Already Listed",color:"orange"},{value:"working-with-a-buyer",label:"Working with a Buyer",color:"orange"},{value:"not-interested",label:"Not Interested",color:"orange"},{value:"sold-on-market",label:"Sold on Market",color:"red"},{value:"sold-off-market",label:"Sold off Market",color:"red"},{value:"wrong-number",label:"Wrong Number",color:"red"},{value:"dead-deal",label:"Dead Deal",color:"red"}],fe=[".central-panel","[class*='central-panel']"],ye=async()=>{for(let e of fe)try{let o=await v(e,{timeoutMs:3e3});if(o)return o}catch{}try{return(await v("#contact-conversation-panel",{timeoutMs:3e3})).parentElement??null}catch{return null}},ve=e=>{let o=document.createElement("div");o.id=be,o.style.cssText="position: relative; flex-shrink: 0;";let t=document.createElement("button");t.type="button",t.style.cssText=$,t.innerHTML=`
+  `,r.appendChild(t),e.appendChild(r)},ue=async()=>{let e=g();if(!e){document.getElementById(x)?.remove();return}let o=document.getElementById(x);if(!(o&&o.dataset.contactId===e.contactId)){o&&o.remove();try{let t=await v("#record-details-lhs",{timeoutMs:1e4}),r=await pe(t),a=g();if(!a||a.contactId!==e.contactId)return;if(!r){d.warn("Claim/Release pill \u2014 name row not found within timeout; skipping mount");return}O(r,e.contactId),d.debug(`Mounted Claim/Release pill next to name for ${e.contactId}`);let n=null;n=new MutationObserver(async()=>{if(!(g()?.contactId===e.contactId)){n?.disconnect();return}if(document.getElementById(x))return;let s=N(t);s&&(O(s,e.contactId),d.debug("Re-mounted Claim/Release pill after React wipe"))}),n.observe(t,{childList:!0,subtree:!0})}catch(t){d.warn("Could not mount Claim/Release pill:",t)}}},G=()=>{ue()};var me="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/call-status-set",he=()=>{let e=window.WS_CRM_USER_ID;if(e&&/^[A-Za-z0-9]{15,30}$/.test(e))return e;let o=window,t=[o.appState?.user?.id,o.user?.id,o.currentUser?.id,o.LCUser?.id,o.HL?.user?.id];for(let r of t)if(typeof r=="string"&&/^[A-Za-z0-9]{15,30}$/.test(r))return r;try{let r=localStorage.getItem("user");if(r){let a=JSON.parse(r),n=a.id??a._id;if(n&&/^[A-Za-z0-9]{15,30}$/.test(n))return n}for(let a of["tokenUser","currentUser","ghl_user"]){let n=localStorage.getItem(a);if(n)try{let c=JSON.parse(n),s=c.id??c._id;if(s&&/^[A-Za-z0-9]{15,30}$/.test(s))return s}catch{}}}catch{}return null},be=async({contactId:e,locationId:o,status:t,userId:r})=>{let n=await fetch(me,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contact_id:e,location:{id:o},customData:{call_status:t,triggered_by_user_id:r??""}}),credentials:"omit"});if(!n.ok)throw new Error(`Webhook returned ${n.status} ${n.statusText}`)},C="ws-crm-contact-actions-bar",ge="ws-crm-call-status-dropdown",z="ws-crm-offer-made-modal",fe=[{value:"not-contacted",label:"Not Contacted",color:"purple"},{value:"needs-offer",label:"Needs Offer",color:"green"},{value:"appointment-booked",label:"Appointment Booked",color:"green"},{value:"negotiating",label:"Negotiating",color:"green"},{value:"under-contract",label:"Under Contract",color:"green"},{value:"offer-rejected",label:"Offer Rejected",color:"orange"},{value:"not-ready",label:"Not Ready",color:"orange"},{value:"wants-retail",label:"Wants Retail",color:"orange"},{value:"already-listed",label:"Already Listed",color:"orange"},{value:"working-with-a-buyer",label:"Working with a Buyer",color:"orange"},{value:"not-interested",label:"Not Interested",color:"orange"},{value:"sold-on-market",label:"Sold on Market",color:"red"},{value:"sold-off-market",label:"Sold off Market",color:"red"},{value:"wrong-number",label:"Wrong Number",color:"red"},{value:"dead-deal",label:"Dead Deal",color:"red"}],ye=[".central-panel","[class*='central-panel']"],ve=async()=>{for(let e of ye)try{let o=await v(e,{timeoutMs:3e3});if(o)return o}catch{}try{return(await v("#contact-conversation-panel",{timeoutMs:3e3})).parentElement??null}catch{return null}},xe=e=>{let o=document.createElement("div");o.id=ge,o.style.cssText="position: relative; flex-shrink: 0;";let t=document.createElement("button");t.type="button",t.style.cssText=$,t.innerHTML=`
     <span style="
       display: inline-flex;
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: ${s.coolGray};
+      background: ${l.coolGray};
       flex-shrink: 0;
     "></span>
     <span>Call Status</span>
     <span style="
       font-size: 10px;
-      color: ${s.ash};
+      color: ${l.ash};
       margin-left: 2px;
     ">\u25BE</span>
   `;let r=document.createElement("div");return r.style.cssText=`
@@ -90,23 +90,23 @@
     min-width: 220px;
     max-height: 360px;
     overflow-y: auto;
-    background: ${s.graphite};
-    border: 1px solid ${s.steel};
+    background: ${l.graphite};
+    border: 1px solid ${l.steel};
     border-radius: ${f.md};
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     padding: 4px;
     display: none;
-  `,ge.forEach(a=>{let n=document.createElement("button");n.type="button",n.style.cssText=`
+  `,fe.forEach(a=>{let n=document.createElement("button");n.type="button",n.style.cssText=`
       display: flex;
       align-items: center;
       gap: 10px;
       width: 100%;
       padding: 8px 10px;
       background: transparent;
-      color: ${s.bone};
+      color: ${l.bone};
       border: none;
       border-radius: ${f.sm};
-      font-family: ${h.sans};
+      font-family: ${b.sans};
       font-size: 13px;
       font-weight: 400;
       text-align: left;
@@ -121,7 +121,7 @@
         flex-shrink: 0;
       "></span>
       <span>${a.label}</span>
-    `,n.addEventListener("mouseenter",()=>{n.style.background=s.slate}),n.addEventListener("mouseleave",()=>{n.style.background="transparent"}),n.addEventListener("click",async()=>{d.info(`Call Status set to "${a.label}" (${a.value}, ${a.color}) for contact ${e}`);let c=t.firstElementChild,i=t.children[1],l=t.children[2];c&&(c.style.background=A[a.color]),i&&(i.textContent=a.label),r.style.display="none";let b=g()?.locationId,u=me();if(!b){d.warn("Cannot fire Call Status webhook \u2014 locationId missing from URL context"),i&&(i.textContent=`${a.label} (no tenant!)`),i&&(i.style.color=s.amber);return}if(a.color==="green"&&!u){d.warn("Green Call Status clicked but no user ID found \u2014 n8n Green handler will throw. Set window.WS_CRM_USER_ID = '<your-ghl-user-id>' as a temporary workaround."),i&&(i.textContent=`${a.label} (no user!)`),i&&(i.style.color=s.amber);return}let m=l?.textContent??"\u25BE";l&&(l.textContent="\u2026"),t.style.opacity="0.75";try{await he({contactId:e,locationId:b,status:a.label,userId:u}),l&&(l.textContent="\u2713"),setTimeout(()=>{l&&(l.textContent=m),t.style.opacity="1"},900)}catch(ae){d.warn("Call Status webhook failed:",ae),l&&(l.textContent="\u2717"),i&&(i.style.color=s.amber),t.style.opacity="1",setTimeout(()=>{l&&(l.textContent=m),i&&(i.style.color=s.bone)},1800)}}),r.appendChild(n)}),t.addEventListener("click",a=>{a.stopPropagation(),r.style.display=r.style.display==="none"?"block":"none"}),document.addEventListener("click",a=>{o.contains(a.target)||(r.style.display="none")}),o.appendChild(t),o.appendChild(r),o},xe=e=>{document.getElementById(z)?.remove();let o=document.createElement("div");o.id=z,o.style.cssText=`
+    `,n.addEventListener("mouseenter",()=>{n.style.background=l.slate}),n.addEventListener("mouseleave",()=>{n.style.background="transparent"}),n.addEventListener("click",async()=>{d.info(`Call Status set to "${a.label}" (${a.value}, ${a.color}) for contact ${e}`);let c=t.firstElementChild,s=t.children[1],i=t.children[2];c&&(c.style.background=A[a.color]),s&&(s.textContent=a.label),r.style.display="none";let m=g()?.locationId,p=he();if(!m){d.warn("Cannot fire Call Status webhook \u2014 locationId missing from URL context"),s&&(s.textContent=`${a.label} (no tenant!)`),s&&(s.style.color=l.amber);return}if(a.color==="green"&&!p){d.warn("Green Call Status clicked but no user ID found \u2014 n8n Green handler will throw. Set window.WS_CRM_USER_ID = '<your-ghl-user-id>' as a temporary workaround."),s&&(s.textContent=`${a.label} (no user!)`),s&&(s.style.color=l.amber);return}let h=i?.textContent??"\u25BE";i&&(i.textContent="\u2026"),t.style.opacity="0.75";try{await be({contactId:e,locationId:m,status:a.label,userId:p}),i&&(i.textContent="\u2713"),setTimeout(()=>{i&&(i.textContent=h),t.style.opacity="1"},900)}catch(ne){d.warn("Call Status webhook failed:",ne),i&&(i.textContent="\u2717"),s&&(s.style.color=l.amber),t.style.opacity="1",setTimeout(()=>{i&&(i.textContent=h),s&&(s.style.color=l.bone)},1800)}}),r.appendChild(n)}),t.addEventListener("click",a=>{a.stopPropagation(),r.style.display=r.style.display==="none"?"block":"none"}),document.addEventListener("click",a=>{o.contains(a.target)||(r.style.display="none")}),o.appendChild(t),o.appendChild(r),o},we=e=>{document.getElementById(z)?.remove();let o=document.createElement("div");o.id=z,o.style.cssText=`
     position: fixed;
     inset: 0;
     z-index: 999999;
@@ -129,22 +129,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: ${h.sans};
+    font-family: ${b.sans};
   `;let t=document.createElement("div");t.style.cssText=`
     width: min(420px, 92vw);
-    background: ${s.graphite};
-    border: 1px solid ${s.steel};
+    background: ${l.graphite};
+    border: 1px solid ${l.steel};
     border-radius: ${f.lg};
     padding: 24px 28px;
-    color: ${s.bone};
+    color: ${l.bone};
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   `;let r=new Date,a=new Date(r.getTime()+5*24*60*60*1e3).toISOString().slice(0,10);t.innerHTML=`
     <div style="
-      font-family: ${h.mono};
+      font-family: ${b.mono};
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: ${s.emerald};
+      color: ${l.emerald};
       margin-bottom: 8px;
     ">Record Offer</div>
     <div style="
@@ -154,37 +154,37 @@
     ">Offer Made</div>
     <div style="
       font-size: 12px;
-      color: ${s.ash};
+      color: ${l.ash};
       margin-bottom: 20px;
     ">Attributes the offer to you for KPI tracking.</div>
 
     <label style="
       display: block;
-      font-family: ${h.mono};
+      font-family: ${b.mono};
       font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: ${s.ash};
+      color: ${l.ash};
       margin-bottom: 6px;
     ">Offer Amount</label>
     <div style="
       display: flex;
       align-items: center;
-      background: ${s.slate};
-      border: 1px solid ${s.steel};
+      background: ${l.slate};
+      border: 1px solid ${l.steel};
       border-radius: ${f.sm};
       padding: 0 12px;
       margin-bottom: 16px;
     ">
-      <span style="color: ${s.ash}; font-family: ${h.mono}; font-size: 14px;">$</span>
+      <span style="color: ${l.ash}; font-family: ${b.mono}; font-size: 14px;">$</span>
       <input id="ws-offer-amount" type="number" min="0" step="100" placeholder="0"
         style="
           flex: 1;
           background: transparent;
           border: none;
           outline: none;
-          color: ${s.bone};
-          font-family: ${h.mono};
+          color: ${l.bone};
+          font-family: ${b.mono};
           font-size: 14px;
           padding: 10px 8px;
         " />
@@ -192,21 +192,21 @@
 
     <label style="
       display: block;
-      font-family: ${h.mono};
+      font-family: ${b.mono};
       font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: ${s.ash};
+      color: ${l.ash};
       margin-bottom: 6px;
     ">Expires</label>
     <input id="ws-offer-expires" type="date" value="${a}"
       style="
         width: 100%;
-        background: ${s.slate};
-        border: 1px solid ${s.steel};
+        background: ${l.slate};
+        border: 1px solid ${l.steel};
         border-radius: ${f.sm};
-        color: ${s.bone};
-        font-family: ${h.sans};
+        color: ${l.bone};
+        font-family: ${b.sans};
         font-size: 14px;
         padding: 10px 12px;
         margin-bottom: 24px;
@@ -225,15 +225,15 @@
         font-size: 13px;
       ">Record Offer</button>
     </div>
-  `,o.appendChild(t),document.body.appendChild(o);let n=()=>o.remove();o.addEventListener("click",c=>{c.target===o&&n()}),t.querySelector("#ws-offer-cancel")?.addEventListener("click",n),t.querySelector("#ws-offer-submit")?.addEventListener("click",()=>{let c=(t.querySelector("#ws-offer-amount")?.value??"").trim(),i=t.querySelector("#ws-offer-expires")?.value??"";if(!c||Number(c)<=0){d.warn("Offer Made submit blocked \u2014 invalid amount");return}d.info(`Offer Made recorded for contact ${e}: $${c}, expires ${i}`),n()}),setTimeout(()=>{t.querySelector("#ws-offer-amount")?.focus()},0)},U=e=>{let o=document.createElement("div");o.id=C,o.dataset.contactId=e,o.style.cssText=`
+  `,o.appendChild(t),document.body.appendChild(o);let n=()=>o.remove();o.addEventListener("click",c=>{c.target===o&&n()}),t.querySelector("#ws-offer-cancel")?.addEventListener("click",n),t.querySelector("#ws-offer-submit")?.addEventListener("click",()=>{let c=(t.querySelector("#ws-offer-amount")?.value??"").trim(),s=t.querySelector("#ws-offer-expires")?.value??"";if(!c||Number(c)<=0){d.warn("Offer Made submit blocked \u2014 invalid amount");return}d.info(`Offer Made recorded for contact ${e}: $${c}, expires ${s}`),n()}),setTimeout(()=>{t.querySelector("#ws-offer-amount")?.focus()},0)},U=e=>{let o=document.createElement("div");o.id=C,o.dataset.contactId=e,o.style.cssText=`
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 8px 12px;
-    background: ${s.graphite};
-    border-bottom: 1px solid ${s.steel};
+    background: ${l.graphite};
+    border-bottom: 1px solid ${l.steel};
     flex-shrink: 0;
-  `,o.appendChild(ve(e));let t=document.createElement("button");return t.type="button",t.style.cssText=D,t.textContent="Offer Made",t.addEventListener("click",()=>xe(e)),o.appendChild(t),o},we=async()=>{let e=g();if(!e){document.getElementById(C)?.remove();return}let o=document.getElementById(C);if(o&&o.dataset.contactId===e.contactId)return;o&&o.remove();let t=await ye();if(!t){d.warn("Could not mount actions bar \u2014 central panel not found within timeout");return}let r=g();if(!r||r.contactId!==e.contactId)return;let a=U(e.contactId);a.dataset.mountTarget=t.className||"central-panel",t.insertBefore(a,t.firstChild),d.debug(`Mounted contact actions bar for ${e.contactId}`);let n=null;n=new MutationObserver(()=>{let c=document.getElementById(C);if(!(g()?.contactId===e.contactId)){n?.disconnect();return}if(!c){let l=U(e.contactId);l.dataset.mountTarget=a.dataset.mountTarget??"",t.insertBefore(l,t.firstChild),d.debug(`Re-mounted actions bar after React wipe for ${e.contactId}`)}}),n.observe(t,{childList:!0})},W=()=>{we()};var q="reos-theme-stylesheet",V="reos-theme-fonts",ke=()=>{if(document.getElementById(V))return;let e=document.createElement("link");e.rel="preconnect",e.href="https://fonts.googleapis.com",document.head.appendChild(e);let o=document.createElement("link");o.rel="preconnect",o.href="https://fonts.gstatic.com",o.crossOrigin="anonymous",document.head.appendChild(o);let t=document.createElement("link");t.id=V,t.rel="stylesheet",t.href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap",document.head.appendChild(t)},Ee=`
+  `,o.appendChild(xe(e));let t=document.createElement("button");return t.type="button",t.style.cssText=D,t.textContent="Offer Made",t.addEventListener("click",()=>we(e)),o.appendChild(t),o},ke=async()=>{let e=g();if(!e){document.getElementById(C)?.remove();return}let o=document.getElementById(C);if(o&&o.dataset.contactId===e.contactId)return;o&&o.remove();let t=await ve();if(!t){d.warn("Could not mount actions bar \u2014 central panel not found within timeout");return}let r=g();if(!r||r.contactId!==e.contactId)return;let a=U(e.contactId);a.dataset.mountTarget=t.className||"central-panel",t.insertBefore(a,t.firstChild),d.debug(`Mounted contact actions bar for ${e.contactId}`);let n=null;n=new MutationObserver(()=>{let c=document.getElementById(C);if(!(g()?.contactId===e.contactId)){n?.disconnect();return}if(!c){let i=U(e.contactId);i.dataset.mountTarget=a.dataset.mountTarget??"",t.insertBefore(i,t.firstChild),d.debug(`Re-mounted actions bar after React wipe for ${e.contactId}`)}}),n.observe(t,{childList:!0})},W=()=>{ke()};var q="reos-theme-stylesheet",V="reos-theme-fonts",Ee=()=>{if(document.getElementById(V))return;let e=document.createElement("link");e.rel="preconnect",e.href="https://fonts.googleapis.com",document.head.appendChild(e);let o=document.createElement("link");o.rel="preconnect",o.href="https://fonts.gstatic.com",o.crossOrigin="anonymous",document.head.appendChild(o);let t=document.createElement("link");t.id=V,t.rel="stylesheet",t.href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap",document.head.appendChild(t)},_e=`
 /* ============================================
    REINVEST OS \u2014 VAULT THEME
    Injected by Customizer at bundle load.
@@ -965,7 +965,7 @@ input[type="week"],
 }
 
 /* END REINVEST OS THEME */
-`,_e=[{selector:".hr-input__input-el, .hr-input__textarea-el, [class*='hr-input'] input, [class*='hr-input'] textarea",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".hr-collapse-item__header, .hr-collapse-item__header-main, .hr-collapse-item__title",styles:{color:"#EDEEF0","background-color":"#12161D"}},{selector:".hr-collapse-item__content, .hr-collapse-item__content-inner, .hr-collapse-item__content-wrap",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-tabs, .hr-tabs-nav, .hr-tabs-nav-scroll-content, .hr-tabs-content, .hr-tabs-pane, .hr-tabs-rail, .hr-tabs-tab-wrapper",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-tabs-capsule",styles:{"background-color":"rgba(15, 181, 126, 0.12)",border:"1px solid rgba(15, 181, 126, 0.3)"}},{selector:".hr-avatar, .hr-avatar__text, .hr-avatar__text p, .hr-avatar p, .hr-avatar span, .hr-avatar div, [class*='avatar'], [class*='avatar'] span, [class*='avatar'] p, [class*='avatar'] div",styles:{color:"#0A0D12","-webkit-text-fill-color":"#0A0D12","font-weight":"600"}},{selector:".hr-button--tertiary",styles:{"background-color":"#1A1F28",color:"#0FB57E"}},{selector:".hr-text",styles:{color:"#EDEEF0"}},{selector:"[class*='field-value'], [class*='field-display'], [class*='empty-value'], [class*='field-empty'], [class*='value-display'], [class*='display-value']",styles:{color:"#9098A3","-webkit-text-fill-color":"#9098A3"}},{selector:".hr-select__value, .hr-select__display, .hr-select-trigger, .hr-select-trigger__value, .hr-base-select__value, .hr-base-select__display, [class*='select__value'], [class*='select__display'], [class*='select-trigger']",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".hr-select, .hr-select__input, .hr-select__inner, .hr-select-trigger, .hr-base-select, .hr-base-select__inner, .el-select, .el-select__wrapper, .el-input__wrapper, .el-input__inner, [role='combobox'], [aria-haspopup='listbox']",styles:{"background-color":"#1A1F28","border-color":"#252C36"}},{selector:"input[type='date'], input[type='datetime-local'], input[type='time'], input[type='month'], input[type='week'], .hr-date-picker, .hr-date-input, .hr-datepicker, .hr-time-picker, [class*='date-picker'], [class*='datepicker'], [class*='date-input'], [class*='time-picker'], [class*='time-input']",styles:{"background-color":"#1A1F28","border-color":"#252C36",color:"#EDEEF0"}},{selector:"[class*='F7F9FD'], [class*='F7F9FB'], [class*='F9FAFB'], [class*='eff4ff'], [class*='EFF4FF']",styles:{"background-color":"#12161D"}},{selector:"[style*='background-color: white'], [style*='background-color:white'], [style*='background-color: #fff'], [style*='background-color:#fff']",styles:{"background-color":"#12161D"}},{selector:".bg-gray-50, .bg-white, .bg-gray-100",styles:{"background-color":"#12161D",color:"#EDEEF0"}}],T=()=>{for(let e of _e){let o;try{o=document.querySelectorAll(e.selector)}catch{continue}o.forEach(t=>{for(let[r,a]of Object.entries(e.styles)){let n=t.style.getPropertyPriority(r),c=t.style.getPropertyValue(r);n==="important"&&c===a||t.style.setProperty(r,a,"important")}})}},F="#1A1F28",Se=26,Ce=31,Te=40,j=new Set,Y=new Set,L=()=>{document.body.querySelectorAll("*").forEach(o=>{if(o.id?.startsWith("ws-crm-")||o.closest("[id^='ws-crm-']")||o.children.length>0||(o.textContent||"").trim()!=="--")return;let r=o.getBoundingClientRect();if(r.width===0||r.height===0||r.width>800)return;o.style.setProperty("display","none","important");let a=o.className?.toString()||"<no class>";!Y.has(a)&&a!=="<no class>"&&(Y.add(a),d.debug(`Hid empty "--" leaf: "${a}"`))})},Z=new Set,Le=()=>{document.querySelectorAll("#contact-conversation-panel, [class*='conversation-panel'], [class*='message-list'], [class*='activity-log'], .hl_header, header.hl_header, [class*='topbar'], [class*='top-bar'], header.app-header").forEach(o=>{o.querySelectorAll("*").forEach(r=>{if(r.id?.startsWith("ws-crm-")||r.closest("[id^='ws-crm-']"))return;let a=(r.className?.toString()||"").toLowerCase();if(a.includes("avatar")||a.includes("notification-dot")||a.includes("indicator"))return;let n=window.getComputedStyle(r).backgroundColor;if(!n||n==="rgba(0, 0, 0, 0)"||n==="transparent")return;let c=n.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!c)return;let i=parseInt(c[1],10),l=parseInt(c[2],10),p=parseInt(c[3],10);if(!(i>200&&l>200&&p>200))return;let u=r.getBoundingClientRect();if(u.width<24||u.height<16||u.width>1400)return;r.style.setProperty("background-color","#12161D","important"),r.style.setProperty("color","#EDEEF0","important");let m=r.className?.toString()||"<no class>";!Z.has(m)&&m!=="<no class>"&&(Z.add(m),d.debug(`Coerced light bg (${u.width.toFixed(0)}x${u.height.toFixed(0)}, rgb(${i},${l},${p})): "${m}"`))})})},J=new Set,Ie=()=>{let e="input, select, textarea, [class*='hr-input'], [class*='hr-select'], [class*='hr-base-select'], [class*='hr-date-picker'], [class*='hr-datepicker']";document.body.querySelectorAll("*").forEach(t=>{if(t.id?.startsWith("ws-crm-")||t.closest("[id^='ws-crm-']")||t.children.length>0)return;let r=(t.textContent||"").trim();if(r.length===0||r.length>80||r==="--"||t.closest(e)||t.closest("[class*='avatar'], [class*='hr-avatar']"))return;let a=t,n=null;for(let b=0;b<4&&a;b++){let u=a.nextElementSibling;if(u&&(u.matches(e)||u.querySelector(e)!==null)){n=u;break}a=a.parentElement}if(!n)return;let c=t.getBoundingClientRect();if(c.width===0||c.height===0||c.width>400||c.height>60)return;t.style.setProperty("color","#9098A3","important"),t.style.setProperty("-webkit-text-fill-color","#9098A3","important");let i=n,l=i.getBoundingClientRect();l.width>0&&l.width<=800&&l.height>0&&l.height<=100&&(i.style.setProperty("background-color",F,"important"),i.style.setProperty("border-color","#252C36","important"),i.style.setProperty("border-style","solid","important"),i.style.setProperty("border-width","1px","important"),i.style.setProperty("border-radius","4px","important"));let p=t.className?.toString()||"<no class>";!J.has(p)&&p!=="<no class>"&&(J.add(p),d.debug(`Colored field label "${r.slice(0,30)}": "${p}"`))})},K=new Set,Me=()=>{document.querySelectorAll("[class*='avatar']").forEach(o=>{if(o.closest("[id^='ws-crm-']"))return;let t=o.getBoundingClientRect();if(t.width===0||t.height===0||t.height>80||o.querySelector("svg, img")!==null)return;let a=(o.textContent||"").trim();if(a.length===0||a.length>4)return;let n=Math.min(t.width,t.height),c=Math.max(16,Math.min(24,Math.round(n*.6)));o.style.setProperty("font-size",`${c}px`,"important"),o.style.setProperty("line-height","1","important"),o.style.setProperty("display","flex","important"),o.style.setProperty("align-items","center","important"),o.style.setProperty("justify-content","center","important"),o.style.setProperty("text-align","center","important"),o.querySelectorAll("*").forEach(l=>{l.tagName==="svg"||l.tagName==="SVG"||l.tagName!=="IMG"&&(l.style.setProperty("font-size",`${c}px`,"important"),l.style.setProperty("line-height","1","important"),l.style.setProperty("text-align","center","important"))});let i=o.className?.toString()||"<no class>";!K.has(i)&&i!=="<no class>"&&(K.add(i),d.debug(`Resized avatar text to ${c}px (circle ${n.toFixed(0)}px): "${i}"`))})},X=new Set,Ae=()=>{document.querySelectorAll("input:not([type='checkbox']):not([type='radio']):not([type='button']):not([type='submit']):not([type='reset']):not([type='hidden']):not([type='file']), textarea, select").forEach(o=>{if(o.closest("[id^='ws-crm-']"))return;let t=o.getBoundingClientRect();if(t.width===0||t.height===0)return;o.style.setProperty("background-color",F,"important"),o.style.setProperty("border-color","#252C36","important"),o.style.setProperty("color","#EDEEF0","important"),o.style.setProperty("-webkit-text-fill-color","#EDEEF0","important");let r=o.className?.toString()||"<no class>";!X.has(r)&&r!=="<no class>"&&(X.add(r),d.debug(`Forced input slate bg: "${r}"`))})},I=()=>{document.body.querySelectorAll("*").forEach(o=>{if(o.id?.startsWith("ws-crm-")||o.closest("[id^='ws-crm-']"))return;let t=window.getComputedStyle(o).backgroundColor;if(!t||t==="rgba(0, 0, 0, 0)"||t==="transparent")return;let r=t.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!r)return;let a=parseInt(r[1],10),n=parseInt(r[2],10),c=parseInt(r[3],10);if(!(a<Se&&n<Ce&&c<Te))return;let l=o.getBoundingClientRect();if(l.width===0||l.height===0||l.width>800||l.height>200)return;o.style.setProperty("background-color",F,"important");let p=o.className?.toString()||"<no class>";!j.has(p)&&p!=="<no class>"&&(j.add(p),d.debug(`Coerced dark bg to slate (${l.width.toFixed(0)}x${l.height.toFixed(0)}, rgb(${a},${n},${c})): "${p}"`))})},Q=()=>{let e,o=()=>{e===void 0&&(e=window.setTimeout(()=>{e=void 0,T(),Ae(),I(),L(),Ie(),Le(),Me()},100))};T(),I(),L(),window.setTimeout(()=>{T(),I(),L()},500),window.setTimeout(()=>{T(),I(),L()},1500),new MutationObserver(()=>{o()}).observe(document.body,{childList:!0,subtree:!0,attributes:!0,attributeFilter:["class","style"]})},ee=()=>{if(ke(),!document.getElementById(q)){let e=document.createElement("style");e.id=q,e.textContent=Ee,document.head.appendChild(e),d.info("REInvest OS theme stylesheet mounted")}window.__reosForceInstalled||(window.__reosForceInstalled=!0,document.body?Q():window.addEventListener("DOMContentLoaded",Q))};var te="ws-crm-customizer-version-badge",oe=()=>{if(document.getElementById(te))return;let e=document.createElement("div");e.id=te,e.style.cssText=`
+`,Se=[{selector:".hr-input__input-el, .hr-input__textarea-el, [class*='hr-input'] input, [class*='hr-input'] textarea",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".hr-collapse-item__header, .hr-collapse-item__header-main, .hr-collapse-item__title",styles:{color:"#EDEEF0","background-color":"#12161D"}},{selector:".hr-collapse-item__content, .hr-collapse-item__content-inner, .hr-collapse-item__content-wrap",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-tabs, .hr-tabs-nav, .hr-tabs-nav-scroll-content, .hr-tabs-content, .hr-tabs-pane, .hr-tabs-rail, .hr-tabs-tab-wrapper",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-tabs-capsule",styles:{"background-color":"rgba(15, 181, 126, 0.12)",border:"1px solid rgba(15, 181, 126, 0.3)"}},{selector:".hr-avatar, .hr-avatar__text, .hr-avatar__text p, .hr-avatar p, .hr-avatar span, .hr-avatar div, [class*='avatar'], [class*='avatar'] span, [class*='avatar'] p, [class*='avatar'] div",styles:{color:"#0A0D12","-webkit-text-fill-color":"#0A0D12","font-weight":"600"}},{selector:".hr-button--tertiary",styles:{"background-color":"#1A1F28",color:"#0FB57E"}},{selector:".hr-text",styles:{color:"#EDEEF0"}},{selector:"[class*='field-value'], [class*='field-display'], [class*='empty-value'], [class*='field-empty'], [class*='value-display'], [class*='display-value']",styles:{color:"#9098A3","-webkit-text-fill-color":"#9098A3"}},{selector:".hr-select__value, .hr-select__display, .hr-select-trigger, .hr-select-trigger__value, .hr-base-select__value, .hr-base-select__display, [class*='select__value'], [class*='select__display'], [class*='select-trigger']",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".hr-select, .hr-select__input, .hr-select__inner, .hr-select-trigger, .hr-base-select, .hr-base-select__inner, .el-select, .el-select__wrapper, .el-input__wrapper, .el-input__inner, [role='combobox'], [aria-haspopup='listbox']",styles:{"background-color":"#1A1F28","border-color":"#252C36"}},{selector:"input[type='date'], input[type='datetime-local'], input[type='time'], input[type='month'], input[type='week'], .hr-date-picker, .hr-date-input, .hr-datepicker, .hr-time-picker, [class*='date-picker'], [class*='datepicker'], [class*='date-input'], [class*='time-picker'], [class*='time-input']",styles:{"background-color":"#1A1F28","border-color":"#252C36",color:"#EDEEF0"}},{selector:"[class*='F7F9FD'], [class*='F7F9FB'], [class*='F9FAFB'], [class*='eff4ff'], [class*='EFF4FF']",styles:{"background-color":"#12161D"}},{selector:"[style*='background-color: white'], [style*='background-color:white'], [style*='background-color: #fff'], [style*='background-color:#fff']",styles:{"background-color":"#12161D"}},{selector:".bg-gray-50, .bg-white, .bg-gray-100",styles:{"background-color":"#12161D",color:"#EDEEF0"}}],T=()=>{for(let e of Se){let o;try{o=document.querySelectorAll(e.selector)}catch{continue}o.forEach(t=>{for(let[r,a]of Object.entries(e.styles)){let n=t.style.getPropertyPriority(r),c=t.style.getPropertyValue(r);n==="important"&&c===a||t.style.setProperty(r,a,"important")}})}},F="#1A1F28",Ce=26,Te=31,Le=40,j=new Set,Y=new Set,L=()=>{document.body.querySelectorAll("*").forEach(o=>{if(o.id?.startsWith("ws-crm-")||o.closest("[id^='ws-crm-']")||o.children.length>0||(o.textContent||"").trim()!=="--")return;let r=o.getBoundingClientRect();if(r.width===0||r.height===0||r.width>800)return;o.style.setProperty("display","none","important");let a=o.className?.toString()||"<no class>";!Y.has(a)&&a!=="<no class>"&&(Y.add(a),d.debug(`Hid empty "--" leaf: "${a}"`))})},Z=new Set,Ie=()=>{document.querySelectorAll(".hl_header, header.hl_header, [class*='topbar'], [class*='top-bar'], header.app-header, aside.default-bg-color").forEach(o=>{o.querySelectorAll("button, a, [role='button'], [class*='rounded-full'], [class*='rounded-md']").forEach(r=>{if(r.closest("[id^='ws-crm-']")||(r.className?.toString()||"").toLowerCase().includes("avatar"))return;let n=window.getComputedStyle(r).backgroundColor;if(!n||n==="rgba(0, 0, 0, 0)"||n==="transparent")return;let c=n.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!c)return;let s=parseInt(c[1],10),i=parseInt(c[2],10),u=parseInt(c[3],10);if(s<60&&i<60&&u<60||s>230&&i>230&&u>230||s<80&&i<80&&u<80)return;r.style.setProperty("color","#0A0D12","important"),r.querySelectorAll("*").forEach(p=>{p.style.setProperty("color","#0A0D12","important"),p.style.setProperty("-webkit-text-fill-color","#0A0D12","important"),(p.tagName.toLowerCase()==="svg"||p.tagName.toLowerCase()==="path"||p.tagName.toLowerCase()==="circle"||p.tagName.toLowerCase()==="rect"||p.tagName.toLowerCase()==="polygon"||p.tagName.toLowerCase()==="polyline"||p.tagName.toLowerCase()==="line"||p.tagName.toLowerCase()==="g")&&(p.style.setProperty("fill","#0A0D12","important"),p.style.setProperty("stroke","#0A0D12","important"))});let m=r.className?.toString()||"<no class>";!Z.has(m)&&m!=="<no class>"&&(Z.add(m),d.debug(`Darkened icons on colored button (rgb(${s},${i},${u})): "${m}"`))})})},J=new Set,Me=()=>{document.querySelectorAll("#contact-conversation-panel, [class*='conversation-panel'], [class*='message-list'], [class*='activity-log'], .hl_header, header.hl_header, [class*='topbar'], [class*='top-bar'], header.app-header").forEach(o=>{o.querySelectorAll("*").forEach(r=>{if(r.id?.startsWith("ws-crm-")||r.closest("[id^='ws-crm-']"))return;let a=(r.className?.toString()||"").toLowerCase();if(a.includes("avatar")||a.includes("notification-dot")||a.includes("indicator"))return;let n=window.getComputedStyle(r).backgroundColor;if(!n||n==="rgba(0, 0, 0, 0)"||n==="transparent")return;let c=n.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!c)return;let s=parseInt(c[1],10),i=parseInt(c[2],10),u=parseInt(c[3],10);if(!(s>200&&i>200&&u>200))return;let p=r.getBoundingClientRect();if(p.width<24||p.height<16||p.width>1400)return;r.style.setProperty("background-color","#12161D","important"),r.style.setProperty("color","#EDEEF0","important");let h=r.className?.toString()||"<no class>";!J.has(h)&&h!=="<no class>"&&(J.add(h),d.debug(`Coerced light bg (${p.width.toFixed(0)}x${p.height.toFixed(0)}, rgb(${s},${i},${u})): "${h}"`))})})},K=new Set,Ae=()=>{let e="input, select, textarea, [class*='hr-input'], [class*='hr-select'], [class*='hr-base-select'], [class*='hr-date-picker'], [class*='hr-datepicker']";document.body.querySelectorAll("*").forEach(t=>{if(t.id?.startsWith("ws-crm-")||t.closest("[id^='ws-crm-']")||t.children.length>0)return;let r=(t.textContent||"").trim();if(r.length===0||r.length>80||r==="--"||t.closest(e)||t.closest("[class*='avatar'], [class*='hr-avatar']"))return;let a=t,n=null;for(let m=0;m<4&&a;m++){let p=a.nextElementSibling;if(p&&(p.matches(e)||p.querySelector(e)!==null)){n=p;break}a=a.parentElement}if(!n)return;let c=t.getBoundingClientRect();if(c.width===0||c.height===0||c.width>400||c.height>60)return;t.style.setProperty("color","#9098A3","important"),t.style.setProperty("-webkit-text-fill-color","#9098A3","important");let s=n,i=s.getBoundingClientRect();i.width>0&&i.width<=800&&i.height>0&&i.height<=100&&(s.style.setProperty("background-color",F,"important"),s.style.setProperty("border-color","#252C36","important"),s.style.setProperty("border-style","solid","important"),s.style.setProperty("border-width","1px","important"),s.style.setProperty("border-radius","4px","important"));let u=t.className?.toString()||"<no class>";!K.has(u)&&u!=="<no class>"&&(K.add(u),d.debug(`Colored field label "${r.slice(0,30)}": "${u}"`))})},X=new Set,De=()=>{document.querySelectorAll("[class*='avatar']").forEach(o=>{if(o.closest("[id^='ws-crm-']"))return;let t=o.getBoundingClientRect();if(t.width===0||t.height===0||t.height>80||o.querySelector("svg, img")!==null)return;let a=(o.textContent||"").trim();if(a.length===0||a.length>4)return;let n=Math.min(t.width,t.height),c=Math.max(16,Math.min(24,Math.round(n*.6)));o.style.setProperty("font-size",`${c}px`,"important"),o.style.setProperty("line-height","1","important"),o.style.setProperty("display","flex","important"),o.style.setProperty("align-items","center","important"),o.style.setProperty("justify-content","center","important"),o.style.setProperty("text-align","center","important"),o.querySelectorAll("*").forEach(i=>{i.tagName==="svg"||i.tagName==="SVG"||i.tagName!=="IMG"&&(i.style.setProperty("font-size",`${c}px`,"important"),i.style.setProperty("line-height","1","important"),i.style.setProperty("text-align","center","important"))});let s=o.className?.toString()||"<no class>";!X.has(s)&&s!=="<no class>"&&(X.add(s),d.debug(`Resized avatar text to ${c}px (circle ${n.toFixed(0)}px): "${s}"`))})},Q=new Set,$e=()=>{document.querySelectorAll("input:not([type='checkbox']):not([type='radio']):not([type='button']):not([type='submit']):not([type='reset']):not([type='hidden']):not([type='file']), textarea, select").forEach(o=>{if(o.closest("[id^='ws-crm-']"))return;let t=o.getBoundingClientRect();if(t.width===0||t.height===0)return;o.style.setProperty("background-color",F,"important"),o.style.setProperty("border-color","#252C36","important"),o.style.setProperty("color","#EDEEF0","important"),o.style.setProperty("-webkit-text-fill-color","#EDEEF0","important");let r=o.className?.toString()||"<no class>";!Q.has(r)&&r!=="<no class>"&&(Q.add(r),d.debug(`Forced input slate bg: "${r}"`))})},I=()=>{document.body.querySelectorAll("*").forEach(o=>{if(o.id?.startsWith("ws-crm-")||o.closest("[id^='ws-crm-']"))return;let t=window.getComputedStyle(o).backgroundColor;if(!t||t==="rgba(0, 0, 0, 0)"||t==="transparent")return;let r=t.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!r)return;let a=parseInt(r[1],10),n=parseInt(r[2],10),c=parseInt(r[3],10);if(!(a<Ce&&n<Te&&c<Le))return;let i=o.getBoundingClientRect();if(i.width===0||i.height===0||i.width>800||i.height>200)return;o.style.setProperty("background-color",F,"important");let u=o.className?.toString()||"<no class>";!j.has(u)&&u!=="<no class>"&&(j.add(u),d.debug(`Coerced dark bg to slate (${i.width.toFixed(0)}x${i.height.toFixed(0)}, rgb(${a},${n},${c})): "${u}"`))})},ee=()=>{let e,o=()=>{e===void 0&&(e=window.setTimeout(()=>{e=void 0,T(),$e(),I(),L(),Ae(),Me(),Ie(),De()},100))};T(),I(),L(),window.setTimeout(()=>{T(),I(),L()},500),window.setTimeout(()=>{T(),I(),L()},1500),new MutationObserver(()=>{o()}).observe(document.body,{childList:!0,subtree:!0,attributes:!0,attributeFilter:["class","style"]})},te=()=>{if(Ee(),!document.getElementById(q)){let e=document.createElement("style");e.id=q,e.textContent=_e,document.head.appendChild(e),d.info("REInvest OS theme stylesheet mounted")}window.__reosForceInstalled||(window.__reosForceInstalled=!0,document.body?ee():window.addEventListener("DOMContentLoaded",ee))};var oe="ws-crm-customizer-version-badge",re=()=>{if(document.getElementById(oe))return;let e=document.createElement("div");e.id=oe,e.style.cssText=`
     position: fixed;
     bottom: 12px;
     right: 12px;
@@ -983,5 +983,5 @@ input[type="week"],
     user-select: none;
     transition: transform 0.15s ease, opacity 0.15s ease;
   `,e.textContent=`Customizer v${_}`,e.title=`Built ${S}
-Click to dismiss for this session`,e.addEventListener("mouseenter",()=>{e.style.transform="scale(1.05)"}),e.addEventListener("mouseleave",()=>{e.style.transform="scale(1)"}),e.addEventListener("click",()=>{e.style.opacity="0",setTimeout(()=>e.remove(),200)}),document.body.appendChild(e)};var re=()=>{d.info(`Loaded v${_} (built ${S})`),ee(),O(),B(e=>{d.debug("Page handler firing for:",e),oe(),G(),W()})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",re):re();})();
+Click to dismiss for this session`,e.addEventListener("mouseenter",()=>{e.style.transform="scale(1.05)"}),e.addEventListener("mouseleave",()=>{e.style.transform="scale(1)"}),e.addEventListener("click",()=>{e.style.opacity="0",setTimeout(()=>e.remove(),200)}),document.body.appendChild(e)};var ae=()=>{d.info(`Loaded v${_} (built ${S})`),te(),P(),B(e=>{d.debug("Page handler firing for:",e),re(),G(),W()})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",ae):ae();})();
 //# sourceMappingURL=customizer.js.map

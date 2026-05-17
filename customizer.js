@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.7.20 — built 2026-05-17T00:11:01.573Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var D="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Te=()=>!!window[Ce],p={info(...o){console.log(D,...o)},warn(...o){console.warn(D,...o)},error(...o){console.error(D,...o)},debug(...o){Te()&&console.log(D,"[debug]",...o)}};var K=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},B="",T="other",q=new Set,$=()=>{if(window.location.pathname!==B){B=window.location.pathname,T=K(),p.debug("Page changed:",T,B);for(let o of q)try{o(T)}catch(t){p.error("Subscriber threw:",t)}}},Y=o=>(q.add(o),setTimeout(()=>o(T),0),()=>{q.delete(o)}),Z=()=>{T=K(),B=window.location.pathname,p.debug("Router init, current page:",T);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),$()},history.replaceState=function(e,r,n){t(e,r,n),$()},window.addEventListener("popstate",$),setInterval($,1e3)};var H="0.7.20",R="2026-05-17T00:11:01.574Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Le);if(!t)return null;let e=o.match(Ie);return{contactId:t[1],locationId:e?e[1]:null}};var L=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let c,d,m=()=>{u&&u.disconnect(),c!==void 0&&window.clearTimeout(c),d!==void 0&&window.clearInterval(d)},u=new MutationObserver(()=>{let v=n.querySelector(o);v&&(m(),s(v))});u.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let v=n.querySelector(o);v&&(m(),s(v))},r),c=window.setTimeout(()=>{m(),p.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},W={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},J=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.7.21 — built 2026-05-17T00:17:54.977Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var D="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Te=()=>!!window[Ce],p={info(...o){console.log(D,...o)},warn(...o){console.warn(D,...o)},error(...o){console.error(D,...o)},debug(...o){Te()&&console.log(D,"[debug]",...o)}};var K=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},B="",T="other",q=new Set,$=()=>{if(window.location.pathname!==B){B=window.location.pathname,T=K(),p.debug("Page changed:",T,B);for(let o of q)try{o(T)}catch(t){p.error("Subscriber threw:",t)}}},Y=o=>(q.add(o),setTimeout(()=>o(T),0),()=>{q.delete(o)}),Z=()=>{T=K(),B=window.location.pathname,p.debug("Router init, current page:",T);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),$()},history.replaceState=function(e,r,n){t(e,r,n),$()},window.addEventListener("popstate",$),setInterval($,1e3)};var H="0.7.21",R="2026-05-17T00:17:54.978Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ae=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Le);if(!t)return null;let e=o.match(Ae);return{contactId:t[1],locationId:e?e[1]:null}};var L=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let c,d,m=()=>{u&&u.disconnect(),c!==void 0&&window.clearTimeout(c),d!==void 0&&window.clearInterval(d)},u=new MutationObserver(()=>{let v=n.querySelector(o);v&&(m(),s(v))});u.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let v=n.querySelector(o);v&&(m(),s(v))},r),c=window.setTimeout(()=>{m(),p.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},W={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},J=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -18,7 +18,7 @@
     user-select: none;
     transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
     flex-shrink: 0;
-  `},I=`
+  `},A=`
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -35,7 +35,7 @@
   user-select: none;
   transition: background 0.15s ease, transform 0.15s ease;
   flex-shrink: 0;
-`,A=`
+`,I=`
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -52,7 +52,7 @@
   user-select: none;
   transition: border-color 0.15s ease, background 0.15s ease;
   flex-shrink: 0;
-`;var M="ws-crm-claim-release-pill",Q=o=>{let t=Array.from(o.children).find(r=>{if(!(r instanceof HTMLElement))return!1;let n=r.className?.toString()??"";return n.includes("flex")&&n.includes("flex-col")});return t?t.querySelector(".flex.items-center, [class~='flex'][class~='items-center']")??null:null},Ae=({contactId:o,mode:t})=>{let e=document.createElement("button");e.id=M,e.type="button",e.dataset.contactId=o,e.dataset.mode=t;let r=t==="claim"?"emerald":"amber",n=t==="claim"?l.emerald:l.amber;return e.style.cssText=J(r),e.innerHTML=`
+`;var F="ws-crm-claim-release-pill",Q=o=>{let t=Array.from(o.children).find(r=>{if(!(r instanceof HTMLElement))return!1;let n=r.className?.toString()??"";return n.includes("flex")&&n.includes("flex-col")});return t?t.querySelector(".flex.items-center, [class~='flex'][class~='items-center']")??null:null},Ie=({contactId:o,mode:t})=>{let e=document.createElement("button");e.id=F,e.type="button",e.dataset.contactId=o,e.dataset.mode=t;let r=t==="claim"?"emerald":"amber",n=t==="claim"?l.emerald:l.amber;return e.style.cssText=J(r),e.innerHTML=`
     <span style="
       width: 6px;
       height: 6px;
@@ -62,12 +62,12 @@
       flex-shrink: 0;
     "></span>
     <span>${t==="claim"?"Claim Lead":"Release Lead"}</span>
-  `,e.title=t==="claim"?"Take ownership of this lead":"Return this lead to the pool",e.addEventListener("mouseenter",()=>{e.style.transform="translateY(-1px)"}),e.addEventListener("mouseleave",()=>{e.style.transform="translateY(0)"}),e.addEventListener("click",()=>{p.info(`Claim/Release pill clicked for contact ${o}: ${t}`);let s=e.lastElementChild,i=s?.textContent??"";s&&(s.textContent="Working\u2026"),e.style.opacity="0.7",e.disabled=!0,setTimeout(()=>{s&&(s.textContent=i),e.style.opacity="1",e.disabled=!1},700)}),e},Me=async(o,t=1e4)=>{let e=Date.now();for(;Date.now()-e<t;){let r=Q(o);if(r)return r;await new Promise(n=>setTimeout(n,150))}return null},X=(o,t)=>{let e=Ae({contactId:t,mode:"claim"}),r=document.createElement("span");r.id=`${M}-wrap`,r.style.cssText=`
+  `,e.title=t==="claim"?"Take ownership of this lead":"Return this lead to the pool",e.addEventListener("mouseenter",()=>{e.style.transform="translateY(-1px)"}),e.addEventListener("mouseleave",()=>{e.style.transform="translateY(0)"}),e.addEventListener("click",()=>{p.info(`Claim/Release pill clicked for contact ${o}: ${t}`);let s=e.lastElementChild,i=s?.textContent??"";s&&(s.textContent="Working\u2026"),e.style.opacity="0.7",e.disabled=!0,setTimeout(()=>{s&&(s.textContent=i),e.style.opacity="1",e.disabled=!1},700)}),e},Fe=async(o,t=1e4)=>{let e=Date.now();for(;Date.now()-e<t;){let r=Q(o);if(r)return r;await new Promise(n=>setTimeout(n,150))}return null},X=(o,t)=>{let e=Ie({contactId:t,mode:"claim"}),r=document.createElement("span");r.id=`${F}-wrap`,r.style.cssText=`
     display: inline-flex;
     align-items: center;
     margin-left: 12px;
     vertical-align: middle;
-  `,r.appendChild(e),o.appendChild(r)},Fe=async()=>{let o=E();if(!o){document.getElementById(M)?.remove();return}let t=document.getElementById(M);if(!(t&&t.dataset.contactId===o.contactId)){t&&t.remove();try{let e=await L("#record-details-lhs",{timeoutMs:1e4}),r=await Me(e),n=E();if(!n||n.contactId!==o.contactId)return;if(!r){p.warn("Claim/Release pill \u2014 name row not found within timeout; skipping mount");return}X(r,o.contactId),p.debug(`Mounted Claim/Release pill next to name for ${o.contactId}`);let s=null;s=new MutationObserver(async()=>{if(!(E()?.contactId===o.contactId)){s?.disconnect();return}if(document.getElementById(M))return;let a=Q(e);a&&(X(a,o.contactId),p.debug("Re-mounted Claim/Release pill after React wipe"))}),s.observe(e,{childList:!0,subtree:!0})}catch(e){p.warn("Could not mount Claim/Release pill:",e)}}},ee=()=>{Fe()};var De="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/call-status-set";var $e="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/appointment-status",Be=()=>{let o=window.WS_CRM_USER_ID;if(o&&/^[A-Za-z0-9]{15,30}$/.test(o))return o;let t=window,e=[t.appState?.user?.id,t.user?.id,t.currentUser?.id,t.LCUser?.id,t.HL?.user?.id];for(let r of e)if(typeof r=="string"&&/^[A-Za-z0-9]{15,30}$/.test(r))return r;try{let r=localStorage.getItem("user");if(r){let n=JSON.parse(r),s=n.id??n._id;if(s&&/^[A-Za-z0-9]{15,30}$/.test(s))return s}for(let n of["tokenUser","currentUser","ghl_user"]){let s=localStorage.getItem(n);if(s)try{let i=JSON.parse(s),a=i.id??i._id;if(a&&/^[A-Za-z0-9]{15,30}$/.test(a))return a}catch{}}}catch{}return null},He=async({contactId:o,locationId:t,status:e,userId:r,deadReason:n})=>{let s={call_status:e,triggered_by_user_id:r??""};n&&(s.dead_reason=n);let a=await fetch(De,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contact_id:o,location:{id:t},customData:s}),credentials:"omit"});if(!a.ok)throw new Error(`Webhook returned ${a.status} ${a.statusText}`)},Re=async({contactId:o,tenantId:t})=>{let e=await fetch($e,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:t,contact_id:o}),credentials:"omit"});if(!e.ok)throw new Error(`Sanity check returned ${e.status} ${e.statusText}`);return await e.json()};var N="ws-crm-contact-actions-bar",Ne="ws-crm-call-status-dropdown",te="ws-crm-offer-made-modal",Pe=[{value:"not-contacted",label:"Not Contacted",color:"purple"},{value:"needs-offer",label:"Needs Offer",color:"green"},{value:"appointment-booked",label:"Appointment Booked",color:"green"},{value:"negotiating",label:"Negotiating",color:"green"},{value:"under-contract",label:"Under Contract",color:"green"},{value:"offer-rejected",label:"Offer Rejected",color:"orange"},{value:"not-ready",label:"Not Ready",color:"orange"},{value:"wants-retail",label:"Wants Retail",color:"orange"},{value:"already-listed",label:"Already Listed",color:"orange"},{value:"working-with-a-buyer",label:"Working with a Buyer",color:"orange"},{value:"not-interested",label:"Not Interested",color:"orange"},{value:"sold-on-market",label:"Sold on Market",color:"red"},{value:"sold-off-market",label:"Sold off Market",color:"red"},{value:"wrong-number",label:"Wrong Number",color:"red"},{value:"dead-deal",label:"Dead Deal",color:"red"}],Oe=[".central-panel","[class*='central-panel']"],Ge=async()=>{for(let o of Oe)try{let t=await L(o,{timeoutMs:3e3});if(t)return t}catch{}try{return(await L("#contact-conversation-panel",{timeoutMs:3e3})).parentElement??null}catch{return null}},ze=o=>{let t=document.createElement("div");t.id=Ne,t.style.cssText="position: relative; flex-shrink: 0;";let e=document.createElement("button");e.type="button",e.style.cssText=A,e.innerHTML=`
+  `,r.appendChild(e),o.appendChild(r)},Me=async()=>{let o=E();if(!o){document.getElementById(F)?.remove();return}let t=document.getElementById(F);if(!(t&&t.dataset.contactId===o.contactId)){t&&t.remove();try{let e=await L("#record-details-lhs",{timeoutMs:1e4}),r=await Fe(e),n=E();if(!n||n.contactId!==o.contactId)return;if(!r){p.warn("Claim/Release pill \u2014 name row not found within timeout; skipping mount");return}X(r,o.contactId),p.debug(`Mounted Claim/Release pill next to name for ${o.contactId}`);let s=null;s=new MutationObserver(async()=>{if(!(E()?.contactId===o.contactId)){s?.disconnect();return}if(document.getElementById(F))return;let a=Q(e);a&&(X(a,o.contactId),p.debug("Re-mounted Claim/Release pill after React wipe"))}),s.observe(e,{childList:!0,subtree:!0})}catch(e){p.warn("Could not mount Claim/Release pill:",e)}}},ee=()=>{Me()};var De="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/call-status-set";var $e="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/appointment-status",Be=()=>{let o=window.WS_CRM_USER_ID;if(o&&/^[A-Za-z0-9]{15,30}$/.test(o))return o;let t=window,e=[t.appState?.user?.id,t.user?.id,t.currentUser?.id,t.LCUser?.id,t.HL?.user?.id];for(let r of e)if(typeof r=="string"&&/^[A-Za-z0-9]{15,30}$/.test(r))return r;try{let r=localStorage.getItem("user");if(r){let n=JSON.parse(r),s=n.id??n._id;if(s&&/^[A-Za-z0-9]{15,30}$/.test(s))return s}for(let n of["tokenUser","currentUser","ghl_user"]){let s=localStorage.getItem(n);if(s)try{let i=JSON.parse(s),a=i.id??i._id;if(a&&/^[A-Za-z0-9]{15,30}$/.test(a))return a}catch{}}}catch{}return null},He=async({contactId:o,locationId:t,status:e,userId:r,deadReason:n})=>{let s={call_status:e,triggered_by_user_id:r??""};n&&(s.dead_reason=n);let a=await fetch(De,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contact_id:o,location:{id:t},customData:s}),credentials:"omit"});if(!a.ok)throw new Error(`Webhook returned ${a.status} ${a.statusText}`)},Re=async({contactId:o,tenantId:t})=>{let e=await fetch($e,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:t,contact_id:o}),credentials:"omit"});if(!e.ok)throw new Error(`Sanity check returned ${e.status} ${e.statusText}`);return await e.json()};var N="ws-crm-contact-actions-bar",Ne="ws-crm-call-status-dropdown",te="ws-crm-offer-made-modal",Pe=[{value:"not-contacted",label:"Not Contacted",color:"purple"},{value:"needs-offer",label:"Needs Offer",color:"green"},{value:"appointment-booked",label:"Appointment Booked",color:"green"},{value:"negotiating",label:"Negotiating",color:"green"},{value:"under-contract",label:"Under Contract",color:"green"},{value:"offer-rejected",label:"Offer Rejected",color:"orange"},{value:"not-ready",label:"Not Ready",color:"orange"},{value:"wants-retail",label:"Wants Retail",color:"orange"},{value:"already-listed",label:"Already Listed",color:"orange"},{value:"working-with-a-buyer",label:"Working with a Buyer",color:"orange"},{value:"not-interested",label:"Not Interested",color:"orange"},{value:"sold-on-market",label:"Sold on Market",color:"red"},{value:"sold-off-market",label:"Sold off Market",color:"red"},{value:"wrong-number",label:"Wrong Number",color:"red"},{value:"dead-deal",label:"Dead Deal",color:"red"}],Oe=[".central-panel","[class*='central-panel']"],Ge=async()=>{for(let o of Oe)try{let t=await L(o,{timeoutMs:3e3});if(t)return t}catch{}try{return(await L("#contact-conversation-panel",{timeoutMs:3e3})).parentElement??null}catch{return null}},ze=o=>{let t=document.createElement("div");t.id=Ne,t.style.cssText="position: relative; flex-shrink: 0;";let e=document.createElement("button");e.type="button",e.style.cssText=I,e.innerHTML=`
     <span style="
       display: inline-flex;
       width: 8px;
@@ -215,12 +215,12 @@
 
     <div style="display: flex; gap: 8px; justify-content: flex-end;">
       <button id="ws-offer-cancel" type="button" style="
-        ${A}
+        ${I}
         padding: 8px 16px;
         font-size: 13px;
       ">Cancel</button>
       <button id="ws-offer-submit" type="button" style="
-        ${I}
+        ${A}
         padding: 8px 16px;
         font-size: 13px;
       ">Record Offer</button>
@@ -296,12 +296,12 @@
 
     <div style="display: flex; gap: 8px; justify-content: flex-end;">
       <button id="ws-dead-cancel" type="button" style="
-        ${A}
+        ${I}
         padding: 8px 16px;
         font-size: 13px;
       ">Cancel</button>
       <button id="ws-dead-submit" type="button" style="
-        ${I}
+        ${A}
         padding: 8px 16px;
         font-size: 13px;
       ">Mark Dead</button>
@@ -353,12 +353,12 @@
 
     <div style="display: flex; gap: 8px; justify-content: flex-end;">
       <button id="ws-appt-sanity-cancel" type="button" style="
-        ${A}
+        ${I}
         padding: 8px 16px;
         font-size: 13px;
       ">Cancel</button>
       <button id="ws-appt-sanity-mark" type="button" style="
-        ${I}
+        ${A}
         padding: 8px 16px;
         font-size: 13px;
         background: ${l.amber};
@@ -372,7 +372,7 @@
     background: ${l.graphite};
     border-bottom: 1px solid ${l.steel};
     flex-shrink: 0;
-  `,t.appendChild(ze(o));let e=document.createElement("button");return e.type="button",e.style.cssText=I,e.textContent="Offer Made",e.addEventListener("click",()=>Ue(o)),t.appendChild(e),t},Ve=async()=>{let o=E();if(!o){document.getElementById(N)?.remove();return}let t=document.getElementById(N);if(t&&t.dataset.contactId===o.contactId)return;t&&t.remove();let e=await Ge();if(!e){p.warn("Could not mount actions bar \u2014 central panel not found within timeout");return}let r=E();if(!r||r.contactId!==o.contactId)return;let n=ne(o.contactId);n.dataset.mountTarget=e.className||"central-panel",e.insertBefore(n,e.firstChild),p.debug(`Mounted contact actions bar for ${o.contactId}`);let s=null;s=new MutationObserver(()=>{let i=document.getElementById(N);if(!(E()?.contactId===o.contactId)){s?.disconnect();return}if(!i){let c=ne(o.contactId);c.dataset.mountTarget=n.dataset.mountTarget??"",e.insertBefore(c,e.firstChild),p.debug(`Re-mounted actions bar after React wipe for ${o.contactId}`)}}),s.observe(e,{childList:!0})},ae=()=>{Ve()};var P="https://assets.cdn.filesafe.space/ZqGLfSMNKm26UQP7ENj1/media/6a08c6430a69f1e766a71d54.png",je=new Set(["icon","shortcut icon","apple-touch-icon","apple-touch-icon-precomposed","mask-icon"]),F="data-ws-crm-favicon",V=o=>o.hasAttribute(F),se=o=>{if(o.tagName!=="LINK")return!1;let t=(o.getAttribute("rel")??"").toLowerCase();return je.has(t)},O=()=>{document.head.querySelectorAll("link[rel]").forEach(r=>{se(r)&&!V(r)&&r.remove()});let t=document.head.querySelector(`link[${F}="1"]`);t?t.href!==P&&(t.href=P):(t=document.createElement("link"),t.setAttribute(F,"1"),t.rel="icon",t.type="image/png",t.href=P,document.head.appendChild(t),p.debug("Favicon installed"));let e=document.head.querySelector(`link[${F}="apple"]`);e||(e=document.createElement("link"),e.setAttribute(F,"apple"),e.rel="apple-touch-icon",e.href=P,document.head.appendChild(e))},ie=()=>{if(window.__reosFaviconInstalled)return;if(window.__reosFaviconInstalled=!0,document.head)O();else{let r=window.setInterval(()=>{document.head&&(window.clearInterval(r),O())},50)}new MutationObserver(r=>{let n=!1;for(let s of r)s.addedNodes.forEach(i=>{i instanceof HTMLLinkElement&&se(i)&&!V(i)&&(n=!0)}),s.removedNodes.forEach(i=>{i instanceof HTMLLinkElement&&V(i)&&(n=!0)});n&&O()}).observe(document.head,{childList:!0,subtree:!1});let t=0,e=window.setInterval(()=>{t+=1,O(),t>=5&&window.clearInterval(e)},1e3)};var le="reos-theme-stylesheet",ce="reos-theme-fonts",Ke=()=>{if(document.getElementById(ce))return;let o=document.createElement("link");o.rel="preconnect",o.href="https://fonts.googleapis.com",document.head.appendChild(o);let t=document.createElement("link");t.rel="preconnect",t.href="https://fonts.gstatic.com",t.crossOrigin="anonymous",document.head.appendChild(t);let e=document.createElement("link");e.id=ce,e.rel="stylesheet",e.href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap",document.head.appendChild(e)},Ye=`
+  `,t.appendChild(ze(o));let e=document.createElement("button");return e.type="button",e.style.cssText=A,e.textContent="Offer Made",e.addEventListener("click",()=>Ue(o)),t.appendChild(e),t},Ve=async()=>{let o=E();if(!o){document.getElementById(N)?.remove();return}let t=document.getElementById(N);if(t&&t.dataset.contactId===o.contactId)return;t&&t.remove();let e=await Ge();if(!e){p.warn("Could not mount actions bar \u2014 central panel not found within timeout");return}let r=E();if(!r||r.contactId!==o.contactId)return;let n=ne(o.contactId);n.dataset.mountTarget=e.className||"central-panel",e.insertBefore(n,e.firstChild),p.debug(`Mounted contact actions bar for ${o.contactId}`);let s=null;s=new MutationObserver(()=>{let i=document.getElementById(N);if(!(E()?.contactId===o.contactId)){s?.disconnect();return}if(!i){let c=ne(o.contactId);c.dataset.mountTarget=n.dataset.mountTarget??"",e.insertBefore(c,e.firstChild),p.debug(`Re-mounted actions bar after React wipe for ${o.contactId}`)}}),s.observe(e,{childList:!0})},ae=()=>{Ve()};var P="https://assets.cdn.filesafe.space/ZqGLfSMNKm26UQP7ENj1/media/6a08c6430a69f1e766a71d54.png",je=new Set(["icon","shortcut icon","apple-touch-icon","apple-touch-icon-precomposed","mask-icon"]),M="data-ws-crm-favicon",V=o=>o.hasAttribute(M),se=o=>{if(o.tagName!=="LINK")return!1;let t=(o.getAttribute("rel")??"").toLowerCase();return je.has(t)},O=()=>{document.head.querySelectorAll("link[rel]").forEach(r=>{se(r)&&!V(r)&&r.remove()});let t=document.head.querySelector(`link[${M}="1"]`);t?t.href!==P&&(t.href=P):(t=document.createElement("link"),t.setAttribute(M,"1"),t.rel="icon",t.type="image/png",t.href=P,document.head.appendChild(t),p.debug("Favicon installed"));let e=document.head.querySelector(`link[${M}="apple"]`);e||(e=document.createElement("link"),e.setAttribute(M,"apple"),e.rel="apple-touch-icon",e.href=P,document.head.appendChild(e))},ie=()=>{if(window.__reosFaviconInstalled)return;if(window.__reosFaviconInstalled=!0,document.head)O();else{let r=window.setInterval(()=>{document.head&&(window.clearInterval(r),O())},50)}new MutationObserver(r=>{let n=!1;for(let s of r)s.addedNodes.forEach(i=>{i instanceof HTMLLinkElement&&se(i)&&!V(i)&&(n=!0)}),s.removedNodes.forEach(i=>{i instanceof HTMLLinkElement&&V(i)&&(n=!0)});n&&O()}).observe(document.head,{childList:!0,subtree:!1});let t=0,e=window.setInterval(()=>{t+=1,O(),t>=5&&window.clearInterval(e)},1e3)};var le="reos-theme-stylesheet",ce="reos-theme-fonts",Ke=()=>{if(document.getElementById(ce))return;let o=document.createElement("link");o.rel="preconnect",o.href="https://fonts.googleapis.com",document.head.appendChild(o);let t=document.createElement("link");t.rel="preconnect",t.href="https://fonts.gstatic.com",t.crossOrigin="anonymous",document.head.appendChild(t);let e=document.createElement("link");e.id=ce,e.rel="stylesheet",e.href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap",document.head.appendChild(e)},Ye=`
 /* ============================================
    REINVEST OS \u2014 VAULT THEME
    Injected by Customizer at bundle load.
@@ -1763,6 +1763,27 @@ input[type="week"],
   background-color: var(--reos-slate) !important;
   border-color: var(--reos-steel) !important;
   color: var(--reos-bone) !important;
+}
+
+/* Force every descendant of a dropdown trigger to transparent bg, so
+   the trigger's slate fills the visible area (no inner element can
+   paint its own darker bg over it). Caveat: this can also affect
+   menu popovers if they're rendered AS A CHILD of a trigger, so we
+   exclude menu/popover/option classes. */
+.hr-select > *:not([class*="menu"]):not([class*="popover"]):not([class*="option"]),
+.hr-base-select > *:not([class*="menu"]):not([class*="popover"]):not([class*="option"]),
+.hr-select-trigger > *,
+.hr-base-select__inner > *,
+[role="combobox"] > *,
+[aria-haspopup="listbox"] > *:not([class*="menu"]):not([class*="popover"]),
+.el-select__wrapper > *,
+.el-input__wrapper > *,
+[class*="hr-select"]:not([class*="menu"]):not([class*="option"]):not([class*="popover"]):not([class*="dropdown"]):not([class*="overlay"]) > *:not([class*="menu"]):not([class*="popover"]),
+[class*="select-trigger"]:not([class*="menu"]) > *,
+[class*="combobox"]:not([class*="menu"]) > *,
+[class*="dropdown-toggle"] > *,
+[class*="dropdown-input"] > * {
+  background-color: transparent !important;
 }
 
 /* END REINVEST OS THEME */

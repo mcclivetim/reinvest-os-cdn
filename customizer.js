@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.7.41 — built 2026-05-18T22:56:25.296Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var M="[wholesaling-crm-customizer]",Tt="__WS_CRM_DEBUG",Lt=()=>!!window[Tt],p={info(...o){console.log(M,...o)},warn(...o){console.warn(M,...o)},error(...o){console.error(M,...o)},debug(...o){Lt()&&console.log(M,"[debug]",...o)}};var K=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},B="",T="other",V=new Set,H=()=>{if(window.location.pathname!==B){B=window.location.pathname,T=K(),p.debug("Page changed:",T,B);for(let o of V)try{o(T)}catch(e){p.error("Subscriber threw:",e)}}},J=o=>(V.add(o),setTimeout(()=>o(T),0),()=>{V.delete(o)}),X=()=>{T=K(),B=window.location.pathname,p.debug("Router init, current page:",T);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,a){o(t,r,a),H()},history.replaceState=function(t,r,a){e(t,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var N="0.7.41",$="2026-05-18T22:56:25.297Z";var At=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ft=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,e=o.match(At);if(!e)return null;let t=o.match(Ft);return{contactId:e[1],locationId:t?t[1]:null}};var L=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=e;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let c,d,m=()=>{b&&b.disconnect(),c!==void 0&&window.clearTimeout(c),d!==void 0&&window.clearInterval(d)},b=new MutationObserver(()=>{let f=a.querySelector(o);f&&(m(),s(f))});b.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let f=a.querySelector(o);f&&(m(),s(f))},r),c=window.setTimeout(()=>{m(),p.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},W={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},Z=o=>{let e=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,t=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
+/* Wholesaling CRM Customizer v0.7.42 — built 2026-05-18T23:00:42.506Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var M="[wholesaling-crm-customizer]",Tt="__WS_CRM_DEBUG",Lt=()=>!!window[Tt],p={info(...o){console.log(M,...o)},warn(...o){console.warn(M,...o)},error(...o){console.error(M,...o)},debug(...o){Lt()&&console.log(M,"[debug]",...o)}};var K=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},B="",T="other",V=new Set,H=()=>{if(window.location.pathname!==B){B=window.location.pathname,T=K(),p.debug("Page changed:",T,B);for(let o of V)try{o(T)}catch(e){p.error("Subscriber threw:",e)}}},J=o=>(V.add(o),setTimeout(()=>o(T),0),()=>{V.delete(o)}),X=()=>{T=K(),B=window.location.pathname,p.debug("Router init, current page:",T);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,a){o(t,r,a),H()},history.replaceState=function(t,r,a){e(t,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var N="0.7.42",$="2026-05-18T23:00:42.506Z";var At=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ft=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,e=o.match(At);if(!e)return null;let t=o.match(Ft);return{contactId:e[1],locationId:t?t[1]:null}};var L=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=e;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let c,d,m=()=>{b&&b.disconnect(),c!==void 0&&window.clearTimeout(c),d!==void 0&&window.clearInterval(d)},b=new MutationObserver(()=>{let f=a.querySelector(o);f&&(m(),s(f))});b.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let f=a.querySelector(o);f&&(m(),s(f))},r),c=window.setTimeout(()=>{m(),p.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},W={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},Z=o=>{let e=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,t=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2124,19 +2124,27 @@ html body [class*="avatar"]:not([class*="dropdown"]):not([class*="option-avatar"
 }
 
 /* 18d. NAIVE UI DROPDOWN MENUS \u2014 the popover that opens from a context
-   trigger (e.g. the kebab/3-dot menu next to "Edit Dashboard"). This is
-   .n-dropdown-* family, distinct from .n-base-select / .n-popselect /
-   .n-popover which are select-style popovers. Ships pure white by default.
+   trigger (e.g. the kebab/3-dot menu next to "Edit Dashboard").
 
-   Per ACTIVE-ACCENT STANDARD (section 11b): static rows render bone on
-   graphite; hover rows render emerald on emerald-glow. Standardized so
-   every dropdown across the app feels the same. */
+   Per the canonical state model (sidebar nav + Call Status dropdown row
+   in contact-actions-bar.ts):
+
+     Static          : bone text, transparent bg
+     Hover           : bone text, SLATE bg  (no text color change)
+     Active/Pressed/ : emerald text, emerald-glow bg
+     keyboard-pending  (section 11b ACTIVE-ACCENT STANDARD)
+
+   Hover is a SUBTLE reveal (slate bg, text stays bone). Emerald is
+   reserved for the active/pressed/keyboard-selected state \u2014 when the
+   user is committing to a choice, not just hovering. Matches sidebar
+   inactive-hover and contact-bar Call Status dropdown rows. */
 html body .n-dropdown,
 html body .n-dropdown-menu {
   background-color: var(--reos-graphite) !important;
   border: 1px solid var(--reos-steel) !important;
   color: var(--reos-bone) !important;
 }
+/* Static row */
 html body .n-dropdown-option,
 html body .n-dropdown-option-body,
 html body .n-dropdown-option-body__label,
@@ -2153,34 +2161,48 @@ html body .n-dropdown-option svg path {
   color: var(--reos-bone) !important;
   stroke: var(--reos-bone) !important;
 }
-/* Hover / pending state \u2014 emerald-glow per ACTIVE-ACCENT STANDARD.
-   Naive UI uses .n-dropdown-option--pending while pointer is over the
-   row before selection commits, and toggles a hover class in some
-   versions. Cover both plus :hover. */
+/* HOVER \u2014 subtle slate bg, text stays bone. Matches sidebar inactive
+   hover and Call Status row pattern. Naive UI uses both :hover and a
+   .n-dropdown-option--hover class. */
 html body .n-dropdown-option:hover,
-html body .n-dropdown-option--hover,
-html body .n-dropdown-option--pending {
+html body .n-dropdown-option--hover {
+  background-color: var(--reos-slate) !important;
+  /* color intentionally NOT changed \u2014 stays bone per the standard */
+}
+/* ACTIVE / PRESSED / keyboard-pending \u2014 emerald + emerald-glow per
+   section 11b ACTIVE-ACCENT STANDARD. Naive UI uses .--pending for
+   keyboard navigation cursor (the highlighted item that would commit
+   on Enter). :active is the mousedown state \u2014 brief flash feedback. */
+html body .n-dropdown-option:active,
+html body .n-dropdown-option--pending,
+html body .n-dropdown-option--selected,
+html body .n-dropdown-option--active {
   background-color: var(--reos-emerald-glow) !important;
   color: var(--reos-emerald) !important;
 }
-html body .n-dropdown-option:hover .n-dropdown-option-body__label,
-html body .n-dropdown-option:hover .n-dropdown-option-body__prefix,
-html body .n-dropdown-option:hover .n-dropdown-option-body__suffix,
-html body .n-dropdown-option--hover .n-dropdown-option-body__label,
-html body .n-dropdown-option--hover .n-dropdown-option-body__prefix,
-html body .n-dropdown-option--hover .n-dropdown-option-body__suffix,
+html body .n-dropdown-option:active .n-dropdown-option-body__label,
+html body .n-dropdown-option:active .n-dropdown-option-body__prefix,
+html body .n-dropdown-option:active .n-dropdown-option-body__suffix,
 html body .n-dropdown-option--pending .n-dropdown-option-body__label,
 html body .n-dropdown-option--pending .n-dropdown-option-body__prefix,
-html body .n-dropdown-option--pending .n-dropdown-option-body__suffix {
+html body .n-dropdown-option--pending .n-dropdown-option-body__suffix,
+html body .n-dropdown-option--selected .n-dropdown-option-body__label,
+html body .n-dropdown-option--selected .n-dropdown-option-body__prefix,
+html body .n-dropdown-option--selected .n-dropdown-option-body__suffix,
+html body .n-dropdown-option--active .n-dropdown-option-body__label,
+html body .n-dropdown-option--active .n-dropdown-option-body__prefix,
+html body .n-dropdown-option--active .n-dropdown-option-body__suffix {
   color: var(--reos-emerald) !important;
   -webkit-text-fill-color: var(--reos-emerald) !important;
 }
-html body .n-dropdown-option:hover svg,
-html body .n-dropdown-option:hover svg path,
-html body .n-dropdown-option--hover svg,
-html body .n-dropdown-option--hover svg path,
+html body .n-dropdown-option:active svg,
+html body .n-dropdown-option:active svg path,
 html body .n-dropdown-option--pending svg,
-html body .n-dropdown-option--pending svg path {
+html body .n-dropdown-option--pending svg path,
+html body .n-dropdown-option--selected svg,
+html body .n-dropdown-option--selected svg path,
+html body .n-dropdown-option--active svg,
+html body .n-dropdown-option--active svg path {
   color: var(--reos-emerald) !important;
   stroke: var(--reos-emerald) !important;
 }

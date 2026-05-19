@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.8.31 — built 2026-05-19T23:17:01.649Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},R="",F="other",q=new Set,H=()=>{if(window.location.pathname!==R){R=window.location.pathname,F=Z(),h.debug("Page changed:",F,R);for(let o of q)try{o(F)}catch(e){h.error("Subscriber threw:",e)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),ee=()=>{F=Z(),R=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,a){o(t,r,a),H()},history.replaceState=function(t,r,a){e(t,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var M="0.8.31",B="2026-05-19T23:17:01.650Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(Ie);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=e;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let d,c,p=()=>{b&&b.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},b=new MutationObserver(()=>{let g=a.querySelector(o);g&&(p(),s(g))});b.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let g=a.querySelector(o);g&&(p(),s(g))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},te=o=>{let e=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,t=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
+/* Wholesaling CRM Customizer v0.8.32 — built 2026-05-19T23:48:14.349Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},R="",F="other",q=new Set,H=()=>{if(window.location.pathname!==R){R=window.location.pathname,F=Z(),h.debug("Page changed:",F,R);for(let o of q)try{o(F)}catch(e){h.error("Subscriber threw:",e)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),ee=()=>{F=Z(),R=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,a){o(t,r,a),H()},history.replaceState=function(t,r,a){e(t,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var M="0.8.32",B="2026-05-19T23:48:14.349Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(Ie);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=e;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let d,c,p=()=>{b&&b.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},b=new MutationObserver(()=>{let g=a.querySelector(o);g&&(p(),s(g))});b.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let g=a.querySelector(o);g&&(p(),s(g))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},te=o=>{let e=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,t=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2232,6 +2232,30 @@ html body [style*="--provider-color: #155eef"] svg,
 html body [style*="--provider-color: #155eef"] svg path {
   color: var(--reos-blue) !important;
   stroke: var(--reos-blue) !important;
+}
+
+/* 15a-customizations-btn-hover (v0.8.32). Tim wants the Manage
+   view button (#customizations-button) to flip to emerald on
+   hover when in its default (unclicked) state \u2014 class is
+   'border-gray-300 text-gray-700' default, switches to
+   'border-primary-300 text-primary-700' when active (clicked).
+
+   v0.8.31 covered the active emerald state (via .border-primary-*).
+   This adds the hover emerald lift for the default state so the
+   button signals 'clickable' affordance consistently with the
+   active emerald color. */
+html body #customizations-button:hover,
+html body button#customizations-button:hover {
+  border-color: var(--reos-emerald) !important;
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
+}
+html body #customizations-button:hover svg,
+html body #customizations-button:hover svg path,
+html body button#customizations-button:hover svg,
+html body button#customizations-button:hover svg path {
+  color: var(--reos-emerald) !important;
+  stroke: var(--reos-emerald) !important;
 }
 
 /* 15a-border-primary (v0.8.31). GHL's primary Tailwind palette is

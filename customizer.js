@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.7.76 — built 2026-05-19T03:23:48.876Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var H="[wholesaling-crm-customizer]",Ft="__WS_CRM_DEBUG",Ct=()=>!!window[Ft],p={info(...o){console.log(H,...o)},warn(...o){console.warn(H,...o)},error(...o){console.error(H,...o)},debug(...o){Ct()&&console.log(H,"[debug]",...o)}};var Y=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",W=new Set,N=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Y(),p.debug("Page changed:",F,M);for(let o of W)try{o(F)}catch(t){p.error("Subscriber threw:",t)}}},X=o=>(W.add(o),setTimeout(()=>o(F),0),()=>{W.delete(o)}),J=()=>{F=Y(),M=window.location.pathname,p.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),N()},history.replaceState=function(e,r,a){t(e,r,a),N()},window.addEventListener("popstate",N),setInterval(N,1e3)};var R="0.7.76",B="2026-05-19T03:23:48.877Z";var Lt=/\/contacts\/detail\/([A-Za-z0-9]+)/,At=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,t=o.match(Lt);if(!t)return null;let e=o.match(At);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let i,d,h=()=>{b&&b.disconnect(),i!==void 0&&window.clearTimeout(i),d!==void 0&&window.clearInterval(d)},b=new MutationObserver(()=>{let g=a.querySelector(o);g&&(h(),s(g))});b.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let g=a.querySelector(o);g&&(h(),s(g))},r),i=window.setTimeout(()=>{h(),p.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var c={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},q={purple:"#8B5CF6",green:c.emerald,orange:c.amber,red:c.crimson},Z=o=>{let t=o==="emerald"?c.emeraldGlow:o==="amber"?c.amberGlow:c.slate,e=o==="emerald"?c.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":c.steel,r=o==="emerald"?c.emerald:o==="amber"?c.amber:c.bone;return`
+/* Wholesaling CRM Customizer v0.7.77 — built 2026-05-19T03:33:32.238Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var H="[wholesaling-crm-customizer]",Ft="__WS_CRM_DEBUG",Ct=()=>!!window[Ft],p={info(...o){console.log(H,...o)},warn(...o){console.warn(H,...o)},error(...o){console.error(H,...o)},debug(...o){Ct()&&console.log(H,"[debug]",...o)}};var Y=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",W=new Set,N=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Y(),p.debug("Page changed:",F,M);for(let o of W)try{o(F)}catch(t){p.error("Subscriber threw:",t)}}},X=o=>(W.add(o),setTimeout(()=>o(F),0),()=>{W.delete(o)}),J=()=>{F=Y(),M=window.location.pathname,p.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),N()},history.replaceState=function(e,r,a){t(e,r,a),N()},window.addEventListener("popstate",N),setInterval(N,1e3)};var R="0.7.77",B="2026-05-19T03:33:32.239Z";var Lt=/\/contacts\/detail\/([A-Za-z0-9]+)/,At=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,t=o.match(Lt);if(!t)return null;let e=o.match(At);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let i,d,h=()=>{b&&b.disconnect(),i!==void 0&&window.clearTimeout(i),d!==void 0&&window.clearInterval(d)},b=new MutationObserver(()=>{let g=a.querySelector(o);g&&(h(),s(g))});b.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let g=a.querySelector(o);g&&(h(),s(g))},r),i=window.setTimeout(()=>{h(),p.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var c={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},q={purple:"#8B5CF6",green:c.emerald,orange:c.amber,red:c.crimson},Z=o=>{let t=o==="emerald"?c.emeraldGlow:o==="amber"?c.amberGlow:c.slate,e=o==="emerald"?c.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":c.steel,r=o==="emerald"?c.emerald:o==="amber"?c.amber:c.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -1763,6 +1763,48 @@ html body [style*="color:white"] *:not(svg):not(path):not(circle):not(rect):not(
 html body [style*="color: #ffffff"] *:not(svg):not(path):not(circle):not(rect):not(polygon):not(line):not(g),
 html body [style*="color: #FFFFFF"] *:not(svg):not(path):not(circle):not(rect):not(polygon):not(line):not(g),
 html body [style*="color: rgb(255, 255, 255)"] *:not(svg):not(path):not(circle):not(rect):not(polygon):not(line):not(g) {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+
+/* 15g. PAGE-OBJECT HEADINGS \u2014 the big page-title at the top of every
+   object-list page ("Conversations", "Contacts", "Opportunities", etc.).
+   GHL renders these via a Vue component with class .topmenu-navtitle
+   and applies a near-black color via Vue scoped CSS (not inline, not
+   a Tailwind utility class \u2014 so the substring matchers above don't
+   catch it). The data-v-* attribute on the element changes per build,
+   so we can't target the scoped selector directly.
+
+   Beat the scoped rule with !important on the class itself. Same
+   treatment for semantic [role="heading"] elements as a broader
+   safety net \u2014 any element semantically marked as a heading should
+   read as bone, regardless of what color GHL paints it.
+
+   Includes h1-h6 elements as a final defense-in-depth layer for any
+   page that uses semantic headings without an obvious GHL class. */
+html body .topmenu-navtitle,
+html body [class*="topmenu-navtitle"],
+html body [class*="topmenu-nav-title"],
+html body [class*="page-title"],
+html body [class*="page-heading"],
+html body [class*="page-header__title"],
+html body [class*="object-header"],
+html body [class*="objectHeader"] {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+
+/* Semantic-heading safety net: any element with role="heading" or
+   any h1-h6 that hasn't been explicitly colored by a more specific
+   rule. Scoped to 'html body' to avoid styling headings inside
+   Ask AI / gradient-text components (those use bg-clip-text). */
+html body h1:not([class*="bg-clip-text"]):not([class*="text-transparent"]),
+html body h2:not([class*="bg-clip-text"]):not([class*="text-transparent"]),
+html body h3:not([class*="bg-clip-text"]):not([class*="text-transparent"]),
+html body h4:not([class*="bg-clip-text"]):not([class*="text-transparent"]),
+html body h5:not([class*="bg-clip-text"]):not([class*="text-transparent"]),
+html body h6:not([class*="bg-clip-text"]):not([class*="text-transparent"]),
+html body [role="heading"]:not([class*="bg-clip-text"]):not([class*="text-transparent"]) {
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
 }

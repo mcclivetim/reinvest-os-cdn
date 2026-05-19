@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.7.81 — built 2026-05-19T12:38:55.009Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var H="[wholesaling-crm-customizer]",Ft="__WS_CRM_DEBUG",Lt=()=>!!window[Ft],p={info(...o){console.log(H,...o)},warn(...o){console.warn(H,...o)},error(...o){console.error(H,...o)},debug(...o){Lt()&&console.log(H,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",C="other",q=new Set,N=()=>{if(window.location.pathname!==M){M=window.location.pathname,C=Z(),p.debug("Page changed:",C,M);for(let o of q)try{o(C)}catch(t){p.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(C),0),()=>{q.delete(o)}),tt=()=>{C=Z(),M=window.location.pathname,p.debug("Router init, current page:",C);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),N()},history.replaceState=function(e,r,a){t(e,r,a),N()},window.addEventListener("popstate",N),setInterval(N,1e3)};var R="0.7.81",B="2026-05-19T12:38:55.010Z";var At=/\/contacts\/detail\/([A-Za-z0-9]+)/,It=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,t=o.match(At);if(!t)return null;let e=o.match(It);return{contactId:t[1],locationId:e?e[1]:null}};var F=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let i,d,h=()=>{b&&b.disconnect(),i!==void 0&&window.clearTimeout(i),d!==void 0&&window.clearInterval(d)},b=new MutationObserver(()=>{let g=a.querySelector(o);g&&(h(),s(g))});b.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let g=a.querySelector(o);g&&(h(),s(g))},r),i=window.setTimeout(()=>{h(),p.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var c={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:c.emerald,orange:c.amber,red:c.crimson},et=o=>{let t=o==="emerald"?c.emeraldGlow:o==="amber"?c.amberGlow:c.slate,e=o==="emerald"?c.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":c.steel,r=o==="emerald"?c.emerald:o==="amber"?c.amber:c.bone;return`
+/* Wholesaling CRM Customizer v0.7.82 — built 2026-05-19T12:54:09.580Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var H="[wholesaling-crm-customizer]",Ft="__WS_CRM_DEBUG",Lt=()=>!!window[Ft],p={info(...o){console.log(H,...o)},warn(...o){console.warn(H,...o)},error(...o){console.error(H,...o)},debug(...o){Lt()&&console.log(H,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",C="other",q=new Set,N=()=>{if(window.location.pathname!==M){M=window.location.pathname,C=Z(),p.debug("Page changed:",C,M);for(let o of q)try{o(C)}catch(t){p.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(C),0),()=>{q.delete(o)}),tt=()=>{C=Z(),M=window.location.pathname,p.debug("Router init, current page:",C);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),N()},history.replaceState=function(e,r,a){t(e,r,a),N()},window.addEventListener("popstate",N),setInterval(N,1e3)};var R="0.7.82",B="2026-05-19T12:54:09.580Z";var At=/\/contacts\/detail\/([A-Za-z0-9]+)/,It=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,t=o.match(At);if(!t)return null;let e=o.match(It);return{contactId:t[1],locationId:e?e[1]:null}};var F=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let i,d,h=()=>{b&&b.disconnect(),i!==void 0&&window.clearTimeout(i),d!==void 0&&window.clearInterval(d)},b=new MutationObserver(()=>{let g=a.querySelector(o);g&&(h(),s(g))});b.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let g=a.querySelector(o);g&&(h(),s(g))},r),i=window.setTimeout(()=>{h(),p.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var c={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:c.emerald,orange:c.amber,red:c.crimson},et=o=>{let t=o==="emerald"?c.emeraldGlow:o==="amber"?c.amberGlow:c.slate,e=o==="emerald"?c.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":c.steel,r=o==="emerald"?c.emerald:o==="amber"?c.amber:c.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -1681,6 +1681,17 @@ html body [role="dialog"] [class*="card"] {
 }
 *::-webkit-scrollbar-thumb:hover { background: var(--reos-cool-gray) !important; }
 *::-webkit-scrollbar-corner { background: var(--reos-obsidian) !important; }
+/* Standard CSS scrollbar properties (Chrome modern + Firefox + Edge).
+   Diagnosed live in Chrome: modern Chrome supports both ::-webkit-*
+   pseudos AND the standard scrollbar-color / scrollbar-width. When
+   both are set, the STANDARD wins at render. Without these, the
+   webkit pseudos compute correctly but Chrome paints whatever the
+   standard property says. Use html body to bump above naked-*
+   inheritance defaults. */
+html body, html body * {
+  scrollbar-color: var(--reos-steel) var(--reos-obsidian);
+  scrollbar-width: thin;
+}
 
 /* GHL ships a Vue scoped rule that overrides our universal scrollbar
    styles for any container with .custom-scrollbar:
@@ -1698,12 +1709,30 @@ html body [role="dialog"] [class*="card"] {
    gray-200 while the Contact Details scrollbar showed steel \u2014
    the latter had no .custom-scrollbar ancestor and fell through
    to our universal rule. */
-/* The :not(#__reos_never_id) pseudo-class adds ID-level specificity
-   (0,1,0,0) without changing what the rule matches. Final specificity:
-   html(1) + body(1) + .custom-scrollbar(1 class) + :not(#id)(1 id) +
-   ::pseudo(1) = (0,1,1,3). That beats virtually any author CSS GHL
-   could ship \u2014 even .wrap .custom-scrollbar[data-v-xxx]::-webkit-*
-   tops out at (0,0,3,1) which still loses on the ID column. */
+/* DIAGNOSED LIVE IN CHROME (gstack /browse session). The actual issue
+   is NOT a specificity war on the ::-webkit-scrollbar-* pseudo-elements
+   (those compute correctly to steel). Modern Chrome supports BOTH:
+     - Legacy: ::-webkit-scrollbar-* pseudo-elements
+     - Standard: 'scrollbar-color' and 'scrollbar-width' CSS properties
+   When BOTH are set, the standard wins. GHL sets
+       .custom-scrollbar[data-v-fa4b40fd] {
+         scrollbar-color: rgb(229, 231, 235) rgba(0,0,0,0);
+         scrollbar-width: thin;
+       }
+   via Vue scoped CSS. That overrides our pseudo-element styling at
+   render time -- our pseudos compute to steel but Chrome paints the
+   thumb gray-200 because the standard property wins.
+
+   Fix: override scrollbar-color + scrollbar-width on .custom-scrollbar
+   itself. Keep the webkit pseudos for older browsers that don't
+   support the standard. The :not(#__reos_never_id) trick bumps
+   specificity to (0,1,1,2) for the standard rule and (0,1,1,3) for
+   the pseudo rules -- ID-level, beats any class+attribute Vue scoped
+   selector. */
+html body .custom-scrollbar:not(#__reos_never_id) {
+  scrollbar-color: var(--reos-steel) var(--reos-obsidian) !important;
+  scrollbar-width: thin !important;
+}
 html body .custom-scrollbar:not(#__reos_never_id)::-webkit-scrollbar {
   width: 10px !important;
   height: 10px !important;
@@ -1720,11 +1749,6 @@ html body .custom-scrollbar:not(#__reos_never_id)::-webkit-scrollbar-thumb:hover
 }
 html body .custom-scrollbar:not(#__reos_never_id)::-webkit-scrollbar-corner {
   background: var(--reos-obsidian) !important;
-}
-/* Firefox equivalent \u2014 scrollbar-color is "thumb track" */
-html body, html body * {
-  scrollbar-color: var(--reos-steel) var(--reos-obsidian);
-  scrollbar-width: thin;
 }
 
 /* 14. KILL DEFAULTS WE DON'T WANT */

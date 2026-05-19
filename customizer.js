@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.8.28 — built 2026-05-19T22:07:55.687Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),h.debug("Page changed:",F,M);for(let o of q)try{o(F)}catch(e){h.error("Subscriber threw:",e)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),ee=()=>{F=Z(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,a){o(t,r,a),H()},history.replaceState=function(t,r,a){e(t,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.28",B="2026-05-19T22:07:55.688Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(Ie);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=e;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let d,c,p=()=>{b&&b.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},b=new MutationObserver(()=>{let g=a.querySelector(o);g&&(p(),s(g))});b.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let g=a.querySelector(o);g&&(p(),s(g))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},te=o=>{let e=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,t=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
+/* Wholesaling CRM Customizer v0.8.29 — built 2026-05-19T22:13:14.545Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),h.debug("Page changed:",F,M);for(let o of q)try{o(F)}catch(e){h.error("Subscriber threw:",e)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),ee=()=>{F=Z(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,a){o(t,r,a),H()},history.replaceState=function(t,r,a){e(t,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.29",B="2026-05-19T22:13:14.546Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(Ie);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=e;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let d,c,p=()=>{b&&b.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},b=new MutationObserver(()=>{let g=a.querySelector(o);g&&(p(),s(g))});b.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let g=a.querySelector(o);g&&(p(),s(g))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},te=o=>{let e=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,t=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -3577,16 +3577,21 @@ html body button#today-button:hover {
   border-color: var(--reos-emerald-bright) !important;
 }
 
-/* .fc-timegrid-now-indicator-line / -arrow (v0.8.27 \u2192 v0.8.28).
+/* .fc-timegrid-now-indicator-line / -arrow (v0.8.27 \u2192 v0.8.29).
    FullCalendar's 'current time' horizontal line ships pure red
    rgb(255, 0, 0) via border-top-color (line) + border-color
    (arrow tip). Tim couldn't see it; wants brand --reos-crimson.
 
-   v0.8.27 lost to section 18a-fc-calendar (v0.8.26)'s
-   [class*='fc-']:not(#__reos_never_id) slate-border rule, which
-   has specificity (1,1,2) \u2014 the plain .fc-timegrid-now-indicator-line
-   was (0,1,2). v0.8.28: stack two :not() trick selectors so this
-   rule reaches (2,1,2) and beats the calendar slate sweep. */
+   v0.8.28 fixed the color but the line was still invisible \u2014
+   diagnosed via /browse elementsFromPoint: the .fc-timegrid-slot-lane
+   TD cells stack ON TOP of the indicator-container (z-index auto)
+   and the TDs' transparent fill let the graphite-bg TABLE
+   beneath them show through, covering the line. v0.8.29 lifts
+   the indicator + container to z-index 100 so the line + arrow
+   render on top of the grid.
+
+   Specificity bump (:not() stack) still needed to beat section
+   18a-fc-calendar's [class*='fc-'] slate-border sweep. */
 html body .fc-timegrid-now-indicator-line:not(#__reos_never_id):not(#__reos_also_never),
 html body [class*="fc-timegrid-now-indicator-line"]:not(#__reos_never_id):not(#__reos_also_never) {
   border-color: var(--reos-crimson) !important;
@@ -3596,6 +3601,7 @@ html body [class*="fc-timegrid-now-indicator-line"]:not(#__reos_never_id):not(#_
      so it reads better against the dark grid. */
   border-width: 2px !important;
   border-top-width: 2px !important;
+  z-index: 100 !important;
 }
 html body .fc-timegrid-now-indicator-arrow:not(#__reos_never_id):not(#__reos_also_never),
 html body [class*="fc-timegrid-now-indicator-arrow"]:not(#__reos_never_id):not(#__reos_also_never) {
@@ -3604,6 +3610,13 @@ html body [class*="fc-timegrid-now-indicator-arrow"]:not(#__reos_never_id):not(#
   border-right-color: var(--reos-crimson) !important;
   border-bottom-color: var(--reos-crimson) !important;
   border-left-color: var(--reos-crimson) !important;
+  z-index: 100 !important;
+}
+/* Container needs lifting too \u2014 it parents the line/arrow and
+   sets the stacking context. */
+html body .fc-timegrid-now-indicator-container:not(#__reos_never_id):not(#__reos_also_never),
+html body [class*="fc-timegrid-now-indicator-container"]:not(#__reos_never_id):not(#__reos_also_never) {
+  z-index: 100 !important;
 }
 
 /* 18a-fc-calendar (v0.8.26). Calendar page (/calendars/view) is

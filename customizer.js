@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.7.98 — built 2026-05-19T16:14:55.013Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ft="__WS_CRM_DEBUG",At=()=>!!window[Ft],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){At()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",C="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,C=Z(),h.debug("Page changed:",C,M);for(let o of q)try{o(C)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(C),0),()=>{q.delete(o)}),tt=()=>{C=Z(),M=window.location.pathname,h.debug("Router init, current page:",C);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),H()},history.replaceState=function(e,r,a){t(e,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.7.98",B="2026-05-19T16:14:55.013Z";var Lt=/\/contacts\/detail\/([A-Za-z0-9]+)/,It=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,t=o.match(Lt);if(!t)return null;let e=o.match(It);return{contactId:t[1],locationId:e?e[1]:null}};var F=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let c,d,b=()=>{p&&p.disconnect(),c!==void 0&&window.clearTimeout(c),d!==void 0&&window.clearInterval(d)},p=new MutationObserver(()=>{let g=a.querySelector(o);g&&(b(),s(g))});p.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let g=a.querySelector(o);g&&(b(),s(g))},r),c=window.setTimeout(()=>{b(),h.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},et=o=>{let t=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,e=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
+/* Wholesaling CRM Customizer v0.7.99 — built 2026-05-19T16:20:58.149Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ft="__WS_CRM_DEBUG",At=()=>!!window[Ft],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){At()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},R="",C="other",q=new Set,H=()=>{if(window.location.pathname!==R){R=window.location.pathname,C=Z(),h.debug("Page changed:",C,R);for(let o of q)try{o(C)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(C),0),()=>{q.delete(o)}),tt=()=>{C=Z(),R=window.location.pathname,h.debug("Router init, current page:",C);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),H()},history.replaceState=function(e,r,a){t(e,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var M="0.7.99",B="2026-05-19T16:20:58.150Z";var Lt=/\/contacts\/detail\/([A-Za-z0-9]+)/,It=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,t=o.match(Lt);if(!t)return null;let e=o.match(It);return{contactId:t[1],locationId:e?e[1]:null}};var F=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let c,d,b=()=>{p&&p.disconnect(),c!==void 0&&window.clearTimeout(c),d!==void 0&&window.clearInterval(d)},p=new MutationObserver(()=>{let g=a.querySelector(o);g&&(b(),s(g))});p.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let g=a.querySelector(o);g&&(b(),s(g))},r),c=window.setTimeout(()=>{b(),h.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},et=o=>{let t=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,e=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -67,7 +67,7 @@
     align-items: center;
     margin-left: 12px;
     vertical-align: middle;
-  `,r.appendChild(e),o.appendChild(r)},Ht=async()=>{let o=_();if(!o){document.getElementById(I)?.remove();return}let t=document.getElementById(I);if(!(t&&t.dataset.contactId===o.contactId)){t&&t.remove();try{let e=await F("#record-details-lhs",{timeoutMs:1e4}),r=await Nt(e),a=_();if(!a||a.contactId!==o.contactId)return;if(!r){h.warn("Claim/Release pill \u2014 name row not found within timeout; skipping mount");return}ot(r,o.contactId),h.debug(`Mounted Claim/Release pill next to name for ${o.contactId}`);let s=null;s=new MutationObserver(async()=>{if(!(_()?.contactId===o.contactId)){s?.disconnect();return}if(document.getElementById(I))return;let n=rt(e);n&&(ot(n,o.contactId),h.debug("Re-mounted Claim/Release pill after React wipe"))}),s.observe(e,{childList:!0,subtree:!0})}catch(e){h.warn("Could not mount Claim/Release pill:",e)}}},at=()=>{Ht()};var Mt="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/call-status-set";var Rt="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/appointment-status",Bt=()=>{let o=window.WS_CRM_USER_ID;if(o&&/^[A-Za-z0-9]{15,30}$/.test(o))return o;let t=window,e=[t.appState?.user?.id,t.user?.id,t.currentUser?.id,t.LCUser?.id,t.HL?.user?.id];for(let r of e)if(typeof r=="string"&&/^[A-Za-z0-9]{15,30}$/.test(r))return r;try{let r=localStorage.getItem("user");if(r){let a=JSON.parse(r),s=a.id??a._id;if(s&&/^[A-Za-z0-9]{15,30}$/.test(s))return s}for(let a of["tokenUser","currentUser","ghl_user"]){let s=localStorage.getItem(a);if(s)try{let l=JSON.parse(s),n=l.id??l._id;if(n&&/^[A-Za-z0-9]{15,30}$/.test(n))return n}catch{}}}catch{}return null},Ot=async({contactId:o,locationId:t,status:e,userId:r,deadReason:a})=>{let s={call_status:e,triggered_by_user_id:r??""};a&&(s.dead_reason=a);let n=await fetch(Mt,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contact_id:o,location:{id:t},customData:s}),credentials:"omit"});if(!n.ok)throw new Error(`Webhook returned ${n.status} ${n.statusText}`)},Pt=async({contactId:o,tenantId:t})=>{let e=await fetch(Rt,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:t,contact_id:o}),credentials:"omit"});if(!e.ok)throw new Error(`Sanity check returned ${e.status} ${e.statusText}`);return await e.json()};var O="ws-crm-contact-actions-bar",Gt="ws-crm-call-status-dropdown",nt="ws-crm-offer-made-modal",$t=[{value:"not-contacted",label:"Not Contacted",color:"purple"},{value:"needs-offer",label:"Needs Offer",color:"green"},{value:"appointment-booked",label:"Appointment Booked",color:"green"},{value:"negotiating",label:"Negotiating",color:"green"},{value:"under-contract",label:"Under Contract",color:"green"},{value:"offer-rejected",label:"Offer Rejected",color:"orange"},{value:"not-ready",label:"Not Ready",color:"orange"},{value:"wants-retail",label:"Wants Retail",color:"orange"},{value:"already-listed",label:"Already Listed",color:"orange"},{value:"working-with-a-buyer",label:"Working with a Buyer",color:"orange"},{value:"not-interested",label:"Not Interested",color:"orange"},{value:"sold-on-market",label:"Sold on Market",color:"red"},{value:"sold-off-market",label:"Sold off Market",color:"red"},{value:"wrong-number",label:"Wrong Number",color:"red"},{value:"dead-deal",label:"Dead Deal",color:"red"}],Ut=[".central-panel","[class*='central-panel']"],Vt=async()=>{for(let o of Ut)try{let t=await F(o,{timeoutMs:3e3});if(t)return t}catch{}try{return(await F("#contact-conversation-panel",{timeoutMs:3e3})).parentElement??null}catch{return null}},zt=o=>{let t=document.createElement("div");t.id=Gt,t.style.cssText="position: relative; flex-shrink: 0;";let e=document.createElement("button");e.type="button",e.style.cssText=L,e.innerHTML=`
+  `,r.appendChild(e),o.appendChild(r)},Ht=async()=>{let o=_();if(!o){document.getElementById(I)?.remove();return}let t=document.getElementById(I);if(!(t&&t.dataset.contactId===o.contactId)){t&&t.remove();try{let e=await F("#record-details-lhs",{timeoutMs:1e4}),r=await Nt(e),a=_();if(!a||a.contactId!==o.contactId)return;if(!r){h.warn("Claim/Release pill \u2014 name row not found within timeout; skipping mount");return}ot(r,o.contactId),h.debug(`Mounted Claim/Release pill next to name for ${o.contactId}`);let s=null;s=new MutationObserver(async()=>{if(!(_()?.contactId===o.contactId)){s?.disconnect();return}if(document.getElementById(I))return;let n=rt(e);n&&(ot(n,o.contactId),h.debug("Re-mounted Claim/Release pill after React wipe"))}),s.observe(e,{childList:!0,subtree:!0})}catch(e){h.warn("Could not mount Claim/Release pill:",e)}}},at=()=>{Ht()};var Rt="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/call-status-set";var Mt="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/appointment-status",Bt=()=>{let o=window.WS_CRM_USER_ID;if(o&&/^[A-Za-z0-9]{15,30}$/.test(o))return o;let t=window,e=[t.appState?.user?.id,t.user?.id,t.currentUser?.id,t.LCUser?.id,t.HL?.user?.id];for(let r of e)if(typeof r=="string"&&/^[A-Za-z0-9]{15,30}$/.test(r))return r;try{let r=localStorage.getItem("user");if(r){let a=JSON.parse(r),s=a.id??a._id;if(s&&/^[A-Za-z0-9]{15,30}$/.test(s))return s}for(let a of["tokenUser","currentUser","ghl_user"]){let s=localStorage.getItem(a);if(s)try{let l=JSON.parse(s),n=l.id??l._id;if(n&&/^[A-Za-z0-9]{15,30}$/.test(n))return n}catch{}}}catch{}return null},Ot=async({contactId:o,locationId:t,status:e,userId:r,deadReason:a})=>{let s={call_status:e,triggered_by_user_id:r??""};a&&(s.dead_reason=a);let n=await fetch(Rt,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contact_id:o,location:{id:t},customData:s}),credentials:"omit"});if(!n.ok)throw new Error(`Webhook returned ${n.status} ${n.statusText}`)},Pt=async({contactId:o,tenantId:t})=>{let e=await fetch(Mt,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:t,contact_id:o}),credentials:"omit"});if(!e.ok)throw new Error(`Sanity check returned ${e.status} ${e.statusText}`);return await e.json()};var O="ws-crm-contact-actions-bar",Gt="ws-crm-call-status-dropdown",nt="ws-crm-offer-made-modal",$t=[{value:"not-contacted",label:"Not Contacted",color:"purple"},{value:"needs-offer",label:"Needs Offer",color:"green"},{value:"appointment-booked",label:"Appointment Booked",color:"green"},{value:"negotiating",label:"Negotiating",color:"green"},{value:"under-contract",label:"Under Contract",color:"green"},{value:"offer-rejected",label:"Offer Rejected",color:"orange"},{value:"not-ready",label:"Not Ready",color:"orange"},{value:"wants-retail",label:"Wants Retail",color:"orange"},{value:"already-listed",label:"Already Listed",color:"orange"},{value:"working-with-a-buyer",label:"Working with a Buyer",color:"orange"},{value:"not-interested",label:"Not Interested",color:"orange"},{value:"sold-on-market",label:"Sold on Market",color:"red"},{value:"sold-off-market",label:"Sold off Market",color:"red"},{value:"wrong-number",label:"Wrong Number",color:"red"},{value:"dead-deal",label:"Dead Deal",color:"red"}],Ut=[".central-panel","[class*='central-panel']"],Vt=async()=>{for(let o of Ut)try{let t=await F(o,{timeoutMs:3e3});if(t)return t}catch{}try{return(await F("#contact-conversation-panel",{timeoutMs:3e3})).parentElement??null}catch{return null}},zt=o=>{let t=document.createElement("div");t.id=Gt,t.style.cssText="position: relative; flex-shrink: 0;";let e=document.createElement("button");e.type="button",e.style.cssText=L,e.innerHTML=`
     <span style="
       display: inline-flex;
       width: 8px;
@@ -2904,6 +2904,126 @@ html body .hr-popover-arrow-wrapper {
   transition: none !important;
 }
 
+/* 16f-3. CONVERSATION LIST INTERACTIVE ELEMENTS \u2014 apply the
+   canonical icon-rail pattern (ash / emerald / no box) to:
+   - filter / sort icons in the header
+   - Unread / All / Recents / Starred tab buttons
+   - individual conversation rows (hover blend, emerald-glow active)
+
+   Tim flagged the lingering slate hover state on these \u2014 every
+   substring hover rule in section 18a-1 ([class*='EFF4FF']:hover,
+   [class*='hover:bg-gray-50']:hover, etc.) was catching the
+   Tailwind hover-bg classes on rows + tabs + icons and painting
+   slate. Scope an override under .conversation-list-container so
+   the slate hover doesn't fire on these interactive elements.
+
+   Specificity: html body .conversation-list-container [...]:hover
+   = (0,3,1+) beats the (0,2,2) of html body [class*='X']:hover. */
+
+/* Filter / sort icon buttons in the header (#conv-filter-button-icon,
+   #conv-sort-button-icon). Plain ash icon, emerald on hover, no bg. */
+html body .conversation-list-container #conv-filter-button-icon,
+html body .conversation-list-container #conv-sort-button-icon,
+html body .conversation-list-container #conv-filter-button-icon:hover,
+html body .conversation-list-container #conv-sort-button-icon:hover {
+  background-color: transparent !important;
+  background: transparent !important;
+  transition: none !important;
+}
+html body .conversation-list-container #conv-filter-button-icon svg,
+html body .conversation-list-container #conv-filter-button-icon svg path,
+html body .conversation-list-container #conv-sort-button-icon svg,
+html body .conversation-list-container #conv-sort-button-icon svg path {
+  color: var(--reos-ash) !important;
+  stroke: var(--reos-ash) !important;
+}
+html body .conversation-list-container #conv-filter-button-icon:hover svg,
+html body .conversation-list-container #conv-filter-button-icon:hover svg path,
+html body .conversation-list-container #conv-sort-button-icon:hover svg,
+html body .conversation-list-container #conv-sort-button-icon:hover svg path {
+  color: var(--reos-emerald) !important;
+  stroke: var(--reos-emerald) !important;
+}
+
+/* Unread / All / Recents / Starred tab buttons. They live inside
+   the .border-1.border-solid.border-gray-200.rounded-lg strip.
+   Default ash, emerald on hover and when active. Active state has
+   class .border-b-blue-600 (Tailwind); replace blue with emerald. */
+html body .conversation-list-header [class*='border-gray-200'][class*='rounded-lg'] button,
+html body .conversation-list-header [class*='border-gray-200'][class*='rounded-lg'] button:hover {
+  background-color: transparent !important;
+  background: transparent !important;
+  transition: none !important;
+}
+html body .conversation-list-header [class*='border-gray-200'][class*='rounded-lg'] button svg,
+html body .conversation-list-header [class*='border-gray-200'][class*='rounded-lg'] button svg path,
+html body .conversation-list-header [class*='border-gray-200'][class*='rounded-lg'] button span {
+  color: var(--reos-ash) !important;
+  stroke: var(--reos-ash) !important;
+}
+/* Hover: emerald icon + label */
+html body .conversation-list-header [class*='border-gray-200'][class*='rounded-lg'] button:hover svg,
+html body .conversation-list-header [class*='border-gray-200'][class*='rounded-lg'] button:hover svg path,
+html body .conversation-list-header [class*='border-gray-200'][class*='rounded-lg'] button:hover span {
+  color: var(--reos-emerald) !important;
+  stroke: var(--reos-emerald) !important;
+}
+/* Active tab (has .border-b-blue-600 class): emerald underline +
+   emerald icon + emerald label. */
+html body .conversation-list-header [class*='border-b-blue-600'] {
+  border-bottom-color: var(--reos-emerald) !important;
+  border-color: var(--reos-emerald) !important;
+}
+html body .conversation-list-header [class*='border-b-blue-600'] svg,
+html body .conversation-list-header [class*='border-b-blue-600'] svg path,
+html body .conversation-list-header [class*='border-b-blue-600'] span {
+  color: var(--reos-emerald) !important;
+  stroke: var(--reos-emerald) !important;
+}
+
+/* Tab strip outer wrapper border-gray-200 \u2192 steel (handled by
+   section 16 already, but make sure the outer rounded-lg radius
+   reads as a deliberate group). The strip itself stays graphite. */
+html body .conversation-list-header [class*='border-gray-200'][class*='rounded-lg'] {
+  background-color: transparent !important;
+  border-color: var(--reos-steel) !important;
+}
+
+/* Individual conversation rows \u2014 hover should BLEND with the panel
+   surface (graphite), not paint a slate card.
+   Match the row inner button (the .transition-colors.cursor-pointer
+   wrapper that ships with bg-[#F7F9FD] hover:bg-[#EFF4FF]). */
+html body [data-conversation-id]:hover,
+html body [data-conversation-id]:hover [type='button'],
+html body [data-conversation-id] [type='button']:hover {
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+  transition: none !important;
+}
+
+/* Active conversation row (data-is-active="true"). GHL inlines
+   'border: 1px solid rgb(82, 139, 255)' (a primary blue) plus a
+   4px radius on the inner button. Remap the blue to emerald so
+   the active row signals as a canonical emerald-bordered card. */
+html body [data-conversation-id][data-is-active="true"] > [type='button'],
+html body [data-conversation-id][data-is-active="true"] [type='button'] {
+  border-color: var(--reos-emerald) !important;
+}
+/* Generic remap: any inline border with that exact blue \u2192 emerald.
+   Catches future widgets that use the same Tailwind primary blue. */
+html body [style*="rgb(82, 139, 255)"] {
+  border-color: var(--reos-emerald) !important;
+}
+
+/* Bulk-select toolbar ("Select all" bar) \u2014 class bg-[#F7F9FD] gets
+   coerced to graphite by section 18a-1's substring rule. Force
+   transparent so it blends with the panel rather than reading as
+   a stripe. */
+html body [data-name="bulk-select-bar"] {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
 /* Tailwind bg-inherit class \u2014 should "inherit parent's bg" per its
    own name. v0.7.96 and earlier had coerceDarkDropdowns rewrite
    these to slate inline because graphite (inherited from parent)
@@ -3984,6 +4104,6 @@ input[type="week"],
     cursor: pointer;
     user-select: none;
     transition: transform 0.15s ease, opacity 0.15s ease;
-  `,o.textContent=`Customizer v${R}`,o.title=`Built ${B}
-Click to dismiss for this session`,o.addEventListener("mouseenter",()=>{o.style.transform="scale(1.05)"}),o.addEventListener("mouseleave",()=>{o.style.transform="scale(1)"}),o.addEventListener("click",()=>{o.style.opacity="0",setTimeout(()=>o.remove(),200)}),document.body.appendChild(o)};var Ct=()=>{h.info(`Loaded v${R} (built ${B})`),ht(),_t(),tt(),Q(o=>{h.debug("Page handler firing for:",o),Tt(),at(),ct()})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",Ct):Ct();})();
+  `,o.textContent=`Customizer v${M}`,o.title=`Built ${B}
+Click to dismiss for this session`,o.addEventListener("mouseenter",()=>{o.style.transform="scale(1.05)"}),o.addEventListener("mouseleave",()=>{o.style.transform="scale(1)"}),o.addEventListener("click",()=>{o.style.opacity="0",setTimeout(()=>o.remove(),200)}),document.body.appendChild(o)};var Ct=()=>{h.info(`Loaded v${M} (built ${B})`),ht(),_t(),tt(),Q(o=>{h.debug("Page handler firing for:",o),Tt(),at(),ct()})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",Ct):Ct();})();
 //# sourceMappingURL=customizer.js.map

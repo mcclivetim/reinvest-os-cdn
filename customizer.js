@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.7.84 — built 2026-05-19T13:07:20.454Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var H="[wholesaling-crm-customizer]",Ft="__WS_CRM_DEBUG",Lt=()=>!!window[Ft],h={info(...o){console.log(H,...o)},warn(...o){console.warn(H,...o)},error(...o){console.error(H,...o)},debug(...o){Lt()&&console.log(H,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},R="",C="other",q=new Set,N=()=>{if(window.location.pathname!==R){R=window.location.pathname,C=Z(),h.debug("Page changed:",C,R);for(let o of q)try{o(C)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(C),0),()=>{q.delete(o)}),tt=()=>{C=Z(),R=window.location.pathname,h.debug("Router init, current page:",C);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),N()},history.replaceState=function(e,r,a){t(e,r,a),N()},window.addEventListener("popstate",N),setInterval(N,1e3)};var M="0.7.84",B="2026-05-19T13:07:20.455Z";var At=/\/contacts\/detail\/([A-Za-z0-9]+)/,It=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,t=o.match(At);if(!t)return null;let e=o.match(It);return{contactId:t[1],locationId:e?e[1]:null}};var F=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let i,d,p=()=>{b&&b.disconnect(),i!==void 0&&window.clearTimeout(i),d!==void 0&&window.clearInterval(d)},b=new MutationObserver(()=>{let g=a.querySelector(o);g&&(p(),s(g))});b.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let g=a.querySelector(o);g&&(p(),s(g))},r),i=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var c={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:c.emerald,orange:c.amber,red:c.crimson},et=o=>{let t=o==="emerald"?c.emeraldGlow:o==="amber"?c.amberGlow:c.slate,e=o==="emerald"?c.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":c.steel,r=o==="emerald"?c.emerald:o==="amber"?c.amber:c.bone;return`
+/* Wholesaling CRM Customizer v0.7.85 — built 2026-05-19T13:18:36.166Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var H="[wholesaling-crm-customizer]",Ft="__WS_CRM_DEBUG",Lt=()=>!!window[Ft],h={info(...o){console.log(H,...o)},warn(...o){console.warn(H,...o)},error(...o){console.error(H,...o)},debug(...o){Lt()&&console.log(H,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},R="",C="other",q=new Set,N=()=>{if(window.location.pathname!==R){R=window.location.pathname,C=Z(),h.debug("Page changed:",C,R);for(let o of q)try{o(C)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(C),0),()=>{q.delete(o)}),tt=()=>{C=Z(),R=window.location.pathname,h.debug("Router init, current page:",C);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),N()},history.replaceState=function(e,r,a){t(e,r,a),N()},window.addEventListener("popstate",N),setInterval(N,1e3)};var M="0.7.85",B="2026-05-19T13:18:36.166Z";var At=/\/contacts\/detail\/([A-Za-z0-9]+)/,It=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,t=o.match(At);if(!t)return null;let e=o.match(It);return{contactId:t[1],locationId:e?e[1]:null}};var F=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let i,d,p=()=>{b&&b.disconnect(),i!==void 0&&window.clearTimeout(i),d!==void 0&&window.clearInterval(d)},b=new MutationObserver(()=>{let g=a.querySelector(o);g&&(p(),s(g))});b.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let g=a.querySelector(o);g&&(p(),s(g))},r),i=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var c={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:c.emerald,orange:c.amber,red:c.crimson},et=o=>{let t=o==="emerald"?c.emeraldGlow:o==="amber"?c.amberGlow:c.slate,e=o==="emerald"?c.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":c.steel,r=o==="emerald"?c.emerald:o==="amber"?c.amber:c.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2720,10 +2720,25 @@ html body [class*='chart-container'] [class*='data-label'] {
   flex-grow: 0 !important;
 }
 
-/* 18a. GHL Tailwind arbitrary backgrounds \u2014 the contact-detail page hard-
-   codes specific hex colors via Tailwind arbitrary-value classes like
-   bg-[#F7F9FD] (conversation main + compose footer) and bg-[#eff4ff]
-   (SMS modal header tab strip). Substring match catches them all. */
+/* 18a. GHL Tailwind arbitrary + utility light backgrounds \u2014 the
+   contact-detail page hardcodes specific hex colors via Tailwind
+   arbitrary-value classes like bg-[#F7F9FD] (conversation main +
+   compose footer) and bg-[#eff4ff] (SMS modal header tab strip).
+
+   For arbitrary hex values like bg-[#F7F9FD], substring match is
+   safe because the hex string only appears in actual color values.
+
+   For NAMED Tailwind shades like bg-gray-50, substring match would
+   catch state-prefixed variants like 'hover:bg-gray-50',
+   'group-hover:bg-gray-50', 'focus:bg-gray-50' \u2014 painting them
+   graphite ALWAYS instead of only on hover. Diagnosed live: the
+   icon row in the message header (phone, archive, star, mark-read,
+   delete) had 'hover:bg-gray-50' on each button. Substring catchall
+   painted each one slate via FORCE_RULES inline, leaving visible
+   off-color squares around each icon against the graphite container.
+
+   Use plain class selectors for named shades. Use [class*=...] only
+   for arbitrary-hex values where the hex substring is unique. */
 [class*="F7F9FD"],
 [class*="F7F9FB"],
 [class*="F9FAFB"],
@@ -2731,24 +2746,24 @@ html body [class*='chart-container'] [class*='data-label'] {
 [class*="EFF4FF"],
 [class*="ECEEF2"],
 [class*="eceef2"],
-[class*="bg-gray-50"],
-[class*="bg-gray-100"],
-[class*="bg-gray-200"],
-[class*="bg-white"],
-[class*="bg-blue-50"],
-[class*="bg-blue-100"],
-[class*="bg-sky-50"],
-[class*="bg-sky-100"],
-[class*="bg-indigo-50"],
-[class*="bg-indigo-100"],
-[class*="bg-slate-50"],
-[class*="bg-slate-100"],
-[class*="bg-neutral-50"],
-[class*="bg-neutral-100"],
-[class*="bg-zinc-50"],
-[class*="bg-zinc-100"],
-[class*="bg-stone-50"],
-[class*="bg-stone-100"] {
+.bg-gray-50,
+.bg-gray-100,
+.bg-gray-200,
+.bg-white,
+.bg-blue-50,
+.bg-blue-100,
+.bg-sky-50,
+.bg-sky-100,
+.bg-indigo-50,
+.bg-indigo-100,
+.bg-slate-50,
+.bg-slate-100,
+.bg-neutral-50,
+.bg-neutral-100,
+.bg-zinc-50,
+.bg-zinc-100,
+.bg-stone-50,
+.bg-stone-100 {
   background-color: var(--reos-graphite) !important;
   color: var(--reos-bone) !important;
 }

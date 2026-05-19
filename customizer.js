@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.7.92 — built 2026-05-19T14:58:14.794Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ft="__WS_CRM_DEBUG",At=()=>!!window[Ft],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){At()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",C="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,C=Z(),h.debug("Page changed:",C,M);for(let o of q)try{o(C)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(C),0),()=>{q.delete(o)}),tt=()=>{C=Z(),M=window.location.pathname,h.debug("Router init, current page:",C);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),H()},history.replaceState=function(e,r,a){t(e,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.7.92",B="2026-05-19T14:58:14.796Z";var Lt=/\/contacts\/detail\/([A-Za-z0-9]+)/,It=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,t=o.match(Lt);if(!t)return null;let e=o.match(It);return{contactId:t[1],locationId:e?e[1]:null}};var F=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let i,d,p=()=>{b&&b.disconnect(),i!==void 0&&window.clearTimeout(i),d!==void 0&&window.clearInterval(d)},b=new MutationObserver(()=>{let g=a.querySelector(o);g&&(p(),s(g))});b.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let g=a.querySelector(o);g&&(p(),s(g))},r),i=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var c={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:c.emerald,orange:c.amber,red:c.crimson},et=o=>{let t=o==="emerald"?c.emeraldGlow:o==="amber"?c.amberGlow:c.slate,e=o==="emerald"?c.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":c.steel,r=o==="emerald"?c.emerald:o==="amber"?c.amber:c.bone;return`
+/* Wholesaling CRM Customizer v0.7.93 — built 2026-05-19T15:04:21.166Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ft="__WS_CRM_DEBUG",At=()=>!!window[Ft],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){At()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",C="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,C=Z(),h.debug("Page changed:",C,M);for(let o of q)try{o(C)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(C),0),()=>{q.delete(o)}),tt=()=>{C=Z(),M=window.location.pathname,h.debug("Router init, current page:",C);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),H()},history.replaceState=function(e,r,a){t(e,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.7.93",B="2026-05-19T15:04:21.166Z";var Lt=/\/contacts\/detail\/([A-Za-z0-9]+)/,It=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,t=o.match(Lt);if(!t)return null;let e=o.match(It);return{contactId:t[1],locationId:e?e[1]:null}};var F=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let i,d,p=()=>{b&&b.disconnect(),i!==void 0&&window.clearTimeout(i),d!==void 0&&window.clearInterval(d)},b=new MutationObserver(()=>{let g=a.querySelector(o);g&&(p(),s(g))});b.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let g=a.querySelector(o);g&&(p(),s(g))},r),i=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var c={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:c.emerald,orange:c.amber,red:c.crimson},et=o=>{let t=o==="emerald"?c.emeraldGlow:o==="amber"?c.amberGlow:c.slate,e=o==="emerald"?c.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":c.steel,r=o==="emerald"?c.emerald:o==="amber"?c.amber:c.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2848,12 +2848,18 @@ html body .inbox-panel [class*='expand-button']:hover {
 }
 
 /* hr-tooltip / hr-popover-shared (collapsed-icon labels: "My Inbox",
-   "Views", etc.) \u2014 Tim flagged the "My Inbox" label flashing between
-   white and black on hover. Naive UI's enter animation interpolates
-   bg through whiteish frames, and coerceLightBgsInUI grabs those
-   frames and paints graphite inline, which then loses to Vue's next
-   render, restart. Pin the tooltip + its content to graphite with
-   no transition so there's nothing for the coercer to chase. */
+   "Internal Chat", "Views", etc.) \u2014 Tim's two complaints:
+   1) The label flashed white/black on hover. Naive UI's enter
+      animation interpolates bg through near-white frames, and
+      coerceLightBgsInUI catches those and paints graphite inline,
+      which then loses to Vue's next render \u2014 cycle repeats.
+   2) The graphite-with-border surface read as an ugly "grayish box
+      around the text" \u2014 Tim wants just the floating label, no
+      chrome.
+
+   Strip the tooltip down to floating bone text: no bg, no border,
+   no shadow, no arrow, no transition. Nothing for the coercer to
+   chase, nothing for the eye to interpret as a box. */
 html body .hr-tooltip,
 html body .hr-tooltip--dark,
 html body .hr-popover-shared,
@@ -2861,22 +2867,19 @@ html body .hr-popover-shared--show-arrow,
 html body .hr-tooltip .hr-popover__content,
 html body .hr-tooltip .hr-tooltip__content,
 html body .hr-popover-shared .hr-popover__content {
-  background-color: var(--reos-graphite) !important;
+  background-color: transparent !important;
+  background: transparent !important;
   color: var(--reos-bone) !important;
-  border: 1px solid var(--reos-steel) !important;
+  border: none !important;
   box-shadow: none !important;
   transition: none !important;
+  padding: 2px 6px !important;
 }
-/* Popover arrow \u2014 match the tooltip surface so the pointer reads
-   as part of the tooltip rather than a stray graphite triangle. */
+/* Hide the popover arrow \u2014 without a tooltip box, an arrow points
+   at nothing. */
 html body .hr-popover-arrow,
 html body .hr-popover-arrow-wrapper {
-  background-color: transparent !important;
-  border-color: var(--reos-steel) !important;
-  transition: none !important;
-}
-html body .hr-popover-arrow {
-  background-color: var(--reos-graphite) !important;
+  display: none !important;
 }
 
 /* Panel + layout container :hover override \u2014 section 18a-1 paints

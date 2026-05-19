@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.7.82 — built 2026-05-19T12:54:09.580Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var H="[wholesaling-crm-customizer]",Ft="__WS_CRM_DEBUG",Lt=()=>!!window[Ft],p={info(...o){console.log(H,...o)},warn(...o){console.warn(H,...o)},error(...o){console.error(H,...o)},debug(...o){Lt()&&console.log(H,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",C="other",q=new Set,N=()=>{if(window.location.pathname!==M){M=window.location.pathname,C=Z(),p.debug("Page changed:",C,M);for(let o of q)try{o(C)}catch(t){p.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(C),0),()=>{q.delete(o)}),tt=()=>{C=Z(),M=window.location.pathname,p.debug("Router init, current page:",C);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),N()},history.replaceState=function(e,r,a){t(e,r,a),N()},window.addEventListener("popstate",N),setInterval(N,1e3)};var R="0.7.82",B="2026-05-19T12:54:09.580Z";var At=/\/contacts\/detail\/([A-Za-z0-9]+)/,It=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,t=o.match(At);if(!t)return null;let e=o.match(It);return{contactId:t[1],locationId:e?e[1]:null}};var F=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let i,d,h=()=>{b&&b.disconnect(),i!==void 0&&window.clearTimeout(i),d!==void 0&&window.clearInterval(d)},b=new MutationObserver(()=>{let g=a.querySelector(o);g&&(h(),s(g))});b.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let g=a.querySelector(o);g&&(h(),s(g))},r),i=window.setTimeout(()=>{h(),p.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var c={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:c.emerald,orange:c.amber,red:c.crimson},et=o=>{let t=o==="emerald"?c.emeraldGlow:o==="amber"?c.amberGlow:c.slate,e=o==="emerald"?c.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":c.steel,r=o==="emerald"?c.emerald:o==="amber"?c.amber:c.bone;return`
+/* Wholesaling CRM Customizer v0.7.83 — built 2026-05-19T12:59:17.292Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var H="[wholesaling-crm-customizer]",Ft="__WS_CRM_DEBUG",Lt=()=>!!window[Ft],p={info(...o){console.log(H,...o)},warn(...o){console.warn(H,...o)},error(...o){console.error(H,...o)},debug(...o){Lt()&&console.log(H,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",C="other",q=new Set,N=()=>{if(window.location.pathname!==M){M=window.location.pathname,C=Z(),p.debug("Page changed:",C,M);for(let o of q)try{o(C)}catch(t){p.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(C),0),()=>{q.delete(o)}),tt=()=>{C=Z(),M=window.location.pathname,p.debug("Router init, current page:",C);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),N()},history.replaceState=function(e,r,a){t(e,r,a),N()},window.addEventListener("popstate",N),setInterval(N,1e3)};var R="0.7.83",B="2026-05-19T12:59:17.292Z";var At=/\/contacts\/detail\/([A-Za-z0-9]+)/,It=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,t=o.match(At);if(!t)return null;let e=o.match(It);return{contactId:t[1],locationId:e?e[1]:null}};var F=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let i,d,h=()=>{b&&b.disconnect(),i!==void 0&&window.clearTimeout(i),d!==void 0&&window.clearInterval(d)},b=new MutationObserver(()=>{let g=a.querySelector(o);g&&(h(),s(g))});b.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let g=a.querySelector(o);g&&(h(),s(g))},r),i=window.setTimeout(()=>{h(),p.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var c={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:c.emerald,orange:c.amber,red:c.crimson},et=o=>{let t=o==="emerald"?c.emeraldGlow:o==="amber"?c.amberGlow:c.slate,e=o==="emerald"?c.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":c.steel,r=o==="emerald"?c.emerald:o==="amber"?c.amber:c.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -1886,6 +1886,38 @@ html body h4:not([class*="bg-clip-text"]):not([class*="text-transparent"]),
 html body h5:not([class*="bg-clip-text"]):not([class*="text-transparent"]),
 html body h6:not([class*="bg-clip-text"]):not([class*="text-transparent"]),
 html body [role="heading"]:not([class*="bg-clip-text"]):not([class*="text-transparent"]) {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+
+/* 15h. TOP-MENU NAV ITEMS \u2014 the page tabs in the top header bar
+   ("Launchpad", "Dashboard", "Conversations", "Calendars", etc.).
+   GHL paints the active tab with a 2px blue border-bottom + blue
+   text via a 5-class chain:
+       .sidebar-v2-location .hl_header .topmenu-nav .topmenu-navitem.active {
+         border-bottom-color: rgb(56, 160, 219);  // blue #38A0DB
+         color: rgb(56, 160, 219);
+       }
+   The text we already coerce to emerald via FORCE_RULES (inline
+   style on the <a>). But the border-bottom-color is class-driven
+   and not touched by anything yet, so the active tab shows a
+   blue underline against emerald text -- looks broken.
+
+   Per ACTIVE-ACCENT STANDARD: active tab gets emerald accent
+   (text + underline). Hover gets bone (subtle, no color change).
+   The :not(#__reos_never_id) trick gives us ID-level specificity
+   to beat the 5-class GHL chain. */
+html body .topmenu-navitem.active:not(#__reos_never_id),
+html body .topmenu-navitem.router-link-active:not(#__reos_never_id) {
+  border-bottom-color: var(--reos-emerald) !important;
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
+}
+/* Hover state on the inactive tabs -- GHL paints them blue on
+   hover. Coerce to bone (per canonical state model: hover = subtle
+   text shift, no color change). */
+html body .topmenu-navitem:hover:not(#__reos_never_id),
+html body .topmenu-navitem a:hover:not(#__reos_never_id) {
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
 }

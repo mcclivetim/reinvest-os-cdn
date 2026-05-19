@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.8.3 — built 2026-05-19T17:07:58.602Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ct="__WS_CRM_DEBUG",At=()=>!!window[Ct],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){At()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},R="",F="other",q=new Set,H=()=>{if(window.location.pathname!==R){R=window.location.pathname,F=Z(),h.debug("Page changed:",F,R);for(let o of q)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),tt=()=>{F=Z(),R=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),H()},history.replaceState=function(e,r,a){t(e,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var M="0.8.3",B="2026-05-19T17:07:58.603Z";var Lt=/\/contacts\/detail\/([A-Za-z0-9]+)/,It=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,t=o.match(Lt);if(!t)return null;let e=o.match(It);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let c,d,p=()=>{b&&b.disconnect(),c!==void 0&&window.clearTimeout(c),d!==void 0&&window.clearInterval(d)},b=new MutationObserver(()=>{let g=a.querySelector(o);g&&(p(),s(g))});b.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let g=a.querySelector(o);g&&(p(),s(g))},r),c=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},et=o=>{let t=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,e=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
+/* Wholesaling CRM Customizer v0.8.4 — built 2026-05-19T17:28:51.940Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ct="__WS_CRM_DEBUG",At=()=>!!window[Ct],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){At()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},R="",F="other",q=new Set,H=()=>{if(window.location.pathname!==R){R=window.location.pathname,F=Z(),h.debug("Page changed:",F,R);for(let o of q)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),tt=()=>{F=Z(),R=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),H()},history.replaceState=function(e,r,a){t(e,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var M="0.8.4",B="2026-05-19T17:28:51.941Z";var Lt=/\/contacts\/detail\/([A-Za-z0-9]+)/,It=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,t=o.match(Lt);if(!t)return null;let e=o.match(It);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let c,d,p=()=>{b&&b.disconnect(),c!==void 0&&window.clearTimeout(c),d!==void 0&&window.clearInterval(d)},b=new MutationObserver(()=>{let g=a.querySelector(o);g&&(p(),s(g))});b.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let g=a.querySelector(o);g&&(p(),s(g))},r),c=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},et=o=>{let t=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,e=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -1962,14 +1962,26 @@ html body .topmenu-navitem.router-link-active:not(#__reos_never_id) {
   border-bottom-color: var(--reos-emerald) !important;
   color: var(--reos-emerald) !important;
   -webkit-text-fill-color: var(--reos-emerald) !important;
+  /* Kill the emerald-glow box. Section 4 (SIDEBAR) paints
+     [class*='sidebar'] a.active with emerald-glow bg, which catches
+     these top tabs because they live inside .sidebar-v2-location.
+     Per Tim's icon-rail UX: emerald TEXT + emerald UNDERLINE only,
+     no box. */
+  background-color: transparent !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  border-bottom-color: var(--reos-emerald) !important;
+  box-shadow: none !important;
 }
-/* Hover state on the inactive tabs -- GHL paints them blue on
-   hover. Coerce to bone (per canonical state model: hover = subtle
-   text shift, no color change). */
+/* Hover state on inactive tabs \u2014 emerald text (matches the rest
+   of the icon-rail UX across the app: ash default, emerald on
+   hover and when selected, no box). */
 html body .topmenu-navitem:hover:not(#__reos_never_id),
 html body .topmenu-navitem a:hover:not(#__reos_never_id) {
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
+  background-color: transparent !important;
+  background: transparent !important;
 }
 
 /* 15i. CONVERSATION-HEADER ICON BUTTONS \u2014 the row of icon-only action

@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.7.71 — built 2026-05-19T02:30:36.244Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var M="[wholesaling-crm-customizer]",Ct="__WS_CRM_DEBUG",Ft=()=>!!window[Ct],p={info(...o){console.log(M,...o)},warn(...o){console.warn(M,...o)},error(...o){console.error(M,...o)},debug(...o){Ft()&&console.log(M,"[debug]",...o)}};var Y=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},N="",C="other",q=new Set,H=()=>{if(window.location.pathname!==N){N=window.location.pathname,C=Y(),p.debug("Page changed:",C,N);for(let o of q)try{o(C)}catch(t){p.error("Subscriber threw:",t)}}},X=o=>(q.add(o),setTimeout(()=>o(C),0),()=>{q.delete(o)}),J=()=>{C=Y(),N=window.location.pathname,p.debug("Router init, current page:",C);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),H()},history.replaceState=function(e,r,a){t(e,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.7.71",B="2026-05-19T02:30:36.246Z";var At=/\/contacts\/detail\/([A-Za-z0-9]+)/,Lt=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,t=o.match(At);if(!t)return null;let e=o.match(Lt);return{contactId:t[1],locationId:e?e[1]:null}};var F=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((s,i)=>{let n=a.querySelector(o);if(n){s(n);return}let c,d,h=()=>{b&&b.disconnect(),c!==void 0&&window.clearTimeout(c),d!==void 0&&window.clearInterval(d)},b=new MutationObserver(()=>{let f=a.querySelector(o);f&&(h(),s(f))});b.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let f=a.querySelector(o);f&&(h(),s(f))},r),c=window.setTimeout(()=>{h(),p.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},W={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},Z=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.7.72 — built 2026-05-19T02:35:35.435Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var M="[wholesaling-crm-customizer]",Ct="__WS_CRM_DEBUG",Ft=()=>!!window[Ct],p={info(...o){console.log(M,...o)},warn(...o){console.warn(M,...o)},error(...o){console.error(M,...o)},debug(...o){Ft()&&console.log(M,"[debug]",...o)}};var Y=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},N="",C="other",q=new Set,H=()=>{if(window.location.pathname!==N){N=window.location.pathname,C=Y(),p.debug("Page changed:",C,N);for(let o of q)try{o(C)}catch(t){p.error("Subscriber threw:",t)}}},X=o=>(q.add(o),setTimeout(()=>o(C),0),()=>{q.delete(o)}),J=()=>{C=Y(),N=window.location.pathname,p.debug("Router init, current page:",C);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),H()},history.replaceState=function(e,r,a){t(e,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.7.72",B="2026-05-19T02:35:35.435Z";var At=/\/contacts\/detail\/([A-Za-z0-9]+)/,Lt=/\/v2\/location\/([A-Za-z0-9]+)/,_=()=>{let o=window.location.pathname,t=o.match(At);if(!t)return null;let e=o.match(Lt);return{contactId:t[1],locationId:e?e[1]:null}};var F=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((s,i)=>{let n=a.querySelector(o);if(n){s(n);return}let c,d,h=()=>{b&&b.disconnect(),c!==void 0&&window.clearTimeout(c),d!==void 0&&window.clearInterval(d)},b=new MutationObserver(()=>{let f=a.querySelector(o);f&&(h(),s(f))});b.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let f=a.querySelector(o);f&&(h(),s(f))},r),c=window.setTimeout(()=>{h(),p.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},W={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},Z=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2335,6 +2335,116 @@ html body .hr-dropdown-option * {
   transition: none !important;
   animation: none !important;
   box-shadow: none !important;
+}
+
+/* 18a-1d. UNIVERSAL FLICKER-KILL SWEEP \u2014 Tim's question after the
+   v0.7.71 round: 'I assume that the same coercer problem happens
+   throughout. Do you know enough about it now to search the entire
+   code to find and correct those issues?'
+
+   The pattern, fully understood now:
+   1. GHL element has a Tailwind LIGHT-bg class (bg-white, bg-gray-50,
+      bg-[#XXX] arbitrary)
+   2. AND has Tailwind transition class (transition-colors / transition
+      / transition-all)
+   3. Our FORCE_RULE injects inline graphite via setProperty
+   4. Vue re-renders the element on state changes, briefly clobbering
+      the inline style
+   5. During that frame, the Tailwind bg class wins -> bright color
+      visible
+   6. transition-colors animates the bg back to graphite when
+      MutationObserver triggers applyForceRules
+   7. Visible flicker.
+
+   Comprehensive sweep: kill transitions + animations on ANY element
+   that has BOTH a light-bg class AND any transition class. CSS rules
+   survive Vue re-renders since they're stylesheet-based, not inline.
+   So even when Vue clobbers our inline graphite, the static-state
+   rules in section 18a + 18a-1 keep applying, AND the transition
+   kill here prevents any animation from being visible during the
+   render gap.
+
+   The two-condition selector ([class*='bg-X'][class*='transition'])
+   keeps blast radius narrow: only elements with BOTH conditions are
+   targeted. Elements with just a transition class (no light bg) keep
+   their animations. Elements with just a light-bg class (no
+   transition) don't need the fix anyway.
+
+   This should kill the flicker across the entire app \u2014 Conversations
+   tabs, contact-detail panels, all data-table headers, page-headers,
+   buttons, cards, dropdown menus, anywhere GHL pairs light bgs with
+   transitions. */
+html body [class*="bg-white"][class*="transition"],
+html body [class*="bg-gray-50"][class*="transition"],
+html body [class*="bg-gray-100"][class*="transition"],
+html body [class*="bg-gray-200"][class*="transition"],
+html body [class*="bg-slate-50"][class*="transition"],
+html body [class*="bg-slate-100"][class*="transition"],
+html body [class*="bg-neutral-50"][class*="transition"],
+html body [class*="bg-neutral-100"][class*="transition"],
+html body [class*="bg-zinc-50"][class*="transition"],
+html body [class*="bg-zinc-100"][class*="transition"],
+html body [class*="bg-stone-50"][class*="transition"],
+html body [class*="bg-stone-100"][class*="transition"],
+html body [class*="bg-blue-50"][class*="transition"],
+html body [class*="bg-blue-100"][class*="transition"],
+html body [class*="bg-sky-50"][class*="transition"],
+html body [class*="bg-sky-100"][class*="transition"],
+html body [class*="bg-indigo-50"][class*="transition"],
+html body [class*="bg-indigo-100"][class*="transition"],
+html body [class*="F7F9FD"][class*="transition"],
+html body [class*="F7F9FB"][class*="transition"],
+html body [class*="F9FAFB"][class*="transition"],
+html body [class*="ECEEF2"][class*="transition"],
+html body [class*="eff4ff"][class*="transition"],
+html body [class*="EFF4FF"][class*="transition"],
+html body [class*="hover:bg-white"][class*="transition"],
+html body [class*="hover:bg-gray-50"][class*="transition"],
+html body [class*="hover:bg-gray-100"][class*="transition"],
+html body [class*="hover:bg-gray-200"][class*="transition"],
+html body [class*="hover:bg-slate-50"][class*="transition"],
+html body [class*="hover:bg-slate-100"][class*="transition"],
+html body [class*="hover:bg-neutral-50"][class*="transition"],
+html body [class*="hover:bg-zinc-50"][class*="transition"],
+html body [class*="hover:bg-stone-50"][class*="transition"],
+html body [class*="hover:bg-blue-50"][class*="transition"] {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Hover state for ALL light-bg classes that don't already have hover
+   coverage in section 18a-1. This is the static-survival rule: even
+   when Vue clobbers our inline graphite, this CSS keeps the bg
+   correct on hover. Combined with the transition kill above, state
+   changes are both correct AND instant. */
+html body [class*="bg-white"]:hover,
+html body [class*="bg-gray-50"]:hover,
+html body [class*="bg-gray-100"]:hover,
+html body [class*="bg-gray-200"]:hover,
+html body [class*="bg-slate-50"]:hover,
+html body [class*="bg-slate-100"]:hover,
+html body [class*="bg-neutral-50"]:hover,
+html body [class*="bg-neutral-100"]:hover,
+html body [class*="bg-zinc-50"]:hover,
+html body [class*="bg-zinc-100"]:hover,
+html body [class*="bg-stone-50"]:hover,
+html body [class*="bg-stone-100"]:hover,
+html body [class*="bg-blue-50"]:hover,
+html body [class*="bg-blue-100"]:hover,
+html body [class*="bg-sky-50"]:hover,
+html body [class*="bg-sky-100"]:hover,
+html body [class*="bg-indigo-50"]:hover,
+html body [class*="bg-indigo-100"]:hover,
+html body [class*="F7F9FD"]:hover,
+html body [class*="F7F9FB"]:hover,
+html body [class*="F9FAFB"]:hover,
+html body [class*="ECEEF2"]:hover,
+html body [class*="eff4ff"]:hover,
+html body [class*="EFF4FF"]:hover,
+html body [class*="hover:bg-white"]:hover,
+html body [class*="hover:bg-gray-50"]:hover,
+html body [class*="hover:bg-gray-100"]:hover {
+  background-color: var(--reos-slate) !important;
 }
 
 /* 18a-2. Inline-styled whites \u2014 GHL also paints some surfaces via inline

@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.8.74 — built 2026-05-20T12:58:09.620Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),b.debug("Page changed:",F,M);for(let o of q)try{o(F)}catch(e){b.error("Subscriber threw:",e)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),ee=()=>{F=Z(),M=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,a){o(t,r,a),H()},history.replaceState=function(t,r,a){e(t,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.74",B="2026-05-20T12:58:09.620Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(Ie);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=e;return new Promise((i,s)=>{let n=a.querySelector(o);if(n){i(n);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=a.querySelector(o);h&&(p(),i(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=a.querySelector(o);h&&(p(),i(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},te=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.8.75 — built 2026-05-20T13:01:58.834Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),b.debug("Page changed:",F,M);for(let o of q)try{o(F)}catch(e){b.error("Subscriber threw:",e)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),ee=()=>{F=Z(),M=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,a){o(t,r,a),H()},history.replaceState=function(t,r,a){e(t,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.75",B="2026-05-20T13:01:58.835Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(Ie);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=e;return new Promise((i,s)=>{let n=a.querySelector(o);if(n){i(n);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=a.querySelector(o);h&&(p(),i(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=a.querySelector(o);h&&(p(),i(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},te=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -1451,6 +1451,44 @@ html body .n-base-selection-placeholder {
 html body .n-input--focus,
 html body .n-base-selection--focus {
   border-color: var(--reos-emerald) !important;
+}
+
+/* 18a-modal-element-boxes (v0.8.75). Inside .hl-modal / .n-card, the
+   form fields and alert panels were getting an inline steel border
+   painted around each whole field (from our coercer remapping
+   GHL's original gray-200 inline border). With the dark-theme bg
+   contrast, those steel-on-graphite boxes read as "thin steel
+   line around each element" \u2014 cheap-looking against an already
+   well-separated layout (each component already has its own
+   visual padding / typography).
+
+   Strip the box border on:
+     .n-form-item-blank   (form-field wrapper, non-error)
+     .n-select.hl-select  (select wrapper)
+     .n-alert             (Important Notice + similar callouts)
+   Preserve the error-state border (red) by excluding
+   .n-form-item-blank--error from the removal. */
+html body .n-card .n-form-item-blank:not(.n-form-item-blank--error):not(#__reos_never_id),
+html body .n-modal .n-form-item-blank:not(.n-form-item-blank--error):not(#__reos_never_id),
+html body .hl-modal .n-form-item-blank:not(.n-form-item-blank--error):not(#__reos_never_id),
+html body .n-card .n-select.hl-select:not(.n-select--error):not(#__reos_never_id),
+html body .n-modal .n-select.hl-select:not(.n-select--error):not(#__reos_never_id),
+html body .hl-modal .n-select.hl-select:not(.n-select--error):not(#__reos_never_id),
+html body .n-card .n-alert:not(#__reos_never_id),
+html body .n-modal .n-alert:not(#__reos_never_id),
+html body .hl-modal .n-alert:not(#__reos_never_id) {
+  border: none !important;
+  border-width: 0 !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+/* The .n-alert internal __border overlay also paints a stripe. */
+html body .n-card .n-alert .n-alert__border:not(#__reos_never_id),
+html body .n-modal .n-alert .n-alert__border:not(#__reos_never_id),
+html body .hl-modal .n-alert .n-alert__border:not(#__reos_never_id) {
+  border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
 
 /* 18a-n-select-double-border (v0.8.73). On the Tax-ID-Type select

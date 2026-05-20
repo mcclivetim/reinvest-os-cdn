@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.9.63 — built 2026-05-20T22:38:13.445Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ae="__WS_CRM_DEBUG",Le=()=>!!window[Ae],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Le()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},R="",F="other",j=new Set,H=()=>{if(window.location.pathname!==R){R=window.location.pathname,F=Z(),h.debug("Page changed:",F,R);for(let o of j)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(j.add(o),setTimeout(()=>o(F),0),()=>{j.delete(o)}),ee=()=>{F=Z(),R=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var M="0.9.63",B="2026-05-20T22:38:13.445Z";var Ie=/\/contacts\/detail\/([A-Za-z0-9]+)/,De=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Ie);if(!t)return null;let e=o.match(De);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),s(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},K={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},te=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.9.64 — built 2026-05-20T22:41:36.269Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ae="__WS_CRM_DEBUG",Le=()=>!!window[Ae],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Le()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},R="",F="other",j=new Set,H=()=>{if(window.location.pathname!==R){R=window.location.pathname,F=Z(),h.debug("Page changed:",F,R);for(let o of j)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(j.add(o),setTimeout(()=>o(F),0),()=>{j.delete(o)}),ee=()=>{F=Z(),R=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var M="0.9.64",B="2026-05-20T22:41:36.269Z";var Ie=/\/contacts\/detail\/([A-Za-z0-9]+)/,De=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Ie);if(!t)return null;let e=o.match(De);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),s(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},K={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},te=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2552,6 +2552,85 @@ html body [class*="text-purple-"]:not(#__reos_never_id) {
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
+/* 18a-n-button-tertiary (v0.9.64). External Tracking page has
+   two .n-button--tertiary-type buttons (Analytics + Submissions)
+   that ship transparent bg + gray-500 text + gray-200 border +
+   brand-blue hover. Plus the coercer paints slate bg inline.
+   Tim wants them on the common button canon (mirror of v0.9.13
+   default-type): graphite bg, steel border, bone text resting;
+   emerald border + emerald text on hover; emerald-bright pressed;
+   ash + opacity 0.5 on disabled. */
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id),
+html body button.n-button.n-button--tertiary-type:not(#__reos_never_id) {
+  --n-color: transparent !important;
+  --n-color-hover: var(--reos-graphite) !important;
+  --n-color-pressed: var(--reos-graphite) !important;
+  --n-color-focus: var(--reos-graphite) !important;
+  --n-color-disabled: transparent !important;
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-hover: var(--reos-emerald) !important;
+  --n-text-color-pressed: var(--reos-emerald-bright) !important;
+  --n-text-color-focus: var(--reos-emerald) !important;
+  --n-text-color-disabled: var(--reos-ash) !important;
+  --n-border: 1px solid var(--reos-steel) !important;
+  --n-border-hover: 1px solid var(--reos-emerald) !important;
+  --n-border-pressed: 1px solid var(--reos-emerald-bright) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  --n-border-disabled: 1px solid var(--reos-steel) !important;
+  --n-ripple-color: var(--reos-emerald) !important;
+  background-color: var(--reos-graphite) !important;
+  color: var(--reos-bone) !important;
+  border: 1px solid var(--reos-steel) !important;
+}
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover {
+  background-color: var(--reos-graphite) !important;
+  color: var(--reos-emerald) !important;
+  border-color: var(--reos-emerald) !important;
+}
+/* Content span \u2014 beat any inline color paint with !important
+   on the descendant content. */
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-button__content,
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-button__content * {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover .n-button__content,
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover .n-button__content * {
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
+}
+/* Decorative overlay borders */
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-button__border,
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-button__state-border {
+  border-color: var(--reos-steel) !important;
+}
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover .n-button__border,
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover .n-button__state-border {
+  border-color: var(--reos-emerald) !important;
+}
+/* Disabled \u2014 muted ash, no hover, half opacity. */
+html body .n-button.n-button--tertiary-type.n-button--disabled:not(#__reos_never_id),
+html body .n-button.n-button--tertiary-type[disabled]:not(#__reos_never_id) {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  background-color: var(--reos-graphite) !important;
+  color: var(--reos-ash) !important;
+  border-color: var(--reos-steel) !important;
+}
+html body .n-button.n-button--tertiary-type.n-button--disabled:not(#__reos_never_id):hover,
+html body .n-button.n-button--tertiary-type[disabled]:not(#__reos_never_id):hover {
+  background-color: var(--reos-graphite) !important;
+  color: var(--reos-ash) !important;
+  border-color: var(--reos-steel) !important;
+}
+html body .n-button.n-button--tertiary-type.n-button--disabled:not(#__reos_never_id) .n-button__content,
+html body .n-button.n-button--tertiary-type.n-button--disabled:not(#__reos_never_id) .n-button__content *,
+html body .n-button.n-button--tertiary-type[disabled]:not(#__reos_never_id) .n-button__content,
+html body .n-button.n-button--tertiary-type[disabled]:not(#__reos_never_id) .n-button__content * {
+  color: var(--reos-ash) !important;
+  -webkit-text-fill-color: var(--reos-ash) !important;
+}
+
 /* v0.9.63: SVG icons with .text-purple-* \u2192 blue (canon info-
    icon color). Tim's call on the Form Fills checklist icon on
    External Tracking page. Limited to <svg> + child paths so

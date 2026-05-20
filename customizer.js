@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.9.48 — built 2026-05-20T21:07:06.531Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var J=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",W=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=J(),h.debug("Page changed:",F,M);for(let o of W)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Z=o=>(W.add(o),setTimeout(()=>o(F),0),()=>{W.delete(o)}),Q=()=>{F=J(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.9.48",B="2026-05-20T21:07:06.532Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Le);if(!t)return null;let e=o.match(Ie);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((i,s)=>{let a=n.querySelector(o);if(a){i(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),i(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),i(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},ee=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.9.49 — built 2026-05-20T21:18:56.048Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var J=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",W=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=J(),h.debug("Page changed:",F,M);for(let o of W)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Z=o=>(W.add(o),setTimeout(()=>o(F),0),()=>{W.delete(o)}),Q=()=>{F=J(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.9.49",B="2026-05-20T21:18:56.048Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Le);if(!t)return null;let e=o.match(Ie);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((i,s)=>{let a=n.querySelector(o);if(a){i(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),i(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),i(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},ee=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2631,6 +2631,114 @@ html body [class*="hr-alert"] [class*="icon-container"]:not(#__reos_never_id) {
   background-color: transparent !important;
   background: transparent !important;
   border: none !important;
+}
+
+/* 18a-n-alert (v0.9.49). Parallel of .hr-alert for the Naive UI
+   .n-alert family. Found on Billing dashboard: a .hl-warning
+   .n-alert callout that ships with inline --n-color: amber-50,
+   --n-border: amber-200, --n-title-text-color: gray-900,
+   --n-content-text-color: gray-700, --n-icon-color: #f0a020.
+   Override the vars + paint the overlay border + force descendant
+   text colors. Cover all variants via .hl-warning / .hl-error /
+   .hl-info / .hl-success class hooks GHL applies. */
+html body .n-alert:not(#__reos_never_id),
+html body [class*="n-alert"]:not(#__reos_never_id) {
+  --n-color: var(--reos-graphite) !important;
+  --n-title-text-color: var(--reos-bone) !important;
+  --n-content-text-color: var(--reos-ash) !important;
+  --n-close-icon-color: var(--reos-ash) !important;
+  --n-close-icon-color-hover: var(--reos-bone) !important;
+  --n-close-color-hover: var(--reos-steel) !important;
+  --n-close-color-pressed: var(--reos-slate) !important;
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+  border-color: var(--reos-steel) !important;
+}
+/* Overlay border element \u2014 Naive paints the visible ring here. */
+html body .n-alert:not(#__reos_never_id) .n-alert__border,
+html body [class*="n-alert"]:not(#__reos_never_id) .n-alert__border {
+  border-color: var(--reos-steel) !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+/* Warning variant: amber accent. .hl-warning is GHL's class hook;
+   .n-alert--warning is Naive's standard. Cover both. */
+html body .hl-warning.n-alert:not(#__reos_never_id),
+html body .n-alert--warning:not(#__reos_never_id),
+html body [class*="hl-warning"]:not(#__reos_never_id) {
+  --n-color: var(--reos-graphite) !important;
+  --n-icon-color: var(--reos-amber) !important;
+  --n-title-text-color: var(--reos-amber) !important;
+  --n-content-text-color: var(--reos-bone) !important;
+  --n-border: 1px solid var(--reos-amber) !important;
+  border-color: var(--reos-amber) !important;
+}
+html body .hl-warning.n-alert:not(#__reos_never_id) .n-alert__border,
+html body .n-alert--warning:not(#__reos_never_id) .n-alert__border,
+html body [class*="hl-warning"]:not(#__reos_never_id) .n-alert__border {
+  border-color: var(--reos-amber) !important;
+}
+/* Error variant: crimson. */
+html body .hl-error.n-alert:not(#__reos_never_id),
+html body .n-alert--error:not(#__reos_never_id),
+html body [class*="hl-error"].n-alert:not(#__reos_never_id) {
+  --n-icon-color: var(--reos-crimson) !important;
+  --n-title-text-color: var(--reos-crimson) !important;
+  --n-content-text-color: var(--reos-bone) !important;
+  --n-border: 1px solid var(--reos-crimson) !important;
+  border-color: var(--reos-crimson) !important;
+}
+html body .hl-error.n-alert:not(#__reos_never_id) .n-alert__border,
+html body .n-alert--error:not(#__reos_never_id) .n-alert__border {
+  border-color: var(--reos-crimson) !important;
+}
+/* Info variant: blue. */
+html body .hl-info.n-alert:not(#__reos_never_id),
+html body .n-alert--info:not(#__reos_never_id),
+html body [class*="hl-info"].n-alert:not(#__reos_never_id) {
+  --n-icon-color: var(--reos-blue) !important;
+  --n-title-text-color: var(--reos-blue) !important;
+  --n-content-text-color: var(--reos-bone) !important;
+  --n-border: 1px solid var(--reos-blue) !important;
+  border-color: var(--reos-blue) !important;
+}
+html body .hl-info.n-alert:not(#__reos_never_id) .n-alert__border,
+html body .n-alert--info:not(#__reos_never_id) .n-alert__border {
+  border-color: var(--reos-blue) !important;
+}
+/* Success variant: emerald. */
+html body .hl-success.n-alert:not(#__reos_never_id),
+html body .n-alert--success:not(#__reos_never_id),
+html body [class*="hl-success"].n-alert:not(#__reos_never_id) {
+  --n-icon-color: var(--reos-emerald) !important;
+  --n-title-text-color: var(--reos-emerald) !important;
+  --n-content-text-color: var(--reos-bone) !important;
+  --n-border: 1px solid var(--reos-emerald) !important;
+  border-color: var(--reos-emerald) !important;
+}
+html body .hl-success.n-alert:not(#__reos_never_id) .n-alert__border,
+html body .n-alert--success:not(#__reos_never_id) .n-alert__border {
+  border-color: var(--reos-emerald) !important;
+}
+/* Force descendant text \u2014 some title/content nodes have inline
+   color from Naive's data-v scoped CSS that beats var cascade. */
+html body .n-alert:not(#__reos_never_id) .n-alert-body__title,
+html body .n-alert:not(#__reos_never_id) .n-alert-body__title *,
+html body .hl-warning.n-alert:not(#__reos_never_id) .n-alert-body__title,
+html body .hl-warning.n-alert:not(#__reos_never_id) .n-alert-body__title * {
+  color: var(--reos-amber) !important;
+  -webkit-text-fill-color: var(--reos-amber) !important;
+}
+html body .n-alert:not(#__reos_never_id) .n-alert-body__content,
+html body .n-alert:not(#__reos_never_id) .n-alert-body__content * {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+/* Non-warning default title back to bone */
+html body .n-alert:not(.hl-warning):not(.hl-error):not(.hl-info):not(.hl-success):not(#__reos_never_id) .n-alert-body__title,
+html body .n-alert:not(.hl-warning):not(.hl-error):not(.hl-info):not(.hl-success):not(#__reos_never_id) .n-alert-body__title * {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
 /* 18a-missed-call-followup (v0.9.28). Scan on Missed Call Text

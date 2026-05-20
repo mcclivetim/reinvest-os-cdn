@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.9.7 — built 2026-05-20T17:25:03.579Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var J=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",W=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=J(),h.debug("Page changed:",F,M);for(let o of W)try{o(F)}catch(e){h.error("Subscriber threw:",e)}}},Z=o=>(W.add(o),setTimeout(()=>o(F),0),()=>{W.delete(o)}),Q=()=>{F=J(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),H()},history.replaceState=function(t,r,n){e(t,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.9.7",B="2026-05-20T17:25:03.579Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(Ie);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((i,s)=>{let a=n.querySelector(o);if(a){i(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),i(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),i(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},_={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},ee=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.9.8 — built 2026-05-20T17:27:54.277Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var J=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",W=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=J(),h.debug("Page changed:",F,M);for(let o of W)try{o(F)}catch(e){h.error("Subscriber threw:",e)}}},Z=o=>(W.add(o),setTimeout(()=>o(F),0),()=>{W.delete(o)}),Q=()=>{F=J(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),H()},history.replaceState=function(t,r,n){e(t,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.9.8",B="2026-05-20T17:27:54.278Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(Ie);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((i,s)=>{let a=n.querySelector(o);if(a){i(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),i(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),i(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},_={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},ee=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -1655,6 +1655,49 @@ html body .n-form-item.n-form-item--medium-size.hl-form-item:not(#__reos_never_i
   background: transparent !important;
   border: none !important;
   border-color: transparent !important;
+}
+
+/* 18a-organic-booking-page (v0.9.8). Google organic booking
+   tab on the Connections page. Two un-themed surfaces:
+
+   1) .bg-primary-50.text-primary-700 "Before you start" callout
+      \u2014 Tailwind primary-50 is a light lavender bg. Repaint as
+      a subtle slate panel with steel border (treats it as an
+      info card, not a brand-colored callout).
+   2) .n-switch \u2014 Naive UI toggle with inline blue vars:
+        --n-rail-color-active: #155EEF
+        --n-loading-color: #155EEF
+        --n-box-shadow-focus: 0 0 0 2px rgba(21, 94, 239, 0.2)
+      Flip to emerald + kill the blue focus halo. */
+html body .bg-primary-50:not(#__reos_never_id),
+html body [class*="bg-primary-50"]:not(#__reos_never_id) {
+  background-color: var(--reos-slate) !important;
+  background: var(--reos-slate) !important;
+  border: 1px solid var(--reos-steel) !important;
+}
+
+html body .n-switch:not(#__reos_never_id) {
+  --n-rail-color: var(--reos-steel) !important;
+  --n-rail-color-active: var(--reos-emerald) !important;
+  --n-loading-color: var(--reos-emerald) !important;
+  --n-button-color: var(--reos-bone) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--reos-emerald-glow) !important;
+}
+/* Pin the rail bg directly \u2014 our coercer painted it slate
+   inline !important; that's the inactive rail. Set the active
+   rail emerald explicitly so it doesn't fall back to blue. */
+html body .n-switch.n-switch--round:not([aria-checked="true"]):not(#__reos_never_id) .n-switch__rail {
+  background-color: var(--reos-steel) !important;
+}
+html body .n-switch.n-switch--round[aria-checked="true"]:not(#__reos_never_id) .n-switch__rail,
+html body .n-switch.n-switch--active:not(#__reos_never_id) .n-switch__rail {
+  background-color: var(--reos-emerald) !important;
+}
+/* Kill focus halo */
+html body .n-switch:not(#__reos_never_id):focus,
+html body .n-switch:not(#__reos_never_id):focus-visible {
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 /* 18a-settings-body-bg (v0.9.7). The .hl_settings--body wrapper

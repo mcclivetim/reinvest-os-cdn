@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.9.69 — built 2026-05-20T22:58:57.580Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ae="__WS_CRM_DEBUG",Le=()=>!!window[Ae],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Le()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",j=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),h.debug("Page changed:",F,M);for(let o of j)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(j.add(o),setTimeout(()=>o(F),0),()=>{j.delete(o)}),ee=()=>{F=Z(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.9.69",P="2026-05-20T22:58:57.581Z";var Ie=/\/contacts\/detail\/([A-Za-z0-9]+)/,De=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Ie);if(!t)return null;let e=o.match(De);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),s(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},K={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},te=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.9.70 — built 2026-05-20T23:00:54.036Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ae="__WS_CRM_DEBUG",Le=()=>!!window[Ae],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Le()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",j=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),h.debug("Page changed:",F,M);for(let o of j)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(j.add(o),setTimeout(()=>o(F),0),()=>{j.delete(o)}),ee=()=>{F=Z(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.9.70",P="2026-05-20T23:00:54.036Z";var Ie=/\/contacts\/detail\/([A-Za-z0-9]+)/,De=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Ie);if(!t)return null;let e=o.match(De);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),s(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},K={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},te=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2598,21 +2598,24 @@ html body .hr-button.ui-text-btn.ui-text-btn:not(#__reos_never_id) {
   --n-border-pressed: none !important;
   --n-border-focus: none !important;
   --n-text-color: var(--reos-blue) !important;
-  --n-text-color-hover: var(--reos-emerald-bright) !important;
-  --n-text-color-pressed: var(--reos-emerald) !important;
-  --n-text-color-focus: var(--reos-emerald-bright) !important;
+  --n-text-color-hover: var(--reos-blue) !important;
+  --n-text-color-pressed: var(--reos-blue) !important;
+  --n-text-color-focus: var(--reos-blue) !important;
   padding: 0 !important;
   min-height: 0 !important;
   height: auto !important;
 }
+/* Hover: identical to resting \u2014 Tim's call. No emerald flash on
+   .ui-text-btn link-style buttons. The link signals affordance
+   on its own via the blue color + underline. */
 html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id):hover,
 html body button.hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id):hover {
   background-color: transparent !important;
   background: transparent !important;
   border: none !important;
-  color: var(--reos-emerald-bright) !important;
+  color: var(--reos-blue) !important;
 }
-/* Inner content + icon. Force blue resting / emerald-bright hover. */
+/* Inner content + icon. Blue at all times (no hover shift). */
 html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id) .hr-button__content,
 html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id) .hr-button__content *,
 html body .hr-button.ui-text-btn.ui-text-btn:not(#__reos_never_id) .hr-button__content,
@@ -2622,10 +2625,10 @@ html body .hr-button.ui-text-btn.ui-text-btn:not(#__reos_never_id) .hr-button__c
 }
 html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id):hover .hr-button__content,
 html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id):hover .hr-button__content * {
-  color: var(--reos-emerald-bright) !important;
-  -webkit-text-fill-color: var(--reos-emerald-bright) !important;
+  color: var(--reos-blue) !important;
+  -webkit-text-fill-color: var(--reos-blue) !important;
 }
-/* SVG icon inside the button \u2014 stroke + fill blue. */
+/* SVG icon inside the button \u2014 stroke + fill blue, no hover shift. */
 html body .hr-button.ui-text-btn:not(#__reos_never_id) svg,
 html body .hr-button.ui-text-btn:not(#__reos_never_id) svg path {
   color: var(--reos-blue) !important;
@@ -2633,8 +2636,8 @@ html body .hr-button.ui-text-btn:not(#__reos_never_id) svg path {
 }
 html body .hr-button.ui-text-btn:not(#__reos_never_id):hover svg,
 html body .hr-button.ui-text-btn:not(#__reos_never_id):hover svg path {
-  color: var(--reos-emerald-bright) !important;
-  stroke: var(--reos-emerald-bright) !important;
+  color: var(--reos-blue) !important;
+  stroke: var(--reos-blue) !important;
 }
 /* Kill the decorative border overlays (Naive UI inset paint). */
 html body .hr-button.ui-text-btn:not(#__reos_never_id) .hr-button__border,

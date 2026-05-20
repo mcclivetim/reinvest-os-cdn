@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.8.97 — built 2026-05-20T15:51:02.378Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var J=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",W=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=J(),b.debug("Page changed:",F,M);for(let o of W)try{o(F)}catch(e){b.error("Subscriber threw:",e)}}},Z=o=>(W.add(o),setTimeout(()=>o(F),0),()=>{W.delete(o)}),Q=()=>{F=J(),M=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),H()},history.replaceState=function(t,r,n){e(t,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.97",B="2026-05-20T15:51:02.379Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(Ie);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((i,s)=>{let a=n.querySelector(o);if(a){i(a);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=n.querySelector(o);h&&(p(),i(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=n.querySelector(o);h&&(p(),i(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},_={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},ee=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.8.98 — built 2026-05-20T15:54:39.286Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var J=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",W=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=J(),b.debug("Page changed:",F,M);for(let o of W)try{o(F)}catch(e){b.error("Subscriber threw:",e)}}},Z=o=>(W.add(o),setTimeout(()=>o(F),0),()=>{W.delete(o)}),Q=()=>{F=J(),M=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),H()},history.replaceState=function(t,r,n){e(t,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.98",B="2026-05-20T15:54:39.287Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(Ie);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((i,s)=>{let a=n.querySelector(o);if(a){i(a);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=n.querySelector(o);h&&(p(),i(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=n.querySelector(o);h&&(p(),i(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},_={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},ee=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -1667,10 +1667,31 @@ html body [class*="schedule-banner"]:not(#__reos_never_id) {
 }
 /* The "NEW" pill inside the banner. Tailwind ships it dark on
    light by default \u2014 flip to brand-blue pill with bone text. */
-html body .schedule-banner [class*="rounded"]:not(#__reos_never_id),
-html body [class*="schedule-banner"] [class*="rounded"]:not(#__reos_never_id) {
+html body .schedule-banner [class*="rounded"]:not(.schedule-banner-button):not(#__reos_never_id),
+html body [class*="schedule-banner"] [class*="rounded"]:not(.schedule-banner-button):not(#__reos_never_id) {
   background-color: var(--reos-blue) !important;
   color: var(--reos-bone) !important;
+}
+
+/* "Learn more" CTA inside the banner. Originally bg-white +
+   text-blue-700, but our remaps painted both bg and text to
+   --reos-blue \u2192 blue-on-blue = unreadable. Re-theme as a clear
+   CTA: graphite bg + brand-blue text + steel border. */
+html body .schedule-banner-button:not(#__reos_never_id),
+html body [class*="schedule-banner-button"]:not(#__reos_never_id) {
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+  border-color: var(--reos-steel) !important;
+  color: var(--reos-blue) !important;
+}
+html body .schedule-banner-button:not(#__reos_never_id) span,
+html body [class*="schedule-banner-button"]:not(#__reos_never_id) span {
+  color: var(--reos-blue) !important;
+  -webkit-text-fill-color: var(--reos-blue) !important;
+}
+html body .schedule-banner-button:not(#__reos_never_id):hover {
+  background-color: var(--reos-slate) !important;
+  border-color: var(--reos-blue) !important;
 }
 
 /* Light-bg Tailwind arbitrary classes used as page-header

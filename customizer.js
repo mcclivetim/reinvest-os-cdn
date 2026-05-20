@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.8.63 — built 2026-05-20T11:57:15.215Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ct="__WS_CRM_DEBUG",At=()=>!!window[Ct],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){At()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),b.debug("Page changed:",F,M);for(let o of q)try{o(F)}catch(t){b.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),tt=()=>{F=Z(),M=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),H()},history.replaceState=function(e,r,a){t(e,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.63",B="2026-05-20T11:57:15.217Z";var Lt=/\/contacts\/detail\/([A-Za-z0-9]+)/,Dt=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Lt);if(!t)return null;let e=o.match(Dt);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((l,s)=>{let n=a.querySelector(o);if(n){l(n);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=a.querySelector(o);h&&(p(),l(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=a.querySelector(o);h&&(p(),l(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},et=o=>{let t=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,e=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
+/* Wholesaling CRM Customizer v0.8.64 — built 2026-05-20T12:08:44.483Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ct="__WS_CRM_DEBUG",At=()=>!!window[Ct],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){At()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),b.debug("Page changed:",F,M);for(let o of q)try{o(F)}catch(t){b.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),tt=()=>{F=Z(),M=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),H()},history.replaceState=function(e,r,a){t(e,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.64",B="2026-05-20T12:08:44.484Z";var Lt=/\/contacts\/detail\/([A-Za-z0-9]+)/,Dt=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Lt);if(!t)return null;let e=o.match(Dt);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((l,s)=>{let n=a.querySelector(o);if(n){l(n);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=a.querySelector(o);h&&(p(),l(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=a.querySelector(o);h&&(p(),l(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},et=o=>{let t=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,e=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -3971,6 +3971,106 @@ html body div:has(> [class*="icon"]) > p.ui-text-sm-normal:not(#__reos_never_id)
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
   opacity: 1 !important;
+}
+
+/* 18a-icon-primary (v0.8.64). The .icon.icon-primary circular badge
+   on the Billing \u2192 Payment Methods card holds the bank-account
+   glyph. GHL ships it as a white circle with a navy/dark bank icon.
+   Our coercer remaps the BG to slate (visible in the inline
+   background-color: rgb(26, 31, 40)), but the SVG renders with
+   stroke="currentColor" inheriting from inline color: rgb(237, 238,
+   240) (bone) \u2014 so the bank lines are bone, the circle is slate.
+
+   On the dark theme, the "big white circle" Tim describes is the
+   PARENT card wrapper (the payment method tile) still painting
+   white behind the slate-circle icon. Repaint the icon circle to
+   slate explicitly + flip the bank SVG strokes to brand blue. */
+html body .icon.icon-primary,
+html body div.icon.icon-primary,
+html body span.icon.icon-primary,
+html body [class*="icon-primary"]:not(#__reos_never_id) {
+  background-color: var(--reos-slate) !important;
+  border-color: var(--reos-steel) !important;
+  border-radius: 50% !important;
+  box-shadow: none !important;
+  color: var(--reos-blue) !important;
+}
+html body .icon.icon-primary svg,
+html body .icon.icon-primary svg path,
+html body .icon.icon-primary svg circle,
+html body .icon.icon-primary svg rect,
+html body .icon.icon-primary svg line,
+html body [class*="icon-primary"]:not(#__reos_never_id) svg,
+html body [class*="icon-primary"]:not(#__reos_never_id) svg path,
+html body [class*="icon-primary"]:not(#__reos_never_id) svg circle {
+  color: var(--reos-blue) !important;
+  stroke: var(--reos-blue) !important;
+  fill: none !important;
+}
+
+/* The PARENT card wrapper around .icon-primary on the Payment
+   Methods card. Targeting the immediate parent via :has() so any
+   light bg on the card gets repainted graphite. */
+html body div:has(> .icon.icon-primary):not(#__reos_never_id),
+html body div:has(> div.icon.icon-primary):not(#__reos_never_id) {
+  background-color: transparent !important;
+}
+
+/* 18a-billing-cancel (v0.8.64). The Cancel button on the Billing
+   Details modal footer (#BillingDetailsFooter-btn-negative-action)
+   ships with Naive UI inline variables in GHL blue:
+     --n-text-color: rgba(52, 64, 84, 1)    -- dark gray
+     --n-text-color-hover: #004EEB          -- GHL blue
+     --n-border: 1px solid rgb(224, 224, 230)
+   Section 7's .n-button rule pins the right vars in our stylesheet,
+   but Naive's inline vars (no !important) STILL win over our
+   stylesheet !important when set inline on the button element.
+   That made the hover go GHL-blue + the border stay gray.
+
+   Bump to ID-level specificity (:not(#__reos_never_id)) so we beat
+   Vue scoped CSS, and pin the inline-style hover-text + border
+   colors directly. Scoped to default-type so we don't disturb
+   primary/error/success variants. */
+html body .n-button.n-button--default-type:not(#__reos_never_id),
+html body button.n-button.n-button--default-type:not(#__reos_never_id) {
+  --n-color: transparent !important;
+  --n-color-hover: var(--reos-graphite) !important;
+  --n-color-pressed: var(--reos-graphite) !important;
+  --n-color-focus: var(--reos-graphite) !important;
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-hover: var(--reos-emerald) !important;
+  --n-text-color-pressed: var(--reos-emerald-bright) !important;
+  --n-text-color-focus: var(--reos-emerald) !important;
+  --n-border: 1px solid var(--reos-cool-gray) !important;
+  --n-border-hover: 1px solid var(--reos-emerald) !important;
+  --n-border-pressed: 1px solid var(--reos-emerald-bright) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  --n-ripple-color: var(--reos-emerald) !important;
+  background-color: var(--reos-slate) !important;
+  color: var(--reos-bone) !important;
+  border: 1px solid var(--reos-cool-gray) !important;
+}
+html body .n-button.n-button--default-type:not(#__reos_never_id):hover,
+html body .n-button.n-button--default-type:not(#__reos_never_id):focus,
+html body .n-button.n-button--default-type:not(#__reos_never_id):active {
+  background-color: var(--reos-graphite) !important;
+  color: var(--reos-emerald) !important;
+  border-color: var(--reos-emerald) !important;
+}
+html body .n-button.n-button--default-type:not(#__reos_never_id):hover .n-button__content,
+html body .n-button.n-button--default-type:not(#__reos_never_id):focus .n-button__content {
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
+}
+html body .n-button.n-button--default-type:not(#__reos_never_id) .n-button__border,
+html body .n-button.n-button--default-type:not(#__reos_never_id) .n-button__state-border {
+  border: 1px solid var(--reos-cool-gray) !important;
+}
+html body .n-button.n-button--default-type:not(#__reos_never_id):hover .n-button__border,
+html body .n-button.n-button--default-type:not(#__reos_never_id):hover .n-button__state-border,
+html body .n-button.n-button--default-type:not(#__reos_never_id):focus .n-button__border,
+html body .n-button.n-button--default-type:not(#__reos_never_id):focus .n-button__state-border {
+  border: 1px solid var(--reos-emerald) !important;
 }
 
 /* 18a-checkboxes (v0.8.51 \u2192 v0.8.53). Tim's spec for checkboxes

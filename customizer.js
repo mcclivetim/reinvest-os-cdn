@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.8.81 — built 2026-05-20T13:25:12.052Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),b.debug("Page changed:",F,M);for(let o of q)try{o(F)}catch(e){b.error("Subscriber threw:",e)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),ee=()=>{F=Z(),M=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),H()},history.replaceState=function(t,r,n){e(t,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.81",B="2026-05-20T13:25:12.053Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(Ie);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((i,s)=>{let a=n.querySelector(o);if(a){i(a);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=n.querySelector(o);h&&(p(),i(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=n.querySelector(o);h&&(p(),i(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},te=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.8.82 — built 2026-05-20T13:32:32.472Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),b.debug("Page changed:",F,M);for(let o of q)try{o(F)}catch(e){b.error("Subscriber threw:",e)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),ee=()=>{F=Z(),M=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),H()},history.replaceState=function(t,r,n){e(t,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.82",B="2026-05-20T13:32:32.473Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(Ie);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((i,s)=>{let a=n.querySelector(o);if(a){i(a);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=n.querySelector(o);h&&(p(),i(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=n.querySelector(o);h&&(p(),i(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},te=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -4291,18 +4291,24 @@ html body .n-checkbox,
 html body .hr-checkbox,
 html body [class*="n-checkbox"],
 html body [class*="hr-checkbox"] {
-  --n-color: var(--reos-slate) !important;
+  /* v0.8.82: unchecked box bg \u2192 steel (was slate). Slate is the
+     same shade as most modal/page surfaces \u2014 the box disappeared
+     into the bg. Steel is one shade lighter so the unchecked
+     box reads against the dark surface. Checked stays brand
+     blue. Border becomes cool-gray to keep the outline visible
+     against the new lighter bg. */
+  --n-color: var(--reos-steel) !important;
   --n-color-checked: var(--reos-blue) !important;
-  --n-color-table: var(--reos-slate) !important;
-  --n-color-table-modal: var(--reos-slate) !important;
-  --n-color-table-popover: var(--reos-slate) !important;
-  --n-color-disabled: var(--reos-slate) !important;
+  --n-color-table: var(--reos-steel) !important;
+  --n-color-table-modal: var(--reos-steel) !important;
+  --n-color-table-popover: var(--reos-steel) !important;
+  --n-color-disabled: var(--reos-steel) !important;
   --n-color-disabled-checked: var(--reos-blue) !important;
-  --n-color-hover: var(--reos-slate) !important;
-  --n-border: 1px solid var(--reos-steel) !important;
+  --n-color-hover: var(--reos-steel) !important;
+  --n-border: 1px solid var(--reos-cool-gray) !important;
   --n-border-checked: 1px solid var(--reos-blue) !important;
   --n-border-focus: 1px solid var(--reos-blue) !important;
-  --n-border-disabled: 1px solid var(--reos-steel) !important;
+  --n-border-disabled: 1px solid var(--reos-cool-gray) !important;
   --n-border-disabled-checked: 1px solid var(--reos-blue) !important;
   --n-box-shadow-focus: none !important;
   --n-check-mark-color: var(--reos-bone) !important;
@@ -4312,8 +4318,8 @@ html body [class*="hr-checkbox"] {
 /* Box itself (computed bg from --n-color) */
 html body .n-checkbox-box,
 html body .hr-checkbox-box {
-  background-color: var(--reos-slate) !important;
-  background: var(--reos-slate) !important;
+  background-color: var(--reos-steel) !important;
+  background: var(--reos-steel) !important;
 }
 html body .n-checkbox--checked .n-checkbox-box,
 html body .hr-checkbox--checked .hr-checkbox-box,
@@ -4324,10 +4330,11 @@ html body [aria-checked="true"] .hr-checkbox-box {
   background-color: var(--reos-blue) !important;
   background: var(--reos-blue) !important;
 }
-/* Border layers */
+/* Border layers \u2014 cool-gray on unchecked so the box outline
+   stays visible against the lighter steel bg (v0.8.82). */
 html body .n-checkbox-box__border,
 html body .hr-checkbox-box__border {
-  border: 1px solid var(--reos-steel) !important;
+  border: 1px solid var(--reos-cool-gray) !important;
   box-shadow: none !important;
 }
 html body .n-checkbox--checked .n-checkbox-box__border,
@@ -4407,8 +4414,8 @@ html body .n-checkbox:not(#__reos_never_id):hover .n-checkbox-box,
 html body .hr-checkbox:not(#__reos_never_id):hover .hr-checkbox-box,
 html body .n-checkbox-box:not(#__reos_never_id):hover,
 html body .hr-checkbox-box:not(#__reos_never_id):hover {
-  background-color: var(--reos-slate) !important;
-  background: var(--reos-slate) !important;
+  background-color: var(--reos-steel) !important;
+  background: var(--reos-steel) !important;
 }
 html body .n-checkbox--checked:not(#__reos_never_id):hover .n-checkbox-box,
 html body .hr-checkbox--checked:not(#__reos_never_id):hover .hr-checkbox-box,
@@ -4474,7 +4481,7 @@ html body .n-checkbox.n-checkbox:not(.n-checkbox--disabled):not(#__reos_never_id
 html body .hr-checkbox.hr-checkbox:not(.hr-checkbox--disabled):not(#__reos_never_id):hover .hr-checkbox-box__border {
   background: transparent !important;
   background-color: transparent !important;
-  border: 1px solid var(--reos-steel) !important;
+  border: 1px solid var(--reos-cool-gray) !important;
 }
 /* Checked-state hover: keep blue border, no mint bg */
 html body .hl-checkbox.n-checkbox--checked:not(#__reos_never_id):hover .n-checkbox-box__border,
@@ -4508,16 +4515,16 @@ html body [aria-checked="true"][aria-checked="true"]:not(#__reos_never_id):hover
      ancestor requirement) so the green-on-white render stops. */
 html body .n-checkbox-box.n-checkbox-box:not(#__reos_never_id),
 html body .hr-checkbox-box.hr-checkbox-box:not(#__reos_never_id) {
-  background-color: var(--reos-slate) !important;
-  background: var(--reos-slate) !important;
-  border-color: var(--reos-steel) !important;
+  background-color: var(--reos-steel) !important;
+  background: var(--reos-steel) !important;
+  border-color: var(--reos-cool-gray) !important;
 }
 html body .n-checkbox-box.n-checkbox-box:not(#__reos_never_id):hover,
 html body .hr-checkbox-box.hr-checkbox-box:not(#__reos_never_id):hover,
 html body .n-checkbox:not(#__reos_never_id):hover .n-checkbox-box,
 html body .hr-checkbox:not(#__reos_never_id):hover .hr-checkbox-box {
-  background-color: var(--reos-slate) !important;
-  background: var(--reos-slate) !important;
+  background-color: var(--reos-steel) !important;
+  background: var(--reos-steel) !important;
 }
 html body .n-checkbox--checked.n-checkbox--checked .n-checkbox-box:not(#__reos_never_id),
 html body .hr-checkbox--checked.hr-checkbox--checked .hr-checkbox-box:not(#__reos_never_id),

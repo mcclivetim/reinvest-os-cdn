@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.8.84 — built 2026-05-20T13:49:23.975Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var J=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=J(),b.debug("Page changed:",F,M);for(let o of q)try{o(F)}catch(e){b.error("Subscriber threw:",e)}}},Z=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),Q=()=>{F=J(),M=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,a){o(t,r,a),H()},history.replaceState=function(t,r,a){e(t,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.84",B="2026-05-20T13:49:23.975Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,De=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(De);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=e;return new Promise((i,s)=>{let n=a.querySelector(o);if(n){i(n);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=a.querySelector(o);h&&(p(),i(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=a.querySelector(o);h&&(p(),i(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},ee=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.8.85 — built 2026-05-20T13:55:51.140Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var J=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=J(),b.debug("Page changed:",F,M);for(let o of q)try{o(F)}catch(e){b.error("Subscriber threw:",e)}}},Z=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),Q=()=>{F=J(),M=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,a){o(t,r,a),H()},history.replaceState=function(t,r,a){e(t,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.85",B="2026-05-20T13:55:51.141Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,De=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(De);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=e;return new Promise((i,s)=>{let n=a.querySelector(o);if(n){i(n);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=a.querySelector(o);h&&(p(),i(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=a.querySelector(o);h&&(p(),i(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},ee=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -1443,6 +1443,54 @@ html body .n-base-selection-placeholder {
 html body .n-input--focus,
 html body .n-base-selection--focus {
   border-color: var(--reos-emerald) !important;
+}
+
+/* 18a-n-data-table (v0.8.85). The Naive UI .n-data-table is used
+   for the Calendars \u2192 Appointments list (and other paginated
+   list views). Two things to address:
+   1. Empty-state text 'No upcoming appointments' + the subtitle
+      uses GHL's text-gray-900 / text-gray-600 Tailwind classes.
+      Our section 15 catches those, but on first-paint before our
+      customizer cascade settles, the text can render as the
+      original dark-on-dark gray. Pin the colors directly on the
+      .n-data-table-empty container so the text stays readable
+      from first paint.
+   2. The header row's bottom border + the table base bg should
+      use theme tokens to match the rest of the app. */
+html body .n-data-table:not(#__reos_never_id),
+html body .n-data-table-wrapper:not(#__reos_never_id),
+html body .n-data-table-base-table:not(#__reos_never_id) {
+  background-color: var(--reos-graphite) !important;
+  color: var(--reos-bone) !important;
+}
+html body .n-data-table-th:not(#__reos_never_id) {
+  background-color: var(--reos-slate) !important;
+  color: var(--reos-bone) !important;
+  border-bottom: 1px solid var(--reos-steel) !important;
+}
+html body .n-data-table-td:not(#__reos_never_id) {
+  background-color: transparent !important;
+  color: var(--reos-bone) !important;
+  border-bottom: 1px solid var(--reos-steel) !important;
+}
+/* Empty state \u2014 heading bone, subtitle ash, both at full opacity
+   regardless of original .text-gray-900 / .text-gray-600 classes. */
+html body .n-data-table-empty:not(#__reos_never_id),
+html body .n-data-table-empty:not(#__reos_never_id) * {
+  opacity: 1 !important;
+}
+html body .n-data-table-empty:not(#__reos_never_id) .text-gray-900,
+html body .n-data-table-empty:not(#__reos_never_id) [class*="text-gray-9"],
+html body .n-data-table-empty:not(#__reos_never_id) [class*="font-medium"]:not([class*="text-gray-6"]):not([class*="text-gray-5"]):not([class*="text-gray-4"]) {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+html body .n-data-table-empty:not(#__reos_never_id) .text-gray-600,
+html body .n-data-table-empty:not(#__reos_never_id) .text-gray-500,
+html body .n-data-table-empty:not(#__reos_never_id) [class*="text-gray-6"],
+html body .n-data-table-empty:not(#__reos_never_id) [class*="text-gray-5"] {
+  color: var(--reos-ash) !important;
+  -webkit-text-fill-color: var(--reos-ash) !important;
 }
 
 /* 18a-form-input-hairlines (v0.8.80). The Tax ID input shows:

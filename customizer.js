@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.8.49 — built 2026-05-20T02:54:15.624Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},H="",F="other",q=new Set,M=()=>{if(window.location.pathname!==H){H=window.location.pathname,F=Z(),b.debug("Page changed:",F,H);for(let o of q)try{o(F)}catch(e){b.error("Subscriber threw:",e)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),ee=()=>{F=Z(),H=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,a){o(t,r,a),M()},history.replaceState=function(t,r,a){e(t,r,a),M()},window.addEventListener("popstate",M),setInterval(M,1e3)};var R="0.8.49",B="2026-05-20T02:54:15.624Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,De=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(De);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=e;return new Promise((l,s)=>{let n=a.querySelector(o);if(n){l(n);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=a.querySelector(o);h&&(p(),l(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=a.querySelector(o);h&&(p(),l(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},te=o=>{let e=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,t=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
+/* Wholesaling CRM Customizer v0.8.50 — built 2026-05-20T02:57:39.941Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},H="",F="other",q=new Set,M=()=>{if(window.location.pathname!==H){H=window.location.pathname,F=Z(),b.debug("Page changed:",F,H);for(let o of q)try{o(F)}catch(e){b.error("Subscriber threw:",e)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),ee=()=>{F=Z(),H=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,a){o(t,r,a),M()},history.replaceState=function(t,r,a){e(t,r,a),M()},window.addEventListener("popstate",M),setInterval(M,1e3)};var R="0.8.50",B="2026-05-20T02:57:39.942Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,De=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(De);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=e;return new Promise((l,s)=>{let n=a.querySelector(o);if(n){l(n);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=a.querySelector(o);h&&(p(),l(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=a.querySelector(o);h&&(p(),l(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},te=o=>{let e=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,t=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -3946,13 +3946,13 @@ html body .n-dropdown-option[data-option-type="error"]:hover,
 html body .n-dropdown-option--error:hover,
 html body .n-dropdown-option[class*="delete"]:hover,
 html body .n-dropdown-option[class*="error"]:hover,
-html body .n-dropdown-option:has(svg path[d^="M3 6h18"]):hover,
-html body .n-dropdown-option:has(svg path[d^="M19 7l"]):hover,
-html body .n-dropdown-option:has(svg path[d*="M19 7l-.867"]):hover,
+html body .n-dropdown-option:has(svg path[d*="M9 3h6"]):hover,
+html body .n-dropdown-option:has(svg path[d*="M3 6h18"]):hover,
+html body .n-dropdown-option:has(svg path[d*="M19 7l"]):hover,
 html body .n-dropdown-option:has(svg path[d*="trash"]):hover,
 html body .n-dropdown-option:has([class*="trash"]):hover,
 html body .n-dropdown-option:has([class*="delete"]):hover,
-html body .n-dropdown-option:has(svg path[d^="m20.13"]):hover {
+html body .n-dropdown-option:has(svg path[d*="m20.13"]):hover {
   color: var(--reos-crimson) !important;
   -webkit-text-fill-color: var(--reos-crimson) !important;
   background-color: rgba(212, 63, 74, 0.10) !important;
@@ -3965,20 +3965,20 @@ html body .n-dropdown-option[class*="delete"]:hover svg,
 html body .n-dropdown-option[class*="delete"]:hover svg path,
 html body .n-dropdown-option[class*="error"]:hover svg,
 html body .n-dropdown-option[class*="error"]:hover svg path,
-html body .n-dropdown-option:has(svg path[d^="M3 6h18"]):hover svg,
-html body .n-dropdown-option:has(svg path[d^="M3 6h18"]):hover svg path,
-html body .n-dropdown-option:has(svg path[d^="M19 7l"]):hover svg,
-html body .n-dropdown-option:has(svg path[d^="M19 7l"]):hover svg path,
-html body .n-dropdown-option:has(svg path[d*="M19 7l-.867"]):hover svg,
-html body .n-dropdown-option:has(svg path[d*="M19 7l-.867"]):hover svg path,
+html body .n-dropdown-option:has(svg path[d*="M9 3h6"]):hover svg,
+html body .n-dropdown-option:has(svg path[d*="M9 3h6"]):hover svg path,
+html body .n-dropdown-option:has(svg path[d*="M3 6h18"]):hover svg,
+html body .n-dropdown-option:has(svg path[d*="M3 6h18"]):hover svg path,
+html body .n-dropdown-option:has(svg path[d*="M19 7l"]):hover svg,
+html body .n-dropdown-option:has(svg path[d*="M19 7l"]):hover svg path,
 html body .n-dropdown-option:has(svg path[d*="trash"]):hover svg,
 html body .n-dropdown-option:has(svg path[d*="trash"]):hover svg path,
 html body .n-dropdown-option:has([class*="trash"]):hover svg,
 html body .n-dropdown-option:has([class*="trash"]):hover svg path,
 html body .n-dropdown-option:has([class*="delete"]):hover svg,
 html body .n-dropdown-option:has([class*="delete"]):hover svg path,
-html body .n-dropdown-option:has(svg path[d^="m20.13"]):hover svg,
-html body .n-dropdown-option:has(svg path[d^="m20.13"]):hover svg path {
+html body .n-dropdown-option:has(svg path[d*="m20.13"]):hover svg,
+html body .n-dropdown-option:has(svg path[d*="m20.13"]):hover svg path {
   color: var(--reos-crimson) !important;
   stroke: var(--reos-crimson) !important;
 }

@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.9.46 — built 2026-05-20T20:51:18.092Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var J=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",W=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=J(),h.debug("Page changed:",F,M);for(let o of W)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Z=o=>(W.add(o),setTimeout(()=>o(F),0),()=>{W.delete(o)}),Q=()=>{F=J(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.9.46",B="2026-05-20T20:51:18.092Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Le);if(!t)return null;let e=o.match(Ie);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((i,s)=>{let a=n.querySelector(o);if(a){i(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),i(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),i(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},ee=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.9.47 — built 2026-05-20T20:57:15.897Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var J=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",W=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=J(),h.debug("Page changed:",F,M);for(let o of W)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Z=o=>(W.add(o),setTimeout(()=>o(F),0),()=>{W.delete(o)}),Q=()=>{F=J(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.9.47",B="2026-05-20T20:57:15.897Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Le);if(!t)return null;let e=o.match(Ie);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((i,s)=>{let a=n.querySelector(o);if(a){i(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),i(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),i(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},ee=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -1937,16 +1937,17 @@ html body .hr-data-table:not(#__reos_never_id) .hr-data-table-th {
   transition-duration: 0s !important;
 }
 
-/* 18a-learn-more-link (v0.9.46). The 4 'Learn More' buttons on
-   Trust Center service cards use class .learn-more-button.
-   Tim wants them styled as link-only (brand blue text, no
-   button chrome). Override:
-     bg / border / shadow \u2192 none
-     text color \u2192 brand blue
-     hover \u2192 emerald-bright (text-only, no bg flash) */
-html body button.learn-more-button:not(#__reos_never_id),
-html body .learn-more-button:not(#__reos_never_id),
-html body [class*="learn-more-button"]:not(#__reos_never_id) {
+/* 18a-learn-more-link (v0.9.47). v0.9.46 lost the specificity
+   battle to v0.9.13's .hr-button.hr-button--default-type rule
+   (0,1,2,2) \u2014 Learn More rendered bone text + steel border +
+   emerald hover. Fix: chain .hr-button.hr-button--default-type
+   into the selector so we reach (0,1,3,2) resting and (0,1,4,2)
+   hover, and class-double .learn-more-button as a belt-and-
+   suspenders booster. Goal: clean blue text link, NO chrome at
+   all (no bg, no border, no overlay), emerald-bright on hover. */
+html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id),
+html body button.hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id),
+html body .learn-more-button.learn-more-button.learn-more-button:not(#__reos_never_id) {
   background-color: transparent !important;
   background: transparent !important;
   border: none !important;
@@ -1966,24 +1967,57 @@ html body [class*="learn-more-button"]:not(#__reos_never_id) {
   --n-text-color-pressed: var(--reos-emerald) !important;
   --n-text-color-focus: var(--reos-emerald-bright) !important;
   padding: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
 }
-html body button.learn-more-button:not(#__reos_never_id) .hr-button__content,
-html body .learn-more-button:not(#__reos_never_id) .hr-button__content,
-html body [class*="learn-more-button"]:not(#__reos_never_id) .hr-button__content {
+/* Hover: still no chrome \u2014 only the text color flips. v0.9.13
+   hover is (0,1,3,2), we need (0,1,4,2). */
+html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id):hover,
+html body button.hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id):hover {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  color: var(--reos-emerald-bright) !important;
+}
+/* Inner .hr-button__content text \u2014 beats v0.9.13's
+   (0,1,3,2) resting / (0,1,4,2) hover content rules. */
+html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id) .hr-button__content,
+html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id) .hr-button__content *,
+html body .learn-more-button.learn-more-button.learn-more-button:not(#__reos_never_id) .hr-button__content,
+html body .learn-more-button.learn-more-button.learn-more-button:not(#__reos_never_id) .hr-button__content * {
   color: var(--reos-blue) !important;
   -webkit-text-fill-color: var(--reos-blue) !important;
 }
-html body button.learn-more-button:not(#__reos_never_id):hover .hr-button__content,
-html body .learn-more-button:not(#__reos_never_id):hover .hr-button__content {
+html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id):hover .hr-button__content,
+html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id):hover .hr-button__content *,
+html body .learn-more-button.learn-more-button.learn-more-button:not(#__reos_never_id):hover .hr-button__content,
+html body .learn-more-button.learn-more-button.learn-more-button:not(#__reos_never_id):hover .hr-button__content * {
   color: var(--reos-emerald-bright) !important;
   -webkit-text-fill-color: var(--reos-emerald-bright) !important;
 }
-/* Decorative border overlays from HR-button must also vanish. */
-html body .learn-more-button:not(#__reos_never_id) .hr-button__border,
-html body .learn-more-button:not(#__reos_never_id) .hr-button__state-border,
-html body .learn-more-button:not(#__reos_never_id) .hr-base-wave {
+/* Kill the decorative border overlays. v0.9.13 sets
+   .hr-button .hr-button__border to cool-gray (0,1,2,2) and on
+   :hover to emerald (0,1,3,2). We bump to (0,1,3,2) resting /
+   (0,1,4,2) hover by adding .learn-more-button into the chain. */
+html body .hr-button.learn-more-button:not(#__reos_never_id) .hr-button__border,
+html body .hr-button.learn-more-button:not(#__reos_never_id) .hr-button__state-border,
+html body .hr-button.learn-more-button:not(#__reos_never_id) .hr-base-wave,
+html body .learn-more-button.learn-more-button:not(#__reos_never_id) .hr-button__border,
+html body .learn-more-button.learn-more-button:not(#__reos_never_id) .hr-button__state-border,
+html body .learn-more-button.learn-more-button:not(#__reos_never_id) .hr-base-wave {
   display: none !important;
   border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+html body .hr-button.learn-more-button:not(#__reos_never_id):hover .hr-button__border,
+html body .hr-button.learn-more-button:not(#__reos_never_id):hover .hr-button__state-border,
+html body .learn-more-button.learn-more-button:not(#__reos_never_id):hover .hr-button__border,
+html body .learn-more-button.learn-more-button:not(#__reos_never_id):hover .hr-button__state-border {
+  display: none !important;
+  border: none !important;
+  border-color: transparent !important;
 }
 
 /* 18a-trust-center-sweep (v0.9.45). Trust Center page scan

@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.8.62 — built 2026-05-20T04:18:59.979Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ct="__WS_CRM_DEBUG",At=()=>!!window[Ct],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){At()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),b.debug("Page changed:",F,M);for(let o of q)try{o(F)}catch(t){b.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),tt=()=>{F=Z(),M=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),H()},history.replaceState=function(e,r,a){t(e,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.62",B="2026-05-20T04:18:59.979Z";var Lt=/\/contacts\/detail\/([A-Za-z0-9]+)/,Dt=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Lt);if(!t)return null;let e=o.match(Dt);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((l,s)=>{let n=a.querySelector(o);if(n){l(n);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=a.querySelector(o);h&&(p(),l(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=a.querySelector(o);h&&(p(),l(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},et=o=>{let t=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,e=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
+/* Wholesaling CRM Customizer v0.8.63 — built 2026-05-20T11:57:15.215Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ct="__WS_CRM_DEBUG",At=()=>!!window[Ct],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){At()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),b.debug("Page changed:",F,M);for(let o of q)try{o(F)}catch(t){b.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),tt=()=>{F=Z(),M=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),H()},history.replaceState=function(e,r,a){t(e,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.63",B="2026-05-20T11:57:15.217Z";var Lt=/\/contacts\/detail\/([A-Za-z0-9]+)/,Dt=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Lt);if(!t)return null;let e=o.match(Dt);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((l,s)=>{let n=a.querySelector(o);if(n){l(n);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=a.querySelector(o);h&&(p(),l(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=a.querySelector(o);h&&(p(),l(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},et=o=>{let t=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,e=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -3926,6 +3926,51 @@ html body [style*="background:#f2f4f7"]:not(#__reos_never_id) {
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
   border-color: var(--reos-steel) !important;
+}
+
+/* 18a-info-banner (v0.8.63). Inline info banner inside the
+   delete-contact confirmation modal:
+     "(i)  Deleted contacts can be restored within 2 months"
+
+   The banner ships as:
+     <div class="..."><svg .../><p class="ui-text-sm-normal">...</p></div>
+   with a light-blue / light-gray bg that reads as a bright white
+   strip on the dark theme, and faded text inside that's nearly
+   invisible.
+
+   Two paths:
+   1) Structural: any wrapper that has BOTH an svg/i sibling AND a
+      <p class="ui-text-sm-normal"> child looks like an info banner.
+      Repaint bg \u2192 graphite (one shade up from modal slate), border
+      \u2192 steel, text \u2192 bone.
+   2) Defensive: also paint the <p> + its descendants directly so the
+      inline -webkit-text-fill-color doesn't bleed back through. */
+html body div:has(> p.ui-text-sm-normal):has(> svg):not(#__reos_never_id),
+html body div:has(> p.ui-text-sm-normal):has(> i):not(#__reos_never_id),
+html body div:has(> p.ui-text-sm-normal):has(> [class*="icon"]):not(#__reos_never_id),
+html body section:has(> p.ui-text-sm-normal):has(> svg):not(#__reos_never_id) {
+  background: var(--reos-graphite) !important;
+  background-color: var(--reos-graphite) !important;
+  border-color: var(--reos-steel) !important;
+}
+
+/* Icon color inside the banner \u2014 flip muted gray \u2192 ash so the
+   info glyph reads on graphite. */
+html body div:has(> p.ui-text-sm-normal):has(> svg):not(#__reos_never_id) > svg,
+html body div:has(> p.ui-text-sm-normal):has(> svg):not(#__reos_never_id) > svg path,
+html body div:has(> p.ui-text-sm-normal):has(> svg):not(#__reos_never_id) > svg circle {
+  color: var(--reos-ash) !important;
+  stroke: var(--reos-ash) !important;
+  fill: var(--reos-ash) !important;
+}
+
+/* Text inside the banner \u2014 bone for readability on graphite. */
+html body div:has(> svg) > p.ui-text-sm-normal:not(#__reos_never_id),
+html body div:has(> i) > p.ui-text-sm-normal:not(#__reos_never_id),
+html body div:has(> [class*="icon"]) > p.ui-text-sm-normal:not(#__reos_never_id) {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+  opacity: 1 !important;
 }
 
 /* 18a-checkboxes (v0.8.51 \u2192 v0.8.53). Tim's spec for checkboxes

@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.8.34 — built 2026-05-20T00:03:48.020Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},R="",F="other",q=new Set,H=()=>{if(window.location.pathname!==R){R=window.location.pathname,F=Z(),b.debug("Page changed:",F,R);for(let o of q)try{o(F)}catch(e){b.error("Subscriber threw:",e)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),ee=()=>{F=Z(),R=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,a){o(t,r,a),H()},history.replaceState=function(t,r,a){e(t,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var M="0.8.34",B="2026-05-20T00:03:48.020Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(Ie);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=e;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let d,c,p=()=>{h&&h.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},h=new MutationObserver(()=>{let g=a.querySelector(o);g&&(p(),s(g))});h.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let g=a.querySelector(o);g&&(p(),s(g))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},te=o=>{let e=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,t=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
+/* Wholesaling CRM Customizer v0.8.35 — built 2026-05-20T01:15:50.532Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},R="",F="other",q=new Set,H=()=>{if(window.location.pathname!==R){R=window.location.pathname,F=Z(),b.debug("Page changed:",F,R);for(let o of q)try{o(F)}catch(e){b.error("Subscriber threw:",e)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),ee=()=>{F=Z(),R=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,a){o(t,r,a),H()},history.replaceState=function(t,r,a){e(t,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var M="0.8.35",B="2026-05-20T01:15:50.533Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,e=o.match(Le);if(!e)return null;let t=o.match(Ie);return{contactId:e[1],locationId:t?t[1]:null}};var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:a=document}=e;return new Promise((s,l)=>{let n=a.querySelector(o);if(n){s(n);return}let d,c,p=()=>{h&&h.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},h=new MutationObserver(()=>{let g=a.querySelector(o);g&&(p(),s(g))});h.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let g=a.querySelector(o);g&&(p(),s(g))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),l(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},te=o=>{let e=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,t=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2232,6 +2232,47 @@ html body [style*="--provider-color: #155eef"] svg,
 html body [style*="--provider-color: #155eef"] svg path {
   color: var(--reos-blue) !important;
   stroke: var(--reos-blue) !important;
+}
+
+/* 15a-n-select (v0.8.35). Naive UI .n-base-selection (the Day/Week
+   view dropdown trigger on the calendar page, and any other
+   n-select on the dark theme) ships with two border layers:
+   - .n-base-selection__border: 1px solid light-gray (default state)
+   - .n-base-selection__state-border: 1px solid light-green +
+     box-shadow rgb(209, 224, 255) 0 0 0 4px (focus state, light
+     blue glow)
+
+   Combined on hover/focus the dropdown reads as a green-bordered
+   button with a light-blue 4px halo \u2014 Tim's 'greenish overlay'
+   complaint. Match the Today button treatment: steel default,
+   emerald hover/focus border, no glow shadow. */
+html body .n-base-selection .n-base-selection__border,
+html body [class*="n-base-selection"] .n-base-selection__border {
+  border: 1px solid var(--reos-steel) !important;
+  border-color: var(--reos-steel) !important;
+}
+html body .n-base-selection .n-base-selection__state-border,
+html body [class*="n-base-selection"] .n-base-selection__state-border {
+  border: 1px solid transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+html body .n-base-selection:hover .n-base-selection__border,
+html body .n-base-selection:focus .n-base-selection__border,
+html body .n-base-selection:focus-within .n-base-selection__border,
+html body [class*="n-base-selection"]:hover .n-base-selection__border,
+html body [class*="n-base-selection"]:focus-within .n-base-selection__border {
+  border-color: var(--reos-emerald) !important;
+}
+html body .n-base-selection:hover .n-base-selection__state-border,
+html body .n-base-selection:focus .n-base-selection__state-border,
+html body .n-base-selection:focus-within .n-base-selection__state-border,
+html body .n-base-selection--focus .n-base-selection__state-border,
+html body [class*="n-base-selection"]:hover .n-base-selection__state-border,
+html body [class*="n-base-selection"]:focus-within .n-base-selection__state-border {
+  border: 1px solid var(--reos-emerald) !important;
+  border-color: var(--reos-emerald) !important;
+  box-shadow: none !important;
 }
 
 /* 15a-customizations-btn-hover (v0.8.32). Tim wants the Manage

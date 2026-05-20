@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.9.60 — built 2026-05-20T22:19:02.964Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ae="__WS_CRM_DEBUG",Le=()=>!!window[Ae],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Le()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},R="",F="other",j=new Set,H=()=>{if(window.location.pathname!==R){R=window.location.pathname,F=Z(),h.debug("Page changed:",F,R);for(let o of j)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(j.add(o),setTimeout(()=>o(F),0),()=>{j.delete(o)}),ee=()=>{F=Z(),R=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var M="0.9.60",B="2026-05-20T22:19:02.965Z";var Ie=/\/contacts\/detail\/([A-Za-z0-9]+)/,De=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Ie);if(!t)return null;let e=o.match(De);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),s(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},K={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},te=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.9.61 — built 2026-05-20T22:26:25.204Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ae="__WS_CRM_DEBUG",Le=()=>!!window[Ae],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Le()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},R="",F="other",j=new Set,H=()=>{if(window.location.pathname!==R){R=window.location.pathname,F=Z(),h.debug("Page changed:",F,R);for(let o of j)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(j.add(o),setTimeout(()=>o(F),0),()=>{j.delete(o)}),ee=()=>{F=Z(),R=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var M="0.9.61",B="2026-05-20T22:26:25.205Z";var Ie=/\/contacts\/detail\/([A-Za-z0-9]+)/,De=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Ie);if(!t)return null;let e=o.match(De);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),s(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},K={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},te=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -3207,16 +3207,37 @@ html body [class~="bg-primary-50"]:not(#__reos_never_id) a * {
   color: var(--reos-blue) !important;
   -webkit-text-fill-color: var(--reos-blue) !important;
 }
-/* v0.9.60: bg-primary-100 \u2014 inner fill of accent icon containers
-   (Objects settings page: each card's round emerald-ring icon
-   wrapper has class=".text-primary-600 border-primary-50 bg-
-   primary-100 rounded-full"). Default Tailwind ships light blue
-   rgb(209, 224, 255). Remap to emerald-glow so the inner fill
-   matches the emerald border ring + icon. */
+/* v0.9.60: bg-primary-100 \u2014 inner fill of accent icon containers.
+   v0.9.61 REVERSAL: Tim doesn't want the round badge backdrop on
+   the Objects settings cards. Strip the circle entirely (bg +
+   border + width) on the round-badge pattern. Standalone bg-
+   primary-100 elsewhere (rare) keeps a fallback emerald-glow. */
 html body .bg-primary-100:not(#__reos_never_id),
 html body [class~="bg-primary-100"]:not(#__reos_never_id) {
   background-color: var(--reos-emerald-glow) !important;
   background: var(--reos-emerald-glow) !important;
+}
+/* Round-badge variant on Objects-page object cards \u2014 Tim wants
+   it gone: no circle, no ring, no glow. Just the emerald icon. */
+html body .bg-primary-100.rounded-full:not(#__reos_never_id),
+html body [class~="bg-primary-100"][class~="rounded-full"]:not(#__reos_never_id) {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  border-color: transparent !important;
+}
+/* Force SVG icon fill to emerald \u2014 GHL ships a native rule:
+     .custom-obj-list .custom-icon path { fill: rgb(21, 94, 239) }
+   That brand-dark-blue is baked directly into the fill prop,
+   beating the currentColor inheritance from .text-primary-600.
+   Override at higher specificity with !important. */
+html body .custom-obj-list .custom-icon path:not(#__reos_never_id),
+html body .custom-obj-list svg.custom-icon path:not(#__reos_never_id),
+html body .bg-primary-100.rounded-full svg path:not(#__reos_never_id),
+html body .bg-primary-100.rounded-full path:not(#__reos_never_id),
+html body [class~="bg-primary-100"] svg.custom-icon path:not(#__reos_never_id) {
+  fill: var(--reos-emerald) !important;
 }
 
 html body .n-switch:not(#__reos_never_id) {

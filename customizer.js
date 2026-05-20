@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.9.47 — built 2026-05-20T20:57:15.897Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var J=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",W=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=J(),h.debug("Page changed:",F,M);for(let o of W)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Z=o=>(W.add(o),setTimeout(()=>o(F),0),()=>{W.delete(o)}),Q=()=>{F=J(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.9.47",B="2026-05-20T20:57:15.897Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Le);if(!t)return null;let e=o.match(Ie);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((i,s)=>{let a=n.querySelector(o);if(a){i(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),i(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),i(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},ee=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.9.48 — built 2026-05-20T21:07:06.531Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ce="__WS_CRM_DEBUG",Ae=()=>!!window[Ce],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ae()&&console.log(N,"[debug]",...o)}};var J=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",W=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=J(),h.debug("Page changed:",F,M);for(let o of W)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Z=o=>(W.add(o),setTimeout(()=>o(F),0),()=>{W.delete(o)}),Q=()=>{F=J(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.9.48",B="2026-05-20T21:07:06.532Z";var Le=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ie=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Le);if(!t)return null;let e=o.match(Ie);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((i,s)=>{let a=n.querySelector(o);if(a){i(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),i(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),i(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},ee=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2018,6 +2018,83 @@ html body .learn-more-button.learn-more-button:not(#__reos_never_id):hover .hr-b
   display: none !important;
   border: none !important;
   border-color: transparent !important;
+}
+
+/* 18a-sms-provider-sweep (v0.9.48). SMS Provider settings tab
+   uses three families we hadn't covered yet:
+     .hr-radio-group         \u2014 wrapper that sets --n-button-*
+                               CSS vars (brand-blue + gray-200)
+     .hr-radio-button        \u2014 large row container (Lead Connector
+                               selector card)
+     .hr-radio-button__state-border \u2014 overlay border on row hover/
+                               checked (brand-blue by default)
+     .ui-radio-group-item-* \u2014 text children inside the row
+   Map: bg \u2192 graphite, border \u2192 steel (emerald when checked),
+   text \u2192 bone/ash, brand-blue accents \u2192 emerald canon. */
+html body .hr-radio-group:not(#__reos_never_id),
+html body [class*="hr-radio-group"]:not(#__reos_never_id) {
+  --n-button-border-color: var(--reos-steel) !important;
+  --n-button-border-color-active: var(--reos-emerald) !important;
+  --n-button-border-radius: 8px !important;
+  --n-button-box-shadow: inset 0 0 0 1px transparent !important;
+  --n-button-box-shadow-focus: inset 0 0 0 1px var(--reos-emerald), 0 0 0 2px var(--reos-emerald-glow) !important;
+  --n-button-box-shadow-hover: inset 0 0 0 1px var(--reos-emerald) !important;
+  --n-button-color: var(--reos-graphite) !important;
+  --n-button-color-active: var(--reos-graphite) !important;
+  --n-button-text-color: var(--reos-bone) !important;
+  --n-button-text-color-hover: var(--reos-emerald) !important;
+  --n-button-text-color-active: var(--reos-emerald) !important;
+}
+/* Row container \u2014 graphite bg, steel border, bone text. */
+html body .hr-radio-button:not(#__reos_never_id),
+html body label.hr-radio-button:not(#__reos_never_id) {
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+  border-color: var(--reos-steel) !important;
+  color: var(--reos-bone) !important;
+}
+/* Checked row \u2014 emerald border ring, NOT a slate bg. */
+html body .hr-radio-button.hr-radio-button--checked:not(#__reos_never_id),
+html body label.hr-radio-button.hr-radio-button--checked:not(#__reos_never_id) {
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+  border-color: var(--reos-emerald) !important;
+  color: var(--reos-bone) !important;
+}
+/* Overlay state-border (the actual ring users see) */
+html body .hr-radio-button:not(#__reos_never_id) .hr-radio-button__state-border {
+  border-color: var(--reos-steel) !important;
+  box-shadow: inset 0 0 0 1px var(--reos-steel) !important;
+}
+html body .hr-radio-button.hr-radio-button--checked:not(#__reos_never_id) .hr-radio-button__state-border,
+html body .hr-radio-button:not(#__reos_never_id):hover .hr-radio-button__state-border {
+  border-color: var(--reos-emerald) !important;
+  box-shadow: inset 0 0 0 1px var(--reos-emerald) !important;
+}
+/* Inner row text \u2014 title is bone, description is ash. */
+html body .ui-radio-group-item-content:not(#__reos_never_id) p.ui-text-sm-medium,
+html body .hr-radio-button:not(#__reos_never_id) p.ui-text-sm-medium {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+html body .ui-radio-group-item-content:not(#__reos_never_id) p.ui-text-sm-regular,
+html body .hr-radio-button:not(#__reos_never_id) p.ui-text-sm-regular {
+  color: var(--reos-ash) !important;
+  -webkit-text-fill-color: var(--reos-ash) !important;
+}
+/* Provider logo background \u2014 the round bg-none chip on the
+   Lead Connector image is fine, but if any sibling renders a
+   bg-white halo around it, kill it. */
+html body .ui-radio-group-item-icon:not(#__reos_never_id) img {
+  background: transparent !important;
+}
+/* hr-divider parent \u2014 Naive divider line lives inside but the
+   parent also has --n-color set from inline; pin the var so any
+   computed color falls back to steel even on direct line use. */
+html body .hr-divider:not(#__reos_never_id),
+html body [class*="hr-divider"]:not(#__reos_never_id) {
+  --n-color: var(--reos-steel) !important;
+  --n-text-color: var(--reos-ash) !important;
 }
 
 /* 18a-trust-center-sweep (v0.9.45). Trust Center page scan

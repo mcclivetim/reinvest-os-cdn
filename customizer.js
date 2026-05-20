@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.8.59 — built 2026-05-20T04:01:01.760Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ct="__WS_CRM_DEBUG",At=()=>!!window[Ct],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){At()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),b.debug("Page changed:",F,M);for(let o of q)try{o(F)}catch(t){b.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),tt=()=>{F=Z(),M=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),H()},history.replaceState=function(e,r,a){t(e,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.59",B="2026-05-20T04:01:01.761Z";var Lt=/\/contacts\/detail\/([A-Za-z0-9]+)/,Dt=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Lt);if(!t)return null;let e=o.match(Dt);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((l,s)=>{let n=a.querySelector(o);if(n){l(n);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=a.querySelector(o);h&&(p(),l(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=a.querySelector(o);h&&(p(),l(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},et=o=>{let t=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,e=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
+/* Wholesaling CRM Customizer v0.8.60 — built 2026-05-20T04:07:13.091Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ct="__WS_CRM_DEBUG",At=()=>!!window[Ct],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){At()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),b.debug("Page changed:",F,M);for(let o of q)try{o(F)}catch(t){b.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),tt=()=>{F=Z(),M=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),H()},history.replaceState=function(e,r,a){t(e,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.60",B="2026-05-20T04:07:13.092Z";var Lt=/\/contacts\/detail\/([A-Za-z0-9]+)/,Dt=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Lt);if(!t)return null;let e=o.match(Dt);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((l,s)=>{let n=a.querySelector(o);if(n){l(n);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=a.querySelector(o);h&&(p(),l(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=a.querySelector(o);h&&(p(),l(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var i={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:i.emerald,orange:i.amber,red:i.crimson},et=o=>{let t=o==="emerald"?i.emeraldGlow:o==="amber"?i.amberGlow:i.slate,e=o==="emerald"?i.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":i.steel,r=o==="emerald"?i.emerald:o==="amber"?i.amber:i.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -4020,6 +4020,41 @@ html body input[type="checkbox"]:not(.n-checkbox):not(.hr-checkbox):not([class*=
   border: none !important;
   transform: none !important;
   display: block !important;
+}
+
+/* 18a-copy-icon (v0.8.60). The copy-icon button next to phone /
+   email cells in the contacts table \u2014 inline ships with
+   'background: white' + 'border: 1px solid #D0D5DD'. Tim wants:
+   - Slate bg + steel border
+   - Brand-blue copy icon (and the checkmark icon shown after
+     click \u2014 same color spec)
+   - Inline styles lose to CSS !important so this overrides them. */
+html body .copy-icon,
+html body span.copy-icon {
+  background-color: var(--reos-slate) !important;
+  background: var(--reos-slate) !important;
+  border: 1px solid var(--reos-steel) !important;
+  border-radius: 4px !important;
+}
+html body .copy-icon svg,
+html body .copy-icon svg path,
+html body span.copy-icon svg,
+html body span.copy-icon svg path {
+  color: var(--reos-blue) !important;
+  stroke: var(--reos-blue) !important;
+  fill: none !important;
+}
+/* Post-click checkmark state \u2014 many implementations swap the SVG
+   path or add a .copied / .success class. Cover broadly:
+   any svg inside .copy-icon stays blue regardless of state. */
+html body .copy-icon.copied svg,
+html body .copy-icon.copied svg path,
+html body .copy-icon.success svg,
+html body .copy-icon.success svg path,
+html body .copy-icon[data-copied="true"] svg,
+html body .copy-icon[data-copied="true"] svg path {
+  color: var(--reos-blue) !important;
+  stroke: var(--reos-blue) !important;
 }
 
 /* 18a-list-contact-options-icon (v0.8.54). The 3-dot trigger on

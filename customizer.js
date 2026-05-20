@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.8.66 — built 2026-05-20T12:19:00.790Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ct="__WS_CRM_DEBUG",At=()=>!!window[Ct],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){At()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),b.debug("Page changed:",F,M);for(let o of q)try{o(F)}catch(t){b.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),tt=()=>{F=Z(),M=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),H()},history.replaceState=function(e,r,a){t(e,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.66",B="2026-05-20T12:19:00.790Z";var Lt=/\/contacts\/detail\/([A-Za-z0-9]+)/,Dt=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Lt);if(!t)return null;let e=o.match(Dt);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((i,s)=>{let n=a.querySelector(o);if(n){i(n);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=a.querySelector(o);h&&(p(),i(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=a.querySelector(o);h&&(p(),i(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},et=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.8.67 — built 2026-05-20T12:21:17.612Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ct="__WS_CRM_DEBUG",At=()=>!!window[Ct],b={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){At()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",q=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),b.debug("Page changed:",F,M);for(let o of q)try{o(F)}catch(t){b.error("Subscriber threw:",t)}}},Q=o=>(q.add(o),setTimeout(()=>o(F),0),()=>{q.delete(o)}),tt=()=>{F=Z(),M=window.location.pathname,b.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,a){o(e,r,a),H()},history.replaceState=function(e,r,a){t(e,r,a),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var R="0.8.67",B="2026-05-20T12:21:17.612Z";var Lt=/\/contacts\/detail\/([A-Za-z0-9]+)/,Dt=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Lt);if(!t)return null;let e=o.match(Dt);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:a=document}=t;return new Promise((i,s)=>{let n=a.querySelector(o);if(n){i(n);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=a.querySelector(o);h&&(p(),i(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=a.querySelector(o);h&&(p(),i(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),s(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},j={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},et=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -4186,41 +4186,21 @@ html body .hr-checkbox-icon svg path {
 }
 /* Standalone .check-icon SVGs (NOT inside .n-checkbox / .hr-checkbox).
    These appear as task-completed indicators, verification checkmarks,
-   etc. Apply our 'checked' palette: brand blue glyph fill so the
-   checkmark reads as on-brand. The scoped rule above (3865) already
-   handles the in-checkbox case (bone fill on blue box).
+   etc. Paint the PATH blue so the checkmark glyph reads as on-brand
+   when visible.
 
-   Also paint the IMMEDIATE parent of a standalone .check-icon to
-   slate bg + steel border + blue (matches our checkbox shape) when
-   that parent looks like a box wrapper (square aspect, padded).
-   Use :has() to detect the parent. */
+   v0.8.66 also painted the immediate parent (span/div) blue via
+   :has(> svg.check-icon) \u2014 but the .check-icon is present in the
+   DOM in BOTH checked and unchecked states (Naive UI keeps it
+   permanently mounted and hides it via opacity on unchecked).
+   So the wrapper-paint rule turned unchecked boxes blue. v0.8.67
+   drops the wrapper rule \u2014 let the existing .n-checkbox / .hr-checkbox
+   --n-color-checked variable do the bg color via the checked state. */
 html body svg.check-icon:not(.n-checkbox .check-icon):not(.hr-checkbox .check-icon),
 html body svg.check-icon:not(.n-checkbox .check-icon):not(.hr-checkbox .check-icon) path {
   color: var(--reos-blue) !important;
   fill: var(--reos-blue) !important;
   stroke: var(--reos-blue) !important;
-}
-/* If the .check-icon sits inside a wrapper (typical pattern: a
-   <span> / <div> styled as a 16x16 box), paint that wrapper to
-   match our checkbox-checked spec: blue bg + matching border, with
-   the SVG glyph flipped to bone for the on-blue contrast.
-   Scoped to immediate-parent + standalone-only via :not() chain. */
-html body span:has(> svg.check-icon):not(.n-checkbox):not(.hr-checkbox):not(#__reos_never_id),
-html body div:has(> svg.check-icon):not(.n-checkbox):not(.hr-checkbox):not(#__reos_never_id),
-html body [class*="check-wrapper"]:not(#__reos_never_id),
-html body [class*="check-box"]:not([class*="hr-checkbox"]):not([class*="n-checkbox"]):not(#__reos_never_id) {
-  background-color: var(--reos-blue) !important;
-  border: 1px solid var(--reos-blue) !important;
-  border-radius: 3px !important;
-  box-shadow: none !important;
-}
-html body span:has(> svg.check-icon):not(.n-checkbox):not(.hr-checkbox):not(#__reos_never_id) > svg.check-icon,
-html body span:has(> svg.check-icon):not(.n-checkbox):not(.hr-checkbox):not(#__reos_never_id) > svg.check-icon path,
-html body div:has(> svg.check-icon):not(.n-checkbox):not(.hr-checkbox):not(#__reos_never_id) > svg.check-icon,
-html body div:has(> svg.check-icon):not(.n-checkbox):not(.hr-checkbox):not(#__reos_never_id) > svg.check-icon path {
-  color: var(--reos-bone) !important;
-  fill: var(--reos-bone) !important;
-  stroke: var(--reos-bone) !important;
 }
 
 /* No focus ring on Naive/HR checkboxes either (matches the native

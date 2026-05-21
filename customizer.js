@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.10.15 — built 2026-05-21T18:48:28.919Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var H="[wholesaling-crm-customizer]",Le="__WS_CRM_DEBUG",Ie=()=>!!window[Le],h={info(...o){console.log(H,...o)},warn(...o){console.warn(H,...o)},error(...o){console.error(H,...o)},debug(...o){Ie()&&console.log(H,"[debug]",...o)}};var Q=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},N="",F="other",K=new Set,M=()=>{if(window.location.pathname!==N){N=window.location.pathname,F=Q(),h.debug("Page changed:",F,N);for(let o of K)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},ee=o=>(K.add(o),setTimeout(()=>o(F),0),()=>{K.delete(o)}),te=()=>{F=Q(),N=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),M()},history.replaceState=function(e,r,n){t(e,r,n),M()},window.addEventListener("popstate",M),setInterval(M,1e3)};var P="0.10.15",R="2026-05-21T18:48:28.919Z";var De=/\/contacts\/detail\/([A-Za-z0-9]+)/,He=/\/v2\/location\/([A-Za-z0-9]+)/,T=()=>{let o=window.location.pathname,t=o.match(De);if(!t)return null;let e=o.match(He);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let l=n.querySelector(o);l&&(p(),s(l))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let l=n.querySelector(o);l&&(p(),s(l))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var c={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},k={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},Y={purple:"#8B5CF6",green:c.emerald,orange:c.amber,red:c.crimson},oe=o=>{let t=o==="emerald"?c.emeraldGlow:o==="amber"?c.amberGlow:c.slate,e=o==="emerald"?c.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":c.steel,r=o==="emerald"?c.emerald:o==="amber"?c.amber:c.bone;return`
+/* Wholesaling CRM Customizer v0.10.16 — built 2026-05-21T18:53:18.382Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var H="[wholesaling-crm-customizer]",Le="__WS_CRM_DEBUG",Ie=()=>!!window[Le],h={info(...o){console.log(H,...o)},warn(...o){console.warn(H,...o)},error(...o){console.error(H,...o)},debug(...o){Ie()&&console.log(H,"[debug]",...o)}};var Q=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},N="",F="other",K=new Set,M=()=>{if(window.location.pathname!==N){N=window.location.pathname,F=Q(),h.debug("Page changed:",F,N);for(let o of K)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},ee=o=>(K.add(o),setTimeout(()=>o(F),0),()=>{K.delete(o)}),te=()=>{F=Q(),N=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),M()},history.replaceState=function(e,r,n){t(e,r,n),M()},window.addEventListener("popstate",M),setInterval(M,1e3)};var P="0.10.16",R="2026-05-21T18:53:18.382Z";var De=/\/contacts\/detail\/([A-Za-z0-9]+)/,He=/\/v2\/location\/([A-Za-z0-9]+)/,T=()=>{let o=window.location.pathname,t=o.match(De);if(!t)return null;let e=o.match(He);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let l=n.querySelector(o);l&&(p(),s(l))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let l=n.querySelector(o);l&&(p(),s(l))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var c={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},k={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},Y={purple:"#8B5CF6",green:c.emerald,orange:c.amber,red:c.crimson},oe=o=>{let t=o==="emerald"?c.emeraldGlow:o==="amber"?c.amberGlow:c.slate,e=o==="emerald"?c.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":c.steel,r=o==="emerald"?c.emerald:o==="amber"?c.amber:c.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -860,11 +860,11 @@ header.hl_header,
 /* v0.10.15: belt-and-suspenders for the .bg-white page-section
    heading wrappers (Inventory + Collections pages: a .bg-white
    div wraps the page title and subtitle, leaking white through
-   the page chrome). The `.bg-white` rule above maps the class,
+   the page chrome). The .bg-white rule above maps the class,
    but Tailwind utility class order or v-scoped overrides can
    beat it. Pin descendants of bg-white wrappers to bone text
-   so the "Inventory" / "Collections" heading reads bone, and
-   the subtitle (`.text-gray-500`) flips to ash. */
+   so the Inventory / Collections heading reads bone, and
+   the subtitle (.text-gray-500) flips to ash. */
 html body .bg-white:not(#__reos_never_id),
 html body div.bg-white:not(#__reos_never_id),
 html body [class~="bg-white"]:not(#__reos_never_id) {
@@ -883,7 +883,7 @@ html body .bg-white [class*="text-gray-5"]:not(#__reos_never_id) {
   -webkit-text-fill-color: var(--reos-ash) !important;
 }
 
-/* 7. PRIMARY BUTTONS — emerald CTA, obsidian text, bold */
+/* 7. PRIMARY BUTTONS \u2014 emerald CTA, obsidian text, bold */
 .btn-primary,
 button.primary,
 [class*="btn-primary"],
@@ -900,7 +900,7 @@ button.primary:hover,
   background: var(--reos-emerald-bright) !important;
 }
 
-/* 8. SECONDARY BUTTONS — outlined, steel border */
+/* 8. SECONDARY BUTTONS \u2014 outlined, steel border */
 .btn-secondary,
 button.secondary,
 [class*="btn-secondary"],
@@ -916,7 +916,7 @@ button.secondary:hover {
   background: var(--reos-slate) !important;
 }
 
-/* 9. INPUTS — slate fill, emerald focus ring.
+/* 9. INPUTS \u2014 slate fill, emerald focus ring.
    GHL uses a custom hr-input component (BEM-style classes). We have to
    match the GHL-namespaced classes to outrank their default text color:
    a single tag selector "input" loses on specificity to the GHL class
@@ -957,7 +957,7 @@ select:focus,
 /* Kill the universal input:focus 1px emerald box-shadow on the
    hidden inputs inside Naive UI select + n-input. Those components
    draw their own focus ring via .n-base-selection__state-border /
-   .n-input__state-border overlay — the universal rule stacked a
+   .n-input__state-border overlay \u2014 the universal rule stacked a
    2nd emerald ring that bled outside the inner overlay, creating
    the 'double border' Tim observed. */
 html body .n-base-selection-input:focus,
@@ -968,7 +968,7 @@ html body .n-input__input-el:focus-visible {
   box-shadow: none !important;
   outline: none !important;
 }
-/* Checkboxes/radios: no focus ring (Tim's spec — no hover/focus
+/* Checkboxes/radios: no focus ring (Tim's spec \u2014 no hover/focus
    state for checkboxes since they're heavy in long lists). */
 html body input[type="checkbox"]:focus,
 html body input[type="checkbox"]:focus-visible,
@@ -990,14 +990,14 @@ textarea::placeholder,
   color: var(--reos-cool-gray) !important;
 }
 
-/* Labels for inputs — small mono caps in ash */
+/* Labels for inputs \u2014 small mono caps in ash */
 label,
 .form-label,
 [class*="field-label"] {
   color: var(--reos-ash) !important;
 }
 
-/* 10. TABLES — dark rows, hairline borders, mono header */
+/* 10. TABLES \u2014 dark rows, hairline borders, mono header */
 table,
 .table,
 [role="table"] {
@@ -1005,7 +1005,7 @@ table,
   border-collapse: collapse !important;
 }
 /* v0.8.84: removed font-size + text-transform: uppercase +
-   letter-spacing + font-weight overrides — those made native
+   letter-spacing + font-weight overrides \u2014 those made native
    text look custom-stylized (Tabulator column headers especially).
    Native GHL typography wins; we only keep the dark-theme bg /
    color / border colors. */
@@ -1028,7 +1028,7 @@ table tr:hover td,
   background: var(--reos-slate) !important;
 }
 
-/* 11. PIPELINE — opportunity cards on board view */
+/* 11. PIPELINE \u2014 opportunity cards on board view */
 .opportunity-card,
 [class*="opportunity-tile"] {
   background: var(--reos-graphite) !important;
@@ -1071,7 +1071,7 @@ table tr:hover td,
   background: rgba(0, 0, 0, 0.6) !important;
 }
 
-/* 12a. NAIVE UI COMPONENTS — GHL's newer modals (Book Appointment, etc.)
+/* 12a. NAIVE UI COMPONENTS \u2014 GHL's newer modals (Book Appointment, etc.)
    render with Naive UI (Vue lib, n-* class prefix). Naive UI ships its
    own scoped theme that ignores our CSS unless we explicitly target
    the n-* classes. Override the most common components here.
@@ -1081,7 +1081,7 @@ table tr:hover td,
    override the rendered output rather than the variables because
    variable overrides only apply to specific component instances. */
 
-/* n-button (the pills Tim saw whited out) — kill default light fill,
+/* n-button (the pills Tim saw whited out) \u2014 kill default light fill,
    use slate body with bone text. Default+secondary+tertiary all
    look the same except for accent borders.
 
@@ -1092,7 +1092,7 @@ table tr:hover td,
    too, the static state was themed but hover/pressed reverted to GHL
    blue, and the decorative .n-button__border / .n-button__state-border
    children (which draw via var(--n-border)) painted a 1px light-gray
-   line on top — reading as a "white outline" on the dark surface.
+   line on top \u2014 reading as a "white outline" on the dark surface.
 
    Override every state's --n-* variables AND the direct color
    properties so all states stay on the REOS palette. */
@@ -1124,7 +1124,7 @@ html body .n-button__content {
 /* High-specificity static-color rule for default n-button. GHL's Vue
    scoped CSS (.n-button[data-v-xxxxx]) sets specificity (0,0,2,0) for
    color rules, beating html body .n-button at (0,0,1,2). Bumping with
-   five :not() class exclusions takes us to (0,0,7,2) — comfortably above
+   five :not() class exclusions takes us to (0,0,7,2) \u2014 comfortably above
    any Vue scoped variant. Excludes the semantic-type buttons that have
    their own color rules. */
 html body .n-button:not(.n-button--primary-type):not(.n-button--error-type):not(.n-button--warning-type):not(.n-button--success-type):not(.n-button--info-type),
@@ -1132,7 +1132,7 @@ html body .n-button:not(.n-button--primary-type):not(.n-button--error-type):not(
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
-/* Decorative border children — Naive UI positions these absolutely on
+/* Decorative border children \u2014 Naive UI positions these absolutely on
    top of the button to render the visual border + state transitions.
    They draw via var(--n-border). The base .n-button vars above already
    redirect those vars, but pin the rendered border explicitly too in
@@ -1147,11 +1147,11 @@ html body .n-button:focus .n-button__border,
 html body .n-button:focus .n-button__state-border {
   border: 1px solid var(--reos-emerald) !important;
 }
-/* Wave ripple — emerald glow instead of GHL blue */
+/* Wave ripple \u2014 emerald glow instead of GHL blue */
 html body .n-button .n-base-wave {
   background: var(--reos-emerald-glow) !important;
 }
-/* Hover text + icon color — currentColor on the SVG icons inherits
+/* Hover text + icon color \u2014 currentColor on the SVG icons inherits
    from the button color, so this colors both text and stroke.
    Specificity-bumped variant so it beats Vue scoped CSS for the
    default-type buttons (same exclusion list as the static rule). */
@@ -1186,7 +1186,7 @@ html body .n-button--primary-type:hover {
   background-color: var(--reos-emerald-bright) !important;
 }
 
-/* Naive UI semantic button types — error/warning/info/success.
+/* Naive UI semantic button types \u2014 error/warning/info/success.
    Brand them with our palette so destructive actions look like the
    rest of the app instead of off-the-shelf Naive UI tomato red.
 
@@ -1282,7 +1282,7 @@ html body .n-button--info-type:hover {
   border-color: #3A78E0 !important;
 }
 
-/* Naive UI dialog icon slot — the circle in the top-left of a
+/* Naive UI dialog icon slot \u2014 the circle in the top-left of a
    confirmation dialog (delete/warning prompts). Naive UI defaults
    to a colored circular background (white-on-light for error type)
    that breaks against our dark theme. Make the circle transparent
@@ -1338,15 +1338,15 @@ html body [class*="dialog"][class*="info"] svg path[stroke] {
   color: var(--reos-blue) !important;
 }
 
-/* Catch-all for any bright red used elsewhere — sweep to crimson.
+/* Catch-all for any bright red used elsewhere \u2014 sweep to crimson.
    Targets common Tailwind red shades + Naive UI tomato defaults.
    Brand consistency: all "destructive" / "alert" red should be our
    crimson, not a third-party red. */
-/* Same hover-prefix gotcha as bg-red below — never use
+/* Same hover-prefix gotcha as bg-red below \u2014 never use
    [class*="text-red"] because it matches "group-hover:text-red-600"
    etc, forcing text crimson even when it should be the default gray.
    The trash icon SVG in the conversation header has
-   "text-gray-600 group-hover:text-red-600" — substring catchall would
+   "text-gray-600 group-hover:text-red-600" \u2014 substring catchall would
    paint it crimson permanently. */
 html body .text-red-50,
 html body .text-red-100,
@@ -1398,7 +1398,7 @@ html body .border-red-900 {
   border-color: var(--reos-crimson) !important;
 }
 
-/* Same brand sweep for blue → our #4B8BF5. Targets common Tailwind
+/* Same brand sweep for blue \u2192 our #4B8BF5. Targets common Tailwind
    blue shades + Naive UI info-type defaults. Catches link/info
    accents throughout the GHL UI. */
 html body .text-blue-500,
@@ -1472,7 +1472,7 @@ html body .n-base-selection--focus {
 }
 
 /* 18a-n-data-table (v0.8.85). The Naive UI .n-data-table is used
-   for the Calendars → Appointments list (and other paginated
+   for the Calendars \u2192 Appointments list (and other paginated
    list views). Two things to address:
    1. Empty-state text 'No upcoming appointments' + the subtitle
       uses GHL's text-gray-900 / text-gray-600 Tailwind classes.
@@ -1489,7 +1489,7 @@ html body .n-data-table-base-table:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
   color: var(--reos-bone) !important;
 }
-/* Outer panel wrapper around .n-data-table — GHL ships
+/* Outer panel wrapper around .n-data-table \u2014 GHL ships
    .ghl-table-container with a 1px gray-200 border + a light
    drop-shadow. On the dark theme that reads as a bright stripe
    around the table panel. Steel border + no shadow. */
@@ -1499,7 +1499,7 @@ html body .ghl-table-container:not(#__reos_never_id) {
 }
 
 /* Table footer (Showing X to Y of Z + pagination). Ships with
-   white bg + dark text by default — flip to graphite + bone. */
+   white bg + dark text by default \u2014 flip to graphite + bone. */
 html body .ghl-table-footer:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
   color: var(--reos-bone) !important;
@@ -1566,7 +1566,7 @@ html body .n-data-table-td:not(#__reos_never_id) {
    (0,1,4,0) + !important. Beat with class-doubled + ID-level
    :not(#__reos_never_id) for (0,1,7,2). v0.8.88 set slate hover
    bg; v0.8.90 sets it transparent so the row keeps its natural
-   graphite tone on hover — Tim prefers no highlight state on
+   graphite tone on hover \u2014 Tim prefers no highlight state on
    data-table rows. */
 html body .n-data-table:not(#__reos_never_id) .n-data-table-tr.n-data-table-tr:not(.n-data-table-tr--summary):hover,
 html body .n-data-table:not(#__reos_never_id) .n-data-table-tr.n-data-table-tr:not(.n-data-table-tr--summary):hover > .n-data-table-td,
@@ -1584,12 +1584,12 @@ html body .n-data-table:not(#__reos_never_id) {
 
 /* 18a-icon-only-unboxed (v0.8.95). Tim wants Naive icon-only
    action buttons (pencil/edit, copy/duplicate, trash, +, etc.)
-   shown bare — no slate bg, no cool-gray border, no border-
-   radius — just the glyph. Excludes the quaternary kebab
+   shown bare \u2014 no slate bg, no cool-gray border, no border-
+   radius \u2014 just the glyph. Excludes the quaternary kebab
    (.n-button.quaternary.icon-only) which keeps its boxed
    contact-options-button-style appearance per earlier requests.
 
-   Trash icons hover crimson — detected via SVG path 'd' substring
+   Trash icons hover crimson \u2014 detected via SVG path 'd' substring
    (the trash glyph has a recognizable lid path 'M9 3h6'). */
 html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id),
 html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_never_id) {
@@ -1609,7 +1609,7 @@ html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_nev
   --n-border-pressed: 1px solid transparent !important;
   --n-border-focus: 1px solid transparent !important;
   --n-border-disabled: 1px solid transparent !important;
-  /* Force full opacity even on disabled state — Naive ships
+  /* Force full opacity even on disabled state \u2014 Naive ships
      --n-opacity-disabled: 0.5 which dimmed disabled trash icons
      to half-strength, breaking visual parity with the other
      un-boxed icons (Tim flagged the trash looking muted). */
@@ -1632,7 +1632,7 @@ html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_nev
   border-color: transparent !important;
   display: none !important;
 }
-/* SVG icon — ash at rest, emerald on hover (matches the bare-
+/* SVG icon \u2014 ash at rest, emerald on hover (matches the bare-
    icon convention from sidebar / contact buttons). */
 html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id) svg,
 html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id) svg path,
@@ -1648,7 +1648,7 @@ html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_nev
   color: var(--reos-emerald) !important;
   stroke: var(--reos-emerald) !important;
 }
-/* Trash icons → crimson on hover (override the generic emerald
+/* Trash icons \u2192 crimson on hover (override the generic emerald
    above). Detect via SVG path substring 'M9 3h6' (trashcan lid)
    or 'M16 6v' or class containing 'trash'. */
 html body .n-button.icon-only:not(.quaternary):not(#__reos_never_id):hover:has(svg path[d*="M9 3h6"]) svg,
@@ -1671,7 +1671,7 @@ html body .n-button.icon-only:not(.quaternary):not(#__reos_never_id):hover:has([
    the Timezone label having a slate box around it).
 
    The inner controls (.n-base-selection / .n-input) keep their
-   own slate fill — that's the actual input bg. Only the OUTER
+   own slate fill \u2014 that's the actual input bg. Only the OUTER
    .n-form-item wrapper needs to drop its slate; nothing should
    draw a box around the label. */
 html body .n-form-item.hl-form-item:not(#__reos_never_id),
@@ -1684,8 +1684,8 @@ html body .n-form-item.n-form-item--medium-size.hl-form-item:not(#__reos_never_i
 }
 
 /* 18a-hr-button-family (v0.9.13). GHL ships TWO button systems:
-   - .n-button (Naive UI) — themed via section 7 + v0.8.64
-   - .hr-button (Highrise / hr-design-system) — equivalent system
+   - .n-button (Naive UI) \u2014 themed via section 7 + v0.8.64
+   - .hr-button (Highrise / hr-design-system) \u2014 equivalent system
      with --n-* CSS vars but a different class prefix. Phone
      System filter pills, refresh icon, and Add Number all use
      .hr-button. Theme to the canonical emerald canon. */
@@ -1725,7 +1725,7 @@ html body .hr-button.hr-button--default-type:not(#__reos_never_id):hover .hr-but
   color: var(--reos-emerald) !important;
   -webkit-text-fill-color: var(--reos-emerald) !important;
 }
-/* Active filter pill (.ui-active-btn) — emerald text + emerald
+/* Active filter pill (.ui-active-btn) \u2014 emerald text + emerald
    border to mark selected state */
 html body .hr-button.ui-active-btn:not(#__reos_never_id),
 html body button.hr-button.ui-active-btn:not(#__reos_never_id) {
@@ -1742,7 +1742,7 @@ html body .hr-button.ui-active-btn:not(#__reos_never_id) .hr-button__content * {
    (not just the inner __border / __state-border overlays).
    The icon-only delete buttons in Reminder Settings render with
    a visible 2-3px crimson ring at a 2-3px gap from the button
-   body on hover — that's a Tailwind focus-ring-style box-shadow
+   body on hover \u2014 that's a Tailwind focus-ring-style box-shadow
    stacked OUTSIDE the .__border overlay. Hide all rings + outlines
    at every state. */
 html body .hr-button:not(#__reos_never_id),
@@ -1762,7 +1762,7 @@ html body .hr-button:active:not(#__reos_never_id) {
    at slightly different inset offsets, reading as a 2px ring with
    a visible gap on hover (Tim flagged the trash icon button in
    Reminder Settings: emerald outer ring around the slate button
-   body, looked detached). Show ONLY .__border (steel default →
+   body, looked detached). Show ONLY .__border (steel default \u2192
    emerald on interact); pin .__state-border transparent at every
    state. */
 html body .hr-button .hr-button__border:not(#__reos_never_id) {
@@ -1788,8 +1788,8 @@ html body .hr-button.ui-active-btn .hr-button__state-border:not(#__reos_never_id
   border-color: transparent !important;
   box-shadow: none !important;
 }
-/* Trash / delete icon-only .hr-button — destructive canon.
-   v0.10.11 (revised): Tim's call — ONLY the icon turns crimson
+/* Trash / delete icon-only .hr-button \u2014 destructive canon.
+   v0.10.11 (revised): Tim's call \u2014 ONLY the icon turns crimson
    on hover. The border stays steel at every state (no destructive
    color flash on the border, no emerald hover lift). The icon
    color alone signals destructive intent. Also drops the SVG
@@ -1825,7 +1825,7 @@ html body .hr-button:not(#__reos_never_id):hover:has([class*="trash"]) .hr-butto
   border-color: transparent !important;
   box-shadow: none !important;
 }
-/* Host button border + box-shadow on hover for trash buttons —
+/* Host button border + box-shadow on hover for trash buttons \u2014
    pin to steel + no shadow (kill any GHL native red ring or
    focus-shadow halo). */
 html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M9 3h6"]),
@@ -1842,7 +1842,7 @@ html body .hr-button:not(#__reos_never_id):hover:has([class*="trash"]) {
    2-3px border on hover (likely from a GHL native destructive
    skin attached via id or aria-label). Pin border to steel at
    every state for ANY button identified as a "delete" affordance
-   via id, aria-label, or title — and keep only the icon crimson. */
+   via id, aria-label, or title \u2014 and keep only the icon crimson. */
 html body button[id*="delete" i]:not(#__reos_never_id),
 html body button[id*="delete" i]:hover:not(#__reos_never_id),
 html body button[id*="remove" i]:not(#__reos_never_id),
@@ -1863,7 +1863,7 @@ html body button[title*="Remove" i]:hover:not(#__reos_never_id) {
   outline: none !important;
   outline-offset: 0 !important;
 }
-/* Inner border overlays for those delete buttons — steel default,
+/* Inner border overlays for those delete buttons \u2014 steel default,
    transparent state-border at every state. No crimson ring. */
 html body button[id*="delete" i] .hr-button__border,
 html body button[id*="delete" i]:hover .hr-button__border,
@@ -1897,7 +1897,7 @@ html body button[aria-label*="Delete" i]:hover .n-button__state-border {
   border-color: transparent !important;
   box-shadow: none !important;
 }
-/* Icon inside delete buttons: ash at rest → crimson on hover. */
+/* Icon inside delete buttons: ash at rest \u2192 crimson on hover. */
 html body button[id*="delete" i]:not(#__reos_never_id) svg,
 html body button[id*="delete" i]:not(#__reos_never_id) svg path,
 html body button[id*="remove" i]:not(#__reos_never_id) svg,
@@ -1921,12 +1921,12 @@ html body button[aria-label*="Remove" i]:hover:not(#__reos_never_id) svg path {
   stroke: var(--reos-crimson) !important;
 }
 
-/* v0.10.14: data-reos-trash catchall — applied by the
+/* v0.10.14: data-reos-trash catchall \u2014 applied by the
    markTrashButtons() JS coercer to ANY button whose inner SVG
    matches a trash-can shape signature OR whose class/id/aria
    contains delete/remove/trash. This catches the "default
    reminder trash cans" Tim flagged that didn't match the
-   id/aria-label selectors — same canon (transparent bg, steel
+   id/aria-label selectors \u2014 same canon (transparent bg, steel
    border, ash icon at rest, crimson icon on hover, NO border
    color change on hover). */
 html body button[data-reos-trash="true"]:not(#__reos_never_id),
@@ -1941,7 +1941,7 @@ html body button[data-reos-trash="true"]:focus-visible:not(#__reos_never_id) {
   outline: none !important;
   outline-offset: 0 !important;
 }
-/* Inner __border / __state-border overlays — pin to steel /
+/* Inner __border / __state-border overlays \u2014 pin to steel /
    transparent at every state. */
 html body button[data-reos-trash="true"] .hr-button__border:not(#__reos_never_id),
 html body button[data-reos-trash="true"]:hover .hr-button__border:not(#__reos_never_id),
@@ -1959,7 +1959,7 @@ html body button[data-reos-trash="true"]:hover .n-button__state-border:not(#__re
   border-color: transparent !important;
   box-shadow: none !important;
 }
-/* Icon — ash resting, crimson hover. Stroke + color only (no fill
+/* Icon \u2014 ash resting, crimson hover. Stroke + color only (no fill
    so outline icons stay outline-only). */
 html body button[data-reos-trash="true"]:not(#__reos_never_id) svg,
 html body button[data-reos-trash="true"]:not(#__reos_never_id) svg path {
@@ -1972,7 +1972,7 @@ html body button[data-reos-trash="true"]:hover:not(#__reos_never_id) svg path {
   stroke: var(--reos-crimson) !important;
 }
 
-/* .n-button trash buttons — same canon (steel border, only icon
+/* .n-button trash buttons \u2014 same canon (steel border, only icon
    flips crimson). Override the line-1306 emerald hover for trash. */
 html body .n-button:not(#__reos_never_id):hover:has(svg path[d*="M9 3h6"]) .n-button__border,
 html body .n-button:not(#__reos_never_id):hover:has(svg path[d*="M16 6v"]) .n-button__border,
@@ -1989,7 +1989,7 @@ html body .n-button:not(#__reos_never_id):hover:has([class*="trash"]) .n-button_
   border-color: transparent !important;
   box-shadow: none !important;
 }
-/* HR-button primary type (Add Number) — already mostly themed
+/* HR-button primary type (Add Number) \u2014 already mostly themed
    by the var override below; pin bg + content color for safety. */
 html body .hr-button.hr-button--primary-type:not(#__reos_never_id) {
   --n-color: var(--reos-emerald) !important;
@@ -2009,13 +2009,13 @@ html body .hr-button.hr-button--primary-type:not(#__reos_never_id) .hr-button__c
   -webkit-text-fill-color: var(--reos-obsidian) !important;
 }
 
-/* HR-input — same treatment as .n-input (see v0.8.71, v0.8.81) */
+/* HR-input \u2014 same treatment as .n-input (see v0.8.71, v0.8.81) */
 html body .hr-input:not(#__reos_never_id) .hr-input__border {
   border: 1px solid transparent !important;
   border-color: transparent !important;
   box-shadow: none !important;
 }
-/* Placeholder text — span inside .hr-input__placeholder has
+/* Placeholder text \u2014 span inside .hr-input__placeholder has
    -webkit-text-fill-color: brand-blue from some other rule
    bleeding through (color is cool-gray, but text-fill-color wins
    on Blink/WebKit so the placeholder renders blue). Pin both. */
@@ -2044,7 +2044,7 @@ html body input.hr-input__input-el:focus-visible {
   caret-color: var(--reos-bone) !important;
 }
 
-/* Page heading "Phone System" h2 — has inline ash, but it IS a
+/* Page heading "Phone System" h2 \u2014 has inline ash, but it IS a
    page title. Force bone via -webkit-text-fill-color override at
    class-doubled specificity beats inline !important since we use
    a !important selector path. */
@@ -2054,9 +2054,9 @@ html body h2:not(#__reos_never_id) {
 
 /* 18a-hr-data-table-divider (v0.9.20). The hr-data-table-th
    header row had border-top: 1px solid rgb(234, 236, 240)
-   (gray-200) — that's the divider line between the filter-bar
+   (gray-200) \u2014 that's the divider line between the filter-bar
    and the column headers. Flip to steel. .hr-data-table-thead
-   also shipped bg: rgb(250, 250, 252) (near-white) — paint
+   also shipped bg: rgb(250, 250, 252) (near-white) \u2014 paint
    graphite so the header strip blends. */
 html body th.hr-data-table-th:not(#__reos_never_id),
 html body .hr-data-table-th:not(#__reos_never_id) {
@@ -2095,12 +2095,12 @@ html body .ui-table-custom-header:not(#__reos_never_id) {
 }
 
 /* 18a-messaging-label-overrides (v0.9.23). Per-label theme
-   overrides on Phone System → Messaging tab:
-     #SettingTexasSmsBlock p — 'Block any SMS/MMS to Texas
-        recipients...' → ash (descriptive subtitle, not primary).
+   overrides on Phone System \u2192 Messaging tab:
+     #SettingTexasSmsBlock p \u2014 'Block any SMS/MMS to Texas
+        recipients...' \u2192 ash (descriptive subtitle, not primary).
    The 'Enable Periodic Opt-Out' label needs bone, but has no
    unique ID and shares classes with many other labels. Targeted
-   via parent-shape :has() heuristic — div.flex.items-center.gap-2
+   via parent-shape :has() heuristic \u2014 div.flex.items-center.gap-2
    that contains ONLY a single <p> with ui-text-sm-medium.
    Tighten further if it over-applies elsewhere. */
 html body #SettingTexasSmsBlock p:not(#__reos_never_id) {
@@ -2115,11 +2115,11 @@ html body div.flex.items-center.gap-2 > p.text-gray-800.ui-text-sm-medium:only-c
 /* 18a-summary-card-metrics (v0.9.24). The metric cards on
    Messaging Analytics (Outbound / Inbound messages) use
    GHL's .summary-card pattern with:
-     span.label (Sent / Delivered / Failed / etc.) — dark gray
+     span.label (Sent / Delivered / Failed / etc.) \u2014 dark gray
        text-700 (rgb 71, 84, 103), nearly invisible on dark bg
-     div.metric (the big number values) — almost-black gray-900
+     div.metric (the big number values) \u2014 almost-black gray-900
        (rgb 16, 24, 40), invisible on dark bg
-   Theme labels → ash, values → bone. */
+   Theme labels \u2192 ash, values \u2192 bone. */
 html body .summary-card span.label:not(#__reos_never_id),
 html body .summary-card .label:not(#__reos_never_id),
 html body [class*="summary-card"] span.label:not(#__reos_never_id) {
@@ -2135,7 +2135,7 @@ html body div.metric:not(#__reos_never_id) {
 
 /* 18a-hr-menu-item (v0.9.25). GHL's left-side vertical menu
    pattern (hr-menu / hr-menu-item / hr-menu-item-content) used
-   for sub-page navigation (e.g. Voice → Call Recording /
+   for sub-page navigation (e.g. Voice \u2192 Call Recording /
    Call Transcription). Selected state ships with:
      .hr-menu-item-content-header color: rgb(21, 94, 239) (blue)
      .hr-menu-item-content--selected::before bg: rgba(21, 94, 239, 0.1)
@@ -2151,13 +2151,13 @@ html body .hr-menu-item-content--selected:not(#__reos_never_id)::after {
   background-color: var(--reos-emerald-glow) !important;
   background: var(--reos-emerald-glow) !important;
 }
-/* Inactive menu items → ash. */
+/* Inactive menu items \u2192 ash. */
 html body .hr-menu-item-content:not(.hr-menu-item-content--selected):not(#__reos_never_id) .hr-menu-item-content-header,
 html body .hr-menu-item-content:not(.hr-menu-item-content--selected):not(#__reos_never_id) {
   color: var(--reos-ash) !important;
   -webkit-text-fill-color: var(--reos-ash) !important;
 }
-/* Hover on inactive items → emerald-bright */
+/* Hover on inactive items \u2192 emerald-bright */
 html body .hr-menu-item-content:not(.hr-menu-item-content--selected):not(#__reos_never_id):hover .hr-menu-item-content-header,
 html body .hr-menu-item-content:not(.hr-menu-item-content--selected):not(#__reos_never_id):hover {
   color: var(--reos-emerald-bright) !important;
@@ -2188,7 +2188,7 @@ html body .hr-data-table__cell:not(#__reos_never_id) {
   border-bottom: 1px solid var(--reos-steel) !important;
   border-top-color: var(--reos-steel) !important;
 }
-/* Row hover — no highlight (matches n-data-table v0.8.90/91). */
+/* Row hover \u2014 no highlight (matches n-data-table v0.8.90/91). */
 html body .hr-data-table:not(#__reos_never_id) .hr-data-table-tr.hr-data-table-tr:not(.hr-data-table-tr--summary):hover,
 html body .hr-data-table:not(#__reos_never_id) .hr-data-table-tr.hr-data-table-tr:not(.hr-data-table-tr--summary):hover > .hr-data-table-td,
 html body .hr-data-table:not(#__reos_never_id) .hr-data-table-tr.hr-data-table-tr:not(.hr-data-table-tr--summary):hover .hr-data-table-td,
@@ -2210,7 +2210,7 @@ html body .hr-data-table:not(#__reos_never_id) .hr-data-table-th {
 
 /* 18a-learn-more-link (v0.9.47). v0.9.46 lost the specificity
    battle to v0.9.13's .hr-button.hr-button--default-type rule
-   (0,1,2,2) — Learn More rendered bone text + steel border +
+   (0,1,2,2) \u2014 Learn More rendered bone text + steel border +
    emerald hover. Fix: chain .hr-button.hr-button--default-type
    into the selector so we reach (0,1,3,2) resting and (0,1,4,2)
    hover, and class-double .learn-more-button as a belt-and-
@@ -2241,7 +2241,7 @@ html body .learn-more-button.learn-more-button.learn-more-button:not(#__reos_nev
   min-height: 0 !important;
   height: auto !important;
 }
-/* Hover: still no chrome — only the text color flips. v0.9.13
+/* Hover: still no chrome \u2014 only the text color flips. v0.9.13
    hover is (0,1,3,2), we need (0,1,4,2). */
 html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id):hover,
 html body button.hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id):hover {
@@ -2251,7 +2251,7 @@ html body button.hr-button.hr-button--default-type.learn-more-button:not(#__reos
   border-color: transparent !important;
   color: var(--reos-emerald-bright) !important;
 }
-/* Inner .hr-button__content text — beats v0.9.13's
+/* Inner .hr-button__content text \u2014 beats v0.9.13's
    (0,1,3,2) resting / (0,1,4,2) hover content rules. */
 html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id) .hr-button__content,
 html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id) .hr-button__content *,
@@ -2293,15 +2293,15 @@ html body .learn-more-button.learn-more-button:not(#__reos_never_id):hover .hr-b
 
 /* 18a-sms-provider-sweep (v0.9.48). SMS Provider settings tab
    uses three families we hadn't covered yet:
-     .hr-radio-group         — wrapper that sets --n-button-*
+     .hr-radio-group         \u2014 wrapper that sets --n-button-*
                                CSS vars (brand-blue + gray-200)
-     .hr-radio-button        — large row container (Lead Connector
+     .hr-radio-button        \u2014 large row container (Lead Connector
                                selector card)
-     .hr-radio-button__state-border — overlay border on row hover/
+     .hr-radio-button__state-border \u2014 overlay border on row hover/
                                checked (brand-blue by default)
-     .ui-radio-group-item-* — text children inside the row
-   Map: bg → graphite, border → steel (emerald when checked),
-   text → bone/ash, brand-blue accents → emerald canon. */
+     .ui-radio-group-item-* \u2014 text children inside the row
+   Map: bg \u2192 graphite, border \u2192 steel (emerald when checked),
+   text \u2192 bone/ash, brand-blue accents \u2192 emerald canon. */
 html body .hr-radio-group:not(#__reos_never_id),
 html body [class*="hr-radio-group"]:not(#__reos_never_id) {
   --n-button-border-color: var(--reos-steel) !important;
@@ -2316,7 +2316,7 @@ html body [class*="hr-radio-group"]:not(#__reos_never_id) {
   --n-button-text-color-hover: var(--reos-emerald) !important;
   --n-button-text-color-active: var(--reos-emerald) !important;
 }
-/* Row container — graphite bg, steel border, bone text. */
+/* Row container \u2014 graphite bg, steel border, bone text. */
 html body .hr-radio-button:not(#__reos_never_id),
 html body label.hr-radio-button:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
@@ -2324,7 +2324,7 @@ html body label.hr-radio-button:not(#__reos_never_id) {
   border-color: var(--reos-steel) !important;
   color: var(--reos-bone) !important;
 }
-/* Checked row — emerald border ring, NOT a slate bg. */
+/* Checked row \u2014 emerald border ring, NOT a slate bg. */
 html body .hr-radio-button.hr-radio-button--checked:not(#__reos_never_id),
 html body label.hr-radio-button.hr-radio-button--checked:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
@@ -2342,7 +2342,7 @@ html body .hr-radio-button:not(#__reos_never_id):hover .hr-radio-button__state-b
   border-color: var(--reos-emerald) !important;
   box-shadow: inset 0 0 0 1px var(--reos-emerald) !important;
 }
-/* Inner row text — title is bone, description is ash. */
+/* Inner row text \u2014 title is bone, description is ash. */
 html body .ui-radio-group-item-content:not(#__reos_never_id) p.ui-text-sm-medium,
 html body .hr-radio-button:not(#__reos_never_id) p.ui-text-sm-medium {
   color: var(--reos-bone) !important;
@@ -2353,13 +2353,13 @@ html body .hr-radio-button:not(#__reos_never_id) p.ui-text-sm-regular {
   color: var(--reos-ash) !important;
   -webkit-text-fill-color: var(--reos-ash) !important;
 }
-/* Provider logo background — the round bg-none chip on the
+/* Provider logo background \u2014 the round bg-none chip on the
    Lead Connector image is fine, but if any sibling renders a
    bg-white halo around it, kill it. */
 html body .ui-radio-group-item-icon:not(#__reos_never_id) img {
   background: transparent !important;
 }
-/* hr-divider parent — Naive divider line lives inside but the
+/* hr-divider parent \u2014 Naive divider line lives inside but the
    parent also has --n-color set from inline; pin the var so any
    computed color falls back to steel even on direct line use. */
 html body .hr-divider:not(#__reos_never_id),
@@ -2370,11 +2370,11 @@ html body [class*="hr-divider"]:not(#__reos_never_id) {
 
 /* 18a-trust-center-sweep (v0.9.45). Trust Center page scan
    found:
-     .hr-button--outline-type.hr-button--secondary — white bg
+     .hr-button--outline-type.hr-button--secondary \u2014 white bg
        (5 instances; outline-style HR buttons)
-     .service-icon-container — gray-200 bg
-     .hr-card-footer — gray-200 border-top
-     .hero-section-container — rgb(178, 204, 255) light blue hero */
+     .service-icon-container \u2014 gray-200 bg
+     .hr-card-footer \u2014 gray-200 border-top
+     .hero-section-container \u2014 rgb(178, 204, 255) light blue hero */
 html body .hr-button.hr-button--outline-type:not(#__reos_never_id),
 html body .hr-button.hr-button--outline-type.hr-button--secondary:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
@@ -2407,10 +2407,10 @@ html body [class*="hero-section-container"]:not(#__reos_never_id) {
 /* 18a-hr-radio-+-misc (v0.9.42). The Voice Other Settings page
    uses HR radio cards (.hr-radio) + warning-25 callouts +
    border-primary-600 active rings. Theme:
-     .hr-radio CSS vars — mirror .n-radio canon
-     .bg-warning-25 → graphite (was missed; only -50/100/200 covered)
-     .bg-primary-25 → already covered v0.9.35
-     .border-primary-* → emerald (active radio card outline) */
+     .hr-radio CSS vars \u2014 mirror .n-radio canon
+     .bg-warning-25 \u2192 graphite (was missed; only -50/100/200 covered)
+     .bg-primary-25 \u2192 already covered v0.9.35
+     .border-primary-* \u2192 emerald (active radio card outline) */
 html body .hr-radio:not(#__reos_never_id) {
   --n-box-shadow: inset 0 0 0 1px var(--reos-steel) !important;
   --n-box-shadow-active: inset 0 0 0 1px var(--reos-emerald) !important;
@@ -2425,7 +2425,7 @@ html body .hr-radio:not(#__reos_never_id) {
   --n-text-color: var(--reos-bone) !important;
   --n-text-color-disabled: var(--reos-cool-gray) !important;
 }
-/* .hr-radio dot — explicit color for checked state. */
+/* .hr-radio dot \u2014 explicit color for checked state. */
 html body .hr-radio.hr-radio--checked .hr-radio__dot:not(#__reos_never_id),
 html body .hr-radio .hr-radio__dot.hr-radio__dot--checked:not(#__reos_never_id) {
   background-color: var(--reos-emerald) !important;
@@ -2457,14 +2457,14 @@ html body .hr-radio .hr-radio__dot-wrapper:not(#__reos_never_id) {
   outline: none !important;
 }
 
-/* Tailwind warning-25 (one step below 50) — graphite */
+/* Tailwind warning-25 (one step below 50) \u2014 graphite */
 html body .bg-warning-25:not(#__reos_never_id),
 html body [class*="bg-warning-25"]:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
   background: var(--reos-graphite) !important;
 }
 
-/* border-primary-* (used as active-card outline color) → emerald */
+/* border-primary-* (used as active-card outline color) \u2192 emerald */
 html body [class*="border-primary-"]:not(#__reos_never_id) {
   border-color: var(--reos-emerald) !important;
 }
@@ -2473,7 +2473,7 @@ html body [class*="border-primary-"]:not(#__reos_never_id) {
    surrounds label+input pairs ships with gray-200 borders and
    a focus-within box-shadow halo (light cyan/white glow that
    Tim flagged on Reminder Settings Email Template dropdown).
-   The wrapper is purely structural — it shouldn't render a
+   The wrapper is purely structural \u2014 it shouldn't render a
    surround box; the inner .hr-input / .hr-select handles its
    own field-box. Force transparent bg, no border, no shadow,
    no outline at every state. */
@@ -2505,16 +2505,16 @@ html body .hr-form-item-blank:focus-within:not(#__reos_never_id) {
 /* 18a-hr-select-+-card (v0.9.39). Two un-themed surfaces on the
    SIP Test Calls page:
 
-   1) .user-select-card — wrapper div around the 'Select Your
+   1) .user-select-card \u2014 wrapper div around the 'Select Your
       SIP User' dropdown. Ships with white bg + gray-200 border
       by default.
    2) .hr-base-selection (parallel to .n-base-selection from
-      v0.8.73) — CSS vars all set to GHL blue inline:
+      v0.8.73) \u2014 CSS vars all set to GHL blue inline:
         --n-border-active/focus/hover: blue
         --n-box-shadow-active/focus: blue rgba
         --n-caret-color: #155EEF
       Mirror the .n-base-selection emerald canon.
-   3) .hr-input-group-label__border — separator border element,
+   3) .hr-input-group-label__border \u2014 separator border element,
       defaults to gray-200; transparent. */
 html body .user-select-card:not(#__reos_never_id),
 html body [class*="user-select-card"]:not(#__reos_never_id) {
@@ -2533,7 +2533,7 @@ html body .hr-input-group-label__border.hr-input-group-label__border:not(#__reos
   display: none !important;
 }
 /* The parent .hr-input-group-label (input group suffix/prefix
-   label — e.g. '.sip.ashburn.twilio.com' attached to an input)
+   label \u2014 e.g. '.sip.ashburn.twilio.com' attached to an input)
    ships with --n-group-label-color: rgb(250,250,252) (off-white)
    + gray-200 border + dark text via inline CSS vars. Flip to
    graphite + steel + ash. */
@@ -2549,7 +2549,7 @@ html body .hr-input-group-label.ui-input-group-label:not(#__reos_never_id) {
   color: var(--reos-ash) !important;
 }
 
-/* .hr-base-selection — flip blue inline CSS vars to emerald. */
+/* .hr-base-selection \u2014 flip blue inline CSS vars to emerald. */
 html body .hr-base-selection:not(#__reos_never_id) {
   --n-border: 1px solid var(--reos-steel) !important;
   --n-border-active: 1px solid var(--reos-emerald) !important;
@@ -2561,7 +2561,7 @@ html body .hr-base-selection:not(#__reos_never_id) {
   --n-caret-color: var(--reos-bone) !important;
   --n-loading-color: var(--reos-emerald) !important;
 }
-/* .hr-base-selection border overlays — mirror v0.8.73 (n-base).
+/* .hr-base-selection border overlays \u2014 mirror v0.8.73 (n-base).
    v0.10.8: extended to cover :hover and :focus-within (the active
    GHL state when the dropdown is hovered but not yet clicked).
    Without this, the GHL component renders a light blue + white
@@ -2629,9 +2629,9 @@ html body [class*="hr-select"]:not(.hr-select-menu):not(.hr-base-select-menu):fo
 /* 18a-hr-tabs-bar (v0.9.38). The .hr-tabs Highrise tab system
    (parallel to .n-tabs v0.9.6) has its own inline CSS vars
    that ship blue. Mirror the .n-tabs treatment:
-     --n-bar-color → emerald (active underline bar)
-     --n-tab-text-color-active → emerald
-     --n-tab-text-color-hover → emerald-bright
+     --n-bar-color \u2192 emerald (active underline bar)
+     --n-tab-text-color-active \u2192 emerald
+     --n-tab-text-color-hover \u2192 emerald-bright
    Plus theme .hr-tabs-bar element bg directly (the active
    underline rendered via background-color, not border-bottom). */
 html body .hr-tabs:not(#__reos_never_id),
@@ -2650,7 +2650,7 @@ html body .hr-tabs .hr-tabs-bar:not(#__reos_never_id) {
   background-color: var(--reos-emerald) !important;
   background: var(--reos-emerald) !important;
 }
-/* HR menu vertical nav — same blue → emerald treatment as v0.9.25
+/* HR menu vertical nav \u2014 same blue \u2192 emerald treatment as v0.9.25
    .hr-menu-item but via the parent --n-* vars on .hr-menu. */
 html body .hr-menu:not(#__reos_never_id) {
   --n-item-text-color: var(--reos-ash) !important;
@@ -2707,7 +2707,7 @@ html body [class*="bg-[rgb(209"]:not(#__reos_never_id) {
 
 /* Any element with inline border-color rgb(229,231,235) or
    rgb(234,236,240) or rgb(228,231,236) (the three near-identical
-   gray-200 variants GHL uses) → steel. Catches inline-styled
+   gray-200 variants GHL uses) \u2192 steel. Catches inline-styled
    borders on cards / wrappers / dividers that escape class-
    based remap. */
 html body [style*="border-color: rgb(229, 231, 235)"]:not(#__reos_never_id),
@@ -2723,7 +2723,7 @@ html body [style*="border-top: 1px solid rgb(229, 231, 235)"]:not(#__reos_never_
   border-color: var(--reos-steel) !important;
 }
 
-/* Nav items — hover should ONLY change text color, no bg.
+/* Nav items \u2014 hover should ONLY change text color, no bg.
    Targets common nav/menu/tab item families. Excludes form-
    input wrappers + Naive UI button bgs which legitimately
    need their own hover bg. */
@@ -2736,9 +2736,9 @@ html body a:not([class*="button"]):not([class*="btn"]):not(#__reos_never_id):hov
 }
 
 /* 18a-info-card (v0.9.35). The 'Before Testing Your Deskphone'
-   callout uses .info-card.bg-primary-25 — primary-25 is an
+   callout uses .info-card.bg-primary-25 \u2014 primary-25 is an
    even lighter shade than primary-50 (not covered by v0.9.8's
-   bg-primary-50 → slate rule). Remap to slate + steel border.
+   bg-primary-50 \u2192 slate rule). Remap to slate + steel border.
    Also catches any other .info-card patterns used across GHL. */
 html body .info-card:not(#__reos_never_id),
 html body [class*="info-card"]:not(#__reos_never_id),
@@ -2748,7 +2748,7 @@ html body [class*="bg-primary-25"]:not(#__reos_never_id) {
   background: var(--reos-graphite) !important;
   border-color: var(--reos-steel) !important;
 }
-/* hr-form-item-feedback-wrapper — sometimes ships with light bg
+/* hr-form-item-feedback-wrapper \u2014 sometimes ships with light bg
    when there's a feedback message. Force transparent. */
 html body .hr-form-item-feedback-wrapper:not(#__reos_never_id),
 html body .n-form-item-feedback-wrapper:not(#__reos_never_id) {
@@ -2757,13 +2757,13 @@ html body .n-form-item-feedback-wrapper:not(#__reos_never_id) {
 
 /* 18a-sip-page-sweep (v0.9.34). VoIP/SIP tab scan found 7
    patterns:
-     .ui-card — white bg + gray-200 bottom border (the SIP info
+     .ui-card \u2014 white bg + gray-200 bottom border (the SIP info
        cards)
-     .bg-success-100 / .text-success-600 — light green icon
+     .bg-success-100 / .text-success-600 \u2014 light green icon
        containers (success-state icons)
-     .bg-warning-100 / .text-warning-600 — light amber containers
-     .bg-cyan-100 / .text-cyan-600 — light cyan containers
-     .active-navigation-icon — gray-100 bg + gray-100 border
+     .bg-warning-100 / .text-warning-600 \u2014 light amber containers
+     .bg-cyan-100 / .text-cyan-600 \u2014 light cyan containers
+     .active-navigation-icon \u2014 gray-100 bg + gray-100 border
        (active nav icon backdrop)
    Remap each to semantic-on-graphite. */
 html body .ui-card:not(#__reos_never_id),
@@ -2772,7 +2772,7 @@ html body [class*="ui-card"]:not(#__reos_never_id) {
   background: var(--reos-graphite) !important;
   border-color: var(--reos-steel) !important;
 }
-/* Tailwind semantic palette — bg + text variants. */
+/* Tailwind semantic palette \u2014 bg + text variants. */
 html body .bg-success-50:not(#__reos_never_id),
 html body .bg-success-100:not(#__reos_never_id),
 html body .bg-success-200:not(#__reos_never_id),
@@ -2813,7 +2813,7 @@ html body [class*="text-cyan-"]:not(#__reos_never_id) {
   color: var(--reos-ash) !important;
   -webkit-text-fill-color: var(--reos-ash) !important;
 }
-/* Active navigation icon container — light gray-100 + border-gray-100.
+/* Active navigation icon container \u2014 light gray-100 + border-gray-100.
    Used as the visible-state backdrop for tabbed/active nav icons. */
 html body .active-navigation-icon:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
@@ -2824,14 +2824,14 @@ html body .active-navigation-icon:not(#__reos_never_id) {
 /* 18a-dispositions-sweep (v0.9.32). Custom Dispositions tab scan
    found 7 patterns. Most are GHL Tailwind utility classes for
    light-tinted UI elements that need dark-theme equivalents:
-     .hr-pagination-item--active — blue text (parallel to
+     .hr-pagination-item--active \u2014 blue text (parallel to
        .n-pagination-item--active themed in v0.8.87)
      bg-blue-50 (light blue rows / selected indicators)
      bg-blue-100/200 (light blue icon backdrops)
      bg-gray-25 / bg-gray-50 / bg-gray-100 / border-gray-50
        (Tailwind near-whites for placeholders + dialer chrome)
-     .keypad — dialer pad with default white bg
-     .dialer-navigation — off-white bg + gray-200 top border */
+     .keypad \u2014 dialer pad with default white bg
+     .dialer-navigation \u2014 off-white bg + gray-200 top border */
 html body .hr-pagination-item.hr-pagination-item--active:not(#__reos_never_id),
 html body .hr-pagination-item.hr-pagination-item--active.hr-pagination-item--clickable:not(#__reos_never_id) {
   color: var(--reos-emerald) !important;
@@ -2847,7 +2847,7 @@ html body .hr-pagination:not(#__reos_never_id) {
   --n-item-border-active: 1px solid var(--reos-emerald) !important;
 }
 
-/* Tailwind blue-50/100/200 → slate (light blue accent containers) */
+/* Tailwind blue-50/100/200 \u2192 slate (light blue accent containers) */
 html body .bg-blue-50:not(#__reos_never_id),
 html body .bg-blue-100:not(#__reos_never_id),
 html body .bg-blue-200:not(#__reos_never_id),
@@ -2857,7 +2857,7 @@ html body [class*="bg-blue-200"]:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
   background: var(--reos-graphite) !important;
 }
-/* Tailwind gray-25/50/100 → graphite (placeholder + chrome bg).
+/* Tailwind gray-25/50/100 \u2192 graphite (placeholder + chrome bg).
    gray-200 borders already handled via section 16. */
 html body .bg-gray-25:not(#__reos_never_id),
 html body .bg-gray-50:not(#__reos_never_id),
@@ -2891,9 +2891,9 @@ html body [class*="dialer-navigation"]:not(#__reos_never_id) {
 
 /* 18a-purple-amber-callouts (v0.9.29). Voicemail page has two
    light-tinted callouts not covered by previous sweeps:
-   1) Voice AI banner — .text-purple-600 text + .border-purple-*
+   1) Voice AI banner \u2014 .text-purple-600 text + .border-purple-*
       surround. Tim wants the text legible against dark theme.
-   2) Amber 'Timeout duration too high' alert — cream/yellow bg
+   2) Amber 'Timeout duration too high' alert \u2014 cream/yellow bg
       + amber text. Theme to a warning amber on dark surface. */
 html body .text-purple-50:not(#__reos_never_id),
 html body .text-purple-100:not(#__reos_never_id),
@@ -2909,7 +2909,7 @@ html body [class*="text-purple-"]:not(#__reos_never_id) {
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
-/* 18a-hr-date-panel — GLOBAL CALENDAR CANON (v0.9.82-94, locked
+/* 18a-hr-date-panel \u2014 GLOBAL CALENDAR CANON (v0.9.82-94, locked
    v0.9.95). Tim approved this rule set as the canonical look for
    every .hr-date-panel / .n-date-panel popover across the app.
    Future date-picker work should preserve this exact set unless
@@ -2923,7 +2923,7 @@ html body [class*="text-purple-"]:not(#__reos_never_id) {
                                          (border-bottom loses the
                                          specificity tie to the
                                          v0.9.86 universal border-
-                                         strip rule — see v0.9.93)
+                                         strip rule \u2014 see v0.9.93)
      Clickable date current month        bone     #EDEEF0
      Excluded clickable (other month)    ash      #9098A3
      Disabled (unclickable)              steel    #252C36 (very
@@ -2951,8 +2951,8 @@ html body [class*="text-purple-"]:not(#__reos_never_id) {
        repainting slate inline on every descendant
      - Universal border-strip rule on .hr-date-panel * removes any
        Vue scoped CSS painting cell/wrapper borders */
-/* v0.9.86 → v0.9.90: panel bg switched from graphite to slate
-   throughout per Tim's new spec. Disabled text → steel (very
+/* v0.9.86 \u2192 v0.9.90: panel bg switched from graphite to slate
+   throughout per Tim's new spec. Disabled text \u2192 steel (very
    subtle on slate, intentional "barely there" cue). Today blue,
    excluded ash, clickable bone all unchanged. */
 html body .hr-date-panel:not(#__reos_never_id) {
@@ -2980,7 +2980,7 @@ html body .hr-date-panel:not(#__reos_never_id) {
   border: 1px solid var(--reos-steel) !important;
   color: var(--reos-bone) !important;
 }
-/* Inner sub-containers — match the slate panel surface. */
+/* Inner sub-containers \u2014 match the slate panel surface. */
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-calendar,
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month,
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-weekdays,
@@ -2991,13 +2991,13 @@ html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-actions {
 }
 /* Kill every internal border inside the panel (Tim flagged the
    1px gray-200 borders showing on every cell + weekday header
-   + grid wrappers — they came from the old [class*=] substring
+   + grid wrappers \u2014 they came from the old [class*=] substring
    selector). Strip them comprehensively. */
 html body .hr-date-panel:not(#__reos_never_id) *:not(#__reos_never_id) {
   border-color: transparent !important;
   border-width: 0 !important;
 }
-/* Panel surface — kill the inline shadow that reads as a bright
+/* Panel surface \u2014 kill the inline shadow that reads as a bright
    halo against the dark theme. */
 html body .hr-date-panel:not(#__reos_never_id) {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
@@ -3028,19 +3028,19 @@ html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-weekdays {
   margin-bottom: 4px !important;
   padding-bottom: 4px !important;
 }
-/* Day cells — resting bone. */
+/* Day cells \u2014 resting bone. */
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date {
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
-/* Excluded (other month) cells — ash (muted but readable). */
+/* Excluded (other month) cells \u2014 ash (muted but readable). */
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--excluded,
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--excluded * {
   color: var(--reos-ash) !important;
   -webkit-text-fill-color: var(--reos-ash) !important;
   opacity: 1 !important;
 }
-/* Disabled (unclickable) cells — steel per Tim's v0.9.90 spec.
+/* Disabled (unclickable) cells \u2014 steel per Tim's v0.9.90 spec.
    Very subtle on slate bg (just slightly lighter than the
    surface), giving a "this is here but not for you" cue. */
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--disabled,
@@ -3049,18 +3049,18 @@ html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--disabled * {
   -webkit-text-fill-color: var(--reos-steel) !important;
   opacity: 1 !important;
 }
-/* Combined excluded + disabled — same steel. */
+/* Combined excluded + disabled \u2014 same steel. */
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--excluded.hr-date-panel-date--disabled,
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--excluded.hr-date-panel-date--disabled * {
   color: var(--reos-steel) !important;
   -webkit-text-fill-color: var(--reos-steel) !important;
 }
-/* Trigger overlay — ALWAYS transparent. State colors (hover,
+/* Trigger overlay \u2014 ALWAYS transparent. State colors (hover,
    current, selected, in-range) move to the .hr-date-panel-date
    cell itself via z-index/relative positioning so the text node
    sits ON TOP of the bg layer instead of behind the trigger
    overlay. v0.9.86: previously the trigger painted state colors
-   and (being 38×32 absolute-positioned over a 24×24 cell)
+   and (being 38\xD732 absolute-positioned over a 24\xD724 cell)
    covered the date number text entirely. */
 html body .hr-date-panel:not(#__reos_never_id) {
   --n-item-color: transparent !important;
@@ -3078,14 +3078,14 @@ html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date {
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__trigger {
   z-index: 0 !important;
 }
-/* Hover — graphite bg on the CELL. v0.9.90: panel surface is
+/* Hover \u2014 graphite bg on the CELL. v0.9.90: panel surface is
    now slate, so hover drops to graphite (darker) for contrast. */
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date:not(.hr-date-panel-date--disabled):hover {
   background-color: var(--reos-graphite) !important;
   background: var(--reos-graphite) !important;
   border-radius: 4px !important;
 }
-/* Current (today) — blue text, NO box / NO surround. Tim's call:
+/* Current (today) \u2014 blue text, NO box / NO surround. Tim's call:
    today indicator should be a quiet color shift, not a chunky
    filled cell that competes with the user's actual selection. */
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--current {
@@ -3094,8 +3094,8 @@ html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--current {
   color: var(--reos-blue) !important;
   -webkit-text-fill-color: var(--reos-blue) !important;
 }
-/* Selected (user-clicked start / end of range) — emerald bg on
-   the cell (24×24, fits behind the number). */
+/* Selected (user-clicked start / end of range) \u2014 emerald bg on
+   the cell (24\xD724, fits behind the number). */
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--selected {
   background-color: var(--reos-emerald) !important;
   background: var(--reos-emerald) !important;
@@ -3104,7 +3104,7 @@ html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--selected {
   -webkit-text-fill-color: var(--reos-obsidian) !important;
 }
 /* Kill the small dot indicator (.hr-date-panel-date__sup) Naive
-   renders inside today's cell — we already signal today via the
+   renders inside today's cell \u2014 we already signal today via the
    blue text color, no extra marker needed. */
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--current .hr-date-panel-date__sup,
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__sup {
@@ -3117,7 +3117,7 @@ html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--selected {
   color: var(--reos-obsidian) !important;
   -webkit-text-fill-color: var(--reos-obsidian) !important;
 }
-/* Dates inside selected range — emerald-glow bg, bone text. */
+/* Dates inside selected range \u2014 emerald-glow bg, bone text. */
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--covered .hr-date-panel-date__trigger,
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--covered .hr-date-panel-date__trigger::before,
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--included .hr-date-panel-date__trigger,
@@ -3132,8 +3132,8 @@ html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel__divider {
   background-color: var(--reos-steel) !important;
   background: var(--reos-steel) !important;
 }
-/* Action footer (Clear / Confirm row) — slate to match the rest
-   of the panel. v0.9.91: was graphite from the v0.9.82 rule —
+/* Action footer (Clear / Confirm row) \u2014 slate to match the rest
+   of the panel. v0.9.91: was graphite from the v0.9.82 rule \u2014
    updated to slate so the footer doesn't read as a separate
    panel band against the slate calendar grid above. */
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-actions {
@@ -3141,9 +3141,9 @@ html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-actions {
   background-color: var(--reos-slate) !important;
   background: var(--reos-slate) !important;
 }
-/* Month-nav SVG arrows (prev / next / fast-prev / fast-next) —
+/* Month-nav SVG arrows (prev / next / fast-prev / fast-next) \u2014
    bone resting, emerald on hover. v0.9.94: defensive kill on
-   border/outline/box-shadow — Tim flagged a visible "1px border"
+   border/outline/box-shadow \u2014 Tim flagged a visible "1px border"
    on these arrows. Computed values were 0 but some scoped Vue
    CSS or focus-ring rule was painting a visible rectangle.
    Hover bg flipped to graphite (one shade darker than slate)
@@ -3163,7 +3163,7 @@ html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next {
 /* v0.9.98: hover bg fully transparent. v0.9.94's graphite hover
    bg created a visible rectangle on the slate panel which Tim
    read as a "1px border" around the arrow on hover. Icon color
-   shift bone → emerald is enough feedback. */
+   shift bone \u2192 emerald is enough feedback. */
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__prev:hover,
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__next:hover,
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-prev:hover,
@@ -3190,7 +3190,7 @@ html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next:f
 /* v0.9.96: SVG anti-alias / stroke kill for the month-nav arrow
    icons. Despite computed border/outline/shadow all reading 0,
    Tim sees a faint 1px outline on these arrows. The SVG has
-   stroke-width="1" baked into its <g> attributes — if any CSS
+   stroke-width="1" baked into its <g> attributes \u2014 if any CSS
    rule paints stroke on the SVG/g/path, a 1px outline renders.
    Force stroke-width: 0 + stroke: none + shape-rendering:
    geometricPrecision (cleaner edges) so any latent stroke rule
@@ -3215,10 +3215,10 @@ html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next s
 
 /* 18a-ui-empty-icon (v0.9.81). The empty-state icon container on
    Invoices "No invoices to show yet" ships with an 8px emerald-50
-   border (rgb(236, 253, 245) / #ECFDF5) — reads as a giant pale-
+   border (rgb(236, 253, 245) / #ECFDF5) \u2014 reads as a giant pale-
    green/white halo around the search glyph. Per Tim's icon-badge
    canon (see Objects page .bg-primary-100.rounded-full fix), kill
-   the surround — bare icon, no badge ring. */
+   the surround \u2014 bare icon, no badge ring. */
 html body .ui-empty-icon:not(#__reos_never_id),
 html body [class*="ui-empty-icon"]:not(#__reos_never_id) {
   background-color: transparent !important;
@@ -3252,13 +3252,13 @@ html body [class*="hr-card-header"]:not(#__reos_never_id) {
   border-color: var(--reos-steel) !important;
 }
 
-/* 18a-richtext-toolbar (v0.10.3 → v0.10.4). The TipTap rich-text
+/* 18a-richtext-toolbar (v0.10.3 \u2192 v0.10.4). The TipTap rich-text
    editor in Invoice/Estimate Settings (Title & Terms). Full
    canon: graphite surface, steel borders, bone icons resting,
    emerald-glow bg + emerald icon active, slate hover bg, emerald
    caret + emerald-glow text selection. */
 
-/* Icons — inline svg (Bold/Underline/Italic/etc): bone resting. */
+/* Icons \u2014 inline svg (Bold/Underline/Italic/etc): bone resting. */
 html body .toolbar_button:not(#__reos_never_id) svg,
 html body .toolbar_button:not(#__reos_never_id) svg path,
 html body #editor-toolbar:not(#__reos_never_id) svg,
@@ -3272,7 +3272,7 @@ html body .toolbar_button:not(#__reos_never_id):hover svg path {
   color: var(--reos-emerald) !important;
   stroke: var(--reos-emerald) !important;
 }
-/* Active (format applied to selection) — TipTap marks the
+/* Active (format applied to selection) \u2014 TipTap marks the
    button with .is-active OR aria-pressed="true". Cover both.
    v0.10.5: emerald-glow at 12% (var) was barely visible; bumped
    to ~28% custom rgba + added emerald border ring for clear
@@ -3294,21 +3294,21 @@ html body .toolbar_button.active:not(#__reos_never_id) svg path {
   color: var(--reos-emerald) !important;
   stroke: var(--reos-emerald) !important;
 }
-/* Active state for base64 <img> icons — apply emerald drop-shadow
+/* Active state for base64 <img> icons \u2014 apply emerald drop-shadow
    filter as a visual cue (since the bone-colored svg pixels can't
-   be directly recolored via CSS — they're rasterized). The bg
+   be directly recolored via CSS \u2014 they're rasterized). The bg
    change above already signals active; this just reinforces. */
 html body .toolbar_button.is-active:not(#__reos_never_id) img.toolbar-button__icon,
 html body .toolbar_button[aria-pressed="true"]:not(#__reos_never_id) img.toolbar-button__icon,
 html body .toolbar_button.active:not(#__reos_never_id) img.toolbar-button__icon {
   filter: drop-shadow(0 0 1px var(--reos-emerald)) drop-shadow(0 0 1px var(--reos-emerald)) !important;
 }
-/* Toolbar surface — graphite. */
+/* Toolbar surface \u2014 graphite. */
 html body #editor-toolbar:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
   background: var(--reos-graphite) !important;
 }
-/* Button cells — transparent at rest, slate on hover. */
+/* Button cells \u2014 transparent at rest, slate on hover. */
 html body .toolbar_button:not(#__reos_never_id) {
   background-color: transparent !important;
   background: transparent !important;
@@ -3318,7 +3318,7 @@ html body .toolbar_button:not(#__reos_never_id) {
 html body .toolbar_button:not(#__reos_never_id):hover {
   background-color: var(--reos-slate) !important;
 }
-/* Disabled toolbar button (e.g. Undo/Redo when no history) —
+/* Disabled toolbar button (e.g. Undo/Redo when no history) \u2014
    half opacity + no hover state + ash icon. */
 html body .toolbar_button:not(#__reos_never_id):disabled,
 html body .toolbar_button[disabled]:not(#__reos_never_id) {
@@ -3332,7 +3332,7 @@ html body .toolbar_button[disabled]:not(#__reos_never_id):hover {
 }
 
 /* Outer editor container + divider between toolbar and content
-   — replace the GHL gray-200 default with steel. */
+   \u2014 replace the GHL gray-200 default with steel. */
 html body .editor-container:not(#__reos_never_id),
 html body .toolbar_container:not(#__reos_never_id),
 html body .border_bottom:not(#__reos_never_id) {
@@ -3342,7 +3342,7 @@ html body .border_bottom:not(#__reos_never_id) {
 }
 
 /* TipTap ProseMirror content area + the .bg-white wrapper that
-   houses the editor — graphite, not white. */
+   houses the editor \u2014 graphite, not white. */
 html body .editor-container:not(#__reos_never_id),
 html body .editor-wrapper:not(#__reos_never_id),
 html body .ProseMirror:not(#__reos_never_id),
@@ -3357,7 +3357,7 @@ html body .ProseMirror:not(#__reos_never_id) p * {
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
-/* Text selection inside the editor — emerald-glow background. */
+/* Text selection inside the editor \u2014 emerald-glow background. */
 html body .ProseMirror::selection,
 html body .tiptap::selection,
 html body .ProseMirror *::selection,
@@ -3410,8 +3410,8 @@ html body #editor-toolbar [aria-label="Custom Values"] {
    color cascade from their DOM parent. When the dropdown trigger
    anchor in the top nav has .router-link-active (because the
    current page is under it), the section-3 rule
-     .sidebar-v2 a[class*="active"] *  → emerald
-   cascades emerald onto every dropdown menu item descendant —
+     .sidebar-v2 a[class*="active"] *  \u2192 emerald
+   cascades emerald onto every dropdown menu item descendant \u2014
    including inactive items. Tim flagged this on the Invoices &
    Estimates dropdown (Recurring/Templates/Estimates rendered
    emerald along with the active All Invoices).
@@ -3422,7 +3422,7 @@ html body #editor-toolbar [aria-label="Custom Values"] {
      Active    : emerald text, emerald-glow bg
 
    High specificity to beat the inherited "any descendant of an
-   active anchor → emerald" cascade. */
+   active anchor \u2192 emerald" cascade. */
 html body [role="menu"] a[role="menuitem"]:not(#__reos_never_id),
 html body [role="menu"] a[role="menuitem"]:not(#__reos_never_id) span,
 html body [role="menu"] a[role="menuitem"]:not(#__reos_never_id) > *:not(#__reos_never_id) {
@@ -3430,7 +3430,7 @@ html body [role="menu"] a[role="menuitem"]:not(#__reos_never_id) > *:not(#__reos
   -webkit-text-fill-color: var(--reos-bone) !important;
   background-color: transparent !important;
 }
-/* Hover (inactive item) — slate bg, bone text stays. */
+/* Hover (inactive item) \u2014 slate bg, bone text stays. */
 html body [role="menu"] a[role="menuitem"]:not(.active):not(.router-link-active):not(.router-link-exact-active):not(#__reos_never_id):hover {
   background-color: var(--reos-slate) !important;
   color: var(--reos-bone) !important;
@@ -3440,7 +3440,7 @@ html body [role="menu"] a[role="menuitem"]:not(.active):not(.router-link-active)
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
-/* Active item — emerald text + emerald-glow bg. */
+/* Active item \u2014 emerald text + emerald-glow bg. */
 html body [role="menu"] a[role="menuitem"].active:not(#__reos_never_id),
 html body [role="menu"] a[role="menuitem"].router-link-active:not(#__reos_never_id),
 html body [role="menu"] a[role="menuitem"].router-link-exact-active:not(#__reos_never_id),
@@ -3458,7 +3458,7 @@ html body [role="menu"] a[role="menuitem"].router-link-active:not(#__reos_never_
 html body [role="menu"] a[role="menuitem"].router-link-exact-active:not(#__reos_never_id) {
   background-color: var(--reos-emerald-glow) !important;
 }
-/* Menu surface — graphite panel + steel border, kill the bg-white
+/* Menu surface \u2014 graphite panel + steel border, kill the bg-white
    Tailwind class on the menu container. */
 html body [role="menu"]:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
@@ -3494,10 +3494,10 @@ html body .hr-text.cursor-pointer:not(#__reos_never_id):hover {
    Gaps, Voice AI Performance, Number Porting, etc. feature
    toggles). Defaults ship gray-100 rail + white thumb + brand-
    blue active rail. Mirror the .n-switch canon (v0.7.x):
-     OFF rail   → steel    Thumb → bone
-     ON  rail   → emerald  Thumb → bone
-     Disabled   → 50% opacity
-     Focus ring → emerald-glow (subtle, keyboard-only) */
+     OFF rail   \u2192 steel    Thumb \u2192 bone
+     ON  rail   \u2192 emerald  Thumb \u2192 bone
+     Disabled   \u2192 50% opacity
+     Focus ring \u2192 emerald-glow (subtle, keyboard-only) */
 html body .hr-switch:not(#__reos_never_id) {
   --n-rail-color: var(--reos-steel) !important;
   --n-rail-color-active: var(--reos-emerald) !important;
@@ -3506,20 +3506,20 @@ html body .hr-switch:not(#__reos_never_id) {
   --n-box-shadow-focus: 0 0 0 2px var(--reos-emerald-glow) !important;
   --n-box-shadow: none !important;
 }
-/* Off state rail — pin steel explicitly (coercer may paint slate). */
+/* Off state rail \u2014 pin steel explicitly (coercer may paint slate). */
 html body .hr-switch.hr-switch--round:not([aria-checked="true"]):not(#__reos_never_id) .hr-switch__rail,
 html body .hr-switch:not([aria-checked="true"]):not(#__reos_never_id) .hr-switch__rail {
   background-color: var(--reos-steel) !important;
   background: var(--reos-steel) !important;
 }
-/* On state rail — emerald. */
+/* On state rail \u2014 emerald. */
 html body .hr-switch.hr-switch--round[aria-checked="true"]:not(#__reos_never_id) .hr-switch__rail,
 html body .hr-switch[aria-checked="true"]:not(#__reos_never_id) .hr-switch__rail,
 html body .hr-switch.hr-switch--active:not(#__reos_never_id) .hr-switch__rail {
   background-color: var(--reos-emerald) !important;
   background: var(--reos-emerald) !important;
 }
-/* Thumb — always bone with subtle shadow for visibility. */
+/* Thumb \u2014 always bone with subtle shadow for visibility. */
 html body .hr-switch:not(#__reos_never_id) .hr-switch__button,
 html body .hr-switch:not(#__reos_never_id) .hr-switch__button-placeholder {
   background-color: var(--reos-bone) !important;
@@ -3535,7 +3535,7 @@ html body .hr-switch:not(#__reos_never_id):focus-visible {
 /* 18a-labs-beta-banner (v0.9.76). The "Welcome to our Beta Program"
    banner on Labs settings is a bright bg-blue-600 hero. Theme to
    graphite + steel border + emerald accent (consistent with our
-   "info banner" canon — see v0.9.41 sip block treatment). */
+   "info banner" canon \u2014 see v0.9.41 sip block treatment). */
 html body div[class*="bg-blue-600"]:not(#__reos_never_id),
 html body div[class*="bg-blue-500"]:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
@@ -3545,13 +3545,13 @@ html body div[class*="bg-blue-500"]:not(#__reos_never_id) {
 
 /* 18a-row-action-icons (v0.9.75). Universal hover states for the
    row-action icon pair Tim approved:
-     Pencil (edit)  → bone resting, EMERALD on parent-button hover
-     Trash  (delete)→ bone resting, CRIMSON on parent-button hover
+     Pencil (edit)  \u2192 bone resting, EMERALD on parent-button hover
+     Trash  (delete)\u2192 bone resting, CRIMSON on parent-button hover
    Match by path d-attribute prefixes so the canon applies to
-   every instance across GHL — Tags settings row actions, dropdown
+   every instance across GHL \u2014 Tags settings row actions, dropdown
    menu Edit/Delete, contact-detail panels, anywhere. */
 
-/* === PENCIL (edit) ICON — bone → emerald on hover === */
+/* === PENCIL (edit) ICON \u2014 bone \u2192 emerald on hover === */
 /* Variant 1: M18 2l4 4M2 22l1.276-4.68 (dropdown + row action pattern) */
 /* Variant 2: M2.876 18.116c.046-.414.069-.62.131 (Tags row variant) */
 html body svg path[d^="M18 2l4 4M2 22l1.276-4.68"]:not(#__reos_never_id),
@@ -3568,7 +3568,7 @@ html body button:has(svg path[d^="M2.876 18.116c.046-.414.069-.62.131"]):not(#__
   color: var(--reos-emerald) !important;
 }
 
-/* === TRASH (delete) ICON — bone → crimson on hover === */
+/* === TRASH (delete) ICON \u2014 bone \u2192 crimson on hover === */
 /* Path prefix: M16 6v-.8c0-1.12 0-1.68-.218-2.108 (canonical trash shape) */
 html body svg path[d^="M16 6v-.8c0-1.12 0-1.68-.218-2.108"]:not(#__reos_never_id) {
   stroke: var(--reos-bone) !important;
@@ -3581,8 +3581,8 @@ html body button:has(svg path[d^="M16 6v-.8c0-1.12 0-1.68-.218-2.108"]):not(#__r
   color: var(--reos-crimson) !important;
 }
 /* Hover on the parent button should also flip the row-action
-   button's border to the same accent — emerald for edit, crimson
-   for delete — instead of the default emerald hover from v0.9.13. */
+   button's border to the same accent \u2014 emerald for edit, crimson
+   for delete \u2014 instead of the default emerald hover from v0.9.13. */
 html body button:has(svg path[d^="M16 6v-.8c0-1.12 0-1.68-.218-2.108"]):not(#__reos_never_id):hover {
   border-color: var(--reos-crimson) !important;
 }
@@ -3590,7 +3590,7 @@ html body button:has(svg path[d^="M16 6v-.8c0-1.12 0-1.68-.218-2.108"]):not(#__r
 /* 18a-hr-icon-default (v0.9.74). GHL Highrise design system
    wraps SVG icons in <span class="hr-icon"><span class="hr-icon-
    inner"><svg .../></span></span>. Default stroke renders gray-
-   900 rgb(16, 24, 40) — invisible on graphite. Tags settings page
+   900 rgb(16, 24, 40) \u2014 invisible on graphite. Tags settings page
    column headers ("Created on", "Updated on") use these for the
    calendar / tag icons. Force the whole .hr-icon family to bone
    so any icon rendered through this wrapper is readable. */
@@ -3605,7 +3605,7 @@ html body span.hr-icon-inner:not(#__reos_never_id) {
   fill: none !important;
 }
 /* Respect the .text-gray-400 / .text-gray-500 / .text-gray-300
-   modifiers on .hr-icon — those signal "muted icon, render ash". */
+   modifiers on .hr-icon \u2014 those signal "muted icon, render ash". */
 html body .hr-icon.text-gray-400:not(#__reos_never_id) svg,
 html body .hr-icon.text-gray-400:not(#__reos_never_id) svg path,
 html body .hr-icon.text-gray-500:not(#__reos_never_id) svg,
@@ -3640,7 +3640,7 @@ html body [class*="hr-dropdown-menu"]:not(#__reos_never_id) {
   --n-divider-color: var(--reos-steel) !important;
   --n-group-header-text-color: var(--reos-ash) !important;
 }
-/* Prefix + suffix icon SVGs — explicit stroke + color so they
+/* Prefix + suffix icon SVGs \u2014 explicit stroke + color so they
    don't fall through to gray-700 from the var. Bone at rest. */
 html body .hr-dropdown-option:not(#__reos_never_id) .hr-dropdown-option-body__prefix svg,
 html body .hr-dropdown-option:not(#__reos_never_id) .hr-dropdown-option-body__prefix svg path,
@@ -3649,7 +3649,7 @@ html body .hr-dropdown-option:not(#__reos_never_id) .hr-dropdown-option-body__su
   color: var(--reos-bone) !important;
   stroke: var(--reos-bone) !important;
 }
-/* Active row — icons follow text emerald per canon. */
+/* Active row \u2014 icons follow text emerald per canon. */
 html body .hr-dropdown-option.is-active:not(#__reos_never_id) .hr-dropdown-option-body__prefix svg,
 html body .hr-dropdown-option.is-active:not(#__reos_never_id) .hr-dropdown-option-body__prefix svg path,
 html body .hr-dropdown-option.is-selected:not(#__reos_never_id) .hr-dropdown-option-body__prefix svg,
@@ -3660,16 +3660,16 @@ html body .hr-dropdown-option--selected:not(#__reos_never_id) .hr-dropdown-optio
   stroke: var(--reos-emerald) !important;
 }
 
-/* 18a-kebab-icon-universal (v0.9.71 → v0.9.72). Vertical-kebab
-   (3-dot "more actions" trigger) ships across the app — table-
-   row action menus, card kebabs, etc. — painted ash + wrapped
+/* 18a-kebab-icon-universal (v0.9.71 \u2192 v0.9.72). Vertical-kebab
+   (3-dot "more actions" trigger) ships across the app \u2014 table-
+   row action menus, card kebabs, etc. \u2014 painted ash + wrapped
    in a slate box.
    v0.9.71 mistakenly unboxed the button entirely. v0.9.72
    restores the canonical pattern from v0.8.95 / table-action
    kebabs Tim approved long ago:
-     Resting       → graphite bg + 1px steel border + blue dots
-     Hover         → graphite bg + 1px EMERALD border + blue dots
-     Focus/active  → graphite bg + 1px emerald border + blue dots
+     Resting       \u2192 graphite bg + 1px steel border + blue dots
+     Hover         \u2192 graphite bg + 1px EMERALD border + blue dots
+     Focus/active  \u2192 graphite bg + 1px emerald border + blue dots
    Match by path d-attribute prefix so this canon applies to
    EVERY kebab regardless of which button family wraps it. */
 html body svg path[d^="M12 13a1 1 0 100-2 1 1 0 000 2zM12 6a1 1 0 100-2"]:not(#__reos_never_id) {
@@ -3681,7 +3681,7 @@ html body svg:has(path[d^="M12 13a1 1 0 100-2 1 1 0 000 2zM12 6a1 1 0 100-2"]):n
   color: var(--reos-blue) !important;
   stroke: var(--reos-blue) !important;
 }
-/* Button wrapping the kebab — graphite bg + steel border canon. */
+/* Button wrapping the kebab \u2014 graphite bg + steel border canon. */
 html body button:has(svg path[d^="M12 13a1 1 0 100-2 1 1 0 000 2zM12 6a1 1 0 100-2"]):not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
   background: var(--reos-graphite) !important;
@@ -3713,7 +3713,7 @@ html body button:has(svg path[d^="M12 13a1 1 0 100-2 1 1 0 000 2zM12 6a1 1 0 100
   outline: none !important;
   box-shadow: none !important;
 }
-/* Kill decorative overlays — they paint the "inner box on click"
+/* Kill decorative overlays \u2014 they paint the "inner box on click"
    white/blue Naive-default flash. */
 html body button:has(svg path[d^="M12 13a1 1 0 100-2 1 1 0 000 2zM12 6a1 1 0 100-2"]):not(#__reos_never_id) .hr-button__border,
 html body button:has(svg path[d^="M12 13a1 1 0 100-2 1 1 0 000 2zM12 6a1 1 0 100-2"]):not(#__reos_never_id) .hr-button__state-border,
@@ -3731,7 +3731,7 @@ html body button:has(svg path[d^="M12 13a1 1 0 100-2 1 1 0 000 2zM12 6a1 1 0 100
    key warnings, etc.) painted with various utility classes:
    .text-red-500, .text-yellow-500, .text-warning-600, etc. Tim's
    canon: every triangle warning is amber, always. Match by the
-   path's d-attribute prefix — that shape is the canonical GHL
+   path's d-attribute prefix \u2014 that shape is the canonical GHL
    warning triangle and is consistent across every instance. */
 html body svg path[d^="M12 9v4m0 4h.01M10.615 3.892"]:not(#__reos_never_id) {
   stroke: var(--reos-amber) !important;
@@ -3750,7 +3750,7 @@ html body svg:has(path[d^="M12 9v4m0 4h.01M10.615 3.892"]):not(#__reos_never_id)
    as link, not button" variant for buttons like "Learn More" on
    Private Integrations page. Defaults inherit the v0.9.13 default-
    type pattern (slate bg + cool-gray border + bone text). Tim's
-   canon for link-style buttons: no chrome at all — blue text +
+   canon for link-style buttons: no chrome at all \u2014 blue text +
    blue icon + no border + no bg. Mirror of v0.9.47 .learn-more-
    button. Need to beat the v0.9.13 hr-button.hr-button--default-
    type rule via class-doubled specificity (0,1,3,2). */
@@ -3779,7 +3779,7 @@ html body .hr-button.ui-text-btn.ui-text-btn:not(#__reos_never_id) {
   min-height: 0 !important;
   height: auto !important;
 }
-/* Hover: identical to resting — Tim's call. No emerald flash on
+/* Hover: identical to resting \u2014 Tim's call. No emerald flash on
    .ui-text-btn link-style buttons. The link signals affordance
    on its own via the blue color + underline. */
 html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id):hover,
@@ -3802,7 +3802,7 @@ html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id):h
   color: var(--reos-blue) !important;
   -webkit-text-fill-color: var(--reos-blue) !important;
 }
-/* SVG icon inside the button — stroke + fill blue, no hover shift. */
+/* SVG icon inside the button \u2014 stroke + fill blue, no hover shift. */
 html body .hr-button.ui-text-btn:not(#__reos_never_id) svg,
 html body .hr-button.ui-text-btn:not(#__reos_never_id) svg path {
   color: var(--reos-blue) !important;
@@ -3855,8 +3855,8 @@ html body .hr-tag.ui-default:not(#__reos_never_id) .n-tag__border {
 /* 18a-integration-cards (v0.9.66). LC Integrations page (settings/
    lc-integrations) renders 38 integration cards (Google, Facebook,
    LinkedIn, Stripe, etc.). Each card has:
-     .card-header → white bg (rgb(255, 255, 255))
-     .card-footer → border-top: 2px solid rgb(242, 247, 250) (light)
+     .card-header \u2192 white bg (rgb(255, 255, 255))
+     .card-footer \u2192 border-top: 2px solid rgb(242, 247, 250) (light)
    Both classes are GHL-custom utility names inside .hr-card. Remap
    to canon: graphite bg, steel border. */
 html body .card-header:not(#__reos_never_id),
@@ -3910,7 +3910,7 @@ html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover {
   color: var(--reos-emerald) !important;
   border-color: var(--reos-emerald) !important;
 }
-/* Content span — beat any inline color paint with !important
+/* Content span \u2014 beat any inline color paint with !important
    on the descendant content. */
 html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-button__content,
 html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-button__content * {
@@ -3934,7 +3934,7 @@ html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover .n-butto
 /* Kill the .n-base-wave ripple overlay (v0.9.65). The section-7
    rule paints .n-button .n-base-wave emerald-glow at all times
    (intended for click ripple), but for tertiary-type buttons the
-   wave element renders at opacity 1 at rest — so the emerald-glow
+   wave element renders at opacity 1 at rest \u2014 so the emerald-glow
    shows as a constant wash. Tim flagged "green wash over them" on
    Analytics + Submissions. Hide the wave on this variant. */
 html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-base-wave {
@@ -3943,7 +3943,7 @@ html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-base-wave {
   background-color: transparent !important;
   opacity: 0 !important;
 }
-/* Disabled — muted ash, no hover, half opacity. */
+/* Disabled \u2014 muted ash, no hover, half opacity. */
 html body .n-button.n-button--tertiary-type.n-button--disabled:not(#__reos_never_id),
 html body .n-button.n-button--tertiary-type[disabled]:not(#__reos_never_id) {
   opacity: 0.5 !important;
@@ -3969,7 +3969,7 @@ html body .n-button.n-button--tertiary-type[disabled]:not(#__reos_never_id) .n-b
 /* 18a-hr-button-tertiary (v0.10.7). Reminder Settings tab in
    Invoice Settings has an "Add another reminder" button rendered
    as .hr-button.hr-button--tertiary-type with inline obsidian
-   color (rgb(18, 22, 29)) on the .hr-button__content span — so
+   color (rgb(18, 22, 29)) on the .hr-button__content span \u2014 so
    it looks "grayed out / un-clickable" on slate. Mirror the
    v0.9.64 .n-button--tertiary-type canon: graphite bg, steel
    border, bone text resting; emerald border + emerald text on
@@ -4003,7 +4003,7 @@ html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id):hover {
   color: var(--reos-emerald) !important;
   border-color: var(--reos-emerald) !important;
 }
-/* Content span — beat any inline color paint (the GHL component
+/* Content span \u2014 beat any inline color paint (the GHL component
    stamps inline obsidian on .hr-button__content) with !important
    on descendant content. */
 html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id) .hr-button__content,
@@ -4026,7 +4026,7 @@ html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id):hover .hr-bu
   border-color: var(--reos-emerald) !important;
 }
 /* Kill the .hr-base-wave / .n-base-wave ripple overlay (mirrors
-   v0.9.65 fix for .n-button--tertiary-type — wave renders at
+   v0.9.65 fix for .n-button--tertiary-type \u2014 wave renders at
    opacity 1 at rest, producing a constant green wash). */
 html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id) .hr-base-wave,
 html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id) .n-base-wave {
@@ -4035,7 +4035,7 @@ html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id) .n-base-wave
   background-color: transparent !important;
   opacity: 0 !important;
 }
-/* Disabled — muted ash, no hover, half opacity. */
+/* Disabled \u2014 muted ash, no hover, half opacity. */
 html body .hr-button.hr-button--tertiary-type.hr-button--disabled:not(#__reos_never_id),
 html body .hr-button.hr-button--tertiary-type[disabled]:not(#__reos_never_id) {
   opacity: 0.5 !important;
@@ -4058,7 +4058,7 @@ html body .hr-button.hr-button--tertiary-type[disabled]:not(#__reos_never_id) .h
   -webkit-text-fill-color: var(--reos-ash) !important;
 }
 
-/* v0.9.63: SVG icons with .text-purple-* → blue (canon info-
+/* v0.9.63: SVG icons with .text-purple-* \u2192 blue (canon info-
    icon color). Tim's call on the Form Fills checklist icon on
    External Tracking page. Limited to <svg> + child paths so
    text labels with purple class stay bone. */
@@ -4110,7 +4110,7 @@ html body [class*="border-purple-"]:not(#__reos_never_id) {
   border-color: var(--reos-steel) !important;
 }
 
-/* Amber/orange/yellow warning alerts — Tim-flagged 'Timeout
+/* Amber/orange/yellow warning alerts \u2014 Tim-flagged 'Timeout
    duration too high' callout. GHL ships these with light cream
    bg + amber text. Dark theme: graphite bg + steel border with
    amber accent strip for the warning signal. */
@@ -4140,7 +4140,7 @@ html body [class*="text-orange-"]:not(#__reos_never_id) {
   -webkit-text-fill-color: var(--reos-amber) !important;
 }
 
-/* HR-alert family — GHL's Highrise alert component for inline
+/* HR-alert family \u2014 GHL's Highrise alert component for inline
    warnings/info/etc. The white bg + cream-tinted variants ship
    from .hr-alert / .hr-alert-body. Theme to graphite + amber
    accent for warning variant. */
@@ -4152,7 +4152,7 @@ html body [class*="hr-alert"]:not(#__reos_never_id) {
   background: var(--reos-graphite) !important;
   border-color: var(--reos-amber) !important;
 }
-/* All text descendants → amber. v0.9.30 missed the <p> title +
+/* All text descendants \u2192 amber. v0.9.30 missed the <p> title +
    text nodes because they were getting an empty -webkit-text-
    fill-color from coercer paints. Cover every text-bearing
    element + force fill-color explicitly. */
@@ -4167,7 +4167,7 @@ html body [class*="hr-alert"]:not(#__reos_never_id) .title {
   -webkit-text-fill-color: var(--reos-amber) !important;
   background-color: transparent !important;
 }
-/* Alert icon container — sometimes ships with slate bg from a
+/* Alert icon container \u2014 sometimes ships with slate bg from a
    coercer painting any small-rectangle dark wrapper. Force
    transparent so the warning glyph sits on the alert's own bg
    without a square box behind it. */
@@ -4197,7 +4197,7 @@ html body .n-button.hl-checkbox-group-item:not(#__reos_never_id) {
   --n-box-shadow-hover: none !important;
   --n-box-shadow-pressed: none !important;
   --n-box-shadow-active: none !important;
-  /* Lock the hover/focus/pressed border to a quiet 1px steel→
+  /* Lock the hover/focus/pressed border to a quiet 1px steel\u2192
      emerald transition, not the Naive inline blue. */
   --n-border: 1px solid var(--reos-steel) !important;
   --n-border-hover: 1px solid var(--reos-emerald) !important;
@@ -4236,12 +4236,12 @@ html body .hl-checkbox-group-item:not(#__reos_never_id) .n-base-wave {
    inheritance). He wants title emerald on hover, description
    bone always.
 
-   Title  (.text-gray-900.hl-text-md-medium)  → bone resting,
+   Title  (.text-gray-900.hl-text-md-medium)  \u2192 bone resting,
                                                  emerald on hover
-   Description (.hl-text-xs-regular)          → bone always.
+   Description (.hl-text-xs-regular)          \u2192 bone always.
 
    v0.9.53 used .hl-text-sm-regular which never matched these
-   cards — the actual class is .hl-text-xs-regular. Fixed here. */
+   cards \u2014 the actual class is .hl-text-xs-regular. Fixed here. */
 html body .hl-checkbox-group-item:not(#__reos_never_id) p.text-gray-900,
 html body .hl-checkbox-group-item:not(#__reos_never_id) p.hl-text-md-medium {
   color: var(--reos-bone) !important;
@@ -4252,7 +4252,7 @@ html body .hl-checkbox-group-item:not(#__reos_never_id):hover p.hl-text-md-mediu
   color: var(--reos-emerald) !important;
   -webkit-text-fill-color: var(--reos-emerald) !important;
 }
-/* Description — bone always, no hover color shift. */
+/* Description \u2014 bone always, no hover color shift. */
 html body .hl-checkbox-group-item:not(#__reos_never_id) p.hl-text-xs-regular,
 html body .hl-checkbox-group-item:not(#__reos_never_id) [class*="hl-text-xs-regular"],
 html body .hl-checkbox-group-item:not(#__reos_never_id) p.hl-text-sm-regular,
@@ -4268,23 +4268,23 @@ html body .hl-checkbox-group-item:not(#__reos_never_id):hover [class*="hl-text-s
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
-/* 18a-n-steps (v0.9.52 → v0.9.55). Naive UI Steps component on
+/* 18a-n-steps (v0.9.52 \u2192 v0.9.55). Naive UI Steps component on
    the Import Data wizard ("Start / Upload / Map / Verify").
    v0.9.52 attempted direct property overrides but Naive paints
    via CSS vars (--n-indicator-color, --n-indicator-border-color,
    --n-indicator-text-color, --n-splitor-color, --n-header-text-
-   color, --n-description-text-color) — so direct color overrides
+   color, --n-description-text-color) \u2014 so direct color overrides
    lost to Naive's box-shadow-driven outer ring.
 
    v0.9.55 overrides the actual Naive vars at the .n-step level
    (where the vars live) + nukes box-shadow on the indicator so
    the 1px outer ring around the active circle stops painting
    brand-blue. Canon:
-     - Active (process) circle  → emerald bg + obsidian numerals
-     - Waiting (future) circle  → transparent + steel border + ash
-     - Finished (past) circle   → emerald-glow + emerald numerals
-     - Error                    → crimson
-     - Splitter line            → steel (emerald past finished) */
+     - Active (process) circle  \u2192 emerald bg + obsidian numerals
+     - Waiting (future) circle  \u2192 transparent + steel border + ash
+     - Finished (past) circle   \u2192 emerald-glow + emerald numerals
+     - Error                    \u2192 crimson
+     - Splitter line            \u2192 steel (emerald past finished) */
 html body .n-steps:not(#__reos_never_id) {
   background-color: transparent !important;
   background: transparent !important;
@@ -4292,7 +4292,7 @@ html body .n-steps:not(#__reos_never_id) {
   --n-description-text-color: var(--reos-ash) !important;
   --n-splitor-color: var(--reos-steel) !important;
 }
-/* Active / in-progress step — override Naive vars + kill the
+/* Active / in-progress step \u2014 override Naive vars + kill the
    box-shadow outer ring (the "blue border" Tim asked about). */
 html body .n-step--process-status:not(#__reos_never_id) {
   --n-indicator-color: var(--reos-emerald) !important;
@@ -4365,7 +4365,7 @@ html body .n-step--error-status:not(#__reos_never_id) .n-step-indicator {
   box-shadow: none !important;
   color: var(--reos-bone) !important;
 }
-/* Step titles + descriptions — pin colors directly in case the
+/* Step titles + descriptions \u2014 pin colors directly in case the
    var override loses to a deeper Naive scoped rule. */
 html body .n-step:not(#__reos_never_id) .n-step-content__title {
   color: var(--reos-bone) !important;
@@ -4403,7 +4403,7 @@ html body #location-billing:not(#__reos_never_id) {
   background-color: transparent !important;
   background: transparent !important;
 }
-/* Sibling wrappers — paint defensively so any framework that
+/* Sibling wrappers \u2014 paint defensively so any framework that
    inserts a new white layer here can't break us. agency-billing
    is the Vue scoped wrapper for this sub-app. */
 html body .agency-billing:not(#__reos_never_id),
@@ -4433,7 +4433,7 @@ html body [class*="n-alert"]:not(#__reos_never_id) {
   background: var(--reos-graphite) !important;
   border-color: var(--reos-steel) !important;
 }
-/* Overlay border element — Naive paints the visible ring here. */
+/* Overlay border element \u2014 Naive paints the visible ring here. */
 html body .n-alert:not(#__reos_never_id) .n-alert__border,
 html body [class*="n-alert"]:not(#__reos_never_id) .n-alert__border {
   border-color: var(--reos-steel) !important;
@@ -4499,7 +4499,7 @@ html body .hl-success.n-alert:not(#__reos_never_id) .n-alert__border,
 html body .n-alert--success:not(#__reos_never_id) .n-alert__border {
   border-color: var(--reos-emerald) !important;
 }
-/* Force descendant text — some title/content nodes have inline
+/* Force descendant text \u2014 some title/content nodes have inline
    color from Naive's data-v scoped CSS that beats var cascade. */
 html body .n-alert:not(#__reos_never_id) .n-alert-body__title,
 html body .n-alert:not(#__reos_never_id) .n-alert-body__title *,
@@ -4523,9 +4523,9 @@ html body .n-alert:not(.hl-warning):not(.hl-error):not(.hl-info):not(.hl-success
 /* 18a-missed-call-followup (v0.9.28). Scan on Missed Call Text
    Back tab found 2 patterns not yet covered:
      div.hr-checkbox-box__border bg: rgb(242, 244, 247) (gray-100)
-       — same hover-paint issue v0.8.70 fixed for .n-checkbox-box__border
+       \u2014 same hover-paint issue v0.8.70 fixed for .n-checkbox-box__border
        but on the .hr-checkbox variant
-     div.n-loading-bar__shimmer bg: white — Naive loading indicator */
+     div.n-loading-bar__shimmer bg: white \u2014 Naive loading indicator */
 html body .hr-checkbox-box__border:not(#__reos_never_id) {
   background-color: transparent !important;
   background: transparent !important;
@@ -4537,16 +4537,16 @@ html body .n-loading-bar:not(#__reos_never_id) {
 }
 
 /* 18a-voicemail-page-sweep (v0.9.27). Voicemail tab scan found:
-     hr.dropdown-divider — gray-200 border-top
-     div.hr-slider-dot — white bg + gray-200 border
-     div.hr-slider-dot--active — white bg (active slider thumb)
-     div.dropdown-menu — white bg
-     div.hl_affiliate--header — light-blue border-top (covers any
+     hr.dropdown-divider \u2014 gray-200 border-top
+     div.hr-slider-dot \u2014 white bg + gray-200 border
+     div.hr-slider-dot--active \u2014 white bg (active slider thumb)
+     div.dropdown-menu \u2014 white bg
+     div.hl_affiliate--header \u2014 light-blue border-top (covers any
        header in affiliate-style sub-app top bars)
-     div.bg-purple-50 / .bg-purple-100 — Tailwind purple accent
+     div.bg-purple-50 / .bg-purple-100 \u2014 Tailwind purple accent
        containers (the Voice AI icon backdrops)
-     div.hr-divider__line — gray-200 bg (divider rules)
-     div.hr-slider-rail — slider track styling */
+     div.hr-divider__line \u2014 gray-200 bg (divider rules)
+     div.hr-slider-rail \u2014 slider track styling */
 html body hr.dropdown-divider:not(#__reos_never_id) {
   border-top-color: var(--reos-steel) !important;
 }
@@ -4584,7 +4584,7 @@ html body [class*="hr-divider__line"]:not(#__reos_never_id) {
   background-color: var(--reos-steel) !important;
   background: var(--reos-steel) !important;
 }
-/* Tailwind purple accent containers — used for AI / brand icons.
+/* Tailwind purple accent containers \u2014 used for AI / brand icons.
    Remap to slate with emerald-glow tint so the AI icon sits on
    the dark theme without a bright lavender backdrop. */
 html body .bg-purple-50:not(#__reos_never_id),
@@ -4602,7 +4602,7 @@ html body [class*="bg-purple-100"]:not(#__reos_never_id) {
    should be blue. <a> elements with text-primary-* override
    to brand blue. */
 /* NOTE (v0.9.59): dropped the a[class*="text-primary"] catchall
-   here — substring-match incorrectly catches Tailwind hover-
+   here \u2014 substring-match incorrectly catches Tailwind hover-
    prefixed variants like group-hover:text-primary-600. The
    explicit a.text-primary-XX dotted selectors below are
    whitespace-token matches and only fire on bare classes. */
@@ -4643,7 +4643,7 @@ html body [class*="app-loader"]:not(#__reos_never_id) {
   background: var(--reos-obsidian) !important;
 }
 
-/* 18a-affiliate-header-bg (v0.9.16 → v0.9.17). .hl_affiliate--header
+/* 18a-affiliate-header-bg (v0.9.16 \u2192 v0.9.17). .hl_affiliate--header
    wrapper (Phone System / other settings sub-app top bars)
    ships with white bg by default. v0.9.16 set it obsidian;
    v0.9.17 matches the rest of the page chrome at graphite. */
@@ -4657,7 +4657,7 @@ html body [class*="hl_affiliate--header"]:not(#__reos_never_id) {
    other settings sub-nav pages) use .hl_affiliate--nav <ul><li>
    tabs where the active <li> has class '--active'. GHL ships
    the active <a> with:
-     color: rgb(144, 152, 163)  (ash — looks subdued)
+     color: rgb(144, 152, 163)  (ash \u2014 looks subdued)
      border-bottom: 3px solid rgb(24, 139, 246)  (blue underline)
 
    Flip the active state to emerald text + emerald underline to
@@ -4676,11 +4676,11 @@ html body [class*="hl_affiliate--nav"] li:not(.--active) > a:not(#__reos_never_i
   -webkit-text-fill-color: var(--reos-emerald-bright) !important;
 }
 
-/* 18a-preferences-page (v0.9.11). Calendars → Preferences page.
+/* 18a-preferences-page (v0.9.11). Calendars \u2192 Preferences page.
    Most surfaces already themed via existing rules. New items:
-   1) .hl-display-sm-medium page title ("Preferences") — bone text
+   1) .hl-display-sm-medium page title ("Preferences") \u2014 bone text
    2) Section dividers using border-b-2 / border-t-2 Tailwind
-      classes WITHOUT an explicit border-gray-200 class —
+      classes WITHOUT an explicit border-gray-200 class \u2014
       Tailwind preflight defaults to rgb(229,231,235) gray-200,
       which reads as a bright stripe against the dark theme.
       Remap to steel via direct class targeting. */
@@ -4689,7 +4689,7 @@ html body .hl-display-sm-medium:not(#__reos_never_id),
 html body .hl-display-md-medium:not(#__reos_never_id),
 html body .hl-display-lg-medium:not(#__reos_never_id),
 html body [class*="hl-display-"]:not(#__reos_never_id),
-/* v0.9.59: .ui-display-* parallel of .hl-display-* — Objects
+/* v0.9.59: .ui-display-* parallel of .hl-display-* \u2014 Objects
    settings page uses .title.ui-display-sm-medium for "Objects",
    shipped with gray-900 inline, invisible on graphite. */
 html body .title.ui-display-sm-medium:not(#__reos_never_id),
@@ -4713,10 +4713,10 @@ html body .border-t:not(.border-t-0):not(#__reos_never_id) {
    tab on the Connections page. Two un-themed surfaces:
 
    1) .bg-primary-50.text-primary-700 "Before you start" callout
-      — Tailwind primary-50 is a light lavender bg. Repaint as
+      \u2014 Tailwind primary-50 is a light lavender bg. Repaint as
       a subtle slate panel with steel border (treats it as an
       info card, not a brand-colored callout).
-   2) .n-switch — Naive UI toggle with inline blue vars:
+   2) .n-switch \u2014 Naive UI toggle with inline blue vars:
         --n-rail-color-active: #155EEF
         --n-loading-color: #155EEF
         --n-box-shadow-focus: 0 0 0 2px rgba(21, 94, 239, 0.2)
@@ -4725,7 +4725,7 @@ html body .border-t:not(.border-t-0):not(#__reos_never_id) {
    primary-50"] (whitespace-token match). The substring form was
    incorrectly catching Tailwind hover/focus-prefixed variants
    such as focus colon bg-primary-50 (used on Objects settings
-   cards), then painting every descendant div ash — which
+   cards), then painting every descendant div ash \u2014 which
    inherited down through the icon container and killed the
    emerald icon color via fill=currentColor. The exact-token
    form only fires when the literal class is bg-primary-50. */
@@ -4735,7 +4735,7 @@ html body [class~="bg-primary-50"]:not(#__reos_never_id) {
   background: var(--reos-graphite) !important;
   border: 1px solid var(--reos-steel) !important;
 }
-/* Force all descendant text in the callout to ash — Tim wants
+/* Force all descendant text in the callout to ash \u2014 Tim wants
    no emerald inside this info panel. Children like text-gray-600
    were being overridden by the .text-primary-700 parent's
    inherited emerald via section 15a. */
@@ -4746,7 +4746,7 @@ html body [class~="bg-primary-50"]:not(#__reos_never_id) div:not(a):not(a *) {
   color: var(--reos-ash) !important;
   -webkit-text-fill-color: var(--reos-ash) !important;
 }
-/* Links (Check here, Learn more) → brand blue. */
+/* Links (Check here, Learn more) \u2192 brand blue. */
 html body .bg-primary-50:not(#__reos_never_id) a,
 html body .bg-primary-50:not(#__reos_never_id) a *,
 html body [class~="bg-primary-50"]:not(#__reos_never_id) a,
@@ -4754,7 +4754,7 @@ html body [class~="bg-primary-50"]:not(#__reos_never_id) a * {
   color: var(--reos-blue) !important;
   -webkit-text-fill-color: var(--reos-blue) !important;
 }
-/* v0.9.60: bg-primary-100 — inner fill of accent icon containers.
+/* v0.9.60: bg-primary-100 \u2014 inner fill of accent icon containers.
    v0.9.61 REVERSAL: Tim doesn't want the round badge backdrop on
    the Objects settings cards. Strip the circle entirely (bg +
    border + width) on the round-badge pattern. Standalone bg-
@@ -4764,7 +4764,7 @@ html body [class~="bg-primary-100"]:not(#__reos_never_id) {
   background-color: var(--reos-emerald-glow) !important;
   background: var(--reos-emerald-glow) !important;
 }
-/* Round-badge variant on Objects-page object cards — Tim wants
+/* Round-badge variant on Objects-page object cards \u2014 Tim wants
    it gone: no circle, no ring, no glow. Just the emerald icon. */
 html body .bg-primary-100.rounded-full:not(#__reos_never_id),
 html body [class~="bg-primary-100"][class~="rounded-full"]:not(#__reos_never_id) {
@@ -4774,7 +4774,7 @@ html body [class~="bg-primary-100"][class~="rounded-full"]:not(#__reos_never_id)
   border-width: 0 !important;
   border-color: transparent !important;
 }
-/* Force SVG icon fill to emerald — GHL ships a native rule:
+/* Force SVG icon fill to emerald \u2014 GHL ships a native rule:
      .custom-obj-list .custom-icon path { fill: rgb(21, 94, 239) }
    That brand-dark-blue is baked directly into the fill prop,
    beating the currentColor inheritance from .text-primary-600.
@@ -4788,7 +4788,7 @@ html body [class~="bg-primary-100"] svg.custom-icon path:not(#__reos_never_id) {
 }
 /* v0.9.62: Objects card vertical divider between icon column +
    content column. GHL ships .custom-obj-content with border-
-   left: 1px solid rgb(234, 236, 240) (gray-200) — reads as a
+   left: 1px solid rgb(234, 236, 240) (gray-200) \u2014 reads as a
    bright stripe against graphite. Remap to steel. */
 html body .custom-obj-content:not(#__reos_never_id),
 html body [class~="custom-obj-content"]:not(#__reos_never_id) {
@@ -4803,7 +4803,7 @@ html body .n-switch:not(#__reos_never_id) {
   --n-button-color: var(--reos-bone) !important;
   --n-box-shadow-focus: 0 0 0 2px var(--reos-emerald-glow) !important;
 }
-/* Pin the rail bg directly — our coercer painted it slate
+/* Pin the rail bg directly \u2014 our coercer painted it slate
    inline !important; that's the inactive rail. Set the active
    rail emerald explicitly so it doesn't fall back to blue. */
 html body .n-switch.n-switch--round:not([aria-checked="true"]):not(#__reos_never_id) .n-switch__rail {
@@ -4831,19 +4831,19 @@ html body [class*="hl_settings--body"]:not(#__reos_never_id) {
   background: var(--reos-obsidian) !important;
 }
 
-/* 18a-calendar-app-connections (v0.9.6). The Calendars →
+/* 18a-calendar-app-connections (v0.9.6). The Calendars \u2192
    Connections page lives in a cross-origin iframe served from
    calendar-app.leadconnectorhq.com. Our customizer is injected
    into the iframe by GHL's Agency Custom JS feature, but several
    surfaces have no rules to catch them. Diagnosed from the user-
    provided outer HTML; targeted rules below cover:
 
-   1) .hl-card — main page card wrapper (bg-white default)
-   2) .n-tabs — Naive UI tabs (blue --n-bar-color / --n-tab-text-
+   1) .hl-card \u2014 main page card wrapper (bg-white default)
+   2) .n-tabs \u2014 Naive UI tabs (blue --n-bar-color / --n-tab-text-
       color-active inline by GHL); flip to emerald canon
-   3) .n-tabs-bar — the active-tab underline element
-   4) .n-tabs-tab + --active variant — tab text colors
-   5) .calendars-integrations-full-width-main-container — page
+   3) .n-tabs-bar \u2014 the active-tab underline element
+   4) .n-tabs-tab + --active variant \u2014 tab text colors
+   5) .calendars-integrations-full-width-main-container \u2014 page
       container bg
 
    Headings using .text-gray-900 are already mapped to bone via
@@ -4866,7 +4866,7 @@ html body [class*="calendars-integrations-full-width-main-container"]:not(#__reo
   background: var(--reos-obsidian) !important;
 }
 
-/* Naive UI tabs — flip the inline blue vars to emerald + bone.
+/* Naive UI tabs \u2014 flip the inline blue vars to emerald + bone.
    Used by .n-tabs.hl-tabs across calendar-app + other sub-apps. */
 html body .n-tabs:not(#__reos_never_id),
 html body .n-tabs.hl-tabs:not(#__reos_never_id) {
@@ -4886,7 +4886,7 @@ html body .n-tabs .n-tabs-bar:not(#__reos_never_id) {
   background-color: var(--reos-emerald) !important;
   background: var(--reos-emerald) !important;
 }
-/* Tab text — explicit colors so we beat any Vue scoped rule. */
+/* Tab text \u2014 explicit colors so we beat any Vue scoped rule. */
 html body .n-tabs .n-tabs-tab:not(.n-tabs-tab--active):not(#__reos_never_id),
 html body .n-tabs .n-tabs-tab:not(.n-tabs-tab--active):not(#__reos_never_id) .n-tabs-tab__label {
   color: var(--reos-ash) !important;
@@ -4979,10 +4979,10 @@ html body [class*="schedule-ui-form-calendar-dropdown"]:not(#__reos_never_id) {
 /* 18a-availability-schedule-borders (v0.9.2). The Availability
    page Work Hours panel has 4 gray-200 (rgb(234, 236, 240) = #EAECF0)
    borders that need to flip to steel:
-     .schedule-ui-main-container         — outer panel frame (all sides)
-     .schedule-ui-header-border          — bottom border below tabs
-     .schedule-ui-form-schedule-container — top border above the panels
-     .schedule-ui-form-weekly-schedule-container — right border (divider
+     .schedule-ui-main-container         \u2014 outer panel frame (all sides)
+     .schedule-ui-header-border          \u2014 bottom border below tabs
+     .schedule-ui-form-schedule-container \u2014 top border above the panels
+     .schedule-ui-form-weekly-schedule-container \u2014 right border (divider
        between weekly hours and date specific hours) */
 html body .schedule-ui-main-container:not(#__reos_never_id),
 html body .schedule-ui-header-border:not(#__reos_never_id),
@@ -4995,15 +4995,15 @@ html body [class*="schedule-ui-form-weekly-schedule-container"]:not(#__reos_neve
   border-color: var(--reos-steel) !important;
 }
 
-/* 18a-availability-weekly-schedule (v0.8.99 → v0.9.1). The
+/* 18a-availability-weekly-schedule (v0.8.99 \u2192 v0.9.1). The
    Sun/Mon/Tue/... day rows in the Availability schedule panel
    come in mixed states:
    - Resting rows: transparent bg + 1px gray-200 bottom border
    - Hovered row: slate bg + steel borders top + bottom
    Tim wants ALL rows graphite regardless of state, with steel
    divider lines (no gray-200), so only the time input fields
-   (.n-input — handled separately) carry slate fill. v0.9.1
-   swapped obsidian → graphite (obsidian was too dark). */
+   (.n-input \u2014 handled separately) carry slate fill. v0.9.1
+   swapped obsidian \u2192 graphite (obsidian was too dark). */
 html body .schedule-ui-form-weekly-schedule-checkbox:not(#__reos_never_id),
 html body .schedule-ui-form-weekly-schedule-checkbox:not(#__reos_never_id):hover,
 html body [class*="schedule-ui-form-weekly-schedule-checkbox"]:not(#__reos_never_id),
@@ -5016,10 +5016,10 @@ html body [class*="schedule-ui-form-weekly-schedule-checkbox"]:not(#__reos_never
   border-bottom-color: var(--reos-steel) !important;
 }
 
-/* 18a-availability-page (v0.8.94). Calendars → Availability page
+/* 18a-availability-page (v0.8.94). Calendars \u2192 Availability page
    ships with two un-themed surfaces:
 
-   1) .schedule-banner (the 'NEW · Simplify your availability...'
+   1) .schedule-banner (the 'NEW \xB7 Simplify your availability...'
       callout). Uses Tailwind utility classes:
         bg-gradient-to-r from-blue-50 to-indigo-50
         border border-blue-200
@@ -5030,7 +5030,7 @@ html body [class*="schedule-ui-form-weekly-schedule-checkbox"]:not(#__reos_never
         bg-[rgb(252,253,253)]
       That's near-white. Wraps the Schedules heading + 'Save
       changes' button. The text inside computes to bone (text-
-      gray-900 → bone via section 15), but against the near-
+      gray-900 \u2192 bone via section 15), but against the near-
       white wrapper it reads as faded.
 
    Targeted fixes: paint the banner graphite + steel border with
@@ -5045,7 +5045,7 @@ html body [class*="schedule-banner"]:not(#__reos_never_id) {
   border-color: var(--reos-steel) !important;
 }
 /* The "NEW" pill inside the banner. Tailwind ships it dark on
-   light by default — flip to brand-blue pill with bone text. */
+   light by default \u2014 flip to brand-blue pill with bone text. */
 html body .schedule-banner [class*="rounded"]:not(.schedule-banner-button):not(#__reos_never_id),
 html body [class*="schedule-banner"] [class*="rounded"]:not(.schedule-banner-button):not(#__reos_never_id) {
   background-color: var(--reos-blue) !important;
@@ -5054,7 +5054,7 @@ html body [class*="schedule-banner"] [class*="rounded"]:not(.schedule-banner-but
 
 /* "Learn more" CTA inside the banner. Originally bg-white +
    text-blue-700, but our remaps painted both bg and text to
-   --reos-blue → blue-on-blue = unreadable. Re-theme as a clear
+   --reos-blue \u2192 blue-on-blue = unreadable. Re-theme as a clear
    CTA: graphite bg + brand-blue text + steel border. */
 html body .schedule-banner-button:not(#__reos_never_id),
 html body [class*="schedule-banner-button"]:not(#__reos_never_id) {
@@ -5074,7 +5074,7 @@ html body .schedule-banner-button:not(#__reos_never_id):hover {
 }
 
 /* Light-bg Tailwind arbitrary classes used as page-header
-   strips. The Schedules section uses bg-[rgb(252,253,253)] —
+   strips. The Schedules section uses bg-[rgb(252,253,253)] \u2014
    match the class substring so we catch any element using this
    specific arbitrary bg. Repaint graphite. */
 html body [class*="bg-[rgb(252,253,253)]"]:not(#__reos_never_id),
@@ -5088,7 +5088,7 @@ html body [class*="bg-[rgb(252"]:not(#__reos_never_id) {
    column in .n-data-table (.n-data-table-td--fixed-right
    .n-data-table-td--last-col) ships with an inline slate bg from
    our coercer. The slate stands out against the surrounding
-   graphite table — Tim wants the action column to blend with the
+   graphite table \u2014 Tim wants the action column to blend with the
    table by painting graphite instead. */
 html body .n-data-table-td.n-data-table-td--fixed-right:not(#__reos_never_id),
 html body .n-data-table-td.n-data-table-td--last-col:not(#__reos_never_id) {
@@ -5138,7 +5138,7 @@ html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:n
   background: var(--reos-graphite) !important;
   border: 1px solid var(--reos-emerald) !important;
 }
-/* SVG 3-dot icon — brand blue stroke (matches the .contact-options-
+/* SVG 3-dot icon \u2014 brand blue stroke (matches the .contact-options-
    button pattern). Naive renders with stroke="currentColor". */
 html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id) svg,
 html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id) svg path,
@@ -5149,7 +5149,7 @@ html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:n
   fill: var(--reos-blue) !important;
 }
 /* Kill every non-SVG descendant painting bg/border (the white
-   inner box on click pattern — Naive's n-base-wave + state-border
+   inner box on click pattern \u2014 Naive's n-base-wave + state-border
    overlays). */
 html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id) *:not(svg):not(path):not(circle):not(g),
 html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id) *:not(svg):not(path):not(circle):not(g) {
@@ -5176,14 +5176,14 @@ html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:n
    interpolates between transparent and slate (with alpha-blending
    through intermediate colors), producing a brief white flash on
    both enter AND leave. Instant state changes look correct for a
-   row hover anyway — no need to animate. */
+   row hover anyway \u2014 no need to animate. */
 html body .n-data-table:not(#__reos_never_id) .n-data-table-tr,
 html body .n-data-table:not(#__reos_never_id) .n-data-table-td,
 html body .n-data-table:not(#__reos_never_id) .n-data-table-th {
   transition: none !important;
   transition-duration: 0s !important;
 }
-/* Empty state — heading bone, subtitle ash, both at full opacity
+/* Empty state \u2014 heading bone, subtitle ash, both at full opacity
    regardless of original .text-gray-900 / .text-gray-600 classes. */
 html body .n-data-table-empty:not(#__reos_never_id),
 html body .n-data-table-empty:not(#__reos_never_id) * {
@@ -5240,11 +5240,11 @@ html body .n-input .n-input__input:not(#__reos_never_id) {
 /* 18a-n-select-double-border (v0.8.73). On the Tax-ID-Type select
    (and any .n-select / .n-base-selection), focusing draws TWO
    stacked emerald rings:
-     .n-base-selection__border       — 1px emerald
-     .n-base-selection__state-border — 1px emerald (same inset:0)
+     .n-base-selection__border       \u2014 1px emerald
+     .n-base-selection__state-border \u2014 1px emerald (same inset:0)
    Both overlays render at the exact same position, doubling the
    border thickness on screen. Hide the static .n-base-selection__border
-   so only the dynamic state-border shows — single emerald ring on
+   so only the dynamic state-border shows \u2014 single emerald ring on
    focus, transparent at rest. */
 html body .n-base-selection .n-base-selection__border:not(#__reos_never_id) {
   border: 1px solid transparent !important;
@@ -5266,9 +5266,9 @@ html body .n-base-selection.n-base-selection--active .n-base-selection__state-bo
    That 4px halo is what reads as a "giant white border" around the
    input when clicked. The .n-input__state-border element is an
    absolutely-positioned overlay (inset:0, pointer-events:none) on
-   top of .n-input — its job IS to draw the focus indicator.
+   top of .n-input \u2014 its job IS to draw the focus indicator.
 
-   Specificity to beat: (0, 1, 4, 0) — class-double + ID-level
+   Specificity to beat: (0, 1, 4, 0) \u2014 class-double + ID-level
    :not() bumps us above that. Kill the halo entirely, replace the
    border with our emerald spec. Same treatment for .n-input__border
    (the resting-state overlay) so its gray-200 border doesn't bleed
@@ -5306,7 +5306,7 @@ html body .hl-input-text .n-input__state-border {
   transition-duration: 0s !important;
 }
 
-/* n-input-suffix / n-base-selection-icon — calendar/dropdown chevrons */
+/* n-input-suffix / n-base-selection-icon \u2014 calendar/dropdown chevrons */
 html body .n-base-suffix__arrow,
 html body .n-input__suffix,
 html body .n-base-selection .n-base-suffix {
@@ -5314,7 +5314,7 @@ html body .n-base-selection .n-base-suffix {
   fill: var(--reos-ash) !important;
 }
 
-/* n-card / n-modal / n-popover — modal panels themselves */
+/* n-card / n-modal / n-popover \u2014 modal panels themselves */
 html body .n-card,
 html body .n-modal,
 html body .n-modal-container,
@@ -5358,7 +5358,7 @@ html body .hl-modal .n-card__content:not(#__reos_never_id),
 html body .hl-modal .n-card__footer:not(#__reos_never_id) {
   /* Section dividers run as TOP + BOTTOM borders. v0.8.72 used
      the border-color shorthand which painted all 4 sides steel
-     — that produced the thin inner hairline Tim flagged in
+     \u2014 that produced the thin inner hairline Tim flagged in
      v0.8.76. v0.8.77 transparented left + right. */
   border-top-color: var(--reos-steel) !important;
   border-bottom-color: var(--reos-steel) !important;
@@ -5366,7 +5366,7 @@ html body .hl-modal .n-card__footer:not(#__reos_never_id) {
   border-right-color: transparent !important;
 }
 /* Edge sections (top of header, bottom of footer) sit flush
-   against the modal's outer wrapper border — their own outer-
+   against the modal's outer wrapper border \u2014 their own outer-
    edge border is redundant with the wrapper border. v0.8.78
    kills those so we don't double-stripe at the top + bottom.
    v0.8.79: also kill .n-card-header__main border-top (the inner
@@ -5390,7 +5390,7 @@ html body .hl-modal .n-card__footer:not(#__reos_never_id) {
    Tim flagged the "Reminder X Disabled" pop-up dialog that fires
    after deleting a reminder: white bg, dark text, gray-200 dividers,
    GHL-blue close button. The whole component family is .hr-card +
-   .hr-modal + .ui-modal (NOT .n-modal — the older canon doesn't
+   .hr-modal + .ui-modal (NOT .n-modal \u2014 the older canon doesn't
    reach it). Inline CSS vars ship with light values:
      --n-color, --n-color-modal, --n-color-popover: #fff
      --n-color-embedded-modal: rgb(250, 250, 252)
@@ -5425,7 +5425,7 @@ html body [class*="hr-modal"]:not(#__reos_never_id) {
   color: var(--reos-bone) !important;
   border: 1px solid var(--reos-steel) !important;
 }
-/* Inner content surfaces — transparent so the wrapper graphite
+/* Inner content surfaces \u2014 transparent so the wrapper graphite
    shows through (no double-card look). v0.10.13: pin ALL inner
    section borders to transparent. Tim's call: no visible divider
    between the header (title + description) and the footer (action
@@ -5452,7 +5452,7 @@ html body .ui-modal .ui-modal-footer-actions:not(#__reos_never_id) {
   border-right-color: transparent !important;
   box-shadow: none !important;
 }
-/* Modal title — bone. Description / body copy — ash for hierarchy. */
+/* Modal title \u2014 bone. Description / body copy \u2014 ash for hierarchy. */
 html body .ui-modal .ui-modal-heading .title:not(#__reos_never_id),
 html body .hr-modal .ui-modal-heading .title:not(#__reos_never_id) {
   color: var(--reos-bone) !important;
@@ -5502,7 +5502,7 @@ html body .ui-icon-container__ui-icon-success svg path:not(#__reos_never_id) {
   border-color: transparent !important;
 }
 /* Modal close (X) button. The HTML has aria-label="close modal"
-   on the .hr-button.quaternary.icon-only — and inline CSS vars
+   on the .hr-button.quaternary.icon-only \u2014 and inline CSS vars
    set the hover border to GHL blue. Catch via id + aria-label;
    pin to ash at rest, emerald on hover, no blue border or shadow. */
 html body button[aria-label*="close modal" i]:not(#__reos_never_id),
@@ -5544,7 +5544,7 @@ html body .ui-modal .hr-button.icon-only.quaternary:hover:not(#__reos_never_id) 
   color: var(--reos-emerald) !important;
   stroke: var(--reos-emerald) !important;
 }
-/* Footer "Close" / primary button — should already be emerald
+/* Footer "Close" / primary button \u2014 should already be emerald
    from v0.x .hr-button--primary-type canon (graphite text on
    emerald bg). But GHL ships inline CSS vars (--n-color: #155EEF)
    that beat the existing rule. Pin the vars here for modal-scoped
@@ -5578,7 +5578,7 @@ html body .hr-modal .hr-button.hr-button--primary-type:not(#__reos_never_id) .hr
   color: var(--reos-obsidian) !important;
   -webkit-text-fill-color: var(--reos-obsidian) !important;
 }
-/* Backdrop / mask behind the modal — obsidian at 60% alpha. */
+/* Backdrop / mask behind the modal \u2014 obsidian at 60% alpha. */
 html body .hr-modal-mask:not(#__reos_never_id),
 html body .ui-modal-mask:not(#__reos_never_id),
 html body [class*="modal-mask"]:not(#__reos_never_id),
@@ -5587,7 +5587,7 @@ html body [class*="modal-backdrop"]:not(#__reos_never_id) {
   background: rgba(10, 13, 18, 0.6) !important;
 }
 
-/* n-radio / n-checkbox — accent color */
+/* n-radio / n-checkbox \u2014 accent color */
 html body .n-radio input[type="radio"],
 html body .n-checkbox input[type="checkbox"] {
   accent-color: var(--reos-blue) !important;
@@ -5607,7 +5607,7 @@ html body .n-checkbox__label {
    GHL ships both flavors in different surfaces; rules are identical
    so we double the selectors instead of writing twice. */
 
-/* Menu panel — graphite + steel border */
+/* Menu panel \u2014 graphite + steel border */
 html body .n-base-select-menu,
 html body .n-base-select-menu .n-virtual-list,
 html body .n-popselect-menu,
@@ -5677,7 +5677,7 @@ html body .hr-base-select-option:hover * {
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
-/* Selected row — emerald glow + emerald text. Class-stacking pushes
+/* Selected row \u2014 emerald glow + emerald text. Class-stacking pushes
    specificity above the hover descendant rule. */
 html body .n-base-select-option--selected,
 html body .n-base-select-option.n-base-select-option--selected,
@@ -5742,7 +5742,7 @@ html body .n-form-item-label__text {
   -webkit-text-fill-color: var(--reos-ash) !important;
 }
 
-/* 11b. ACTIVE-ACCENT STANDARD — emerald-glow look ONLY on the
+/* 11b. ACTIVE-ACCENT STANDARD \u2014 emerald-glow look ONLY on the
    element that's actually active. v0.7.18's broad substring match
    on [class*="--active"]/[class*="-selected"] hit too many false
    positives (accordion sections, form-field active classes, etc.)
@@ -5751,7 +5751,7 @@ html body .n-form-item-label__text {
 
    Tightened to canonical state classes + ARIA only. NO descendant
    cascade. Targeted elements (sidebar nav links, tab buttons,
-   dropdown options) already have their own rules elsewhere — this
+   dropdown options) already have their own rules elsewhere \u2014 this
    is the catch-all for anything else that uses standard state
    patterns. */
 html body .is-active,
@@ -5776,7 +5776,7 @@ html body [aria-current="true"] > svg {
   stroke: var(--reos-emerald) !important;
 }
 
-/* 12b. MODAL CONTENT — boost contrast on every interactive bit inside a
+/* 12b. MODAL CONTENT \u2014 boost contrast on every interactive bit inside a
    dialog/modal so labels, inputs, dropdowns, toggle pills, and status
    chips don't blend with the graphite panel. Targets common GHL modal
    wrapper classes via substring match. */
@@ -5803,7 +5803,7 @@ html body [role="dialog"] select {
   padding: 8px 12px !important;
 }
 
-/* Modal labels — push to ash for readability vs the bone input text */
+/* Modal labels \u2014 push to ash for readability vs the bone input text */
 html body [class*="modal"] label,
 html body [class*="dialog"] label,
 html body [role="dialog"] label {
@@ -5811,7 +5811,7 @@ html body [role="dialog"] label {
   -webkit-text-fill-color: var(--reos-ash) !important;
 }
 
-/* Toggle pill groups (Default/Custom buttons, etc.) — boost border so
+/* Toggle pill groups (Default/Custom buttons, etc.) \u2014 boost border so
    the inactive pill is visible against graphite */
 html body [class*="modal"] [class*="rounded"]:not(input):not(textarea),
 html body [class*="dialog"] [class*="rounded"]:not(input):not(textarea),
@@ -5819,7 +5819,7 @@ html body [role="dialog"] [class*="rounded"]:not(input):not(textarea) {
   border-color: var(--reos-cool-gray) !important;
 }
 
-/* Radio + checkbox tone — kill the white default that disappears on
+/* Radio + checkbox tone \u2014 kill the white default that disappears on
    dark backgrounds. The native control inherits accent-color. */
 html body [class*="modal"] input[type="radio"],
 html body [class*="dialog"] input[type="radio"],
@@ -5830,7 +5830,7 @@ html body [role="dialog"] input[type="checkbox"] {
   accent-color: var(--reos-blue) !important;
 }
 
-/* Internal Notes panel + similar nested cards inside the modal — give
+/* Internal Notes panel + similar nested cards inside the modal \u2014 give
    them a slate inset so they're distinguishable from the modal bg */
 html body [class*="modal"] [class*="card"],
 html body [class*="dialog"] [class*="card"],
@@ -5839,14 +5839,14 @@ html body [role="dialog"] [class*="card"] {
   border: 1px solid var(--reos-cool-gray) !important;
 }
 
-/* 13. SCROLLBAR — match the theme.
+/* 13. SCROLLBAR \u2014 match the theme.
    Original rules had no !important; any scoped author rule (e.g.
    a Vue scoped .message-list ::-webkit-scrollbar-thumb { background:
    rgb(229, 231, 235) }) beat our universal selector via specificity
    (0,0,1,1 vs 0,0,1,0) and painted scrollbars Tailwind gray-200
    inside that subtree. Tim noticed the Team Inbox scrollbar coming
    through as gray-200 while the Contact Details panel scrollbar
-   correctly showed steel — that is the specificity war. !important
+   correctly showed steel \u2014 that is the specificity war. !important
    wins it. */
 *::-webkit-scrollbar { width: 10px !important; height: 10px !important; }
 *::-webkit-scrollbar-track { background: var(--reos-obsidian) !important; }
@@ -5881,7 +5881,7 @@ html body, html body * {
    attribute selector on .custom-scrollbar plus html body prefix.
    That gives us (0,0,2,3) which wins outright. Tim spotted the
    Team Inbox scrollbar (a .custom-scrollbar container) showing
-   gray-200 while the Contact Details scrollbar showed steel —
+   gray-200 while the Contact Details scrollbar showed steel \u2014
    the latter had no .custom-scrollbar ancestor and fell through
    to our universal rule. */
 /* DIAGNOSED LIVE IN CHROME (gstack /browse session). The actual issue
@@ -5936,7 +5936,7 @@ html body .custom-scrollbar:not(#__reos_never_id)::-webkit-scrollbar-corner {
   box-shadow: none !important;
 }
 
-/* 15. TEXT COLORS — coerce GHL's grey-text utility classes onto our scale.
+/* 15. TEXT COLORS \u2014 coerce GHL's grey-text utility classes onto our scale.
    Pure white (text-white / inline style: white) is remapped to bone so
    the page's brightest text doesn't read as harsh #FFFFFF. */
 .text-gray-900,
@@ -5953,13 +5953,13 @@ html body .custom-scrollbar:not(#__reos_never_id)::-webkit-scrollbar-corner {
 .text-gray-300 {
   color: var(--reos-cool-gray) !important;
 }
-/* PURE-WHITE TEXT SWEEP — every form of "white text" GHL ships gets
+/* PURE-WHITE TEXT SWEEP \u2014 every form of "white text" GHL ships gets
    remapped to bone. Covers:
      - Tailwind .text-white utility (and class*= prefix variants)
      - inline 'color: #fff' / '#ffffff' (3- and 6-char hex, both cases)
      - inline 'color: white' keyword
      - inline 'color: rgb(255, 255, 255)' (browser-serialized form)
-     - inline 'color: rgba(255, 255, 255, *)' (any alpha) — used for
+     - inline 'color: rgba(255, 255, 255, *)' (any alpha) \u2014 used for
        overlay text + faded-out states
      - The same set repeated for '-webkit-text-fill-color', which
        GHL pairs with 'color' on many elements (and which beats
@@ -6007,7 +6007,7 @@ html body [style*="-webkit-text-fill-color:rgb(255,255,255)"] {
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
-/* CHILDREN of the above — pure-white text often comes from a parent's
+/* CHILDREN of the above \u2014 pure-white text often comes from a parent's
    color cascade through children that don't declare color themselves.
    Pin descendants to bone too, but ONLY on the inline-style matchers
    (not .text-white, which is widely used and already handled at the
@@ -6023,17 +6023,17 @@ html body [style*="color: rgb(255, 255, 255)"] *:not(svg):not(path):not(circle):
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
-/* 15g. PAGE-OBJECT HEADINGS — the big page-title at the top of every
+/* 15g. PAGE-OBJECT HEADINGS \u2014 the big page-title at the top of every
    object-list page ("Conversations", "Contacts", "Opportunities", etc.).
    GHL renders these via a Vue component with class .topmenu-navtitle
    and applies a near-black color via Vue scoped CSS (not inline, not
-   a Tailwind utility class — so the substring matchers above don't
+   a Tailwind utility class \u2014 so the substring matchers above don't
    catch it). The data-v-* attribute on the element changes per build,
    so we can't target the scoped selector directly.
 
    Beat the scoped rule with !important on the class itself. Same
    treatment for semantic [role="heading"] elements as a broader
-   safety net — any element semantically marked as a heading should
+   safety net \u2014 any element semantically marked as a heading should
    read as bone, regardless of what color GHL paints it.
 
    Includes h1-h6 elements as a final defense-in-depth layer for any
@@ -6065,7 +6065,7 @@ html body [role="heading"]:not([class*="bg-clip-text"]):not([class*="text-transp
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
-/* 15h. TOP-MENU NAV ITEMS — the page tabs in the top header bar
+/* 15h. TOP-MENU NAV ITEMS \u2014 the page tabs in the top header bar
    ("Launchpad", "Dashboard", "Conversations", "Calendars", etc.).
    GHL paints the active tab with a 2px blue border-bottom + blue
    text via a 5-class chain:
@@ -6098,7 +6098,7 @@ html body .topmenu-navitem.router-link-active:not(#__reos_never_id) {
   border-bottom-color: var(--reos-emerald) !important;
   box-shadow: none !important;
 }
-/* Hover state on inactive tabs — emerald text (matches the rest
+/* Hover state on inactive tabs \u2014 emerald text (matches the rest
    of the icon-rail UX across the app: ash default, emerald on
    hover and when selected, no box). */
 html body .topmenu-navitem:hover:not(#__reos_never_id),
@@ -6109,7 +6109,7 @@ html body .topmenu-navitem a:hover:not(#__reos_never_id) {
   background: transparent !important;
 }
 
-/* 15i. CONVERSATION-HEADER ICON BUTTONS — the row of icon-only action
+/* 15i. CONVERSATION-HEADER ICON BUTTONS \u2014 the row of icon-only action
    buttons at the top of an open conversation thread: chat-filter,
    phone-calls, archive-conversation, star-toggle, read-toggle, and
    delete-conversation. Each is a tiny <div> with 'hover:bg-gray-50'
@@ -6155,7 +6155,7 @@ html body #delete-conversation:hover svg path {
   stroke: var(--reos-crimson) !important;
 }
 
-/* 14a. INLINE LIGHT-GREEN PILLS — trend/success indicator pills (e.g.
+/* 14a. INLINE LIGHT-GREEN PILLS \u2014 trend/success indicator pills (e.g.
    the "100%" up-trend pill on the Lead Source Report) ship with
    inline background-color: rgb(230, 248, 233) (#E6F8E9 mint). On the
    dark theme that reads as a glowing white-ish oval. The text/icon
@@ -6163,7 +6163,7 @@ html body #delete-conversation:hover svg path {
    fine on emerald-glow; just need to swap the bg.
 
    Exact-value attribute match keeps perf cost low and the blast
-   radius narrow — only elements with this exact inline color get
+   radius narrow \u2014 only elements with this exact inline color get
    remapped. */
 html body [style*="background-color: rgb(230, 248, 233)"],
 html body [style*="background-color:rgb(230, 248, 233)"],
@@ -6188,7 +6188,7 @@ html body [style*="background-color:#e6f8e9"] {
    - Arbitrary hex values bg-[#155EEF] / bg-[#004EEB] / etc.
    - Inline style overrides
 
-   Light shades (blue 50/100) are NOT touched here — they're used
+   Light shades (blue 50/100) are NOT touched here \u2014 they're used
    as light backgrounds and already remap to graphite via section
    18a-flash-global.
 
@@ -6221,7 +6221,7 @@ html body [style*="background-color:rgb(0, 78, 235)"]:not(#__reos_never_id) {
   background-color: var(--reos-blue) !important;
   background: var(--reos-blue) !important;
 }
-/* Badge text — force bone so the count digit reads on the
+/* Badge text \u2014 force bone so the count digit reads on the
    brand-blue surface (defeats the customizer's text-white coerce
    that was making it graphite). */
 html body [class*="bg-[#155EEF]"]:not(#__reos_never_id),
@@ -6282,7 +6282,7 @@ html body [class*="text-[#1849a9]"]:not(#__reos_never_id),
    the style attribute OR a preceding semicolon, so we don't
    match CSS variable name fragments like '--n-bar-color: #155EEF'.
    Tim's rule: only INTERACTIVE elements should ever render blue
-   text — descriptive prose should inherit ash/bone. Without the
+   text \u2014 descriptive prose should inherit ash/bone. Without the
    semicolon-anchor, this rule painted blue + propagated via
    -webkit-text-fill-color inheritance to every descendant of
    .hr-tabs etc. (v0.9.22 fix). */
@@ -6314,7 +6314,7 @@ html body [style*=";color: rgb(21, 94, 239)"]:not(#__reos_never_id) {
 /* 15a-retry-btn (v0.8.22). The Retry button next to a failed
    outbound message (#conv-message-retry-button) inherits color
    from its .text-primary-800 class. Section 15a remaps every
-   text-primary-* shade to emerald — but a retry-failure action
+   text-primary-* shade to emerald \u2014 but a retry-failure action
    reading emerald sends the wrong signal (Tim's complaint:
    'emerald is for good things, this is showing a failure').
 
@@ -6347,7 +6347,7 @@ html body #conv-message-retry-button svg path {
    brand-blue icon for both static and hover, kill transitions so
    the bg can't animate through the white provider color. Match
    by the inline style substring '--provider-color: #155EEF' so
-   only the SMS variant is affected — other providers (Facebook,
+   only the SMS variant is affected \u2014 other providers (Facebook,
    WhatsApp, etc.) keep their own branding. */
 html body [style*="--provider-color: #155EEF"],
 html body [style*="--provider-color:#155EEF"],
@@ -6386,7 +6386,7 @@ html body [style*="--provider-color: #155eef"] svg path {
      blue glow)
 
    Combined on hover/focus the dropdown reads as a green-bordered
-   button with a light-blue 4px halo — Tim's 'greenish overlay'
+   button with a light-blue 4px halo \u2014 Tim's 'greenish overlay'
    complaint. Match the Today button treatment: steel default,
    emerald hover/focus border, no glow shadow. */
 html body .n-base-selection .n-base-selection__border,
@@ -6420,7 +6420,7 @@ html body [class*="n-base-selection"]:focus-within .n-base-selection__state-bord
 
 /* 15a-customizations-btn-hover (v0.8.32). Tim wants the Manage
    view button (#customizations-button) to flip to emerald on
-   hover when in its default (unclicked) state — class is
+   hover when in its default (unclicked) state \u2014 class is
    'border-gray-300 text-gray-700' default, switches to
    'border-primary-300 text-primary-700' when active (clicked).
 
@@ -6449,7 +6449,7 @@ html body button#customizations-button:hover svg path {
    Tim flagged the 'Manage view' button on the calendars page:
    class 'border-primary-300 text-primary-700' renders emerald text
    (per section 15a) but a light-blue border from .border-primary-300.
-   Reads disconnected — emerald content inside a blue rim.
+   Reads disconnected \u2014 emerald content inside a blue rim.
 
    Remap every .border-primary-* shade to emerald so border + text
    read as one unified accent. */
@@ -6468,17 +6468,17 @@ html body [class*="border-primary"] {
   border-color: var(--reos-emerald) !important;
 }
 
-/* 15a. TAILWIND text-primary-* family — GHL's "primary" Tailwind palette is
+/* 15a. TAILWIND text-primary-* family \u2014 GHL's "primary" Tailwind palette is
    blue (#155EEF, #004EEB, etc.) baked into the compiled stylesheet as
    static hex values, not var() references. So the :root --primary-* remap
-   at the top of this file doesn't reach .text-primary-700 etc. — those
+   at the top of this file doesn't reach .text-primary-700 etc. \u2014 those
    utility classes still resolve to GHL's blue and render illegibly on the
    dark surface. Examples: the AI Insights sparkle icon on dashboard widget
    headers has class="h-4 w-4 text-primary-700" on the SVG itself, so the
    SVG's color doesn't inherit from its .n-button parent.
 
    Force every text-primary-* shade to emerald so brand-accent icons read. */
-/* v0.9.59: dropped [class*="text-primary"] catchall — substring
+/* v0.9.59: dropped [class*="text-primary"] catchall \u2014 substring
    match was incorrectly catching Tailwind hover-prefixed variants
    (group-hover:text-primary-600 / hover:text-primary-700 / etc.)
    on the Objects settings page card titles, painting them emerald
@@ -6500,9 +6500,9 @@ html body .text-primary-900 {
   -webkit-text-fill-color: var(--reos-emerald) !important;
 }
 
-/* 15c. NO-DATA MESSAGE OVERLAY — .no-data-message appears on top of a
+/* 15c. NO-DATA MESSAGE OVERLAY \u2014 .no-data-message appears on top of a
    blurred chart (e.g. Google Analytics widget when no data) and reads
-   the same as .hl-empty-title — a quiet empty-state hint. GHL ships
+   the same as .hl-empty-title \u2014 a quiet empty-state hint. GHL ships
    it with default styling (light bg / dark text) that doesn't match
    the dark theme. Strip to transparent bg + ash text so it recedes
    into the chart surface instead of presenting as a bright label.
@@ -6520,7 +6520,7 @@ html body [class*='no-data-message'] {
   box-shadow: none !important;
 }
 
-/* 15b. EMPTY-STATE ICON BADGES — .hl-empty-icon is GHL's empty-state
+/* 15b. EMPTY-STATE ICON BADGES \u2014 .hl-empty-icon is GHL's empty-state
    indicator used across the UI (no contacts found, no results, etc.).
    Ships with a light/white circular background that reads as a bright
    ring on the dark surface.
@@ -6531,7 +6531,7 @@ html body [class*='no-data-message'] {
    recedes into the surface instead of demanding attention.
 
    v0.7.39 over-decorated this with graphite fill + steel hairline +
-   emerald icon — looked like an action badge. v0.7.40 fixes that. */
+   emerald icon \u2014 looked like an action badge. v0.7.40 fixes that. */
 html body .hl-empty-icon,
 html body [class*='hl-empty-icon'] {
   background-color: transparent !important;
@@ -6545,13 +6545,13 @@ html body [class*='hl-empty-icon'] svg,
 html body [class*='hl-empty-icon'] svg path {
   color: var(--reos-ash) !important;
   stroke: var(--reos-ash) !important;
-  /* Do NOT force fill — most GHL empty-state icons are outlined
+  /* Do NOT force fill \u2014 most GHL empty-state icons are outlined
      (fill="none", stroke="currentColor"), but some use fill. Let
      each SVG's own fill attribute drive painting; color/stroke set
      here color the stroke uniformly via currentColor. */
 }
 
-/* 15d. HR DATA TABLE family — the data-table component used across
+/* 15d. HR DATA TABLE family \u2014 the data-table component used across
    Conversations sub-tabs (Manual Actions, Snippets, Trigger Links,
    Analytics) and elsewhere. Ships with default light styling: the
    .hr-data-table-wrapper-header (toolbar row holding filter
@@ -6597,7 +6597,7 @@ html body [class*="hr-data-table__cell-header"] {
    reach these inner search-bar slot wrappers, so a white band
    leaks through between the page heading and the column-header
    row. Sweep every common search-bar slot to transparent (lets
-   the wrapper graphite show through) — the inner .hr-input
+   the wrapper graphite show through) \u2014 the inner .hr-input
    itself stays slate per Tim's input canon. */
 html body .hr-data-table-wrapper .hr-table-header-container,
 html body .hr-data-table-wrapper .hr-header-lite-container,
@@ -6623,7 +6623,7 @@ html body [class*="hr-data-table-wrapper"] .hr-input-container {
   border-color: var(--reos-steel) !important;
   box-shadow: none !important;
 }
-/* Pagination footer + its dropdown / button slots — page size
+/* Pagination footer + its dropdown / button slots \u2014 page size
    selector, prev / next, page numbers. Inherit graphite from the
    wrapper-footer. */
 html body .hr-data-table-wrapper-footer .hr-pagination-cntr,
@@ -6647,7 +6647,7 @@ html body .hr-data-table__body .data-table__no-data {
   background-color: var(--reos-graphite) !important;
   color: var(--reos-bone) !important;
 }
-/* Empty-state title text (e.g. "No inventory to show yet") —
+/* Empty-state title text (e.g. "No inventory to show yet") \u2014
    bone. */
 html body .hr-empty:not(#__reos_never_id),
 html body .hr-empty__title:not(#__reos_never_id),
@@ -6658,7 +6658,7 @@ html body .hr-empty .hr-text:not(#__reos_never_id) {
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
-/* 15d-2. Page-level data-table containers — the Conversations sub-tab
+/* 15d-2. Page-level data-table containers \u2014 the Conversations sub-tab
    pages wrap the data table in an h-screen flex container (e.g.
    #manual-actions-container-div, #snippets-container-div, etc.). The
    data table itself has max-height: calc(100vh - 330px), so on a tall
@@ -6679,7 +6679,7 @@ html body [id*="-container-div"]:has(.hr-data-table-wrapper) {
   background-color: var(--reos-graphite) !important;
 }
 
-/* 15d-3. Conversations sub-tab outer wrappers — the section /
+/* 15d-3. Conversations sub-tab outer wrappers \u2014 the section /
    .hl_topbar-tabs containers that wrap the page-header (title +
    description + Let's Start button) AND the data-table-container.
    These wrappers are unstyled and fall through to body obsidian,
@@ -6698,7 +6698,7 @@ html body [class*="conversationsUtilitiesApp"] {
   color: var(--reos-bone) !important;
 }
 
-/* 15e. SIDEBAR-OPTION-BUTTONs — the icon-only nav buttons in the
+/* 15e. SIDEBAR-OPTION-BUTTONs \u2014 the icon-only nav buttons in the
    Conversations contact-detail right-side rail (Contact / Activities
    / Associations / Opportunities / Tasks / Notes / Appointments /
    Documents / Payments / Agent Logs / Layout Info / Keyboard Shortcuts).
@@ -6706,7 +6706,7 @@ html body [class*="conversationsUtilitiesApp"] {
    GHL ships them with bg-white + text-blue-600 (active) or
    bg-white + text-gray-900 + hover:text-blue-600 (inactive). The
    Customizer's FORCE_RULE injects inline slate bg + bone text, which
-   wins normally — but Vue re-renders briefly clobber the inline
+   wins normally \u2014 but Vue re-renders briefly clobber the inline
    style, exposing Tailwind's bg-white for a frame and causing
    visible flicker. (Same mechanism as the Conversations tab
    buttons fixed in v0.7.62.)
@@ -6718,7 +6718,7 @@ html body [class*="conversationsUtilitiesApp"] {
    conv-header / inbox-panel collapsed icons / conv-list tabs):
    ash icon default, emerald on hover, emerald when selected, NO box.
 
-   IMPORTANT — substring trap: the active button has class
+   IMPORTANT \u2014 substring trap: the active button has class
    'text-blue-600'; the inactive buttons have 'hover:text-blue-600'.
    Plain [class*='text-blue-600'] catches BOTH (the hover variant
    contains the bare class as a substring), which the older rule
@@ -6740,7 +6740,7 @@ html body button[class*="sidebar-option-button"]:hover {
   color: var(--reos-ash) !important;
   -webkit-text-fill-color: var(--reos-ash) !important;
 }
-/* Default icon — ash. */
+/* Default icon \u2014 ash. */
 html body .sidebar-option-button svg,
 html body .sidebar-option-button svg path,
 html body button[class*="sidebar-option-button"] svg,
@@ -6749,7 +6749,7 @@ html body button[class*="sidebar-option-button"] svg path {
   stroke: var(--reos-ash) !important;
   transition: none !important;
 }
-/* Hover — emerald icon. */
+/* Hover \u2014 emerald icon. */
 html body .sidebar-option-button:hover svg,
 html body .sidebar-option-button:hover svg path,
 html body button[class*="sidebar-option-button"]:hover svg,
@@ -6757,7 +6757,7 @@ html body button[class*="sidebar-option-button"]:hover svg path {
   color: var(--reos-emerald) !important;
   stroke: var(--reos-emerald) !important;
 }
-/* Active — text-blue-600 WITHOUT hover:text-blue-600 (so we only
+/* Active \u2014 text-blue-600 WITHOUT hover:text-blue-600 (so we only
    catch the selected button, not every button that has the hover
    utility). Emerald icon, still no box. */
 html body .sidebar-option-button[class*="text-blue-600"]:not([class*="hover:text-blue-600"]) svg,
@@ -6805,25 +6805,25 @@ html body nav[class*="w-13"] button[class*="text-blue-600"]:not([class*="hover:t
   stroke: var(--reos-emerald) !important;
 }
 
-/* 15f. OPPORTUNITIES KANBAN — the pipeline-board view (Opportunities tab
+/* 15f. OPPORTUNITIES KANBAN \u2014 the pipeline-board view (Opportunities tab
    in the left nav). Lots of light surfaces survive even after the
    v0.7.72 universal flicker-kill sweep because they're driven by:
 
      (a) Vue scoped CSS variables on stage-header cards
-         (--3b690118: #e0e0e0; --68ac5946: white — fed into a
+         (--3b690118: #e0e0e0; --68ac5946: white \u2014 fed into a
          'borderColor' class that paints a 2px white line at the
          top of every stage column);
      (b) Naive UI 'hr-skeleton' loaders rendering with
-         '--n-color-start: #eee; --n-color-end: #ddd' — empty stages
+         '--n-color-start: #eee; --n-color-end: #ddd' \u2014 empty stages
          get 5-15 of these stacked, filling the column with light
          gray shimmer bars that read as a "giant white surround"
          around the dark page content;
      (c) inline 'color: rgb(16, 24, 40)' (nearly black) on
-         '.crm-opportunities-stage-name' — invisible on graphite.
+         '.crm-opportunities-stage-name' \u2014 invisible on graphite.
 
    Fix all of the above on the opportunities page surface. */
 
-/* (a) outer wrappers — belt-and-suspenders graphite. The innermost
+/* (a) outer wrappers \u2014 belt-and-suspenders graphite. The innermost
        '.wrapper.opportunityPage.crm-opportunities-content' is already
        painted graphite inline by GHL, but the intermediate wrappers
        (#OpportunitiesList, .opportunitiesApp, .opportunities-list-wrap,
@@ -6847,7 +6847,7 @@ html body [class*="crm-opportunities-stages-container"] {
   color: var(--reos-bone) !important;
 }
 
-/* (b) stage-header card — kill the white border-top driven by Vue
+/* (b) stage-header card \u2014 kill the white border-top driven by Vue
        scoped var --68ac5946 (which the GHL 'borderColor' class
        resolves into border-color). Pin to steel. Background already
        painted inline graphite but reinforce. */
@@ -6860,7 +6860,7 @@ html body .opportunitiesCard[class*="stageHeaderBg"] {
   border-color: var(--reos-steel) !important;
   box-shadow: none !important;
 }
-/* The 2px top-border specifically — !border-t-2 + borderColor class
+/* The 2px top-border specifically \u2014 !border-t-2 + borderColor class
    together compute to 'border-top: 2px solid var(--68ac5946)' where
    --68ac5946 is 'white'. Force steel regardless. */
 html body .crm-opportunities-stage-header[class*="!border-t-2"],
@@ -6868,7 +6868,7 @@ html body .opportunitiesCard.stageHeaderBg[class*="!border-t-2"] {
   border-top-color: var(--reos-steel) !important;
 }
 
-/* (c) stage name — the inline 'color: rgb(16, 24, 40)' is nearly
+/* (c) stage name \u2014 the inline 'color: rgb(16, 24, 40)' is nearly
        black and disappears against graphite. Force bone. */
 html body .crm-opportunities-stage-name,
 html body [class*="crm-opportunities-stage-name"],
@@ -6877,7 +6877,7 @@ html body [id^="data-stage-name-"] {
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
-/* (d) skeleton loaders — Naive UI's 'hr-skeleton' renders a
+/* (d) skeleton loaders \u2014 Naive UI's 'hr-skeleton' renders a
        background-image linear-gradient driven by --n-color-start /
        --n-color-end CSS variables. GHL inlines those vars as #eee
        and #ddd (light grays). Override the variables AND paint a
@@ -6896,7 +6896,7 @@ html body [class*="n-skeleton"] {
   background-image: none !important;
 }
 
-/* The empty-stage "card" wrapper — multiple skeleton placeholders
+/* The empty-stage "card" wrapper \u2014 multiple skeleton placeholders
    are grouped inside a .crm-opportunities-card-skeleton, which sits
    inside the stage column. Pin to graphite so the column blends in
    even while loading. */
@@ -6914,7 +6914,7 @@ html body [class*="cardWrapper"][class*="crm-opportunities-board"] {
   background-color: var(--reos-graphite) !important;
 }
 
-/* 16. BORDERS — coerce GHL's grey-border utility classes onto our scale */
+/* 16. BORDERS \u2014 coerce GHL's grey-border utility classes onto our scale */
 .border-gray-100,
 .border-gray-200,
 .border-gray-300,
@@ -6922,7 +6922,7 @@ html body [class*="cardWrapper"][class*="crm-opportunities-board"] {
   border-color: var(--reos-steel) !important;
 }
 
-/* 16e. INLINE LIGHT-NEUTRAL BORDERS — restored in v0.7.60. v0.7.58
+/* 16e. INLINE LIGHT-NEUTRAL BORDERS \u2014 restored in v0.7.60. v0.7.58
    targeted these correctly; Tim's 'killed right nav' report turned
    out to be that Internal Chat doesn't show the right-side contact
    nav by GHL design (only Team Inbox does). The white outline
@@ -6945,7 +6945,7 @@ html body [style*="border-color:#EAECF0"],
 html body [style*="border-color: #eaecf0"],
 html body [style*="border-color:#eaecf0"],
 /* 16e-2 (v0.8.5): additional inline border colors Tim spotted in
-   the conversation thread — email card uses gray-300 at 50% alpha
+   the conversation thread \u2014 email card uses gray-300 at 50% alpha
    inline (rgba(208,213,221,0.5)), the SMS compose box uses solid
    gray-300 (rgb(208,213,221)). Remap both to steel. */
 html body [style*="rgb(208, 213, 221)"],
@@ -6957,7 +6957,7 @@ html body [style*="#d0d5dd"] {
   border-color: var(--reos-steel) !important;
 }
 
-/* 16e-3 (v0.8.5): outgoing chat-bubble border — GHL paints
+/* 16e-3 (v0.8.5): outgoing chat-bubble border \u2014 GHL paints
    .chat-bubble-* with rgb(234, 239, 252) (a very light blue-gray)
    via class CSS. Remap to steel so the bubble matches the rest
    of the cards in the conversation thread. */
@@ -6965,12 +6965,12 @@ html body [class*="chat-bubble"] {
   border-color: var(--reos-steel) !important;
 }
 
-/* 16e-4 (v0.8.7 → v0.8.10): the chat bubble's tail/pointer. GHL
+/* 16e-4 (v0.8.7 \u2192 v0.8.10): the chat bubble's tail/pointer. GHL
    builds it from two layers:
-   1) .chat-bubble-outbound::after — a 16x10 pseudo-element behind
+   1) .chat-bubble-outbound::after \u2014 a 16x10 pseudo-element behind
       the bubble.
-   2) .chat-outbound-hidden / .chat-inbound-hidden — a 26x25 DIV
-      with transform: matrix(0.73, 0.68, -0.68, 0.73, 0, 0) (~43°
+   2) .chat-outbound-hidden / .chat-inbound-hidden \u2014 a 26x25 DIV
+      with transform: matrix(0.73, 0.68, -0.68, 0.73, 0, 0) (~43\xB0
       rotation) sitting next to the bubble. This is the visible
       angled tag pointing at the sender avatar.
 
@@ -7007,7 +7007,7 @@ html body [class*="chat-inbound-hidden"] {
   outline: none !important;
 }
 
-/* 16g. TAILWIND GRAY-200 SWEEP — #E5E7EB / rgb(229, 231, 235).
+/* 16g. TAILWIND GRAY-200 SWEEP \u2014 #E5E7EB / rgb(229, 231, 235).
    Tim spotted this hex all over the DevTools computed-styles panel:
    it's Tailwind's gray-200, GHL's default for hairline borders and
    "subtle" surfaces. Visually it reads as near-white on a dark theme.
@@ -7083,7 +7083,7 @@ html body [style*="-webkit-text-fill-color:#e5e7eb"] {
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
-/* Tailwind text/divide/ring utility variants — uncommon but they
+/* Tailwind text/divide/ring utility variants \u2014 uncommon but they
    exist in GHL's emitted CSS. text-gray-200 -> bone (the color
    is near-white anyway), divide-gray-200 -> steel (child dividers),
    ring-gray-200 -> kill (focus rings don't make sense on dark
@@ -7118,7 +7118,7 @@ html body [style*="border-color:#e0e0e6"] {
   border-color: var(--reos-steel) !important;
 }
 
-/* Untitled-UI gray-200 — rgb(228, 231, 236) / #E4E7EC. One channel off
+/* Untitled-UI gray-200 \u2014 rgb(228, 231, 236) / #E4E7EC. One channel off
    from Tailwind gray-200 (229,231,235), but indistinguishable to the
    eye. GHL ships this as the conversation-card horizontal divider
    color (inline 'border-color: transparent transparent rgb(228, 231,
@@ -7140,7 +7140,7 @@ html body [style*="border-color:#e4e7ec"] {
   border-color: var(--reos-steel) !important;
 }
 
-/* SVG fill — add #E5E7EB to the section 16a chart-fill catchall
+/* SVG fill \u2014 add #E5E7EB to the section 16a chart-fill catchall
    for any chart shape painted in Tailwind gray-200. */
 html body svg path[fill="#E5E7EB"],
 html body svg rect[fill="#E5E7EB"],
@@ -7151,7 +7151,7 @@ html body svg polygon[fill="#e5e7eb"] {
   fill: var(--reos-slate) !important;
 }
 
-/* 16h. GHL TEXT-PRIMARY SWEEP — #101828 / rgb(16, 24, 40).
+/* 16h. GHL TEXT-PRIMARY SWEEP \u2014 #101828 / rgb(16, 24, 40).
    GHL's default text color on their light theme: every Vue-rendered
    heading, label, body paragraph, modal title, tab label, stage
    name, etc. ships with inline style="color: rgb(16, 24, 40)". On
@@ -7162,7 +7162,7 @@ html body svg polygon[fill="#e5e7eb"] {
    inline style attribute, no descendant cascade (so SVG icons that
    inherit currentColor are not affected). Remap to bone.
 
-   This is the single most impactful broad sweep — it should fix
+   This is the single most impactful broad sweep \u2014 it should fix
    the "where did the text go" effect on dozens of GHL-templated
    surfaces across the app (Opportunities titles, Conversations
    headings, modal titles, settings labels, etc.). */
@@ -7182,7 +7182,7 @@ html body [style*="-webkit-text-fill-color:#101828"] {
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
-/* SVG fill — chart shapes / data-vis icons sometimes paint in
+/* SVG fill \u2014 chart shapes / data-vis icons sometimes paint in
    #101828 (e.g. axis labels rendered as path fills). Remap so
    they show as bone on the dark surface. */
 html body svg path[fill="#101828"],
@@ -7193,7 +7193,7 @@ html body svg text[fill="#101828"] {
   fill: var(--reos-bone) !important;
 }
 
-/* 16f. CONVERSATIONS PANEL BOX-SHADOWS — .shadow-sm and similar
+/* 16f. CONVERSATIONS PANEL BOX-SHADOWS \u2014 .shadow-sm and similar
    Tailwind shadow utilities create a drop-shadow that GHL may have
    customized to render with a light color. On the dark theme that
    reads as a faint white outline around the rounded conversation
@@ -7223,29 +7223,29 @@ html body [class*='inbox-panel'] {
   outline: none !important;
 }
 
-/* 16f-2. INBOX PANEL — Conversations left-side menu (folder list,
+/* 16f-2. INBOX PANEL \u2014 Conversations left-side menu (folder list,
    accordions, dividers). Diagnosed live via /browse 2026-05-18 when
    Tim expanded the left nav and reported "icons but no text, blue
    icon after click, the whole section is a mess".
 
    Found via DOM walk:
    1) .menu-text (item labels like "Internal Chat") had inline-ish
-      color: rgb(16, 24, 40) = #101828 — dark text on graphite =
+      color: rgb(16, 24, 40) = #101828 \u2014 dark text on graphite =
       invisible. Active item ("Team Inbox") had emerald, fine.
    2) .hr-collapse-item__content-wrapper (expanded "My Inbox"
       sub-items: All / Assigned to Me / Followed by Me) had
-      color: rgb(52, 64, 84) — dark gray on dark = also invisible.
+      color: rgb(52, 64, 84) \u2014 dark gray on dark = also invisible.
       Tim saw three ghosted icon rows.
    3) .divider had bg: rgb(208, 213, 221) light gray, glaring.
    4) .hr-collapse-item__header-extra (right-side chevron on My
-      Inbox header) had color: rgb(52, 64, 84) — invisible.
+      Inbox header) had color: rgb(52, 64, 84) \u2014 invisible.
    5) Blue-after-click: GHL default :focus / :focus-visible state
       on menu rows paints a blue ring/bg.
 
    Fix: scope all the corrections under .inbox-panel so they don't
    leak elsewhere. Use html body prefix to beat Vue scoped CSS. */
 
-/* Default-state text inside the inbox panel — beat Vue scoped color */
+/* Default-state text inside the inbox panel \u2014 beat Vue scoped color */
 html body .inbox-panel .menu-text,
 html body .inbox-panel .menu-item-content,
 html body .inbox-panel .menu-item-content *:not(svg):not(svg *),
@@ -7257,7 +7257,7 @@ html body .inbox-panel .menu-item:not(.active) .menu-item-content {
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
-/* Active row container — two variants:
+/* Active row container \u2014 two variants:
    - EXPANDED (.menu-item-container.active, no .collapsed-item):
      canonical emerald-glow + emerald border (section 11b).
    - COLLAPSED (.menu-item-container.active.collapsed-item):
@@ -7280,7 +7280,7 @@ html body .inbox-panel .menu-item-container.active.collapsed-item:not(#__reos_ne
   outline: none !important;
 }
 
-/* Active row text + icon — emerald to match canonical ACTIVE state. */
+/* Active row text + icon \u2014 emerald to match canonical ACTIVE state. */
 html body .inbox-panel .menu-item-container.active .menu-text,
 html body .inbox-panel .menu-item-container.active .menu-item-content,
 html body .inbox-panel .menu-item-container.active .menu-item-content *:not(svg):not(svg *),
@@ -7291,7 +7291,7 @@ html body .inbox-panel .menu-item-container.active svg path {
   stroke: var(--reos-emerald) !important;
 }
 
-/* Icons in non-active rows — ash (muted bone) so they read but don't
+/* Icons in non-active rows \u2014 ash (muted bone) so they read but don't
    compete with the active emerald accent. */
 html body .inbox-panel .menu-item:not(.active) svg,
 html body .inbox-panel .menu-item:not(.active) svg path {
@@ -7299,7 +7299,7 @@ html body .inbox-panel .menu-item:not(.active) svg path {
   stroke: var(--reos-ash) !important;
 }
 
-/* Accordion (My Inbox / Views) — kill the slate fill on the wrapper
+/* Accordion (My Inbox / Views) \u2014 kill the slate fill on the wrapper
    so the panel reads as one continuous graphite surface, headers and
    content alike. Header chevron + content sub-items get bone text. */
 html body .inbox-panel #accordion-my-inbox,
@@ -7319,7 +7319,7 @@ html body .inbox-panel .hr-collapse-item__content-wrap {
   color: var(--reos-bone) !important;
 }
 
-/* All text descendants inside the accordions — bone so the
+/* All text descendants inside the accordions \u2014 bone so the
    ghosted sub-rows ("All", "Assigned to Me", "Followed by Me",
    "Create view") become readable. svg color gets ash for icons. */
 html body .inbox-panel .hr-collapse *:not(svg):not(svg *):not(.menu-item-container.active):not(.menu-item-container.active *) {
@@ -7332,7 +7332,7 @@ html body .inbox-panel .hr-collapse svg path {
   stroke: var(--reos-ash) !important;
 }
 
-/* Divider between sections — was a glaring light-gray bar.
+/* Divider between sections \u2014 was a glaring light-gray bar.
    Drop to steel so it reads as a subtle separator on graphite. */
 html body .inbox-panel .divider {
   background-color: var(--reos-steel) !important;
@@ -7427,7 +7427,7 @@ html body .inbox-panel a:focus-visible {
   border-color: transparent !important;
 }
 
-/* "Create view" link inside Views accordion — keep emerald to
+/* "Create view" link inside Views accordion \u2014 keep emerald to
    signal it's an action, but make sure it's not eaten by the
    bone-everything sweep above. */
 html body .inbox-panel .views-menu-content a,
@@ -7438,7 +7438,7 @@ html body .inbox-panel #views-accordion button {
   -webkit-text-fill-color: var(--reos-emerald) !important;
 }
 
-/* Right-edge collapse chevron button — small handle on the panel's
+/* Right-edge collapse chevron button \u2014 small handle on the panel's
    right border. Make sure it sits on graphite with bone icon. */
 html body .inbox-panel [class*='collapse-toggle'],
 html body .inbox-panel [class*='panel-toggle'],
@@ -7455,13 +7455,13 @@ html body .inbox-panel [class*='expand-button']:hover {
 }
 
 /* hr-tooltip / hr-popover-shared (collapsed-icon labels: "My Inbox",
-   "Internal Chat", "Views", etc.) — Tim wants the classic
+   "Internal Chat", "Views", etc.) \u2014 Tim wants the classic
    conversational popup look from the GenieREI version: solid dark
    pill with rounded corners and a small triangle pointing at the
    icon being hovered.
 
    ONLY the outer wrapper gets bg + padding + radius. Inner content
-   layers are transparent — otherwise bg + padding stacks on three
+   layers are transparent \u2014 otherwise bg + padding stacks on three
    nested elements and the tooltip balloons to ~3x normal size
    (Tim's "oversized box" feedback from v0.7.94/95). */
 html body .hr-tooltip,
@@ -7477,7 +7477,7 @@ html body .hr-popover-shared--show-arrow {
   transition: none !important;
   padding: 4px 8px !important;
 }
-/* Inner content layers — transparent + no padding so they don't
+/* Inner content layers \u2014 transparent + no padding so they don't
    add a second/third pill inside the outer one. */
 html body .hr-tooltip .hr-popover__content,
 html body .hr-tooltip .hr-tooltip__content,
@@ -7511,13 +7511,13 @@ html body .hr-popover-arrow-wrapper {
   transition: none !important;
 }
 
-/* 16f-3. CONVERSATION LIST INTERACTIVE ELEMENTS — apply the
+/* 16f-3. CONVERSATION LIST INTERACTIVE ELEMENTS \u2014 apply the
    canonical icon-rail pattern (ash / emerald / no box) to:
    - filter / sort icons in the header
    - Unread / All / Recents / Starred tab buttons
    - individual conversation rows (hover blend, emerald-glow active)
 
-   Tim flagged the lingering slate hover state on these — every
+   Tim flagged the lingering slate hover state on these \u2014 every
    substring hover rule in section 18a-1 ([class*='EFF4FF']:hover,
    [class*='hover:bg-gray-50']:hover, etc.) was catching the
    Tailwind hover-bg classes on rows + tabs + icons and painting
@@ -7594,7 +7594,7 @@ html body .conversation-list-header [class*='border-gray-200'][class*='rounded-l
   stroke: var(--reos-emerald) !important;
 }
 
-/* Tab strip outer wrapper border-gray-200 → steel (handled by
+/* Tab strip outer wrapper border-gray-200 \u2192 steel (handled by
    section 16 already, but make sure the outer rounded-lg radius
    reads as a deliberate group). The strip itself stays graphite. */
 html body .conversation-list-header [class*='border-gray-200'][class*='rounded-lg'] {
@@ -7602,7 +7602,7 @@ html body .conversation-list-header [class*='border-gray-200'][class*='rounded-l
   border-color: var(--reos-steel) !important;
 }
 
-/* Individual conversation rows — hover should BLEND with the panel
+/* Individual conversation rows \u2014 hover should BLEND with the panel
    surface (graphite), not paint a slate card.
    Match the row inner button (the .transition-colors.cursor-pointer
    wrapper that ships with bg-[#F7F9FD] hover:bg-[#EFF4FF]). */
@@ -7622,13 +7622,13 @@ html body [data-conversation-id][data-is-active="true"] > [type='button'],
 html body [data-conversation-id][data-is-active="true"] [type='button'] {
   border-color: var(--reos-emerald) !important;
 }
-/* Generic remap: any inline border with that exact blue → emerald.
+/* Generic remap: any inline border with that exact blue \u2192 emerald.
    Catches future widgets that use the same Tailwind primary blue. */
 html body [style*="rgb(82, 139, 255)"] {
   border-color: var(--reos-emerald) !important;
 }
 
-/* Bulk-select toolbar ("Select all" bar) — class bg-[#F7F9FD] gets
+/* Bulk-select toolbar ("Select all" bar) \u2014 class bg-[#F7F9FD] gets
    coerced to graphite by section 18a-1's substring rule. Force
    transparent so it blends with the panel rather than reading as
    a stripe. */
@@ -7637,11 +7637,11 @@ html body [data-name="bulk-select-bar"] {
   background: transparent !important;
 }
 
-/* Tailwind bg-inherit class — should "inherit parent's bg" per its
+/* Tailwind bg-inherit class \u2014 should "inherit parent's bg" per its
    own name. v0.7.96 and earlier had coerceDarkDropdowns rewrite
    these to slate inline because graphite (inherited from parent)
    reads as "darker than slate" to the coercer. Tim hit this with
-   the Team Inbox sticky header (.sticky.top-0.z-10.bg-inherit) —
+   the Team Inbox sticky header (.sticky.top-0.z-10.bg-inherit) \u2014
    the slate inline made it look like a blocky cheap bar on the
    graphite conversations list. Pin to transparent so it actually
    inherits; the coercer also skips bg-inherit now (see runtime). */
@@ -7651,14 +7651,14 @@ html body .bg-inherit {
   background: transparent !important;
 }
 
-/* Panel + layout container :hover override — section 18a-1 paints
+/* Panel + layout container :hover override \u2014 section 18a-1 paints
    ANY [class*="ECEEF2"]:hover and [class*="F7F9FD"]:hover slate.
    That catches the inbox-panel, #conversations-layout, the inner
    conversation-list outer panel (bg-[#F7F9FD]), the main
    #conversation-panel chat pane, and any other Tailwind-bg surface
    on the Conversations page. When the cursor lands on them they
    shift to a lighter slate while the inner content (rows,
-   FORCE_RULE-painted headers, etc.) stay graphite — the inner
+   FORCE_RULE-painted headers, etc.) stay graphite \u2014 the inner
    content then reads as a dark "surround" against the now-lighter
    panel (Tim's complaint at v0.7.91, recurring on the conv-list
    panel hover at v0.8.2).
@@ -7683,13 +7683,13 @@ html body [class*="eceef2"][class*="eceef2"][class*="eceef2"]:hover {
   background-color: var(--reos-graphite) !important;
 }
 
-/* 16a. SVG CHART FILLS — GHL bakes light-neutral hexes as SVG fill="..."
+/* 16a. SVG CHART FILLS \u2014 GHL bakes light-neutral hexes as SVG fill="..."
    presentation attributes on chart shapes (funnel segment backgrounds,
    axis dividers, donut placeholder rings, etc.). Presentation attributes
    lose to CSS, so an !important CSS fill rule overrides them.
 
    Catches the common GHL/Tailwind light-neutral palette:
-     #EAECF0 = neutral-200 / gray-200  (funnel segment bg — observed)
+     #EAECF0 = neutral-200 / gray-200  (funnel segment bg \u2014 observed)
      #F2F4F7 = neutral-100 / gray-100
      #D0D5DD = neutral-300 / gray-300
      #F9FAFB = neutral-50  / gray-50
@@ -7752,7 +7752,7 @@ html body [class*='chart-container'] svg path[stroke="white"] {
   stroke: var(--reos-graphite) !important;
 }
 
-/* 16d. CHART TOOLTIPS — REVERTED in v0.7.54. The blind fix in v0.7.53
+/* 16d. CHART TOOLTIPS \u2014 REVERTED in v0.7.54. The blind fix in v0.7.53
    broke page load (likely the very-long [style*='...'] FORCE_RULE
    selector list slowing applyForceRules on every MutationObserver
    tick, or one of the [class*='tooltip-container'] / 'tooltip-content'
@@ -7760,10 +7760,10 @@ html body [class*='chart-container'] svg path[stroke="white"] {
    it graphite + bordered. Either way: page wouldn't load.
    Need a different approach to the chart tooltip white-flash. */
 
-/* 16b. CHART TEXT — funnel-segment percentages, axis labels, donut center
+/* 16b. CHART TEXT \u2014 funnel-segment percentages, axis labels, donut center
    readouts, legend text. SVG <text>/<tspan> elements inside dashboard
    chart cards inherit their color from GHL's baked-in dark fills (e.g.
-   #101828, #344054, #1D2939) — invisible against slate funnel segments.
+   #101828, #344054, #1D2939) \u2014 invisible against slate funnel segments.
    Also covers HTML text overlays in case the chart engine layers <div>
    labels on top of SVG via foreignObject or absolute positioning.
 
@@ -7804,7 +7804,7 @@ html body [class*='chart-container'] [class*='data-label'] {
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
-/* 16c. CHART HOVER — investigation pending. v0.7.49 attempted a
+/* 16c. CHART HOVER \u2014 investigation pending. v0.7.49 attempted a
    transition kill on chart-container SVG content + FORCE_RULE bone
    fill on chart text, but the change broke the chart's click-to-open
    handler (the row's onclick that opens stage details) AND did not
@@ -7812,7 +7812,7 @@ html body [class*='chart-container'] [class*='data-label'] {
 
    Likely cause of the regression: aggressive inline-style mutations
    on every MutationObserver tick interfere with the chart lib's
-   reactive update path. Need a more targeted fix — probably
+   reactive update path. Need a more targeted fix \u2014 probably
    debouncing the chart-text FORCE_RULE, or scoping more narrowly,
    or using a different mechanism entirely (override at the chart
    library config level if possible). */
@@ -7827,7 +7827,7 @@ html body [class*='chart-container'] [class*='data-label'] {
    (Call Status + Offer Made) cooperates with #contact-conversation-panel.
    Without this, the conversation panel uses h-full (height: 100%) which
    resolves to 100% of the central-panel and ignores the 45px my bar
-   occupies — pushing the compose footer 29px below the viewport so the
+   occupies \u2014 pushing the compose footer 29px below the viewport so the
    emoji / attach icons get cut off. Flex-column lets my bar take its
    natural height while the conversation panel fills the rest. */
 .central-panel {
@@ -7848,7 +7848,7 @@ html body [class*='chart-container'] [class*='data-label'] {
 
 /* 18a-fc-page (v0.8.27). The Calendars page outer wrapper
    #fc-calendar-container-v2 ships with class 'h-screen flex relative'
-   and ZERO theme. Computed bg = pure white, 1695x992 — the entire
+   and ZERO theme. Computed bg = pure white, 1695x992 \u2014 the entire
    page surface is white underneath everything. Nested elements
    paint over visually but the wrapper still flashes white on
    first paint and on any layout shift.
@@ -7862,11 +7862,11 @@ html body div#fc-calendar-container-v2 {
   color: var(--reos-bone) !important;
 }
 
-/* #today-button (v0.8.27 → v0.8.33). FullCalendar's Today button.
+/* #today-button (v0.8.27 \u2192 v0.8.33). FullCalendar's Today button.
    v0.8.27 pinned it permanently emerald to mark it as 'active'.
-   Tim hated the result — said it 'looks like shit'.
+   Tim hated the result \u2014 said it 'looks like shit'.
 
-   v0.8.33: match the Manage view treatment instead — steel border
+   v0.8.33: match the Manage view treatment instead \u2014 steel border
    + bone text in default state, emerald lift only on hover. Reads
    as a quiet clickable button by default, signals affordance on
    hover. Override Naive's CSS variables AND the computed styles
@@ -7923,12 +7923,12 @@ html body button#today-button .n-base-wave {
   opacity: 0 !important;
 }
 
-/* .fc-timegrid-now-indicator-line / -arrow (v0.8.27 → v0.8.29).
+/* .fc-timegrid-now-indicator-line / -arrow (v0.8.27 \u2192 v0.8.29).
    FullCalendar's 'current time' horizontal line ships pure red
    rgb(255, 0, 0) via border-top-color (line) + border-color
    (arrow tip). Tim couldn't see it; wants brand --reos-crimson.
 
-   v0.8.28 fixed the color but the line was still invisible —
+   v0.8.28 fixed the color but the line was still invisible \u2014
    diagnosed via /browse elementsFromPoint: the .fc-timegrid-slot-lane
    TD cells stack ON TOP of the indicator-container (z-index auto)
    and the TDs' transparent fill let the graphite-bg TABLE
@@ -7958,7 +7958,7 @@ html body [class*="fc-timegrid-now-indicator-arrow"]:not(#__reos_never_id):not(#
   border-left-color: var(--reos-crimson) !important;
   z-index: 100 !important;
 }
-/* Container needs lifting too — it parents the line/arrow and
+/* Container needs lifting too \u2014 it parents the line/arrow and
    sets the stacking context. */
 html body .fc-timegrid-now-indicator-container:not(#__reos_never_id):not(#__reos_also_never),
 html body [class*="fc-timegrid-now-indicator-container"]:not(#__reos_never_id):not(#__reos_also_never) {
@@ -7969,7 +7969,7 @@ html body [class*="fc-timegrid-now-indicator-container"]:not(#__reos_never_id):n
    are painted graphite by section 18a-flash-global / FORCE_RULE
    (everything not transparent in the calendar inherits the page
    graphite). The slot-grid TABLE then becomes an opaque sheet
-   that COVERS the now-indicator line — Tim's reproducible 'line
+   that COVERS the now-indicator line \u2014 Tim's reproducible 'line
    not visible' bug.
 
    Solution: paint .fc table backgrounds transparent. Slots stay
@@ -7987,7 +7987,7 @@ html body [class*="fc-daygrid"] table:not(#__reos_never_id) {
   background: transparent !important;
 }
 
-/* 18a-smartlist-tabs (v0.8.37 → v0.8.38). The Contacts smart-list
+/* 18a-smartlist-tabs (v0.8.37 \u2192 v0.8.38). The Contacts smart-list
    page has a tabs bar (.d-flex.bar) with .d-flex.view.cursor-pointer
    children. The active tab gets a class .active AND already has a
    ::after pseudo painting an underline (bg: rgb(0,78,235), GHL
@@ -8010,7 +8010,7 @@ html body .d-flex.view.cursor-pointer .view-label {
   background: transparent !important;
   transition: none !important;
 }
-/* Hover: inactive tab → emerald text. */
+/* Hover: inactive tab \u2192 emerald text. */
 html body .d-flex.view:hover,
 html body .d-flex.view:hover .view-label,
 html body .d-flex.view.cursor-pointer:hover,
@@ -8037,7 +8037,7 @@ html body .d-flex.view.cursor-pointer.active::after {
   background: var(--reos-emerald) !important;
 }
 
-/* 18a-pipeline-ribbon-count (v0.8.40 → v0.8.41). The contact
+/* 18a-pipeline-ribbon-count (v0.8.40 \u2192 v0.8.41). The contact
    count pill on the contacts smart-list page (.pipeline-ribbon
    .count, content '42 Contacts') was painted slate-bg + bone-text
    inline by coerceDarkDropdowns. v0.8.40 skipped the coercer
@@ -8078,7 +8078,7 @@ html body .d-flex.bar svg path[stroke="#000000"] {
      2) Vertical divider between .d-flex.lists (the smart-list
         group) and the '+ Add smart list' container on the right.
 
-   Section 16's plain .border-gray-200 → steel doesn't catch
+   Section 16's plain .border-gray-200 \u2192 steel doesn't catch
    these because the lines come from #views-bar's own Vue
    scoped CSS (no .border-gray-200 utility class on the
    element). Target the bar structure directly with ID-level
@@ -8144,8 +8144,8 @@ html body [style*="background:#f2f4f7"]:not(#__reos_never_id) {
    Two paths:
    1) Structural: any wrapper that has BOTH an svg/i sibling AND a
       <p class="ui-text-sm-normal"> child looks like an info banner.
-      Repaint bg → graphite (one shade up from modal slate), border
-      → steel, text → bone.
+      Repaint bg \u2192 graphite (one shade up from modal slate), border
+      \u2192 steel, text \u2192 bone.
    2) Defensive: also paint the <p> + its descendants directly so the
       inline -webkit-text-fill-color doesn't bleed back through. */
 html body div:has(> p.ui-text-sm-normal):has(> svg):not(#__reos_never_id),
@@ -8157,7 +8157,7 @@ html body section:has(> p.ui-text-sm-normal):has(> svg):not(#__reos_never_id) {
   border-color: var(--reos-steel) !important;
 }
 
-/* Icon color inside the banner — flip muted gray → ash so the
+/* Icon color inside the banner \u2014 flip muted gray \u2192 ash so the
    info glyph reads on graphite. */
 html body div:has(> p.ui-text-sm-normal):has(> svg):not(#__reos_never_id) > svg,
 html body div:has(> p.ui-text-sm-normal):has(> svg):not(#__reos_never_id) > svg path,
@@ -8167,7 +8167,7 @@ html body div:has(> p.ui-text-sm-normal):has(> svg):not(#__reos_never_id) > svg 
   fill: var(--reos-ash) !important;
 }
 
-/* Text inside the banner — bone for readability on graphite. */
+/* Text inside the banner \u2014 bone for readability on graphite. */
 html body div:has(> svg) > p.ui-text-sm-normal:not(#__reos_never_id),
 html body div:has(> i) > p.ui-text-sm-normal:not(#__reos_never_id),
 html body div:has(> [class*="icon"]) > p.ui-text-sm-normal:not(#__reos_never_id) {
@@ -8177,12 +8177,12 @@ html body div:has(> [class*="icon"]) > p.ui-text-sm-normal:not(#__reos_never_id)
 }
 
 /* 18a-icon-primary (v0.8.64). The .icon.icon-primary circular badge
-   on the Billing → Payment Methods card holds the bank-account
+   on the Billing \u2192 Payment Methods card holds the bank-account
    glyph. GHL ships it as a white circle with a navy/dark bank icon.
    Our coercer remaps the BG to slate (visible in the inline
    background-color: rgb(26, 31, 40)), but the SVG renders with
    stroke="currentColor" inheriting from inline color: rgb(237, 238,
-   240) (bone) — so the bank lines are bone, the circle is slate.
+   240) (bone) \u2014 so the bank lines are bone, the circle is slate.
 
    On the dark theme, the "big white circle" Tim describes is the
    PARENT card wrapper (the payment method tile) still painting
@@ -8263,7 +8263,7 @@ html body .n-button.n-button--default-type:not(#__reos_never_id):hover .n-button
   color: var(--reos-emerald) !important;
   -webkit-text-fill-color: var(--reos-emerald) !important;
 }
-/* :focus and :active stay on the resting palette — no green tint
+/* :focus and :active stay on the resting palette \u2014 no green tint
    left behind after click / when modal autofocuses the button.
    Pin bg/text/border explicitly so Naive UI's focus var doesn't
    bleed emerald-glow back through. */
@@ -8296,7 +8296,7 @@ html body .n-button.n-button--default-type:not(#__reos_never_id):active .n-butto
 html body .n-button.n-button--default-type:not(#__reos_never_id):active .n-button__state-border {
   border: 1px solid var(--reos-cool-gray) !important;
 }
-/* Kill the emerald-glow wave ripple inside default-type buttons —
+/* Kill the emerald-glow wave ripple inside default-type buttons \u2014
    that's the lingering "muted green" patch Tim sees after click. */
 html body .n-button.n-button--default-type:not(#__reos_never_id) .n-base-wave {
   background: transparent !important;
@@ -8304,19 +8304,19 @@ html body .n-button.n-button--default-type:not(#__reos_never_id) .n-base-wave {
   display: none !important;
 }
 
-/* 18a-checkboxes (v0.8.51 → v0.8.53). Tim's spec for checkboxes
+/* 18a-checkboxes (v0.8.51 \u2192 v0.8.53). Tim's spec for checkboxes
    GLOBALLY:
    - Unchecked: slate bg + steel border
    - Checked: brand --reos-blue bg + matching border + bone check
    - No hover or focus state (long lists)
 
    Three families to cover:
-   1) Native <input type='checkbox'>          — section below
-   2) Naive UI .n-checkbox                    — CSS-variable driven
-   3) HR (GHL) .hr-checkbox                   — same model as Naive
+   1) Native <input type='checkbox'>          \u2014 section below
+   2) Naive UI .n-checkbox                    \u2014 CSS-variable driven
+   3) HR (GHL) .hr-checkbox                   \u2014 same model as Naive
 */
 
-/* (2) + (3) Naive UI / HR checkboxes — both use --n-color +
+/* (2) + (3) Naive UI / HR checkboxes \u2014 both use --n-color +
    --n-color-checked CSS variables on the wrapper. Override the
    vars + paint the .{n,hr}-checkbox-box__border directly so we
    don't depend on Naive's internal cascade order. */
@@ -8324,8 +8324,8 @@ html body .n-checkbox,
 html body .hr-checkbox,
 html body [class*="n-checkbox"],
 html body [class*="hr-checkbox"] {
-  /* v0.8.82: unchecked box bg → steel (was slate). Slate is the
-     same shade as most modal/page surfaces — the box disappeared
+  /* v0.8.82: unchecked box bg \u2192 steel (was slate). Slate is the
+     same shade as most modal/page surfaces \u2014 the box disappeared
      into the bg. Steel is one shade lighter so the unchecked
      box reads against the dark surface. Checked stays brand
      blue. Border becomes cool-gray to keep the outline visible
@@ -8363,7 +8363,7 @@ html body [aria-checked="true"] .hr-checkbox-box {
   background-color: var(--reos-blue) !important;
   background: var(--reos-blue) !important;
 }
-/* Border layers — cool-gray on unchecked so the box outline
+/* Border layers \u2014 cool-gray on unchecked so the box outline
    stays visible against the lighter steel bg (v0.8.82). */
 html body .n-checkbox-box__border,
 html body .hr-checkbox-box__border {
@@ -8379,7 +8379,7 @@ html body [aria-checked="true"] .hr-checkbox-box__border {
   border: 1px solid var(--reos-blue) !important;
   box-shadow: none !important;
 }
-/* Check icon SVG — bone fill so the check reads on the blue
+/* Check icon SVG \u2014 bone fill so the check reads on the blue
    surface. Naive uses path with currentColor; set both color and
    fill for the SVG. */
 html body .n-checkbox .check-icon,
@@ -8400,11 +8400,11 @@ html body .hr-checkbox-icon svg path {
    when visible.
 
    v0.8.66 also painted the immediate parent (span/div) blue via
-   :has(> svg.check-icon) — but the .check-icon is present in the
+   :has(> svg.check-icon) \u2014 but the .check-icon is present in the
    DOM in BOTH checked and unchecked states (Naive UI keeps it
    permanently mounted and hides it via opacity on unchecked).
    So the wrapper-paint rule turned unchecked boxes blue. v0.8.67
-   drops the wrapper rule — let the existing .n-checkbox / .hr-checkbox
+   drops the wrapper rule \u2014 let the existing .n-checkbox / .hr-checkbox
    --n-color-checked variable do the bg color via the checked state. */
 html body svg.check-icon:not(.n-checkbox .check-icon):not(.hr-checkbox .check-icon),
 html body svg.check-icon:not(.n-checkbox .check-icon):not(.hr-checkbox .check-icon) path {
@@ -8430,7 +8430,7 @@ html body .hr-checkbox-box:focus {
    1. Checkbox box flashes WHITE on hover (checked or unchecked).
    2. Check icon takes ~6 seconds to appear after clicking.
 
-   Both root in the same place — Naive UI/HR ships the checkbox
+   Both root in the same place \u2014 Naive UI/HR ships the checkbox
    with cascade-deep transition rules on background-color + opacity.
    Some Vue scoped rule must be setting a very long transition
    duration on .check-icon (and the box hover blends through a
@@ -8438,7 +8438,7 @@ html body .hr-checkbox-box:focus {
 
    Fix: pin :hover state to slate (unchecked) / blue (checked) and
    kill transitions on every checkbox element + the .check-icon
-   itself. State changes go instant — no white flash, no slow
+   itself. State changes go instant \u2014 no white flash, no slow
    reveal. Matches Tim's "no hover state" spec from v0.8.51-53. */
 
 /* Pin hover state. ID-level (:not(#__reos_never_id)) so we beat
@@ -8460,7 +8460,7 @@ html body [aria-checked="true"]:not(#__reos_never_id):hover .hr-checkbox-box {
   background: var(--reos-blue) !important;
 }
 
-/* Kill ALL transitions on checkbox elements + .check-icon —
+/* Kill ALL transitions on checkbox elements + .check-icon \u2014
    state changes go instant. Covers the box, the border layers,
    the icon container, and the SVG itself. */
 html body .n-checkbox,
@@ -8531,14 +8531,14 @@ html body [aria-checked="true"][aria-checked="true"]:not(#__reos_never_id):hover
 /* 18a-checkbox-state-pin (v0.8.69). v0.8.68 fixed the slow transition
    but the box is STILL rendering white when checked + a sticky white
    bg after hover. Tim's screenshot shows: green check (path) on a
-   white square — meaning:
+   white square \u2014 meaning:
    - The checkbox box bg paints white instead of slate (unchecked)
      or blue (checked)
    - The .check-icon path renders emerald-green instead of bone
 
    v0.8.69 fix:
-   - Switch v0.8 modal accent-color from emerald → blue (matches
-     checkbox spec — when a native input renders via accent-color,
+   - Switch v0.8 modal accent-color from emerald \u2192 blue (matches
+     checkbox spec \u2014 when a native input renders via accent-color,
      the box bg becomes the accent color)
    - Pin .n-checkbox-box / .hr-checkbox-box bg with maximum
      specificity using class-stacking so we beat any Vue scoped
@@ -8570,9 +8570,9 @@ html body .hr-checkbox--checked.hr-checkbox--checked:not(#__reos_never_id):hover
   border-color: var(--reos-blue) !important;
 }
 
-/* .check-icon path inside ANY checkbox-shaped wrapper → bone.
+/* .check-icon path inside ANY checkbox-shaped wrapper \u2192 bone.
    The earlier rule (line 3865) required a literal .n-checkbox or
-   .hr-checkbox ancestor — some GHL checkbox variants use other
+   .hr-checkbox ancestor \u2014 some GHL checkbox variants use other
    wrapper classes ([class*='checkbox'], aria-checked containers).
    This rule paints the check bone wherever the .check-icon sits
    inside a recognized checkbox shape. */
@@ -8611,7 +8611,7 @@ html body input[type="checkbox"]:not(.n-checkbox):not(.hr-checkbox):not([class*=
   background: var(--reos-blue) !important;
   border-color: var(--reos-blue) !important;
 }
-/* Checkmark — bone, drawn as two perpendicular lines via the
+/* Checkmark \u2014 bone, drawn as two perpendicular lines via the
    classic CSS rotate-rectangle technique. Pseudo-element on the
    checkbox itself. */
 html body input[type="checkbox"]:not(.n-checkbox):not(.hr-checkbox):not([class*="n-checkbox"]):not([class*="hr-checkbox"]):checked::after {
@@ -8626,7 +8626,7 @@ html body input[type="checkbox"]:not(.n-checkbox):not(.hr-checkbox):not([class*=
   transform: rotate(45deg) !important;
   display: block !important;
 }
-/* Indeterminate state (partial selection in bulk-select) — show
+/* Indeterminate state (partial selection in bulk-select) \u2014 show
    a horizontal bar in bone instead of a check. */
 html body input[type="checkbox"]:not(.n-checkbox):not(.hr-checkbox):not([class*="n-checkbox"]):not([class*="hr-checkbox"]):indeterminate {
   background-color: var(--reos-blue) !important;
@@ -8647,11 +8647,11 @@ html body input[type="checkbox"]:not(.n-checkbox):not(.hr-checkbox):not([class*=
 }
 
 /* 18a-copy-icon (v0.8.60). The copy-icon button next to phone /
-   email cells in the contacts table — inline ships with
+   email cells in the contacts table \u2014 inline ships with
    'background: white' + 'border: 1px solid #D0D5DD'. Tim wants:
    - Slate bg + steel border
    - Brand-blue copy icon (and the checkmark icon shown after
-     click — same color spec)
+     click \u2014 same color spec)
    - Inline styles lose to CSS !important so this overrides them. */
 html body .copy-icon,
 html body span.copy-icon {
@@ -8668,7 +8668,7 @@ html body span.copy-icon svg path {
   stroke: var(--reos-blue) !important;
   fill: none !important;
 }
-/* Post-click checkmark state — many implementations swap the SVG
+/* Post-click checkmark state \u2014 many implementations swap the SVG
    path or add a .copied / .success class. Cover broadly:
    any svg inside .copy-icon stays blue regardless of state. */
 html body .copy-icon.copied svg,
@@ -8684,11 +8684,11 @@ html body .copy-icon[data-copied="true"] svg path {
 /* 18a-list-contact-options-icon (v0.8.54). The 3-dot trigger on
    contact rows uses SVG with class .list-individual-contact-
    options-icon. v0.8.48 tried matching via d^= path selector
-   but the user reports it didn't render — switching to the
+   but the user reports it didn't render \u2014 switching to the
    explicit class which is unique and reliable.
 
    Tim's spec: slate bg + steel border + brand-blue dots. */
-/* SVG rendering — leave size at the browser default (no width/
+/* SVG rendering \u2014 leave size at the browser default (no width/
    height override), use stroke not fill. v0.8.58 enlarged to 16
    + filled, which made the 3 dots smear into a solid blue strip.
    Reverting to the original stroked render (each dot is a small
@@ -8705,7 +8705,7 @@ html body .list-individual-contact-options-icon path {
   stroke: var(--reos-blue) !important;
   fill: none !important;
 }
-/* The wrapper around the icon — actually a <span class=
+/* The wrapper around the icon \u2014 actually a <span class=
    "contact-options-button">. v0.8.54 missed it because :has()
    was scoped to button/div/role=button. Target the explicit
    class directly. */
@@ -8717,7 +8717,7 @@ html body span.contact-options-button {
   border-radius: 4px !important;
   padding: 4px !important;
 }
-/* Active/focus state of the trigger — no inner box, no
+/* Active/focus state of the trigger \u2014 no inner box, no
    white/blue overlay, no focus ring. v0.8.56 fix for Tim's
    'ugly white and blue inner box when clicked'. */
 html body .contact-options-button:focus,
@@ -8742,7 +8742,7 @@ html body span.contact-options-button::after {
   display: none !important;
   background: transparent !important;
 }
-/* Kill EVERY non-SVG descendant painting bg inside the button —
+/* Kill EVERY non-SVG descendant painting bg inside the button \u2014
    not just direct children. The 'ugly white+blue inner box' Tim
    keeps seeing is a deeper child (likely Naive's n-base-wave
    nested inside, or an indicator div). Hit the entire subtree. */
@@ -8864,7 +8864,7 @@ html body .n-dropdown-option:hover .n-dropdown-option-body__prefix svg path {
   color: var(--reos-emerald) !important;
   stroke: var(--reos-emerald) !important;
 }
-/* Delete / destructive option — crimson on hover (matches the
+/* Delete / destructive option \u2014 crimson on hover (matches the
    delete-conversation icon pattern from section 15i). Use :has()
    to detect a trashcan SVG inside the option (multiple common
    path patterns: heroicons, material, FA, etc.) AND class
@@ -8911,7 +8911,7 @@ html body .n-dropdown-option:has(svg path[d*="m20.13"]):hover svg path {
   stroke: var(--reos-crimson) !important;
 }
 
-/* 18a-contact-name-link (v0.8.46 → v0.8.47). Contact rows on the
+/* 18a-contact-name-link (v0.8.46 \u2192 v0.8.47). Contact rows on the
    smart-list page render names as <a class="contact-name-link">
    with inline color: inherit. Default Tim wants ASH (subtle,
    recedes); hover EMERALD (clickable affordance).
@@ -8919,7 +8919,7 @@ html body .n-dropdown-option:has(svg path[d*="m20.13"]):hover svg path {
    v0.8.46 used plain .contact-name-link:hover. Generic a:hover
    rule { color: rgb(8, 113, 211) } at (0,1,1) was beaten in
    theory by .contact-name-link:hover (0,1,1) + my !important.
-   But the user still saw blue — likely cache or another rule
+   But the user still saw blue \u2014 likely cache or another rule
    (.hl_navbar--links a:hover etc.) winning by chain. Bump
    specificity to ID-level so nothing can beat it. Also kill the
    underline + bg hover from any parent. */
@@ -8957,10 +8957,10 @@ html body .tabulator-cell:hover:not(#__reos_never_id) {
    around the entire section.
 
    Diagnosed via /browse:
-   - .tabulator-cell — inline bg slate from coerceDarkDropdowns
-   - .tabulator-row — bg WHITE from Tabulator default
-   - .tabulator outer — bg WHITE
-   - .table-container — border-color rgb(234, 236, 240) gray-200
+   - .tabulator-cell \u2014 inline bg slate from coerceDarkDropdowns
+   - .tabulator-row \u2014 bg WHITE from Tabulator default
+   - .tabulator outer \u2014 bg WHITE
+   - .table-container \u2014 border-color rgb(234, 236, 240) gray-200
 
    v0.8.42 set .tabulator transparent but apparently was beaten on
    the row/cell level. This rule covers EVERY tabulator descendant
@@ -8979,13 +8979,13 @@ html body .table-container:not(#__reos_never_id) {
   background-color: transparent !important;
   background: transparent !important;
 }
-/* .table-container outer border (gray-200) → steel. */
+/* .table-container outer border (gray-200) \u2192 steel. */
 html body .table-container:not(#__reos_never_id) {
   border-color: var(--reos-steel) !important;
 }
 
 /* 18a-tabulator-wrappers (v0.8.42). The Tabulator library paints
-   its outer wrappers white by default — Tim flagged the white
+   its outer wrappers white by default \u2014 Tim flagged the white
    surround at the bottom of the contacts table:
    - .my-table.tabulator outer: pure white
    - .table-container: pure white
@@ -9006,7 +9006,7 @@ html body [class*="tabulator"]:not(.tabulator-cell):not(.tabulator-col):not(.tab
   background-color: transparent !important;
   background: transparent !important;
 }
-/* Tabulator pagination buttons — disabled state in particular
+/* Tabulator pagination buttons \u2014 disabled state in particular
    shipped with semi-white bg + invisible dark text. Pin all
    states to transparent + bone, emerald hover. */
 html body .tabulator-page,
@@ -9047,7 +9047,7 @@ html body button.tabulator-page.active {
    .tabulator-footer / .tabulator-page ships with borders in
    light-gray rgb(240, 241, 243) (#F0F1F3) or rgb(232, 234, 237)
    (#E8EAED). Section 16 only catches Tailwind .border-gray-200,
-   section 16e only catches inline rgb(234, 236, 240) — neither
+   section 16e only catches inline rgb(234, 236, 240) \u2014 neither
    matches these Tabulator hexes.
 
    Remap every Tabulator border to steel so the table grid reads
@@ -9080,7 +9080,7 @@ html body [style*="#f0f1f3"]:not(#__reos_never_id) {
 }
 
 /* 18a-fc-calendar (v0.8.26). Calendar page (/calendars/view) is
-   built on FullCalendar — every column / time row / header cell
+   built on FullCalendar \u2014 every column / time row / header cell
    has border-color rgb(221, 221, 221) (#DDDDDD) from the library
    default. Section 16 only catches Tailwind .border-gray-200 and
    section 16e only catches the specific inline-rgb-234 pattern,
@@ -9106,7 +9106,7 @@ html body [class*="fc-scrollgrid"]:not(#__reos_never_id) {
   border-color: var(--reos-slate) !important;
 }
 
-/* Inline border-color rgb(221, 221, 221) — catches FullCalendar
+/* Inline border-color rgb(221, 221, 221) \u2014 catches FullCalendar
    stragglers that set the color via style attribute, plus any
    other place GHL uses this near-white gray inline. */
 html body [style*="border-color: rgb(221, 221, 221)"]:not(#__reos_never_id),
@@ -9124,7 +9124,7 @@ html body [style*="border-color:#ddd"]:not(#__reos_never_id) {
   border-color: var(--reos-slate) !important;
 }
 
-/* 18a-sla (v0.8.24 → v0.8.25). SLA performance page empty state
+/* 18a-sla (v0.8.24 \u2192 v0.8.25). SLA performance page empty state
    renders pure-white on load and only converts to dark after
    DevTools is opened (which triggers a viewport reflow).
 
@@ -9149,7 +9149,7 @@ html body [class*="sla-container"]:not(#__reos_never_id) {
   color: var(--reos-bone) !important;
   transition-property: color, border-color, opacity, transform, box-shadow !important;
 }
-/* Text descendants — bone on transparent so they inherit the
+/* Text descendants \u2014 bone on transparent so they inherit the
    graphite of their nearest painted ancestor. */
 html body [data-v-04bb51f8] h1:not(#__reos_never_id),
 html body [data-v-04bb51f8] h2:not(#__reos_never_id),
@@ -9182,7 +9182,7 @@ html body [class*="sla-empty-state"]:not(#__reos_never_id) span {
    first frame white before applyForceRules fires (debounced ~16-100ms)
    and overrides with inline graphite. That gap is the white flash.
 
-   Fix: same trick as v0.8.16 — :not(#__reos_never_id) bumps every
+   Fix: same trick as v0.8.16 \u2014 :not(#__reos_never_id) bumps every
    substring-match anti-flash selector to ID-level specificity
    (1,1,3), reliably beating any Vue scoped CSS.
 
@@ -9227,7 +9227,7 @@ html body .bg-stone-100:not(#__reos_never_id) {
   animation: none !important;
 }
 
-/* 18a. GHL Tailwind arbitrary + utility light backgrounds — the
+/* 18a. GHL Tailwind arbitrary + utility light backgrounds \u2014 the
    contact-detail page hardcodes specific hex colors via Tailwind
    arbitrary-value classes like bg-[#F7F9FD] (conversation main +
    compose footer) and bg-[#eff4ff] (SMS modal header tab strip).
@@ -9237,7 +9237,7 @@ html body .bg-stone-100:not(#__reos_never_id) {
 
    For NAMED Tailwind shades like bg-gray-50, substring match would
    catch state-prefixed variants like 'hover:bg-gray-50',
-   'group-hover:bg-gray-50', 'focus:bg-gray-50' — painting them
+   'group-hover:bg-gray-50', 'focus:bg-gray-50' \u2014 painting them
    graphite ALWAYS instead of only on hover. Diagnosed live: the
    icon row in the message header (phone, archive, star, mark-read,
    delete) had 'hover:bg-gray-50' on each button. Substring catchall
@@ -9277,11 +9277,11 @@ html body .bg-stone-100:not(#__reos_never_id) {
 
 /* 18a-1. HOVER variants of the same arbitrary-background classes.
    Tim noticed a flashing button on the Conversations tabs (Unread /
-   All / Recents / Starred) — class list includes bg-[#F7F9FD] AND
+   All / Recents / Starred) \u2014 class list includes bg-[#F7F9FD] AND
    hover:bg-gray-50. Our FORCE_RULE injects inline graphite, but Vue
    re-renders the button on hover state changes and briefly clobbers
    the inline style. During that gap Tailwind's hover:bg-gray-50
-   wins (light gray) → flash → MutationObserver re-applies inline →
+   wins (light gray) \u2192 flash \u2192 MutationObserver re-applies inline \u2192
    flash repeats. Visible flicker.
 
    Fix: CSS hover rules that beat Tailwind's hover utility via
@@ -9289,7 +9289,7 @@ html body .bg-stone-100:not(#__reos_never_id) {
    specificity, and !important seals it). CSS rules survive Vue
    re-renders since they're stylesheet-based, not inline. So even
    when Vue clobbers our inline, the CSS hover rule still applies
-   graphite — no flash.
+   graphite \u2014 no flash.
 
    Covers the same Tailwind class families plus the hover: prefixed
    versions Tailwind generates. */
@@ -9331,11 +9331,11 @@ html body [class*="hover:bg-stone-50"]:hover {
 
 /* 18a-1b. KILL transitions on Tailwind-arbitrary-bg buttons. The
    Conversations tab buttons (Unread/All/Recents/Starred) use
-   class='transition-colors bg-[#F7F9FD] hover:bg-gray-50' — even
+   class='transition-colors bg-[#F7F9FD] hover:bg-gray-50' \u2014 even
    if my CSS hover rule and FORCE_RULE both keep the bg at graphite,
    the 'transition-colors' utility animates between any color
    changes. Micro-changes during Vue re-renders (inline cleared by
-   Vue → CSS takes over briefly → inline re-applied) get animated
+   Vue \u2192 CSS takes over briefly \u2192 inline re-applied) get animated
    over 150ms instead of being instantaneous, producing a visible
    strobing effect even when both states are graphite (because the
    browser interpolates and may pass through other values).
@@ -9356,7 +9356,7 @@ html body [class*="hover:bg-gray-50"][class*="transition"] {
   animation: none !important;
 }
 
-/* 18a-1c. EXTENDED — bg-white buttons + transition-colors elements.
+/* 18a-1c. EXTENDED \u2014 bg-white buttons + transition-colors elements.
    Catches the broader family of flicker patterns Tim's still finding
    across the Conversations page:
      - Help / info icon button (bg-white + transition-colors)
@@ -9404,7 +9404,7 @@ html body .hr-dropdown-option * {
   box-shadow: none !important;
 }
 
-/* 18a-1d. UNIVERSAL FLICKER-KILL SWEEP — Tim's question after the
+/* 18a-1d. UNIVERSAL FLICKER-KILL SWEEP \u2014 Tim's question after the
    v0.7.71 round: 'I assume that the same coercer problem happens
    throughout. Do you know enough about it now to search the entire
    code to find and correct those issues?'
@@ -9437,7 +9437,7 @@ html body .hr-dropdown-option * {
    their animations. Elements with just a light-bg class (no
    transition) don't need the fix anyway.
 
-   This should kill the flicker across the entire app — Conversations
+   This should kill the flicker across the entire app \u2014 Conversations
    tabs, contact-detail panels, all data-table headers, page-headers,
    buttons, cards, dropdown menus, anywhere GHL pairs light bgs with
    transitions. */
@@ -9514,7 +9514,7 @@ html body [class*="hover:bg-gray-100"]:hover {
   background-color: var(--reos-slate) !important;
 }
 
-/* 18a-2. Inline-styled whites — GHL also paints some surfaces via inline
+/* 18a-2. Inline-styled whites \u2014 GHL also paints some surfaces via inline
    style="background-color: white" (SMS modal compose body). Inline
    non-important loses to stylesheet !important, so we coerce by matching
    the style attribute substring. */
@@ -9531,7 +9531,7 @@ html body [class*="hover:bg-gray-100"]:hover {
   border-color: var(--reos-steel) !important;
 }
 
-/* 18b. Tab nav strip — "All fields / DND / Actions" tabs at the top of the
+/* 18b. Tab nav strip \u2014 "All fields / DND / Actions" tabs at the top of the
    contact form. The strip is a segmented-control pattern with several
    layers: a "rail" track, a moving "capsule" highlight, and per-tab
    "tab-wrapper" cells. All three default to light greys / pure white. */
@@ -9548,7 +9548,7 @@ html body [class*="hover:bg-gray-100"]:hover {
 }
 /* Capsule (v0.8.6): the sliding-emerald-glow highlight that lives
    under the active tab. Tim wants uniformity with the icon-rail UX
-   — no boxes, just emerald text + emerald underline. Hide the
+   \u2014 no boxes, just emerald text + emerald underline. Hide the
    capsule entirely; the active tab's border-bottom carries the
    indicator. */
 .hr-tabs-capsule {
@@ -9560,7 +9560,7 @@ html body [class*="hover:bg-gray-100"]:hover {
   color: var(--reos-ash) !important;
   background: transparent !important;
 }
-/* Hover (v0.8.6): emerald text, no bg — matches every other rail. */
+/* Hover (v0.8.6): emerald text, no bg \u2014 matches every other rail. */
 .hr-tabs-tab:hover {
   color: var(--reos-emerald) !important;
   background: transparent !important;
@@ -9571,14 +9571,14 @@ html body [class*="hover:bg-gray-100"]:hover {
   background: transparent !important;
   border-bottom: 2px solid var(--reos-emerald) !important;
 }
-/* Tab labels — follow tab state. */
+/* Tab labels \u2014 follow tab state. */
 html body .hr-tabs-tab .hr-tabs-tab__label,
 html body .hr-tabs-tab [class*="tab__label"],
 html body .hr-tabs-tab span {
   color: var(--reos-ash) !important;
   -webkit-text-fill-color: var(--reos-ash) !important;
 }
-/* Hover label → emerald (was bone in v0.8.5). */
+/* Hover label \u2192 emerald (was bone in v0.8.5). */
 html body .hr-tabs-tab:hover .hr-tabs-tab__label,
 html body .hr-tabs-tab:hover [class*="tab__label"],
 html body .hr-tabs-tab:hover span {
@@ -9602,7 +9602,7 @@ html body .hr-tabs-tab.hr-tabs-tab--active:hover span {
   background: var(--reos-emerald) !important;
 }
 
-/* 18c. Collapsible content body — .hr-collapse-item__content-inner is
+/* 18c. Collapsible content body \u2014 .hr-collapse-item__content-inner is
    pure white by default and contains all the contact fields. */
 .hr-collapse-item__content,
 .hr-collapse-item__content-inner,
@@ -9611,13 +9611,13 @@ html body .hr-tabs-tab.hr-tabs-tab--active:hover span {
   color: var(--reos-bone) !important;
 }
 
-/* 18c-flicker (v0.8.15 → v0.8.16): kill the white flash on
+/* 18c-flicker (v0.8.15 \u2192 v0.8.16): kill the white flash on
    accordion expand/collapse. Tim flagged that clicking the chevron
    on Opportunities / Workflows / Client portal sections briefly
    flashes white before settling on graphite.
 
    v0.8.15 killed transitions on the family but the flash still
-   happened — diagnosis showed Vue scoped CSS paints these white
+   happened \u2014 diagnosis showed Vue scoped CSS paints these white
    at (0,2,1) specificity which beats our (0,1,3) plain rules.
    The transition kill made the animation snap, but the new
    element's first-paint frame is still Vue's white.
@@ -9651,7 +9651,7 @@ html body .hr-accordion * {
      the bg-color animation that causes the white flash. */
 }
 
-/* 18c-2. TOP TOOLBAR ACCENT BUTTONS — the row in the header (phone /
+/* 18c-2. TOP TOOLBAR ACCENT BUTTONS \u2014 the row in the header (phone /
    Ask AI / notifications / help / "What's new" pill, etc.) ships with
    GHL's brand colors that are slightly oversaturated against our dark
    theme. Soften the rendering:
@@ -9665,7 +9665,7 @@ header.hl_header [class*="pill"] {
   border-radius: 999px !important;
 }
 
-/* 18d. AVATAR — .hr-avatar circles get a mint background by default and
+/* 18d. AVATAR \u2014 .hr-avatar circles get a mint background by default and
    the initials inside (.hr-avatar__text) render in white. That gives a
    white-on-light-mint contrast that's barely legible. Force the initials
    to obsidian + bigger font-size so they read clearly on the mint circle.
@@ -9703,7 +9703,7 @@ html body [class*="avatar"]:not([class*="dropdown"]):not([class*="option-avatar"
    in the JS runtime (resizeAvatarText) where we can detect whether the
    element actually holds initials text vs an icon. */
 
-/* 18e. HR BUTTON variants — GHL ships a hr-button system with several
+/* 18e. HR BUTTON variants \u2014 GHL ships a hr-button system with several
    tones. Default and tertiary variants render light (white / light-blue
    fills) which conflicts with the dark theme. */
 .hr-button {
@@ -9718,7 +9718,7 @@ html body [class*="avatar"]:not([class*="dropdown"]):not([class*="option-avatar"
   background: var(--reos-steel) !important;
   color: var(--reos-emerald-bright) !important;
 }
-/* Default / outlined variant — transparent fill, steel border */
+/* Default / outlined variant \u2014 transparent fill, steel border */
 .hr-button--default,
 .hr-button--default-type:not(.hr-button--text):not(.hr-button--tertiary):not(.hr-button--primary) {
   background: var(--reos-slate) !important;
@@ -9730,7 +9730,7 @@ html body [class*="avatar"]:not([class*="dropdown"]):not([class*="option-avatar"
   border-color: var(--reos-cool-gray) !important;
   background: var(--reos-steel) !important;
 }
-/* Text-only (link-style) button — transparent fill, bone text */
+/* Text-only (link-style) button \u2014 transparent fill, bone text */
 .hr-button--text {
   background: transparent !important;
   color: var(--reos-ash) !important;
@@ -9739,7 +9739,7 @@ html body [class*="avatar"]:not([class*="dropdown"]):not([class*="option-avatar"
   color: var(--reos-bone) !important;
   background: var(--reos-slate) !important;
 }
-/* Primary (CTA) — emerald like the rest of the theme */
+/* Primary (CTA) \u2014 emerald like the rest of the theme */
 .hr-button--primary {
   background: var(--reos-emerald) !important;
   color: var(--reos-obsidian) !important;
@@ -9754,7 +9754,7 @@ html body [class*="avatar"]:not([class*="dropdown"]):not([class*="option-avatar"
   cursor: not-allowed !important;
 }
 
-/* 19. HR DESIGN SYSTEM — GHL's hr- prefixed components.
+/* 19. HR DESIGN SYSTEM \u2014 GHL's hr- prefixed components.
    These need higher specificity than tag selectors because GHL's own
    stylesheet rules use these classes with !important. Catch-all rules
    coerce text + surfaces onto our scale. */
@@ -9798,7 +9798,7 @@ html body [class*="avatar"]:not([class*="dropdown"]):not([class*="option-avatar"
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
-/* Active/selected state — emerald-glow per canon (section 11b
+/* Active/selected state \u2014 emerald-glow per canon (section 11b
    ACTIVE-ACCENT STANDARD). The hr-* dropdown family lacked this
    rule entirely, leaving selected rows to fall through to whatever
    GHL ships (often white or unstyled). */
@@ -9813,7 +9813,7 @@ html body [class*="avatar"]:not([class*="dropdown"]):not([class*="option-avatar"
   -webkit-text-fill-color: var(--reos-emerald) !important;
 }
 
-/* 18d. NAIVE UI DROPDOWN MENUS — the popover that opens from a context
+/* 18d. NAIVE UI DROPDOWN MENUS \u2014 the popover that opens from a context
    trigger (e.g. the kebab/3-dot menu next to "Edit Dashboard").
 
    Per the canonical state model (sidebar nav + Call Status dropdown row
@@ -9825,7 +9825,7 @@ html body [class*="avatar"]:not([class*="dropdown"]):not([class*="option-avatar"
      keyboard-pending  (section 11b ACTIVE-ACCENT STANDARD)
 
    Hover is a SUBTLE reveal (slate bg, text stays bone). Emerald is
-   reserved for the active/pressed/keyboard-selected state — when the
+   reserved for the active/pressed/keyboard-selected state \u2014 when the
    user is committing to a choice, not just hovering. Matches sidebar
    inactive-hover and contact-bar Call Status dropdown rows. */
 html body .n-dropdown,
@@ -9835,7 +9835,7 @@ html body .n-dropdown-menu {
   color: var(--reos-bone) !important;
   /* Naive UI computes per-option bg/text via CSS variables on the
      menu container (var(--n-option-color), var(--n-option-color-hover),
-     etc.) — not via :hover rules on the option element. So our :hover
+     etc.) \u2014 not via :hover rules on the option element. So our :hover
      author CSS doesn't even enter the cascade; the variable does. Pin
      the variable values here at !important so Naive UI's internal var()
      references resolve to REOS palette in every state. Covers two
@@ -9883,12 +9883,12 @@ html body .n-dropdown-option svg path {
   color: var(--reos-bone) !important;
   stroke: var(--reos-bone) !important;
 }
-/* HOVER — subtle slate bg, text stays bone. Matches sidebar inactive
+/* HOVER \u2014 subtle slate bg, text stays bone. Matches sidebar inactive
    hover and Call Status row pattern. Naive UI uses both :hover and a
    .n-dropdown-option--hover class.
 
    Specificity-bumped form: GHL's Vue scoped CSS (.n-dropdown-option
-   [data-v-xxx]:hover) sits at (0,0,3,0) — more than 'html body
+   [data-v-xxx]:hover) sits at (0,0,3,0) \u2014 more than 'html body
    .n-dropdown-option:hover' at (0,0,2,2). Adding five :not() class
    exclusions takes us to (0,0,7,2), comfortably above any Vue scoped
    variant. Same approach used for .n-button in v0.7.38.
@@ -9906,10 +9906,10 @@ html body .n-dropdown-option:not(.n-dropdown-option--disabled):not(.n-dropdown-o
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
-/* ACTIVE / PRESSED / keyboard-pending — emerald + emerald-glow per
+/* ACTIVE / PRESSED / keyboard-pending \u2014 emerald + emerald-glow per
    section 11b ACTIVE-ACCENT STANDARD. Naive UI uses .--pending for
    keyboard navigation cursor (the highlighted item that would commit
-   on Enter). :active is the mousedown state — brief flash feedback.
+   on Enter). :active is the mousedown state \u2014 brief flash feedback.
    Same :not() specificity bump as hover. */
 html body .n-dropdown-option:not(.n-dropdown-option--disabled):not(.n-dropdown-option--group):not(.n-dropdown-option--children):not(.n-dropdown-divider):not(.n-dropdown-option--hover):active,
 html body .n-dropdown-option:not(.n-dropdown-option--disabled):not(.n-dropdown-option--group):not(.n-dropdown-option--children):not(.n-dropdown-divider).n-dropdown-option--pending,
@@ -9952,15 +9952,15 @@ html body .n-dropdown-divider {
    Naive UI applies a transition on background-color (~0.3s) that
    fades through white between states. Result: moving the pointer
    from row A to row B makes row A flash white briefly while it
-   transitions out of its hover state — Tim's actual diagnosis after
+   transitions out of its hover state \u2014 Tim's actual diagnosis after
    a few rounds of looking in the wrong places.
 
-   Rows that can't be clicked (no click handler — already-active items
+   Rows that can't be clicked (no click handler \u2014 already-active items
    like "Set as Default" on a default dashboard, "Delete" when locked
    down) hold the hover state longer because there's no commit event
    to end it, making the flash more visible.
 
-   Instant state changes look correct for menu options anyway — there's
+   Instant state changes look correct for menu options anyway \u2014 there's
    no benefit to fading hover bg on a list of clickable choices.
 
    Applied globally to every option family that uses Naive UI's
@@ -9980,14 +9980,14 @@ html body .hr-base-select-option__content {
   transition: none !important;
   animation: none !important;
 }
-/* DISABLED dropdown rows — items the user can't interact with (e.g.
+/* DISABLED dropdown rows \u2014 items the user can't interact with (e.g.
    "Set as default dashboard" when it's already default, "Manage
    permissions" when the user lacks the role). Render permanently
-   muted (ash + 0.5 opacity) with NO hover effect — disabled things
+   muted (ash + 0.5 opacity) with NO hover effect \u2014 disabled things
    shouldn't react to the pointer.
 
    v0.7.43 excluded :not(.n-dropdown-option--disabled) from the hover
-   rule, so disabled items fell through to GHL's default white hover —
+   rule, so disabled items fell through to GHL's default white hover \u2014
    producing a white bar over white text. This rule covers BOTH the
    static and :hover states for disabled, pinning them to transparent
    bg + ash text regardless. Specificity-bumped via .class.class
@@ -10018,7 +10018,7 @@ html body .n-dropdown-option.n-dropdown-option--disabled:hover svg path {
   stroke: var(--reos-ash) !important;
 }
 
-/* 19a. Dropdown selected-value display — the rendered text inside the CLOSED
+/* 19a. Dropdown selected-value display \u2014 the rendered text inside the CLOSED
    dropdown trigger (after a user picks an option). GHL renders this in a
    placeholder/muted color by default; force it to bone so picked values match
    the rest of the field colors. Covers hr-select, hr-base-select, and the
@@ -10046,7 +10046,7 @@ html body .n-dropdown-option.n-dropdown-option--disabled:hover svg path {
   -webkit-text-fill-color: var(--reos-cool-gray) !important;
 }
 
-/* 19c. DATE / TIME pickers — these often render with transparent or
+/* 19c. DATE / TIME pickers \u2014 these often render with transparent or
    panel-matching backgrounds (graphite), making the field boundary
    disappear against the form panel. Force slate + steel border so they
    match the other input surfaces.
@@ -10076,13 +10076,13 @@ input[type="week"],
   border-radius: 4px !important;
 }
 
-/* 19b. Dropdown CLOSED-trigger background — when a value is picked, GHL
+/* 19b. Dropdown CLOSED-trigger background \u2014 when a value is picked, GHL
    renders the trigger with a near-obsidian fill that mismatches the slate
    text-input surface next to it. Force slate fill so all field surfaces
    look consistent. The OPEN-menu popover stays graphite (see rules above
    targeting .hr-select-menu / .hr-base-select-menu / .hr-popover).
 
-   Broad-net selectors below — we don't know the exact class GHL uses for
+   Broad-net selectors below \u2014 we don't know the exact class GHL uses for
    every dropdown variant on every page, so we match ARIA roles + common
    class patterns AND substring "select"/"dropdown"/"combobox" forms, while
    carefully EXCLUDING menu/popover/option containers (which stay graphite). */

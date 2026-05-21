@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.10.26 — built 2026-05-21T19:56:46.776Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var R="[wholesaling-crm-customizer]",Ne="__WS_CRM_DEBUG",He=()=>!!window[Ne],h={info(...o){console.log(R,...o)},warn(...o){console.warn(R,...o)},error(...o){console.error(R,...o)},debug(...o){He()&&console.log(R,"[debug]",...o)}};var oe=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},B="",A="other",J=new Set,O=()=>{if(window.location.pathname!==B){B=window.location.pathname,A=oe(),h.debug("Page changed:",A,B);for(let o of J)try{o(A)}catch(t){h.error("Subscriber threw:",t)}}},re=o=>(J.add(o),setTimeout(()=>o(A),0),()=>{J.delete(o)}),ne=()=>{A=oe(),B=window.location.pathname,h.debug("Router init, current page:",A);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),O()},history.replaceState=function(e,r,n){t(e,r,n),O()},window.addEventListener("popstate",O),setInterval(O,1e3)};var G="0.10.26",V="2026-05-21T19:56:46.777Z";var Me=/\/contacts\/detail\/([A-Za-z0-9]+)/,Pe=/\/v2\/location\/([A-Za-z0-9]+)/,S=()=>{let o=window.location.pathname,t=o.match(Me);if(!t)return null;let e=o.match(Pe);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let l,b,p=()=>{m&&m.disconnect(),l!==void 0&&window.clearTimeout(l),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let d=n.querySelector(o);d&&(p(),s(d))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let d=n.querySelector(o);d&&(p(),s(d))},r),l=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var c={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},Z={purple:"#8B5CF6",green:c.emerald,orange:c.amber,red:c.crimson},ae=o=>{let t=o==="emerald"?c.emeraldGlow:o==="amber"?c.amberGlow:c.slate,e=o==="emerald"?c.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":c.steel,r=o==="emerald"?c.emerald:o==="amber"?c.amber:c.bone;return`
+/* Wholesaling CRM Customizer v0.10.27 — built 2026-05-21T20:01:03.637Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var R="[wholesaling-crm-customizer]",Ne="__WS_CRM_DEBUG",He=()=>!!window[Ne],h={info(...o){console.log(R,...o)},warn(...o){console.warn(R,...o)},error(...o){console.error(R,...o)},debug(...o){He()&&console.log(R,"[debug]",...o)}};var oe=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},B="",A="other",J=new Set,O=()=>{if(window.location.pathname!==B){B=window.location.pathname,A=oe(),h.debug("Page changed:",A,B);for(let o of J)try{o(A)}catch(t){h.error("Subscriber threw:",t)}}},re=o=>(J.add(o),setTimeout(()=>o(A),0),()=>{J.delete(o)}),ne=()=>{A=oe(),B=window.location.pathname,h.debug("Router init, current page:",A);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),O()},history.replaceState=function(e,r,n){t(e,r,n),O()},window.addEventListener("popstate",O),setInterval(O,1e3)};var G="0.10.27",V="2026-05-21T20:01:03.638Z";var Me=/\/contacts\/detail\/([A-Za-z0-9]+)/,Pe=/\/v2\/location\/([A-Za-z0-9]+)/,S=()=>{let o=window.location.pathname,t=o.match(Me);if(!t)return null;let e=o.match(Pe);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let l,b,p=()=>{m&&m.disconnect(),l!==void 0&&window.clearTimeout(l),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let d=n.querySelector(o);d&&(p(),s(d))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let d=n.querySelector(o);d&&(p(),s(d))},r),l=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var c={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},Z={purple:"#8B5CF6",green:c.emerald,orange:c.amber,red:c.crimson},ae=o=>{let t=o==="emerald"?c.emeraldGlow:o==="amber"?c.amberGlow:c.slate,e=o==="emerald"?c.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":c.steel,r=o==="emerald"?c.emerald:o==="amber"?c.amber:c.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2103,6 +2103,10 @@ html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id)
   border-color: var(--reos-emerald) !important;
   color: var(--reos-emerald) !important;
 }
+/* v0.10.27: drop fill: see clock-icon fix above. These secondary /
+   icon-only buttons host stroke-only SVG icons (folder, search,
+   etc.) \u2014 setting fill here filled them solid, hiding outline
+   details. Stroke + color only. */
 html body .hr-button.hr-button--secondary:not(#__reos_never_id) svg,
 html body .hr-button.hr-button--secondary:not(#__reos_never_id) svg path,
 html body .hr-button.hr-button--secondary:not(#__reos_never_id) i,
@@ -2111,7 +2115,6 @@ html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id)
 html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id) i {
   color: var(--reos-ash) !important;
   stroke: var(--reos-ash) !important;
-  fill: var(--reos-ash) !important;
 }
 html body .hr-button.hr-button--secondary:not(#__reos_never_id):hover svg,
 html body .hr-button.hr-button--secondary:not(#__reos_never_id):hover svg path,
@@ -2121,7 +2124,6 @@ html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id)
 html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id):hover i {
   color: var(--reos-emerald) !important;
   stroke: var(--reos-emerald) !important;
-  fill: var(--reos-emerald) !important;
 }
 /* Inner overlays for these \u2014 kill state-border ring (single visible
    border only). */
@@ -2163,12 +2165,16 @@ html body label.hr-radio-button.hr-content-switcher.hr-radio-button--checked:not
   border-color: var(--reos-emerald) !important;
   color: var(--reos-emerald) !important;
 }
+/* v0.10.27: stroke-only icons (the clock + list SVGs in the
+   view-toggle ship with fill=none + stroke=currentColor). Setting
+   fill here filled the whole clock shape solid ash, hiding the
+   inner hands. Drop fill entirely \u2014 let the SVG's fill=none
+   attribute hold; color + stroke do the work. */
 html body .hr-radio-button.hr-content-switcher:not(#__reos_never_id) i,
 html body .hr-radio-button.hr-content-switcher:not(#__reos_never_id) svg,
 html body .hr-radio-button.hr-content-switcher:not(#__reos_never_id) svg path {
   color: var(--reos-ash) !important;
   stroke: var(--reos-ash) !important;
-  fill: var(--reos-ash) !important;
 }
 html body .hr-radio-button.hr-content-switcher:not(#__reos_never_id):hover i,
 html body .hr-radio-button.hr-content-switcher:not(#__reos_never_id):hover svg,
@@ -2178,7 +2184,6 @@ html body .hr-radio-button.hr-content-switcher.hr-radio-button--checked:not(#__r
 html body .hr-radio-button.hr-content-switcher.hr-radio-button--checked:not(#__reos_never_id) svg path {
   color: var(--reos-emerald) !important;
   stroke: var(--reos-emerald) !important;
-  fill: var(--reos-emerald) !important;
 }
 /* Kill the inner state-border overlay on these switchers. */
 html body .hr-radio-button.hr-content-switcher:not(#__reos_never_id) .hr-radio-button__state-border {

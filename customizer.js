@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.10.8 — built 2026-05-21T16:29:25.411Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Le="__WS_CRM_DEBUG",Ie=()=>!!window[Le],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ie()&&console.log(N,"[debug]",...o)}};var Q=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",K=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Q(),h.debug("Page changed:",F,M);for(let o of K)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},ee=o=>(K.add(o),setTimeout(()=>o(F),0),()=>{K.delete(o)}),te=()=>{F=Q(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var P="0.10.8",R="2026-05-21T16:29:25.412Z";var De=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ne=/\/v2\/location\/([A-Za-z0-9]+)/,T=()=>{let o=window.location.pathname,t=o.match(De);if(!t)return null;let e=o.match(Ne);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let c,b,p=()=>{m&&m.disconnect(),c!==void 0&&window.clearTimeout(c),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let l=n.querySelector(o);l&&(p(),s(l))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let l=n.querySelector(o);l&&(p(),s(l))},r),c=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var d={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},k={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},X={purple:"#8B5CF6",green:d.emerald,orange:d.amber,red:d.crimson},oe=o=>{let t=o==="emerald"?d.emeraldGlow:o==="amber"?d.amberGlow:d.slate,e=o==="emerald"?d.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":d.steel,r=o==="emerald"?d.emerald:o==="amber"?d.amber:d.bone;return`
+/* Wholesaling CRM Customizer v0.10.9 — built 2026-05-21T16:33:57.224Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Le="__WS_CRM_DEBUG",Ie=()=>!!window[Le],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ie()&&console.log(N,"[debug]",...o)}};var Q=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",K=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Q(),h.debug("Page changed:",F,M);for(let o of K)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},ee=o=>(K.add(o),setTimeout(()=>o(F),0),()=>{K.delete(o)}),te=()=>{F=Q(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var P="0.10.9",R="2026-05-21T16:33:57.225Z";var De=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ne=/\/v2\/location\/([A-Za-z0-9]+)/,T=()=>{let o=window.location.pathname,t=o.match(De);if(!t)return null;let e=o.match(Ne);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let c,b,p=()=>{m&&m.disconnect(),c!==void 0&&window.clearTimeout(c),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let l=n.querySelector(o);l&&(p(),s(l))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let l=n.querySelector(o);l&&(p(),s(l))},r),c=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var d={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},k={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},X={purple:"#8B5CF6",green:d.emerald,orange:d.amber,red:d.crimson},oe=o=>{let t=o==="emerald"?d.emeraldGlow:o==="amber"?d.amberGlow:d.slate,e=o==="emerald"?d.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":d.steel,r=o==="emerald"?d.emerald:o==="amber"?d.amber:d.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -1712,16 +1712,83 @@ html body .hr-button.ui-active-btn:not(#__reos_never_id) .hr-button__content * {
   color: var(--reos-emerald) !important;
   -webkit-text-fill-color: var(--reos-emerald) !important;
 }
-/* Decorative border overlays (Naive UI pattern, mirrored in HR) */
-html body .hr-button .hr-button__border:not(#__reos_never_id),
+/* Decorative border overlays (Naive UI pattern, mirrored in HR).
+   v0.10.9: collapse the double-border. The .hr-button__border and
+   .hr-button__state-border render as TWO concentric 1px borders
+   at slightly different inset offsets, reading as a 2px ring with
+   a visible gap on hover (Tim flagged the trash icon button in
+   Reminder Settings: emerald outer ring around the slate button
+   body, looked detached). Show ONLY .__border (steel default \u2192
+   emerald on interact); pin .__state-border transparent at every
+   state. */
+html body .hr-button .hr-button__border:not(#__reos_never_id) {
+  border: 1px solid var(--reos-steel) !important;
+  border-color: var(--reos-steel) !important;
+  box-shadow: none !important;
+}
 html body .hr-button .hr-button__state-border:not(#__reos_never_id) {
-  border: 1px solid var(--reos-cool-gray) !important;
+  border: 1px solid transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
 html body .hr-button:hover .hr-button__border:not(#__reos_never_id),
-html body .hr-button:hover .hr-button__state-border:not(#__reos_never_id),
-html body .hr-button.ui-active-btn .hr-button__border:not(#__reos_never_id),
-html body .hr-button.ui-active-btn .hr-button__state-border:not(#__reos_never_id) {
+html body .hr-button:focus-visible .hr-button__border:not(#__reos_never_id),
+html body .hr-button.ui-active-btn .hr-button__border:not(#__reos_never_id) {
   border: 1px solid var(--reos-emerald) !important;
+  border-color: var(--reos-emerald) !important;
+}
+html body .hr-button:hover .hr-button__state-border:not(#__reos_never_id),
+html body .hr-button:focus-visible .hr-button__state-border:not(#__reos_never_id),
+html body .hr-button.ui-active-btn .hr-button__state-border:not(#__reos_never_id) {
+  border: 1px solid transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+/* Trash / delete icon-only .hr-button \u2014 destructive canon.
+   v0.10.9: mirror the v0.8.x .n-button trash treatment so the
+   Highrise variant (used in Invoice Settings \u2192 Reminder Settings
+   delete-reminder button and similar) reads as a single crimson
+   destructive affordance on hover. Resting state matches default
+   icon-only treatment (ash icon, steel border); hover flips icon
+   AND border to crimson together. */
+html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M9 3h6"]) svg,
+html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M9 3h6"]) svg path,
+html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M16 6v"]) svg,
+html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M16 6v"]) svg path,
+html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="trash"]) svg,
+html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="trash"]) svg path,
+html body .hr-button:not(#__reos_never_id):hover:has([class*="trash"]) svg,
+html body .hr-button:not(#__reos_never_id):hover:has([class*="trash"]) svg path {
+  color: var(--reos-crimson) !important;
+  stroke: var(--reos-crimson) !important;
+  fill: var(--reos-crimson) !important;
+}
+html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M9 3h6"]) .hr-button__border,
+html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M16 6v"]) .hr-button__border,
+html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="trash"]) .hr-button__border,
+html body .hr-button:not(#__reos_never_id):hover:has([class*="trash"]) .hr-button__border {
+  border: 1px solid var(--reos-crimson) !important;
+  border-color: var(--reos-crimson) !important;
+}
+/* For .hr-button trash buttons that DON'T use the __border overlay
+   (some Highrise icon-only buttons just paint border on the button
+   itself), flip the button's own border to crimson on hover. */
+html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M9 3h6"]),
+html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M16 6v"]),
+html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="trash"]),
+html body .hr-button:not(#__reos_never_id):hover:has([class*="trash"]) {
+  border-color: var(--reos-crimson) !important;
+  color: var(--reos-crimson) !important;
+}
+/* Same crimson treatment for .n-button trash buttons that go
+   through a Highrise wrapper (defensive \u2014 Naive variant already
+   handled above at line 1306 but matching for parity). */
+html body .n-button:not(#__reos_never_id):hover:has(svg path[d*="M9 3h6"]) .n-button__border,
+html body .n-button:not(#__reos_never_id):hover:has(svg path[d*="M16 6v"]) .n-button__border,
+html body .n-button:not(#__reos_never_id):hover:has(svg path[d*="trash"]) .n-button__border,
+html body .n-button:not(#__reos_never_id):hover:has([class*="trash"]) .n-button__border {
+  border: 1px solid var(--reos-crimson) !important;
+  border-color: var(--reos-crimson) !important;
 }
 /* HR-button primary type (Add Number) \u2014 already mostly themed
    by the var override below; pin bg + content color for safety. */

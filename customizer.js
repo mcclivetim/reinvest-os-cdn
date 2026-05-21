@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.10.7 — built 2026-05-21T16:15:55.917Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Le="__WS_CRM_DEBUG",Ie=()=>!!window[Le],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ie()&&console.log(N,"[debug]",...o)}};var Q=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",K=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Q(),h.debug("Page changed:",F,M);for(let o of K)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},ee=o=>(K.add(o),setTimeout(()=>o(F),0),()=>{K.delete(o)}),te=()=>{F=Q(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var P="0.10.7",R="2026-05-21T16:15:55.918Z";var De=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ne=/\/v2\/location\/([A-Za-z0-9]+)/,T=()=>{let o=window.location.pathname,t=o.match(De);if(!t)return null;let e=o.match(Ne);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let c,b,p=()=>{m&&m.disconnect(),c!==void 0&&window.clearTimeout(c),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let l=n.querySelector(o);l&&(p(),s(l))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let l=n.querySelector(o);l&&(p(),s(l))},r),c=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var d={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},k={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},X={purple:"#8B5CF6",green:d.emerald,orange:d.amber,red:d.crimson},oe=o=>{let t=o==="emerald"?d.emeraldGlow:o==="amber"?d.amberGlow:d.slate,e=o==="emerald"?d.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":d.steel,r=o==="emerald"?d.emerald:o==="amber"?d.amber:d.bone;return`
+/* Wholesaling CRM Customizer v0.10.8 — built 2026-05-21T16:29:25.411Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Le="__WS_CRM_DEBUG",Ie=()=>!!window[Le],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ie()&&console.log(N,"[debug]",...o)}};var Q=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",K=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Q(),h.debug("Page changed:",F,M);for(let o of K)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},ee=o=>(K.add(o),setTimeout(()=>o(F),0),()=>{K.delete(o)}),te=()=>{F=Q(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var P="0.10.8",R="2026-05-21T16:29:25.412Z";var De=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ne=/\/v2\/location\/([A-Za-z0-9]+)/,T=()=>{let o=window.location.pathname,t=o.match(De);if(!t)return null;let e=o.match(Ne);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let c,b,p=()=>{m&&m.disconnect(),c!==void 0&&window.clearTimeout(c),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let l=n.querySelector(o);l&&(p(),s(l))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let l=n.querySelector(o);l&&(p(),s(l))},r),c=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var d={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},k={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},X={purple:"#8B5CF6",green:d.emerald,orange:d.amber,red:d.crimson},oe=o=>{let t=o==="emerald"?d.emeraldGlow:o==="amber"?d.amberGlow:d.slate,e=o==="emerald"?d.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":d.steel,r=o==="emerald"?d.emerald:o==="amber"?d.amber:d.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2203,6 +2203,39 @@ html body [class*="border-primary-"]:not(#__reos_never_id) {
   border-color: var(--reos-emerald) !important;
 }
 
+/* 18a-hr-form-item (v0.10.8). The .hr-form-item wrapper that
+   surrounds label+input pairs ships with gray-200 borders and
+   a focus-within box-shadow halo (light cyan/white glow that
+   Tim flagged on Reminder Settings Email Template dropdown).
+   The wrapper is purely structural \u2014 it shouldn't render a
+   surround box; the inner .hr-input / .hr-select handles its
+   own field-box. Force transparent bg, no border, no shadow,
+   no outline at every state. */
+html body .hr-form-item:not(.hr-form-item-blank):not(#__reos_never_id),
+html body .hr-form-item:hover:not(#__reos_never_id),
+html body .hr-form-item:focus:not(#__reos_never_id),
+html body .hr-form-item:focus-within:not(#__reos_never_id),
+html body .hr-form-item:focus-visible:not(#__reos_never_id) {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+/* The .hr-form-item-blank variant is the no-label form item
+   used by the Reminder Settings dropdowns. Same canon. */
+html body .hr-form-item-blank:not(#__reos_never_id),
+html body .hr-form-item-blank:hover:not(#__reos_never_id),
+html body .hr-form-item-blank:focus-within:not(#__reos_never_id) {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 /* 18a-hr-select-+-card (v0.9.39). Two un-themed surfaces on the
    SIP Test Calls page:
 
@@ -2262,16 +2295,69 @@ html body .hr-base-selection:not(#__reos_never_id) {
   --n-caret-color: var(--reos-bone) !important;
   --n-loading-color: var(--reos-emerald) !important;
 }
-/* .hr-base-selection border overlays \u2014 mirror v0.8.73 (n-base) */
-html body .hr-base-selection .hr-base-selection__border:not(#__reos_never_id) {
+/* .hr-base-selection border overlays \u2014 mirror v0.8.73 (n-base).
+   v0.10.8: extended to cover :hover and :focus-within (the active
+   GHL state when the dropdown is hovered but not yet clicked).
+   Without this, the GHL component renders a light blue + white
+   double-border halo on hover. Force the static .__border to
+   steel default, transparent state-border at rest, and emerald
+   on every interactive state. No box-shadow rings at any state. */
+html body .hr-base-selection .hr-base-selection__border:not(#__reos_never_id),
+html body [class*="hr-base-selection"] .hr-base-selection__border:not(#__reos_never_id) {
+  border: 1px solid var(--reos-steel) !important;
+  border-color: var(--reos-steel) !important;
+  box-shadow: none !important;
+}
+html body .hr-base-selection .hr-base-selection__state-border:not(#__reos_never_id),
+html body [class*="hr-base-selection"] .hr-base-selection__state-border:not(#__reos_never_id) {
   border: 1px solid transparent !important;
   border-color: transparent !important;
+  box-shadow: none !important;
 }
+html body .hr-base-selection:hover .hr-base-selection__border:not(#__reos_never_id),
+html body .hr-base-selection:focus-within .hr-base-selection__border:not(#__reos_never_id),
+html body [class*="hr-base-selection"]:hover .hr-base-selection__border:not(#__reos_never_id),
+html body [class*="hr-base-selection"]:focus-within .hr-base-selection__border:not(#__reos_never_id) {
+  border-color: var(--reos-emerald) !important;
+  box-shadow: none !important;
+}
+html body .hr-base-selection:hover .hr-base-selection__state-border:not(#__reos_never_id),
+html body .hr-base-selection:focus .hr-base-selection__state-border:not(#__reos_never_id),
+html body .hr-base-selection:focus-within .hr-base-selection__state-border:not(#__reos_never_id),
 html body .hr-base-selection.hr-base-selection--focus .hr-base-selection__state-border:not(#__reos_never_id),
-html body .hr-base-selection.hr-base-selection--active .hr-base-selection__state-border:not(#__reos_never_id) {
+html body .hr-base-selection.hr-base-selection--active .hr-base-selection__state-border:not(#__reos_never_id),
+html body [class*="hr-base-selection"]:hover .hr-base-selection__state-border:not(#__reos_never_id),
+html body [class*="hr-base-selection"]:focus-within .hr-base-selection__state-border:not(#__reos_never_id) {
   border: 1px solid var(--reos-emerald) !important;
   border-color: var(--reos-emerald) !important;
   box-shadow: none !important;
+}
+/* Kill any box-shadow on the .hr-base-selection wrapper itself at
+   every state (focus rings, hover halos). */
+html body .hr-base-selection:not(#__reos_never_id),
+html body .hr-base-selection:hover:not(#__reos_never_id),
+html body .hr-base-selection:focus:not(#__reos_never_id),
+html body .hr-base-selection:focus-within:not(#__reos_never_id),
+html body .hr-base-selection:focus-visible:not(#__reos_never_id),
+html body [class*="hr-base-selection"]:not(#__reos_never_id),
+html body [class*="hr-base-selection"]:hover:not(#__reos_never_id),
+html body [class*="hr-base-selection"]:focus-within:not(#__reos_never_id) {
+  box-shadow: none !important;
+  outline: none !important;
+}
+/* Mirror for .hr-select wrapper (the outer dropdown component
+   that the .hr-base-selection sits inside). GHL's default skin
+   stacks a hover box-shadow on the .hr-select element too. */
+html body .hr-select:not(#__reos_never_id),
+html body .hr-select:hover:not(#__reos_never_id),
+html body .hr-select:focus:not(#__reos_never_id),
+html body .hr-select:focus-within:not(#__reos_never_id),
+html body .hr-select:focus-visible:not(#__reos_never_id),
+html body [class*="hr-select"]:not(.hr-select-menu):not(.hr-base-select-menu):not(#__reos_never_id),
+html body [class*="hr-select"]:not(.hr-select-menu):not(.hr-base-select-menu):hover:not(#__reos_never_id),
+html body [class*="hr-select"]:not(.hr-select-menu):not(.hr-base-select-menu):focus-within:not(#__reos_never_id) {
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 /* 18a-hr-tabs-bar (v0.9.38). The .hr-tabs Highrise tab system

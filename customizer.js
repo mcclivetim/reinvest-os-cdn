@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.10.10 — built 2026-05-21T16:46:37.557Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Le="__WS_CRM_DEBUG",Ie=()=>!!window[Le],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ie()&&console.log(N,"[debug]",...o)}};var Q=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",K=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Q(),h.debug("Page changed:",F,M);for(let o of K)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},ee=o=>(K.add(o),setTimeout(()=>o(F),0),()=>{K.delete(o)}),te=()=>{F=Q(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var P="0.10.10",R="2026-05-21T16:46:37.558Z";var De=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ne=/\/v2\/location\/([A-Za-z0-9]+)/,T=()=>{let o=window.location.pathname,t=o.match(De);if(!t)return null;let e=o.match(Ne);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let c,b,p=()=>{m&&m.disconnect(),c!==void 0&&window.clearTimeout(c),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let l=n.querySelector(o);l&&(p(),s(l))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let l=n.querySelector(o);l&&(p(),s(l))},r),c=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var d={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},k={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},X={purple:"#8B5CF6",green:d.emerald,orange:d.amber,red:d.crimson},oe=o=>{let t=o==="emerald"?d.emeraldGlow:o==="amber"?d.amberGlow:d.slate,e=o==="emerald"?d.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":d.steel,r=o==="emerald"?d.emerald:o==="amber"?d.amber:d.bone;return`
+/* Wholesaling CRM Customizer v0.10.11 — built 2026-05-21T17:41:10.884Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Le="__WS_CRM_DEBUG",Ie=()=>!!window[Le],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ie()&&console.log(N,"[debug]",...o)}};var Q=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",K=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Q(),h.debug("Page changed:",F,M);for(let o of K)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},ee=o=>(K.add(o),setTimeout(()=>o(F),0),()=>{K.delete(o)}),te=()=>{F=Q(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var P="0.10.11",R="2026-05-21T17:41:10.884Z";var De=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ne=/\/v2\/location\/([A-Za-z0-9]+)/,T=()=>{let o=window.location.pathname,t=o.match(De);if(!t)return null;let e=o.match(Ne);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let c,b,p=()=>{m&&m.disconnect(),c!==void 0&&window.clearTimeout(c),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let l=n.querySelector(o);l&&(p(),s(l))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let l=n.querySelector(o);l&&(p(),s(l))},r),c=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var d={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},k={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},Y={purple:"#8B5CF6",green:d.emerald,orange:d.amber,red:d.crimson},oe=o=>{let t=o==="emerald"?d.emeraldGlow:o==="amber"?d.amberGlow:d.slate,e=o==="emerald"?d.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":d.steel,r=o==="emerald"?d.emerald:o==="amber"?d.amber:d.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -117,11 +117,11 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: ${X[n.color]};
+        background: ${Y[n.color]};
         flex-shrink: 0;
       "></span>
       <span>${n.label}</span>
-    `,s.addEventListener("mouseenter",()=>{s.style.background=d.slate}),s.addEventListener("mouseleave",()=>{s.style.background="transparent"}),s.addEventListener("click",async()=>{h.info(`Call Status set to "${n.label}" (${n.value}, ${n.color}) for contact ${o}`);let i=e.firstElementChild,a=e.children[1],c=e.children[2];i&&(i.style.background=X[n.color]),a&&(a.textContent=n.label),r.style.display="none";let p=T()?.locationId,m=Be();if(!p){h.warn("Cannot fire Call Status webhook \u2014 locationId missing from URL context"),a&&(a.textContent=`${n.label} (no tenant!)`),a&&(a.style.color=d.amber);return}if(n.color==="green"&&!m){h.warn("Green Call Status clicked but no user ID found \u2014 n8n Green handler will throw. Set window.WS_CRM_USER_ID = '<your-ghl-user-id>' as a temporary workaround."),a&&(a.textContent=`${n.label} (no user!)`),a&&(a.style.color=d.amber);return}let l=c?.textContent??"\u25BE",w=async _=>{c&&(c.textContent="\u2026"),e.style.opacity="0.75";try{await Ge({contactId:o,locationId:p,status:n.label,userId:m,deadReason:_}),c&&(c.textContent="\u2713"),setTimeout(()=>{c&&(c.textContent=l),e.style.opacity="1"},900)}catch(u){h.warn("Call Status webhook failed:",u),c&&(c.textContent="\u2717"),a&&(a.style.color=d.amber),e.style.opacity="1",setTimeout(()=>{c&&(c.textContent=l),a&&(a.style.color=d.bone)},1800)}};if(n.value==="dead-deal"){let _=a?.textContent??"";Ke(u=>{w(u)},()=>{a&&(a.textContent=_)});return}if(n.value==="appointment-booked"){let _=a?.textContent??"";try{(await Ve({contactId:o,tenantId:p})).ok?await w():Xe(()=>{w()},()=>{a&&(a.textContent=_)})}catch(u){h.warn("Appointment sanity check failed; firing anyway:",u),await w()}return}await w()}),r.appendChild(s)}),e.addEventListener("click",n=>{n.stopPropagation(),r.style.display=r.style.display==="none"?"block":"none"}),document.addEventListener("click",n=>{t.contains(n.target)||(r.style.display="none")}),t.appendChild(e),t.appendChild(r),t},je=o=>{document.getElementById(se)?.remove();let t=document.createElement("div");t.id=se,t.style.cssText=`
+    `,s.addEventListener("mouseenter",()=>{s.style.background=d.slate}),s.addEventListener("mouseleave",()=>{s.style.background="transparent"}),s.addEventListener("click",async()=>{h.info(`Call Status set to "${n.label}" (${n.value}, ${n.color}) for contact ${o}`);let i=e.firstElementChild,a=e.children[1],c=e.children[2];i&&(i.style.background=Y[n.color]),a&&(a.textContent=n.label),r.style.display="none";let p=T()?.locationId,m=Be();if(!p){h.warn("Cannot fire Call Status webhook \u2014 locationId missing from URL context"),a&&(a.textContent=`${n.label} (no tenant!)`),a&&(a.style.color=d.amber);return}if(n.color==="green"&&!m){h.warn("Green Call Status clicked but no user ID found \u2014 n8n Green handler will throw. Set window.WS_CRM_USER_ID = '<your-ghl-user-id>' as a temporary workaround."),a&&(a.textContent=`${n.label} (no user!)`),a&&(a.style.color=d.amber);return}let l=c?.textContent??"\u25BE",w=async _=>{c&&(c.textContent="\u2026"),e.style.opacity="0.75";try{await Ge({contactId:o,locationId:p,status:n.label,userId:m,deadReason:_}),c&&(c.textContent="\u2713"),setTimeout(()=>{c&&(c.textContent=l),e.style.opacity="1"},900)}catch(u){h.warn("Call Status webhook failed:",u),c&&(c.textContent="\u2717"),a&&(a.style.color=d.amber),e.style.opacity="1",setTimeout(()=>{c&&(c.textContent=l),a&&(a.style.color=d.bone)},1800)}};if(n.value==="dead-deal"){let _=a?.textContent??"";Ke(u=>{w(u)},()=>{a&&(a.textContent=_)});return}if(n.value==="appointment-booked"){let _=a?.textContent??"";try{(await Ve({contactId:o,tenantId:p})).ok?await w():Ye(()=>{w()},()=>{a&&(a.textContent=_)})}catch(u){h.warn("Appointment sanity check failed; firing anyway:",u),await w()}return}await w()}),r.appendChild(s)}),e.addEventListener("click",n=>{n.stopPropagation(),r.style.display=r.style.display==="none"?"block":"none"}),document.addEventListener("click",n=>{t.contains(n.target)||(r.style.display="none")}),t.appendChild(e),t.appendChild(r),t},je=o=>{document.getElementById(se)?.remove();let t=document.createElement("div");t.id=se,t.style.cssText=`
     position: fixed;
     inset: 0;
     z-index: 999999;
@@ -306,7 +306,7 @@
         font-size: 13px;
       ">Mark Dead</button>
     </div>
-  `,e.appendChild(r),document.body.appendChild(e);let n=()=>e.remove(),s=()=>{n(),t()};e.addEventListener("click",a=>{a.target===e&&s()}),r.querySelector("#ws-dead-cancel")?.addEventListener("click",s);let i=()=>{let a=r.querySelector("#ws-dead-reason"),c=r.querySelector("#ws-dead-error"),b=(a?.value??"").trim();if(!b){c&&(c.textContent="Please enter a reason."),a?.focus();return}if(b.length<4){c&&(c.textContent="Please enter at least a few words."),a?.focus();return}n(),o(b)};r.querySelector("#ws-dead-submit")?.addEventListener("click",i),r.querySelector("#ws-dead-reason")?.addEventListener("keydown",a=>{a.key==="Enter"&&(a.metaKey||a.ctrlKey)&&(a.preventDefault(),i()),a.key==="Escape"&&s()}),setTimeout(()=>{r.querySelector("#ws-dead-reason")?.focus()},0)},le="ws-crm-appointment-sanity-modal",Xe=(o,t)=>{document.getElementById(le)?.remove();let e=document.createElement("div");e.id=le,e.style.cssText=`
+  `,e.appendChild(r),document.body.appendChild(e);let n=()=>e.remove(),s=()=>{n(),t()};e.addEventListener("click",a=>{a.target===e&&s()}),r.querySelector("#ws-dead-cancel")?.addEventListener("click",s);let i=()=>{let a=r.querySelector("#ws-dead-reason"),c=r.querySelector("#ws-dead-error"),b=(a?.value??"").trim();if(!b){c&&(c.textContent="Please enter a reason."),a?.focus();return}if(b.length<4){c&&(c.textContent="Please enter at least a few words."),a?.focus();return}n(),o(b)};r.querySelector("#ws-dead-submit")?.addEventListener("click",i),r.querySelector("#ws-dead-reason")?.addEventListener("keydown",a=>{a.key==="Enter"&&(a.metaKey||a.ctrlKey)&&(a.preventDefault(),i()),a.key==="Escape"&&s()}),setTimeout(()=>{r.querySelector("#ws-dead-reason")?.focus()},0)},le="ws-crm-appointment-sanity-modal",Ye=(o,t)=>{document.getElementById(le)?.remove();let e=document.createElement("div");e.id=le,e.style.cssText=`
     position: fixed;
     inset: 0;
     z-index: 999999;
@@ -372,7 +372,7 @@
     background: ${d.graphite};
     border-bottom: 1px solid ${d.steel};
     flex-shrink: 0;
-  `,t.appendChild(We(o));let e=document.createElement("button");return e.type="button",e.style.cssText=A,e.textContent="Offer Made",e.addEventListener("click",()=>je(o)),t.appendChild(e),t},Ye=async()=>{let o=T();if(!o){document.getElementById(O)?.remove();return}let t=document.getElementById(O);if(t&&t.dataset.contactId===o.contactId)return;t&&t.remove();let e=await qe();if(!e){h.warn("Could not mount actions bar \u2014 central panel not found within timeout");return}let r=T();if(!r||r.contactId!==o.contactId)return;let n=de(o.contactId);n.dataset.mountTarget=e.className||"central-panel",e.insertBefore(n,e.firstChild),h.debug(`Mounted contact actions bar for ${o.contactId}`);let s=null;s=new MutationObserver(()=>{let i=document.getElementById(O);if(!(T()?.contactId===o.contactId)){s?.disconnect();return}if(!i){let c=de(o.contactId);c.dataset.mountTarget=n.dataset.mountTarget??"",e.insertBefore(c,e.firstChild),h.debug(`Re-mounted actions bar after React wipe for ${o.contactId}`)}}),s.observe(e,{childList:!0})},ce=()=>{Ye()};var B="https://assets.cdn.filesafe.space/ZqGLfSMNKm26UQP7ENj1/media/6a08c6430a69f1e766a71d54.png",Je=new Set(["icon","shortcut icon","apple-touch-icon","apple-touch-icon-precomposed","mask-icon"]),D="data-ws-crm-favicon",Y=o=>o.hasAttribute(D),be=o=>{if(o.tagName!=="LINK")return!1;let t=(o.getAttribute("rel")??"").toLowerCase();return Je.has(t)},G=()=>{document.head.querySelectorAll("link[rel]").forEach(r=>{be(r)&&!Y(r)&&r.remove()});let t=document.head.querySelector(`link[${D}="1"]`);t?t.href!==B&&(t.href=B):(t=document.createElement("link"),t.setAttribute(D,"1"),t.rel="icon",t.type="image/png",t.href=B,document.head.appendChild(t),h.debug("Favicon installed"));let e=document.head.querySelector(`link[${D}="apple"]`);e||(e=document.createElement("link"),e.setAttribute(D,"apple"),e.rel="apple-touch-icon",e.href=B,document.head.appendChild(e))},he=()=>{if(window.__reosFaviconInstalled)return;if(window.__reosFaviconInstalled=!0,document.head)G();else{let r=window.setInterval(()=>{document.head&&(window.clearInterval(r),G())},50)}new MutationObserver(r=>{let n=!1;for(let s of r)s.addedNodes.forEach(i=>{i instanceof HTMLLinkElement&&be(i)&&!Y(i)&&(n=!0)}),s.removedNodes.forEach(i=>{i instanceof HTMLLinkElement&&Y(i)&&(n=!0)});n&&G()}).observe(document.head,{childList:!0,subtree:!1});let t=0,e=window.setInterval(()=>{t+=1,G(),t>=5&&window.clearInterval(e)},1e3)};var W="reos-theme-stylesheet",Te="reos-theme-fonts",Ze=()=>{let o=document.getElementById(Te);o&&o.remove()},Qe=`
+  `,t.appendChild(We(o));let e=document.createElement("button");return e.type="button",e.style.cssText=A,e.textContent="Offer Made",e.addEventListener("click",()=>je(o)),t.appendChild(e),t},Xe=async()=>{let o=T();if(!o){document.getElementById(O)?.remove();return}let t=document.getElementById(O);if(t&&t.dataset.contactId===o.contactId)return;t&&t.remove();let e=await qe();if(!e){h.warn("Could not mount actions bar \u2014 central panel not found within timeout");return}let r=T();if(!r||r.contactId!==o.contactId)return;let n=de(o.contactId);n.dataset.mountTarget=e.className||"central-panel",e.insertBefore(n,e.firstChild),h.debug(`Mounted contact actions bar for ${o.contactId}`);let s=null;s=new MutationObserver(()=>{let i=document.getElementById(O);if(!(T()?.contactId===o.contactId)){s?.disconnect();return}if(!i){let c=de(o.contactId);c.dataset.mountTarget=n.dataset.mountTarget??"",e.insertBefore(c,e.firstChild),h.debug(`Re-mounted actions bar after React wipe for ${o.contactId}`)}}),s.observe(e,{childList:!0})},ce=()=>{Xe()};var B="https://assets.cdn.filesafe.space/ZqGLfSMNKm26UQP7ENj1/media/6a08c6430a69f1e766a71d54.png",Je=new Set(["icon","shortcut icon","apple-touch-icon","apple-touch-icon-precomposed","mask-icon"]),D="data-ws-crm-favicon",X=o=>o.hasAttribute(D),be=o=>{if(o.tagName!=="LINK")return!1;let t=(o.getAttribute("rel")??"").toLowerCase();return Je.has(t)},G=()=>{document.head.querySelectorAll("link[rel]").forEach(r=>{be(r)&&!X(r)&&r.remove()});let t=document.head.querySelector(`link[${D}="1"]`);t?t.href!==B&&(t.href=B):(t=document.createElement("link"),t.setAttribute(D,"1"),t.rel="icon",t.type="image/png",t.href=B,document.head.appendChild(t),h.debug("Favicon installed"));let e=document.head.querySelector(`link[${D}="apple"]`);e||(e=document.createElement("link"),e.setAttribute(D,"apple"),e.rel="apple-touch-icon",e.href=B,document.head.appendChild(e))},he=()=>{if(window.__reosFaviconInstalled)return;if(window.__reosFaviconInstalled=!0,document.head)G();else{let r=window.setInterval(()=>{document.head&&(window.clearInterval(r),G())},50)}new MutationObserver(r=>{let n=!1;for(let s of r)s.addedNodes.forEach(i=>{i instanceof HTMLLinkElement&&be(i)&&!X(i)&&(n=!0)}),s.removedNodes.forEach(i=>{i instanceof HTMLLinkElement&&X(i)&&(n=!0)});n&&G()}).observe(document.head,{childList:!0,subtree:!1});let t=0,e=window.setInterval(()=>{t+=1,G(),t>=5&&window.clearInterval(e)},1e3)};var W="reos-theme-stylesheet",Te="reos-theme-fonts",Ze=()=>{let o=document.getElementById(Te);o&&o.remove()},Qe=`
 /* ============================================
    REINVEST OS \u2014 VAULT THEME
    Injected by Customizer at bundle load.
@@ -1763,12 +1763,14 @@ html body .hr-button.ui-active-btn .hr-button__state-border:not(#__reos_never_id
   box-shadow: none !important;
 }
 /* Trash / delete icon-only .hr-button \u2014 destructive canon.
-   v0.10.9: mirror the v0.8.x .n-button trash treatment so the
-   Highrise variant (used in Invoice Settings \u2192 Reminder Settings
-   delete-reminder button and similar) reads as a single crimson
-   destructive affordance on hover. Resting state matches default
-   icon-only treatment (ash icon, steel border); hover flips icon
-   AND border to crimson together. */
+   v0.10.11 (revised): Tim's call \u2014 ONLY the icon turns crimson
+   on hover. The border stays steel at every state (no destructive
+   color flash on the border, no emerald hover lift). The icon
+   color alone signals destructive intent. Also drops the SVG
+   fill override that was solid-filling outline-only trash icons
+   (the icon shape went from outline to opaque crimson block).
+   Stroke + color only, so paths with stroke=currentColor
+   pick up crimson while inner negative space stays transparent. */
 html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M9 3h6"]) svg,
 html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M9 3h6"]) svg path,
 html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M16 6v"]) svg,
@@ -1779,34 +1781,136 @@ html body .hr-button:not(#__reos_never_id):hover:has([class*="trash"]) svg,
 html body .hr-button:not(#__reos_never_id):hover:has([class*="trash"]) svg path {
   color: var(--reos-crimson) !important;
   stroke: var(--reos-crimson) !important;
-  fill: var(--reos-crimson) !important;
 }
+/* Pin .__border to steel on hover for trash buttons (override
+   the v0.10.9 emerald hover above, AND any GHL native red ring). */
 html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M9 3h6"]) .hr-button__border,
 html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M16 6v"]) .hr-button__border,
 html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="trash"]) .hr-button__border,
 html body .hr-button:not(#__reos_never_id):hover:has([class*="trash"]) .hr-button__border {
-  border: 1px solid var(--reos-crimson) !important;
-  border-color: var(--reos-crimson) !important;
+  border: 1px solid var(--reos-steel) !important;
+  border-color: var(--reos-steel) !important;
 }
-/* For .hr-button trash buttons that DON'T use the __border overlay
-   (some Highrise icon-only buttons just paint border on the button
-   itself), flip the button's own border to crimson on hover. */
+html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M9 3h6"]) .hr-button__state-border,
+html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M16 6v"]) .hr-button__state-border,
+html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="trash"]) .hr-button__state-border,
+html body .hr-button:not(#__reos_never_id):hover:has([class*="trash"]) .hr-button__state-border {
+  border: 1px solid transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+/* Host button border + box-shadow on hover for trash buttons \u2014
+   pin to steel + no shadow (kill any GHL native red ring or
+   focus-shadow halo). */
 html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M9 3h6"]),
 html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="M16 6v"]),
 html body .hr-button:not(#__reos_never_id):hover:has(svg path[d*="trash"]),
 html body .hr-button:not(#__reos_never_id):hover:has([class*="trash"]) {
-  border-color: var(--reos-crimson) !important;
-  color: var(--reos-crimson) !important;
+  border-color: var(--reos-steel) !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
-/* Same crimson treatment for .n-button trash buttons that go
-   through a Highrise wrapper (defensive \u2014 Naive variant already
-   handled above at line 1306 but matching for parity). */
+/* v0.10.11: aria-label / id-based catchall for delete buttons.
+   Tim's Reminder Settings delete buttons render with a crimson
+   2-3px border on hover (likely from a GHL native destructive
+   skin attached via id or aria-label). Pin border to steel at
+   every state for ANY button identified as a "delete" affordance
+   via id, aria-label, or title \u2014 and keep only the icon crimson. */
+html body button[id*="delete" i]:not(#__reos_never_id),
+html body button[id*="delete" i]:hover:not(#__reos_never_id),
+html body button[id*="remove" i]:not(#__reos_never_id),
+html body button[id*="remove" i]:hover:not(#__reos_never_id),
+html body button[aria-label*="Delete" i]:not(#__reos_never_id),
+html body button[aria-label*="Delete" i]:hover:not(#__reos_never_id),
+html body button[aria-label*="Remove" i]:not(#__reos_never_id),
+html body button[aria-label*="Remove" i]:hover:not(#__reos_never_id),
+html body button[title*="Delete" i]:not(#__reos_never_id),
+html body button[title*="Delete" i]:hover:not(#__reos_never_id),
+html body button[title*="Remove" i]:not(#__reos_never_id),
+html body button[title*="Remove" i]:hover:not(#__reos_never_id) {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: 1px solid var(--reos-steel) !important;
+  border-color: var(--reos-steel) !important;
+  box-shadow: none !important;
+  outline: none !important;
+  outline-offset: 0 !important;
+}
+/* Inner border overlays for those delete buttons \u2014 steel default,
+   transparent state-border at every state. No crimson ring. */
+html body button[id*="delete" i] .hr-button__border,
+html body button[id*="delete" i]:hover .hr-button__border,
+html body button[id*="remove" i] .hr-button__border,
+html body button[id*="remove" i]:hover .hr-button__border,
+html body button[aria-label*="Delete" i] .hr-button__border,
+html body button[aria-label*="Delete" i]:hover .hr-button__border,
+html body button[aria-label*="Remove" i] .hr-button__border,
+html body button[aria-label*="Remove" i]:hover .hr-button__border,
+html body button[id*="delete" i] .n-button__border,
+html body button[id*="delete" i]:hover .n-button__border,
+html body button[aria-label*="Delete" i] .n-button__border,
+html body button[aria-label*="Delete" i]:hover .n-button__border {
+  border: 1px solid var(--reos-steel) !important;
+  border-color: var(--reos-steel) !important;
+  box-shadow: none !important;
+}
+html body button[id*="delete" i] .hr-button__state-border,
+html body button[id*="delete" i]:hover .hr-button__state-border,
+html body button[id*="remove" i] .hr-button__state-border,
+html body button[id*="remove" i]:hover .hr-button__state-border,
+html body button[aria-label*="Delete" i] .hr-button__state-border,
+html body button[aria-label*="Delete" i]:hover .hr-button__state-border,
+html body button[aria-label*="Remove" i] .hr-button__state-border,
+html body button[aria-label*="Remove" i]:hover .hr-button__state-border,
+html body button[id*="delete" i] .n-button__state-border,
+html body button[id*="delete" i]:hover .n-button__state-border,
+html body button[aria-label*="Delete" i] .n-button__state-border,
+html body button[aria-label*="Delete" i]:hover .n-button__state-border {
+  border: 1px solid transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+/* Icon inside delete buttons: ash at rest \u2192 crimson on hover. */
+html body button[id*="delete" i]:not(#__reos_never_id) svg,
+html body button[id*="delete" i]:not(#__reos_never_id) svg path,
+html body button[id*="remove" i]:not(#__reos_never_id) svg,
+html body button[id*="remove" i]:not(#__reos_never_id) svg path,
+html body button[aria-label*="Delete" i]:not(#__reos_never_id) svg,
+html body button[aria-label*="Delete" i]:not(#__reos_never_id) svg path,
+html body button[aria-label*="Remove" i]:not(#__reos_never_id) svg,
+html body button[aria-label*="Remove" i]:not(#__reos_never_id) svg path {
+  color: var(--reos-ash) !important;
+  stroke: var(--reos-ash) !important;
+}
+html body button[id*="delete" i]:hover:not(#__reos_never_id) svg,
+html body button[id*="delete" i]:hover:not(#__reos_never_id) svg path,
+html body button[id*="remove" i]:hover:not(#__reos_never_id) svg,
+html body button[id*="remove" i]:hover:not(#__reos_never_id) svg path,
+html body button[aria-label*="Delete" i]:hover:not(#__reos_never_id) svg,
+html body button[aria-label*="Delete" i]:hover:not(#__reos_never_id) svg path,
+html body button[aria-label*="Remove" i]:hover:not(#__reos_never_id) svg,
+html body button[aria-label*="Remove" i]:hover:not(#__reos_never_id) svg path {
+  color: var(--reos-crimson) !important;
+  stroke: var(--reos-crimson) !important;
+}
+
+/* .n-button trash buttons \u2014 same canon (steel border, only icon
+   flips crimson). Override the line-1306 emerald hover for trash. */
 html body .n-button:not(#__reos_never_id):hover:has(svg path[d*="M9 3h6"]) .n-button__border,
 html body .n-button:not(#__reos_never_id):hover:has(svg path[d*="M16 6v"]) .n-button__border,
 html body .n-button:not(#__reos_never_id):hover:has(svg path[d*="trash"]) .n-button__border,
 html body .n-button:not(#__reos_never_id):hover:has([class*="trash"]) .n-button__border {
-  border: 1px solid var(--reos-crimson) !important;
-  border-color: var(--reos-crimson) !important;
+  border: 1px solid var(--reos-steel) !important;
+  border-color: var(--reos-steel) !important;
+}
+html body .n-button:not(#__reos_never_id):hover:has(svg path[d*="M9 3h6"]) .n-button__state-border,
+html body .n-button:not(#__reos_never_id):hover:has(svg path[d*="M16 6v"]) .n-button__state-border,
+html body .n-button:not(#__reos_never_id):hover:has(svg path[d*="trash"]) .n-button__state-border,
+html body .n-button:not(#__reos_never_id):hover:has([class*="trash"]) .n-button__state-border {
+  border: 1px solid transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
 /* HR-button primary type (Add Number) \u2014 already mostly themed
    by the var override below; pin bg + content color for safety. */

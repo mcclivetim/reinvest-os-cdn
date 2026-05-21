@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.10.3 — built 2026-05-21T13:51:32.981Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Le="__WS_CRM_DEBUG",Ie=()=>!!window[Le],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ie()&&console.log(N,"[debug]",...o)}};var Q=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",K=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Q(),h.debug("Page changed:",F,M);for(let o of K)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},ee=o=>(K.add(o),setTimeout(()=>o(F),0),()=>{K.delete(o)}),te=()=>{F=Q(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var P="0.10.3",O="2026-05-21T13:51:32.982Z";var De=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ne=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(De);if(!t)return null;let e=o.match(Ne);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),s(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},X={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},oe=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.10.4 — built 2026-05-21T13:58:15.437Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Le="__WS_CRM_DEBUG",Ie=()=>!!window[Le],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Ie()&&console.log(N,"[debug]",...o)}};var Q=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",K=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Q(),h.debug("Page changed:",F,M);for(let o of K)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},ee=o=>(K.add(o),setTimeout(()=>o(F),0),()=>{K.delete(o)}),te=()=>{F=Q(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var P="0.10.4",O="2026-05-21T13:58:15.438Z";var De=/\/contacts\/detail\/([A-Za-z0-9]+)/,Ne=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(De);if(!t)return null;let e=o.match(Ne);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),s(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},X={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},oe=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2900,14 +2900,13 @@ html body [class*="hr-card-header"]:not(#__reos_never_id) {
   border-color: var(--reos-steel) !important;
 }
 
-/* 18a-richtext-toolbar (v0.10.3). The rich-text editor toolbar
-   in Invoice/Estimate Settings (Title & Terms tab) has many
-   .toolbar_button elements. The base64 <img> icons get recolored
-   from black to bone via recolorBakedSvgIcons (v0.10.3 extension).
-   The INLINE <svg> icons (Bold, Underline, Italic, Strike,
-   alignment, link, image) use stroke="currentColor" and inherit
-   color from the toolbar bg \u2014 render dark on slate. Force bone
-   stroke + color so they read clearly. */
+/* 18a-richtext-toolbar (v0.10.3 \u2192 v0.10.4). The TipTap rich-text
+   editor in Invoice/Estimate Settings (Title & Terms). Full
+   canon: graphite surface, steel borders, bone icons resting,
+   emerald-glow bg + emerald icon active, slate hover bg, emerald
+   caret + emerald-glow text selection. */
+
+/* Icons \u2014 inline svg (Bold/Underline/Italic/etc): bone resting. */
 html body .toolbar_button:not(#__reos_never_id) svg,
 html body .toolbar_button:not(#__reos_never_id) svg path,
 html body #editor-toolbar:not(#__reos_never_id) svg,
@@ -2915,24 +2914,77 @@ html body #editor-toolbar:not(#__reos_never_id) svg path {
   color: var(--reos-bone) !important;
   stroke: var(--reos-bone) !important;
 }
-/* Hover state \u2014 emerald for visual press feedback. */
+/* Hover: emerald icon + slate bg cell. */
 html body .toolbar_button:not(#__reos_never_id):hover svg,
 html body .toolbar_button:not(#__reos_never_id):hover svg path {
   color: var(--reos-emerald) !important;
   stroke: var(--reos-emerald) !important;
 }
-/* The toolbar itself + the editor wrapper \u2014 graphite surface. */
+/* Active (format applied to selection) \u2014 TipTap marks the
+   button with .is-active OR aria-pressed="true". Cover both. */
+html body .toolbar_button.is-active:not(#__reos_never_id),
+html body .toolbar_button[aria-pressed="true"]:not(#__reos_never_id),
+html body .toolbar_button.active:not(#__reos_never_id) {
+  background-color: var(--reos-emerald-glow) !important;
+  background: var(--reos-emerald-glow) !important;
+  border-radius: 4px !important;
+}
+html body .toolbar_button.is-active:not(#__reos_never_id) svg,
+html body .toolbar_button.is-active:not(#__reos_never_id) svg path,
+html body .toolbar_button[aria-pressed="true"]:not(#__reos_never_id) svg,
+html body .toolbar_button[aria-pressed="true"]:not(#__reos_never_id) svg path,
+html body .toolbar_button.active:not(#__reos_never_id) svg,
+html body .toolbar_button.active:not(#__reos_never_id) svg path {
+  color: var(--reos-emerald) !important;
+  stroke: var(--reos-emerald) !important;
+}
+/* Active state for base64 <img> icons \u2014 apply emerald drop-shadow
+   filter as a visual cue (since the bone-colored svg pixels can't
+   be directly recolored via CSS \u2014 they're rasterized). The bg
+   change above already signals active; this just reinforces. */
+html body .toolbar_button.is-active:not(#__reos_never_id) img.toolbar-button__icon,
+html body .toolbar_button[aria-pressed="true"]:not(#__reos_never_id) img.toolbar-button__icon,
+html body .toolbar_button.active:not(#__reos_never_id) img.toolbar-button__icon {
+  filter: drop-shadow(0 0 1px var(--reos-emerald)) drop-shadow(0 0 1px var(--reos-emerald)) !important;
+}
+/* Toolbar surface \u2014 graphite. */
 html body #editor-toolbar:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
   background: var(--reos-graphite) !important;
 }
+/* Button cells \u2014 transparent at rest, slate on hover. */
 html body .toolbar_button:not(#__reos_never_id) {
   background-color: transparent !important;
   background: transparent !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
 }
 html body .toolbar_button:not(#__reos_never_id):hover {
   background-color: var(--reos-slate) !important;
 }
+/* Disabled toolbar button (e.g. Undo/Redo when no history) \u2014
+   half opacity + no hover state + ash icon. */
+html body .toolbar_button:not(#__reos_never_id):disabled,
+html body .toolbar_button[disabled]:not(#__reos_never_id) {
+  opacity: 0.4 !important;
+  cursor: not-allowed !important;
+  background-color: transparent !important;
+}
+html body .toolbar_button:not(#__reos_never_id):disabled:hover,
+html body .toolbar_button[disabled]:not(#__reos_never_id):hover {
+  background-color: transparent !important;
+}
+
+/* Outer editor container + divider between toolbar and content
+   \u2014 replace the GHL gray-200 default with steel. */
+html body .editor-container:not(#__reos_never_id),
+html body .toolbar_container:not(#__reos_never_id),
+html body .border_bottom:not(#__reos_never_id) {
+  border-color: var(--reos-steel) !important;
+  border-bottom-color: var(--reos-steel) !important;
+  border-top-color: var(--reos-steel) !important;
+}
+
 /* TipTap ProseMirror content area + the .bg-white wrapper that
    houses the editor \u2014 graphite, not white. */
 html body .editor-container:not(#__reos_never_id),
@@ -2942,11 +2994,19 @@ html body .tiptap:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
   background: var(--reos-graphite) !important;
   color: var(--reos-bone) !important;
+  caret-color: var(--reos-emerald) !important;
 }
 html body .ProseMirror:not(#__reos_never_id) p,
 html body .ProseMirror:not(#__reos_never_id) p * {
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
+}
+/* Text selection inside the editor \u2014 emerald-glow background. */
+html body .ProseMirror::selection,
+html body .tiptap::selection,
+html body .ProseMirror *::selection,
+html body .tiptap *::selection {
+  background-color: var(--reos-emerald-glow) !important;
 }
 
 /* 18a-headlessui-menu (v0.9.97). HeadlessUI / Tailwind dropdown

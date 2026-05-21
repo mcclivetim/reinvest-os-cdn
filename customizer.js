@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.9.96 — built 2026-05-21T12:49:06.368Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ae="__WS_CRM_DEBUG",Le=()=>!!window[Ae],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Le()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",j=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),h.debug("Page changed:",F,M);for(let o of j)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(j.add(o),setTimeout(()=>o(F),0),()=>{j.delete(o)}),ee=()=>{F=Z(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var P="0.9.96",O="2026-05-21T12:49:06.369Z";var Ie=/\/contacts\/detail\/([A-Za-z0-9]+)/,De=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Ie);if(!t)return null;let e=o.match(De);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),s(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},K={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},te=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.9.97 — built 2026-05-21T12:52:54.185Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ae="__WS_CRM_DEBUG",Le=()=>!!window[Ae],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Le()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",j=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),h.debug("Page changed:",F,M);for(let o of j)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(j.add(o),setTimeout(()=>o(F),0),()=>{j.delete(o)}),ee=()=>{F=Z(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var P="0.9.97",O="2026-05-21T12:52:54.185Z";var Ie=/\/contacts\/detail\/([A-Za-z0-9]+)/,De=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Ie);if(!t)return null;let e=o.match(De);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),s(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},K={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},te=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2894,6 +2894,69 @@ html body [class*="hr-card-header"]:not(#__reos_never_id) {
   border-bottom-color: var(--reos-steel) !important;
   border-top-color: var(--reos-steel) !important;
   border-color: var(--reos-steel) !important;
+}
+
+/* 18a-headlessui-menu (v0.9.97). HeadlessUI / Tailwind dropdown
+   menus (role="menu" with a[role="menuitem"] children) inherit
+   color cascade from their DOM parent. When the dropdown trigger
+   anchor in the top nav has .router-link-active (because the
+   current page is under it), the section-3 rule
+     .sidebar-v2 a[class*="active"] *  \u2192 emerald
+   cascades emerald onto every dropdown menu item descendant \u2014
+   including inactive items. Tim flagged this on the Invoices &
+   Estimates dropdown (Recurring/Templates/Estimates rendered
+   emerald along with the active All Invoices).
+
+   Canon for dropdown menu items, mirroring our .n-dropdown rules:
+     Static    : bone text, transparent bg
+     Hover     : bone text, slate bg
+     Active    : emerald text, emerald-glow bg
+
+   High specificity to beat the inherited "any descendant of an
+   active anchor \u2192 emerald" cascade. */
+html body [role="menu"] a[role="menuitem"]:not(#__reos_never_id),
+html body [role="menu"] a[role="menuitem"]:not(#__reos_never_id) span,
+html body [role="menu"] a[role="menuitem"]:not(#__reos_never_id) > *:not(#__reos_never_id) {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+  background-color: transparent !important;
+}
+/* Hover (inactive item) \u2014 slate bg, bone text stays. */
+html body [role="menu"] a[role="menuitem"]:not(.active):not(.router-link-active):not(.router-link-exact-active):not(#__reos_never_id):hover {
+  background-color: var(--reos-slate) !important;
+  color: var(--reos-bone) !important;
+}
+html body [role="menu"] a[role="menuitem"]:not(.active):not(.router-link-active):not(.router-link-exact-active):not(#__reos_never_id):hover span,
+html body [role="menu"] a[role="menuitem"]:not(.active):not(.router-link-active):not(.router-link-exact-active):not(#__reos_never_id):hover > * {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+/* Active item \u2014 emerald text + emerald-glow bg. */
+html body [role="menu"] a[role="menuitem"].active:not(#__reos_never_id),
+html body [role="menu"] a[role="menuitem"].router-link-active:not(#__reos_never_id),
+html body [role="menu"] a[role="menuitem"].router-link-exact-active:not(#__reos_never_id),
+html body [role="menu"] a[role="menuitem"].active:not(#__reos_never_id) span,
+html body [role="menu"] a[role="menuitem"].router-link-active:not(#__reos_never_id) span,
+html body [role="menu"] a[role="menuitem"].router-link-exact-active:not(#__reos_never_id) span,
+html body [role="menu"] a[role="menuitem"].active:not(#__reos_never_id) > *,
+html body [role="menu"] a[role="menuitem"].router-link-active:not(#__reos_never_id) > *,
+html body [role="menu"] a[role="menuitem"].router-link-exact-active:not(#__reos_never_id) > * {
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
+}
+html body [role="menu"] a[role="menuitem"].active:not(#__reos_never_id),
+html body [role="menu"] a[role="menuitem"].router-link-active:not(#__reos_never_id),
+html body [role="menu"] a[role="menuitem"].router-link-exact-active:not(#__reos_never_id) {
+  background-color: var(--reos-emerald-glow) !important;
+}
+/* Menu surface \u2014 graphite panel + steel border, kill the bg-white
+   Tailwind class on the menu container. */
+html body [role="menu"]:not(#__reos_never_id) {
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+  border: 1px solid var(--reos-steel) !important;
+  --tw-ring-color: var(--reos-steel) !important;
+  --tw-ring-opacity: 1 !important;
 }
 
 /* 18a-hr-text-link (v0.9.77). GHL uses .hr-text elements as text

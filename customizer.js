@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.9.90 — built 2026-05-21T12:27:42.208Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ae="__WS_CRM_DEBUG",Le=()=>!!window[Ae],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Le()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",j=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),h.debug("Page changed:",F,M);for(let o of j)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(j.add(o),setTimeout(()=>o(F),0),()=>{j.delete(o)}),ee=()=>{F=Z(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var P="0.9.90",R="2026-05-21T12:27:42.209Z";var Ie=/\/contacts\/detail\/([A-Za-z0-9]+)/,De=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Ie);if(!t)return null;let e=o.match(De);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),s(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},K={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},te=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.9.91 — built 2026-05-21T12:33:18.873Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var N="[wholesaling-crm-customizer]",Ae="__WS_CRM_DEBUG",Le=()=>!!window[Ae],h={info(...o){console.log(N,...o)},warn(...o){console.warn(N,...o)},error(...o){console.error(N,...o)},debug(...o){Le()&&console.log(N,"[debug]",...o)}};var Z=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},M="",F="other",j=new Set,H=()=>{if(window.location.pathname!==M){M=window.location.pathname,F=Z(),h.debug("Page changed:",F,M);for(let o of j)try{o(F)}catch(t){h.error("Subscriber threw:",t)}}},Q=o=>(j.add(o),setTimeout(()=>o(F),0),()=>{j.delete(o)}),ee=()=>{F=Z(),M=window.location.pathname,h.debug("Router init, current page:",F);let o=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(e,r,n){o(e,r,n),H()},history.replaceState=function(e,r,n){t(e,r,n),H()},window.addEventListener("popstate",H),setInterval(H,1e3)};var P="0.9.91",R="2026-05-21T12:33:18.874Z";var Ie=/\/contacts\/detail\/([A-Za-z0-9]+)/,De=/\/v2\/location\/([A-Za-z0-9]+)/,E=()=>{let o=window.location.pathname,t=o.match(Ie);if(!t)return null;let e=o.match(De);return{contactId:t[1],locationId:e?e[1]:null}};var C=(o,t={})=>{let{timeoutMs:e=8e3,pollMs:r=100,root:n=document}=t;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),s(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${e}ms: ${o}`))},e)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},K={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},te=o=>{let t=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,e=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2620,11 +2620,21 @@ html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__month-year 
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
-/* Weekday labels (Su / Mo / Tu / We / Th / Fr / Sa). */
+/* Weekday labels (Su / Mo / Tu / We / Th / Fr / Sa). v0.9.91:
+   drop the row bg to graphite (one shade darker than the slate
+   panel) so the weekday header reads as a distinct band, like
+   the column-header strip on a typical data table. Bottom
+   border steel gives a clean line between the header band and
+   the dates grid below. */
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-weekdays__day,
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-weekdays {
   color: var(--reos-ash) !important;
   -webkit-text-fill-color: var(--reos-ash) !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-weekdays {
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+  border-bottom: 1px solid var(--reos-steel) !important;
 }
 /* Day cells \u2014 resting bone. */
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date {
@@ -2730,10 +2740,14 @@ html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel__divider {
   background-color: var(--reos-steel) !important;
   background: var(--reos-steel) !important;
 }
-/* Action footer (Clear / Confirm row) \u2014 top border steel. */
+/* Action footer (Clear / Confirm row) \u2014 slate to match the rest
+   of the panel. v0.9.91: was graphite from the v0.9.82 rule \u2014
+   updated to slate so the footer doesn't read as a separate
+   panel band against the slate calendar grid above. */
 html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-actions {
   border-top: 1px solid var(--reos-steel) !important;
-  background-color: var(--reos-graphite) !important;
+  background-color: var(--reos-slate) !important;
+  background: var(--reos-slate) !important;
 }
 /* Month-nav SVG arrows (prev / next / fast-prev / fast-next) \u2014
    bone stroke (via currentColor), emerald on hover. */

@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.11.13 — built 2026-05-22T23:52:58.950Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var U="[wholesaling-crm-customizer]",Xe="__WS_CRM_DEBUG",Je=()=>!!window[Xe],p={info(...o){console.log(U,...o)},warn(...o){console.warn(U,...o)},error(...o){console.error(U,...o)},debug(...o){Je()&&console.log(U,"[debug]",...o)}};var be=/\/contacts\/detail\/([A-Za-z0-9]+)/,re=/\/v2\/location\/([A-Za-z0-9]+)/,Ze=o=>{let e=o.match(be);if(!e)return null;let t=o.match(re);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},Qe=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(be);if(!n)continue;let s=r.match(re)||window.location.pathname.match(re);return{contactId:n[1],locationId:s?s[1]:null,source:"dom"}}return null},x=()=>{let o=Ze(window.location.pathname);return o||Qe()};var he=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},q="",ne=null,M="other",ae=new Set,$=()=>{let o=x()?.contactId??null;if(!(!(window.location.pathname!==q)&&!(o!==ne))){q=window.location.pathname,ne=o,M=he(),p.debug("Page/context changed:",M,q,"contact:",o);for(let r of ae)try{r(M)}catch(n){p.error("Subscriber threw:",n)}}},pe=o=>(ae.add(o),setTimeout(()=>o(M),0),()=>{ae.delete(o)}),me=()=>{M=he(),q=window.location.pathname,ne=x()?.contactId??null,p.debug("Router init, current page:",M);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),$()},history.replaceState=function(t,r,n){e(t,r,n),$()},window.addEventListener("popstate",$),setInterval($,1e3)};var z="0.11.13",W="2026-05-22T23:52:58.951Z";var A=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,h=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(h(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(h(),s(c))},r),d=window.setTimeout(()=>{h(),p.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},E={sm:"4px",md:"6px",lg:"10px",pill:"999px"},y={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},se={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},_e=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.11.14 — built 2026-05-22T23:59:07.508Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var U="[wholesaling-crm-customizer]",Xe="__WS_CRM_DEBUG",Je=()=>!!window[Xe],p={info(...o){console.log(U,...o)},warn(...o){console.warn(U,...o)},error(...o){console.error(U,...o)},debug(...o){Je()&&console.log(U,"[debug]",...o)}};var be=/\/contacts\/detail\/([A-Za-z0-9]+)/,re=/\/v2\/location\/([A-Za-z0-9]+)/,Ze=o=>{let e=o.match(be);if(!e)return null;let t=o.match(re);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},Qe=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(be);if(!n)continue;let s=r.match(re)||window.location.pathname.match(re);return{contactId:n[1],locationId:s?s[1]:null,source:"dom"}}return null},x=()=>{let o=Ze(window.location.pathname);return o||Qe()};var he=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},q="",ne=null,M="other",ae=new Set,$=()=>{let o=x()?.contactId??null;if(!(!(window.location.pathname!==q)&&!(o!==ne))){q=window.location.pathname,ne=o,M=he(),p.debug("Page/context changed:",M,q,"contact:",o);for(let r of ae)try{r(M)}catch(n){p.error("Subscriber threw:",n)}}},pe=o=>(ae.add(o),setTimeout(()=>o(M),0),()=>{ae.delete(o)}),me=()=>{M=he(),q=window.location.pathname,ne=x()?.contactId??null,p.debug("Router init, current page:",M);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),$()},history.replaceState=function(t,r,n){e(t,r,n),$()},window.addEventListener("popstate",$),setInterval($,1e3)};var z="0.11.14",W="2026-05-22T23:59:07.511Z";var A=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,h=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(h(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(h(),s(c))},r),d=window.setTimeout(()=>{h(),p.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},E={sm:"4px",md:"6px",lg:"10px",pill:"999px"},y={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},se={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},_e=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -3165,11 +3165,15 @@ html body [class*="bg-blue-200"]:not(#__reos_never_id) {
   background: var(--reos-graphite) !important;
 }
 
-/* v0.11.13: title-style inputs render as inline-editable text
-   (no field-box surround). Tim flagged the "Enter Dashboard Name"
-   input on the dashboard editor \u2014 it's a HEADING, not a form
-   field. Transparent bg, no border, bone text. Pair with the
-   forceInputSlateBackground skip in the JS coercer. */
+/* v0.11.13 / v0.11.14: title-style inputs render as inline-editable
+   text (no field-box surround). Tim flagged the "Enter Dashboard
+   Name" input on the dashboard editor \u2014 it's a HEADING, not a form
+   field. v0.11.13 only nuked the inline slate on the <input> itself,
+   but the slate visually persists because the wrapping .n-input
+   container paints slate from the global section-19 rules. v0.11.14
+   uses :has() to find the wrapping .n-input and transparent it too,
+   plus kill the .n-input__border / __state-border overlays.
+   Pair with the forceInputSlateBackground skip in the JS coercer. */
 html body input[placeholder="Enter Dashboard Name"]:not(#__reos_never_id) {
   background-color: transparent !important;
   background: transparent !important;
@@ -3178,6 +3182,31 @@ html body input[placeholder="Enter Dashboard Name"]:not(#__reos_never_id) {
   box-shadow: none !important;
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
+}
+/* Wrapping .n-input + its border overlays \u2014 transparent so the
+   title input reads as inline-editable text. */
+html body .n-input:has(input[placeholder="Enter Dashboard Name"]):not(#__reos_never_id),
+html body .n-input:has(input[placeholder="Enter Dashboard Name"]) .n-input-wrapper:not(#__reos_never_id),
+html body .n-input:has(input[placeholder="Enter Dashboard Name"]) .n-input__input:not(#__reos_never_id) {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  --n-color: transparent !important;
+  --n-color-focus: transparent !important;
+  --n-color-disabled: transparent !important;
+  --n-border: none !important;
+  --n-border-hover: none !important;
+  --n-border-focus: none !important;
+  --n-border-disabled: none !important;
+}
+html body .n-input:has(input[placeholder="Enter Dashboard Name"]) .n-input__border:not(#__reos_never_id),
+html body .n-input:has(input[placeholder="Enter Dashboard Name"]) .n-input__state-border:not(#__reos_never_id) {
+  border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  background: transparent !important;
 }
 
 /* v0.11.11: Dashboard goal-picker cards \u2014 "Track Leads & Sources",

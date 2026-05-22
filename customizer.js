@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.11.9 — built 2026-05-22T02:42:51.551Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var $="[wholesaling-crm-customizer]",Xe="__WS_CRM_DEBUG",Je=()=>!!window[Xe],p={info(...o){console.log($,...o)},warn(...o){console.warn($,...o)},error(...o){console.error($,...o)},debug(...o){Je()&&console.log($,"[debug]",...o)}};var be=/\/contacts\/detail\/([A-Za-z0-9]+)/,re=/\/v2\/location\/([A-Za-z0-9]+)/,Ze=o=>{let e=o.match(be);if(!e)return null;let t=o.match(re);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},Qe=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(be);if(!n)continue;let s=r.match(re)||window.location.pathname.match(re);return{contactId:n[1],locationId:s?s[1]:null,source:"dom"}}return null},x=()=>{let o=Ze(window.location.pathname);return o||Qe()};var he=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},q="",ne=null,M="other",ae=new Set,U=()=>{let o=x()?.contactId??null;if(!(!(window.location.pathname!==q)&&!(o!==ne))){q=window.location.pathname,ne=o,M=he(),p.debug("Page/context changed:",M,q,"contact:",o);for(let r of ae)try{r(M)}catch(n){p.error("Subscriber threw:",n)}}},pe=o=>(ae.add(o),setTimeout(()=>o(M),0),()=>{ae.delete(o)}),me=()=>{M=he(),q=window.location.pathname,ne=x()?.contactId??null,p.debug("Router init, current page:",M);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),U()},history.replaceState=function(t,r,n){e(t,r,n),U()},window.addEventListener("popstate",U),setInterval(U,1e3)};var z="0.11.9",W="2026-05-22T02:42:51.552Z";var A=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,h=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(h(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(h(),s(c))},r),d=window.setTimeout(()=>{h(),p.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},E={sm:"4px",md:"6px",lg:"10px",pill:"999px"},y={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},se={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},_e=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.11.10 — built 2026-05-22T23:02:56.371Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var $="[wholesaling-crm-customizer]",Xe="__WS_CRM_DEBUG",Je=()=>!!window[Xe],p={info(...o){console.log($,...o)},warn(...o){console.warn($,...o)},error(...o){console.error($,...o)},debug(...o){Je()&&console.log($,"[debug]",...o)}};var be=/\/contacts\/detail\/([A-Za-z0-9]+)/,re=/\/v2\/location\/([A-Za-z0-9]+)/,Ze=o=>{let e=o.match(be);if(!e)return null;let t=o.match(re);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},Qe=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(be);if(!n)continue;let s=r.match(re)||window.location.pathname.match(re);return{contactId:n[1],locationId:s?s[1]:null,source:"dom"}}return null},x=()=>{let o=Ze(window.location.pathname);return o||Qe()};var he=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},q="",ne=null,M="other",ae=new Set,U=()=>{let o=x()?.contactId??null;if(!(!(window.location.pathname!==q)&&!(o!==ne))){q=window.location.pathname,ne=o,M=he(),p.debug("Page/context changed:",M,q,"contact:",o);for(let r of ae)try{r(M)}catch(n){p.error("Subscriber threw:",n)}}},pe=o=>(ae.add(o),setTimeout(()=>o(M),0),()=>{ae.delete(o)}),me=()=>{M=he(),q=window.location.pathname,ne=x()?.contactId??null,p.debug("Router init, current page:",M);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),U()},history.replaceState=function(t,r,n){e(t,r,n),U()},window.addEventListener("popstate",U),setInterval(U,1e3)};var z="0.11.10",W="2026-05-22T23:02:56.371Z";var A=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,h=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(h(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(h(),s(c))},r),d=window.setTimeout(()=>{h(),p.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},E={sm:"4px",md:"6px",lg:"10px",pill:"999px"},y={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},se={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},_e=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -3163,6 +3163,64 @@ html body [class*="bg-blue-100"]:not(#__reos_never_id),
 html body [class*="bg-blue-200"]:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
   background: var(--reos-graphite) !important;
+}
+/* v0.11.10: pink + rose family \u2014 Tim flagged the "Marketing & Ad
+   Performance" goal card on the dashboard. Tailwind pink-50/100/200
+   and rose-50/100/200 ship as #FDF2F8 / #FCE7F3 / pink-200 etc.
+   Card surface (pink-50) \u2192 graphite to match the other goal cards.
+   Icon-backdrop circle (pink-100) \u2192 emerald-glow tint so the icon
+   sits on a subtle accent halo consistent with other goal cards. */
+html body .bg-pink-50:not(#__reos_never_id),
+html body [class*="bg-pink-50"]:not(#__reos_never_id),
+html body .bg-rose-50:not(#__reos_never_id),
+html body [class*="bg-rose-50"]:not(#__reos_never_id) {
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+}
+html body .bg-pink-100:not(#__reos_never_id),
+html body [class*="bg-pink-100"]:not(#__reos_never_id),
+html body .bg-rose-100:not(#__reos_never_id),
+html body [class*="bg-rose-100"]:not(#__reos_never_id) {
+  background-color: var(--reos-emerald-glow) !important;
+  background: var(--reos-emerald-glow) !important;
+}
+html body .bg-pink-200:not(#__reos_never_id),
+html body [class*="bg-pink-200"]:not(#__reos_never_id),
+html body .bg-rose-200:not(#__reos_never_id),
+html body [class*="bg-rose-200"]:not(#__reos_never_id) {
+  background-color: var(--reos-slate) !important;
+  background: var(--reos-slate) !important;
+}
+/* Pink/rose text-* utilities \u2014 most of these are decorative chip
+   text that reads better as bone or ash; default to bone. */
+html body .text-pink-500:not(#__reos_never_id),
+html body .text-pink-600:not(#__reos_never_id),
+html body .text-pink-700:not(#__reos_never_id),
+html body .text-rose-500:not(#__reos_never_id),
+html body .text-rose-600:not(#__reos_never_id),
+html body .text-rose-700:not(#__reos_never_id) {
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
+}
+html body .border-pink-50:not(#__reos_never_id),
+html body .border-pink-100:not(#__reos_never_id),
+html body .border-pink-200:not(#__reos_never_id),
+html body .border-rose-50:not(#__reos_never_id),
+html body .border-rose-100:not(#__reos_never_id),
+html body .border-rose-200:not(#__reos_never_id) {
+  border-color: var(--reos-steel) !important;
+}
+/* Pink/rose SVG fills (decorative icons inside the .bg-pink-100
+   circles) \u2014 flip the stroke/fill to emerald so the icon reads as
+   accent on the emerald-glow backdrop. */
+html body .bg-pink-50 svg:not(#__reos_never_id),
+html body .bg-pink-50 svg path:not(#__reos_never_id),
+html body .bg-pink-100 svg:not(#__reos_never_id),
+html body .bg-pink-100 svg path:not(#__reos_never_id),
+html body [class*="bg-pink"] svg:not(#__reos_never_id),
+html body [class*="bg-pink"] svg path:not(#__reos_never_id) {
+  color: var(--reos-emerald) !important;
+  stroke: var(--reos-emerald) !important;
 }
 /* Tailwind gray-25/50/100 \u2192 graphite (placeholder + chrome bg).
    gray-200 borders already handled via section 16. */

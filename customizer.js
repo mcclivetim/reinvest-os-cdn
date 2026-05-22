@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.11.8 — built 2026-05-22T02:17:06.731Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var $="[wholesaling-crm-customizer]",Xe="__WS_CRM_DEBUG",Je=()=>!!window[Xe],p={info(...o){console.log($,...o)},warn(...o){console.warn($,...o)},error(...o){console.error($,...o)},debug(...o){Je()&&console.log($,"[debug]",...o)}};var be=/\/contacts\/detail\/([A-Za-z0-9]+)/,re=/\/v2\/location\/([A-Za-z0-9]+)/,Ze=o=>{let e=o.match(be);if(!e)return null;let t=o.match(re);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},Qe=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(be);if(!n)continue;let s=r.match(re)||window.location.pathname.match(re);return{contactId:n[1],locationId:s?s[1]:null,source:"dom"}}return null},x=()=>{let o=Ze(window.location.pathname);return o||Qe()};var he=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},q="",ne=null,M="other",ae=new Set,U=()=>{let o=x()?.contactId??null;if(!(!(window.location.pathname!==q)&&!(o!==ne))){q=window.location.pathname,ne=o,M=he(),p.debug("Page/context changed:",M,q,"contact:",o);for(let r of ae)try{r(M)}catch(n){p.error("Subscriber threw:",n)}}},pe=o=>(ae.add(o),setTimeout(()=>o(M),0),()=>{ae.delete(o)}),me=()=>{M=he(),q=window.location.pathname,ne=x()?.contactId??null,p.debug("Router init, current page:",M);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),U()},history.replaceState=function(t,r,n){e(t,r,n),U()},window.addEventListener("popstate",U),setInterval(U,1e3)};var z="0.11.8",W="2026-05-22T02:17:06.733Z";var A=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,h=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(h(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(h(),s(c))},r),d=window.setTimeout(()=>{h(),p.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},E={sm:"4px",md:"6px",lg:"10px",pill:"999px"},y={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},se={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},_e=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.11.9 — built 2026-05-22T02:42:51.551Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var $="[wholesaling-crm-customizer]",Xe="__WS_CRM_DEBUG",Je=()=>!!window[Xe],p={info(...o){console.log($,...o)},warn(...o){console.warn($,...o)},error(...o){console.error($,...o)},debug(...o){Je()&&console.log($,"[debug]",...o)}};var be=/\/contacts\/detail\/([A-Za-z0-9]+)/,re=/\/v2\/location\/([A-Za-z0-9]+)/,Ze=o=>{let e=o.match(be);if(!e)return null;let t=o.match(re);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},Qe=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(be);if(!n)continue;let s=r.match(re)||window.location.pathname.match(re);return{contactId:n[1],locationId:s?s[1]:null,source:"dom"}}return null},x=()=>{let o=Ze(window.location.pathname);return o||Qe()};var he=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},q="",ne=null,M="other",ae=new Set,U=()=>{let o=x()?.contactId??null;if(!(!(window.location.pathname!==q)&&!(o!==ne))){q=window.location.pathname,ne=o,M=he(),p.debug("Page/context changed:",M,q,"contact:",o);for(let r of ae)try{r(M)}catch(n){p.error("Subscriber threw:",n)}}},pe=o=>(ae.add(o),setTimeout(()=>o(M),0),()=>{ae.delete(o)}),me=()=>{M=he(),q=window.location.pathname,ne=x()?.contactId??null,p.debug("Router init, current page:",M);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),U()},history.replaceState=function(t,r,n){e(t,r,n),U()},window.addEventListener("popstate",U),setInterval(U,1e3)};var z="0.11.9",W="2026-05-22T02:42:51.552Z";var A=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,h=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(h(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(h(),s(c))},r),d=window.setTimeout(()=>{h(),p.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},E={sm:"4px",md:"6px",lg:"10px",pill:"999px"},y={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},se={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},_e=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -7045,7 +7045,9 @@ html body [class*="conversationsUtilitiesApp"] {
    tripped on (every button got emerald-glow paint). Distinguish
    via :not([class*='hover:text-blue-600']). */
 
-/* All states: transparent surface, no box chrome, no transition. */
+/* All states: transparent surface, no box chrome, no transition.
+   v0.11.9: host button color flipped from ash to emerald (with
+   the icon updates below). Hover still bumps via the svg rule. */
 html body .sidebar-option-button,
 html body button[class*="sidebar-option-button"],
 html body .sidebar-option-button:hover,
@@ -7057,25 +7059,28 @@ html body button[class*="sidebar-option-button"]:hover {
   outline: none !important;
   transition: none !important;
   animation: none !important;
-  color: var(--reos-ash) !important;
-  -webkit-text-fill-color: var(--reos-ash) !important;
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
 }
-/* Default icon \u2014 ash. */
+/* v0.11.9: Default icon \u2014 emerald (was ash). Tim's call after the
+   GHL Agent Logs icon was added: he wants the whole right-rail to
+   read as a unified emerald icon-bar, not muted-ash-until-hover.
+   Hover bumps to emerald-bright so the hover lift still reads. */
 html body .sidebar-option-button svg,
 html body .sidebar-option-button svg path,
 html body button[class*="sidebar-option-button"] svg,
 html body button[class*="sidebar-option-button"] svg path {
-  color: var(--reos-ash) !important;
-  stroke: var(--reos-ash) !important;
+  color: var(--reos-emerald) !important;
+  stroke: var(--reos-emerald) !important;
   transition: none !important;
 }
-/* Hover \u2014 emerald icon. */
+/* Hover \u2014 emerald-bright icon (subtle lift from emerald rest). */
 html body .sidebar-option-button:hover svg,
 html body .sidebar-option-button:hover svg path,
 html body button[class*="sidebar-option-button"]:hover svg,
 html body button[class*="sidebar-option-button"]:hover svg path {
-  color: var(--reos-emerald) !important;
-  stroke: var(--reos-emerald) !important;
+  color: var(--reos-emerald-bright) !important;
+  stroke: var(--reos-emerald-bright) !important;
 }
 /* Active \u2014 text-blue-600 WITHOUT hover:text-blue-600 (so we only
    catch the selected button, not every button that has the hover

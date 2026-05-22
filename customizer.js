@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.11.10 — built 2026-05-22T23:02:56.371Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var $="[wholesaling-crm-customizer]",Xe="__WS_CRM_DEBUG",Je=()=>!!window[Xe],p={info(...o){console.log($,...o)},warn(...o){console.warn($,...o)},error(...o){console.error($,...o)},debug(...o){Je()&&console.log($,"[debug]",...o)}};var be=/\/contacts\/detail\/([A-Za-z0-9]+)/,re=/\/v2\/location\/([A-Za-z0-9]+)/,Ze=o=>{let e=o.match(be);if(!e)return null;let t=o.match(re);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},Qe=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(be);if(!n)continue;let s=r.match(re)||window.location.pathname.match(re);return{contactId:n[1],locationId:s?s[1]:null,source:"dom"}}return null},x=()=>{let o=Ze(window.location.pathname);return o||Qe()};var he=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},q="",ne=null,M="other",ae=new Set,U=()=>{let o=x()?.contactId??null;if(!(!(window.location.pathname!==q)&&!(o!==ne))){q=window.location.pathname,ne=o,M=he(),p.debug("Page/context changed:",M,q,"contact:",o);for(let r of ae)try{r(M)}catch(n){p.error("Subscriber threw:",n)}}},pe=o=>(ae.add(o),setTimeout(()=>o(M),0),()=>{ae.delete(o)}),me=()=>{M=he(),q=window.location.pathname,ne=x()?.contactId??null,p.debug("Router init, current page:",M);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),U()},history.replaceState=function(t,r,n){e(t,r,n),U()},window.addEventListener("popstate",U),setInterval(U,1e3)};var z="0.11.10",W="2026-05-22T23:02:56.371Z";var A=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,h=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(h(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(h(),s(c))},r),d=window.setTimeout(()=>{h(),p.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},E={sm:"4px",md:"6px",lg:"10px",pill:"999px"},y={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},se={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},_e=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.11.11 — built 2026-05-22T23:09:00.528Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var $="[wholesaling-crm-customizer]",Xe="__WS_CRM_DEBUG",Je=()=>!!window[Xe],p={info(...o){console.log($,...o)},warn(...o){console.warn($,...o)},error(...o){console.error($,...o)},debug(...o){Je()&&console.log($,"[debug]",...o)}};var be=/\/contacts\/detail\/([A-Za-z0-9]+)/,re=/\/v2\/location\/([A-Za-z0-9]+)/,Ze=o=>{let e=o.match(be);if(!e)return null;let t=o.match(re);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},Qe=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(be);if(!n)continue;let s=r.match(re)||window.location.pathname.match(re);return{contactId:n[1],locationId:s?s[1]:null,source:"dom"}}return null},x=()=>{let o=Ze(window.location.pathname);return o||Qe()};var he=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},q="",ne=null,M="other",ae=new Set,U=()=>{let o=x()?.contactId??null;if(!(!(window.location.pathname!==q)&&!(o!==ne))){q=window.location.pathname,ne=o,M=he(),p.debug("Page/context changed:",M,q,"contact:",o);for(let r of ae)try{r(M)}catch(n){p.error("Subscriber threw:",n)}}},pe=o=>(ae.add(o),setTimeout(()=>o(M),0),()=>{ae.delete(o)}),me=()=>{M=he(),q=window.location.pathname,ne=x()?.contactId??null,p.debug("Router init, current page:",M);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),U()},history.replaceState=function(t,r,n){e(t,r,n),U()},window.addEventListener("popstate",U),setInterval(U,1e3)};var z="0.11.11",W="2026-05-22T23:09:00.528Z";var A=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,h=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(h(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(h(),s(c))},r),d=window.setTimeout(()=>{h(),p.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},E={sm:"4px",md:"6px",lg:"10px",pill:"999px"},y={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},se={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},_e=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -3164,6 +3164,47 @@ html body [class*="bg-blue-200"]:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
   background: var(--reos-graphite) !important;
 }
+/* v0.11.11: Dashboard goal-picker cards \u2014 "Track Leads & Sources",
+   "Client Communication & Engagement", "Appointment & Scheduling
+   Management", "Sales & Revenue Tracking", "Marketing & Ad Performance",
+   "Team Performance". GHL ships each card with its own Tailwind
+   color utility (bg-warning-50, bg-success-50, bg-blue-50, bg-pink-50,
+   bg-purple-50) plus matching colored icon backdrop (bg-{color}-100)
+   plus colored SVG icon. Tim's canon: ALL cards uniform \u2014 slate bg,
+   bone text, emerald icons.
+   The cards share a unique class signature:
+     article.flex.items-center.rounded-lg.cursor-pointer.box-border.border
+   That signature is tight enough to scope this rule to dashboard goal
+   cards and nothing else. */
+html body article[class*="flex"][class*="items-center"][class*="rounded-lg"][class*="cursor-pointer"][class*="box-border"][class*="border"]:not(#__reos_never_id) {
+  background-color: var(--reos-slate) !important;
+  background: var(--reos-slate) !important;
+  border-color: var(--reos-steel) !important;
+  color: var(--reos-bone) !important;
+}
+/* Icon-backdrop circle inside each card \u2014 uniform slate (matches
+   the parent card so the circle disappears visually) OR keep the
+   subtle emerald-glow halo. Going with slate for the cleanest
+   look per Tim's request. */
+html body article[class*="rounded-lg"][class*="cursor-pointer"][class*="box-border"] [class*="rounded-full"]:not(#__reos_never_id) {
+  background-color: var(--reos-slate) !important;
+  background: var(--reos-slate) !important;
+}
+/* Icon \u2014 emerald stroke uniformly. */
+html body article[class*="rounded-lg"][class*="cursor-pointer"][class*="box-border"] svg:not(#__reos_never_id),
+html body article[class*="rounded-lg"][class*="cursor-pointer"][class*="box-border"] svg path:not(#__reos_never_id),
+html body article[class*="rounded-lg"][class*="cursor-pointer"][class*="box-border"] svg circle:not(#__reos_never_id),
+html body article[class*="rounded-lg"][class*="cursor-pointer"][class*="box-border"] svg rect:not(#__reos_never_id) {
+  color: var(--reos-emerald) !important;
+  stroke: var(--reos-emerald) !important;
+}
+/* Card text \u2014 all spans/p inside read as bone. */
+html body article[class*="rounded-lg"][class*="cursor-pointer"][class*="box-border"] span:not(#__reos_never_id),
+html body article[class*="rounded-lg"][class*="cursor-pointer"][class*="box-border"] p:not(#__reos_never_id) {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+
 /* v0.11.10: pink + rose family \u2014 Tim flagged the "Marketing & Ad
    Performance" goal card on the dashboard. Tailwind pink-50/100/200
    and rose-50/100/200 ship as #FDF2F8 / #FCE7F3 / pink-200 etc.

@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.12.4 — built 2026-05-24T16:53:20.652Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var U="[wholesaling-crm-customizer]",et="__WS_CRM_DEBUG",tt=()=>!!window[et],h={info(...o){console.log(U,...o)},warn(...o){console.warn(U,...o)},error(...o){console.error(U,...o)},debug(...o){tt()&&console.log(U,"[debug]",...o)}};var me=/\/contacts\/detail\/([A-Za-z0-9]+)/,se=/\/v2\/location\/([A-Za-z0-9]+)/,ot=o=>{let e=o.match(me);if(!e)return null;let t=o.match(se);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},rt=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(me);if(!n)continue;let s=r.match(se)||window.location.pathname.match(se);return{contactId:n[1],locationId:s?s[1]:null,source:"dom"}}return null},x=()=>{let o=ot(window.location.pathname);return o||rt()};var _e=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},z="",ie=null,H="other",le=new Set,q=()=>{let o=x()?.contactId??null;if(!(!(window.location.pathname!==z)&&!(o!==ie))){z=window.location.pathname,ie=o,H=_e(),h.debug("Page/context changed:",H,z,"contact:",o);for(let r of le)try{r(H)}catch(n){h.error("Subscriber threw:",n)}}},ve=o=>(le.add(o),setTimeout(()=>o(H),0),()=>{le.delete(o)}),ue=()=>{H=_e(),z=window.location.pathname,ie=x()?.contactId??null,h.debug("Router init, current page:",H);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),q()},history.replaceState=function(t,r,n){e(t,r,n),q()},window.addEventListener("popstate",q),setInterval(q,1e3)};var W="0.12.4",j="2026-05-24T16:53:20.653Z";var S=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),s(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},E={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},de={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},K=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.12.5 — built 2026-05-24T20:28:00.084Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var U="[wholesaling-crm-customizer]",et="__WS_CRM_DEBUG",tt=()=>!!window[et],h={info(...o){console.log(U,...o)},warn(...o){console.warn(U,...o)},error(...o){console.error(U,...o)},debug(...o){tt()&&console.log(U,"[debug]",...o)}};var me=/\/contacts\/detail\/([A-Za-z0-9]+)/,se=/\/v2\/location\/([A-Za-z0-9]+)/,ot=o=>{let e=o.match(me);if(!e)return null;let t=o.match(se);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},rt=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(me);if(!n)continue;let s=r.match(se)||window.location.pathname.match(se);return{contactId:n[1],locationId:s?s[1]:null,source:"dom"}}return null},x=()=>{let o=ot(window.location.pathname);return o||rt()};var _e=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},z="",ie=null,H="other",le=new Set,q=()=>{let o=x()?.contactId??null;if(!(!(window.location.pathname!==z)&&!(o!==ie))){z=window.location.pathname,ie=o,H=_e(),h.debug("Page/context changed:",H,z,"contact:",o);for(let r of le)try{r(H)}catch(n){h.error("Subscriber threw:",n)}}},ve=o=>(le.add(o),setTimeout(()=>o(H),0),()=>{le.delete(o)}),ue=()=>{H=_e(),z=window.location.pathname,ie=x()?.contactId??null,h.debug("Router init, current page:",H);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),q()},history.replaceState=function(t,r,n){e(t,r,n),q()},window.addEventListener("popstate",q),setInterval(q,1e3)};var W="0.12.5",j="2026-05-24T20:28:00.084Z";var S=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((s,i)=>{let a=n.querySelector(o);if(a){s(a);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),s(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),s(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},E={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},de={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},K=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -1530,6 +1530,110 @@ html body .n-tag--success-type {
 html body .n-tag--success-type .n-tag__content {
   color: var(--reos-emerald) !important;
   -webkit-text-fill-color: var(--reos-emerald) !important;
+}
+
+/* v0.12.5: .n-tag.hl-success (and sibling .hl-warning / .hl-error /
+   .hl-info / .hl-default) \u2014 GHL ships these with inline CSS vars
+   --n-color / --n-text-color / --n-border all set to GHL BLUE
+   regardless of the semantic class (the .hl-success on Tim's WP
+   "SSL Issued" pill had --n-color rgba(21,94,239,0.1) + --n-text-
+   color #155EEF, not green). My .n-tag rule (line 1144) paints
+   slate/bone directly, but Naive UI internally re-applies
+   background-color: var(--n-color) on every Vue tick, fighting
+   the CSS canon and flashing visibly. Fix: override the inline
+   CSS vars themselves so Naive's INTERNAL rendering picks up
+   canon values. No more cascade fight, no more flash. */
+html body .n-tag.hl-success:not(#__reos_never_id),
+html body [class*="hl-success"].n-tag:not(#__reos_never_id),
+html body .n-tag.hr-tag--success:not(#__reos_never_id) {
+  --n-color: var(--reos-emerald-glow) !important;
+  --n-color-hover: rgba(15, 181, 126, 0.18) !important;
+  --n-color-pressed: rgba(15, 181, 126, 0.22) !important;
+  --n-text-color: var(--reos-emerald) !important;
+  --n-text-color-hover: var(--reos-emerald-bright) !important;
+  --n-border: 1px solid var(--reos-emerald) !important;
+  --n-close-icon-color: var(--reos-emerald) !important;
+  --n-close-icon-color-hover: var(--reos-emerald-bright) !important;
+  background-color: var(--reos-emerald-glow) !important;
+  color: var(--reos-emerald) !important;
+  border-color: var(--reos-emerald) !important;
+}
+html body .n-tag.hl-warning:not(#__reos_never_id),
+html body [class*="hl-warning"].n-tag:not(#__reos_never_id),
+html body .n-tag.hr-tag--warning:not(#__reos_never_id) {
+  --n-color: rgba(232, 163, 60, 0.12) !important;
+  --n-color-hover: rgba(232, 163, 60, 0.18) !important;
+  --n-text-color: var(--reos-amber) !important;
+  --n-text-color-hover: var(--reos-amber) !important;
+  --n-border: 1px solid var(--reos-amber) !important;
+  --n-close-icon-color: var(--reos-amber) !important;
+  background-color: rgba(232, 163, 60, 0.12) !important;
+  color: var(--reos-amber) !important;
+  border-color: var(--reos-amber) !important;
+}
+html body .n-tag.hl-error:not(#__reos_never_id),
+html body [class*="hl-error"].n-tag:not(#__reos_never_id),
+html body .n-tag.hr-tag--error:not(#__reos_never_id) {
+  --n-color: rgba(212, 63, 74, 0.12) !important;
+  --n-color-hover: rgba(212, 63, 74, 0.18) !important;
+  --n-text-color: var(--reos-crimson) !important;
+  --n-text-color-hover: var(--reos-crimson) !important;
+  --n-border: 1px solid var(--reos-crimson) !important;
+  --n-close-icon-color: var(--reos-crimson) !important;
+  background-color: rgba(212, 63, 74, 0.12) !important;
+  color: var(--reos-crimson) !important;
+  border-color: var(--reos-crimson) !important;
+}
+html body .n-tag.hl-info:not(#__reos_never_id),
+html body [class*="hl-info"].n-tag:not(#__reos_never_id),
+html body .n-tag.hr-tag--info:not(#__reos_never_id),
+html body .n-tag.hr-tag--primary:not(#__reos_never_id) {
+  --n-color: rgba(75, 139, 245, 0.12) !important;
+  --n-color-hover: rgba(75, 139, 245, 0.18) !important;
+  --n-text-color: var(--reos-blue) !important;
+  --n-text-color-hover: var(--reos-blue) !important;
+  --n-border: 1px solid var(--reos-blue) !important;
+  --n-close-icon-color: var(--reos-blue) !important;
+  background-color: rgba(75, 139, 245, 0.12) !important;
+  color: var(--reos-blue) !important;
+  border-color: var(--reos-blue) !important;
+}
+/* Content + icon inside any .hl-* tag \u2014 inherit the variant color
+   via CSS so the inline color: bone from older coercers gets beaten
+   AND the flash stops (no cascade fight). */
+html body .n-tag.hl-success:not(#__reos_never_id) .n-tag__content,
+html body .n-tag.hl-success:not(#__reos_never_id) .n-tag__content *,
+html body .n-tag.hl-success:not(#__reos_never_id) svg,
+html body .n-tag.hl-success:not(#__reos_never_id) svg path {
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
+  stroke: var(--reos-emerald) !important;
+}
+html body .n-tag.hl-warning:not(#__reos_never_id) .n-tag__content,
+html body .n-tag.hl-warning:not(#__reos_never_id) .n-tag__content *,
+html body .n-tag.hl-warning:not(#__reos_never_id) svg,
+html body .n-tag.hl-warning:not(#__reos_never_id) svg path {
+  color: var(--reos-amber) !important;
+  -webkit-text-fill-color: var(--reos-amber) !important;
+  stroke: var(--reos-amber) !important;
+}
+html body .n-tag.hl-error:not(#__reos_never_id) .n-tag__content,
+html body .n-tag.hl-error:not(#__reos_never_id) .n-tag__content *,
+html body .n-tag.hl-error:not(#__reos_never_id) svg,
+html body .n-tag.hl-error:not(#__reos_never_id) svg path {
+  color: var(--reos-crimson) !important;
+  -webkit-text-fill-color: var(--reos-crimson) !important;
+  stroke: var(--reos-crimson) !important;
+}
+html body .n-tag.hl-info:not(#__reos_never_id) .n-tag__content,
+html body .n-tag.hl-info:not(#__reos_never_id) .n-tag__content *,
+html body .n-tag.hl-info:not(#__reos_never_id) svg,
+html body .n-tag.hl-info:not(#__reos_never_id) svg path,
+html body .n-tag.hr-tag--primary:not(#__reos_never_id) .n-tag__content,
+html body .n-tag.hr-tag--primary:not(#__reos_never_id) .n-tag__content * {
+  color: var(--reos-blue) !important;
+  -webkit-text-fill-color: var(--reos-blue) !important;
+  stroke: var(--reos-blue) !important;
 }
 
 /* n-input + n-base-selection (text fields + dropdowns) */

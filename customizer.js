@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.12.15 — built 2026-05-24T21:46:49.203Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var $="[wholesaling-crm-customizer]",ot="__WS_CRM_DEBUG",rt=()=>!!window[ot],h={info(...o){console.log($,...o)},warn(...o){console.warn($,...o)},error(...o){console.error($,...o)},debug(...o){rt()&&console.log($,"[debug]",...o)}};var _e=/\/contacts\/detail\/([A-Za-z0-9]+)/,le=/\/v2\/location\/([A-Za-z0-9]+)/,nt=o=>{let e=o.match(_e);if(!e)return null;let t=o.match(le);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},at=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(_e);if(!n)continue;let a=r.match(le)||window.location.pathname.match(le);return{contactId:n[1],locationId:a?a[1]:null,source:"dom"}}return null},x=()=>{let o=nt(window.location.pathname);return o||at()};var ve=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},z="",de=null,H="other",ce=new Set,q=()=>{let o=x()?.contactId??null;if(!(!(window.location.pathname!==z)&&!(o!==de))){z=window.location.pathname,de=o,H=ve(),h.debug("Page/context changed:",H,z,"contact:",o);for(let r of ce)try{r(H)}catch(n){h.error("Subscriber threw:",n)}}},ue=o=>(ce.add(o),setTimeout(()=>o(H),0),()=>{ce.delete(o)}),ye=()=>{H=ve(),z=window.location.pathname,de=x()?.contactId??null,h.debug("Router init, current page:",H);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),q()},history.replaceState=function(t,r,n){e(t,r,n),q()},window.addEventListener("popstate",q),setInterval(q,1e3)};var W="0.12.15",j="2026-05-24T21:46:49.204Z";var S=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((a,i)=>{let s=n.querySelector(o);if(s){a(s);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),a(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),a(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},E={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},be={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},K=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.12.16 — built 2026-05-24T21:49:57.368Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var $="[wholesaling-crm-customizer]",ot="__WS_CRM_DEBUG",rt=()=>!!window[ot],h={info(...o){console.log($,...o)},warn(...o){console.warn($,...o)},error(...o){console.error($,...o)},debug(...o){rt()&&console.log($,"[debug]",...o)}};var _e=/\/contacts\/detail\/([A-Za-z0-9]+)/,le=/\/v2\/location\/([A-Za-z0-9]+)/,nt=o=>{let e=o.match(_e);if(!e)return null;let t=o.match(le);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},at=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(_e);if(!n)continue;let a=r.match(le)||window.location.pathname.match(le);return{contactId:n[1],locationId:a?a[1]:null,source:"dom"}}return null},x=()=>{let o=nt(window.location.pathname);return o||at()};var ve=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},z="",de=null,H="other",ce=new Set,q=()=>{let o=x()?.contactId??null;if(!(!(window.location.pathname!==z)&&!(o!==de))){z=window.location.pathname,de=o,H=ve(),h.debug("Page/context changed:",H,z,"contact:",o);for(let r of ce)try{r(H)}catch(n){h.error("Subscriber threw:",n)}}},ue=o=>(ce.add(o),setTimeout(()=>o(H),0),()=>{ce.delete(o)}),ye=()=>{H=ve(),z=window.location.pathname,de=x()?.contactId??null,h.debug("Router init, current page:",H);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),q()},history.replaceState=function(t,r,n){e(t,r,n),q()},window.addEventListener("popstate",q),setInterval(q,1e3)};var W="0.12.16",j="2026-05-24T21:49:57.369Z";var S=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((a,i)=>{let s=n.querySelector(o);if(s){a(s);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),a(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),a(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},E={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},be={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},K=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -3750,6 +3750,53 @@ html body [class*="border-gray-50"]:not(#__reos_never_id) {
    colors unchanged. */
 html body .border:not(#__reos_never_id) {
   border-color: var(--reos-steel) !important;
+}
+
+/* v0.12.16: .hr-input__inline-text \u2014 Highrise's inline-editable text
+   widget. Shows rendered text in normal state and becomes an <input>
+   when clicked. Used for the WordPress site title ("PORCH Investor
+   Website") and similar inline-rename fields. Naive's defaults:
+     --n-text-color: var(--gray-900)        \u2192 invisible on graphite
+     --n-background-color: var(--white)     \u2192 white box on hover
+   Override the CSS vars so the text reads bone in all states and
+   the hover affordance is a slate fill + steel hairline border
+   (indicates "click to edit" without a bright white box). */
+html body .hr-input__inline-text:not(#__reos_never_id),
+html body .hr-input__inline-text.has-value:not(#__reos_never_id) {
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-hover: var(--reos-bone) !important;
+  --n-text-color-disabled: var(--reos-cool-gray) !important;
+  --n-placeholder-color: var(--reos-ash) !important;
+  --n-placeholder-color-disabled: var(--reos-cool-gray) !important;
+  --n-background-color: transparent !important;
+  --n-color-disabled: transparent !important;
+  --n-background-color-disabled: transparent !important;
+  --n-background-color-hover-disabled: transparent !important;
+  --n-icon-color: var(--reos-ash) !important;
+  --n-icon-color-disabled: var(--reos-cool-gray) !important;
+  --n-border: none !important;
+  --n-border-hover: 1px solid var(--reos-steel) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  --n-caret-color: var(--reos-emerald) !important;
+  color: var(--reos-bone) !important;
+  background-color: transparent !important;
+}
+html body .hr-input__inline-text:not(#__reos_never_id):hover {
+  background-color: var(--reos-slate) !important;
+}
+/* The inner <p class="n-p hr-input__text-content--active"> carries
+   its own inline --n-text-color var. Pin bone on the rendered text
+   so it doesn't fall back to gray-900 on first paint. */
+html body .hr-input__text-content:not(#__reos_never_id),
+html body .hr-input__text-content--active:not(#__reos_never_id),
+html body .n-p.hr-input__text-content--active:not(#__reos_never_id),
+html body .hr-input__text-content:not(#__reos_never_id) p,
+html body .hr-input__text-content--active:not(#__reos_never_id) p {
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-hover: var(--reos-bone) !important;
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+  background-color: transparent !important;
 }
 
 /* Dialer / keypad component (visible on dispositions + call

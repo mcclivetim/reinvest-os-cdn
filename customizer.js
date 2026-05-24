@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.12.18 — built 2026-05-24T22:04:34.167Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var $="[wholesaling-crm-customizer]",ot="__WS_CRM_DEBUG",rt=()=>!!window[ot],h={info(...o){console.log($,...o)},warn(...o){console.warn($,...o)},error(...o){console.error($,...o)},debug(...o){rt()&&console.log($,"[debug]",...o)}};var _e=/\/contacts\/detail\/([A-Za-z0-9]+)/,le=/\/v2\/location\/([A-Za-z0-9]+)/,nt=o=>{let e=o.match(_e);if(!e)return null;let t=o.match(le);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},at=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(_e);if(!n)continue;let a=r.match(le)||window.location.pathname.match(le);return{contactId:n[1],locationId:a?a[1]:null,source:"dom"}}return null},x=()=>{let o=nt(window.location.pathname);return o||at()};var ve=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},z="",de=null,H="other",ce=new Set,q=()=>{let o=x()?.contactId??null;if(!(!(window.location.pathname!==z)&&!(o!==de))){z=window.location.pathname,de=o,H=ve(),h.debug("Page/context changed:",H,z,"contact:",o);for(let r of ce)try{r(H)}catch(n){h.error("Subscriber threw:",n)}}},ue=o=>(ce.add(o),setTimeout(()=>o(H),0),()=>{ce.delete(o)}),ye=()=>{H=ve(),z=window.location.pathname,de=x()?.contactId??null,h.debug("Router init, current page:",H);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),q()},history.replaceState=function(t,r,n){e(t,r,n),q()},window.addEventListener("popstate",q),setInterval(q,1e3)};var W="0.12.18",j="2026-05-24T22:04:34.168Z";var S=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((a,i)=>{let s=n.querySelector(o);if(s){a(s);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),a(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),a(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},E={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},be={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},K=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.12.19 — built 2026-05-24T22:12:40.632Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var $="[wholesaling-crm-customizer]",ot="__WS_CRM_DEBUG",rt=()=>!!window[ot],h={info(...o){console.log($,...o)},warn(...o){console.warn($,...o)},error(...o){console.error($,...o)},debug(...o){rt()&&console.log($,"[debug]",...o)}};var _e=/\/contacts\/detail\/([A-Za-z0-9]+)/,le=/\/v2\/location\/([A-Za-z0-9]+)/,nt=o=>{let e=o.match(_e);if(!e)return null;let t=o.match(le);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},at=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(_e);if(!n)continue;let a=r.match(le)||window.location.pathname.match(le);return{contactId:n[1],locationId:a?a[1]:null,source:"dom"}}return null},x=()=>{let o=nt(window.location.pathname);return o||at()};var ve=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},z="",de=null,H="other",ce=new Set,q=()=>{let o=x()?.contactId??null;if(!(!(window.location.pathname!==z)&&!(o!==de))){z=window.location.pathname,de=o,H=ve(),h.debug("Page/context changed:",H,z,"contact:",o);for(let r of ce)try{r(H)}catch(n){h.error("Subscriber threw:",n)}}},ue=o=>(ce.add(o),setTimeout(()=>o(H),0),()=>{ce.delete(o)}),ye=()=>{H=ve(),z=window.location.pathname,de=x()?.contactId??null,h.debug("Router init, current page:",H);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),q()},history.replaceState=function(t,r,n){e(t,r,n),q()},window.addEventListener("popstate",q),setInterval(q,1e3)};var W="0.12.19",j="2026-05-24T22:12:40.633Z";var S=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((a,i)=>{let s=n.querySelector(o);if(s){a(s);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),a(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),a(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},E={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},be={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},K=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -1031,60 +1031,81 @@ select,
   color: var(--reos-bone) !important;
   border-radius: 4px !important;
 }
-/* v0.12.17 / v0.12.18: ID-level specificity bump for the hr-input
-   border. Tim flagged Property Address / City / County / State / Zip
-   etc. with a gray-200 hairline instead of steel.
+/* v0.12.19: hr-input border architecture rewrite. Highrise inputs
+   use Naive's state-border pattern: a separate absolutely-positioned
+   .hr-input__state-border element (inset: 0; pointer-events: none)
+   draws the visible border so focus/hover/error transitions can
+   animate without relayout. Default gray-200 idle, blue hover,
+   error red \u2014 all driven by Naive CSS vars on the overlay.
 
-   DOM nesting:
-     .hr-input-wrapper       (outer \u2014 slate fill, NO border)
-       .hr-input__input      (THE visible field box \u2014 steel border)
-         <input>             (innermost \u2014 no border, no outline)
+   v0.12.17 / v0.12.18 mistake: I painted a border directly on
+   .hr-input__input. The state-border overlay was still drawing on
+   top of it \u2192 DOUBLE border, with hover still blue (Naive vars
+   uncovered).
 
-   v0.12.17 attempt put a border on BOTH the wrapper AND the inner
-   .hr-input__input \u2014 that produced a double-stripe (Tim flagged this).
-   v0.12.18 puts the border on ONE level only: the inner .hr-input__input.
-   Wrapper stays slate-filled (no border) to avoid the right-edge
-   white strip past size=20 inputs. */
-html body .hr-input__input:not(#__reos_never_id),
-html body .hr-textarea:not(#__reos_never_id),
-html body .hr-select:not(#__reos_never_id),
-html body [class*="hr-input__input"]:not(#__reos_never_id) {
-  border: 1px solid var(--reos-steel) !important;
-  border-color: var(--reos-steel) !important;
-}
-/* Wrapper \u2014 slate fill only, NO border (otherwise we double-stripe
-   with .hr-input__input). */
+   v0.12.19 correct architecture:
+     .hr-input-wrapper       slate fill, no border, no shadow
+       .hr-input__input      slate fill, NO border (overlay handles it)
+         .hr-input__state-border   THE visible border layer
+                                    idle: steel
+                                    hover: steel
+                                    focus: emerald (existing rule)
+                                    error: crimson (existing rule)
+         <input>              transparent, no border, no outline */
 html body .hr-input:not(#__reos_never_id),
 html body .hr-input-wrapper:not(#__reos_never_id),
+html body .hr-input__input:not(#__reos_never_id),
+html body .hr-textarea:not(#__reos_never_id),
 html body .hr-textarea-wrapper:not(#__reos_never_id),
+html body .hr-select:not(#__reos_never_id),
 html body .hr-select-wrapper:not(#__reos_never_id),
-html body [class*="hr-input-wrapper"]:not(#__reos_never_id) {
+html body [class*="hr-input-wrapper"]:not(#__reos_never_id),
+html body [class*="hr-input__input"]:not(#__reos_never_id) {
   border: none !important;
   border-color: transparent !important;
+  box-shadow: none !important;
   background-color: var(--reos-slate) !important;
 }
-/* Inner <input class="hr-input__input-el"> \u2014 no border, no outline. */
+/* The state-border overlay \u2014 THE single border layer. */
+html body .hr-input__state-border:not(#__reos_never_id),
+html body .hr-input .hr-input__state-border:not(#__reos_never_id),
+html body .hr-input-wrapper .hr-input__state-border:not(#__reos_never_id) {
+  border: 1px solid var(--reos-steel) !important;
+  border-color: var(--reos-steel) !important;
+  box-shadow: none !important;
+  border-radius: 4px !important;
+}
+/* Hover \u2014 pin steel (no blue from Naive's --n-border-hover var). */
+html body .hr-input:not(#__reos_never_id):hover .hr-input__state-border,
+html body .hr-input-wrapper:not(#__reos_never_id):hover .hr-input__state-border,
+html body .hr-input__input:not(#__reos_never_id):hover .hr-input__state-border,
+html body .hr-input__input:not(#__reos_never_id):hover ~ .hr-input__state-border,
+html body .hr-input__state-border:not(#__reos_never_id) {
+  border-color: var(--reos-steel) !important;
+}
+/* Naive vars on .hr-input \u2014 pin border vars so any rule that reads
+   them resolves to steel + emerald canon (not GHL primary blue). */
+html body .hr-input:not(#__reos_never_id),
+html body .hr-input-wrapper:not(#__reos_never_id),
+html body .hr-input__input:not(#__reos_never_id),
+html body [class*="hr-input"]:not(#__reos_never_id) {
+  --n-border: 1px solid var(--reos-steel) !important;
+  --n-border-hover: 1px solid var(--reos-steel) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  --n-border-disabled: 1px solid var(--reos-steel) !important;
+  --n-box-shadow: none !important;
+  --n-box-shadow-focus: none !important;
+  --n-box-shadow-focus-warning: none !important;
+  --n-box-shadow-focus-error: none !important;
+}
+/* Inner <input class="hr-input__input-el"> \u2014 transparent, borderless. */
 html body input.hr-input__input-el:not(#__reos_never_id),
 html body .hr-input__input > input:not(#__reos_never_id),
 html body [class*="hr-input"] > input:not(#__reos_never_id) {
   border: none !important;
   border-color: transparent !important;
   outline: none !important;
-}
-/* HOVER state \u2014 Naive defaults to --n-border-hover: var(--primary-200)
-   which resolves to GHL blue. Pin hover border to steel (matches
-   idle state \u2014 Tim wants no color change on hover, only on focus).
-   Focus border stays emerald per the existing :focus rule. */
-html body .hr-input__input:not(#__reos_never_id):hover,
-html body [class*="hr-input__input"]:not(#__reos_never_id):hover {
-  border: 1px solid var(--reos-steel) !important;
-  border-color: var(--reos-steel) !important;
-  box-shadow: none !important;
-}
-html body .hr-input-wrapper:not(#__reos_never_id):hover,
-html body [class*="hr-input-wrapper"]:not(#__reos_never_id):hover {
-  border: none !important;
-  box-shadow: none !important;
+  background: transparent !important;
 }
 .hr-input__input-el,
 .hr-textarea textarea,

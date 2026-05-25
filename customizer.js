@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.13.1 — built 2026-05-25T21:54:36.444Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var z="[wholesaling-crm-customizer]",lt="__WS_CRM_DEBUG",dt=()=>!!window[lt],h={info(...o){console.log(z,...o)},warn(...o){console.warn(z,...o)},error(...o){console.error(z,...o)},debug(...o){dt()&&console.log(z,"[debug]",...o)}};var ue=/(?:\/contacts\/detail\/|\/contacts\/|\/objects\/contact\/detail\/|\/objects\/contact\/)([A-Za-z0-9]{16,})(?:[/?#]|$)/,ce=/\/v2\/location\/([A-Za-z0-9]+)/,ct=o=>{let e=o.match(ue);if(!e)return null;let t=o.match(ce);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},bt=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(ue);if(!n)continue;let a=r.match(ce)||window.location.pathname.match(ce);return{contactId:n[1],locationId:a?a[1]:null,source:"dom"}}return null},f=()=>{let o=ct(window.location.pathname);return o||bt()};var ye=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},j="",be=null,H="other",he=new Set,W=()=>{let o=f()?.contactId??null;if(!(!(window.location.pathname!==j)&&!(o!==be))){j=window.location.pathname,be=o,H=ye(),h.debug("Page/context changed:",H,j,"contact:",o);for(let r of he)try{r(H)}catch(n){h.error("Subscriber threw:",n)}}},ge=o=>(he.add(o),setTimeout(()=>o(H),0),()=>{he.delete(o)}),fe=()=>{H=ye(),j=window.location.pathname,be=f()?.contactId??null,h.debug("Router init, current page:",H);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),W()},history.replaceState=function(t,r,n){e(t,r,n),W()},window.addEventListener("popstate",W),setInterval(W,1e3)};var K="0.13.1",Y="2026-05-25T21:54:36.445Z";var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((a,i)=>{let s=n.querySelector(o);if(s){a(s);return}let l,c,p=()=>{m&&m.disconnect(),l!==void 0&&window.clearTimeout(l),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let b=n.querySelector(o);b&&(p(),a(b))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let b=n.querySelector(o);b&&(p(),a(b))},r),l=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var d={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},S={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},pe={purple:"#8B5CF6",green:d.emerald,orange:d.amber,red:d.crimson},X=o=>{let e=o==="emerald"?d.emeraldGlow:o==="amber"?d.amberGlow:d.slate,t=o==="emerald"?d.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":d.steel,r=o==="emerald"?d.emerald:o==="amber"?d.amber:d.bone;return`
+/* Wholesaling CRM Customizer v0.13.2 — built 2026-05-25T21:55:44.020Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var z="[wholesaling-crm-customizer]",lt="__WS_CRM_DEBUG",dt=()=>!!window[lt],h={info(...o){console.log(z,...o)},warn(...o){console.warn(z,...o)},error(...o){console.error(z,...o)},debug(...o){dt()&&console.log(z,"[debug]",...o)}};var ue=/(?:\/contacts\/detail\/|\/contacts\/|\/objects\/contact\/detail\/|\/objects\/contact\/)([A-Za-z0-9]{16,})(?:[/?#]|$)/,ce=/\/v2\/location\/([A-Za-z0-9]+)/,ct=o=>{let e=o.match(ue);if(!e)return null;let t=o.match(ce);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},bt=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(ue);if(!n)continue;let a=r.match(ce)||window.location.pathname.match(ce);return{contactId:n[1],locationId:a?a[1]:null,source:"dom"}}return null},f=()=>{let o=ct(window.location.pathname);return o||bt()};var ye=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},j="",be=null,H="other",he=new Set,W=()=>{let o=f()?.contactId??null;if(!(!(window.location.pathname!==j)&&!(o!==be))){j=window.location.pathname,be=o,H=ye(),h.debug("Page/context changed:",H,j,"contact:",o);for(let r of he)try{r(H)}catch(n){h.error("Subscriber threw:",n)}}},ge=o=>(he.add(o),setTimeout(()=>o(H),0),()=>{he.delete(o)}),fe=()=>{H=ye(),j=window.location.pathname,be=f()?.contactId??null,h.debug("Router init, current page:",H);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),W()},history.replaceState=function(t,r,n){e(t,r,n),W()},window.addEventListener("popstate",W),setInterval(W,1e3)};var K="0.13.2",Y="2026-05-25T21:55:44.021Z";var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((a,i)=>{let s=n.querySelector(o);if(s){a(s);return}let l,c,p=()=>{m&&m.disconnect(),l!==void 0&&window.clearTimeout(l),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let b=n.querySelector(o);b&&(p(),a(b))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let b=n.querySelector(o);b&&(p(),a(b))},r),l=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var d={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},S={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},pe={purple:"#8B5CF6",green:d.emerald,orange:d.amber,red:d.crimson},X=o=>{let e=o==="emerald"?d.emeraldGlow:o==="amber"?d.amberGlow:d.slate,t=o==="emerald"?d.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":d.steel,r=o==="emerald"?d.emerald:o==="amber"?d.amber:d.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -3472,6 +3472,73 @@ html body [class*="bg-primary-25"]:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
   background: var(--reos-graphite) !important;
   border-color: var(--reos-steel) !important;
+}
+
+/* v0.13.2: Tailwind .bg-primary-300/400/500/600/700/800/900 \u2014 the
+   SOLID primary-blue button bg shades (GHL's primary-500 = #155EEF).
+   Tim flagged the "New" button on the email-builder template page
+   that uses bg-primary-500 + hover:bg-primary-400. Flip all the
+   solid shades to emerald canon. The light tints (25/50/100/200)
+   stay slate per the existing rules above. */
+html body .bg-primary-300:not(#__reos_never_id),
+html body .bg-primary-400:not(#__reos_never_id),
+html body .bg-primary-500:not(#__reos_never_id),
+html body .bg-primary-600:not(#__reos_never_id),
+html body .bg-primary-700:not(#__reos_never_id),
+html body .bg-primary-800:not(#__reos_never_id),
+html body .bg-primary-900:not(#__reos_never_id),
+html body [class~="bg-primary-300"]:not(#__reos_never_id),
+html body [class~="bg-primary-400"]:not(#__reos_never_id),
+html body [class~="bg-primary-500"]:not(#__reos_never_id),
+html body [class~="bg-primary-600"]:not(#__reos_never_id),
+html body [class~="bg-primary-700"]:not(#__reos_never_id) {
+  background-color: var(--reos-emerald) !important;
+  background: var(--reos-emerald) !important;
+  color: var(--reos-bone) !important;
+  border-color: var(--reos-emerald) !important;
+}
+/* Hover variants \u2014 emerald-bright. Tailwind compiles hover:bg-primary-400
+   as a .hover:bg-primary-400 class that activates via :hover. */
+html body .hover:bg-primary-300:not(#__reos_never_id):hover,
+html body .hover:bg-primary-400:not(#__reos_never_id):hover,
+html body .hover:bg-primary-500:not(#__reos_never_id):hover,
+html body .hover:bg-primary-600:not(#__reos_never_id):hover,
+html body .hover:bg-primary-700:not(#__reos_never_id):hover,
+html body [class*="hover:bg-primary-3"]:not(#__reos_never_id):hover,
+html body [class*="hover:bg-primary-4"]:not(#__reos_never_id):hover,
+html body [class*="hover:bg-primary-5"]:not(#__reos_never_id):hover,
+html body [class*="hover:bg-primary-6"]:not(#__reos_never_id):hover,
+html body [class*="hover:bg-primary-7"]:not(#__reos_never_id):hover {
+  background-color: var(--reos-emerald-bright) !important;
+  background: var(--reos-emerald-bright) !important;
+  border-color: var(--reos-emerald-bright) !important;
+}
+/* Focus variants \u2014 keep emerald (not GHL blue). */
+html body .focus:border-primary-700:not(#__reos_never_id):focus,
+html body .focus:bg-primary-700:not(#__reos_never_id):focus,
+html body [class*="focus:border-primary-"]:not(#__reos_never_id):focus,
+html body [class*="focus:bg-primary-"]:not(#__reos_never_id):focus {
+  border-color: var(--reos-emerald) !important;
+  box-shadow: 0 0 0 1px var(--reos-emerald) !important;
+  outline: none !important;
+}
+/* Tailwind text-primary-* (the matching text-on-blue weight families).
+   White on emerald is good (existing .text-white rule handles it). */
+html body .text-primary-300:not(#__reos_never_id),
+html body .text-primary-400:not(#__reos_never_id),
+html body .text-primary-500:not(#__reos_never_id),
+html body .text-primary-600:not(#__reos_never_id),
+html body .text-primary-700:not(#__reos_never_id) {
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
+}
+/* .border-primary-* \u2014 emerald. */
+html body .border-primary-300:not(#__reos_never_id),
+html body .border-primary-400:not(#__reos_never_id),
+html body .border-primary-500:not(#__reos_never_id),
+html body .border-primary-600:not(#__reos_never_id),
+html body .border-primary-700:not(#__reos_never_id) {
+  border-color: var(--reos-emerald) !important;
 }
 /* hr-form-item-feedback-wrapper \u2014 sometimes ships with light bg
    when there's a feedback message. Force transparent. */

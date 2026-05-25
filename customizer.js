@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.12.25 — built 2026-05-25T17:26:58.621Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var $="[wholesaling-crm-customizer]",rt="__WS_CRM_DEBUG",nt=()=>!!window[rt],h={info(...o){console.log($,...o)},warn(...o){console.warn($,...o)},error(...o){console.error($,...o)},debug(...o){nt()&&console.log($,"[debug]",...o)}};var ve=/\/contacts\/detail\/([A-Za-z0-9]+)/,de=/\/v2\/location\/([A-Za-z0-9]+)/,at=o=>{let e=o.match(ve);if(!e)return null;let t=o.match(de);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},st=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(ve);if(!n)continue;let a=r.match(de)||window.location.pathname.match(de);return{contactId:n[1],locationId:a?a[1]:null,source:"dom"}}return null},x=()=>{let o=at(window.location.pathname);return o||st()};var ue=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},z="",ce=null,H="other",be=new Set,q=()=>{let o=x()?.contactId??null;if(!(!(window.location.pathname!==z)&&!(o!==ce))){z=window.location.pathname,ce=o,H=ue(),h.debug("Page/context changed:",H,z,"contact:",o);for(let r of be)try{r(H)}catch(n){h.error("Subscriber threw:",n)}}},ye=o=>(be.add(o),setTimeout(()=>o(H),0),()=>{be.delete(o)}),ge=()=>{H=ue(),z=window.location.pathname,ce=x()?.contactId??null,h.debug("Router init, current page:",H);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),q()},history.replaceState=function(t,r,n){e(t,r,n),q()},window.addEventListener("popstate",q),setInterval(q,1e3)};var W="0.12.25",j="2026-05-25T17:26:58.622Z";var S=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((a,i)=>{let s=n.querySelector(o);if(s){a(s);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),a(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),a(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},E={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},he={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},K=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.12.26 — built 2026-05-25T17:32:04.182Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var $="[wholesaling-crm-customizer]",rt="__WS_CRM_DEBUG",nt=()=>!!window[rt],h={info(...o){console.log($,...o)},warn(...o){console.warn($,...o)},error(...o){console.error($,...o)},debug(...o){nt()&&console.log($,"[debug]",...o)}};var ve=/\/contacts\/detail\/([A-Za-z0-9]+)/,de=/\/v2\/location\/([A-Za-z0-9]+)/,at=o=>{let e=o.match(ve);if(!e)return null;let t=o.match(de);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},st=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(ve);if(!n)continue;let a=r.match(de)||window.location.pathname.match(de);return{contactId:n[1],locationId:a?a[1]:null,source:"dom"}}return null},x=()=>{let o=at(window.location.pathname);return o||st()};var ue=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},z="",ce=null,H="other",be=new Set,q=()=>{let o=x()?.contactId??null;if(!(!(window.location.pathname!==z)&&!(o!==ce))){z=window.location.pathname,ce=o,H=ue(),h.debug("Page/context changed:",H,z,"contact:",o);for(let r of be)try{r(H)}catch(n){h.error("Subscriber threw:",n)}}},ye=o=>(be.add(o),setTimeout(()=>o(H),0),()=>{be.delete(o)}),ge=()=>{H=ue(),z=window.location.pathname,ce=x()?.contactId??null,h.debug("Router init, current page:",H);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),q()},history.replaceState=function(t,r,n){e(t,r,n),q()},window.addEventListener("popstate",q),setInterval(q,1e3)};var W="0.12.26",j="2026-05-25T17:32:04.183Z";var S=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((a,i)=>{let s=n.querySelector(o);if(s){a(s);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let c=n.querySelector(o);c&&(p(),a(c))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let c=n.querySelector(o);c&&(p(),a(c))},r),d=window.setTimeout(()=>{p(),h.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},E={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},he={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},K=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2548,6 +2548,127 @@ html body .steps-list:not(#__reos_never_id) {
 html body .border-t-slate-200:not(#__reos_never_id),
 html body [class*="border-t-slate-200"]:not(#__reos_never_id) {
   border-top-color: var(--reos-steel) !important;
+}
+
+/* v0.12.26: Pendo survey/guide modals. Pendo injects feedback polls
+   with all colors set inline (white container, blue primary button,
+   gray rating buttons, black text). Inline styles don't carry
+   !important so our CSS !important wins. Re-skin to canon. */
+html body #pendo-guide-container:not(#__reos_never_id),
+html body [id^="pendo-guide-container"]:not(#__reos_never_id),
+html body ._pendo-step-container-styles:not(#__reos_never_id) {
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+  border: 2px solid var(--reos-emerald) !important;
+  box-shadow: 0 0 20px rgba(15, 181, 126, 0.2) !important;
+  color: var(--reos-bone) !important;
+}
+/* All text inside Pendo guides \u2014 bone for headings, ash for
+   paragraph / muted helper text. Pendo wraps text in nested div+p
+   elements with inline color: rgb(0,0,0) / rgb(71,84,103). */
+html body #pendo-guide-container:not(#__reos_never_id) .bb-text,
+html body #pendo-guide-container:not(#__reos_never_id) [class*="_pendo-text"],
+html body #pendo-guide-container:not(#__reos_never_id) p,
+html body #pendo-guide-container:not(#__reos_never_id) strong,
+html body #pendo-guide-container:not(#__reos_never_id) .bb-text * {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+/* Muted helper text \u2014 "Only visible to agency admins", scale labels. */
+html body #pendo-guide-container:not(#__reos_never_id) ._pendo-text-paragraph,
+html body #pendo-guide-container:not(#__reos_never_id) [class*="_pendo-number-scale-poll"][class*="-description"] {
+  color: var(--reos-ash) !important;
+  -webkit-text-fill-color: var(--reos-ash) !important;
+}
+/* Rating buttons (1-5). Pendo paints them gray bg + black text inline. */
+html body #pendo-guide-container:not(#__reos_never_id) label.pendo-radio,
+html body #pendo-guide-container:not(#__reos_never_id) label[class*="_pendo-number-scale-poll"],
+html body #pendo-guide-container:not(#__reos_never_id) label[class*="_pendo-nps-poll"] {
+  background-color: var(--reos-slate) !important;
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+  border: 1px solid var(--reos-steel) !important;
+  cursor: pointer !important;
+  transition: border-color 0.15s ease, background-color 0.15s ease !important;
+}
+html body #pendo-guide-container:not(#__reos_never_id) label.pendo-radio:hover,
+html body #pendo-guide-container:not(#__reos_never_id) label[class*="_pendo-number-scale-poll"]:hover,
+html body #pendo-guide-container:not(#__reos_never_id) label[class*="_pendo-nps-poll"]:hover {
+  background-color: var(--reos-steel) !important;
+  border-color: var(--reos-emerald) !important;
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
+}
+/* Selected rating (radio :checked + label sibling). */
+html body #pendo-guide-container:not(#__reos_never_id) input.pendo-radio:checked + label,
+html body #pendo-guide-container:not(#__reos_never_id) input[type="radio"]:checked + label {
+  background-color: var(--reos-emerald) !important;
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+  border-color: var(--reos-emerald) !important;
+}
+/* Open-text feedback textarea. */
+html body #pendo-guide-container:not(#__reos_never_id) textarea,
+html body #pendo-guide-container:not(#__reos_never_id) ._pendo-open-text-poll-input,
+html body #pendo-guide-container:not(#__reos_never_id) [class*="_pendo-open-text-poll-input"] {
+  background-color: var(--reos-slate) !important;
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+  border: 1px solid var(--reos-steel) !important;
+  caret-color: var(--reos-emerald) !important;
+}
+html body #pendo-guide-container:not(#__reos_never_id) textarea::placeholder {
+  color: var(--reos-cool-gray) !important;
+  -webkit-text-fill-color: var(--reos-cool-gray) !important;
+}
+html body #pendo-guide-container:not(#__reos_never_id) textarea:focus {
+  border-color: var(--reos-emerald) !important;
+  outline: none !important;
+}
+/* Secondary "Skip for Now" button (white bg + dark text + gray border
+   inline). Repaint slate + bone + steel. */
+html body #pendo-guide-container:not(#__reos_never_id) ._pendo-button-secondaryButton,
+html body #pendo-guide-container:not(#__reos_never_id) [class*="_pendo-button-secondaryButton"],
+html body #pendo-guide-container:not(#__reos_never_id) .bb-button[id*="secondary"] {
+  background-color: var(--reos-slate) !important;
+  background-image: none !important;
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+  border: 1px solid var(--reos-steel) !important;
+}
+html body #pendo-guide-container:not(#__reos_never_id) ._pendo-button-secondaryButton:hover,
+html body #pendo-guide-container:not(#__reos_never_id) [class*="_pendo-button-secondaryButton"]:hover {
+  background-color: var(--reos-steel) !important;
+  border-color: var(--reos-emerald) !important;
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
+}
+/* Primary "Submit" button \u2014 flip GHL blue to emerald. */
+html body #pendo-guide-container:not(#__reos_never_id) ._pendo-button-primaryButton,
+html body #pendo-guide-container:not(#__reos_never_id) [class*="_pendo-button-primaryButton"] {
+  background-color: var(--reos-emerald) !important;
+  background-image: none !important;
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+  border: 1px solid var(--reos-emerald) !important;
+}
+html body #pendo-guide-container:not(#__reos_never_id) ._pendo-button-primaryButton:hover,
+html body #pendo-guide-container:not(#__reos_never_id) [class*="_pendo-button-primaryButton"]:hover {
+  background-color: var(--reos-emerald-bright) !important;
+  border-color: var(--reos-emerald-bright) !important;
+}
+/* Close button (\xD7) in top-right corner. */
+html body #pendo-guide-container:not(#__reos_never_id) ._pendo-close-guide,
+html body #pendo-guide-container:not(#__reos_never_id) [id^="pendo-close-guide"] {
+  color: var(--reos-ash) !important;
+  -webkit-text-fill-color: var(--reos-ash) !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+html body #pendo-guide-container:not(#__reos_never_id) ._pendo-close-guide:hover,
+html body #pendo-guide-container:not(#__reos_never_id) [id^="pendo-close-guide"]:hover {
+  color: var(--reos-crimson) !important;
+  -webkit-text-fill-color: var(--reos-crimson) !important;
 }
 
 /* v0.12.22: .hr-text \u2014 Highrise/Naive paragraph component used for

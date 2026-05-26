@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.13.20 — built 2026-05-26T02:15:23.160Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var K="[wholesaling-crm-customizer]",ft="__WS_CRM_DEBUG",wt=()=>!!window[ft],b={info(...o){console.log(K,...o)},warn(...o){console.warn(K,...o)},error(...o){console.error(K,...o)},debug(...o){wt()&&console.log(K,"[debug]",...o)}};var xe=/(?:\/contacts\/detail\/|\/contacts\/|\/objects\/contact\/detail\/|\/objects\/contact\/)([A-Za-z0-9]{16,})(?:[/?#]|$)/,me=/\/v2\/location\/([A-Za-z0-9]+)/,xt=o=>{let e=o.match(xe);if(!e)return null;let t=o.match(me);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},kt=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(xe);if(!n)continue;let a=r.match(me)||window.location.pathname.match(me);return{contactId:n[1],locationId:a?a[1]:null,source:"dom"}}return null},f=()=>{let o=xt(window.location.pathname);return o||kt()};var ke=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},X="",_e=null,P="other",ve=new Set,Y=()=>{let o=f()?.contactId??null;if(!(!(window.location.pathname!==X)&&!(o!==_e))){X=window.location.pathname,_e=o,P=ke(),b.debug("Page/context changed:",P,X,"contact:",o);for(let r of ve)try{r(P)}catch(n){b.error("Subscriber threw:",n)}}},Te=o=>(ve.add(o),setTimeout(()=>o(P),0),()=>{ve.delete(o)}),Ee=()=>{P=ke(),X=window.location.pathname,_e=f()?.contactId??null,b.debug("Router init, current page:",P);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),Y()},history.replaceState=function(t,r,n){e(t,r,n),Y()},window.addEventListener("popstate",Y),setInterval(Y,1e3)};var J="0.13.20",Q="2026-05-26T02:15:23.161Z";var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((a,i)=>{let s=n.querySelector(o);if(s){a(s);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=n.querySelector(o);h&&(p(),a(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=n.querySelector(o);h&&(p(),a(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},T={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},ue={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},Z=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.13.21 — built 2026-05-26T02:26:42.646Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var K="[wholesaling-crm-customizer]",ft="__WS_CRM_DEBUG",wt=()=>!!window[ft],b={info(...o){console.log(K,...o)},warn(...o){console.warn(K,...o)},error(...o){console.error(K,...o)},debug(...o){wt()&&console.log(K,"[debug]",...o)}};var xe=/(?:\/contacts\/detail\/|\/contacts\/|\/objects\/contact\/detail\/|\/objects\/contact\/)([A-Za-z0-9]{16,})(?:[/?#]|$)/,me=/\/v2\/location\/([A-Za-z0-9]+)/,xt=o=>{let e=o.match(xe);if(!e)return null;let t=o.match(me);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},kt=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(xe);if(!n)continue;let a=r.match(me)||window.location.pathname.match(me);return{contactId:n[1],locationId:a?a[1]:null,source:"dom"}}return null},f=()=>{let o=xt(window.location.pathname);return o||kt()};var ke=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},X="",_e=null,P="other",ve=new Set,Y=()=>{let o=f()?.contactId??null;if(!(!(window.location.pathname!==X)&&!(o!==_e))){X=window.location.pathname,_e=o,P=ke(),b.debug("Page/context changed:",P,X,"contact:",o);for(let r of ve)try{r(P)}catch(n){b.error("Subscriber threw:",n)}}},Te=o=>(ve.add(o),setTimeout(()=>o(P),0),()=>{ve.delete(o)}),Ee=()=>{P=ke(),X=window.location.pathname,_e=f()?.contactId??null,b.debug("Router init, current page:",P);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),Y()},history.replaceState=function(t,r,n){e(t,r,n),Y()},window.addEventListener("popstate",Y),setInterval(Y,1e3)};var J="0.13.21",Q="2026-05-26T02:26:42.646Z";var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((a,i)=>{let s=n.querySelector(o);if(s){a(s);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=n.querySelector(o);h&&(p(),a(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=n.querySelector(o);h&&(p(),a(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},T={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},ue={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},Z=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -18,7 +18,7 @@
     user-select: none;
     transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
     flex-shrink: 0;
-  `},F=`
+  `},L=`
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -52,7 +52,7 @@
   user-select: none;
   transition: border-color 0.15s ease, background 0.15s ease;
   flex-shrink: 0;
-`;var Tt=/^[A-Za-z0-9]{15,30}$/,G=o=>typeof o=="string"&&Tt.test(o),Et=o=>{try{let e=o.split(".");if(e.length!==3)return null;let t=e[1].replace(/-/g,"+").replace(/_/g,"/"),r=t+"=".repeat((4-t.length%4)%4);return JSON.parse(atob(r))}catch{return null}},St=()=>{let o=window.WS_CRM_USER_ID;return G(o)?o:null},Ct=()=>{let o=window,e=[o.appState?.user?.id,o.user?.id,o.currentUser?.id,o.LCUser?.id,o.HL?.user?.id];for(let t of e)if(G(t))return t;return null},At=()=>{try{let o=localStorage.getItem("refreshedToken");if(!o)return null;let e=o.startsWith('"')?o.slice(1,-1):o,t=Et(e);if(!t)return null;let r=t.uid;if(G(r))return r;let n=t.claims;if(n&&G(n.user_id))return n.user_id}catch{}return null},It=()=>{try{let o=["user","tokenUser","currentUser","ghl_user"];for(let e of o){let t=localStorage.getItem(e);if(t)try{let r=JSON.parse(t),n=r.id??r._id;if(G(n))return n}catch{}}}catch{}return null},A=()=>St()||Ct()||At()||It()||null;var Ie="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact",Lt=`${Ie}/active-follow-up-get`,Ft=`${Ie}/active-follow-up-set`,H="ws-crm-active-follow-up-button",ge={amber:{label:"Add to Active Follow Up",bg:l.amberGlow,border:"rgba(232, 163, 60, 0.45)",color:l.amber,clickable:!0,dotColor:l.amber},blue:{label:"In Active Follow Up",bg:l.blueGlow,border:"rgba(75, 139, 245, 0.45)",color:l.blue,clickable:!1,dotColor:l.blue},gray:{label:"Not in Follow Up",bg:l.slate,border:l.steel,color:l.coolGray,clickable:!1,dotColor:l.coolGray},loading:{label:"Active Follow Up\u2026",bg:l.slate,border:l.steel,color:l.ash,clickable:!1,dotColor:l.ash},error:{label:"Follow Up status unavailable",bg:l.slate,border:l.steel,color:l.ash,clickable:!1,dotColor:l.crimson}},Dt=()=>{let o=f();return!o||!o.locationId?null:{contactId:o.contactId,tenantId:o.locationId}},Mt=async o=>{let e=await fetch(Lt,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:o.tenantId,contact_id:o.contactId}),credentials:"omit"});if(!e.ok)throw new Error(`Get webhook returned ${e.status} ${e.statusText}`);return await e.json()},Ht=async(o,e)=>{let t=await fetch(Ft,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:o.tenantId,contact_id:o.contactId,triggered_by_user_id:e??null}),credentials:"omit"});if(!t.ok)throw new Error(`Set webhook returned ${t.status} ${t.statusText}`);return await t.json()},N=(o,e)=>{let t=ge[e];o.dataset.state=e,o.disabled=!t.clickable,o.style.cursor=t.clickable?"pointer":"default",o.style.background=t.bg,o.style.borderColor=t.border,o.style.color=t.color;let r=o.querySelector(".ws-afu-dot");r&&(r.style.background=t.dotColor);let n=o.querySelector(".ws-afu-label");n&&(n.textContent=t.label)},Se=o=>{let e=document.createElement("button");return e.type="button",e.id=H,e.dataset.contactId=o,e.style.cssText=`
+`;var Tt=/^[A-Za-z0-9]{15,30}$/,G=o=>typeof o=="string"&&Tt.test(o),Et=o=>{try{let e=o.split(".");if(e.length!==3)return null;let t=e[1].replace(/-/g,"+").replace(/_/g,"/"),r=t+"=".repeat((4-t.length%4)%4);return JSON.parse(atob(r))}catch{return null}},St=()=>{let o=window.WS_CRM_USER_ID;return G(o)?o:null},Ct=()=>{let o=window,e=[o.appState?.user?.id,o.user?.id,o.currentUser?.id,o.LCUser?.id,o.HL?.user?.id];for(let t of e)if(G(t))return t;return null},At=()=>{try{let o=localStorage.getItem("refreshedToken");if(!o)return null;let e=o.startsWith('"')?o.slice(1,-1):o,t=Et(e);if(!t)return null;let r=t.uid;if(G(r))return r;let n=t.claims;if(n&&G(n.user_id))return n.user_id}catch{}return null},It=()=>{try{let o=["user","tokenUser","currentUser","ghl_user"];for(let e of o){let t=localStorage.getItem(e);if(t)try{let r=JSON.parse(t),n=r.id??r._id;if(G(n))return n}catch{}}}catch{}return null},A=()=>St()||Ct()||At()||It()||null;var Ie="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact",Ft=`${Ie}/active-follow-up-get`,Lt=`${Ie}/active-follow-up-set`,H="ws-crm-active-follow-up-button",ge={amber:{label:"Add to Active Follow Up",bg:l.amberGlow,border:"rgba(232, 163, 60, 0.45)",color:l.amber,clickable:!0,dotColor:l.amber},blue:{label:"In Active Follow Up",bg:l.blueGlow,border:"rgba(75, 139, 245, 0.45)",color:l.blue,clickable:!1,dotColor:l.blue},gray:{label:"Not in Follow Up",bg:l.slate,border:l.steel,color:l.coolGray,clickable:!1,dotColor:l.coolGray},loading:{label:"Active Follow Up\u2026",bg:l.slate,border:l.steel,color:l.ash,clickable:!1,dotColor:l.ash},error:{label:"Follow Up status unavailable",bg:l.slate,border:l.steel,color:l.ash,clickable:!1,dotColor:l.crimson}},Dt=()=>{let o=f();return!o||!o.locationId?null:{contactId:o.contactId,tenantId:o.locationId}},Mt=async o=>{let e=await fetch(Ft,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:o.tenantId,contact_id:o.contactId}),credentials:"omit"});if(!e.ok)throw new Error(`Get webhook returned ${e.status} ${e.statusText}`);return await e.json()},Ht=async(o,e)=>{let t=await fetch(Lt,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:o.tenantId,contact_id:o.contactId,triggered_by_user_id:e??null}),credentials:"omit"});if(!t.ok)throw new Error(`Set webhook returned ${t.status} ${t.statusText}`);return await t.json()},N=(o,e)=>{let t=ge[e];o.dataset.state=e,o.disabled=!t.clickable,o.style.cursor=t.clickable?"pointer":"default",o.style.background=t.bg,o.style.borderColor=t.border,o.style.color=t.color;let r=o.querySelector(".ws-afu-dot");r&&(r.style.background=t.dotColor);let n=o.querySelector(".ws-afu-label");n&&(n.textContent=t.label)},Se=o=>{let e=document.createElement("button");return e.type="button",e.id=H,e.dataset.contactId=o,e.style.cssText=`
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -88,7 +88,7 @@
       background: ${l.graphite};
       border-bottom: 1px solid ${l.steel};
       flex-shrink: 0;
-    `;let a=e.querySelector(`#${ye}`);a&&a.parentElement===e?e.insertBefore(n,a.nextSibling):e.insertBefore(n,e.firstChild)}return n.appendChild(o),{container:n,placement:"fallback"}},Bt=()=>{let o=document.querySelector("[data-testid='CENTRALPANEL_NAME']");if(!o)return null;let e=o;for(let t=0;t<8&&!(!e||!e.parentElement);t++){let r=e.parentElement,n=(r.className||"").toString();if(n.includes("justify-between")&&n.includes("border-b")){let a=r.children[1];return a instanceof HTMLElement?a:r}e=r}return null},Ot=(o,e)=>{o.style.marginRight="4px",e.insertBefore(o,e.firstChild)},Gt=async o=>{if(o==="url"){let t=await Pt();return t?{kind:"contact-detail",target:t}:null}let e=Bt();return e?{kind:"conversations",target:e}:null},Ce=async(o,e)=>{if(e.kind==="contact-detail"){let{placement:t}=await Rt(o,e.target);return t}return Ot(o,e.target),"conversations-header"},$t=async()=>{let o=f();if(!o||!o.locationId){document.getElementById(H)?.remove(),document.getElementById("ws-crm-afu-wrap")?.remove();return}let e={contactId:o.contactId,tenantId:o.locationId},t=document.getElementById(H);if(t&&t.dataset.contactId===e.contactId){ee(t,e);return}t&&t.remove();let r=await Gt(o.source);if(!r){b.warn(`Active Follow Up: no mount target on ${o.source}-source page`);return}let n=f();if(!n||n.contactId!==e.contactId)return;let a=Se(e.contactId),i=await Ce(a,r);b.debug(`Active Follow Up mounted (${r.kind}/${i}) for ${e.contactId}`),Ae();let s=document.getElementById(H)??a;ee(s,e);let d=new MutationObserver(()=>{let c=document.getElementById(H);if(!(f()?.contactId===e.contactId)){d.disconnect();return}if(!c){let m=Se(e.contactId);Ce(m,r).then(()=>{Ae(),ee(m,e)}),b.debug(`Active Follow Up re-mounted after wipe for ${e.contactId}`)}});d.observe(r.target,{childList:!0})},$=null,Le=()=>{let o=f()?.contactId??null;if($&&$.contactId===o)return;let e=$t().finally(()=>{$?.promise===e&&($=null)});$={contactId:o,promise:e}},Ae=()=>{let o=document.querySelectorAll(`#${H}`);if(!(o.length<=1)){b.debug(`Active Follow Up: found ${o.length} duplicate buttons, keeping first, removing ${o.length-1}`);for(let e=1;e<o.length;e++)o[e].remove()}};var D="ws-crm-claim-release-pill",Vt="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/claim-release-get",Ut="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/claim-release-set",qt=async o=>{let e=await fetch(Vt,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:o.locationId,contact_id:o.contactId,triggered_by_user_id:o.userId??null}),credentials:"omit"});if(!e.ok)throw new Error(`Claim/Release Get returned ${e.status} ${e.statusText}`);return await e.json()},zt=async o=>{let e=await fetch(Ut,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:o.locationId,contact_id:o.contactId,triggered_by_user_id:o.userId,action:o.action}),credentials:"omit"});if(!e.ok)throw new Error(`Claim/Release Set returned ${e.status} ${e.statusText}`);return await e.json()},Me=o=>{let e=Array.from(o.children).find(r=>{if(!(r instanceof HTMLElement))return!1;let n=r.className?.toString()??"";return n.includes("flex")&&n.includes("flex-col")});return e?e.querySelector(".flex.items-center, [class~='flex'][class~='items-center']")??null:null},R=(o,e)=>{let t=e==="claim"?"emerald":"amber",r=e==="claim"?l.emerald:l.amber;o.dataset.mode=e,o.style.cssText=Z(t),o.title=e==="claim"?"Take ownership of this lead":"Return this lead to the pool",o.innerHTML=`
+    `;let a=e.querySelector(`#${ye}`);a&&a.parentElement===e?e.insertBefore(n,a.nextSibling):e.insertBefore(n,e.firstChild)}return n.appendChild(o),{container:n,placement:"fallback"}},Bt=()=>{let o=document.querySelector("[data-testid='CENTRALPANEL_NAME']");if(!o)return null;let e=o;for(let t=0;t<8&&!(!e||!e.parentElement);t++){let r=e.parentElement,n=(r.className||"").toString();if(n.includes("justify-between")&&n.includes("border-b")){let a=r.children[1];return a instanceof HTMLElement?a:r}e=r}return null},Ot=(o,e)=>{o.style.marginRight="4px",e.insertBefore(o,e.firstChild)},Gt=async o=>{if(o==="url"){let t=await Pt();return t?{kind:"contact-detail",target:t}:null}let e=Bt();return e?{kind:"conversations",target:e}:null},Ce=async(o,e)=>{if(e.kind==="contact-detail"){let{placement:t}=await Rt(o,e.target);return t}return Ot(o,e.target),"conversations-header"},$t=async()=>{let o=f();if(!o||!o.locationId){document.getElementById(H)?.remove(),document.getElementById("ws-crm-afu-wrap")?.remove();return}let e={contactId:o.contactId,tenantId:o.locationId},t=document.getElementById(H);if(t&&t.dataset.contactId===e.contactId){ee(t,e);return}t&&t.remove();let r=await Gt(o.source);if(!r){b.warn(`Active Follow Up: no mount target on ${o.source}-source page`);return}let n=f();if(!n||n.contactId!==e.contactId)return;let a=Se(e.contactId),i=await Ce(a,r);b.debug(`Active Follow Up mounted (${r.kind}/${i}) for ${e.contactId}`),Ae();let s=document.getElementById(H)??a;ee(s,e);let d=new MutationObserver(()=>{let c=document.getElementById(H);if(!(f()?.contactId===e.contactId)){d.disconnect();return}if(!c){let m=Se(e.contactId);Ce(m,r).then(()=>{Ae(),ee(m,e)}),b.debug(`Active Follow Up re-mounted after wipe for ${e.contactId}`)}});d.observe(r.target,{childList:!0})},$=null,Fe=()=>{let o=f()?.contactId??null;if($&&$.contactId===o)return;let e=$t().finally(()=>{$?.promise===e&&($=null)});$={contactId:o,promise:e}},Ae=()=>{let o=document.querySelectorAll(`#${H}`);if(!(o.length<=1)){b.debug(`Active Follow Up: found ${o.length} duplicate buttons, keeping first, removing ${o.length-1}`);for(let e=1;e<o.length;e++)o[e].remove()}};var D="ws-crm-claim-release-pill",Vt="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/claim-release-get",Ut="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/claim-release-set",qt=async o=>{let e=await fetch(Vt,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:o.locationId,contact_id:o.contactId,triggered_by_user_id:o.userId??null}),credentials:"omit"});if(!e.ok)throw new Error(`Claim/Release Get returned ${e.status} ${e.statusText}`);return await e.json()},zt=async o=>{let e=await fetch(Ut,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:o.locationId,contact_id:o.contactId,triggered_by_user_id:o.userId,action:o.action}),credentials:"omit"});if(!e.ok)throw new Error(`Claim/Release Set returned ${e.status} ${e.statusText}`);return await e.json()},Me=o=>{let e=Array.from(o.children).find(r=>{if(!(r instanceof HTMLElement))return!1;let n=r.className?.toString()??"";return n.includes("flex")&&n.includes("flex-col")});return e?e.querySelector(".flex.items-center, [class~='flex'][class~='items-center']")??null:null},R=(o,e)=>{let t=e==="claim"?"emerald":"amber",r=e==="claim"?l.emerald:l.amber;o.dataset.mode=e,o.style.cssText=Z(t),o.title=e==="claim"?"Take ownership of this lead":"Return this lead to the pool",o.innerHTML=`
     <span style="
       width: 6px;
       height: 6px;
@@ -98,12 +98,12 @@
       flex-shrink: 0;
     "></span>
     <span class="ws-cr-label">${e==="claim"?"Claim Lead":"Release Lead"}</span>
-  `},Wt=({contactId:o,mode:e})=>{let t=document.createElement("button");return t.id=D,t.type="button",t.dataset.contactId=o,R(t,e),t.addEventListener("mouseenter",()=>{t.style.transform="translateY(-1px)"}),t.addEventListener("mouseleave",()=>{t.style.transform="translateY(0)"}),t.addEventListener("click",async()=>{let r=t.dataset.mode??"claim",n=f();if(!n||!n.locationId||n.contactId!==o)return;let a=A();if(!a){b.warn("Claim/Release click: no user ID detected (login session not exposing it)");let s=t.querySelector(".ws-cr-label");s&&(s.textContent="Sign-in needed"),setTimeout(()=>R(t,r),2500);return}b.info(`Claim/Release click \u2014 contact=${o} mode=${r} user=${a}`);let i=r==="claim"?"release":"claim";R(t,i),t.disabled=!0,t.style.opacity="0.8";try{let s=await zt({contactId:o,locationId:n.locationId,userId:a,action:r}),d=s?.mode==="claim"||s?.mode==="release"?s.mode:i;R(t,d),b.info(`Claim/Release done \u2192 new mode: ${d}`)}catch(s){b.error("Claim/Release Set webhook failed",s),R(t,r);let d=t.querySelector(".ws-cr-label");if(d){let c=d.textContent??"";d.textContent="Try again",setTimeout(()=>{d.textContent==="Try again"&&(d.textContent=c)},2500)}}finally{t.disabled=!1,t.style.opacity="1"}}),t},Fe=async(o,e)=>{try{let t=await qt({contactId:e.contactId,locationId:e.locationId,userId:A()}),r=document.getElementById(D);if(!r||r.dataset.contactId!==e.contactId)return;let n=t?.mode==="release"?"release":"claim";R(r,n)}catch(t){b.warn("Claim/Release Get failed; pill stays in default 'claim' mode",t)}},jt=async(o,e=1e4)=>{let t=Date.now();for(;Date.now()-t<e;){let r=Me(o);if(r)return r;await new Promise(n=>setTimeout(n,150))}return null},De=(o,e)=>{let t=Wt({contactId:e,mode:"claim"}),r=document.createElement("span");r.id=`${D}-wrap`,r.style.cssText=`
+  `},Wt=({contactId:o,mode:e})=>{let t=document.createElement("button");return t.id=D,t.type="button",t.dataset.contactId=o,R(t,e),t.addEventListener("mouseenter",()=>{t.style.transform="translateY(-1px)"}),t.addEventListener("mouseleave",()=>{t.style.transform="translateY(0)"}),t.addEventListener("click",async()=>{let r=t.dataset.mode??"claim",n=f();if(!n||!n.locationId||n.contactId!==o)return;let a=A();if(!a){b.warn("Claim/Release click: no user ID detected (login session not exposing it)");let s=t.querySelector(".ws-cr-label");s&&(s.textContent="Sign-in needed"),setTimeout(()=>R(t,r),2500);return}b.info(`Claim/Release click \u2014 contact=${o} mode=${r} user=${a}`);let i=r==="claim"?"release":"claim";R(t,i),t.disabled=!0,t.style.opacity="0.8";try{let s=await zt({contactId:o,locationId:n.locationId,userId:a,action:r}),d=s?.mode==="claim"||s?.mode==="release"?s.mode:i;R(t,d),b.info(`Claim/Release done \u2192 new mode: ${d}`)}catch(s){b.error("Claim/Release Set webhook failed",s),R(t,r);let d=t.querySelector(".ws-cr-label");if(d){let c=d.textContent??"";d.textContent="Try again",setTimeout(()=>{d.textContent==="Try again"&&(d.textContent=c)},2500)}}finally{t.disabled=!1,t.style.opacity="1"}}),t},Le=async(o,e)=>{try{let t=await qt({contactId:e.contactId,locationId:e.locationId,userId:A()}),r=document.getElementById(D);if(!r||r.dataset.contactId!==e.contactId)return;let n=t?.mode==="release"?"release":"claim";R(r,n)}catch(t){b.warn("Claim/Release Get failed; pill stays in default 'claim' mode",t)}},jt=async(o,e=1e4)=>{let t=Date.now();for(;Date.now()-t<e;){let r=Me(o);if(r)return r;await new Promise(n=>setTimeout(n,150))}return null},De=(o,e)=>{let t=Wt({contactId:e,mode:"claim"}),r=document.createElement("span");r.id=`${D}-wrap`,r.style.cssText=`
     display: inline-flex;
     align-items: center;
     margin-left: 12px;
     vertical-align: middle;
-  `,r.appendChild(t),o.appendChild(r)},Kt=async()=>{let o=f();if(!o){document.getElementById(D)?.remove();return}let e=document.getElementById(D);if(!(e&&e.dataset.contactId===o.contactId)){e&&e.remove();try{let t=await C("#record-details-lhs",{timeoutMs:1e4}),r=await jt(t),n=f();if(!n||n.contactId!==o.contactId)return;if(!r){b.warn("Claim/Release pill \u2014 name row not found within timeout; skipping mount");return}De(r,o.contactId),b.debug(`Mounted Claim/Release pill next to name for ${o.contactId}`);let a=document.getElementById(D);a&&o.locationId&&Fe(a,{contactId:o.contactId,locationId:o.locationId});let i=null;i=new MutationObserver(async()=>{if(!(f()?.contactId===o.contactId)){i?.disconnect();return}if(document.getElementById(D))return;let d=Me(t);if(d){De(d,o.contactId);let c=document.getElementById(D);c&&o.locationId&&Fe(c,{contactId:o.contactId,locationId:o.locationId}),b.debug("Re-mounted Claim/Release pill after React wipe")}}),i.observe(t,{childList:!0,subtree:!0})}catch(t){b.warn("Could not mount Claim/Release pill:",t)}}},He=()=>{Kt()};var Yt="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/type",V=new Map,Ne=async(o,e)=>{if(!o)return null;if(V.has(o))return V.get(o)??null;if(!e)return b.warn(`Cannot fetch Contact Type for ${o} \u2014 tenant_id missing from URL context`),null;let t=new AbortController,r=setTimeout(()=>t.abort(),1500);try{let n=`${Yt}?contact_id=${encodeURIComponent(o)}&tenant_id=${encodeURIComponent(e)}`,a=await fetch(n,{method:"GET",headers:{Accept:"application/json"},signal:t.signal});if(clearTimeout(r),!a.ok)return b.warn(`Contact Type fetch returned ${a.status} for ${o}`),V.set(o,null),null;let s=((await a.json()).contact_type||"").toLowerCase().trim()||null;return V.set(o,s),b.debug(`Resolved Contact Type for ${o}: ${s??"(unset)"}`),s}catch(n){return clearTimeout(r),b.warn(`Contact Type fetch failed for ${o}:`,n),V.set(o,null),null}};var Pe=o=>o==="buyer"?"buyer":"seller";var Ve="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/call-status-set",Xt="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/buyer-call-status/set";var Jt="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/appointment-status",Qt=async({contactId:o,locationId:e,status:t,userId:r,deadReason:n,webhookUrl:a,kind:i})=>{let s=a||Ve,d;if(i==="buyer"){let p=Ue.find(h=>h.label===t),m=p?p.value:t.toLowerCase().replace(/\s+/g,"-");d={tenant_id:e,contact_id:o,new_status:m,triggered_by_user_id:r??""}}else{let p={call_status:t,triggered_by_user_id:r??""};n&&(p.dead_reason=n),d={contact_id:o,location:{id:e},customData:p}}let c=await fetch(s,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d),credentials:"omit"});if(!c.ok)throw new Error(`Webhook returned ${c.status} ${c.statusText}`)},Zt=async({contactId:o,tenantId:e})=>{let t=await fetch(Jt,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:e,contact_id:o}),credentials:"omit"});if(!t.ok)throw new Error(`Sanity check returned ${t.status} ${t.statusText}`);return await t.json()};var B="ws-crm-contact-actions-bar",eo="ws-crm-call-status-dropdown",Re="ws-crm-offer-made-modal",to=[{value:"not-contacted",label:"Not Contacted",color:"purple"},{value:"needs-offer",label:"Needs Offer",color:"green"},{value:"appointment-booked",label:"Appointment Booked",color:"green"},{value:"negotiating",label:"Negotiating",color:"green"},{value:"under-contract",label:"Under Contract",color:"green"},{value:"offer-rejected",label:"Offer Rejected",color:"orange"},{value:"not-ready",label:"Not Ready",color:"orange"},{value:"wants-retail",label:"Wants Retail",color:"orange"},{value:"already-listed",label:"Already Listed",color:"orange"},{value:"working-with-a-buyer",label:"Working with a Buyer",color:"orange"},{value:"not-interested",label:"Not Interested",color:"orange"},{value:"sold-on-market",label:"Sold on Market",color:"red"},{value:"sold-off-market",label:"Sold off Market",color:"red"},{value:"wrong-number",label:"Wrong Number",color:"red"},{value:"dead-deal",label:"Dead Deal",color:"red"}],Ue=[{value:"not-contacted",label:"Not Contacted",color:"purple"},{value:"vm-left",label:"VM Left",color:"purple"},{value:"qualified-buyer",label:"Qualified Buyer",color:"green"},{value:"upgrade-to-vip",label:"Upgrade to VIP",color:"green"},{value:"walkthrough-scheduled",label:"Walkthrough Scheduled",color:"green"},{value:"made-an-offer",label:"Made an Offer",color:"green"},{value:"not-interested",label:"Not Interested",color:"orange"},{value:"wrong-market",label:"Wrong Market",color:"orange"},{value:"no-longer-buying",label:"No Longer Buying",color:"red"},{value:"wrong-number",label:"Wrong Number",color:"red"},{value:"blacklisted",label:"Blacklisted",color:"red"}],oo=[".central-panel","[class*='central-panel']","[data-testid='central-panel']","[data-test='central-panel']",".contact-detail-page .central-panel",".contact-detail-page [class*='central']"],ro=async()=>{for(let o of oo)try{let e=await C(o,{timeoutMs:2e3});if(e)return b.info(`[actions-bar] mount target found via selector: ${o}`),e}catch{}try{let o=await C("#contact-conversation-panel",{timeoutMs:2e3});if(o.parentElement)return b.info("[actions-bar] mount target found via #contact-conversation-panel.parentElement"),o.parentElement}catch{}for(let o of["[id*='conversation-panel']","[class*='conversation-panel']","[class*='contact-detail'] [class*='panel']","main [class*='central']","main [class*='panel']:not([class*='sidebar']):not([class*='nav'])"])try{let e=await C(o,{timeoutMs:1500});if(e)return b.info(`[actions-bar] mount target via fallback: ${o}`),e.parentElement??e}catch{}return b.warn("[actions-bar] no mount target found via any selector \u2014 URL:",window.location.pathname),null},no=({contactId:o,kind:e})=>{let t=e==="buyer"?Ue:to,r=e==="buyer"?Xt:Ve,n=e==="buyer"?"Buyer Call Status":"Seller Call Status",a=document.createElement("div");a.id=eo,a.style.cssText="position: relative; flex-shrink: 0;";let i=document.createElement("button");i.type="button",i.style.cssText=O,i.innerHTML=`
+  `,r.appendChild(t),o.appendChild(r)},Kt=async()=>{let o=f();if(!o){document.getElementById(D)?.remove();return}let e=document.getElementById(D);if(!(e&&e.dataset.contactId===o.contactId)){e&&e.remove();try{let t=await C("#record-details-lhs",{timeoutMs:1e4}),r=await jt(t),n=f();if(!n||n.contactId!==o.contactId)return;if(!r){b.warn("Claim/Release pill \u2014 name row not found within timeout; skipping mount");return}De(r,o.contactId),b.debug(`Mounted Claim/Release pill next to name for ${o.contactId}`);let a=document.getElementById(D);a&&o.locationId&&Le(a,{contactId:o.contactId,locationId:o.locationId});let i=null;i=new MutationObserver(async()=>{if(!(f()?.contactId===o.contactId)){i?.disconnect();return}if(document.getElementById(D))return;let d=Me(t);if(d){De(d,o.contactId);let c=document.getElementById(D);c&&o.locationId&&Le(c,{contactId:o.contactId,locationId:o.locationId}),b.debug("Re-mounted Claim/Release pill after React wipe")}}),i.observe(t,{childList:!0,subtree:!0})}catch(t){b.warn("Could not mount Claim/Release pill:",t)}}},He=()=>{Kt()};var Yt="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/type",V=new Map,Ne=async(o,e)=>{if(!o)return null;if(V.has(o))return V.get(o)??null;if(!e)return b.warn(`Cannot fetch Contact Type for ${o} \u2014 tenant_id missing from URL context`),null;let t=new AbortController,r=setTimeout(()=>t.abort(),1500);try{let n=`${Yt}?contact_id=${encodeURIComponent(o)}&tenant_id=${encodeURIComponent(e)}`,a=await fetch(n,{method:"GET",headers:{Accept:"application/json"},signal:t.signal});if(clearTimeout(r),!a.ok)return b.warn(`Contact Type fetch returned ${a.status} for ${o}`),V.set(o,null),null;let s=((await a.json()).contact_type||"").toLowerCase().trim()||null;return V.set(o,s),b.debug(`Resolved Contact Type for ${o}: ${s??"(unset)"}`),s}catch(n){return clearTimeout(r),b.warn(`Contact Type fetch failed for ${o}:`,n),V.set(o,null),null}};var Pe=o=>o==="buyer"?"buyer":"seller";var Ve="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/call-status-set",Xt="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/buyer-call-status/set";var Jt="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contact/appointment-status",Qt=async({contactId:o,locationId:e,status:t,userId:r,deadReason:n,webhookUrl:a,kind:i})=>{let s=a||Ve,d;if(i==="buyer"){let p=Ue.find(h=>h.label===t),m=p?p.value:t.toLowerCase().replace(/\s+/g,"-");d={tenant_id:e,contact_id:o,new_status:m,triggered_by_user_id:r??""}}else{let p={call_status:t,triggered_by_user_id:r??""};n&&(p.dead_reason=n),d={contact_id:o,location:{id:e},customData:p}}let c=await fetch(s,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d),credentials:"omit"});if(!c.ok)throw new Error(`Webhook returned ${c.status} ${c.statusText}`)},Zt=async({contactId:o,tenantId:e})=>{let t=await fetch(Jt,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:e,contact_id:o}),credentials:"omit"});if(!t.ok)throw new Error(`Sanity check returned ${t.status} ${t.statusText}`);return await t.json()};var B="ws-crm-contact-actions-bar",eo="ws-crm-call-status-dropdown",Re="ws-crm-offer-made-modal",to=[{value:"not-contacted",label:"Not Contacted",color:"purple"},{value:"needs-offer",label:"Needs Offer",color:"green"},{value:"appointment-booked",label:"Appointment Booked",color:"green"},{value:"negotiating",label:"Negotiating",color:"green"},{value:"under-contract",label:"Under Contract",color:"green"},{value:"offer-rejected",label:"Offer Rejected",color:"orange"},{value:"not-ready",label:"Not Ready",color:"orange"},{value:"wants-retail",label:"Wants Retail",color:"orange"},{value:"already-listed",label:"Already Listed",color:"orange"},{value:"working-with-a-buyer",label:"Working with a Buyer",color:"orange"},{value:"not-interested",label:"Not Interested",color:"orange"},{value:"sold-on-market",label:"Sold on Market",color:"red"},{value:"sold-off-market",label:"Sold off Market",color:"red"},{value:"wrong-number",label:"Wrong Number",color:"red"},{value:"dead-deal",label:"Dead Deal",color:"red"}],Ue=[{value:"not-contacted",label:"Not Contacted",color:"purple"},{value:"vm-left",label:"VM Left",color:"purple"},{value:"qualified-buyer",label:"Qualified Buyer",color:"green"},{value:"upgrade-to-vip",label:"Upgrade to VIP",color:"green"},{value:"walkthrough-scheduled",label:"Walkthrough Scheduled",color:"green"},{value:"made-an-offer",label:"Made an Offer",color:"green"},{value:"not-interested",label:"Not Interested",color:"orange"},{value:"wrong-market",label:"Wrong Market",color:"orange"},{value:"no-longer-buying",label:"No Longer Buying",color:"red"},{value:"wrong-number",label:"Wrong Number",color:"red"},{value:"blacklisted",label:"Blacklisted",color:"red"}],oo=[".central-panel","[class*='central-panel']","[data-testid='central-panel']","[data-test='central-panel']",".contact-detail-page .central-panel",".contact-detail-page [class*='central']"],ro=async()=>{for(let o of oo)try{let e=await C(o,{timeoutMs:2e3});if(e)return b.info(`[actions-bar] mount target found via selector: ${o}`),e}catch{}try{let o=await C("#contact-conversation-panel",{timeoutMs:2e3});if(o.parentElement)return b.info("[actions-bar] mount target found via #contact-conversation-panel.parentElement"),o.parentElement}catch{}for(let o of["[id*='conversation-panel']","[class*='conversation-panel']","[class*='contact-detail'] [class*='panel']","main [class*='central']","main [class*='panel']:not([class*='sidebar']):not([class*='nav'])"])try{let e=await C(o,{timeoutMs:1500});if(e)return b.info(`[actions-bar] mount target via fallback: ${o}`),e.parentElement??e}catch{}return b.warn("[actions-bar] no mount target found via any selector \u2014 URL:",window.location.pathname),null},no=({contactId:o,kind:e})=>{let t=e==="buyer"?Ue:to,r=e==="buyer"?Xt:Ve,n=e==="buyer"?"Buyer Call Status":"Seller Call Status",a=document.createElement("div");a.id=eo,a.style.cssText="position: relative; flex-shrink: 0;";let i=document.createElement("button");i.type="button",i.style.cssText=O,i.innerHTML=`
     <span style="
       display: inline-flex;
       width: 8px;
@@ -256,7 +256,7 @@
         font-size: 13px;
       ">Cancel</button>
       <button id="ws-offer-submit" type="button" style="
-        ${F}
+        ${L}
         padding: 8px 16px;
         font-size: 13px;
       ">Record Offer</button>
@@ -337,7 +337,7 @@
         font-size: 13px;
       ">Cancel</button>
       <button id="ws-dead-submit" type="button" style="
-        ${F}
+        ${L}
         padding: 8px 16px;
         font-size: 13px;
       ">Mark Dead</button>
@@ -394,7 +394,7 @@
         font-size: 13px;
       ">Cancel</button>
       <button id="ws-appt-sanity-mark" type="button" style="
-        ${F}
+        ${L}
         padding: 8px 16px;
         font-size: 13px;
         background: ${l.amber};
@@ -408,7 +408,7 @@
     background: ${l.graphite};
     border-bottom: 1px solid ${l.steel};
     flex-shrink: 0;
-  `;let r=document.createElement("button");return r.type="button",r.style.cssText=F,r.textContent="Offer Made",r.addEventListener("click",()=>ao(o)),t.appendChild(r),t.appendChild(no({contactId:o,kind:e})),t},qe=async()=>{b.info("[actions-bar:01] ensureMounted called; url:",window.location.pathname);let o=f();if(!o){b.info("[actions-bar:02-BAIL] no contact context (URL didn't match patterns AND no in-page contact link). URL:",window.location.pathname),document.getElementById(B)?.remove();return}b.info(`[actions-bar:02] ctx resolved \u2014 contactId=${o.contactId} locationId=${o.locationId??"(null)"} source=${o.source}`);let e="seller";try{let c=await Ne(o.contactId,o.locationId);Pe(c)==="buyer"&&(e="buyer"),b.info(`[actions-bar:03] kind resolved \u2014 kind=${e} (raw type=${c??"(null)"})`)}catch(c){b.warn("[actions-bar:03-FAIL] Contact Type resolution threw \u2014 defaulting to seller:",c)}let t=f();if(!t||t.contactId!==o.contactId){b.info("[actions-bar:04-BAIL] context changed during Contact Type fetch \u2014 aborting mount");return}let r=document.getElementById(B);if(r&&r.dataset.contactId===o.contactId&&r.dataset.contactKind===e){b.info(`[actions-bar:05-SKIP] bar already mounted for contact=${o.contactId} kind=${e} \u2014 no-op`);return}r&&(b.info(`[actions-bar:05] removing stale bar (was contact=${r.dataset.contactId} kind=${r.dataset.contactKind})`),r.remove());let n=await ro();if(!n){b.warn("[actions-bar:06-FAIL] findMountTarget returned null \u2014 no .central-panel or fallback selector matched within timeout. URL:",window.location.pathname);return}b.info(`[actions-bar:06] mount target found \u2014 tagName=${n.tagName} class="${n.className}"`);let a=f();if(!a||a.contactId!==o.contactId){b.info("[actions-bar:07-BAIL] context changed during findMountTarget wait \u2014 aborting mount");return}let i;try{i=Ge(o.contactId,e)}catch(c){b.error("[actions-bar:08-FAIL] buildBar threw:",c);return}i.dataset.mountTarget=n.className||"central-panel";try{n.insertBefore(i,n.firstChild)}catch(c){b.error("[actions-bar:09-FAIL] insertBefore threw:",c);return}if(!document.getElementById(B)){b.warn("[actions-bar:10-DETACHED] bar inserted but not in document tree \u2014 target was likely re-rendered by Vue. Will retry next page-change.");return}b.info(`[actions-bar:10-OK] bar mounted + verified in document for contact=${o.contactId} kind=${e}`);let d=null;d=new MutationObserver(()=>{let c=document.getElementById(B);if(!(f()?.contactId===o.contactId)){d?.disconnect();return}if(!c){let m=document.querySelector(".central-panel")||n,h=Ge(o.contactId,e);h.dataset.mountTarget=i.dataset.mountTarget??"";try{m.insertBefore(h,m.firstChild),b.info(`[actions-bar:WATCHDOG] re-mounted after wipe for ${o.contactId}`)}catch(u){b.warn("[actions-bar:WATCHDOG-FAIL] re-mount threw:",u)}}}),d.observe(n,{childList:!0})},$e=null,lo=()=>{$e===null&&($e=window.setInterval(()=>{let o=f();o&&(document.getElementById(B)||(b.info("[actions-bar:HEALER] no bar on contact page \u2014 re-triggering mount for",o.contactId),qe()))},3e3))},ze=()=>{lo(),qe()};var te="https://assets.cdn.filesafe.space/ZqGLfSMNKm26UQP7ENj1/media/6a08c6430a69f1e766a71d54.png",co=new Set(["icon","shortcut icon","apple-touch-icon","apple-touch-icon-precomposed","mask-icon"]),U="data-ws-crm-favicon",fe=o=>o.hasAttribute(U),We=o=>{if(o.tagName!=="LINK")return!1;let e=(o.getAttribute("rel")??"").toLowerCase();return co.has(e)},oe=()=>{document.head.querySelectorAll("link[rel]").forEach(r=>{We(r)&&!fe(r)&&r.remove()});let e=document.head.querySelector(`link[${U}="1"]`);e?e.href!==te&&(e.href=te):(e=document.createElement("link"),e.setAttribute(U,"1"),e.rel="icon",e.type="image/png",e.href=te,document.head.appendChild(e),b.debug("Favicon installed"));let t=document.head.querySelector(`link[${U}="apple"]`);t||(t=document.createElement("link"),t.setAttribute(U,"apple"),t.rel="apple-touch-icon",t.href=te,document.head.appendChild(t))},je=()=>{if(window.__reosFaviconInstalled)return;if(window.__reosFaviconInstalled=!0,document.head)oe();else{let r=window.setInterval(()=>{document.head&&(window.clearInterval(r),oe())},50)}new MutationObserver(r=>{let n=!1;for(let a of r)a.addedNodes.forEach(i=>{i instanceof HTMLLinkElement&&We(i)&&!fe(i)&&(n=!0)}),a.removedNodes.forEach(i=>{i instanceof HTMLLinkElement&&fe(i)&&(n=!0)});n&&oe()}).observe(document.head,{childList:!0,subtree:!1});let e=0,t=window.setInterval(()=>{e+=1,oe(),e>=5&&window.clearInterval(t)},1e3)};var bo="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/mt/not-interested",q="ws-crm-not-interested-button",ho=/\/opportunities\/detail\/([A-Za-z0-9]+)/,po=/\/v2\/location\/([A-Za-z0-9]+)/,re=()=>{let o=window.location.pathname,e=o.match(ho);if(!e)return null;let t=o.match(po);return{oppId:e[1],locationId:t?t[1]:null}},mo=async o=>{let e=await fetch(bo,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:o.locationId,mt_opp_id:o.oppId,triggered_by_user_id:o.userId??null}),credentials:"omit"});if(!e.ok)throw new Error(`Not Interested webhook returned ${e.status} ${e.statusText}`);return await e.json()},Ke=o=>{let e=document.createElement("button");return e.id=q,e.type="button",e.dataset.oppId=o,e.style.cssText=Z("neutral"),e.style.fontFamily=v.sans,e.style.fontSize="12px",e.title="Close this Marketing Tracker opp as Not Interested for THIS property only",e.innerHTML=`
+  `;let r=document.createElement("button");return r.type="button",r.style.cssText=L,r.textContent="Offer Made",r.addEventListener("click",()=>ao(o)),t.appendChild(r),t.appendChild(no({contactId:o,kind:e})),t},qe=async()=>{b.info("[actions-bar:01] ensureMounted called; url:",window.location.pathname);let o=f();if(!o){b.info("[actions-bar:02-BAIL] no contact context (URL didn't match patterns AND no in-page contact link). URL:",window.location.pathname),document.getElementById(B)?.remove();return}b.info(`[actions-bar:02] ctx resolved \u2014 contactId=${o.contactId} locationId=${o.locationId??"(null)"} source=${o.source}`);let e="seller";try{let c=await Ne(o.contactId,o.locationId);Pe(c)==="buyer"&&(e="buyer"),b.info(`[actions-bar:03] kind resolved \u2014 kind=${e} (raw type=${c??"(null)"})`)}catch(c){b.warn("[actions-bar:03-FAIL] Contact Type resolution threw \u2014 defaulting to seller:",c)}let t=f();if(!t||t.contactId!==o.contactId){b.info("[actions-bar:04-BAIL] context changed during Contact Type fetch \u2014 aborting mount");return}let r=document.getElementById(B);if(r&&r.dataset.contactId===o.contactId&&r.dataset.contactKind===e){b.info(`[actions-bar:05-SKIP] bar already mounted for contact=${o.contactId} kind=${e} \u2014 no-op`);return}r&&(b.info(`[actions-bar:05] removing stale bar (was contact=${r.dataset.contactId} kind=${r.dataset.contactKind})`),r.remove());let n=await ro();if(!n){b.warn("[actions-bar:06-FAIL] findMountTarget returned null \u2014 no .central-panel or fallback selector matched within timeout. URL:",window.location.pathname);return}b.info(`[actions-bar:06] mount target found \u2014 tagName=${n.tagName} class="${n.className}"`);let a=f();if(!a||a.contactId!==o.contactId){b.info("[actions-bar:07-BAIL] context changed during findMountTarget wait \u2014 aborting mount");return}let i;try{i=Ge(o.contactId,e)}catch(c){b.error("[actions-bar:08-FAIL] buildBar threw:",c);return}i.dataset.mountTarget=n.className||"central-panel";try{n.insertBefore(i,n.firstChild)}catch(c){b.error("[actions-bar:09-FAIL] insertBefore threw:",c);return}if(!document.getElementById(B)){b.warn("[actions-bar:10-DETACHED] bar inserted but not in document tree \u2014 target was likely re-rendered by Vue. Will retry next page-change.");return}b.info(`[actions-bar:10-OK] bar mounted + verified in document for contact=${o.contactId} kind=${e}`);let d=null;d=new MutationObserver(()=>{let c=document.getElementById(B);if(!(f()?.contactId===o.contactId)){d?.disconnect();return}if(!c){let m=document.querySelector(".central-panel")||n,h=Ge(o.contactId,e);h.dataset.mountTarget=i.dataset.mountTarget??"";try{m.insertBefore(h,m.firstChild),b.info(`[actions-bar:WATCHDOG] re-mounted after wipe for ${o.contactId}`)}catch(u){b.warn("[actions-bar:WATCHDOG-FAIL] re-mount threw:",u)}}}),d.observe(n,{childList:!0})},$e=null,lo=()=>{$e===null&&($e=window.setInterval(()=>{let o=f();o&&(document.getElementById(B)||(b.info("[actions-bar:HEALER] no bar on contact page \u2014 re-triggering mount for",o.contactId),qe()))},3e3))},ze=()=>{lo(),qe()};var te="https://assets.cdn.filesafe.space/ZqGLfSMNKm26UQP7ENj1/media/6a08c6430a69f1e766a71d54.png",co=new Set(["icon","shortcut icon","apple-touch-icon","apple-touch-icon-precomposed","mask-icon"]),U="data-ws-crm-favicon",fe=o=>o.hasAttribute(U),We=o=>{if(o.tagName!=="LINK")return!1;let e=(o.getAttribute("rel")??"").toLowerCase();return co.has(e)},oe=()=>{document.head.querySelectorAll("link[rel]").forEach(r=>{We(r)&&!fe(r)&&r.remove()});let e=document.head.querySelector(`link[${U}="1"]`);e?e.href!==te&&(e.href=te):(e=document.createElement("link"),e.setAttribute(U,"1"),e.rel="icon",e.type="image/png",e.href=te,document.head.appendChild(e),b.debug("Favicon installed"));let t=document.head.querySelector(`link[${U}="apple"]`);t||(t=document.createElement("link"),t.setAttribute(U,"apple"),t.rel="apple-touch-icon",t.href=te,document.head.appendChild(t))},je=()=>{if(window.__reosFaviconInstalled)return;if(window.__reosFaviconInstalled=!0,document.head)oe();else{let r=window.setInterval(()=>{document.head&&(window.clearInterval(r),oe())},50)}new MutationObserver(r=>{let n=!1;for(let a of r)a.addedNodes.forEach(i=>{i instanceof HTMLLinkElement&&We(i)&&!fe(i)&&(n=!0)}),a.removedNodes.forEach(i=>{i instanceof HTMLLinkElement&&fe(i)&&(n=!0)});n&&oe()}).observe(document.head,{childList:!0,subtree:!1});let e=0,t=window.setInterval(()=>{e+=1,oe(),e>=5&&window.clearInterval(t)},1e3)};var bo="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/mt/not-interested",q="ws-crm-not-interested-button",ho=/\/opportunities\/detail\/([A-Za-z0-9]+)/,po=/\/v2\/location\/([A-Za-z0-9]+)/,re=()=>{let o=window.location.pathname,e=o.match(ho);if(!e)return null;let t=o.match(po);return{oppId:e[1],locationId:t?t[1]:null}},mo=async o=>{let e=await fetch(bo,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:o.locationId,mt_opp_id:o.oppId,triggered_by_user_id:o.userId??null}),credentials:"omit"});if(!e.ok)throw new Error(`Not Interested webhook returned ${e.status} ${e.statusText}`);return await e.json()},Ke=o=>{let e=document.createElement("button");return e.id=q,e.type="button",e.dataset.oppId=o,e.style.cssText=Z("neutral"),e.style.fontFamily=v.sans,e.style.fontSize="12px",e.title="Close this Marketing Tracker opp as Not Interested for THIS property only",e.innerHTML=`
     <span style="
       width: 6px;
       height: 6px;
@@ -515,13 +515,13 @@
         cursor: pointer;
       ">Cancel</button>
       <button id="ws-stc-submit" type="button" style="
-        ${F}
+        ${L}
         padding: 8px 16px;
         font-size: 13px;
         ${o.isResend?`background: ${l.amber};`:""}
       ">${o.isResend?"Re-send Anyway":"Send to Title Co"}</button>
     </div>
-  `,e.appendChild(t),document.body.appendChild(e);let n=()=>e.remove();e.addEventListener("click",s=>{s.target===e&&n()}),t.querySelector("#ws-stc-cancel")?.addEventListener("click",n);let a=t.querySelector("#ws-stc-submit"),i=t.querySelector("#ws-stc-status");a?.addEventListener("click",async()=>{if(!(!a||!i)){a.disabled=!0,a.style.opacity="0.7",i.textContent="Sending\u2026",i.style.color=l.ash;try{let s=await Ze({oppId:o.oppId,locationId:o.locationId,userId:A(),confirmResend:o.isResend});if(s.ok){i.textContent=`\u2713 Sent to ${s.sent_to?.email??"title officer"}`,i.style.color=l.emerald,o.onConfirmed(s),setTimeout(n,1500);return}if(s.error||s.missing&&s.missing.length>0){let d=s.missing&&s.missing.length>0?`Missing: ${s.missing.join(", ")}`:s.error||"Couldn't send. Try again.";i.textContent=d,i.style.color=l.amber,a.disabled=!1,a.style.opacity="1";return}i.textContent="Got an unexpected response. Try again.",i.style.color=l.amber,a.disabled=!1,a.style.opacity="1"}catch(s){b.error("Send to Title Co webhook failed",s),i.textContent="Webhook failed. Check your network and try again.",i.style.color=l.amber,a.disabled=!1,a.style.opacity="1"}}})},Qe=o=>{let e=document.createElement("button");return e.id=z,e.type="button",e.dataset.oppId=o,e.style.cssText=F,e.title="Send the title-co handoff email with both signed contracts attached",e.innerHTML=`
+  `,e.appendChild(t),document.body.appendChild(e);let n=()=>e.remove();e.addEventListener("click",s=>{s.target===e&&n()}),t.querySelector("#ws-stc-cancel")?.addEventListener("click",n);let a=t.querySelector("#ws-stc-submit"),i=t.querySelector("#ws-stc-status");a?.addEventListener("click",async()=>{if(!(!a||!i)){a.disabled=!0,a.style.opacity="0.7",i.textContent="Sending\u2026",i.style.color=l.ash;try{let s=await Ze({oppId:o.oppId,locationId:o.locationId,userId:A(),confirmResend:o.isResend});if(s.ok){i.textContent=`\u2713 Sent to ${s.sent_to?.email??"title officer"}`,i.style.color=l.emerald,o.onConfirmed(s),setTimeout(n,1500);return}if(s.error||s.missing&&s.missing.length>0){let d=s.missing&&s.missing.length>0?`Missing: ${s.missing.join(", ")}`:s.error||"Couldn't send. Try again.";i.textContent=d,i.style.color=l.amber,a.disabled=!1,a.style.opacity="1";return}i.textContent="Got an unexpected response. Try again.",i.style.color=l.amber,a.disabled=!1,a.style.opacity="1"}catch(s){b.error("Send to Title Co webhook failed",s),i.textContent="Webhook failed. Check your network and try again.",i.style.color=l.amber,a.disabled=!1,a.style.opacity="1"}}})},Qe=o=>{let e=document.createElement("button");return e.id=z,e.type="button",e.dataset.oppId=o,e.style.cssText=L,e.title="Send the title-co handoff email with both signed contracts attached",e.innerHTML=`
     <span style="
       width: 6px;
       height: 6px;
@@ -8423,6 +8423,188 @@ html body div:has(> #close-panel-button)[class*="border-b"][class*="border-gray-
   border-bottom-color: var(--reos-steel) !important;
 }
 
+/* 15e-4. v0.13.21: EDIT OPPORTUNITY MODAL (.crm-opportunities-modal)
+   The whole modal renders with Naive UI defaults (white card, near-
+   black text). The universal walkers (killWhiteEverywhere +
+   coerceDarkDropdowns) each take a swing at the children every tick,
+   producing the "flashing coercers" Tim flagged. Targeted scope so
+   the modal renders fully on-brand without fighting the walkers. */
+
+/* Modal card itself \u2014 kill the white --n-color, force graphite. */
+html body .crm-opportunities-modal:not(#__reos_never_id),
+html body .ui-modal.crm-opportunities-modal:not(#__reos_never_id) {
+  --n-color: var(--reos-graphite) !important;
+  --n-color-modal: var(--reos-graphite) !important;
+  --n-color-popover: var(--reos-graphite) !important;
+  --n-color-embedded: var(--reos-slate) !important;
+  --n-color-embedded-modal: var(--reos-slate) !important;
+  --n-color-embedded-popover: var(--reos-slate) !important;
+  --n-action-color: var(--reos-slate) !important;
+  --n-text-color: var(--reos-bone) !important;
+  --n-title-text-color: var(--reos-bone) !important;
+  --n-close-icon-color: var(--reos-ash) !important;
+  --n-close-icon-color-hover: var(--reos-bone) !important;
+  --n-close-icon-color-pressed: var(--reos-bone) !important;
+  --n-close-color-hover: var(--reos-steel) !important;
+  --n-close-color-pressed: var(--reos-steel) !important;
+  --n-border-color: var(--reos-steel) !important;
+  background: var(--reos-graphite) !important;
+  background-color: var(--reos-graphite) !important;
+  color: var(--reos-bone) !important;
+}
+
+/* Section headers ("Contact details", "Opportunity Details") \u2014
+   force bone for visual hierarchy instead of the inline ash that
+   the universal walker leaves them in. Targeted by the
+   `.text-base.font-medium` Tailwind utility pattern Naive uses. */
+html body .crm-opportunities-modal:not(#__reos_never_id) .text-base.font-medium {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+
+/* Form labels — bump from ash → ash-bright so they're more
+   legible against graphite without competing with the values. */
+html body .crm-opportunities-modal:not(#__reos_never_id) .hr-form-item-label__text {
+  color: #B7BDC6 !important;
+  -webkit-text-fill-color: #B7BDC6 !important;
+}
+
+/* Naive selection / input variables across the modal — kill the
+   --n-color: #fff defaults so dropdowns + inputs stop flickering
+   between white-renders and walker-painted graphite. */
+html body .crm-opportunities-modal:not(#__reos_never_id) .hr-base-selection,
+html body .crm-opportunities-modal:not(#__reos_never_id) .hr-input,
+html body .crm-opportunities-modal:not(#__reos_never_id) .hr-date-picker {
+  --n-color: var(--reos-slate) !important;
+  --n-color-active: var(--reos-slate) !important;
+  --n-color-focus: var(--reos-slate) !important;
+  --n-color-disabled: var(--reos-graphite) !important;
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-disabled: var(--reos-ash) !important;
+  --n-placeholder-color: var(--reos-ash) !important;
+  --n-border: 1px solid var(--reos-steel) !important;
+  --n-border-disabled: 1px solid var(--reos-steel) !important;
+  --n-border-hover: 1px solid var(--reos-emerald) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  --n-border-active: 1px solid var(--reos-emerald) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--reos-emerald-glow) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--reos-emerald-glow) !important;
+  --n-caret-color: var(--reos-emerald) !important;
+}
+
+/* Tag chips inside the Tags multi-select — pale gray → graphite
+   chip with steel border, bone text. */
+html body .crm-opportunities-modal:not(#__reos_never_id) .hr-tag {
+  --n-color: var(--reos-slate) !important;
+  --n-text-color: var(--reos-bone) !important;
+  --n-border: 1px solid var(--reos-steel) !important;
+  --n-close-icon-color: var(--reos-ash) !important;
+  --n-close-icon-color-hover: var(--reos-bone) !important;
+  --n-close-color-hover: var(--reos-steel) !important;
+}
+
+/* Hide Empty Fields checkbox — kill the white box. */
+html body .crm-opportunities-modal:not(#__reos_never_id) .hr-checkbox {
+  --n-color: var(--reos-slate) !important;
+  --n-color-table: var(--reos-slate) !important;
+  --n-color-table-modal: var(--reos-slate) !important;
+  --n-color-table-popover: var(--reos-slate) !important;
+  --n-color-checked: var(--reos-emerald) !important;
+  --n-border: 1px solid var(--reos-steel) !important;
+  --n-border-checked: 1px solid var(--reos-emerald) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  --n-text-color: var(--reos-bone) !important;
+  --n-check-mark-color: var(--reos-obsidian, #0A0D12) !important;
+}
+
+/* Modal divider strips (border-t, border-b border-gray-200) —
+   replace gray-200 with steel so they render visibly. Scoped
+   into the modal so we don't change page-level dividers. */
+html body .crm-opportunities-modal:not(#__reos_never_id) [class*="border-gray-200"] {
+  border-color: var(--reos-steel) !important;
+}
+
+/* File upload draggers — graphite bg, steel dashed border. */
+html body .crm-opportunities-modal:not(#__reos_never_id) .hr-upload {
+  --n-border-radius: 4px !important;
+  --n-dragger-border: 1px dashed var(--reos-steel) !important;
+  --n-dragger-border-hover: 1px dashed var(--reos-emerald) !important;
+  --n-dragger-color: var(--reos-slate) !important;
+  --n-item-color-hover: var(--reos-steel) !important;
+  --n-item-text-color: var(--reos-bone) !important;
+}
+html body .crm-opportunities-modal:not(#__reos_never_id) .hr-upload-dragger p {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+html body .crm-opportunities-modal:not(#__reos_never_id) .hr-upload-dragger .ui-text-xs-regular {
+  color: var(--reos-ash) !important;
+  -webkit-text-fill-color: var(--reos-ash) !important;
+}
+
+/* Footer audit links — gray blue (text-blue-700 default) → emerald. */
+html body .crm-opportunities-modal:not(#__reos_never_id) .text-blue-700 {
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
+}
+
+/* Cancel button (footer) — transparent + steel border + bone. */
+html body .crm-opportunities-modal:not(#__reos_never_id) .crm-opportunities-cancel-btn {
+  --n-color: transparent !important;
+  --n-color-hover: var(--reos-steel) !important;
+  --n-color-pressed: var(--reos-steel) !important;
+  --n-color-focus: var(--reos-steel) !important;
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-hover: var(--reos-bone) !important;
+  --n-text-color-pressed: var(--reos-bone) !important;
+  --n-text-color-focus: var(--reos-bone) !important;
+  --n-border: 1px solid var(--reos-steel) !important;
+  --n-border-hover: 1px solid var(--reos-emerald) !important;
+  --n-border-pressed: 1px solid var(--reos-emerald) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+}
+
+/* Update (primary) button — already emerald via --n-button--primary;
+   override the inline blue --n-color/--n-border in case it sneaks
+   through (Vue sets these inline per render). */
+html body .crm-opportunities-modal:not(#__reos_never_id) .crm-opportunities-submit-btn {
+  --n-color: var(--reos-emerald) !important;
+  --n-color-hover: var(--reos-emerald-bright) !important;
+  --n-color-pressed: var(--reos-emerald) !important;
+  --n-color-focus: var(--reos-emerald-bright) !important;
+  --n-color-disabled: var(--reos-emerald) !important;
+  --n-text-color: var(--reos-obsidian, #0A0D12) !important;
+  --n-text-color-hover: var(--reos-obsidian, #0A0D12) !important;
+  --n-border: 1px solid var(--reos-emerald) !important;
+  --n-border-hover: 1px solid var(--reos-emerald-bright) !important;
+}
+
+/* Delete (trash) button border — pale red on white → keep red
+   tone but darken the surface so it doesn't sit on white. */
+html body .crm-opportunities-modal:not(#__reos_never_id) div:has(> #DeleteOpportunity) {
+  background: var(--reos-slate) !important;
+  border-color: var(--reos-crimson, #D43F4A) !important;
+}
+
+/* Active sidebar tab in the modal (bg-blue-50 + text-blue-800) —
+   replace with emerald-glow + emerald text. */
+html body .crm-opportunities-modal:not(#__reos_never_id) button.bg-blue-50.text-blue-800 {
+  background-color: var(--reos-emerald-glow) !important;
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
+}
+
+/* Inactive sidebar tabs (text-gray-500) — bump to ash so they're
+   legible without competing with the active tab. */
+html body .crm-opportunities-modal:not(#__reos_never_id) button.text-gray-500 {
+  color: var(--reos-ash) !important;
+  -webkit-text-fill-color: var(--reos-ash) !important;
+}
+html body .crm-opportunities-modal:not(#__reos_never_id) button.text-gray-500:hover {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+
 /* v0.13.17: Tim wants the "Manage associations" and "+ Add" pills
    borderless. Both render their border via:
      (a) --n-border / --n-border-hover CSS vars
@@ -8433,9 +8615,9 @@ html body div:has(> #close-panel-button)[class*="border-b"][class*="border-gray-
    Manage associations: stable id #manage-association-btn.
    "+ Add" pill: auto-generated id like #hr-button-v-N-N, so
    target by the tertiary+3xs class combo (matches the "Create
-   new" button too \u2014 Tim wants its border gone for consistency). */
+   new" button too — Tim wants its border gone for consistency). */
 
-/* Manage associations pill \u2014 no border in any state. */
+/* Manage associations pill — no border in any state. */
 html body #manage-association-btn:not(#__reos_never_id),
 html body #manage-association-btn:not(#__reos_never_id):hover,
 html body #manage-association-btn:not(#__reos_never_id):focus,
@@ -8455,10 +8637,10 @@ html body #manage-association-btn:not(#__reos_never_id) .hr-button__state-border
   border: none !important;
 }
 
-/* Small pills (3xs / xs size variants) \u2014 the "+ Add", "Create
+/* Small pills (3xs / xs size variants) — the "+ Add", "Create
    new", "Manage associations"-style sidekick buttons. These
    render the emerald-50 border-on-graphite combo that reads as
-   a faint white line \u2014 Tim's "ugly border". Remove the
+   a faint white line — Tim's "ugly border". Remove the
    decorative overlay divs + the n-border vars in all states.
 
    v0.13.18: broadened from .hr-button--tertiary.hr-button--3xs
@@ -8509,25 +8691,25 @@ html body #manage-association-btn:not(#__reos_never_id) {
   background: transparent !important;
 }
 
-/* 15f. OPPORTUNITIES KANBAN \u2014 the pipeline-board view (Opportunities tab
+/* 15f. OPPORTUNITIES KANBAN — the pipeline-board view (Opportunities tab
    in the left nav). Lots of light surfaces survive even after the
    v0.7.72 universal flicker-kill sweep because they're driven by:
 
      (a) Vue scoped CSS variables on stage-header cards
-         (--3b690118: #e0e0e0; --68ac5946: white \u2014 fed into a
+         (--3b690118: #e0e0e0; --68ac5946: white — fed into a
          'borderColor' class that paints a 2px white line at the
          top of every stage column);
      (b) Naive UI 'hr-skeleton' loaders rendering with
-         '--n-color-start: #eee; --n-color-end: #ddd' \u2014 empty stages
+         '--n-color-start: #eee; --n-color-end: #ddd' — empty stages
          get 5-15 of these stacked, filling the column with light
          gray shimmer bars that read as a "giant white surround"
          around the dark page content;
      (c) inline 'color: rgb(16, 24, 40)' (nearly black) on
-         '.crm-opportunities-stage-name' \u2014 invisible on graphite.
+         '.crm-opportunities-stage-name' — invisible on graphite.
 
    Fix all of the above on the opportunities page surface. */
 
-/* (a) outer wrappers \u2014 belt-and-suspenders graphite. The innermost
+/* (a) outer wrappers — belt-and-suspenders graphite. The innermost
        '.wrapper.opportunityPage.crm-opportunities-content' is already
        painted graphite inline by GHL, but the intermediate wrappers
        (#OpportunitiesList, .opportunitiesApp, .opportunities-list-wrap,
@@ -8551,7 +8733,7 @@ html body [class*="crm-opportunities-stages-container"] {
   color: var(--reos-bone) !important;
 }
 
-/* (b) stage-header card \u2014 kill the white border-top driven by Vue
+/* (b) stage-header card — kill the white border-top driven by Vue
        scoped var --68ac5946 (which the GHL 'borderColor' class
        resolves into border-color). Pin to steel. Background already
        painted inline graphite but reinforce. */
@@ -8564,7 +8746,7 @@ html body .opportunitiesCard[class*="stageHeaderBg"] {
   border-color: var(--reos-steel) !important;
   box-shadow: none !important;
 }
-/* The 2px top-border specifically \u2014 !border-t-2 + borderColor class
+/* The 2px top-border specifically — !border-t-2 + borderColor class
    together compute to 'border-top: 2px solid var(--68ac5946)' where
    --68ac5946 is 'white'. Force steel regardless. */
 html body .crm-opportunities-stage-header[class*="!border-t-2"],
@@ -8572,7 +8754,7 @@ html body .opportunitiesCard.stageHeaderBg[class*="!border-t-2"] {
   border-top-color: var(--reos-steel) !important;
 }
 
-/* (c) stage name \u2014 the inline 'color: rgb(16, 24, 40)' is nearly
+/* (c) stage name — the inline 'color: rgb(16, 24, 40)' is nearly
        black and disappears against graphite. Force bone. */
 html body .crm-opportunities-stage-name,
 html body [class*="crm-opportunities-stage-name"],
@@ -8581,7 +8763,7 @@ html body [id^="data-stage-name-"] {
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
-/* (d) skeleton loaders \u2014 Naive UI's 'hr-skeleton' renders a
+/* (d) skeleton loaders — Naive UI's 'hr-skeleton' renders a
        background-image linear-gradient driven by --n-color-start /
        --n-color-end CSS variables. GHL inlines those vars as #eee
        and #ddd (light grays). Override the variables AND paint a
@@ -8600,7 +8782,7 @@ html body [class*="n-skeleton"] {
   background-image: none !important;
 }
 
-/* The empty-stage "card" wrapper \u2014 multiple skeleton placeholders
+/* The empty-stage "card" wrapper — multiple skeleton placeholders
    are grouped inside a .crm-opportunities-card-skeleton, which sits
    inside the stage column. Pin to graphite so the column blends in
    even while loading. */
@@ -8618,7 +8800,7 @@ html body [class*="cardWrapper"][class*="crm-opportunities-board"] {
   background-color: var(--reos-graphite) !important;
 }
 
-/* v0.12.20: Tabulator-library tables (custom-object list pages \u2014
+/* v0.12.20: Tabulator-library tables (custom-object list pages —
    /objects/<object>/list). Tabulator is a separate library from
    Naive's n-data-table family; its classes are .tabulator-*. The
    Properties / custom-object list page renders the entire table
@@ -8652,7 +8834,7 @@ html body .tabulator-col-title-holder:not(#__reos_never_id) {
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
-/* Column sorter arrows \u2014 ash idle, emerald on hover/active. */
+/* Column sorter arrows — ash idle, emerald on hover/active. */
 html body .tabulator-col-sorter:not(#__reos_never_id) svg,
 html body .tabulator-col-sorter:not(#__reos_never_id) svg path {
   color: var(--reos-ash) !important;
@@ -8664,18 +8846,18 @@ html body .tabulator-col[aria-sort="descending"]:not(#__reos_never_id) .tabulato
   stroke: var(--reos-emerald) !important;
 }
 /* The active-sort pill (the createdAt column's blue-50 round badge
-   around its sort arrow) \u2014 remap to emerald-glow. */
+   around its sort arrow) — remap to emerald-glow. */
 html body .tabulator-col[aria-sort] .tabulator-col-sorter > span[style*="background-color:#EFF8FF"]:not(#__reos_never_id),
 html body .tabulator-col[aria-sort] .tabulator-col-sorter > span[style*="#EFF8FF"]:not(#__reos_never_id) {
   background-color: var(--reos-emerald-glow) !important;
   background: var(--reos-emerald-glow) !important;
   color: var(--reos-emerald) !important;
 }
-/* Column resize handles \u2014 steel hairline. */
+/* Column resize handles — steel hairline. */
 html body .tabulator-col-resize-handle:not(#__reos_never_id) {
   background-color: var(--reos-steel) !important;
 }
-/* Data rows \u2014 graphite, bone text, steel bottom border. Odd/even
+/* Data rows — graphite, bone text, steel bottom border. Odd/even
    both same so we don't get zebra striping (Tim's canon prefers
    uniform graphite). */
 html body .tabulator-row:not(#__reos_never_id),
@@ -8692,7 +8874,7 @@ html body .tabulator-cell:not(#__reos_never_id) {
   color: var(--reos-bone) !important;
   border-color: var(--reos-steel) !important;
 }
-/* Frozen (sticky) columns \u2014 Tabulator uses position: sticky + a bg
+/* Frozen (sticky) columns — Tabulator uses position: sticky + a bg
    to mask scrolled content. Default white. Paint graphite so the
    sticky strip blends. */
 html body .tabulator-frozen:not(#__reos_never_id),
@@ -8701,7 +8883,7 @@ html body .tabulator-frozen-right:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
   background: var(--reos-graphite) !important;
 }
-/* Row hover \u2014 keep graphite (Tim's canon, no highlight on rows).
+/* Row hover — keep graphite (Tim's canon, no highlight on rows).
    v0.12.20: explicit override of Tabulator's default white hover. */
 html body .tabulator-row:not(#__reos_never_id):hover,
 html body .tabulator-row:not(#__reos_never_id):hover .tabulator-cell {
@@ -8855,7 +9037,7 @@ html body .bulk-action-export-btn:not(#__reos_never_id) {
   border-color: var(--reos-steel) !important;
 }
 
-/* 16. BORDERS \u2014 coerce GHL's grey-border utility classes onto our scale */
+/* 16. BORDERS — coerce GHL's grey-border utility classes onto our scale */
 .border-gray-100,
 .border-gray-200,
 .border-gray-300,
@@ -8863,7 +9045,7 @@ html body .bulk-action-export-btn:not(#__reos_never_id) {
   border-color: var(--reos-steel) !important;
 }
 
-/* 16e. INLINE LIGHT-NEUTRAL BORDERS \u2014 restored in v0.7.60. v0.7.58
+/* 16e. INLINE LIGHT-NEUTRAL BORDERS — restored in v0.7.60. v0.7.58
    targeted these correctly; Tim's 'killed right nav' report turned
    out to be that Internal Chat doesn't show the right-side contact
    nav by GHL design (only Team Inbox does). The white outline
@@ -8886,7 +9068,7 @@ html body [style*="border-color:#EAECF0"],
 html body [style*="border-color: #eaecf0"],
 html body [style*="border-color:#eaecf0"],
 /* 16e-2 (v0.8.5): additional inline border colors Tim spotted in
-   the conversation thread \u2014 email card uses gray-300 at 50% alpha
+   the conversation thread — email card uses gray-300 at 50% alpha
    inline (rgba(208,213,221,0.5)), the SMS compose box uses solid
    gray-300 (rgb(208,213,221)). Remap both to steel. */
 html body [style*="rgb(208, 213, 221)"],
@@ -8898,7 +9080,7 @@ html body [style*="#d0d5dd"] {
   border-color: var(--reos-steel) !important;
 }
 
-/* 16e-3 (v0.8.5): outgoing chat-bubble border \u2014 GHL paints
+/* 16e-3 (v0.8.5): outgoing chat-bubble border — GHL paints
    .chat-bubble-* with rgb(234, 239, 252) (a very light blue-gray)
    via class CSS. Remap to steel so the bubble matches the rest
    of the cards in the conversation thread. */
@@ -8906,12 +9088,12 @@ html body [class*="chat-bubble"] {
   border-color: var(--reos-steel) !important;
 }
 
-/* 16e-4 (v0.8.7 \u2192 v0.8.10): the chat bubble's tail/pointer. GHL
+/* 16e-4 (v0.8.7 → v0.8.10): the chat bubble's tail/pointer. GHL
    builds it from two layers:
-   1) .chat-bubble-outbound::after \u2014 a 16x10 pseudo-element behind
+   1) .chat-bubble-outbound::after — a 16x10 pseudo-element behind
       the bubble.
-   2) .chat-outbound-hidden / .chat-inbound-hidden \u2014 a 26x25 DIV
-      with transform: matrix(0.73, 0.68, -0.68, 0.73, 0, 0) (~43\xB0
+   2) .chat-outbound-hidden / .chat-inbound-hidden — a 26x25 DIV
+      with transform: matrix(0.73, 0.68, -0.68, 0.73, 0, 0) (~43°
       rotation) sitting next to the bubble. This is the visible
       angled tag pointing at the sender avatar.
 
@@ -8948,7 +9130,7 @@ html body [class*="chat-inbound-hidden"] {
   outline: none !important;
 }
 
-/* 16g. TAILWIND GRAY-200 SWEEP \u2014 #E5E7EB / rgb(229, 231, 235).
+/* 16g. TAILWIND GRAY-200 SWEEP — #E5E7EB / rgb(229, 231, 235).
    Tim spotted this hex all over the DevTools computed-styles panel:
    it's Tailwind's gray-200, GHL's default for hairline borders and
    "subtle" surfaces. Visually it reads as near-white on a dark theme.
@@ -9024,7 +9206,7 @@ html body [style*="-webkit-text-fill-color:#e5e7eb"] {
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
-/* Tailwind text/divide/ring utility variants \u2014 uncommon but they
+/* Tailwind text/divide/ring utility variants — uncommon but they
    exist in GHL's emitted CSS. text-gray-200 -> bone (the color
    is near-white anyway), divide-gray-200 -> steel (child dividers),
    ring-gray-200 -> kill (focus rings don't make sense on dark
@@ -9059,7 +9241,7 @@ html body [style*="border-color:#e0e0e6"] {
   border-color: var(--reos-steel) !important;
 }
 
-/* Untitled-UI gray-200 \u2014 rgb(228, 231, 236) / #E4E7EC. One channel off
+/* Untitled-UI gray-200 — rgb(228, 231, 236) / #E4E7EC. One channel off
    from Tailwind gray-200 (229,231,235), but indistinguishable to the
    eye. GHL ships this as the conversation-card horizontal divider
    color (inline 'border-color: transparent transparent rgb(228, 231,
@@ -9081,7 +9263,7 @@ html body [style*="border-color:#e4e7ec"] {
   border-color: var(--reos-steel) !important;
 }
 
-/* SVG fill \u2014 add #E5E7EB to the section 16a chart-fill catchall
+/* SVG fill — add #E5E7EB to the section 16a chart-fill catchall
    for any chart shape painted in Tailwind gray-200. */
 html body svg path[fill="#E5E7EB"],
 html body svg rect[fill="#E5E7EB"],
@@ -9092,7 +9274,7 @@ html body svg polygon[fill="#e5e7eb"] {
   fill: var(--reos-slate) !important;
 }
 
-/* 16h. GHL TEXT-PRIMARY SWEEP \u2014 #101828 / rgb(16, 24, 40).
+/* 16h. GHL TEXT-PRIMARY SWEEP — #101828 / rgb(16, 24, 40).
    GHL's default text color on their light theme: every Vue-rendered
    heading, label, body paragraph, modal title, tab label, stage
    name, etc. ships with inline style="color: rgb(16, 24, 40)". On
@@ -9103,7 +9285,7 @@ html body svg polygon[fill="#e5e7eb"] {
    inline style attribute, no descendant cascade (so SVG icons that
    inherit currentColor are not affected). Remap to bone.
 
-   This is the single most impactful broad sweep \u2014 it should fix
+   This is the single most impactful broad sweep — it should fix
    the "where did the text go" effect on dozens of GHL-templated
    surfaces across the app (Opportunities titles, Conversations
    headings, modal titles, settings labels, etc.). */
@@ -9123,7 +9305,7 @@ html body [style*="-webkit-text-fill-color:#101828"] {
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
-/* SVG fill \u2014 chart shapes / data-vis icons sometimes paint in
+/* SVG fill — chart shapes / data-vis icons sometimes paint in
    #101828 (e.g. axis labels rendered as path fills). Remap so
    they show as bone on the dark surface. */
 html body svg path[fill="#101828"],
@@ -9134,7 +9316,7 @@ html body svg text[fill="#101828"] {
   fill: var(--reos-bone) !important;
 }
 
-/* 16f. CONVERSATIONS PANEL BOX-SHADOWS \u2014 .shadow-sm and similar
+/* 16f. CONVERSATIONS PANEL BOX-SHADOWS — .shadow-sm and similar
    Tailwind shadow utilities create a drop-shadow that GHL may have
    customized to render with a light color. On the dark theme that
    reads as a faint white outline around the rounded conversation
@@ -9164,29 +9346,29 @@ html body [class*='inbox-panel'] {
   outline: none !important;
 }
 
-/* 16f-2. INBOX PANEL \u2014 Conversations left-side menu (folder list,
+/* 16f-2. INBOX PANEL — Conversations left-side menu (folder list,
    accordions, dividers). Diagnosed live via /browse 2026-05-18 when
    Tim expanded the left nav and reported "icons but no text, blue
    icon after click, the whole section is a mess".
 
    Found via DOM walk:
    1) .menu-text (item labels like "Internal Chat") had inline-ish
-      color: rgb(16, 24, 40) = #101828 \u2014 dark text on graphite =
+      color: rgb(16, 24, 40) = #101828 — dark text on graphite =
       invisible. Active item ("Team Inbox") had emerald, fine.
    2) .hr-collapse-item__content-wrapper (expanded "My Inbox"
       sub-items: All / Assigned to Me / Followed by Me) had
-      color: rgb(52, 64, 84) \u2014 dark gray on dark = also invisible.
+      color: rgb(52, 64, 84) — dark gray on dark = also invisible.
       Tim saw three ghosted icon rows.
    3) .divider had bg: rgb(208, 213, 221) light gray, glaring.
    4) .hr-collapse-item__header-extra (right-side chevron on My
-      Inbox header) had color: rgb(52, 64, 84) \u2014 invisible.
+      Inbox header) had color: rgb(52, 64, 84) — invisible.
    5) Blue-after-click: GHL default :focus / :focus-visible state
       on menu rows paints a blue ring/bg.
 
    Fix: scope all the corrections under .inbox-panel so they don't
    leak elsewhere. Use html body prefix to beat Vue scoped CSS. */
 
-/* Default-state text inside the inbox panel \u2014 beat Vue scoped color */
+/* Default-state text inside the inbox panel — beat Vue scoped color */
 html body .inbox-panel .menu-text,
 html body .inbox-panel .menu-item-content,
 html body .inbox-panel .menu-item-content *:not(svg):not(svg *),
@@ -9198,7 +9380,7 @@ html body .inbox-panel .menu-item:not(.active) .menu-item-content {
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
-/* Active row container \u2014 two variants:
+/* Active row container — two variants:
    - EXPANDED (.menu-item-container.active, no .collapsed-item):
      canonical emerald-glow + emerald border (section 11b).
    - COLLAPSED (.menu-item-container.active.collapsed-item):
@@ -9221,7 +9403,7 @@ html body .inbox-panel .menu-item-container.active.collapsed-item:not(#__reos_ne
   outline: none !important;
 }
 
-/* Active row text + icon \u2014 emerald to match canonical ACTIVE state. */
+/* Active row text + icon — emerald to match canonical ACTIVE state. */
 html body .inbox-panel .menu-item-container.active .menu-text,
 html body .inbox-panel .menu-item-container.active .menu-item-content,
 html body .inbox-panel .menu-item-container.active .menu-item-content *:not(svg):not(svg *),
@@ -9232,7 +9414,7 @@ html body .inbox-panel .menu-item-container.active svg path {
   stroke: var(--reos-emerald) !important;
 }
 
-/* Icons in non-active rows \u2014 ash (muted bone) so they read but don't
+/* Icons in non-active rows — ash (muted bone) so they read but don't
    compete with the active emerald accent. */
 html body .inbox-panel .menu-item:not(.active) svg,
 html body .inbox-panel .menu-item:not(.active) svg path {
@@ -9240,7 +9422,7 @@ html body .inbox-panel .menu-item:not(.active) svg path {
   stroke: var(--reos-ash) !important;
 }
 
-/* Accordion (My Inbox / Views) \u2014 kill the slate fill on the wrapper
+/* Accordion (My Inbox / Views) — kill the slate fill on the wrapper
    so the panel reads as one continuous graphite surface, headers and
    content alike. Header chevron + content sub-items get bone text. */
 html body .inbox-panel #accordion-my-inbox,
@@ -9260,7 +9442,7 @@ html body .inbox-panel .hr-collapse-item__content-wrap {
   color: var(--reos-bone) !important;
 }
 
-/* All text descendants inside the accordions \u2014 bone so the
+/* All text descendants inside the accordions — bone so the
    ghosted sub-rows ("All", "Assigned to Me", "Followed by Me",
    "Create view") become readable. svg color gets ash for icons. */
 html body .inbox-panel .hr-collapse *:not(svg):not(svg *):not(.menu-item-container.active):not(.menu-item-container.active *) {
@@ -9273,7 +9455,7 @@ html body .inbox-panel .hr-collapse svg path {
   stroke: var(--reos-ash) !important;
 }
 
-/* Divider between sections \u2014 was a glaring light-gray bar.
+/* Divider between sections — was a glaring light-gray bar.
    Drop to steel so it reads as a subtle separator on graphite. */
 html body .inbox-panel .divider {
   background-color: var(--reos-steel) !important;
@@ -9368,7 +9550,7 @@ html body .inbox-panel a:focus-visible {
   border-color: transparent !important;
 }
 
-/* "Create view" link inside Views accordion \u2014 keep emerald to
+/* "Create view" link inside Views accordion — keep emerald to
    signal it's an action, but make sure it's not eaten by the
    bone-everything sweep above. */
 html body .inbox-panel .views-menu-content a,
@@ -9379,7 +9561,7 @@ html body .inbox-panel #views-accordion button {
   -webkit-text-fill-color: var(--reos-emerald) !important;
 }
 
-/* Right-edge collapse chevron button \u2014 small handle on the panel's
+/* Right-edge collapse chevron button — small handle on the panel's
    right border. Make sure it sits on graphite with bone icon. */
 html body .inbox-panel [class*='collapse-toggle'],
 html body .inbox-panel [class*='panel-toggle'],
@@ -9396,13 +9578,13 @@ html body .inbox-panel [class*='expand-button']:hover {
 }
 
 /* hr-tooltip / hr-popover-shared (collapsed-icon labels: "My Inbox",
-   "Internal Chat", "Views", etc.) \u2014 Tim wants the classic
+   "Internal Chat", "Views", etc.) — Tim wants the classic
    conversational popup look from the GenieREI version: solid dark
    pill with rounded corners and a small triangle pointing at the
    icon being hovered.
 
    ONLY the outer wrapper gets bg + padding + radius. Inner content
-   layers are transparent \u2014 otherwise bg + padding stacks on three
+   layers are transparent — otherwise bg + padding stacks on three
    nested elements and the tooltip balloons to ~3x normal size
    (Tim's "oversized box" feedback from v0.7.94/95). */
 html body .hr-tooltip,
@@ -9418,7 +9600,7 @@ html body .hr-popover-shared--show-arrow {
   transition: none !important;
   padding: 4px 8px !important;
 }
-/* Inner content layers \u2014 transparent + no padding so they don't
+/* Inner content layers — transparent + no padding so they don't
    add a second/third pill inside the outer one. */
 html body .hr-tooltip .hr-popover__content,
 html body .hr-tooltip .hr-tooltip__content,
@@ -9452,13 +9634,13 @@ html body .hr-popover-arrow-wrapper {
   transition: none !important;
 }
 
-/* 16f-3. CONVERSATION LIST INTERACTIVE ELEMENTS \u2014 apply the
+/* 16f-3. CONVERSATION LIST INTERACTIVE ELEMENTS — apply the
    canonical icon-rail pattern (ash / emerald / no box) to:
    - filter / sort icons in the header
    - Unread / All / Recents / Starred tab buttons
    - individual conversation rows (hover blend, emerald-glow active)
 
-   Tim flagged the lingering slate hover state on these \u2014 every
+   Tim flagged the lingering slate hover state on these — every
    substring hover rule in section 18a-1 ([class*='EFF4FF']:hover,
    [class*='hover:bg-gray-50']:hover, etc.) was catching the
    Tailwind hover-bg classes on rows + tabs + icons and painting
@@ -9535,7 +9717,7 @@ html body .conversation-list-header [class*='border-gray-200'][class*='rounded-l
   stroke: var(--reos-emerald) !important;
 }
 
-/* Tab strip outer wrapper border-gray-200 \u2192 steel (handled by
+/* Tab strip outer wrapper border-gray-200 → steel (handled by
    section 16 already, but make sure the outer rounded-lg radius
    reads as a deliberate group). The strip itself stays graphite. */
 html body .conversation-list-header [class*='border-gray-200'][class*='rounded-lg'] {
@@ -9543,7 +9725,7 @@ html body .conversation-list-header [class*='border-gray-200'][class*='rounded-l
   border-color: var(--reos-steel) !important;
 }
 
-/* Individual conversation rows \u2014 hover should BLEND with the panel
+/* Individual conversation rows — hover should BLEND with the panel
    surface (graphite), not paint a slate card.
    Match the row inner button (the .transition-colors.cursor-pointer
    wrapper that ships with bg-[#F7F9FD] hover:bg-[#EFF4FF]). */
@@ -9563,13 +9745,13 @@ html body [data-conversation-id][data-is-active="true"] > [type='button'],
 html body [data-conversation-id][data-is-active="true"] [type='button'] {
   border-color: var(--reos-emerald) !important;
 }
-/* Generic remap: any inline border with that exact blue \u2192 emerald.
+/* Generic remap: any inline border with that exact blue → emerald.
    Catches future widgets that use the same Tailwind primary blue. */
 html body [style*="rgb(82, 139, 255)"] {
   border-color: var(--reos-emerald) !important;
 }
 
-/* Bulk-select toolbar ("Select all" bar) \u2014 class bg-[#F7F9FD] gets
+/* Bulk-select toolbar ("Select all" bar) — class bg-[#F7F9FD] gets
    coerced to graphite by section 18a-1's substring rule. Force
    transparent so it blends with the panel rather than reading as
    a stripe. */
@@ -9578,11 +9760,11 @@ html body [data-name="bulk-select-bar"] {
   background: transparent !important;
 }
 
-/* Tailwind bg-inherit class \u2014 should "inherit parent's bg" per its
+/* Tailwind bg-inherit class — should "inherit parent's bg" per its
    own name. v0.7.96 and earlier had coerceDarkDropdowns rewrite
    these to slate inline because graphite (inherited from parent)
    reads as "darker than slate" to the coercer. Tim hit this with
-   the Team Inbox sticky header (.sticky.top-0.z-10.bg-inherit) \u2014
+   the Team Inbox sticky header (.sticky.top-0.z-10.bg-inherit) —
    the slate inline made it look like a blocky cheap bar on the
    graphite conversations list. Pin to transparent so it actually
    inherits; the coercer also skips bg-inherit now (see runtime). */
@@ -9592,14 +9774,14 @@ html body .bg-inherit {
   background: transparent !important;
 }
 
-/* Panel + layout container :hover override \u2014 section 18a-1 paints
+/* Panel + layout container :hover override — section 18a-1 paints
    ANY [class*="ECEEF2"]:hover and [class*="F7F9FD"]:hover slate.
    That catches the inbox-panel, #conversations-layout, the inner
    conversation-list outer panel (bg-[#F7F9FD]), the main
    #conversation-panel chat pane, and any other Tailwind-bg surface
    on the Conversations page. When the cursor lands on them they
    shift to a lighter slate while the inner content (rows,
-   FORCE_RULE-painted headers, etc.) stay graphite \u2014 the inner
+   FORCE_RULE-painted headers, etc.) stay graphite — the inner
    content then reads as a dark "surround" against the now-lighter
    panel (Tim's complaint at v0.7.91, recurring on the conv-list
    panel hover at v0.8.2).
@@ -9624,13 +9806,13 @@ html body [class*="eceef2"][class*="eceef2"][class*="eceef2"]:hover {
   background-color: var(--reos-graphite) !important;
 }
 
-/* 16a. SVG CHART FILLS \u2014 GHL bakes light-neutral hexes as SVG fill="..."
+/* 16a. SVG CHART FILLS — GHL bakes light-neutral hexes as SVG fill="..."
    presentation attributes on chart shapes (funnel segment backgrounds,
    axis dividers, donut placeholder rings, etc.). Presentation attributes
    lose to CSS, so an !important CSS fill rule overrides them.
 
    Catches the common GHL/Tailwind light-neutral palette:
-     #EAECF0 = neutral-200 / gray-200  (funnel segment bg \u2014 observed)
+     #EAECF0 = neutral-200 / gray-200  (funnel segment bg — observed)
      #F2F4F7 = neutral-100 / gray-100
      #D0D5DD = neutral-300 / gray-300
      #F9FAFB = neutral-50  / gray-50
@@ -9693,7 +9875,7 @@ html body [class*='chart-container'] svg path[stroke="white"] {
   stroke: var(--reos-graphite) !important;
 }
 
-/* 16d. CHART TOOLTIPS \u2014 REVERTED in v0.7.54. The blind fix in v0.7.53
+/* 16d. CHART TOOLTIPS — REVERTED in v0.7.54. The blind fix in v0.7.53
    broke page load (likely the very-long [style*='...'] FORCE_RULE
    selector list slowing applyForceRules on every MutationObserver
    tick, or one of the [class*='tooltip-container'] / 'tooltip-content'
@@ -9701,10 +9883,10 @@ html body [class*='chart-container'] svg path[stroke="white"] {
    it graphite + bordered. Either way: page wouldn't load.
    Need a different approach to the chart tooltip white-flash. */
 
-/* 16b. CHART TEXT \u2014 funnel-segment percentages, axis labels, donut center
+/* 16b. CHART TEXT — funnel-segment percentages, axis labels, donut center
    readouts, legend text. SVG <text>/<tspan> elements inside dashboard
    chart cards inherit their color from GHL's baked-in dark fills (e.g.
-   #101828, #344054, #1D2939) \u2014 invisible against slate funnel segments.
+   #101828, #344054, #1D2939) — invisible against slate funnel segments.
    Also covers HTML text overlays in case the chart engine layers <div>
    labels on top of SVG via foreignObject or absolute positioning.
 
@@ -9745,7 +9927,7 @@ html body [class*='chart-container'] [class*='data-label'] {
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
 
-/* 16c. CHART HOVER \u2014 investigation pending. v0.7.49 attempted a
+/* 16c. CHART HOVER — investigation pending. v0.7.49 attempted a
    transition kill on chart-container SVG content + FORCE_RULE bone
    fill on chart text, but the change broke the chart's click-to-open
    handler (the row's onclick that opens stage details) AND did not
@@ -9753,7 +9935,7 @@ html body [class*='chart-container'] [class*='data-label'] {
 
    Likely cause of the regression: aggressive inline-style mutations
    on every MutationObserver tick interfere with the chart lib's
-   reactive update path. Need a more targeted fix \u2014 probably
+   reactive update path. Need a more targeted fix — probably
    debouncing the chart-text FORCE_RULE, or scoping more narrowly,
    or using a different mechanism entirely (override at the chart
    library config level if possible). */
@@ -9768,7 +9950,7 @@ html body [class*='chart-container'] [class*='data-label'] {
    (Call Status + Offer Made) cooperates with #contact-conversation-panel.
    Without this, the conversation panel uses h-full (height: 100%) which
    resolves to 100% of the central-panel and ignores the 45px my bar
-   occupies \u2014 pushing the compose footer 29px below the viewport so the
+   occupies — pushing the compose footer 29px below the viewport so the
    emoji / attach icons get cut off. Flex-column lets my bar take its
    natural height while the conversation panel fills the rest. */
 .central-panel {
@@ -9789,7 +9971,7 @@ html body [class*='chart-container'] [class*='data-label'] {
 
 /* 18a-fc-page (v0.8.27). The Calendars page outer wrapper
    #fc-calendar-container-v2 ships with class 'h-screen flex relative'
-   and ZERO theme. Computed bg = pure white, 1695x992 \u2014 the entire
+   and ZERO theme. Computed bg = pure white, 1695x992 — the entire
    page surface is white underneath everything. Nested elements
    paint over visually but the wrapper still flashes white on
    first paint and on any layout shift.
@@ -9803,11 +9985,11 @@ html body div#fc-calendar-container-v2 {
   color: var(--reos-bone) !important;
 }
 
-/* #today-button (v0.8.27 \u2192 v0.8.33). FullCalendar's Today button.
+/* #today-button (v0.8.27 → v0.8.33). FullCalendar's Today button.
    v0.8.27 pinned it permanently emerald to mark it as 'active'.
-   Tim hated the result \u2014 said it 'looks like shit'.
+   Tim hated the result — said it 'looks like shit'.
 
-   v0.8.33: match the Manage view treatment instead \u2014 steel border
+   v0.8.33: match the Manage view treatment instead — steel border
    + bone text in default state, emerald lift only on hover. Reads
    as a quiet clickable button by default, signals affordance on
    hover. Override Naive's CSS variables AND the computed styles
@@ -9864,12 +10046,12 @@ html body button#today-button .n-base-wave {
   opacity: 0 !important;
 }
 
-/* .fc-timegrid-now-indicator-line / -arrow (v0.8.27 \u2192 v0.8.29).
+/* .fc-timegrid-now-indicator-line / -arrow (v0.8.27 → v0.8.29).
    FullCalendar's 'current time' horizontal line ships pure red
    rgb(255, 0, 0) via border-top-color (line) + border-color
    (arrow tip). Tim couldn't see it; wants brand --reos-crimson.
 
-   v0.8.28 fixed the color but the line was still invisible \u2014
+   v0.8.28 fixed the color but the line was still invisible —
    diagnosed via /browse elementsFromPoint: the .fc-timegrid-slot-lane
    TD cells stack ON TOP of the indicator-container (z-index auto)
    and the TDs' transparent fill let the graphite-bg TABLE
@@ -9899,7 +10081,7 @@ html body [class*="fc-timegrid-now-indicator-arrow"]:not(#__reos_never_id):not(#
   border-left-color: var(--reos-crimson) !important;
   z-index: 100 !important;
 }
-/* Container needs lifting too \u2014 it parents the line/arrow and
+/* Container needs lifting too — it parents the line/arrow and
    sets the stacking context. */
 html body .fc-timegrid-now-indicator-container:not(#__reos_never_id):not(#__reos_also_never),
 html body [class*="fc-timegrid-now-indicator-container"]:not(#__reos_never_id):not(#__reos_also_never) {
@@ -9910,7 +10092,7 @@ html body [class*="fc-timegrid-now-indicator-container"]:not(#__reos_never_id):n
    are painted graphite by section 18a-flash-global / FORCE_RULE
    (everything not transparent in the calendar inherits the page
    graphite). The slot-grid TABLE then becomes an opaque sheet
-   that COVERS the now-indicator line \u2014 Tim's reproducible 'line
+   that COVERS the now-indicator line — Tim's reproducible 'line
    not visible' bug.
 
    Solution: paint .fc table backgrounds transparent. Slots stay
@@ -9928,7 +10110,7 @@ html body [class*="fc-daygrid"] table:not(#__reos_never_id) {
   background: transparent !important;
 }
 
-/* 18a-smartlist-tabs (v0.8.37 \u2192 v0.8.38). The Contacts smart-list
+/* 18a-smartlist-tabs (v0.8.37 → v0.8.38). The Contacts smart-list
    page has a tabs bar (.d-flex.bar) with .d-flex.view.cursor-pointer
    children. The active tab gets a class .active AND already has a
    ::after pseudo painting an underline (bg: rgb(0,78,235), GHL
@@ -9951,7 +10133,7 @@ html body .d-flex.view.cursor-pointer .view-label {
   background: transparent !important;
   transition: none !important;
 }
-/* Hover: inactive tab \u2192 emerald text. */
+/* Hover: inactive tab → emerald text. */
 html body .d-flex.view:hover,
 html body .d-flex.view:hover .view-label,
 html body .d-flex.view.cursor-pointer:hover,
@@ -9978,7 +10160,7 @@ html body .d-flex.view.cursor-pointer.active::after {
   background: var(--reos-emerald) !important;
 }
 
-/* 18a-pipeline-ribbon-count (v0.8.40 \u2192 v0.8.41). The contact
+/* 18a-pipeline-ribbon-count (v0.8.40 → v0.8.41). The contact
    count pill on the contacts smart-list page (.pipeline-ribbon
    .count, content '42 Contacts') was painted slate-bg + bone-text
    inline by coerceDarkDropdowns. v0.8.40 skipped the coercer
@@ -9997,7 +10179,7 @@ html body [class*="pipeline-ribbon"] .count {
 
 /* v0.12.21: smartlist title ("Properties", "Contacts", "Opportunities",
    etc.) at the top-left of the pipeline ribbon. Ships with dark
-   gray text via Vue scoped CSS \u2014 invisible on our graphite bg.
+   gray text via Vue scoped CSS — invisible on our graphite bg.
    Pin bone + a heading weight so it reads as the page title. */
 html body .smartlist-title:not(#__reos_never_id),
 html body .pipeline-ribbon .smartlist-title:not(#__reos_never_id),
@@ -10031,7 +10213,7 @@ html body .d-flex.bar svg path[stroke="#000000"] {
      2) Vertical divider between .d-flex.lists (the smart-list
         group) and the '+ Add smart list' container on the right.
 
-   Section 16's plain .border-gray-200 \u2192 steel doesn't catch
+   Section 16's plain .border-gray-200 → steel doesn't catch
    these because the lines come from #views-bar's own Vue
    scoped CSS (no .border-gray-200 utility class on the
    element). Target the bar structure directly with ID-level
@@ -10097,8 +10279,8 @@ html body [style*="background:#f2f4f7"]:not(#__reos_never_id) {
    Two paths:
    1) Structural: any wrapper that has BOTH an svg/i sibling AND a
       <p class="ui-text-sm-normal"> child looks like an info banner.
-      Repaint bg \u2192 graphite (one shade up from modal slate), border
-      \u2192 steel, text \u2192 bone.
+      Repaint bg → graphite (one shade up from modal slate), border
+      → steel, text → bone.
    2) Defensive: also paint the <p> + its descendants directly so the
       inline -webkit-text-fill-color doesn't bleed back through. */
 html body div:has(> p.ui-text-sm-normal):has(> svg):not(#__reos_never_id),
@@ -10110,7 +10292,7 @@ html body section:has(> p.ui-text-sm-normal):has(> svg):not(#__reos_never_id) {
   border-color: var(--reos-steel) !important;
 }
 
-/* Icon color inside the banner \u2014 flip muted gray \u2192 ash so the
+/* Icon color inside the banner — flip muted gray → ash so the
    info glyph reads on graphite. */
 html body div:has(> p.ui-text-sm-normal):has(> svg):not(#__reos_never_id) > svg,
 html body div:has(> p.ui-text-sm-normal):has(> svg):not(#__reos_never_id) > svg path,
@@ -10120,7 +10302,7 @@ html body div:has(> p.ui-text-sm-normal):has(> svg):not(#__reos_never_id) > svg 
   fill: var(--reos-ash) !important;
 }
 
-/* Text inside the banner \u2014 bone for readability on graphite. */
+/* Text inside the banner — bone for readability on graphite. */
 html body div:has(> svg) > p.ui-text-sm-normal:not(#__reos_never_id),
 html body div:has(> i) > p.ui-text-sm-normal:not(#__reos_never_id),
 html body div:has(> [class*="icon"]) > p.ui-text-sm-normal:not(#__reos_never_id) {
@@ -10130,12 +10312,12 @@ html body div:has(> [class*="icon"]) > p.ui-text-sm-normal:not(#__reos_never_id)
 }
 
 /* 18a-icon-primary (v0.8.64). The .icon.icon-primary circular badge
-   on the Billing \u2192 Payment Methods card holds the bank-account
+   on the Billing → Payment Methods card holds the bank-account
    glyph. GHL ships it as a white circle with a navy/dark bank icon.
    Our coercer remaps the BG to slate (visible in the inline
    background-color: rgb(26, 31, 40)), but the SVG renders with
    stroke="currentColor" inheriting from inline color: rgb(237, 238,
-   240) (bone) \u2014 so the bank lines are bone, the circle is slate.
+   240) (bone) — so the bank lines are bone, the circle is slate.
 
    On the dark theme, the "big white circle" Tim describes is the
    PARENT card wrapper (the payment method tile) still painting
@@ -10216,7 +10398,7 @@ html body .n-button.n-button--default-type:not(#__reos_never_id):hover .n-button
   color: var(--reos-emerald) !important;
   -webkit-text-fill-color: var(--reos-emerald) !important;
 }
-/* :focus and :active stay on the resting palette \u2014 no green tint
+/* :focus and :active stay on the resting palette — no green tint
    left behind after click / when modal autofocuses the button.
    Pin bg/text/border explicitly so Naive UI's focus var doesn't
    bleed emerald-glow back through. */
@@ -10249,7 +10431,7 @@ html body .n-button.n-button--default-type:not(#__reos_never_id):active .n-butto
 html body .n-button.n-button--default-type:not(#__reos_never_id):active .n-button__state-border {
   border: 1px solid var(--reos-cool-gray) !important;
 }
-/* Kill the emerald-glow wave ripple inside default-type buttons \u2014
+/* Kill the emerald-glow wave ripple inside default-type buttons —
    that's the lingering "muted green" patch Tim sees after click. */
 html body .n-button.n-button--default-type:not(#__reos_never_id) .n-base-wave {
   background: transparent !important;
@@ -10257,19 +10439,19 @@ html body .n-button.n-button--default-type:not(#__reos_never_id) .n-base-wave {
   display: none !important;
 }
 
-/* 18a-checkboxes (v0.8.51 \u2192 v0.8.53). Tim's spec for checkboxes
+/* 18a-checkboxes (v0.8.51 → v0.8.53). Tim's spec for checkboxes
    GLOBALLY:
    - Unchecked: slate bg + steel border
    - Checked: brand --reos-blue bg + matching border + bone check
    - No hover or focus state (long lists)
 
    Three families to cover:
-   1) Native <input type='checkbox'>          \u2014 section below
-   2) Naive UI .n-checkbox                    \u2014 CSS-variable driven
-   3) HR (GHL) .hr-checkbox                   \u2014 same model as Naive
+   1) Native <input type='checkbox'>          — section below
+   2) Naive UI .n-checkbox                    — CSS-variable driven
+   3) HR (GHL) .hr-checkbox                   — same model as Naive
 */
 
-/* (2) + (3) Naive UI / HR checkboxes \u2014 both use --n-color +
+/* (2) + (3) Naive UI / HR checkboxes — both use --n-color +
    --n-color-checked CSS variables on the wrapper. Override the
    vars + paint the .{n,hr}-checkbox-box__border directly so we
    don't depend on Naive's internal cascade order. */
@@ -10277,8 +10459,8 @@ html body .n-checkbox,
 html body .hr-checkbox,
 html body [class*="n-checkbox"],
 html body [class*="hr-checkbox"] {
-  /* v0.8.82: unchecked box bg \u2192 steel (was slate). Slate is the
-     same shade as most modal/page surfaces \u2014 the box disappeared
+  /* v0.8.82: unchecked box bg → steel (was slate). Slate is the
+     same shade as most modal/page surfaces — the box disappeared
      into the bg. Steel is one shade lighter so the unchecked
      box reads against the dark surface. Checked stays brand
      blue. Border becomes cool-gray to keep the outline visible
@@ -10316,7 +10498,7 @@ html body [aria-checked="true"] .hr-checkbox-box {
   background-color: var(--reos-blue) !important;
   background: var(--reos-blue) !important;
 }
-/* Border layers \u2014 cool-gray on unchecked so the box outline
+/* Border layers — cool-gray on unchecked so the box outline
    stays visible against the lighter steel bg (v0.8.82). */
 html body .n-checkbox-box__border,
 html body .hr-checkbox-box__border {
@@ -10332,7 +10514,7 @@ html body [aria-checked="true"] .hr-checkbox-box__border {
   border: 1px solid var(--reos-blue) !important;
   box-shadow: none !important;
 }
-/* Check icon SVG \u2014 bone fill so the check reads on the blue
+/* Check icon SVG — bone fill so the check reads on the blue
    surface. Naive uses path with currentColor; set both color and
    fill for the SVG. */
 html body .n-checkbox .check-icon,
@@ -10353,11 +10535,11 @@ html body .hr-checkbox-icon svg path {
    when visible.
 
    v0.8.66 also painted the immediate parent (span/div) blue via
-   :has(> svg.check-icon) \u2014 but the .check-icon is present in the
+   :has(> svg.check-icon) — but the .check-icon is present in the
    DOM in BOTH checked and unchecked states (Naive UI keeps it
    permanently mounted and hides it via opacity on unchecked).
    So the wrapper-paint rule turned unchecked boxes blue. v0.8.67
-   drops the wrapper rule \u2014 let the existing .n-checkbox / .hr-checkbox
+   drops the wrapper rule — let the existing .n-checkbox / .hr-checkbox
    --n-color-checked variable do the bg color via the checked state. */
 html body svg.check-icon:not(.n-checkbox .check-icon):not(.hr-checkbox .check-icon),
 html body svg.check-icon:not(.n-checkbox .check-icon):not(.hr-checkbox .check-icon) path {
@@ -10383,7 +10565,7 @@ html body .hr-checkbox-box:focus {
    1. Checkbox box flashes WHITE on hover (checked or unchecked).
    2. Check icon takes ~6 seconds to appear after clicking.
 
-   Both root in the same place \u2014 Naive UI/HR ships the checkbox
+   Both root in the same place — Naive UI/HR ships the checkbox
    with cascade-deep transition rules on background-color + opacity.
    Some Vue scoped rule must be setting a very long transition
    duration on .check-icon (and the box hover blends through a
@@ -10391,7 +10573,7 @@ html body .hr-checkbox-box:focus {
 
    Fix: pin :hover state to slate (unchecked) / blue (checked) and
    kill transitions on every checkbox element + the .check-icon
-   itself. State changes go instant \u2014 no white flash, no slow
+   itself. State changes go instant — no white flash, no slow
    reveal. Matches Tim's "no hover state" spec from v0.8.51-53. */
 
 /* Pin hover state. ID-level (:not(#__reos_never_id)) so we beat
@@ -10413,7 +10595,7 @@ html body [aria-checked="true"]:not(#__reos_never_id):hover .hr-checkbox-box {
   background: var(--reos-blue) !important;
 }
 
-/* Kill ALL transitions on checkbox elements + .check-icon \u2014
+/* Kill ALL transitions on checkbox elements + .check-icon —
    state changes go instant. Covers the box, the border layers,
    the icon container, and the SVG itself. */
 html body .n-checkbox,
@@ -10484,14 +10666,14 @@ html body [aria-checked="true"][aria-checked="true"]:not(#__reos_never_id):hover
 /* 18a-checkbox-state-pin (v0.8.69). v0.8.68 fixed the slow transition
    but the box is STILL rendering white when checked + a sticky white
    bg after hover. Tim's screenshot shows: green check (path) on a
-   white square \u2014 meaning:
+   white square — meaning:
    - The checkbox box bg paints white instead of slate (unchecked)
      or blue (checked)
    - The .check-icon path renders emerald-green instead of bone
 
    v0.8.69 fix:
-   - Switch v0.8 modal accent-color from emerald \u2192 blue (matches
-     checkbox spec \u2014 when a native input renders via accent-color,
+   - Switch v0.8 modal accent-color from emerald → blue (matches
+     checkbox spec — when a native input renders via accent-color,
      the box bg becomes the accent color)
    - Pin .n-checkbox-box / .hr-checkbox-box bg with maximum
      specificity using class-stacking so we beat any Vue scoped
@@ -10523,9 +10705,9 @@ html body .hr-checkbox--checked.hr-checkbox--checked:not(#__reos_never_id):hover
   border-color: var(--reos-blue) !important;
 }
 
-/* .check-icon path inside ANY checkbox-shaped wrapper \u2192 bone.
+/* .check-icon path inside ANY checkbox-shaped wrapper → bone.
    The earlier rule (line 3865) required a literal .n-checkbox or
-   .hr-checkbox ancestor \u2014 some GHL checkbox variants use other
+   .hr-checkbox ancestor — some GHL checkbox variants use other
    wrapper classes ([class*='checkbox'], aria-checked containers).
    This rule paints the check bone wherever the .check-icon sits
    inside a recognized checkbox shape. */
@@ -10564,7 +10746,7 @@ html body input[type="checkbox"]:not(.n-checkbox):not(.hr-checkbox):not([class*=
   background: var(--reos-blue) !important;
   border-color: var(--reos-blue) !important;
 }
-/* Checkmark \u2014 bone, drawn as two perpendicular lines via the
+/* Checkmark — bone, drawn as two perpendicular lines via the
    classic CSS rotate-rectangle technique. Pseudo-element on the
    checkbox itself. */
 html body input[type="checkbox"]:not(.n-checkbox):not(.hr-checkbox):not([class*="n-checkbox"]):not([class*="hr-checkbox"]):checked::after {
@@ -10579,7 +10761,7 @@ html body input[type="checkbox"]:not(.n-checkbox):not(.hr-checkbox):not([class*=
   transform: rotate(45deg) !important;
   display: block !important;
 }
-/* Indeterminate state (partial selection in bulk-select) \u2014 show
+/* Indeterminate state (partial selection in bulk-select) — show
    a horizontal bar in bone instead of a check. */
 html body input[type="checkbox"]:not(.n-checkbox):not(.hr-checkbox):not([class*="n-checkbox"]):not([class*="hr-checkbox"]):indeterminate {
   background-color: var(--reos-blue) !important;
@@ -10600,11 +10782,11 @@ html body input[type="checkbox"]:not(.n-checkbox):not(.hr-checkbox):not([class*=
 }
 
 /* 18a-copy-icon (v0.8.60). The copy-icon button next to phone /
-   email cells in the contacts table \u2014 inline ships with
+   email cells in the contacts table — inline ships with
    'background: white' + 'border: 1px solid #D0D5DD'. Tim wants:
    - Slate bg + steel border
    - Brand-blue copy icon (and the checkmark icon shown after
-     click \u2014 same color spec)
+     click — same color spec)
    - Inline styles lose to CSS !important so this overrides them. */
 html body .copy-icon,
 html body span.copy-icon {
@@ -10621,7 +10803,7 @@ html body span.copy-icon svg path {
   stroke: var(--reos-blue) !important;
   fill: none !important;
 }
-/* Post-click checkmark state \u2014 many implementations swap the SVG
+/* Post-click checkmark state — many implementations swap the SVG
    path or add a .copied / .success class. Cover broadly:
    any svg inside .copy-icon stays blue regardless of state. */
 html body .copy-icon.copied svg,
@@ -10637,11 +10819,11 @@ html body .copy-icon[data-copied="true"] svg path {
 /* 18a-list-contact-options-icon (v0.8.54). The 3-dot trigger on
    contact rows uses SVG with class .list-individual-contact-
    options-icon. v0.8.48 tried matching via d^= path selector
-   but the user reports it didn't render \u2014 switching to the
+   but the user reports it didn't render — switching to the
    explicit class which is unique and reliable.
 
    Tim's spec: slate bg + steel border + brand-blue dots. */
-/* SVG rendering \u2014 leave size at the browser default (no width/
+/* SVG rendering — leave size at the browser default (no width/
    height override), use stroke not fill. v0.8.58 enlarged to 16
    + filled, which made the 3 dots smear into a solid blue strip.
    Reverting to the original stroked render (each dot is a small
@@ -10658,7 +10840,7 @@ html body .list-individual-contact-options-icon path {
   stroke: var(--reos-blue) !important;
   fill: none !important;
 }
-/* The wrapper around the icon \u2014 actually a <span class=
+/* The wrapper around the icon — actually a <span class=
    "contact-options-button">. v0.8.54 missed it because :has()
    was scoped to button/div/role=button. Target the explicit
    class directly. */
@@ -10670,7 +10852,7 @@ html body span.contact-options-button {
   border-radius: 4px !important;
   padding: 4px !important;
 }
-/* Active/focus state of the trigger \u2014 no inner box, no
+/* Active/focus state of the trigger — no inner box, no
    white/blue overlay, no focus ring. v0.8.56 fix for Tim's
    'ugly white and blue inner box when clicked'. */
 html body .contact-options-button:focus,
@@ -10695,7 +10877,7 @@ html body span.contact-options-button::after {
   display: none !important;
   background: transparent !important;
 }
-/* Kill EVERY non-SVG descendant painting bg inside the button \u2014
+/* Kill EVERY non-SVG descendant painting bg inside the button —
    not just direct children. The 'ugly white+blue inner box' Tim
    keeps seeing is a deeper child (likely Naive's n-base-wave
    nested inside, or an indicator div). Hit the entire subtree. */
@@ -10817,7 +10999,7 @@ html body .n-dropdown-option:hover .n-dropdown-option-body__prefix svg path {
   color: var(--reos-emerald) !important;
   stroke: var(--reos-emerald) !important;
 }
-/* Delete / destructive option \u2014 crimson on hover (matches the
+/* Delete / destructive option — crimson on hover (matches the
    delete-conversation icon pattern from section 15i). Use :has()
    to detect a trashcan SVG inside the option (multiple common
    path patterns: heroicons, material, FA, etc.) AND class
@@ -10864,7 +11046,7 @@ html body .n-dropdown-option:has(svg path[d*="m20.13"]):hover svg path {
   stroke: var(--reos-crimson) !important;
 }
 
-/* 18a-contact-name-link (v0.8.46 \u2192 v0.8.47). Contact rows on the
+/* 18a-contact-name-link (v0.8.46 → v0.8.47). Contact rows on the
    smart-list page render names as <a class="contact-name-link">
    with inline color: inherit. Default Tim wants ASH (subtle,
    recedes); hover EMERALD (clickable affordance).
@@ -10872,7 +11054,7 @@ html body .n-dropdown-option:has(svg path[d*="m20.13"]):hover svg path {
    v0.8.46 used plain .contact-name-link:hover. Generic a:hover
    rule { color: rgb(8, 113, 211) } at (0,1,1) was beaten in
    theory by .contact-name-link:hover (0,1,1) + my !important.
-   But the user still saw blue \u2014 likely cache or another rule
+   But the user still saw blue — likely cache or another rule
    (.hl_navbar--links a:hover etc.) winning by chain. Bump
    specificity to ID-level so nothing can beat it. Also kill the
    underline + bg hover from any parent. */
@@ -10910,10 +11092,10 @@ html body .tabulator-cell:hover:not(#__reos_never_id) {
    around the entire section.
 
    Diagnosed via /browse:
-   - .tabulator-cell \u2014 inline bg slate from coerceDarkDropdowns
-   - .tabulator-row \u2014 bg WHITE from Tabulator default
-   - .tabulator outer \u2014 bg WHITE
-   - .table-container \u2014 border-color rgb(234, 236, 240) gray-200
+   - .tabulator-cell — inline bg slate from coerceDarkDropdowns
+   - .tabulator-row — bg WHITE from Tabulator default
+   - .tabulator outer — bg WHITE
+   - .table-container — border-color rgb(234, 236, 240) gray-200
 
    v0.8.42 set .tabulator transparent but apparently was beaten on
    the row/cell level. This rule covers EVERY tabulator descendant
@@ -10932,13 +11114,13 @@ html body .table-container:not(#__reos_never_id) {
   background-color: transparent !important;
   background: transparent !important;
 }
-/* .table-container outer border (gray-200) \u2192 steel. */
+/* .table-container outer border (gray-200) → steel. */
 html body .table-container:not(#__reos_never_id) {
   border-color: var(--reos-steel) !important;
 }
 
 /* 18a-tabulator-wrappers (v0.8.42). The Tabulator library paints
-   its outer wrappers white by default \u2014 Tim flagged the white
+   its outer wrappers white by default — Tim flagged the white
    surround at the bottom of the contacts table:
    - .my-table.tabulator outer: pure white
    - .table-container: pure white
@@ -10959,7 +11141,7 @@ html body [class*="tabulator"]:not(.tabulator-cell):not(.tabulator-col):not(.tab
   background-color: transparent !important;
   background: transparent !important;
 }
-/* Tabulator pagination buttons \u2014 disabled state in particular
+/* Tabulator pagination buttons — disabled state in particular
    shipped with semi-white bg + invisible dark text. Pin all
    states to transparent + bone, emerald hover. */
 html body .tabulator-page,
@@ -11000,7 +11182,7 @@ html body button.tabulator-page.active {
    .tabulator-footer / .tabulator-page ships with borders in
    light-gray rgb(240, 241, 243) (#F0F1F3) or rgb(232, 234, 237)
    (#E8EAED). Section 16 only catches Tailwind .border-gray-200,
-   section 16e only catches inline rgb(234, 236, 240) \u2014 neither
+   section 16e only catches inline rgb(234, 236, 240) — neither
    matches these Tabulator hexes.
 
    Remap every Tabulator border to steel so the table grid reads
@@ -11033,7 +11215,7 @@ html body [style*="#f0f1f3"]:not(#__reos_never_id) {
 }
 
 /* 18a-fc-calendar (v0.8.26). Calendar page (/calendars/view) is
-   built on FullCalendar \u2014 every column / time row / header cell
+   built on FullCalendar — every column / time row / header cell
    has border-color rgb(221, 221, 221) (#DDDDDD) from the library
    default. Section 16 only catches Tailwind .border-gray-200 and
    section 16e only catches the specific inline-rgb-234 pattern,
@@ -11059,7 +11241,7 @@ html body [class*="fc-scrollgrid"]:not(#__reos_never_id) {
   border-color: var(--reos-slate) !important;
 }
 
-/* Inline border-color rgb(221, 221, 221) \u2014 catches FullCalendar
+/* Inline border-color rgb(221, 221, 221) — catches FullCalendar
    stragglers that set the color via style attribute, plus any
    other place GHL uses this near-white gray inline. */
 html body [style*="border-color: rgb(221, 221, 221)"]:not(#__reos_never_id),
@@ -11077,7 +11259,7 @@ html body [style*="border-color:#ddd"]:not(#__reos_never_id) {
   border-color: var(--reos-slate) !important;
 }
 
-/* 18a-sla (v0.8.24 \u2192 v0.8.25). SLA performance page empty state
+/* 18a-sla (v0.8.24 → v0.8.25). SLA performance page empty state
    renders pure-white on load and only converts to dark after
    DevTools is opened (which triggers a viewport reflow).
 
@@ -11102,7 +11284,7 @@ html body [class*="sla-container"]:not(#__reos_never_id) {
   color: var(--reos-bone) !important;
   transition-property: color, border-color, opacity, transform, box-shadow !important;
 }
-/* Text descendants \u2014 bone on transparent so they inherit the
+/* Text descendants — bone on transparent so they inherit the
    graphite of their nearest painted ancestor. */
 html body [data-v-04bb51f8] h1:not(#__reos_never_id),
 html body [data-v-04bb51f8] h2:not(#__reos_never_id),
@@ -11135,7 +11317,7 @@ html body [class*="sla-empty-state"]:not(#__reos_never_id) span {
    first frame white before applyForceRules fires (debounced ~16-100ms)
    and overrides with inline graphite. That gap is the white flash.
 
-   Fix: same trick as v0.8.16 \u2014 :not(#__reos_never_id) bumps every
+   Fix: same trick as v0.8.16 — :not(#__reos_never_id) bumps every
    substring-match anti-flash selector to ID-level specificity
    (1,1,3), reliably beating any Vue scoped CSS.
 
@@ -11180,7 +11362,7 @@ html body .bg-stone-100:not(#__reos_never_id) {
   animation: none !important;
 }
 
-/* 18a. GHL Tailwind arbitrary + utility light backgrounds \u2014 the
+/* 18a. GHL Tailwind arbitrary + utility light backgrounds — the
    contact-detail page hardcodes specific hex colors via Tailwind
    arbitrary-value classes like bg-[#F7F9FD] (conversation main +
    compose footer) and bg-[#eff4ff] (SMS modal header tab strip).
@@ -11190,7 +11372,7 @@ html body .bg-stone-100:not(#__reos_never_id) {
 
    For NAMED Tailwind shades like bg-gray-50, substring match would
    catch state-prefixed variants like 'hover:bg-gray-50',
-   'group-hover:bg-gray-50', 'focus:bg-gray-50' \u2014 painting them
+   'group-hover:bg-gray-50', 'focus:bg-gray-50' — painting them
    graphite ALWAYS instead of only on hover. Diagnosed live: the
    icon row in the message header (phone, archive, star, mark-read,
    delete) had 'hover:bg-gray-50' on each button. Substring catchall
@@ -11230,11 +11412,11 @@ html body .bg-stone-100:not(#__reos_never_id) {
 
 /* 18a-1. HOVER variants of the same arbitrary-background classes.
    Tim noticed a flashing button on the Conversations tabs (Unread /
-   All / Recents / Starred) \u2014 class list includes bg-[#F7F9FD] AND
+   All / Recents / Starred) — class list includes bg-[#F7F9FD] AND
    hover:bg-gray-50. Our FORCE_RULE injects inline graphite, but Vue
    re-renders the button on hover state changes and briefly clobbers
    the inline style. During that gap Tailwind's hover:bg-gray-50
-   wins (light gray) \u2192 flash \u2192 MutationObserver re-applies inline \u2192
+   wins (light gray) → flash → MutationObserver re-applies inline →
    flash repeats. Visible flicker.
 
    Fix: CSS hover rules that beat Tailwind's hover utility via
@@ -11242,7 +11424,7 @@ html body .bg-stone-100:not(#__reos_never_id) {
    specificity, and !important seals it). CSS rules survive Vue
    re-renders since they're stylesheet-based, not inline. So even
    when Vue clobbers our inline, the CSS hover rule still applies
-   graphite \u2014 no flash.
+   graphite — no flash.
 
    Covers the same Tailwind class families plus the hover: prefixed
    versions Tailwind generates. */
@@ -11284,11 +11466,11 @@ html body [class*="hover:bg-stone-50"]:hover {
 
 /* 18a-1b. KILL transitions on Tailwind-arbitrary-bg buttons. The
    Conversations tab buttons (Unread/All/Recents/Starred) use
-   class='transition-colors bg-[#F7F9FD] hover:bg-gray-50' \u2014 even
+   class='transition-colors bg-[#F7F9FD] hover:bg-gray-50' — even
    if my CSS hover rule and FORCE_RULE both keep the bg at graphite,
    the 'transition-colors' utility animates between any color
    changes. Micro-changes during Vue re-renders (inline cleared by
-   Vue \u2192 CSS takes over briefly \u2192 inline re-applied) get animated
+   Vue → CSS takes over briefly → inline re-applied) get animated
    over 150ms instead of being instantaneous, producing a visible
    strobing effect even when both states are graphite (because the
    browser interpolates and may pass through other values).
@@ -11309,7 +11491,7 @@ html body [class*="hover:bg-gray-50"][class*="transition"] {
   animation: none !important;
 }
 
-/* 18a-1c. EXTENDED \u2014 bg-white buttons + transition-colors elements.
+/* 18a-1c. EXTENDED — bg-white buttons + transition-colors elements.
    Catches the broader family of flicker patterns Tim's still finding
    across the Conversations page:
      - Help / info icon button (bg-white + transition-colors)
@@ -11357,7 +11539,7 @@ html body .hr-dropdown-option * {
   box-shadow: none !important;
 }
 
-/* 18a-1d. UNIVERSAL FLICKER-KILL SWEEP \u2014 Tim's question after the
+/* 18a-1d. UNIVERSAL FLICKER-KILL SWEEP — Tim's question after the
    v0.7.71 round: 'I assume that the same coercer problem happens
    throughout. Do you know enough about it now to search the entire
    code to find and correct those issues?'
@@ -11390,7 +11572,7 @@ html body .hr-dropdown-option * {
    their animations. Elements with just a light-bg class (no
    transition) don't need the fix anyway.
 
-   This should kill the flicker across the entire app \u2014 Conversations
+   This should kill the flicker across the entire app — Conversations
    tabs, contact-detail panels, all data-table headers, page-headers,
    buttons, cards, dropdown menus, anywhere GHL pairs light bgs with
    transitions. */
@@ -11467,7 +11649,7 @@ html body [class*="hover:bg-gray-100"]:hover {
   background-color: var(--reos-slate) !important;
 }
 
-/* 18a-2. Inline-styled whites \u2014 GHL also paints some surfaces via inline
+/* 18a-2. Inline-styled whites — GHL also paints some surfaces via inline
    style="background-color: white" (SMS modal compose body). Inline
    non-important loses to stylesheet !important, so we coerce by matching
    the style attribute substring. */
@@ -11484,7 +11666,7 @@ html body [class*="hover:bg-gray-100"]:hover {
   border-color: var(--reos-steel) !important;
 }
 
-/* 18b. Tab nav strip \u2014 "All fields / DND / Actions" tabs at the top of the
+/* 18b. Tab nav strip — "All fields / DND / Actions" tabs at the top of the
    contact form. The strip is a segmented-control pattern with several
    layers: a "rail" track, a moving "capsule" highlight, and per-tab
    "tab-wrapper" cells. All three default to light greys / pure white. */
@@ -11502,7 +11684,7 @@ html body [class*="hover:bg-gray-100"]:hover {
 /* v0.11.7: Tim flagged the contact-form .hr-tabs-nav--segment-type
    variant (All fields / DND / Actions) reverting to white bg.
    Browse confirmed: .hr-tabs-tab-wrapper computed bg rgb(255,255,255)
-   and .hr-tabs-nav--segment-type computed bg rgb(247,249,253) \u2014 Vue
+   and .hr-tabs-nav--segment-type computed bg rgb(247,249,253) — Vue
    scoped CSS beating the base .hr-tabs-* rules at (0,0,1,0)
    specificity. Bump specificity with html body + :not chains so
    the canon holds. */
@@ -11523,7 +11705,7 @@ html body [class*="hr-tabs-nav--segment"]:not(#__reos_never_id) {
 }
 /* Capsule (v0.8.6): the sliding-emerald-glow highlight that lives
    under the active tab. Tim wants uniformity with the icon-rail UX
-   \u2014 no boxes, just emerald text + emerald underline. Hide the
+   — no boxes, just emerald text + emerald underline. Hide the
    capsule entirely; the active tab's border-bottom carries the
    indicator. */
 .hr-tabs-capsule {
@@ -11535,7 +11717,7 @@ html body [class*="hr-tabs-nav--segment"]:not(#__reos_never_id) {
   color: var(--reos-ash) !important;
   background: transparent !important;
 }
-/* Hover (v0.8.6): emerald text, no bg \u2014 matches every other rail. */
+/* Hover (v0.8.6): emerald text, no bg — matches every other rail. */
 .hr-tabs-tab:hover {
   color: var(--reos-emerald) !important;
   background: transparent !important;
@@ -11546,14 +11728,14 @@ html body [class*="hr-tabs-nav--segment"]:not(#__reos_never_id) {
   background: transparent !important;
   border-bottom: 2px solid var(--reos-emerald) !important;
 }
-/* Tab labels \u2014 follow tab state. */
+/* Tab labels — follow tab state. */
 html body .hr-tabs-tab .hr-tabs-tab__label,
 html body .hr-tabs-tab [class*="tab__label"],
 html body .hr-tabs-tab span {
   color: var(--reos-ash) !important;
   -webkit-text-fill-color: var(--reos-ash) !important;
 }
-/* Hover label \u2192 emerald (was bone in v0.8.5). */
+/* Hover label → emerald (was bone in v0.8.5). */
 html body .hr-tabs-tab:hover .hr-tabs-tab__label,
 html body .hr-tabs-tab:hover [class*="tab__label"],
 html body .hr-tabs-tab:hover span {
@@ -11577,7 +11759,7 @@ html body .hr-tabs-tab.hr-tabs-tab--active:hover span {
   background: var(--reos-emerald) !important;
 }
 
-/* 18c. Collapsible content body \u2014 .hr-collapse-item__content-inner is
+/* 18c. Collapsible content body — .hr-collapse-item__content-inner is
    pure white by default and contains all the contact fields. */
 .hr-collapse-item__content,
 .hr-collapse-item__content-inner,
@@ -11586,13 +11768,13 @@ html body .hr-tabs-tab.hr-tabs-tab--active:hover span {
   color: var(--reos-bone) !important;
 }
 
-/* 18c-flicker (v0.8.15 \u2192 v0.8.16): kill the white flash on
+/* 18c-flicker (v0.8.15 → v0.8.16): kill the white flash on
    accordion expand/collapse. Tim flagged that clicking the chevron
    on Opportunities / Workflows / Client portal sections briefly
    flashes white before settling on graphite.
 
    v0.8.15 killed transitions on the family but the flash still
-   happened \u2014 diagnosis showed Vue scoped CSS paints these white
+   happened — diagnosis showed Vue scoped CSS paints these white
    at (0,2,1) specificity which beats our (0,1,3) plain rules.
    The transition kill made the animation snap, but the new
    element's first-paint frame is still Vue's white.
@@ -11626,7 +11808,7 @@ html body .hr-accordion * {
      the bg-color animation that causes the white flash. */
 }
 
-/* 18c-2. TOP TOOLBAR ACCENT BUTTONS \u2014 the row in the header (phone /
+/* 18c-2. TOP TOOLBAR ACCENT BUTTONS — the row in the header (phone /
    Ask AI / notifications / help / "What's new" pill, etc.) ships with
    GHL's brand colors that are slightly oversaturated against our dark
    theme. Soften the rendering:
@@ -11640,7 +11822,7 @@ header.hl_header [class*="pill"] {
   border-radius: 999px !important;
 }
 
-/* 18d. AVATAR \u2014 .hr-avatar circles get a mint background by default and
+/* 18d. AVATAR — .hr-avatar circles get a mint background by default and
    the initials inside (.hr-avatar__text) render in white. That gives a
    white-on-light-mint contrast that's barely legible. Force the initials
    to obsidian + bigger font-size so they read clearly on the mint circle.
@@ -11675,14 +11857,14 @@ html body [class*="avatar"]:not([class*="dropdown"]):not([class*="option-avatar"
 /* v0.10.32: .default-avatar is GHL's "no image yet" placeholder
    variant. On contact / user rows it holds a person silhouette
    icon; on action buttons (Generate magic, etc.) it holds an
-   action SVG icon. Tim flagged the latter \u2014 the action icon was
+   action SVG icon. Tim flagged the latter — the action icon was
    rendering obsidian on a dark-mint bg, near-invisible. Pin the
    inner SVG to BONE so it reads sharp against the mint avatar
    circle.
 
    v0.12.14: GHL ships .default-avatar with inline
      background-color: rgb(244, 243, 255); color: rgb(122, 90, 248)
-   (pale lavender + purple \u2014 NOT the emerald-mint we used to
+   (pale lavender + purple — NOT the emerald-mint we used to
    assume). On the WordPress Quickstart page the headphones support
    icon was rendering as a near-invisible blob: bone icon on pale
    lavender. Override the inline bg with slate so the bone icon
@@ -11709,7 +11891,7 @@ html body .default-avatar:not(#__reos_never_id) i {
    in the JS runtime (resizeAvatarText) where we can detect whether the
    element actually holds initials text vs an icon. */
 
-/* 18e. HR BUTTON variants \u2014 GHL ships a hr-button system with several
+/* 18e. HR BUTTON variants — GHL ships a hr-button system with several
    tones. Default and tertiary variants render light (white / light-blue
    fills) which conflicts with the dark theme. */
 .hr-button {
@@ -11724,7 +11906,7 @@ html body .default-avatar:not(#__reos_never_id) i {
   background: var(--reos-steel) !important;
   color: var(--reos-emerald-bright) !important;
 }
-/* Default / outlined variant \u2014 transparent fill, steel border */
+/* Default / outlined variant — transparent fill, steel border */
 .hr-button--default,
 .hr-button--default-type:not(.hr-button--text):not(.hr-button--tertiary):not(.hr-button--primary) {
   background: var(--reos-slate) !important;
@@ -11736,7 +11918,7 @@ html body .default-avatar:not(#__reos_never_id) i {
   border-color: var(--reos-cool-gray) !important;
   background: var(--reos-steel) !important;
 }
-/* Text-only (link-style) button \u2014 transparent fill, bone text */
+/* Text-only (link-style) button — transparent fill, bone text */
 .hr-button--text {
   background: transparent !important;
   color: var(--reos-ash) !important;
@@ -11745,7 +11927,7 @@ html body .default-avatar:not(#__reos_never_id) i {
   color: var(--reos-bone) !important;
   background: var(--reos-slate) !important;
 }
-/* Primary (CTA) \u2014 emerald like the rest of the theme */
+/* Primary (CTA) — emerald like the rest of the theme */
 .hr-button--primary {
   background: var(--reos-emerald) !important;
   color: var(--reos-obsidian) !important;
@@ -11760,7 +11942,7 @@ html body .default-avatar:not(#__reos_never_id) i {
   cursor: not-allowed !important;
 }
 
-/* 19. HR DESIGN SYSTEM \u2014 GHL's hr- prefixed components.
+/* 19. HR DESIGN SYSTEM — GHL's hr- prefixed components.
    These need higher specificity than tag selectors because GHL's own
    stylesheet rules use these classes with !important. Catch-all rules
    coerce text + surfaces onto our scale. */
@@ -11804,7 +11986,7 @@ html body .default-avatar:not(#__reos_never_id) i {
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
-/* Active/selected state \u2014 emerald-glow per canon (section 11b
+/* Active/selected state — emerald-glow per canon (section 11b
    ACTIVE-ACCENT STANDARD). The hr-* dropdown family lacked this
    rule entirely, leaving selected rows to fall through to whatever
    GHL ships (often white or unstyled). */
@@ -11819,7 +12001,7 @@ html body .default-avatar:not(#__reos_never_id) i {
   -webkit-text-fill-color: var(--reos-emerald) !important;
 }
 
-/* 18d. NAIVE UI DROPDOWN MENUS \u2014 the popover that opens from a context
+/* 18d. NAIVE UI DROPDOWN MENUS — the popover that opens from a context
    trigger (e.g. the kebab/3-dot menu next to "Edit Dashboard").
 
    Per the canonical state model (sidebar nav + Call Status dropdown row
@@ -11831,7 +12013,7 @@ html body .default-avatar:not(#__reos_never_id) i {
      keyboard-pending  (section 11b ACTIVE-ACCENT STANDARD)
 
    Hover is a SUBTLE reveal (slate bg, text stays bone). Emerald is
-   reserved for the active/pressed/keyboard-selected state \u2014 when the
+   reserved for the active/pressed/keyboard-selected state — when the
    user is committing to a choice, not just hovering. Matches sidebar
    inactive-hover and contact-bar Call Status dropdown rows. */
 html body .n-dropdown,
@@ -11841,7 +12023,7 @@ html body .n-dropdown-menu {
   color: var(--reos-bone) !important;
   /* Naive UI computes per-option bg/text via CSS variables on the
      menu container (var(--n-option-color), var(--n-option-color-hover),
-     etc.) \u2014 not via :hover rules on the option element. So our :hover
+     etc.) — not via :hover rules on the option element. So our :hover
      author CSS doesn't even enter the cascade; the variable does. Pin
      the variable values here at !important so Naive UI's internal var()
      references resolve to REOS palette in every state. Covers two
@@ -11889,12 +12071,12 @@ html body .n-dropdown-option svg path {
   color: var(--reos-bone) !important;
   stroke: var(--reos-bone) !important;
 }
-/* HOVER \u2014 subtle slate bg, text stays bone. Matches sidebar inactive
+/* HOVER — subtle slate bg, text stays bone. Matches sidebar inactive
    hover and Call Status row pattern. Naive UI uses both :hover and a
    .n-dropdown-option--hover class.
 
    Specificity-bumped form: GHL's Vue scoped CSS (.n-dropdown-option
-   [data-v-xxx]:hover) sits at (0,0,3,0) \u2014 more than 'html body
+   [data-v-xxx]:hover) sits at (0,0,3,0) — more than 'html body
    .n-dropdown-option:hover' at (0,0,2,2). Adding five :not() class
    exclusions takes us to (0,0,7,2), comfortably above any Vue scoped
    variant. Same approach used for .n-button in v0.7.38.
@@ -11912,10 +12094,10 @@ html body .n-dropdown-option:not(.n-dropdown-option--disabled):not(.n-dropdown-o
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
 }
-/* ACTIVE / PRESSED / keyboard-pending \u2014 emerald + emerald-glow per
+/* ACTIVE / PRESSED / keyboard-pending — emerald + emerald-glow per
    section 11b ACTIVE-ACCENT STANDARD. Naive UI uses .--pending for
    keyboard navigation cursor (the highlighted item that would commit
-   on Enter). :active is the mousedown state \u2014 brief flash feedback.
+   on Enter). :active is the mousedown state — brief flash feedback.
    Same :not() specificity bump as hover. */
 html body .n-dropdown-option:not(.n-dropdown-option--disabled):not(.n-dropdown-option--group):not(.n-dropdown-option--children):not(.n-dropdown-divider):not(.n-dropdown-option--hover):active,
 html body .n-dropdown-option:not(.n-dropdown-option--disabled):not(.n-dropdown-option--group):not(.n-dropdown-option--children):not(.n-dropdown-divider).n-dropdown-option--pending,
@@ -11958,15 +12140,15 @@ html body .n-dropdown-divider {
    Naive UI applies a transition on background-color (~0.3s) that
    fades through white between states. Result: moving the pointer
    from row A to row B makes row A flash white briefly while it
-   transitions out of its hover state \u2014 Tim's actual diagnosis after
+   transitions out of its hover state — Tim's actual diagnosis after
    a few rounds of looking in the wrong places.
 
-   Rows that can't be clicked (no click handler \u2014 already-active items
+   Rows that can't be clicked (no click handler — already-active items
    like "Set as Default" on a default dashboard, "Delete" when locked
    down) hold the hover state longer because there's no commit event
    to end it, making the flash more visible.
 
-   Instant state changes look correct for menu options anyway \u2014 there's
+   Instant state changes look correct for menu options anyway — there's
    no benefit to fading hover bg on a list of clickable choices.
 
    Applied globally to every option family that uses Naive UI's
@@ -11986,14 +12168,14 @@ html body .hr-base-select-option__content {
   transition: none !important;
   animation: none !important;
 }
-/* DISABLED dropdown rows \u2014 items the user can't interact with (e.g.
+/* DISABLED dropdown rows — items the user can't interact with (e.g.
    "Set as default dashboard" when it's already default, "Manage
    permissions" when the user lacks the role). Render permanently
-   muted (ash + 0.5 opacity) with NO hover effect \u2014 disabled things
+   muted (ash + 0.5 opacity) with NO hover effect — disabled things
    shouldn't react to the pointer.
 
    v0.7.43 excluded :not(.n-dropdown-option--disabled) from the hover
-   rule, so disabled items fell through to GHL's default white hover \u2014
+   rule, so disabled items fell through to GHL's default white hover —
    producing a white bar over white text. This rule covers BOTH the
    static and :hover states for disabled, pinning them to transparent
    bg + ash text regardless. Specificity-bumped via .class.class
@@ -12024,7 +12206,7 @@ html body .n-dropdown-option.n-dropdown-option--disabled:hover svg path {
   stroke: var(--reos-ash) !important;
 }
 
-/* 19a. Dropdown selected-value display \u2014 the rendered text inside the CLOSED
+/* 19a. Dropdown selected-value display — the rendered text inside the CLOSED
    dropdown trigger (after a user picks an option). GHL renders this in a
    placeholder/muted color by default; force it to bone so picked values match
    the rest of the field colors. Covers hr-select, hr-base-select, and the
@@ -12052,7 +12234,7 @@ html body .n-dropdown-option.n-dropdown-option--disabled:hover svg path {
   -webkit-text-fill-color: var(--reos-cool-gray) !important;
 }
 
-/* 19c. DATE / TIME pickers \u2014 these often render with transparent or
+/* 19c. DATE / TIME pickers — these often render with transparent or
    panel-matching backgrounds (graphite), making the field boundary
    disappear against the form panel. Force slate + steel border so they
    match the other input surfaces.
@@ -12082,13 +12264,13 @@ input[type="week"],
   border-radius: 4px !important;
 }
 
-/* 19b. Dropdown CLOSED-trigger background \u2014 when a value is picked, GHL
+/* 19b. Dropdown CLOSED-trigger background — when a value is picked, GHL
    renders the trigger with a near-obsidian fill that mismatches the slate
    text-input surface next to it. Force slate fill so all field surfaces
    look consistent. The OPEN-menu popover stays graphite (see rules above
    targeting .hr-select-menu / .hr-base-select-menu / .hr-popover).
 
-   Broad-net selectors below \u2014 we don't know the exact class GHL uses for
+   Broad-net selectors below — we don't know the exact class GHL uses for
    every dropdown variant on every page, so we match ARIA roles + common
    class patterns AND substring "select"/"dropdown"/"combobox" forms, while
    carefully EXCLUDING menu/popover/option containers (which stay graphite). */
@@ -12139,7 +12321,7 @@ input[type="week"],
 }
 
 /* END REINVEST OS THEME */
-`,So=[{selector:".hr-input__input-el, .hr-input__textarea-el, [class*='hr-input'] input, [class*='hr-input'] textarea",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".hr-data-table-wrapper, .hr-data-table-wrapper-responsive, .hr-data-table-wrapper-header, .hr-data-table-wrapper-footer, .hr-data-table, .hr-data-table__body, .hr-table-freezer-wrapper, [class*='hr-data-table-wrapper'], [class*='hr-table-freezer']",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".n-data-table-tr, tr.n-data-table-tr",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".back-to-sites, .n-tabs-nav, .n-tabs-nav-scroll-content, .n-tabs-nav-scroll-wrapper, .n-tabs-wrapper, .n-tabs-tab-wrapper, .n-tabs-tab-pad",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:"#setup-guide-button, .setup-guide-button-container",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:".default-avatar, .n-avatar.default-avatar",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:"#steps-sidebar, .steps-sidebar",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".search-box",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:".my-table.tabulator, .tabulator, .tabulator-tableholder, .tabulator-table, .tabulator-header, .tabulator-headers, .tabulator-footer, .tabulator-row, .table-container, .cardWrapper, .quick-filter-bar, #skeleton-loader, .skeleton-loader",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".tabulator-col, .tabulator-frozen, .tabulator-frozen-left, .tabulator-frozen-right",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:".mb-2\\.5.bg-white, div.bg-white, .bg-white.px-3, .mx-auto > .bg-white",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-data-table__header, .hr-data-table__cell-header, thead.hr-data-table__header",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:".hr-wrapper-container, .platform-ui__highrise, .full-screen.platform-ui__highrise, [class*='platform-ui__highrise'], .hl_topbar-tabs, .hl_wrapper",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-collapse-item__header, .hr-collapse-item__header-main, .hr-collapse-item__title",styles:{color:"#EDEEF0","background-color":"#12161D"}},{selector:".hr-collapse-item__content, .hr-collapse-item__content-inner, .hr-collapse-item__content-wrap",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-tabs, .hr-tabs-nav, .hr-tabs-nav-scroll-content, .hr-tabs-content, .hr-tabs-pane, .hr-tabs-rail, .hr-tabs-tab-wrapper",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-tabs-capsule",styles:{"background-color":"transparent",background:"transparent",border:"none"}},{selector:".hr-avatar:not(.default-avatar), .hr-avatar:not(.default-avatar) .hr-avatar__text, .hr-avatar:not(.default-avatar) .hr-avatar__text p, .hr-avatar:not(.default-avatar) p, .hr-avatar:not(.default-avatar) span, .hr-avatar:not(.default-avatar) div, [class*='avatar']:not([class*='dropdown']):not([class*='option-avatar']):not([class*='option']):not(.default-avatar), [class*='avatar']:not([class*='dropdown']):not([class*='option-avatar']):not([class*='option']):not(.default-avatar) span, [class*='avatar']:not([class*='dropdown']):not([class*='option-avatar']):not([class*='option']):not(.default-avatar) p, [class*='avatar']:not([class*='dropdown']):not([class*='option-avatar']):not([class*='option']):not(.default-avatar) div",styles:{color:"#0A0D12","-webkit-text-fill-color":"#0A0D12","font-weight":"600"}},{selector:".default-avatar, .default-avatar *",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0",stroke:"#EDEEF0","font-weight":"600"}},{selector:".hr-button--tertiary",styles:{"background-color":"#1A1F28",color:"#0FB57E"}},{selector:".hr-text:not([role='button']):not(.cursor-pointer)",styles:{color:"#EDEEF0"}},{selector:"[class*='field-value'], [class*='field-display'], [class*='empty-value'], [class*='field-empty'], [class*='value-display'], [class*='display-value']",styles:{color:"#9098A3","-webkit-text-fill-color":"#9098A3"}},{selector:".hr-select__value, .hr-select__display, .hr-select-trigger, .hr-select-trigger__value, .hr-base-select__value, .hr-base-select__display, [class*='select__value'], [class*='select__display'], [class*='select-trigger']",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".hr-select, .hr-select__input, .hr-select__inner, .hr-select-trigger, .hr-base-select, .hr-base-select__inner, .el-select, .el-select__wrapper, .el-input__wrapper, .el-input__inner, [role='combobox'], [aria-haspopup='listbox']",styles:{"background-color":"#1A1F28","border-color":"#252C36"}},{selector:"input[type='date'], input[type='datetime-local'], input[type='time'], input[type='month'], input[type='week'], .hr-date-picker, .hr-date-input, .hr-datepicker, .hr-time-picker, [class*='date-picker'], [class*='datepicker'], [class*='date-input'], [class*='time-picker'], [class*='time-input']",styles:{"background-color":"#1A1F28","border-color":"#252C36",color:"#EDEEF0"}},{selector:"[class*='F7F9FD'], [class*='F7F9FB'], [class*='F9FAFB'], [class*='eff4ff'], [class*='EFF4FF'], [class*='ECEEF2'], [class*='eceef2']",styles:{"background-color":"#12161D"}},{selector:"[style*='background-color: white'], [style*='background-color:white'], [style*='background-color: #fff'], [style*='background-color:#fff'], [style*='background-color: #FFF'], [style*='background-color:#FFF'], [style*='background-color: #ffffff'], [style*='background-color:#ffffff'], [style*='background-color: #FFFFFF'], [style*='background-color:#FFFFFF'], [style*='background-color: rgb(255, 255, 255)'], [style*='background-color:rgb(255, 255, 255)'], [style*='background-color: rgb(255,255,255)'], [style*='background-color:rgb(255,255,255)']",styles:{"background-color":"#12161D"}},{selector:".chart-container.hl-card, [class*='chart-container'][class*='hl-card'], .dashboard-widget-type-custom .hl-card, .dashboard-widget-module-custom .hl-card",styles:{"background-color":"#12161D"}},{selector:".bg-gray-50, .bg-white, .bg-gray-100",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".n-base-select-menu, .n-popselect-menu, .n-popover, .n-dropdown, .n-dropdown-menu, .hr-base-select-menu, .hr-popselect-menu, .hr-popover, .hr-dropdown, .hr-dropdown-menu",styles:{"background-color":"#12161D",color:"#EDEEF0","border-color":"#252C36","--n-option-color":"transparent","--n-option-color-hover":"#1A1F28","--n-option-color-active":"rgba(15, 181, 126, 0.12)","--n-option-color-active-hover":"rgba(15, 181, 126, 0.12)","--n-option-text-color":"#EDEEF0","--n-option-text-color-hover":"#EDEEF0","--n-option-text-color-active":"#0FB57E","--n-option-text-color-disabled":"#9098A3","--n-color":"transparent","--n-color-hover":"#1A1F28","--n-color-active":"rgba(15, 181, 126, 0.12)","--n-text-color":"#EDEEF0","--n-text-color-hover":"#EDEEF0","--n-text-color-active":"#0FB57E","--n-text-color-disabled":"#9098A3"}},{selector:".n-dropdown-option--disabled, .n-dropdown-option--disabled .n-dropdown-option-body, .n-dropdown-option--disabled .n-dropdown-option-body__label, .n-dropdown-option--disabled .n-dropdown-option-body__prefix, .n-dropdown-option--disabled .n-dropdown-option-body__suffix, .n-dropdown-option[aria-disabled='true'], .n-dropdown-option[aria-disabled='true'] .n-dropdown-option-body, .n-dropdown-option[aria-disabled='true'] .n-dropdown-option-body__label, .n-dropdown-option[aria-disabled='true'] .n-dropdown-option-body__prefix, .n-dropdown-option[aria-disabled='true'] .n-dropdown-option-body__suffix, .n-base-select-option--disabled, .n-base-select-option--disabled *, .n-base-select-option[aria-disabled='true'], .n-base-select-option[aria-disabled='true'] *, .hr-dropdown-option--disabled, .hr-dropdown-option--disabled *, .hr-dropdown-option[aria-disabled='true'], .hr-dropdown-option[aria-disabled='true'] *, .hr-base-select-option--disabled, .hr-base-select-option--disabled *, .hr-base-select-option[aria-disabled='true'], .hr-base-select-option[aria-disabled='true'] *",styles:{"background-color":"transparent",color:"#9098A3","-webkit-text-fill-color":"#9098A3"}},{selector:".hl-card-header [role='heading'], .hl-card-header p[role='heading'], [class*='hl-card-header'] [role='heading']",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".n-button:not(.n-button--primary-type):not(.n-button--error-type):not(.n-button--warning-type):not(.n-button--success-type):not(.n-button--info-type)",styles:{"background-color":"#1A1F28"}}],Co=o=>{if(!o||o[0]!=="#")return o;let e=o.slice(1);if(e.length===3&&(e=e[0]+e[0]+e[1]+e[1]+e[2]+e[2]),e.length!==6&&e.length!==8)return o;let t=parseInt(e.slice(0,2),16),r=parseInt(e.slice(2,4),16),n=parseInt(e.slice(4,6),16);if(isNaN(t)||isNaN(r)||isNaN(n))return o;if(e.length===8){let a=parseInt(e.slice(6,8),16)/255;return`rgba(${t}, ${r}, ${n}, ${a})`}return`rgb(${t}, ${r}, ${n})`},Ao=new Set(["color","background-color","background","border-color","border-top-color","border-right-color","border-bottom-color","border-left-color","fill","stroke","-webkit-text-fill-color","caret-color","outline-color"]),Io=["#inventory-table","#inventory","[id^='collections-']","[id^='products-']","[id^='reviews-']",".sites-container","[data-testid='wordpress-app-dashboard']","[data-testid$='-app-dashboard']","[data-testid$='-dashboard']:not([data-testid*='widget']):not([data-testid*='card'])","#wordpress-management-app","[id$='-management-app']"],tt=()=>{try{if(!document.body)return;document.body.querySelectorAll("*").forEach(e=>{try{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']")||e.closest(".hl_header, header.hl_header, header.app-header"))return;let t=e.tagName;if(t==="INPUT"||t==="TEXTAREA"||t==="SELECT"||t==="SCRIPT"||t==="STYLE"||t==="SVG"||t==="PATH"||t==="IMG")return;let n=window.getComputedStyle(e).backgroundColor;if(!n||n==="rgba(0, 0, 0, 0)"||n==="transparent")return;let a=n.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/);if(!a)return;let i=+a[1],s=+a[2],d=+a[3];if((a[4]!==void 0?+a[4]:1)<.5||i<230||s<230||d<230||e.style.getPropertyValue("background-color")==="rgb(18, 22, 29)")return;e.style.setProperty("background-color","rgb(18, 22, 29)","important"),e.style.setProperty("color","rgb(237, 238, 240)","important")}catch{}})}catch{}},W=()=>{document.querySelectorAll(Io.join(", ")).forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let t=e.querySelectorAll("*");[e,...Array.from(t)].forEach(r=>{if(r.id?.startsWith("ws-crm-")||r.tagName==="INPUT"||r.tagName==="TEXTAREA"||r.tagName==="SELECT"||r.tagName==="SCRIPT"||r.tagName==="STYLE"||r.tagName==="SVG"||r.tagName==="PATH")return;let a=window.getComputedStyle(r).backgroundColor;if(!a||a==="rgba(0, 0, 0, 0)"||a==="transparent")return;let i=a.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!i)return;let s=+i[1],d=+i[2],c=+i[3];s<230||d<230||c<230||(r.style.setProperty("background-color","#12161D","important"),r.style.setProperty("color","#EDEEF0","important"))})})},ot=()=>{document.querySelectorAll(".hr-header-lite-left, .hr-header-lite-right, .hr-header-lite-content, .hr-header-lite-icon-item, [class*='hr-header-lite']:not([class*='container']):not([class*='wrapper']), .hr-breadcrumb, .hr-breadcrumb-item, .hr-breadcrumb-item__link, .hr-breadcrumb-item__separator").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let t=e.getAttribute("style")||"";(t.includes("background-color: rgb(26, 31, 40)")||t.includes("background-color: #1A1F28")||t.includes("background-color: #1a1f28"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("border-color"),e.style.removeProperty("border-style"),e.style.removeProperty("border-width"),e.style.removeProperty("border-radius"))})},ae=()=>{document.querySelectorAll(".hr-header-lite-container-v2, [id^='hr-header-lite-v-']").forEach(e=>{let t=e.parentElement,r=0;for(;t&&r<6&&t!==document.body;){if(r+=1,t.id?.startsWith("ws-crm-")||t.classList.contains("hl_header")||t.classList.contains("app-header")||t.tagName==="MAIN"||t.tagName==="BODY")return;let i=window.getComputedStyle(t).backgroundColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/);if(i){let s=+i[1],d=+i[2],c=+i[3];(i[4]!==void 0?+i[4]:1)>=.5&&s>=180&&d>=180&&c>=180&&s+d+c>=600&&t.style.getPropertyValue("background-color")!=="rgb(18, 22, 29)"&&(t.style.setProperty("background-color","rgb(18, 22, 29)","important"),t.style.setProperty("color","rgb(237, 238, 240)","important"))}t=t.parentElement}})},rt=()=>{let o="rgb(144, 152, 163)";document.querySelectorAll(".primary-property-name, .primary-property-name *, .folder-name, .folder-name *, .hr-form-item-label__asterisk, span.hr-form-item-label__asterisk").forEach(t=>{if(t.id?.startsWith("ws-crm-")||t.closest("[id^='ws-crm-']"))return;(t.getAttribute("style")||"").includes(o)&&(t.style.removeProperty("color"),t.style.removeProperty("-webkit-text-fill-color"))})},j=()=>{for(let o of So){let e;try{e=document.querySelectorAll(o.selector)}catch{continue}e.forEach(t=>{for(let[r,n]of Object.entries(o.styles)){let a=t.style.getPropertyPriority(r),i=t.style.getPropertyValue(r),s=Ao.has(r)?Co(n):n;a==="important"&&i===s||t.style.setProperty(r,n,"important")}})}},be="#1A1F28",Lo=26,Fo=31,Do=40,nt=new Set,at=new Set,se=()=>{document.body.querySelectorAll("*").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']")||e.children.length>0||(e.textContent||"").trim()!=="--")return;let r=e.getBoundingClientRect();if(r.width===0||r.height===0||r.width>800)return;e.style.setProperty("display","none","important");let n=e.className?.toString()||"<no class>";!at.has(n)&&n!=="<no class>"&&(at.add(n),b.debug(`Hid empty "--" leaf: "${n}"`))})},Mo=["M3 6","M5 6","M2 6","M6 6","M9 3h6","M16 6v","M19 6v","M5 6V","M16.5 4","48.816","2.991","14.74 9","9.26 9","2.244","M19 4h-","M19 7l-"],Ho=["trash","Trash","TRASH","delete","Delete","DELETE"],No=()=>{document.querySelectorAll("button.hr-button, button.n-button, button.icon-only, .hr-button.icon-only, .n-button.icon-only").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']")||e.getAttribute("data-reos-trash")==="true")return;let t=e.querySelector("svg");if(!t)return;let r=!1,n=(t.getAttribute("class")||"")+" "+(t.getAttribute("data-icon")||"");if(Ho.some(a=>n.includes(a))&&(r=!0),r||t.querySelectorAll("path").forEach(i=>{if(r)return;let s=i.getAttribute("d")||"";Mo.some(d=>s.includes(d))&&(r=!0)}),!r){let a=(e.id||"").toLowerCase(),i=(e.getAttribute("aria-label")||"").toLowerCase(),s=(e.getAttribute("title")||"").toLowerCase();(a.includes("delete")||a.includes("remove")||a.includes("trash")||i.includes("delete")||i.includes("remove")||i.includes("trash")||s.includes("delete")||s.includes("remove")||s.includes("trash"))&&(r=!0)}r&&e.setAttribute("data-reos-trash","true")})},Po=new Set(["Delete Reminder","Delete","Remove","Trash","Edit","Copy","Duplicate","Add another reminder","Add","Close","Dismiss"]),Ro=()=>{document.querySelectorAll(".hr-tooltip, .hr-popover-shared, [role='tooltip']").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let t=(e.textContent||"").trim();t.length===0||t.length>40||Po.has(t)&&e.style.display!=="none"&&(e.style.setProperty("display","none","important"),e.style.setProperty("visibility","hidden","important"),e.style.setProperty("opacity","0","important"),e.style.setProperty("pointer-events","none","important"))})},st=new Set,Bo=()=>{document.body.querySelectorAll("*").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let t=(e.className?.toString()||"").toLowerCase();if(t.includes("ai-button")||t.includes("ask-ai")||t.includes("bg-clip-text")||t.includes("text-transparent")||e.closest("[class*='ai-button'], [class*='ask-ai'], [class*='bg-clip-text'], [class*='text-transparent']"))return;let r=e.tagName.toLowerCase();if(r==="svg"||r==="path"||r==="circle"||r==="rect"||r==="polygon"||r==="polyline"||r==="line"||r==="g")return;let n=!1;for(let m of Array.from(e.childNodes))if(m.nodeType===Node.TEXT_NODE&&(m.textContent||"").trim()){n=!0;break}if(!n)return;let a=Array.from(e.children);if(a.length>0&&a.every(m=>{let h=m.tagName.toLowerCase();return h==="svg"||h==="img"})&&!n)return;let d=window.getComputedStyle(e).color;if(!(d==="rgb(255, 255, 255)"||d==="rgba(255, 255, 255, 1)"||d==="#ffffff"||d==="white"))return;e.style.setProperty("color","#EDEEF0","important"),e.style.setProperty("-webkit-text-fill-color","#EDEEF0","important");let p=e.className?.toString()||"<no class>";!st.has(p)&&p!=="<no class>"&&(st.add(p),b.debug(`Remapped pure-white text -> bone: "${p}"`))})},it=new Set,Oo=()=>{let o=document.querySelectorAll(".hl_header, header.hl_header, header.app-header, .hl_header--controls, .top-bar, .topbar"),e="rgb(18, 22, 29)";document.querySelectorAll(".hr-content-switcher svg, .hr-content-switcher svg *, .hr-content-switcher i, .hr-radio-button svg, .hr-radio-button svg *, .hr-radio-button i, [class*='hr-content-switcher'] svg, [class*='hr-content-switcher'] svg *, [class*='hr-content-switcher'] i").forEach(r=>{if(r.closest(".hl_header"))return;let n=r.getAttribute("style")||"";(n.includes(e)||n.includes("#12161D")||n.includes("#12161d"))&&(r.style.removeProperty("fill"),r.style.removeProperty("stroke"),r.style.removeProperty("color"))}),o.forEach(r=>{r.querySelectorAll("button, a, [role='button'], [class*='rounded-full'], [class*='rounded-md'], [class*='rounded-xl'], [class*='pill'], span[class*='rounded'], div[class*='rounded']").forEach(a=>{if(a.closest("[id^='ws-crm-']"))return;let i=(a.className?.toString()||"").toLowerCase();if(i.includes("avatar"))return;let s=window.getComputedStyle(a),d=s.backgroundColor,c=s.backgroundImage||"",p=!1;if(c!=="none"&&c.includes("gradient"))p=!0;else if(d&&d!=="rgba(0, 0, 0, 0)"&&d!=="transparent"){let S=d.match(/rgba?\(\d+,\s*\d+,\s*\d+,\s*([\d.]+)\)/);if(S&&parseFloat(S[1])<.6)return;let x=d.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(x){let L=parseInt(x[1],10),M=parseInt(x[2],10),pe=parseInt(x[3],10);(L>=60||M>=60||pe>=60)&&(L>230&&M>230&&pe>230||(L>=80||M>=80||pe>=80)&&(p=!0))}}if(!p)return;let h=(a.textContent||"").trim(),u=i,y=Array.from(a.querySelectorAll("*")).map(S=>(S.className?.toString()||"").toLowerCase()).join(" "),k=h.toLowerCase()==="ask ai"||u.includes("ai-button")||u.includes("ask-ai")||u.includes("askai"),g=u.includes("bg-clip-text")||u.includes("text-transparent")||y.includes("bg-clip-text")||y.includes("text-transparent"),E=Array.from(a.querySelectorAll("*")).some(S=>{let x=window.getComputedStyle(S),L=x.getPropertyValue("-webkit-background-clip")||"",M=x.getPropertyValue("background-clip")||"";return L.includes("text")||M.includes("text")});if(k||g||E){let S=["color","-webkit-text-fill-color","fill","stroke","background","background-color","background-image","background-clip","-webkit-background-clip","text-shadow"],x=L=>{S.forEach(M=>L.style.removeProperty(M))};x(a),a.querySelectorAll("*").forEach(x);return}let _="#12161D";a.style.setProperty("color",_,"important"),a.querySelectorAll("*").forEach(S=>{let x=S.tagName.toLowerCase();x==="svg"||x==="path"||x==="circle"||x==="rect"||x==="polygon"||x==="polyline"||x==="line"||x==="g"?(S.style.setProperty("fill",_,"important"),S.style.setProperty("stroke",_,"important"),S.style.setProperty("color",_,"important")):(S.style.setProperty("color",_,"important"),S.style.setProperty("-webkit-text-fill-color",_,"important"))});let w=a.className?.toString()||"<no class>";!it.has(w)&&w!=="<no class>"&&(it.add(w),b.debug(`Darkened SVG icons on colored button: "${w}"`))})})},lt=new Set,Go=()=>{document.querySelectorAll("[class*='avatar']").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;if((e.className?.toString()||"").toLowerCase().includes("default-avatar")){e.querySelectorAll(".n-avatar__text, [class*='avatar__text']").forEach(d=>{(d.getAttribute("style")||"").includes("translateY(11px)")&&d.style.removeProperty("transform")});return}let r=e.getBoundingClientRect();if(r.width===0||r.height===0||r.width<20||r.width>64||r.height<20||r.height>64)return;let n=r.top+r.height/2;(e.parentElement||e).querySelectorAll("svg, img").forEach(d=>{let c=d;if(c.closest("[id^='ws-crm-']"))return;let p=d.getBoundingClientRect();if(p.width===0||p.width>28||p.height>28)return;let m=p.left<r.right&&p.right>r.left,h=p.top<r.bottom&&p.bottom>r.top;if(!(m&&h)||p.top+p.height/2<n)return;let y=p.width*p.height/(r.width*r.height);if(y>.55)return;let k=c,g=c.parentElement,E=0;for(;g&&g!==e&&E<3;){let w=g.getBoundingClientRect();if(w.width>0&&w.width<=30&&w.height<=30)k=g;else break;g=g.parentElement,E++}k.style.setProperty("transform","translateY(11px)","important");let _=(k.className?.toString()||"")+" "+k.tagName;lt.has(_)||(lt.add(_),b.debug(`Dropped activity badge 11px (${p.width.toFixed(0)}x${p.height.toFixed(0)} icon, ratio ${y.toFixed(2)}): "${_}"`))})})},$o="brightness(0) saturate(100%) invert(54%) sepia(78%) saturate(442%) hue-rotate(122deg) brightness(96%) contrast(89%)",Vo=()=>{document.querySelectorAll("aside.default-bg-color a, [class*='sidebar'] a").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;let t=(e.className?.toString()||"").toLowerCase();t.includes("active")||t.includes("router-link-active")?(e.style.setProperty("color","#0FB57E","important"),e.style.setProperty("-webkit-text-fill-color","#0FB57E","important"),e.style.setProperty("opacity","1","important"),e.querySelectorAll("span, p, div").forEach(n=>{n.style.setProperty("color","#0FB57E","important"),n.style.setProperty("-webkit-text-fill-color","#0FB57E","important")}),e.querySelectorAll("img").forEach(n=>{n.style.setProperty("filter",$o,"important")}),e.querySelectorAll("svg").forEach(n=>{n.style.setProperty("color","#0FB57E","important"),n.style.setProperty("stroke","#0FB57E","important")})):((e.style.color==="rgb(18, 22, 29)"||e.style.color==="#12161D"||e.style.color==="#0FB57E"||e.style.color==="rgb(15, 181, 126)")&&(e.style.removeProperty("color"),e.style.removeProperty("-webkit-text-fill-color")),e.querySelectorAll("span, p, div").forEach(n=>{let a=n.style.color;(a==="rgb(18, 22, 29)"||a==="#12161D"||a==="#0FB57E"||a==="rgb(15, 181, 126)")&&(n.style.removeProperty("color"),n.style.removeProperty("-webkit-text-fill-color"))}),e.querySelectorAll("img").forEach(n=>{n.style.filter&&n.style.filter.includes("hue-rotate(122")&&n.style.removeProperty("filter")}))})},dt=new Set,Uo=()=>{document.querySelectorAll(".n-dialog, [class*='n-dialog'], [class*='dialog'], [role='dialog']").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;e.querySelectorAll("div, span, i").forEach(r=>{if(r.closest("[id^='ws-crm-']"))return;let n=r.getBoundingClientRect();if(n.width===0||n.height===0||n.width>56||n.height>56||!r.querySelector("svg"))return;let i=window.getComputedStyle(r).backgroundColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!i)return;let s=parseInt(i[1],10),d=parseInt(i[2],10),c=parseInt(i[3],10);if(!(s>200&&d>200&&c>200))return;r.style.setProperty("background-color","transparent","important"),r.style.setProperty("background","transparent","important"),r.style.setProperty("box-shadow","none","important"),r.style.setProperty("border","none","important");let p=r.className?.toString()||"<no class>";!dt.has(p)&&p!=="<no class>"&&(dt.add(p),b.debug(`Stripped dialog icon circle (${n.width.toFixed(0)}x${n.height.toFixed(0)}, rgb(${s},${d},${c})): "${p}"`))})})},ct=new Set,qo=()=>{document.querySelectorAll("[class*='ai-button'], [class*='ask-ai'], [class*='askai']").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;let t=e.parentElement,r=0;for(;t&&r<3&&!t.closest("[id^='ws-crm-']");){let n=(t.className?.toString()||"").toLowerCase();if(!(n.includes("ai-button")||n.includes("ask-ai")||n.includes("askai"))){let i=t.getBoundingClientRect();if(i.width>0&&i.height>0&&i.width<=400&&i.height<=80){t.style.setProperty("background-color","#12161D","important"),t.style.setProperty("background-image","none","important");let s=t.className?.toString()||"<no class>";!ct.has(s)&&s!=="<no class>"&&(ct.add(s),b.debug(`Painted Ask AI wrapper graphite: "${s}"`))}}t=t.parentElement,r++}})},bt=new Set,zo=()=>{let o=Array.from(document.querySelectorAll("#contact-conversation-panel, [class*='conversation-panel'], [class*='message-list'], [class*='activity-log'], .hl_header, header.hl_header, [class*='topbar'], [class*='top-bar'], header.app-header, .modal, .modal-content, [class*='modal'], [class*='dialog'], [role='dialog'], [class*='popover'], [class*='popup'], [class*='dropdown-menu'], [class*='select-menu'], [class*='popselect'], [class*='base-select'], .n-base-select-menu, .n-popselect, .n-popover")),e=document.querySelectorAll("div, section, aside"),t=[];e.forEach(n=>{if(n.id?.startsWith("ws-crm-")||n.closest("[id^='ws-crm-']"))return;let a=window.getComputedStyle(n);if(a.position!=="fixed"&&a.position!=="absolute")return;let i=parseInt(a.zIndex,10);if(!isFinite(i)||i<50)return;let s=n.getBoundingClientRect();s.width<240||s.height<120||s.width>1500||s.height>900||t.push(n)}),[...o,...t].forEach(n=>{n.querySelectorAll("*").forEach(i=>{if(i.id?.startsWith("ws-crm-")||i.closest("[id^='ws-crm-']"))return;let s=(i.className?.toString()||"").toLowerCase();if(s.includes("avatar")||s.includes("notification-dot")||s.includes("indicator"))return;if(s.includes("sidebar-option-button")||i.closest(".sidebar-option-button")||i.closest("nav[class*='w-13']")){let g=i.getAttribute("style")||"";(g.includes("background-color")||g.includes("color"))&&(i.style.removeProperty("background-color"),i.style.removeProperty("color"));return}if(s.includes("tabulator")||s.includes("tabulator-page")||i.closest("[class*='tabulator']")){(i.getAttribute("style")||"").includes("background-color")&&i.style.removeProperty("background-color");return}if(s.includes("hr-card")||i.closest(".hr-card")||i.id&&i.id.startsWith("opportunity-")){let g=i.getAttribute("style")||"";(g.includes("background-color")||g.includes("color"))&&(i.style.removeProperty("background-color"),i.style.removeProperty("color"));return}if(s.includes("ai-button")||s.includes("ask-ai")||s.includes("bg-clip-text")||s.includes("text-transparent")||i.closest("[class*='ai-button'], [class*='ask-ai'], [class*='bg-clip-text'], [class*='text-transparent']"))return;let d=window.getComputedStyle(i).backgroundColor;if(!d||d==="rgba(0, 0, 0, 0)"||d==="transparent")return;let c=d.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!c)return;let p=parseInt(c[1],10),m=parseInt(c[2],10),h=parseInt(c[3],10);if(!(p>200&&m>200&&h>200))return;let y=i.getBoundingClientRect();if(y.width<24||y.height<16||y.width>1400)return;i.style.setProperty("background-color","#12161D","important"),i.style.setProperty("color","#EDEEF0","important");let k=i.className?.toString()||"<no class>";!bt.has(k)&&k!=="<no class>"&&(bt.add(k),b.debug(`Coerced light bg (${y.width.toFixed(0)}x${y.height.toFixed(0)}, rgb(${p},${m},${h})): "${k}"`))})})},ht=new Set,Wo=()=>{let o="input, select, textarea, [class*='hr-input'], [class*='hr-select'], [class*='hr-base-select'], [class*='hr-date-picker'], [class*='hr-datepicker']";document.body.querySelectorAll("*").forEach(t=>{if(t.id?.startsWith("ws-crm-")||t.closest("[id^='ws-crm-']")||t.children.length>0)return;let r=(t.textContent||"").trim();if(r.length===0||r.length>80||r==="--"||t.closest(o)||t.closest("[class*='avatar'], [class*='hr-avatar']")||t.closest("[class*='collapse-item__header'], [class*='hr-collapse-item__header'], [class*='collapse-header'], [class*='folder-header']")||t.closest("[class*='hr-tabs-tab'], [class*='tab-label'], [class*='tabs-nav'], [role='tab']"))return;if(t.matches("[role='heading']")||t.closest("[role='heading']")||t.matches("h1, h2, h3")||t.closest(".hl-card-header, [class*='hl-card-header'], [class*='card-header']")){t.matches("h1, h2, h3")&&(t.getAttribute("style")||"").includes("color")&&(t.style.removeProperty("color"),t.style.removeProperty("-webkit-text-fill-color"));return}if(t.closest(".hr-alert, .hr-alert-body, [class*='hr-alert']")){let _=t.getAttribute("style")||"";(_.includes("color")||_.includes("background"))&&(t.style.removeProperty("color"),t.style.removeProperty("-webkit-text-fill-color"),t.style.removeProperty("background-color"));return}if(t.closest("#SettingTexasSmsBlock")||t.matches("p.ui-text-sm-medium")&&t.parentElement?.classList?.contains("flex")&&t.parentElement?.classList?.contains("items-center")&&t.parentElement?.children?.length===1){(t.getAttribute("style")||"").includes("color")&&(t.style.removeProperty("color"),t.style.removeProperty("-webkit-text-fill-color"));return}if(t.closest(".hr-button, .n-button")||t.matches(".hr-button__content, .n-button__content")||t.closest(".hr-button__content, .n-button__content")){(t.getAttribute("style")||"").includes("color")&&(t.style.removeProperty("color"),t.style.removeProperty("-webkit-text-fill-color"));return}if(t.closest(".bg-primary-50, [class*='bg-primary-50']")){(t.getAttribute("style")||"").includes("color")&&(t.style.removeProperty("color"),t.style.removeProperty("-webkit-text-fill-color"));return}let n=t,a=null;for(let _=0;_<4&&n;_++){let w=n.nextElementSibling;if(w&&(w.matches(o)||w.querySelector(o)!==null)){a=w;break}n=n.parentElement}if(!a)return;let i=t.getBoundingClientRect();if(i.width===0||i.height===0||i.width>400||i.height>60)return;t.style.setProperty("color","#9098A3","important"),t.style.setProperty("-webkit-text-fill-color","#9098A3","important");let s=a,d=s.getBoundingClientRect(),c=s.className?.toString()||"",p=c.includes("schedule-ui-form-weekly-schedule-checkbox")||s.closest(".schedule-ui-form-weekly-schedule-checkbox")!==null,m=c.includes("hl-form-item")||c.includes("n-form-item--top-labelled")||s.closest(".hl-form-item")!==null,h=".hr-input, .hr-input-number, .hr-base-select, .hr-select, .hr-date-picker, .hr-datepicker",u=(c.includes("hr-form-item-blank")||c.includes("hr-form-item")||s.matches(h))&&(s.matches(h)||s.querySelector(h)!==null);u&&(s.getAttribute("style")||"").includes("background-color")&&(s.style.removeProperty("background-color"),s.style.removeProperty("border-color"),s.style.removeProperty("border-style"),s.style.removeProperty("border-width"),s.style.removeProperty("border-radius"));let y=c.includes("hr-radio")||s.closest(".hr-radio, [class*='hr-radio']")!==null;y&&(s.getAttribute("style")||"").includes("background-color")&&(s.style.removeProperty("background-color"),s.style.removeProperty("border-color"),s.style.removeProperty("border-style"),s.style.removeProperty("border-width"),s.style.removeProperty("border-radius"));let k=c.includes("hr-breadcrumb")||s.closest(".hr-breadcrumb, [class*='hr-breadcrumb']")!==null;k&&(s.getAttribute("style")||"").includes("background-color")&&(s.style.removeProperty("background-color"),s.style.removeProperty("border-color"),s.style.removeProperty("border-style"),s.style.removeProperty("border-width"),s.style.removeProperty("border-radius"));let g=c.includes("hr-header-lite")||s.closest("[class*='hr-header-lite']")!==null;g&&(s.getAttribute("style")||"").includes("background-color")&&(s.style.removeProperty("background-color"),s.style.removeProperty("border-color"),s.style.removeProperty("border-style"),s.style.removeProperty("border-width"),s.style.removeProperty("border-radius")),!p&&!m&&!u&&!y&&!k&&!g&&d.width>0&&d.width<=800&&d.height>0&&d.height<=100&&(s.style.setProperty("background-color",be,"important"),s.style.setProperty("border-color","#252C36","important"),s.style.setProperty("border-style","solid","important"),s.style.setProperty("border-width","1px","important"),s.style.setProperty("border-radius","4px","important"));let E=t.className?.toString()||"<no class>";!ht.has(E)&&E!=="<no class>"&&(ht.add(E),b.debug(`Colored field label "${r.slice(0,30)}": "${E}"`))})},pt=new Set,jo=()=>{document.querySelectorAll("[class*='avatar']").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;let t=(e.className?.toString()||"").toLowerCase();if(t.includes("dropdown")||t.includes("option-avatar"))return;let r=e.getBoundingClientRect();if(r.width===0||r.height===0||r.height>80||e.querySelector("svg, img")!==null)return;let a=(e.textContent||"").trim();if(a.length===0||a.length>4)return;let i=Math.min(r.width,r.height),s=Math.max(16,Math.min(24,Math.round(i*.6)));e.style.setProperty("font-size",`${s}px`,"important"),e.style.setProperty("line-height","1","important"),e.style.setProperty("display","flex","important"),e.style.setProperty("align-items","center","important"),e.style.setProperty("justify-content","center","important"),e.style.setProperty("text-align","center","important"),e.querySelectorAll("*").forEach(c=>{c.tagName==="svg"||c.tagName==="SVG"||c.tagName!=="IMG"&&(c.style.setProperty("font-size",`${s}px`,"important"),c.style.setProperty("line-height","1","important"),c.style.setProperty("text-align","center","important"))});let d=e.className?.toString()||"<no class>";!pt.has(d)&&d!=="<no class>"&&(pt.add(d),b.debug(`Resized avatar text to ${s}px (circle ${i.toFixed(0)}px): "${d}"`))})},mt=new Set,Ko=new Set(["Enter Dashboard Name"]),Yo=()=>{document.querySelectorAll("input:not([type='checkbox']):not([type='radio']):not([type='button']):not([type='submit']):not([type='reset']):not([type='hidden']):not([type='file']), textarea, select").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;let t=e.getBoundingClientRect();if(t.width===0||t.height===0)return;let r=e.placeholder||"";if(Ko.has(r)){(e.getAttribute("style")||"").includes("background-color")&&(e.style.removeProperty("background-color"),e.style.removeProperty("border-color"));return}e.style.setProperty("background-color",be,"important"),e.style.setProperty("border-color","#252C36","important"),e.style.setProperty("color","#EDEEF0","important"),e.style.setProperty("-webkit-text-fill-color","#EDEEF0","important");let n=e.closest(".hr-input-wrapper, .hr-input, .hr-input__input");n&&(n.style.setProperty("background-color",be,"important"),n.style.setProperty("border-color","#252C36","important"));let a=e.className?.toString()||"<no class>";!mt.has(a)&&a!=="<no class>"&&(mt.add(a),b.debug(`Forced input slate bg: "${a}"`))})},ie=()=>{document.body.querySelectorAll("*").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']")||e.closest("[class*='collapse-item__header'], [class*='hr-collapse-item__header'], [class*='collapse-header'], [class*='folder-header']")||e.id==="chat-filter"||e.id==="phone-calls"||e.id==="archive-conversation"||e.id==="star-toggle"||e.id==="read-toggle"||e.id==="delete-conversation")return;if(e.closest(".hr-tooltip, .hr-popover-shared, .hr-popover, [class*='hr-tooltip'], [class*='hr-popover']")){let h=e.getAttribute("style")||"";(h.includes("background-color")||h.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"));return}let t=e.className?.toString()||"";if(t.includes("bg-inherit")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(e.closest(".pipeline-ribbon")&&t.split(" ").includes("count")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.split(" ").includes("tabulator-page")){let h=e.getAttribute("style")||"";(h.includes("background-color")||h.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"));return}if(["tabulator-cell","tabulator-row","tabulator-col","tabulator-header","tabulator-tableholder","tabulator-table"].some(h=>t.includes(h))){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.includes("schedule-ui-form-weekly-schedule-checkbox")){let h=e.getAttribute("style")||"";(h.includes("background-color")||h.includes("border-color")||h.includes("border-style")||h.includes("border-width"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("border-color"),e.style.removeProperty("border-style"),e.style.removeProperty("border-width"));return}if(t.includes("n-button")&&t.includes("icon-only")&&!t.includes("quaternary")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.includes("hr-button--tertiary-type")||t.includes("n-button--tertiary-type")){let h=e.getAttribute("style")||"";(h.includes("background-color")||h.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"),e.style.removeProperty("-webkit-text-fill-color"),e.style.removeProperty("border-color"),e.style.removeProperty("border-style"),e.style.removeProperty("border-width"),e.style.removeProperty("border-radius"));return}if(t.includes("hr-data-table-td")||t.includes("hr-data-table-tr")||t.includes("hr-data-table__body-cell")||t.includes("hr-data-table__cell")||t.includes("hr-data-table__header-cell")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.includes("n-data-table-td--fixed-right")||t.includes("n-data-table-td--last-col")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(e.classList.contains("hr-tabs")||t.includes("hr-tabs-tab-wrapper")||t.includes("hr-tabs-nav")||t.includes("hr-tabs-nav-scroll-content")||t.includes("hr-tabs-content")||t.includes("hr-tabs-pane")||t.includes("hr-tabs-rail")||t.includes("hr-tabs-wrapper")||t.includes("hr-tabs-pane-wrapper")||t.includes("hr-tab-pane")){let h=e.getAttribute("style")||"";(h.includes("background-color: rgb(26, 31, 40)")||h.includes("background-color: #1A1F28")||h.includes("background-color: #1a1f28"))&&e.style.removeProperty("background-color");return}if(t.includes("hr-date-panel")||t.includes("n-date-panel")||e.closest(".hr-date-panel, .n-date-panel")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.includes("hr-tag")&&t.includes("ui-default")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if((t.includes("bg-purple-50")||t.includes("bg-purple-100"))&&(t.includes("rounded-lg")||t.includes("rounded-md")||t.includes("rounded-full"))){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.includes("n-alert")||e.closest(".n-alert")||t.includes("hl-warning")||t.includes("hl-error")||t.includes("hl-info")||t.includes("hl-success")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.includes("hr-card")||e.closest(".hr-card")||e.id&&e.id.startsWith("opportunity-")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.includes("bg-gray-50")||t.includes("bg-gray-100")||t.includes("bg-gray-200")||t.includes("bg-white")||t.includes("bg-blue-50")||t.includes("bg-blue-100")||t.includes("bg-sky-50")||t.includes("bg-indigo-50")||t.includes("bg-slate-50")||t.includes("bg-neutral-50")||t.includes("bg-zinc-50")||t.includes("bg-stone-50")||t.includes("F7F9FD")||t.includes("F9FAFB")||t.includes("ECEEF2")||t.includes("eceef2")||t.includes("EFF4FF")||t.includes("eff4ff")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.includes("hr-collapse-item")||t.includes("hr-collapse hr-accordion")||t.includes("hr-accordion"))return;if(t.includes("sidebar-option-button")||e.closest(".sidebar-option-button")||e.closest("nav[class*='w-13']")){let h=e.getAttribute("style")||"";(h.includes("background-color")||h.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"));return}if(e.closest(".inbox-panel, .conversation-list-container, [class*='conversation-list-container']")){let h=e.getAttribute("style")||"";(h.includes("background-color")||h.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"));return}let n=window.getComputedStyle(e).backgroundColor;if(!n||n==="rgba(0, 0, 0, 0)"||n==="transparent")return;let a=n.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!a)return;let i=parseInt(a[1],10),s=parseInt(a[2],10),d=parseInt(a[3],10);if(!(i<Lo&&s<Fo&&d<Do))return;let p=e.getBoundingClientRect();if(p.width===0||p.height===0||p.width>800||p.height>200)return;e.style.setProperty("background-color",be,"important");let m=e.className?.toString()||"<no class>";!nt.has(m)&&m!=="<no class>"&&(nt.add(m),b.debug(`Coerced dark bg to slate (${p.width.toFixed(0)}x${p.height.toFixed(0)}, rgb(${i},${s},${d})): "${m}"`))})},le=()=>{let o="#4B8BF5",e=["#155EEF","#155eef","#004EEB","#004eeb","#175CD3","#175cd3"],t="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";document.querySelectorAll("img[src^='data:image/svg+xml;base64,']:not([data-reos-recolored-v3])").forEach(a=>{a.setAttribute("data-reos-recolored","1"),a.setAttribute("data-reos-recolored-v2","1"),a.setAttribute("data-reos-recolored-v3","1");let s=(a.getAttribute("src")||"").match(/^data:image\/svg\+xml;base64,(.+)$/);if(!s)return;let d;try{d=atob(s[1])}catch{return}let c=d,p=!1;if(e.forEach(u=>{c.includes(u)&&(c=c.split(u).join(o),p=!0)}),["#F8F9FC","#f8f9fc","#F9FAFB","#f9fafb","#F2F4F7","#f2f4f7"].forEach(u=>{c.includes(u)&&(c=c.split(u).join("transparent"),p=!0)}),a.closest(".toolbar_button, .editor-toolbar, [class*='toolbar']")!==null&&["#000000","#000","#040E13","#040e13","#111827","#111","#101828","#101"].forEach(y=>{c.includes(y)&&(c=c.split(y).join("#EDEEF0"),p=!0)}),!!p)try{let u=btoa(c);a.setAttribute("src",`data:image/svg+xml;base64,${u}`)}catch{}}),document.querySelectorAll(".hl-checkbox-group-item img:not([data-reos-masked]):not([data-reos-recolored]), .hl-checkbox-group-item-icon img:not([data-reos-masked]):not([data-reos-recolored]), .hl-checkbox-group-item-container img:not([data-reos-masked]):not([data-reos-recolored])").forEach(a=>{let i=a.getAttribute("src")||"";if(!i||i.startsWith("data:")||!/\.svg(?:[?#]|$)/i.test(i))return;a.setAttribute("data-reos-masked","1");let s=`url("${i}")`;a.style.setProperty("-webkit-mask-image",s,"important"),a.style.setProperty("-webkit-mask-size","contain","important"),a.style.setProperty("-webkit-mask-repeat","no-repeat","important"),a.style.setProperty("-webkit-mask-position","center","important"),a.style.setProperty("mask-image",s,"important"),a.style.setProperty("mask-size","contain","important"),a.style.setProperty("mask-repeat","no-repeat","important"),a.style.setProperty("mask-position","center","important"),a.style.setProperty("background-color","var(--reos-blue)","important"),a.setAttribute("src",t)})},de=()=>{document.querySelectorAll("[class*='n-date-panel']").forEach(e=>{[...e.classList].forEach(t=>{if(t.startsWith("n-date-panel")){let r="hr-date-panel"+t.slice(12);e.classList.contains(r)||e.classList.add(r)}})})},Xo=()=>{document.querySelectorAll("button.hr-button.hr-button--3xs:not(.hr-button--primary-type), button.hr-button.hr-button--xs:not(.hr-button--primary-type), #manage-association-btn").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let t=e.getAttribute("style")||"";(t.includes("background-color")||t.includes("background:"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("background"))})},_t=()=>{let o,e=()=>{o===void 0&&(o=window.setTimeout(()=>{o=void 0,de(),j(),Yo(),ie(),se(),Wo(),zo(),qo(),Uo(),Vo(),Oo(),jo(),Go(),Bo(),le(),Ro(),No(),W(),tt(),ot(),rt(),ae(),Xo()},100))};de(),j(),ie(),se(),le(),W(),tt(),ot(),rt(),ae(),window.setTimeout(()=>{de(),j(),ie(),se(),le(),W(),ae()},500),window.setTimeout(()=>{de(),j(),ie(),se(),le(),W(),ae()},1500),typeof requestAnimationFrame=="function"&&requestAnimationFrame(()=>{W(),j()}),new MutationObserver(()=>{e()}).observe(document.body,{childList:!0,subtree:!0,attributes:!0,attributeFilter:["class","style"]})},we,Jo=()=>{let o=()=>{let t=document.getElementById(ce);!t||!document.head||document.head.lastElementChild===t||document.head.appendChild(t)};new MutationObserver(t=>{let r=!1;for(let n of t){for(let a of Array.from(n.addedNodes)){if(!(a instanceof Element))continue;let i=a.tagName.toLowerCase();if(i==="style"||i==="link"){if(a.id===ce||a.id===vt)continue;r=!0;break}}if(r)break}r&&we===void 0&&(we=window.setTimeout(()=>{we=void 0,o()},150))}).observe(document.head,{childList:!0}),o()},ut=()=>{if(To(),!document.getElementById(ce)){let o=document.createElement("style");o.id=ce,o.textContent=Eo,document.head.appendChild(o),b.info("REInvest OS theme stylesheet mounted")}window.__reosForceInstalled||(window.__reosForceInstalled=!0,document.body?_t():window.addEventListener("DOMContentLoaded",_t)),window.__reosCascadeInstalled||(window.__reosCascadeInstalled=!0,Jo())};var yt="ws-crm-customizer-version-badge",he=()=>{if(!document.body){document.addEventListener("DOMContentLoaded",he,{once:!0});return}if(document.getElementById(yt))return;let o=document.createElement("div");o.id=yt,o.style.cssText=`
+`,So=[{selector:".hr-input__input-el, .hr-input__textarea-el, [class*='hr-input'] input, [class*='hr-input'] textarea",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".hr-data-table-wrapper, .hr-data-table-wrapper-responsive, .hr-data-table-wrapper-header, .hr-data-table-wrapper-footer, .hr-data-table, .hr-data-table__body, .hr-table-freezer-wrapper, [class*='hr-data-table-wrapper'], [class*='hr-table-freezer']",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".n-data-table-tr, tr.n-data-table-tr",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".back-to-sites, .n-tabs-nav, .n-tabs-nav-scroll-content, .n-tabs-nav-scroll-wrapper, .n-tabs-wrapper, .n-tabs-tab-wrapper, .n-tabs-tab-pad",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:"#setup-guide-button, .setup-guide-button-container",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:".default-avatar, .n-avatar.default-avatar",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:"#steps-sidebar, .steps-sidebar",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".search-box",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:".my-table.tabulator, .tabulator, .tabulator-tableholder, .tabulator-table, .tabulator-header, .tabulator-headers, .tabulator-footer, .tabulator-row, .table-container, .cardWrapper, .quick-filter-bar, #skeleton-loader, .skeleton-loader",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".tabulator-col, .tabulator-frozen, .tabulator-frozen-left, .tabulator-frozen-right",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:".mb-2\\.5.bg-white, div.bg-white, .bg-white.px-3, .mx-auto > .bg-white",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-data-table__header, .hr-data-table__cell-header, thead.hr-data-table__header",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:".hr-wrapper-container, .platform-ui__highrise, .full-screen.platform-ui__highrise, [class*='platform-ui__highrise'], .hl_topbar-tabs, .hl_wrapper",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-collapse-item__header, .hr-collapse-item__header-main, .hr-collapse-item__title",styles:{color:"#EDEEF0","background-color":"#12161D"}},{selector:".hr-collapse-item__content, .hr-collapse-item__content-inner, .hr-collapse-item__content-wrap",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-tabs, .hr-tabs-nav, .hr-tabs-nav-scroll-content, .hr-tabs-content, .hr-tabs-pane, .hr-tabs-rail, .hr-tabs-tab-wrapper",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-tabs-capsule",styles:{"background-color":"transparent",background:"transparent",border:"none"}},{selector:".hr-avatar:not(.default-avatar), .hr-avatar:not(.default-avatar) .hr-avatar__text, .hr-avatar:not(.default-avatar) .hr-avatar__text p, .hr-avatar:not(.default-avatar) p, .hr-avatar:not(.default-avatar) span, .hr-avatar:not(.default-avatar) div, [class*='avatar']:not([class*='dropdown']):not([class*='option-avatar']):not([class*='option']):not(.default-avatar), [class*='avatar']:not([class*='dropdown']):not([class*='option-avatar']):not([class*='option']):not(.default-avatar) span, [class*='avatar']:not([class*='dropdown']):not([class*='option-avatar']):not([class*='option']):not(.default-avatar) p, [class*='avatar']:not([class*='dropdown']):not([class*='option-avatar']):not([class*='option']):not(.default-avatar) div",styles:{color:"#0A0D12","-webkit-text-fill-color":"#0A0D12","font-weight":"600"}},{selector:".default-avatar, .default-avatar *",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0",stroke:"#EDEEF0","font-weight":"600"}},{selector:".hr-button--tertiary",styles:{"background-color":"#1A1F28",color:"#0FB57E"}},{selector:".hr-text:not([role='button']):not(.cursor-pointer)",styles:{color:"#EDEEF0"}},{selector:"[class*='field-value'], [class*='field-display'], [class*='empty-value'], [class*='field-empty'], [class*='value-display'], [class*='display-value']",styles:{color:"#9098A3","-webkit-text-fill-color":"#9098A3"}},{selector:".hr-select__value, .hr-select__display, .hr-select-trigger, .hr-select-trigger__value, .hr-base-select__value, .hr-base-select__display, [class*='select__value'], [class*='select__display'], [class*='select-trigger']",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".hr-select, .hr-select__input, .hr-select__inner, .hr-select-trigger, .hr-base-select, .hr-base-select__inner, .el-select, .el-select__wrapper, .el-input__wrapper, .el-input__inner, [role='combobox'], [aria-haspopup='listbox']",styles:{"background-color":"#1A1F28","border-color":"#252C36"}},{selector:"input[type='date'], input[type='datetime-local'], input[type='time'], input[type='month'], input[type='week'], .hr-date-picker, .hr-date-input, .hr-datepicker, .hr-time-picker, [class*='date-picker'], [class*='datepicker'], [class*='date-input'], [class*='time-picker'], [class*='time-input']",styles:{"background-color":"#1A1F28","border-color":"#252C36",color:"#EDEEF0"}},{selector:"[class*='F7F9FD'], [class*='F7F9FB'], [class*='F9FAFB'], [class*='eff4ff'], [class*='EFF4FF'], [class*='ECEEF2'], [class*='eceef2']",styles:{"background-color":"#12161D"}},{selector:"[style*='background-color: white'], [style*='background-color:white'], [style*='background-color: #fff'], [style*='background-color:#fff'], [style*='background-color: #FFF'], [style*='background-color:#FFF'], [style*='background-color: #ffffff'], [style*='background-color:#ffffff'], [style*='background-color: #FFFFFF'], [style*='background-color:#FFFFFF'], [style*='background-color: rgb(255, 255, 255)'], [style*='background-color:rgb(255, 255, 255)'], [style*='background-color: rgb(255,255,255)'], [style*='background-color:rgb(255,255,255)']",styles:{"background-color":"#12161D"}},{selector:".chart-container.hl-card, [class*='chart-container'][class*='hl-card'], .dashboard-widget-type-custom .hl-card, .dashboard-widget-module-custom .hl-card",styles:{"background-color":"#12161D"}},{selector:".bg-gray-50, .bg-white, .bg-gray-100",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".n-base-select-menu, .n-popselect-menu, .n-popover, .n-dropdown, .n-dropdown-menu, .hr-base-select-menu, .hr-popselect-menu, .hr-popover, .hr-dropdown, .hr-dropdown-menu",styles:{"background-color":"#12161D",color:"#EDEEF0","border-color":"#252C36","--n-option-color":"transparent","--n-option-color-hover":"#1A1F28","--n-option-color-active":"rgba(15, 181, 126, 0.12)","--n-option-color-active-hover":"rgba(15, 181, 126, 0.12)","--n-option-text-color":"#EDEEF0","--n-option-text-color-hover":"#EDEEF0","--n-option-text-color-active":"#0FB57E","--n-option-text-color-disabled":"#9098A3","--n-color":"transparent","--n-color-hover":"#1A1F28","--n-color-active":"rgba(15, 181, 126, 0.12)","--n-text-color":"#EDEEF0","--n-text-color-hover":"#EDEEF0","--n-text-color-active":"#0FB57E","--n-text-color-disabled":"#9098A3"}},{selector:".n-dropdown-option--disabled, .n-dropdown-option--disabled .n-dropdown-option-body, .n-dropdown-option--disabled .n-dropdown-option-body__label, .n-dropdown-option--disabled .n-dropdown-option-body__prefix, .n-dropdown-option--disabled .n-dropdown-option-body__suffix, .n-dropdown-option[aria-disabled='true'], .n-dropdown-option[aria-disabled='true'] .n-dropdown-option-body, .n-dropdown-option[aria-disabled='true'] .n-dropdown-option-body__label, .n-dropdown-option[aria-disabled='true'] .n-dropdown-option-body__prefix, .n-dropdown-option[aria-disabled='true'] .n-dropdown-option-body__suffix, .n-base-select-option--disabled, .n-base-select-option--disabled *, .n-base-select-option[aria-disabled='true'], .n-base-select-option[aria-disabled='true'] *, .hr-dropdown-option--disabled, .hr-dropdown-option--disabled *, .hr-dropdown-option[aria-disabled='true'], .hr-dropdown-option[aria-disabled='true'] *, .hr-base-select-option--disabled, .hr-base-select-option--disabled *, .hr-base-select-option[aria-disabled='true'], .hr-base-select-option[aria-disabled='true'] *",styles:{"background-color":"transparent",color:"#9098A3","-webkit-text-fill-color":"#9098A3"}},{selector:".hl-card-header [role='heading'], .hl-card-header p[role='heading'], [class*='hl-card-header'] [role='heading']",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".n-button:not(.n-button--primary-type):not(.n-button--error-type):not(.n-button--warning-type):not(.n-button--success-type):not(.n-button--info-type)",styles:{"background-color":"#1A1F28"}}],Co=o=>{if(!o||o[0]!=="#")return o;let e=o.slice(1);if(e.length===3&&(e=e[0]+e[0]+e[1]+e[1]+e[2]+e[2]),e.length!==6&&e.length!==8)return o;let t=parseInt(e.slice(0,2),16),r=parseInt(e.slice(2,4),16),n=parseInt(e.slice(4,6),16);if(isNaN(t)||isNaN(r)||isNaN(n))return o;if(e.length===8){let a=parseInt(e.slice(6,8),16)/255;return`rgba(${t}, ${r}, ${n}, ${a})`}return`rgb(${t}, ${r}, ${n})`},Ao=new Set(["color","background-color","background","border-color","border-top-color","border-right-color","border-bottom-color","border-left-color","fill","stroke","-webkit-text-fill-color","caret-color","outline-color"]),Io=["#inventory-table","#inventory","[id^='collections-']","[id^='products-']","[id^='reviews-']",".sites-container","[data-testid='wordpress-app-dashboard']","[data-testid$='-app-dashboard']","[data-testid$='-dashboard']:not([data-testid*='widget']):not([data-testid*='card'])","#wordpress-management-app","[id$='-management-app']"],tt=()=>{try{if(!document.body)return;document.body.querySelectorAll("*").forEach(e=>{try{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']")||e.closest(".hl_header, header.hl_header, header.app-header"))return;let t=e.tagName;if(t==="INPUT"||t==="TEXTAREA"||t==="SELECT"||t==="SCRIPT"||t==="STYLE"||t==="SVG"||t==="PATH"||t==="IMG")return;let n=window.getComputedStyle(e).backgroundColor;if(!n||n==="rgba(0, 0, 0, 0)"||n==="transparent")return;let a=n.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/);if(!a)return;let i=+a[1],s=+a[2],d=+a[3];if((a[4]!==void 0?+a[4]:1)<.5||i<230||s<230||d<230||e.style.getPropertyValue("background-color")==="rgb(18, 22, 29)")return;e.style.setProperty("background-color","rgb(18, 22, 29)","important"),e.style.setProperty("color","rgb(237, 238, 240)","important")}catch{}})}catch{}},W=()=>{document.querySelectorAll(Io.join(", ")).forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let t=e.querySelectorAll("*");[e,...Array.from(t)].forEach(r=>{if(r.id?.startsWith("ws-crm-")||r.tagName==="INPUT"||r.tagName==="TEXTAREA"||r.tagName==="SELECT"||r.tagName==="SCRIPT"||r.tagName==="STYLE"||r.tagName==="SVG"||r.tagName==="PATH")return;let a=window.getComputedStyle(r).backgroundColor;if(!a||a==="rgba(0, 0, 0, 0)"||a==="transparent")return;let i=a.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!i)return;let s=+i[1],d=+i[2],c=+i[3];s<230||d<230||c<230||(r.style.setProperty("background-color","#12161D","important"),r.style.setProperty("color","#EDEEF0","important"))})})},ot=()=>{document.querySelectorAll(".hr-header-lite-left, .hr-header-lite-right, .hr-header-lite-content, .hr-header-lite-icon-item, [class*='hr-header-lite']:not([class*='container']):not([class*='wrapper']), .hr-breadcrumb, .hr-breadcrumb-item, .hr-breadcrumb-item__link, .hr-breadcrumb-item__separator").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let t=e.getAttribute("style")||"";(t.includes("background-color: rgb(26, 31, 40)")||t.includes("background-color: #1A1F28")||t.includes("background-color: #1a1f28"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("border-color"),e.style.removeProperty("border-style"),e.style.removeProperty("border-width"),e.style.removeProperty("border-radius"))})},ae=()=>{document.querySelectorAll(".hr-header-lite-container-v2, [id^='hr-header-lite-v-']").forEach(e=>{let t=e.parentElement,r=0;for(;t&&r<6&&t!==document.body;){if(r+=1,t.id?.startsWith("ws-crm-")||t.classList.contains("hl_header")||t.classList.contains("app-header")||t.tagName==="MAIN"||t.tagName==="BODY")return;let i=window.getComputedStyle(t).backgroundColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/);if(i){let s=+i[1],d=+i[2],c=+i[3];(i[4]!==void 0?+i[4]:1)>=.5&&s>=180&&d>=180&&c>=180&&s+d+c>=600&&t.style.getPropertyValue("background-color")!=="rgb(18, 22, 29)"&&(t.style.setProperty("background-color","rgb(18, 22, 29)","important"),t.style.setProperty("color","rgb(237, 238, 240)","important"))}t=t.parentElement}})},rt=()=>{let o="rgb(144, 152, 163)";document.querySelectorAll(".primary-property-name, .primary-property-name *, .folder-name, .folder-name *, .hr-form-item-label__asterisk, span.hr-form-item-label__asterisk").forEach(t=>{if(t.id?.startsWith("ws-crm-")||t.closest("[id^='ws-crm-']"))return;(t.getAttribute("style")||"").includes(o)&&(t.style.removeProperty("color"),t.style.removeProperty("-webkit-text-fill-color"))})},j=()=>{for(let o of So){let e;try{e=document.querySelectorAll(o.selector)}catch{continue}e.forEach(t=>{for(let[r,n]of Object.entries(o.styles)){let a=t.style.getPropertyPriority(r),i=t.style.getPropertyValue(r),s=Ao.has(r)?Co(n):n;a==="important"&&i===s||t.style.setProperty(r,n,"important")}})}},be="#1A1F28",Fo=26,Lo=31,Do=40,nt=new Set,at=new Set,se=()=>{document.body.querySelectorAll("*").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']")||e.children.length>0||(e.textContent||"").trim()!=="--")return;let r=e.getBoundingClientRect();if(r.width===0||r.height===0||r.width>800)return;e.style.setProperty("display","none","important");let n=e.className?.toString()||"<no class>";!at.has(n)&&n!=="<no class>"&&(at.add(n),b.debug(`Hid empty "--" leaf: "${n}"`))})},Mo=["M3 6","M5 6","M2 6","M6 6","M9 3h6","M16 6v","M19 6v","M5 6V","M16.5 4","48.816","2.991","14.74 9","9.26 9","2.244","M19 4h-","M19 7l-"],Ho=["trash","Trash","TRASH","delete","Delete","DELETE"],No=()=>{document.querySelectorAll("button.hr-button, button.n-button, button.icon-only, .hr-button.icon-only, .n-button.icon-only").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']")||e.getAttribute("data-reos-trash")==="true")return;let t=e.querySelector("svg");if(!t)return;let r=!1,n=(t.getAttribute("class")||"")+" "+(t.getAttribute("data-icon")||"");if(Ho.some(a=>n.includes(a))&&(r=!0),r||t.querySelectorAll("path").forEach(i=>{if(r)return;let s=i.getAttribute("d")||"";Mo.some(d=>s.includes(d))&&(r=!0)}),!r){let a=(e.id||"").toLowerCase(),i=(e.getAttribute("aria-label")||"").toLowerCase(),s=(e.getAttribute("title")||"").toLowerCase();(a.includes("delete")||a.includes("remove")||a.includes("trash")||i.includes("delete")||i.includes("remove")||i.includes("trash")||s.includes("delete")||s.includes("remove")||s.includes("trash"))&&(r=!0)}r&&e.setAttribute("data-reos-trash","true")})},Po=new Set(["Delete Reminder","Delete","Remove","Trash","Edit","Copy","Duplicate","Add another reminder","Add","Close","Dismiss"]),Ro=()=>{document.querySelectorAll(".hr-tooltip, .hr-popover-shared, [role='tooltip']").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let t=(e.textContent||"").trim();t.length===0||t.length>40||Po.has(t)&&e.style.display!=="none"&&(e.style.setProperty("display","none","important"),e.style.setProperty("visibility","hidden","important"),e.style.setProperty("opacity","0","important"),e.style.setProperty("pointer-events","none","important"))})},st=new Set,Bo=()=>{document.body.querySelectorAll("*").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let t=(e.className?.toString()||"").toLowerCase();if(t.includes("ai-button")||t.includes("ask-ai")||t.includes("bg-clip-text")||t.includes("text-transparent")||e.closest("[class*='ai-button'], [class*='ask-ai'], [class*='bg-clip-text'], [class*='text-transparent']"))return;let r=e.tagName.toLowerCase();if(r==="svg"||r==="path"||r==="circle"||r==="rect"||r==="polygon"||r==="polyline"||r==="line"||r==="g")return;let n=!1;for(let m of Array.from(e.childNodes))if(m.nodeType===Node.TEXT_NODE&&(m.textContent||"").trim()){n=!0;break}if(!n)return;let a=Array.from(e.children);if(a.length>0&&a.every(m=>{let h=m.tagName.toLowerCase();return h==="svg"||h==="img"})&&!n)return;let d=window.getComputedStyle(e).color;if(!(d==="rgb(255, 255, 255)"||d==="rgba(255, 255, 255, 1)"||d==="#ffffff"||d==="white"))return;e.style.setProperty("color","#EDEEF0","important"),e.style.setProperty("-webkit-text-fill-color","#EDEEF0","important");let p=e.className?.toString()||"<no class>";!st.has(p)&&p!=="<no class>"&&(st.add(p),b.debug(`Remapped pure-white text -> bone: "${p}"`))})},it=new Set,Oo=()=>{let o=document.querySelectorAll(".hl_header, header.hl_header, header.app-header, .hl_header--controls, .top-bar, .topbar"),e="rgb(18, 22, 29)";document.querySelectorAll(".hr-content-switcher svg, .hr-content-switcher svg *, .hr-content-switcher i, .hr-radio-button svg, .hr-radio-button svg *, .hr-radio-button i, [class*='hr-content-switcher'] svg, [class*='hr-content-switcher'] svg *, [class*='hr-content-switcher'] i").forEach(r=>{if(r.closest(".hl_header"))return;let n=r.getAttribute("style")||"";(n.includes(e)||n.includes("#12161D")||n.includes("#12161d"))&&(r.style.removeProperty("fill"),r.style.removeProperty("stroke"),r.style.removeProperty("color"))}),o.forEach(r=>{r.querySelectorAll("button, a, [role='button'], [class*='rounded-full'], [class*='rounded-md'], [class*='rounded-xl'], [class*='pill'], span[class*='rounded'], div[class*='rounded']").forEach(a=>{if(a.closest("[id^='ws-crm-']"))return;let i=(a.className?.toString()||"").toLowerCase();if(i.includes("avatar"))return;let s=window.getComputedStyle(a),d=s.backgroundColor,c=s.backgroundImage||"",p=!1;if(c!=="none"&&c.includes("gradient"))p=!0;else if(d&&d!=="rgba(0, 0, 0, 0)"&&d!=="transparent"){let S=d.match(/rgba?\(\d+,\s*\d+,\s*\d+,\s*([\d.]+)\)/);if(S&&parseFloat(S[1])<.6)return;let x=d.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(x){let F=parseInt(x[1],10),M=parseInt(x[2],10),pe=parseInt(x[3],10);(F>=60||M>=60||pe>=60)&&(F>230&&M>230&&pe>230||(F>=80||M>=80||pe>=80)&&(p=!0))}}if(!p)return;let h=(a.textContent||"").trim(),u=i,y=Array.from(a.querySelectorAll("*")).map(S=>(S.className?.toString()||"").toLowerCase()).join(" "),k=h.toLowerCase()==="ask ai"||u.includes("ai-button")||u.includes("ask-ai")||u.includes("askai"),g=u.includes("bg-clip-text")||u.includes("text-transparent")||y.includes("bg-clip-text")||y.includes("text-transparent"),E=Array.from(a.querySelectorAll("*")).some(S=>{let x=window.getComputedStyle(S),F=x.getPropertyValue("-webkit-background-clip")||"",M=x.getPropertyValue("background-clip")||"";return F.includes("text")||M.includes("text")});if(k||g||E){let S=["color","-webkit-text-fill-color","fill","stroke","background","background-color","background-image","background-clip","-webkit-background-clip","text-shadow"],x=F=>{S.forEach(M=>F.style.removeProperty(M))};x(a),a.querySelectorAll("*").forEach(x);return}let _="#12161D";a.style.setProperty("color",_,"important"),a.querySelectorAll("*").forEach(S=>{let x=S.tagName.toLowerCase();x==="svg"||x==="path"||x==="circle"||x==="rect"||x==="polygon"||x==="polyline"||x==="line"||x==="g"?(S.style.setProperty("fill",_,"important"),S.style.setProperty("stroke",_,"important"),S.style.setProperty("color",_,"important")):(S.style.setProperty("color",_,"important"),S.style.setProperty("-webkit-text-fill-color",_,"important"))});let w=a.className?.toString()||"<no class>";!it.has(w)&&w!=="<no class>"&&(it.add(w),b.debug(`Darkened SVG icons on colored button: "${w}"`))})})},lt=new Set,Go=()=>{document.querySelectorAll("[class*='avatar']").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;if((e.className?.toString()||"").toLowerCase().includes("default-avatar")){e.querySelectorAll(".n-avatar__text, [class*='avatar__text']").forEach(d=>{(d.getAttribute("style")||"").includes("translateY(11px)")&&d.style.removeProperty("transform")});return}let r=e.getBoundingClientRect();if(r.width===0||r.height===0||r.width<20||r.width>64||r.height<20||r.height>64)return;let n=r.top+r.height/2;(e.parentElement||e).querySelectorAll("svg, img").forEach(d=>{let c=d;if(c.closest("[id^='ws-crm-']"))return;let p=d.getBoundingClientRect();if(p.width===0||p.width>28||p.height>28)return;let m=p.left<r.right&&p.right>r.left,h=p.top<r.bottom&&p.bottom>r.top;if(!(m&&h)||p.top+p.height/2<n)return;let y=p.width*p.height/(r.width*r.height);if(y>.55)return;let k=c,g=c.parentElement,E=0;for(;g&&g!==e&&E<3;){let w=g.getBoundingClientRect();if(w.width>0&&w.width<=30&&w.height<=30)k=g;else break;g=g.parentElement,E++}k.style.setProperty("transform","translateY(11px)","important");let _=(k.className?.toString()||"")+" "+k.tagName;lt.has(_)||(lt.add(_),b.debug(`Dropped activity badge 11px (${p.width.toFixed(0)}x${p.height.toFixed(0)} icon, ratio ${y.toFixed(2)}): "${_}"`))})})},$o="brightness(0) saturate(100%) invert(54%) sepia(78%) saturate(442%) hue-rotate(122deg) brightness(96%) contrast(89%)",Vo=()=>{document.querySelectorAll("aside.default-bg-color a, [class*='sidebar'] a").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;let t=(e.className?.toString()||"").toLowerCase();t.includes("active")||t.includes("router-link-active")?(e.style.setProperty("color","#0FB57E","important"),e.style.setProperty("-webkit-text-fill-color","#0FB57E","important"),e.style.setProperty("opacity","1","important"),e.querySelectorAll("span, p, div").forEach(n=>{n.style.setProperty("color","#0FB57E","important"),n.style.setProperty("-webkit-text-fill-color","#0FB57E","important")}),e.querySelectorAll("img").forEach(n=>{n.style.setProperty("filter",$o,"important")}),e.querySelectorAll("svg").forEach(n=>{n.style.setProperty("color","#0FB57E","important"),n.style.setProperty("stroke","#0FB57E","important")})):((e.style.color==="rgb(18, 22, 29)"||e.style.color==="#12161D"||e.style.color==="#0FB57E"||e.style.color==="rgb(15, 181, 126)")&&(e.style.removeProperty("color"),e.style.removeProperty("-webkit-text-fill-color")),e.querySelectorAll("span, p, div").forEach(n=>{let a=n.style.color;(a==="rgb(18, 22, 29)"||a==="#12161D"||a==="#0FB57E"||a==="rgb(15, 181, 126)")&&(n.style.removeProperty("color"),n.style.removeProperty("-webkit-text-fill-color"))}),e.querySelectorAll("img").forEach(n=>{n.style.filter&&n.style.filter.includes("hue-rotate(122")&&n.style.removeProperty("filter")}))})},dt=new Set,Uo=()=>{document.querySelectorAll(".n-dialog, [class*='n-dialog'], [class*='dialog'], [role='dialog']").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;e.querySelectorAll("div, span, i").forEach(r=>{if(r.closest("[id^='ws-crm-']"))return;let n=r.getBoundingClientRect();if(n.width===0||n.height===0||n.width>56||n.height>56||!r.querySelector("svg"))return;let i=window.getComputedStyle(r).backgroundColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!i)return;let s=parseInt(i[1],10),d=parseInt(i[2],10),c=parseInt(i[3],10);if(!(s>200&&d>200&&c>200))return;r.style.setProperty("background-color","transparent","important"),r.style.setProperty("background","transparent","important"),r.style.setProperty("box-shadow","none","important"),r.style.setProperty("border","none","important");let p=r.className?.toString()||"<no class>";!dt.has(p)&&p!=="<no class>"&&(dt.add(p),b.debug(`Stripped dialog icon circle (${n.width.toFixed(0)}x${n.height.toFixed(0)}, rgb(${s},${d},${c})): "${p}"`))})})},ct=new Set,qo=()=>{document.querySelectorAll("[class*='ai-button'], [class*='ask-ai'], [class*='askai']").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;let t=e.parentElement,r=0;for(;t&&r<3&&!t.closest("[id^='ws-crm-']");){let n=(t.className?.toString()||"").toLowerCase();if(!(n.includes("ai-button")||n.includes("ask-ai")||n.includes("askai"))){let i=t.getBoundingClientRect();if(i.width>0&&i.height>0&&i.width<=400&&i.height<=80){t.style.setProperty("background-color","#12161D","important"),t.style.setProperty("background-image","none","important");let s=t.className?.toString()||"<no class>";!ct.has(s)&&s!=="<no class>"&&(ct.add(s),b.debug(`Painted Ask AI wrapper graphite: "${s}"`))}}t=t.parentElement,r++}})},bt=new Set,zo=()=>{let o=Array.from(document.querySelectorAll("#contact-conversation-panel, [class*='conversation-panel'], [class*='message-list'], [class*='activity-log'], .hl_header, header.hl_header, [class*='topbar'], [class*='top-bar'], header.app-header, .modal, .modal-content, [class*='modal'], [class*='dialog'], [role='dialog'], [class*='popover'], [class*='popup'], [class*='dropdown-menu'], [class*='select-menu'], [class*='popselect'], [class*='base-select'], .n-base-select-menu, .n-popselect, .n-popover")),e=document.querySelectorAll("div, section, aside"),t=[];e.forEach(n=>{if(n.id?.startsWith("ws-crm-")||n.closest("[id^='ws-crm-']"))return;let a=window.getComputedStyle(n);if(a.position!=="fixed"&&a.position!=="absolute")return;let i=parseInt(a.zIndex,10);if(!isFinite(i)||i<50)return;let s=n.getBoundingClientRect();s.width<240||s.height<120||s.width>1500||s.height>900||t.push(n)}),[...o,...t].forEach(n=>{n.querySelectorAll("*").forEach(i=>{if(i.id?.startsWith("ws-crm-")||i.closest("[id^='ws-crm-']"))return;let s=(i.className?.toString()||"").toLowerCase();if(s.includes("avatar")||s.includes("notification-dot")||s.includes("indicator"))return;if(s.includes("sidebar-option-button")||i.closest(".sidebar-option-button")||i.closest("nav[class*='w-13']")){let g=i.getAttribute("style")||"";(g.includes("background-color")||g.includes("color"))&&(i.style.removeProperty("background-color"),i.style.removeProperty("color"));return}if(s.includes("tabulator")||s.includes("tabulator-page")||i.closest("[class*='tabulator']")){(i.getAttribute("style")||"").includes("background-color")&&i.style.removeProperty("background-color");return}if(s.includes("hr-card")||i.closest(".hr-card")||i.id&&i.id.startsWith("opportunity-")){let g=i.getAttribute("style")||"";(g.includes("background-color")||g.includes("color"))&&(i.style.removeProperty("background-color"),i.style.removeProperty("color"));return}if(s.includes("ai-button")||s.includes("ask-ai")||s.includes("bg-clip-text")||s.includes("text-transparent")||i.closest("[class*='ai-button'], [class*='ask-ai'], [class*='bg-clip-text'], [class*='text-transparent']"))return;let d=window.getComputedStyle(i).backgroundColor;if(!d||d==="rgba(0, 0, 0, 0)"||d==="transparent")return;let c=d.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!c)return;let p=parseInt(c[1],10),m=parseInt(c[2],10),h=parseInt(c[3],10);if(!(p>200&&m>200&&h>200))return;let y=i.getBoundingClientRect();if(y.width<24||y.height<16||y.width>1400)return;i.style.setProperty("background-color","#12161D","important"),i.style.setProperty("color","#EDEEF0","important");let k=i.className?.toString()||"<no class>";!bt.has(k)&&k!=="<no class>"&&(bt.add(k),b.debug(`Coerced light bg (${y.width.toFixed(0)}x${y.height.toFixed(0)}, rgb(${p},${m},${h})): "${k}"`))})})},ht=new Set,Wo=()=>{let o="input, select, textarea, [class*='hr-input'], [class*='hr-select'], [class*='hr-base-select'], [class*='hr-date-picker'], [class*='hr-datepicker']";document.body.querySelectorAll("*").forEach(t=>{if(t.id?.startsWith("ws-crm-")||t.closest("[id^='ws-crm-']")||t.children.length>0)return;let r=(t.textContent||"").trim();if(r.length===0||r.length>80||r==="--"||t.closest(o)||t.closest("[class*='avatar'], [class*='hr-avatar']")||t.closest("[class*='collapse-item__header'], [class*='hr-collapse-item__header'], [class*='collapse-header'], [class*='folder-header']")||t.closest("[class*='hr-tabs-tab'], [class*='tab-label'], [class*='tabs-nav'], [role='tab']"))return;if(t.matches("[role='heading']")||t.closest("[role='heading']")||t.matches("h1, h2, h3")||t.closest(".hl-card-header, [class*='hl-card-header'], [class*='card-header']")){t.matches("h1, h2, h3")&&(t.getAttribute("style")||"").includes("color")&&(t.style.removeProperty("color"),t.style.removeProperty("-webkit-text-fill-color"));return}if(t.closest(".hr-alert, .hr-alert-body, [class*='hr-alert']")){let _=t.getAttribute("style")||"";(_.includes("color")||_.includes("background"))&&(t.style.removeProperty("color"),t.style.removeProperty("-webkit-text-fill-color"),t.style.removeProperty("background-color"));return}if(t.closest("#SettingTexasSmsBlock")||t.matches("p.ui-text-sm-medium")&&t.parentElement?.classList?.contains("flex")&&t.parentElement?.classList?.contains("items-center")&&t.parentElement?.children?.length===1){(t.getAttribute("style")||"").includes("color")&&(t.style.removeProperty("color"),t.style.removeProperty("-webkit-text-fill-color"));return}if(t.closest(".hr-button, .n-button")||t.matches(".hr-button__content, .n-button__content")||t.closest(".hr-button__content, .n-button__content")){(t.getAttribute("style")||"").includes("color")&&(t.style.removeProperty("color"),t.style.removeProperty("-webkit-text-fill-color"));return}if(t.closest(".bg-primary-50, [class*='bg-primary-50']")){(t.getAttribute("style")||"").includes("color")&&(t.style.removeProperty("color"),t.style.removeProperty("-webkit-text-fill-color"));return}let n=t,a=null;for(let _=0;_<4&&n;_++){let w=n.nextElementSibling;if(w&&(w.matches(o)||w.querySelector(o)!==null)){a=w;break}n=n.parentElement}if(!a)return;let i=t.getBoundingClientRect();if(i.width===0||i.height===0||i.width>400||i.height>60)return;t.style.setProperty("color","#9098A3","important"),t.style.setProperty("-webkit-text-fill-color","#9098A3","important");let s=a,d=s.getBoundingClientRect(),c=s.className?.toString()||"",p=c.includes("schedule-ui-form-weekly-schedule-checkbox")||s.closest(".schedule-ui-form-weekly-schedule-checkbox")!==null,m=c.includes("hl-form-item")||c.includes("n-form-item--top-labelled")||s.closest(".hl-form-item")!==null,h=".hr-input, .hr-input-number, .hr-base-select, .hr-select, .hr-date-picker, .hr-datepicker",u=(c.includes("hr-form-item-blank")||c.includes("hr-form-item")||s.matches(h))&&(s.matches(h)||s.querySelector(h)!==null);u&&(s.getAttribute("style")||"").includes("background-color")&&(s.style.removeProperty("background-color"),s.style.removeProperty("border-color"),s.style.removeProperty("border-style"),s.style.removeProperty("border-width"),s.style.removeProperty("border-radius"));let y=c.includes("hr-radio")||s.closest(".hr-radio, [class*='hr-radio']")!==null;y&&(s.getAttribute("style")||"").includes("background-color")&&(s.style.removeProperty("background-color"),s.style.removeProperty("border-color"),s.style.removeProperty("border-style"),s.style.removeProperty("border-width"),s.style.removeProperty("border-radius"));let k=c.includes("hr-breadcrumb")||s.closest(".hr-breadcrumb, [class*='hr-breadcrumb']")!==null;k&&(s.getAttribute("style")||"").includes("background-color")&&(s.style.removeProperty("background-color"),s.style.removeProperty("border-color"),s.style.removeProperty("border-style"),s.style.removeProperty("border-width"),s.style.removeProperty("border-radius"));let g=c.includes("hr-header-lite")||s.closest("[class*='hr-header-lite']")!==null;g&&(s.getAttribute("style")||"").includes("background-color")&&(s.style.removeProperty("background-color"),s.style.removeProperty("border-color"),s.style.removeProperty("border-style"),s.style.removeProperty("border-width"),s.style.removeProperty("border-radius")),!p&&!m&&!u&&!y&&!k&&!g&&d.width>0&&d.width<=800&&d.height>0&&d.height<=100&&(s.style.setProperty("background-color",be,"important"),s.style.setProperty("border-color","#252C36","important"),s.style.setProperty("border-style","solid","important"),s.style.setProperty("border-width","1px","important"),s.style.setProperty("border-radius","4px","important"));let E=t.className?.toString()||"<no class>";!ht.has(E)&&E!=="<no class>"&&(ht.add(E),b.debug(`Colored field label "${r.slice(0,30)}": "${E}"`))})},pt=new Set,jo=()=>{document.querySelectorAll("[class*='avatar']").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;let t=(e.className?.toString()||"").toLowerCase();if(t.includes("dropdown")||t.includes("option-avatar"))return;let r=e.getBoundingClientRect();if(r.width===0||r.height===0||r.height>80||e.querySelector("svg, img")!==null)return;let a=(e.textContent||"").trim();if(a.length===0||a.length>4)return;let i=Math.min(r.width,r.height),s=Math.max(16,Math.min(24,Math.round(i*.6)));e.style.setProperty("font-size",`${s}px`,"important"),e.style.setProperty("line-height","1","important"),e.style.setProperty("display","flex","important"),e.style.setProperty("align-items","center","important"),e.style.setProperty("justify-content","center","important"),e.style.setProperty("text-align","center","important"),e.querySelectorAll("*").forEach(c=>{c.tagName==="svg"||c.tagName==="SVG"||c.tagName!=="IMG"&&(c.style.setProperty("font-size",`${s}px`,"important"),c.style.setProperty("line-height","1","important"),c.style.setProperty("text-align","center","important"))});let d=e.className?.toString()||"<no class>";!pt.has(d)&&d!=="<no class>"&&(pt.add(d),b.debug(`Resized avatar text to ${s}px (circle ${i.toFixed(0)}px): "${d}"`))})},mt=new Set,Ko=new Set(["Enter Dashboard Name"]),Yo=()=>{document.querySelectorAll("input:not([type='checkbox']):not([type='radio']):not([type='button']):not([type='submit']):not([type='reset']):not([type='hidden']):not([type='file']), textarea, select").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;let t=e.getBoundingClientRect();if(t.width===0||t.height===0)return;let r=e.placeholder||"";if(Ko.has(r)){(e.getAttribute("style")||"").includes("background-color")&&(e.style.removeProperty("background-color"),e.style.removeProperty("border-color"));return}e.style.setProperty("background-color",be,"important"),e.style.setProperty("border-color","#252C36","important"),e.style.setProperty("color","#EDEEF0","important"),e.style.setProperty("-webkit-text-fill-color","#EDEEF0","important");let n=e.closest(".hr-input-wrapper, .hr-input, .hr-input__input");n&&(n.style.setProperty("background-color",be,"important"),n.style.setProperty("border-color","#252C36","important"));let a=e.className?.toString()||"<no class>";!mt.has(a)&&a!=="<no class>"&&(mt.add(a),b.debug(`Forced input slate bg: "${a}"`))})},ie=()=>{document.body.querySelectorAll("*").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']")||e.closest("[class*='collapse-item__header'], [class*='hr-collapse-item__header'], [class*='collapse-header'], [class*='folder-header']")||e.id==="chat-filter"||e.id==="phone-calls"||e.id==="archive-conversation"||e.id==="star-toggle"||e.id==="read-toggle"||e.id==="delete-conversation")return;if(e.closest(".hr-tooltip, .hr-popover-shared, .hr-popover, [class*='hr-tooltip'], [class*='hr-popover']")){let h=e.getAttribute("style")||"";(h.includes("background-color")||h.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"));return}let t=e.className?.toString()||"";if(t.includes("bg-inherit")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(e.closest(".pipeline-ribbon")&&t.split(" ").includes("count")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.split(" ").includes("tabulator-page")){let h=e.getAttribute("style")||"";(h.includes("background-color")||h.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"));return}if(["tabulator-cell","tabulator-row","tabulator-col","tabulator-header","tabulator-tableholder","tabulator-table"].some(h=>t.includes(h))){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.includes("schedule-ui-form-weekly-schedule-checkbox")){let h=e.getAttribute("style")||"";(h.includes("background-color")||h.includes("border-color")||h.includes("border-style")||h.includes("border-width"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("border-color"),e.style.removeProperty("border-style"),e.style.removeProperty("border-width"));return}if(t.includes("n-button")&&t.includes("icon-only")&&!t.includes("quaternary")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.includes("hr-button--tertiary-type")||t.includes("n-button--tertiary-type")){let h=e.getAttribute("style")||"";(h.includes("background-color")||h.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"),e.style.removeProperty("-webkit-text-fill-color"),e.style.removeProperty("border-color"),e.style.removeProperty("border-style"),e.style.removeProperty("border-width"),e.style.removeProperty("border-radius"));return}if(t.includes("hr-data-table-td")||t.includes("hr-data-table-tr")||t.includes("hr-data-table__body-cell")||t.includes("hr-data-table__cell")||t.includes("hr-data-table__header-cell")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.includes("n-data-table-td--fixed-right")||t.includes("n-data-table-td--last-col")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(e.classList.contains("hr-tabs")||t.includes("hr-tabs-tab-wrapper")||t.includes("hr-tabs-nav")||t.includes("hr-tabs-nav-scroll-content")||t.includes("hr-tabs-content")||t.includes("hr-tabs-pane")||t.includes("hr-tabs-rail")||t.includes("hr-tabs-wrapper")||t.includes("hr-tabs-pane-wrapper")||t.includes("hr-tab-pane")){let h=e.getAttribute("style")||"";(h.includes("background-color: rgb(26, 31, 40)")||h.includes("background-color: #1A1F28")||h.includes("background-color: #1a1f28"))&&e.style.removeProperty("background-color");return}if(t.includes("hr-date-panel")||t.includes("n-date-panel")||e.closest(".hr-date-panel, .n-date-panel")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.includes("hr-tag")&&t.includes("ui-default")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if((t.includes("bg-purple-50")||t.includes("bg-purple-100"))&&(t.includes("rounded-lg")||t.includes("rounded-md")||t.includes("rounded-full"))){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.includes("n-alert")||e.closest(".n-alert")||t.includes("hl-warning")||t.includes("hl-error")||t.includes("hl-info")||t.includes("hl-success")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.includes("hr-card")||e.closest(".hr-card")||e.id&&e.id.startsWith("opportunity-")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.includes("bg-gray-50")||t.includes("bg-gray-100")||t.includes("bg-gray-200")||t.includes("bg-white")||t.includes("bg-blue-50")||t.includes("bg-blue-100")||t.includes("bg-sky-50")||t.includes("bg-indigo-50")||t.includes("bg-slate-50")||t.includes("bg-neutral-50")||t.includes("bg-zinc-50")||t.includes("bg-stone-50")||t.includes("F7F9FD")||t.includes("F9FAFB")||t.includes("ECEEF2")||t.includes("eceef2")||t.includes("EFF4FF")||t.includes("eff4ff")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(t.includes("hr-collapse-item")||t.includes("hr-collapse hr-accordion")||t.includes("hr-accordion"))return;if(t.includes("sidebar-option-button")||e.closest(".sidebar-option-button")||e.closest("nav[class*='w-13']")){let h=e.getAttribute("style")||"";(h.includes("background-color")||h.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"));return}if(e.closest(".inbox-panel, .conversation-list-container, [class*='conversation-list-container']")){let h=e.getAttribute("style")||"";(h.includes("background-color")||h.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"));return}let n=window.getComputedStyle(e).backgroundColor;if(!n||n==="rgba(0, 0, 0, 0)"||n==="transparent")return;let a=n.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!a)return;let i=parseInt(a[1],10),s=parseInt(a[2],10),d=parseInt(a[3],10);if(!(i<Fo&&s<Lo&&d<Do))return;let p=e.getBoundingClientRect();if(p.width===0||p.height===0||p.width>800||p.height>200)return;e.style.setProperty("background-color",be,"important");let m=e.className?.toString()||"<no class>";!nt.has(m)&&m!=="<no class>"&&(nt.add(m),b.debug(`Coerced dark bg to slate (${p.width.toFixed(0)}x${p.height.toFixed(0)}, rgb(${i},${s},${d})): "${m}"`))})},le=()=>{let o="#4B8BF5",e=["#155EEF","#155eef","#004EEB","#004eeb","#175CD3","#175cd3"],t="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";document.querySelectorAll("img[src^='data:image/svg+xml;base64,']:not([data-reos-recolored-v3])").forEach(a=>{a.setAttribute("data-reos-recolored","1"),a.setAttribute("data-reos-recolored-v2","1"),a.setAttribute("data-reos-recolored-v3","1");let s=(a.getAttribute("src")||"").match(/^data:image\/svg\+xml;base64,(.+)$/);if(!s)return;let d;try{d=atob(s[1])}catch{return}let c=d,p=!1;if(e.forEach(u=>{c.includes(u)&&(c=c.split(u).join(o),p=!0)}),["#F8F9FC","#f8f9fc","#F9FAFB","#f9fafb","#F2F4F7","#f2f4f7"].forEach(u=>{c.includes(u)&&(c=c.split(u).join("transparent"),p=!0)}),a.closest(".toolbar_button, .editor-toolbar, [class*='toolbar']")!==null&&["#000000","#000","#040E13","#040e13","#111827","#111","#101828","#101"].forEach(y=>{c.includes(y)&&(c=c.split(y).join("#EDEEF0"),p=!0)}),!!p)try{let u=btoa(c);a.setAttribute("src",`data:image/svg+xml;base64,${u}`)}catch{}}),document.querySelectorAll(".hl-checkbox-group-item img:not([data-reos-masked]):not([data-reos-recolored]), .hl-checkbox-group-item-icon img:not([data-reos-masked]):not([data-reos-recolored]), .hl-checkbox-group-item-container img:not([data-reos-masked]):not([data-reos-recolored])").forEach(a=>{let i=a.getAttribute("src")||"";if(!i||i.startsWith("data:")||!/\.svg(?:[?#]|$)/i.test(i))return;a.setAttribute("data-reos-masked","1");let s=`url("${i}")`;a.style.setProperty("-webkit-mask-image",s,"important"),a.style.setProperty("-webkit-mask-size","contain","important"),a.style.setProperty("-webkit-mask-repeat","no-repeat","important"),a.style.setProperty("-webkit-mask-position","center","important"),a.style.setProperty("mask-image",s,"important"),a.style.setProperty("mask-size","contain","important"),a.style.setProperty("mask-repeat","no-repeat","important"),a.style.setProperty("mask-position","center","important"),a.style.setProperty("background-color","var(--reos-blue)","important"),a.setAttribute("src",t)})},de=()=>{document.querySelectorAll("[class*='n-date-panel']").forEach(e=>{[...e.classList].forEach(t=>{if(t.startsWith("n-date-panel")){let r="hr-date-panel"+t.slice(12);e.classList.contains(r)||e.classList.add(r)}})})},Xo=()=>{document.querySelectorAll("button.hr-button.hr-button--3xs:not(.hr-button--primary-type), button.hr-button.hr-button--xs:not(.hr-button--primary-type), #manage-association-btn").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let t=e.getAttribute("style")||"";(t.includes("background-color")||t.includes("background:"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("background"))})},_t=()=>{let o,e=()=>{o===void 0&&(o=window.setTimeout(()=>{o=void 0,de(),j(),Yo(),ie(),se(),Wo(),zo(),qo(),Uo(),Vo(),Oo(),jo(),Go(),Bo(),le(),Ro(),No(),W(),tt(),ot(),rt(),ae(),Xo()},100))};de(),j(),ie(),se(),le(),W(),tt(),ot(),rt(),ae(),window.setTimeout(()=>{de(),j(),ie(),se(),le(),W(),ae()},500),window.setTimeout(()=>{de(),j(),ie(),se(),le(),W(),ae()},1500),typeof requestAnimationFrame=="function"&&requestAnimationFrame(()=>{W(),j()}),new MutationObserver(()=>{e()}).observe(document.body,{childList:!0,subtree:!0,attributes:!0,attributeFilter:["class","style"]})},we,Jo=()=>{let o=()=>{let t=document.getElementById(ce);!t||!document.head||document.head.lastElementChild===t||document.head.appendChild(t)};new MutationObserver(t=>{let r=!1;for(let n of t){for(let a of Array.from(n.addedNodes)){if(!(a instanceof Element))continue;let i=a.tagName.toLowerCase();if(i==="style"||i==="link"){if(a.id===ce||a.id===vt)continue;r=!0;break}}if(r)break}r&&we===void 0&&(we=window.setTimeout(()=>{we=void 0,o()},150))}).observe(document.head,{childList:!0}),o()},ut=()=>{if(To(),!document.getElementById(ce)){let o=document.createElement("style");o.id=ce,o.textContent=Eo,document.head.appendChild(o),b.info("REInvest OS theme stylesheet mounted")}window.__reosForceInstalled||(window.__reosForceInstalled=!0,document.body?_t():window.addEventListener("DOMContentLoaded",_t)),window.__reosCascadeInstalled||(window.__reosCascadeInstalled=!0,Jo())};var yt="ws-crm-customizer-version-badge",he=()=>{if(!document.body){document.addEventListener("DOMContentLoaded",he,{once:!0});return}if(document.getElementById(yt))return;let o=document.createElement("div");o.id=yt,o.style.cssText=`
     position: fixed;
     bottom: 12px;
     right: 12px;
@@ -12157,5 +12339,5 @@ input[type="week"],
     user-select: none;
     transition: transform 0.15s ease, opacity 0.15s ease;
   `,o.textContent=`Customizer v${J}`,o.title=`Built ${Q}
-Click to dismiss for this session`,o.addEventListener("mouseenter",()=>{o.style.transform="scale(1.05)"}),o.addEventListener("mouseleave",()=>{o.style.transform="scale(1)"}),o.addEventListener("click",()=>{o.style.opacity="0",setTimeout(()=>o.remove(),200)}),document.body.appendChild(o)};console.log("[ws-crm-customizer] bundle-loaded");var I=(o,e)=>{try{b.info(`[main] calling ${o}`),e(),b.info(`[main] ${o} OK`)}catch(t){b.error(`[main:FAIL] ${o} threw:`,t)}},gt=()=>{b.info(`Loaded v${J} (built ${Q})`),I("mountVersionBadge (initial)",he),I("mountFavicon",je),I("mountThemeStylesheet",ut),I("initPageRouter",Ee),b.info("[main] registering onPageChange subscriber"),Te(o=>{b.info(`[main] onPageChange callback fired for page=${o}`),I("mountVersionBadge",he),I("mountClaimReleaseToggle",He),I("mountContactActionsBar",ze),I("mountActiveFollowUpButton",Le),I("mountNotInterestedButton",Ye),I("mountSendToTitleCoButton",et)}),b.info("[main] onPageChange registered; main() complete")};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",gt):gt();})();
+Click to dismiss for this session`,o.addEventListener("mouseenter",()=>{o.style.transform="scale(1.05)"}),o.addEventListener("mouseleave",()=>{o.style.transform="scale(1)"}),o.addEventListener("click",()=>{o.style.opacity="0",setTimeout(()=>o.remove(),200)}),document.body.appendChild(o)};console.log("[ws-crm-customizer] bundle-loaded");var I=(o,e)=>{try{b.info(`[main] calling ${o}`),e(),b.info(`[main] ${o} OK`)}catch(t){b.error(`[main:FAIL] ${o} threw:`,t)}},gt=()=>{b.info(`Loaded v${J} (built ${Q})`),I("mountVersionBadge (initial)",he),I("mountFavicon",je),I("mountThemeStylesheet",ut),I("initPageRouter",Ee),b.info("[main] registering onPageChange subscriber"),Te(o=>{b.info(`[main] onPageChange callback fired for page=${o}`),I("mountVersionBadge",he),I("mountClaimReleaseToggle",He),I("mountContactActionsBar",ze),I("mountActiveFollowUpButton",Fe),I("mountNotInterestedButton",Ye),I("mountSendToTitleCoButton",et)}),b.info("[main] onPageChange registered; main() complete")};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",gt):gt();})();
 //# sourceMappingURL=customizer.js.map

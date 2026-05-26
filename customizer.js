@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.13.17 — built 2026-05-26T00:23:16.123Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var j="[wholesaling-crm-customizer]",pt="__WS_CRM_DEBUG",mt=()=>!!window[pt],b={info(...o){console.log(j,...o)},warn(...o){console.warn(j,...o)},error(...o){console.error(j,...o)},debug(...o){mt()&&console.log(j,"[debug]",...o)}};var fe=/(?:\/contacts\/detail\/|\/contacts\/|\/objects\/contact\/detail\/|\/objects\/contact\/)([A-Za-z0-9]{16,})(?:[/?#]|$)/,he=/\/v2\/location\/([A-Za-z0-9]+)/,_t=o=>{let e=o.match(fe);if(!e)return null;let t=o.match(he);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},vt=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(fe);if(!n)continue;let a=r.match(he)||window.location.pathname.match(he);return{contactId:n[1],locationId:a?a[1]:null,source:"dom"}}return null},f=()=>{let o=_t(window.location.pathname);return o||vt()};var we=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},Y="",pe=null,N="other",me=new Set,K=()=>{let o=f()?.contactId??null;if(!(!(window.location.pathname!==Y)&&!(o!==pe))){Y=window.location.pathname,pe=o,N=we(),b.debug("Page/context changed:",N,Y,"contact:",o);for(let r of me)try{r(N)}catch(n){b.error("Subscriber threw:",n)}}},xe=o=>(me.add(o),setTimeout(()=>o(N),0),()=>{me.delete(o)}),ke=()=>{N=we(),Y=window.location.pathname,pe=f()?.contactId??null,b.debug("Router init, current page:",N);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),K()},history.replaceState=function(t,r,n){e(t,r,n),K()},window.addEventListener("popstate",K),setInterval(K,1e3)};var X="0.13.17",J="2026-05-26T00:23:16.123Z";var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((a,i)=>{let s=n.querySelector(o);if(s){a(s);return}let l,d,p=()=>{m&&m.disconnect(),l!==void 0&&window.clearTimeout(l),d!==void 0&&window.clearInterval(d)},m=new MutationObserver(()=>{let h=n.querySelector(o);h&&(p(),a(h))});m.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let h=n.querySelector(o);h&&(p(),a(h))},r),l=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var c={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},S={sm:"4px",md:"6px",lg:"10px",pill:"999px"},u={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},_e={purple:"#8B5CF6",green:c.emerald,orange:c.amber,red:c.crimson},Q=o=>{let e=o==="emerald"?c.emeraldGlow:o==="amber"?c.amberGlow:c.slate,t=o==="emerald"?c.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":c.steel,r=o==="emerald"?c.emerald:o==="amber"?c.amber:c.bone;return`
+/* Wholesaling CRM Customizer v0.13.18 — built 2026-05-26T00:34:27.990Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var j="[wholesaling-crm-customizer]",pt="__WS_CRM_DEBUG",mt=()=>!!window[pt],b={info(...o){console.log(j,...o)},warn(...o){console.warn(j,...o)},error(...o){console.error(j,...o)},debug(...o){mt()&&console.log(j,"[debug]",...o)}};var fe=/(?:\/contacts\/detail\/|\/contacts\/|\/objects\/contact\/detail\/|\/objects\/contact\/)([A-Za-z0-9]{16,})(?:[/?#]|$)/,he=/\/v2\/location\/([A-Za-z0-9]+)/,_t=o=>{let e=o.match(fe);if(!e)return null;let t=o.match(he);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},vt=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']","[class*='conversation'] a[href*='/contacts/detail/']","a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(fe);if(!n)continue;let a=r.match(he)||window.location.pathname.match(he);return{contactId:n[1],locationId:a?a[1]:null,source:"dom"}}return null},f=()=>{let o=_t(window.location.pathname);return o||vt()};var we=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},Y="",pe=null,N="other",me=new Set,K=()=>{let o=f()?.contactId??null;if(!(!(window.location.pathname!==Y)&&!(o!==pe))){Y=window.location.pathname,pe=o,N=we(),b.debug("Page/context changed:",N,Y,"contact:",o);for(let r of me)try{r(N)}catch(n){b.error("Subscriber threw:",n)}}},xe=o=>(me.add(o),setTimeout(()=>o(N),0),()=>{me.delete(o)}),ke=()=>{N=we(),Y=window.location.pathname,pe=f()?.contactId??null,b.debug("Router init, current page:",N);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),K()},history.replaceState=function(t,r,n){e(t,r,n),K()},window.addEventListener("popstate",K),setInterval(K,1e3)};var X="0.13.18",J="2026-05-26T00:34:27.991Z";var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((a,i)=>{let s=n.querySelector(o);if(s){a(s);return}let l,d,p=()=>{m&&m.disconnect(),l!==void 0&&window.clearTimeout(l),d!==void 0&&window.clearInterval(d)},m=new MutationObserver(()=>{let h=n.querySelector(o);h&&(p(),a(h))});m.observe(document.body,{childList:!0,subtree:!0}),d=window.setInterval(()=>{let h=n.querySelector(o);h&&(p(),a(h))},r),l=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var c={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},S={sm:"4px",md:"6px",lg:"10px",pill:"999px"},u={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},_e={purple:"#8B5CF6",green:c.emerald,orange:c.amber,red:c.crimson},Q=o=>{let e=o==="emerald"?c.emeraldGlow:o==="amber"?c.amberGlow:c.slate,t=o==="emerald"?c.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":c.steel,r=o==="emerald"?c.emerald:o==="amber"?c.amber:c.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -8342,16 +8342,27 @@ html body #manage-association-btn:not(#__reos_never_id) .hr-button__state-border
   border: none !important;
 }
 
-/* Tertiary small pills (the "+ Add" + "Create new" pattern).
-   These render the emerald-50 border-on-graphite combo that
-   reads as a faint white line \u2014 Tim's "ugly border". Remove
-   the decorative overlay divs + the n-border vars in all
-   states. Scoped to tertiary + 3xs so we don't strip borders
-   from larger primary/secondary buttons elsewhere. */
-html body button.hr-button.hr-button--tertiary.hr-button--3xs:not(#__reos_never_id),
-html body button.hr-button.hr-button--tertiary.hr-button--3xs:not(#__reos_never_id):hover,
-html body button.hr-button.hr-button--tertiary.hr-button--3xs:not(#__reos_never_id):focus,
-html body button.hr-button.hr-button--tertiary.hr-button--3xs:not(#__reos_never_id):active {
+/* Small pills (3xs / xs size variants) \u2014 the "+ Add", "Create
+   new", "Manage associations"-style sidekick buttons. These
+   render the emerald-50 border-on-graphite combo that reads as
+   a faint white line \u2014 Tim's "ugly border". Remove the
+   decorative overlay divs + the n-border vars in all states.
+
+   v0.13.18: broadened from .hr-button--tertiary.hr-button--3xs
+   to ALL .hr-button--3xs and .hr-button--xs that aren't primary
+   CTAs. The "+ Add" pill on the Associations panel uses a
+   different type modifier than .hr-button--tertiary (auto-gen
+   id, no stable hook), so the tertiary-only selector missed it.
+   Excluding .hr-button--primary-type preserves emerald CTA
+   buttons that legitimately want a visible border. */
+html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id),
+html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id):hover,
+html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id):focus,
+html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id):active,
+html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id),
+html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id):hover,
+html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id):focus,
+html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id):active {
   --n-border: none !important;
   --n-border-hover: none !important;
   --n-border-pressed: none !important;
@@ -8361,8 +8372,10 @@ html body button.hr-button.hr-button--tertiary.hr-button--3xs:not(#__reos_never_
   box-shadow: none !important;
   outline: none !important;
 }
-html body button.hr-button.hr-button--tertiary.hr-button--3xs:not(#__reos_never_id) .hr-button__border,
-html body button.hr-button.hr-button--tertiary.hr-button--3xs:not(#__reos_never_id) .hr-button__state-border {
+html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__border,
+html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__state-border,
+html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__border,
+html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__state-border {
   display: none !important;
   border: none !important;
 }

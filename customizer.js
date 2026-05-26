@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.13.31 — built 2026-05-26T03:36:50.864Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var Y="[wholesaling-crm-customizer]",xt="__WS_CRM_DEBUG",kt=()=>!!window[xt],c={info(...o){console.log(Y,...o)},warn(...o){console.warn(Y,...o)},error(...o){console.error(Y,...o)},debug(...o){kt()&&console.log(Y,"[debug]",...o)}};var Te=/(?:\/contacts\/detail\/|\/contacts\/|\/objects\/contact\/detail\/|\/objects\/contact\/)([A-Za-z0-9]{16,})(?:[/?#]|$)/,_e=/\/v2\/location\/([A-Za-z0-9]+)/,Tt=o=>{let e=o.match(Te);if(!e)return null;let t=o.match(_e);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},Et=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(Te);if(!n)continue;let a=r.match(_e)||window.location.pathname.match(_e);return{contactId:n[1],locationId:a?a[1]:null,source:"dom"}}return null},f=()=>{let o=Tt(window.location.pathname);return o||Et()};var Ee=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},J="",ve=null,P="other",ue=new Set,X=()=>{let o=f()?.contactId??null;if(!(!(window.location.pathname!==J)&&!(o!==ve))){J=window.location.pathname,ve=o,P=Ee(),c.debug("Page/context changed:",P,J,"contact:",o);for(let r of ue)try{r(P)}catch(n){c.error("Subscriber threw:",n)}}},Se=o=>(ue.add(o),setTimeout(()=>o(P),0),()=>{ue.delete(o)}),Ce=()=>{P=Ee(),J=window.location.pathname,ve=f()?.contactId??null,c.debug("Router init, current page:",P);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),X()},history.replaceState=function(t,r,n){e(t,r,n),X()},window.addEventListener("popstate",X),setInterval(X,1e3)};var Q="0.13.31",Z="2026-05-26T03:36:50.865Z";var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((a,i)=>{let s=n.querySelector(o);if(s){a(s);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let h=n.querySelector(o);h&&(p(),a(h))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let h=n.querySelector(o);h&&(p(),a(h))},r),d=window.setTimeout(()=>{p(),c.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},T={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},ye={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},ee=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.13.32 — built 2026-05-26T03:40:50.587Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var Y="[wholesaling-crm-customizer]",xt="__WS_CRM_DEBUG",kt=()=>!!window[xt],c={info(...o){console.log(Y,...o)},warn(...o){console.warn(Y,...o)},error(...o){console.error(Y,...o)},debug(...o){kt()&&console.log(Y,"[debug]",...o)}};var Te=/(?:\/contacts\/detail\/|\/contacts\/|\/objects\/contact\/detail\/|\/objects\/contact\/)([A-Za-z0-9]{16,})(?:[/?#]|$)/,_e=/\/v2\/location\/([A-Za-z0-9]+)/,Tt=o=>{let e=o.match(Te);if(!e)return null;let t=o.match(_e);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},Et=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(Te);if(!n)continue;let a=r.match(_e)||window.location.pathname.match(_e);return{contactId:n[1],locationId:a?a[1]:null,source:"dom"}}return null},f=()=>{let o=Tt(window.location.pathname);return o||Et()};var Ee=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},J="",ve=null,P="other",ue=new Set,X=()=>{let o=f()?.contactId??null;if(!(!(window.location.pathname!==J)&&!(o!==ve))){J=window.location.pathname,ve=o,P=Ee(),c.debug("Page/context changed:",P,J,"contact:",o);for(let r of ue)try{r(P)}catch(n){c.error("Subscriber threw:",n)}}},Se=o=>(ue.add(o),setTimeout(()=>o(P),0),()=>{ue.delete(o)}),Ce=()=>{P=Ee(),J=window.location.pathname,ve=f()?.contactId??null,c.debug("Router init, current page:",P);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),X()},history.replaceState=function(t,r,n){e(t,r,n),X()},window.addEventListener("popstate",X),setInterval(X,1e3)};var Q="0.13.32",Z="2026-05-26T03:40:50.587Z";var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((a,i)=>{let s=n.querySelector(o);if(s){a(s);return}let d,b,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),b!==void 0&&window.clearInterval(b)},m=new MutationObserver(()=>{let h=n.querySelector(o);h&&(p(),a(h))});m.observe(document.body,{childList:!0,subtree:!0}),b=window.setInterval(()=>{let h=n.querySelector(o);h&&(p(),a(h))},r),d=window.setTimeout(()=>{p(),c.warn(`waitForElement timed out for selector: ${o}`),i(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},T={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},ye={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},ee=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -8540,6 +8540,48 @@ html body .crm-opportunities-modal:not(#__reos_never_id) .hr-upload-dragger p {
 html body .crm-opportunities-modal:not(#__reos_never_id) .hr-upload-dragger .ui-text-xs-regular {
   color: var(--reos-ash) !important;
   -webkit-text-fill-color: var(--reos-ash) !important;
+}
+
+/* v0.13.32: kill the big white circle on file upload draggers.
+   Naive UI ships .ui-upload-icon with a ::before pseudo-element that
+   renders a large white "backdrop" circle behind the SVG icon. The JS
+   coercer paints .ui-upload-icon steel but can't touch pseudo-elements.
+   Nuke ::before/::after on the dragger and the icon, kill any box-shadow
+   ring, and pin the icon as a compact steel circle. Unscoped: applies
+   wherever a dragger renders (modal, opp-detail page, contact widgets).
+*/
+.hr-upload-dragger::before,
+.hr-upload-dragger::after,
+.hr-upload-dragger .ui-upload-icon::before,
+.hr-upload-dragger .ui-upload-icon::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  display: none !important;
+  content: none !important;
+}
+.hr-upload-dragger .ui-upload-icon {
+  background: rgb(37, 44, 54) !important;
+  background-color: rgb(37, 44, 54) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+}
+.hr-upload-dragger .ui-upload-icon svg {
+  width: 26px !important;
+  height: 26px !important;
+  color: var(--reos-ash) !important;
+  stroke: var(--reos-ash) !important;
 }
 
 /* Footer audit links \u2014 gray blue (text-blue-700 default) \u2192 emerald. */

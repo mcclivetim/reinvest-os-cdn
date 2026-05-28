@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.13.91 — built 2026-05-28T13:56:47.353Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var _e="[wholesaling-crm-customizer]",Wo="__WS_CRM_DEBUG",jo=()=>!!window[Wo],b={info(...o){console.log(_e,...o)},warn(...o){console.warn(_e,...o)},error(...o){console.error(_e,...o)},debug(...o){jo()&&console.log(_e,"[debug]",...o)}};var Dt=/(?:\/contacts\/detail\/|\/contacts\/|\/objects\/contact\/detail\/|\/objects\/contact\/)([A-Za-z0-9]{16,})(?:[/?#]|$)/,Xe=/\/v2\/location\/([A-Za-z0-9]+)/,Ko=o=>{let e=o.match(Dt);if(!e)return null;let t=o.match(Xe);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},Yo=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(Dt);if(!n)continue;let i=r.match(Xe)||window.location.pathname.match(Xe);return{contactId:n[1],locationId:i?i[1]:null,source:"dom"}}return null},S=()=>{let o=Ko(window.location.pathname);return o||Yo()};var Ot=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},ye="",Je=null,Y="other",Ze=new Set,ve=()=>{let o=S()?.contactId??null;if(!(!(window.location.pathname!==ye)&&!(o!==Je))){ye=window.location.pathname,Je=o,Y=Ot(),b.debug("Page/context changed:",Y,ye,"contact:",o);for(let r of Ze)try{r(Y)}catch(n){b.error("Subscriber threw:",n)}}},Nt=o=>(Ze.add(o),setTimeout(()=>o(Y),0),()=>{Ze.delete(o)}),Ht=()=>{Y=Ot(),ye=window.location.pathname,Je=S()?.contactId??null,b.debug("Router init, current page:",Y);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),ve()},history.replaceState=function(t,r,n){e(t,r,n),ve()},window.addEventListener("popstate",ve),setInterval(ve,1e3)};var ge="0.13.91",fe="2026-05-28T13:56:47.353Z";var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((i,a)=>{let s=n.querySelector(o);if(s){i(s);return}let d,c,h=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let p=n.querySelector(o);p&&(h(),i(p))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let p=n.querySelector(o);p&&(h(),i(p))},r),d=window.setTimeout(()=>{h(),b.warn(`waitForElement timed out for selector: ${o}`),a(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},k={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},Qe={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},Pt=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
+/* Wholesaling CRM Customizer v0.13.92 — built 2026-05-28T14:00:42.187Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var _e="[wholesaling-crm-customizer]",Wo="__WS_CRM_DEBUG",jo=()=>!!window[Wo],b={info(...o){console.log(_e,...o)},warn(...o){console.warn(_e,...o)},error(...o){console.error(_e,...o)},debug(...o){jo()&&console.log(_e,"[debug]",...o)}};var Dt=/(?:\/contacts\/detail\/|\/contacts\/|\/objects\/contact\/detail\/|\/objects\/contact\/)([A-Za-z0-9]{16,})(?:[/?#]|$)/,Xe=/\/v2\/location\/([A-Za-z0-9]+)/,Ko=o=>{let e=o.match(Dt);if(!e)return null;let t=o.match(Xe);return{contactId:e[1],locationId:t?t[1]:null,source:"url"}},Yo=()=>{let o=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']"];for(let e of o){let t=document.querySelector(e);if(!t)continue;let r=t.getAttribute("href")||t.href||"",n=r.match(Dt);if(!n)continue;let i=r.match(Xe)||window.location.pathname.match(Xe);return{contactId:n[1],locationId:i?i[1]:null,source:"dom"}}return null},S=()=>{let o=Ko(window.location.pathname);return o||Yo()};var Ot=()=>{let o=window.location.pathname;return o.includes("/contacts/detail/")?"contact-detail":o.includes("/contacts/smart-list")||o.includes("/contacts/")?"contact-list":o.includes("/opportunities/detail/")?"opportunity-detail":o.includes("/opportunities/")?"opportunity-list":o.includes("/calendars/")?"calendar":o.includes("/dashboard")?"dashboard":o.includes("/conversations")?"conversations":o.includes("/settings")?"settings":"other"},ye="",Je=null,Y="other",Ze=new Set,ve=()=>{let o=S()?.contactId??null;if(!(!(window.location.pathname!==ye)&&!(o!==Je))){ye=window.location.pathname,Je=o,Y=Ot(),b.debug("Page/context changed:",Y,ye,"contact:",o);for(let r of Ze)try{r(Y)}catch(n){b.error("Subscriber threw:",n)}}},Nt=o=>(Ze.add(o),setTimeout(()=>o(Y),0),()=>{Ze.delete(o)}),Ht=()=>{Y=Ot(),ye=window.location.pathname,Je=S()?.contactId??null,b.debug("Router init, current page:",Y);let o=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(t,r,n){o(t,r,n),ve()},history.replaceState=function(t,r,n){e(t,r,n),ve()},window.addEventListener("popstate",ve),setInterval(ve,1e3)};var ge="0.13.92",fe="2026-05-28T14:00:42.188Z";var C=(o,e={})=>{let{timeoutMs:t=8e3,pollMs:r=100,root:n=document}=e;return new Promise((i,a)=>{let s=n.querySelector(o);if(s){i(s);return}let d,c,h=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let p=n.querySelector(o);p&&(h(),i(p))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let p=n.querySelector(o);p&&(h(),i(p))},r),d=window.setTimeout(()=>{h(),b.warn(`waitForElement timed out for selector: ${o}`),a(new Error(`Selector not found within ${t}ms: ${o}`))},t)})};var l={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},k={sm:"4px",md:"6px",lg:"10px",pill:"999px"},f={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},Qe={purple:"#8B5CF6",green:l.emerald,orange:l.amber,red:l.crimson},Pt=o=>{let e=o==="emerald"?l.emeraldGlow:o==="amber"?l.amberGlow:l.slate,t=o==="emerald"?l.emeraldBorder:o==="amber"?"rgba(232, 163, 60, 0.3)":l.steel,r=o==="emerald"?l.emerald:o==="amber"?l.amber:l.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -899,6 +899,8 @@
   --reos-cool-gray: #5A6470;
   --reos-emerald-glow: rgba(15, 181, 126, 0.12);
   --reos-emerald-border: rgba(15, 181, 126, 0.3);
+  --reos-crimson-glow: rgba(212, 63, 74, 0.12);
+  --reos-amber-glow: rgba(232, 163, 60, 0.12);
 }
 
 /* 1b. GHL SEMANTIC PALETTE OVERRIDE \u2014 GHL's CSS uses var(--error-500),
@@ -13031,6 +13033,40 @@ html body #custom-fields-add-edit-field-drawer .hr-form-item-label__asterisk {
    don't shout at the rep but stay legible. */
 html body #custom-fields-add-edit-field-drawer .hr-input-word-count {
   color: var(--reos-ash) !important;
+}
+
+/* Per-row trash buttons (delete-button-N) \u2014 strip the default browser
+   button chrome (the visible rectangle Tim flagged) and route the
+   destructive-action hover to crimson so it reads as the "delete"
+   affordance without shouting at rest. */
+html body #custom-fields-add-edit-field-drawer button[id^="delete-button-"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 4px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: background-color 0.12s ease, color 0.12s ease !important;
+}
+html body #custom-fields-add-edit-field-drawer button[id^="delete-button-"]:focus,
+html body #custom-fields-add-edit-field-drawer button[id^="delete-button-"]:focus-visible {
+  background-color: var(--reos-crimson-glow, rgba(212, 63, 74, 0.12)) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+html body #custom-fields-add-edit-field-drawer button[id^="delete-button-"] .hr-icon-inner,
+html body #custom-fields-add-edit-field-drawer button[id^="delete-button-"] svg {
+  color: var(--reos-ash) !important;
+  stroke: currentColor !important;
+}
+html body #custom-fields-add-edit-field-drawer button[id^="delete-button-"]:hover {
+  background-color: var(--reos-crimson-glow, rgba(212, 63, 74, 0.12)) !important;
+}
+html body #custom-fields-add-edit-field-drawer button[id^="delete-button-"]:hover .hr-icon-inner,
+html body #custom-fields-add-edit-field-drawer button[id^="delete-button-"]:hover svg {
+  color: var(--reos-crimson) !important;
 }
 
 /* END CUSTOM FIELD DRAWER BLOCK */

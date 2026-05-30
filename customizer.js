@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.14.18 — built 2026-05-30T04:19:03.467Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var Ce="[wholesaling-crm-customizer]",Lr="__WS_CRM_DEBUG",Mr=()=>!!window[Lr],b={info(...t){console.log(Ce,...t)},warn(...t){console.warn(Ce,...t)},error(...t){console.error(Ce,...t)},debug(...t){Mr()&&console.log(Ce,"[debug]",...t)}};var io=/(?:\/contacts\/detail\/|\/contacts\/|\/objects\/contact\/detail\/|\/objects\/contact\/)([A-Za-z0-9]{16,})(?:[/?#]|$)/,ct=/\/v2\/location\/([A-Za-z0-9]+)/,Dr=t=>{let e=t.match(io);if(!e)return null;let o=t.match(ct);return{contactId:e[1],locationId:o?o[1]:null,source:"url"}},Fr=()=>{let t=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']"];for(let e of t){let o=document.querySelector(e);if(!o)continue;let r=o.getAttribute("href")||o.href||"",n=r.match(io);if(!n)continue;let i=r.match(ct)||window.location.pathname.match(ct);return{contactId:n[1],locationId:i?i[1]:null,source:"dom"}}return null},S=()=>{let t=Dr(window.location.pathname);return t||Fr()};var lo=()=>{let t=window.location.pathname;return t.includes("/contacts/detail/")?"contact-detail":t.includes("/contacts/smart-list")||t.includes("/contacts/")?"contact-list":t.includes("/opportunities/detail/")?"opportunity-detail":t.includes("/opportunities/")?"opportunity-list":t.includes("/calendars/")?"calendar":t.includes("/dashboard")?"dashboard":t.includes("/conversations")?"conversations":t.includes("/settings")?"settings":"other"},Ie="",bt=null,oe="other",ht=new Set,Ae=()=>{let t=S()?.contactId??null;if(!(!(window.location.pathname!==Ie)&&!(t!==bt))){Ie=window.location.pathname,bt=t,oe=lo(),b.debug("Page/context changed:",oe,Ie,"contact:",t);for(let r of ht)try{r(oe)}catch(n){b.error("Subscriber threw:",n)}}},co=t=>(ht.add(t),setTimeout(()=>t(oe),0),()=>{ht.delete(t)}),bo=()=>{oe=lo(),Ie=window.location.pathname,bt=S()?.contactId??null,b.debug("Router init, current page:",oe);let t=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(o,r,n){t(o,r,n),Ae()},history.replaceState=function(o,r,n){e(o,r,n),Ae()},window.addEventListener("popstate",Ae),setInterval(Ae,1e3)};var Le="0.14.18",Me="2026-05-30T04:19:03.467Z";var C=(t,e={})=>{let{timeoutMs:o=8e3,pollMs:r=100,root:n=document}=e;return new Promise((i,a)=>{let l=n.querySelector(t);if(l){i(l);return}let d,c,h=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let p=n.querySelector(t);p&&(h(),i(p))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let p=n.querySelector(t);p&&(h(),i(p))},r),d=window.setTimeout(()=>{h(),b.warn(`waitForElement timed out for selector: ${t}`),a(new Error(`Selector not found within ${o}ms: ${t}`))},o)})};var s={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},w={sm:"4px",md:"6px",lg:"10px",pill:"999px"},_={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},pt={purple:"#8B5CF6",green:s.emerald,orange:s.amber,red:s.crimson},ho=t=>{let e=t==="emerald"?s.emeraldGlow:t==="amber"?s.amberGlow:s.slate,o=t==="emerald"?s.emeraldBorder:t==="amber"?"rgba(232, 163, 60, 0.3)":s.steel,r=t==="emerald"?s.emerald:t==="amber"?s.amber:s.bone;return`
+/* Wholesaling CRM Customizer v0.14.19 — built 2026-05-30T13:33:13.689Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var Ce="[wholesaling-crm-customizer]",Lr="__WS_CRM_DEBUG",Mr=()=>!!window[Lr],b={info(...t){console.log(Ce,...t)},warn(...t){console.warn(Ce,...t)},error(...t){console.error(Ce,...t)},debug(...t){Mr()&&console.log(Ce,"[debug]",...t)}};var io=/(?:\/contacts\/detail\/|\/contacts\/|\/objects\/contact\/detail\/|\/objects\/contact\/)([A-Za-z0-9]{16,})(?:[/?#]|$)/,ct=/\/v2\/location\/([A-Za-z0-9]+)/,Dr=t=>{let e=t.match(io);if(!e)return null;let o=t.match(ct);return{contactId:e[1],locationId:o?o[1]:null,source:"url"}},Fr=()=>{let t=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']"];for(let e of t){let o=document.querySelector(e);if(!o)continue;let r=o.getAttribute("href")||o.href||"",n=r.match(io);if(!n)continue;let i=r.match(ct)||window.location.pathname.match(ct);return{contactId:n[1],locationId:i?i[1]:null,source:"dom"}}return null},S=()=>{let t=Dr(window.location.pathname);return t||Fr()};var lo=()=>{let t=window.location.pathname;return t.includes("/contacts/detail/")?"contact-detail":t.includes("/contacts/smart-list")||t.includes("/contacts/")?"contact-list":t.includes("/opportunities/detail/")?"opportunity-detail":t.includes("/opportunities/")?"opportunity-list":t.includes("/calendars/")?"calendar":t.includes("/dashboard")?"dashboard":t.includes("/conversations")?"conversations":t.includes("/settings")?"settings":"other"},Ie="",bt=null,oe="other",ht=new Set,Ae=()=>{let t=S()?.contactId??null;if(!(!(window.location.pathname!==Ie)&&!(t!==bt))){Ie=window.location.pathname,bt=t,oe=lo(),b.debug("Page/context changed:",oe,Ie,"contact:",t);for(let r of ht)try{r(oe)}catch(n){b.error("Subscriber threw:",n)}}},co=t=>(ht.add(t),setTimeout(()=>t(oe),0),()=>{ht.delete(t)}),bo=()=>{oe=lo(),Ie=window.location.pathname,bt=S()?.contactId??null,b.debug("Router init, current page:",oe);let t=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(o,r,n){t(o,r,n),Ae()},history.replaceState=function(o,r,n){e(o,r,n),Ae()},window.addEventListener("popstate",Ae),setInterval(Ae,1e3)};var Le="0.14.19",Me="2026-05-30T13:33:13.690Z";var C=(t,e={})=>{let{timeoutMs:o=8e3,pollMs:r=100,root:n=document}=e;return new Promise((i,a)=>{let l=n.querySelector(t);if(l){i(l);return}let d,c,h=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let p=n.querySelector(t);p&&(h(),i(p))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let p=n.querySelector(t);p&&(h(),i(p))},r),d=window.setTimeout(()=>{h(),b.warn(`waitForElement timed out for selector: ${t}`),a(new Error(`Selector not found within ${o}ms: ${t}`))},o)})};var s={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},x={sm:"4px",md:"6px",lg:"10px",pill:"999px"},v={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},pt={purple:"#8B5CF6",green:s.emerald,orange:s.amber,red:s.crimson},ho=t=>{let e=t==="emerald"?s.emeraldGlow:t==="amber"?s.amberGlow:s.slate,o=t==="emerald"?s.emeraldBorder:t==="amber"?"rgba(232, 163, 60, 0.3)":s.steel,r=t==="emerald"?s.emerald:t==="amber"?s.amber:s.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -7,8 +7,8 @@
     background: ${e};
     color: ${r};
     border: 1px solid ${o};
-    border-radius: ${w.pill};
-    font-family: ${_.mono};
+    border-radius: ${x.pill};
+    font-family: ${v.mono};
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -26,8 +26,8 @@
   background: ${s.emerald};
   color: ${s.obsidian};
   border: none;
-  border-radius: ${w.sm};
-  font-family: ${_.sans};
+  border-radius: ${x.sm};
+  font-family: ${v.sans};
   font-size: 12px;
   font-weight: 600;
   line-height: 1.2;
@@ -43,8 +43,8 @@
   background: transparent;
   color: ${s.bone};
   border: 1px solid ${s.steel};
-  border-radius: ${w.sm};
-  font-family: ${_.sans};
+  border-radius: ${x.sm};
+  font-family: ${v.sans};
   font-size: 12px;
   font-weight: 500;
   line-height: 1.2;
@@ -60,8 +60,8 @@
     background: ${s.slate};
     color: ${s.ash};
     border: 1px solid ${s.steel};
-    border-radius: ${w.sm};
-    font-family: ${_.sans};
+    border-radius: ${x.sm};
+    font-family: ${v.sans};
     font-size: 12px;
     font-weight: 500;
     line-height: 1.2;
@@ -128,7 +128,7 @@
     overflow-y: auto;
     background: ${s.graphite};
     border: 1px solid ${s.steel};
-    border-radius: ${w.md};
+    border-radius: ${x.md};
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     padding: 4px;
     display: none;
@@ -141,8 +141,8 @@
       background: transparent;
       color: ${s.bone};
       border: none;
-      border-radius: ${w.sm};
-      font-family: ${_.sans};
+      border-radius: ${x.sm};
+      font-family: ${v.sans};
       font-size: 13px;
       font-weight: 400;
       text-align: left;
@@ -157,7 +157,7 @@
         flex-shrink: 0;
       "></span>
       <span>${d.label}</span>
-    `,c.addEventListener("mouseenter",()=>{c.style.background=s.slate}),c.addEventListener("mouseleave",()=>{c.style.background="transparent"}),c.addEventListener("click",async()=>{b.info(`Call Status set to "${d.label}" (${d.value}, ${d.color}) for contact ${t}`);let h=a.firstElementChild,m=a.children[1],p=a.children[2];h&&(h.style.background=pt[d.color]),m&&(m.textContent=d.label),l.style.display="none";let y=S()?.locationId,k=A();if(!y){b.warn("Cannot fire Call Status webhook \u2014 locationId missing from URL context"),m&&(m.textContent=`${d.label} (no tenant!)`),m&&(m.style.color=s.amber);return}if(e==="seller"&&d.color==="green"&&!k){b.warn("Green Call Status clicked but no user ID found \u2014 n8n Green handler will throw. Set window.WS_CRM_USER_ID = '<your-ghl-user-id>' as a temporary workaround."),m&&(m.textContent=`${d.label} (no user!)`),m&&(m.style.color=s.amber);return}let g=p?.textContent??"\u25BE",v=async f=>{p&&(p.textContent="\u2026"),a.style.opacity="0.75";try{await dn({contactId:t,locationId:y,status:d.label,userId:k,deadReason:f,webhookUrl:r,kind:e}),p&&(p.textContent="\u2713"),setTimeout(()=>{p&&(p.textContent=g),a.style.opacity="1"},900)}catch(E){b.warn("Call Status webhook failed:",E),p&&(p.textContent="\u2717"),m&&(m.style.color=s.amber),a.style.opacity="1",setTimeout(()=>{p&&(p.textContent=g),m&&(m.style.color=s.bone)},1800)}};if(e==="seller"&&d.value==="dead-deal"){let f=m?.textContent??"";gn(E=>{v(E)},()=>{m&&(m.textContent=f)});return}if(e==="seller"&&d.value==="appointment-booked"){let f=m?.textContent??"";try{(await cn({contactId:t,tenantId:y})).ok?await v():fn(()=>{v()},()=>{m&&(m.textContent=f)})}catch(E){b.warn("Appointment sanity check failed; firing anyway:",E),await v()}return}await v()}),l.appendChild(c)}),a.addEventListener("click",d=>{d.stopPropagation(),l.style.display=l.style.display==="none"?"block":"none"}),document.addEventListener("click",d=>{i.contains(d.target)||(l.style.display="none")}),i.appendChild(a),i.appendChild(l),i},_n="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/offer-made/set",vn=async t=>{let e=await fetch(_n,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:t.tenantId,contact_id:t.contactId,kind:t.kind,amount:t.amount,expires_at:t.expiresAt,triggered_by_user_id:t.userId}),credentials:"omit"});if(!e.ok)throw new Error(`HTTP ${e.status}`);return e.json()},yn=(t,e="seller")=>{document.getElementById(Eo)?.remove();let o=e==="seller",r=o?"Record Your Offer":"Record Buyer's Offer",n=o?"Attributes the offer to you for KPI tracking. Updates the ACQ opportunity's offer fields.":"Logs the buyer's offer on their Marketing Tracker card. Advances them to 'Made an Offer'.",i=o?s.emerald:s.amber,a=document.createElement("div");a.id=Eo,a.style.cssText=`
+    `,c.addEventListener("mouseenter",()=>{c.style.background=s.slate}),c.addEventListener("mouseleave",()=>{c.style.background="transparent"}),c.addEventListener("click",async()=>{b.info(`Call Status set to "${d.label}" (${d.value}, ${d.color}) for contact ${t}`);let h=a.firstElementChild,m=a.children[1],p=a.children[2];h&&(h.style.background=pt[d.color]),m&&(m.textContent=d.label),l.style.display="none";let y=S()?.locationId,w=A();if(!y){b.warn("Cannot fire Call Status webhook \u2014 locationId missing from URL context"),m&&(m.textContent=`${d.label} (no tenant!)`),m&&(m.style.color=s.amber);return}if(e==="seller"&&d.color==="green"&&!w){b.warn("Green Call Status clicked but no user ID found \u2014 n8n Green handler will throw. Set window.WS_CRM_USER_ID = '<your-ghl-user-id>' as a temporary workaround."),m&&(m.textContent=`${d.label} (no user!)`),m&&(m.style.color=s.amber);return}let g=p?.textContent??"\u25BE",_=async f=>{p&&(p.textContent="\u2026"),a.style.opacity="0.75";try{await dn({contactId:t,locationId:y,status:d.label,userId:w,deadReason:f,webhookUrl:r,kind:e}),p&&(p.textContent="\u2713"),setTimeout(()=>{p&&(p.textContent=g),a.style.opacity="1"},900)}catch(E){b.warn("Call Status webhook failed:",E),p&&(p.textContent="\u2717"),m&&(m.style.color=s.amber),a.style.opacity="1",setTimeout(()=>{p&&(p.textContent=g),m&&(m.style.color=s.bone)},1800)}};if(e==="seller"&&d.value==="dead-deal"){let f=m?.textContent??"";gn(E=>{_(E)},()=>{m&&(m.textContent=f)});return}if(e==="seller"&&d.value==="appointment-booked"){let f=m?.textContent??"";try{(await cn({contactId:t,tenantId:y})).ok?await _():fn(()=>{_()},()=>{m&&(m.textContent=f)})}catch(E){b.warn("Appointment sanity check failed; firing anyway:",E),await _()}return}await _()}),l.appendChild(c)}),a.addEventListener("click",d=>{d.stopPropagation(),l.style.display=l.style.display==="none"?"block":"none"}),document.addEventListener("click",d=>{i.contains(d.target)||(l.style.display="none")}),i.appendChild(a),i.appendChild(l),i},_n="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/offer-made/set",vn=async t=>{let e=await fetch(_n,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:t.tenantId,contact_id:t.contactId,kind:t.kind,amount:t.amount,expires_at:t.expiresAt,triggered_by_user_id:t.userId}),credentials:"omit"});if(!e.ok)throw new Error(`HTTP ${e.status}`);return e.json()},yn=(t,e="seller")=>{document.getElementById(Eo)?.remove();let o=e==="seller",r=o?"Record Your Offer":"Record Buyer's Offer",n=o?"Attributes the offer to you for KPI tracking. Updates the ACQ opportunity's offer fields.":"Logs the buyer's offer on their Marketing Tracker card. Advances them to 'Made an Offer'.",i=o?s.emerald:s.amber,a=document.createElement("div");a.id=Eo,a.style.cssText=`
     position: fixed;
     inset: 0;
     z-index: 999999;
@@ -165,19 +165,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: ${_.sans};
+    font-family: ${v.sans};
   `;let l=document.createElement("div");l.style.cssText=`
     width: min(420px, 92vw);
     background: ${s.graphite};
     border: 1px solid ${s.steel};
-    border-radius: ${w.lg};
+    border-radius: ${x.lg};
     padding: 24px 28px;
     color: ${s.bone};
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   `;let d=new Date,c=new Date(d.getTime()+5*24*60*60*1e3).toISOString().slice(0,10),h=o?`
     <label style="
       display: block;
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -189,9 +189,9 @@
         width: 100%;
         background: ${s.slate};
         border: 1px solid ${s.steel};
-        border-radius: ${w.sm};
+        border-radius: ${x.sm};
         color: ${s.bone};
-        font-family: ${_.sans};
+        font-family: ${v.sans};
         font-size: 14px;
         padding: 10px 12px;
         margin-bottom: 16px;
@@ -199,7 +199,7 @@
         box-sizing: border-box;
       " />`:"";l.innerHTML=`
     <div style="
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -220,7 +220,7 @@
 
     <label style="
       display: block;
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -232,11 +232,11 @@
       align-items: center;
       background: ${s.slate};
       border: 1px solid ${s.steel};
-      border-radius: ${w.sm};
+      border-radius: ${x.sm};
       padding: 0 12px;
       margin-bottom: 16px;
     ">
-      <span style="color: ${s.ash}; font-family: ${_.mono}; font-size: 14px;">$</span>
+      <span style="color: ${s.ash}; font-family: ${v.mono}; font-size: 14px;">$</span>
       <input id="ws-offer-amount" type="number" min="0" step="100" placeholder="0"
         style="
           flex: 1;
@@ -244,7 +244,7 @@
           border: none;
           outline: none;
           color: ${s.bone};
-          font-family: ${_.mono};
+          font-family: ${v.mono};
           font-size: 14px;
           padding: 10px 8px;
         " />
@@ -271,7 +271,7 @@
         font-size: 13px;
       ">Record Offer</button>
     </div>
-  `,a.appendChild(l),document.body.appendChild(a);let m=()=>a.remove();a.addEventListener("click",k=>{k.target===a&&m()});let p=l.querySelector("#ws-offer-error"),u=l.querySelector("#ws-offer-cancel"),y=l.querySelector("#ws-offer-submit");u?.addEventListener("click",m),y?.addEventListener("click",async()=>{let k=(l.querySelector("#ws-offer-amount")?.value??"").trim(),g=o?l.querySelector("#ws-offer-expires")?.value??"":"";if(!k||Number(k)<=0){p&&(p.textContent="Enter a positive offer amount."),b.warn("Offer Made submit blocked \u2014 invalid amount");return}let v=Number(k);if(v<100){p&&(p.textContent=`That looks low \u2014 did you mean $${(v*1e3).toLocaleString("en-US")}?`);return}let E=window.location.pathname.match(/\/v2\/location\/([A-Za-z0-9]+)/),T=E?E[1]:null;if(!T){p&&(p.textContent="Couldn't resolve tenant from URL. Refresh and try again.");return}p&&(p.textContent=""),y&&(y.disabled=!0,y.textContent="Recording\u2026",y.style.opacity="0.7"),u&&(u.disabled=!0);try{let x=await vn({tenantId:T,contactId:t,kind:e,amount:v,expiresAt:g||null,userId:A()});if(!x.ok){p&&(p.textContent=x.error??"Something went wrong."),y&&(y.disabled=!1,y.textContent="Record Offer",y.style.opacity="1"),u&&(u.disabled=!1);return}b.info(`Offer Made (${e}) recorded for contact ${t}: $${v} on ${x.opp_pipeline} opp (stage: ${x.opp_stage_name??"?"})`),m()}catch(x){b.error("Offer Made webhook failed",x),p&&(p.textContent=x instanceof Error?x.message:"Network error \u2014 try again."),y&&(y.disabled=!1,y.textContent="Record Offer",y.style.opacity="1"),u&&(u.disabled=!1)}}),setTimeout(()=>{l.querySelector("#ws-offer-amount")?.focus()},0)},To="ws-crm-dead-deal-modal",gn=(t,e)=>{document.getElementById(To)?.remove();let o=document.createElement("div");o.id=To,o.style.cssText=`
+  `,a.appendChild(l),document.body.appendChild(a);let m=()=>a.remove();a.addEventListener("click",w=>{w.target===a&&m()});let p=l.querySelector("#ws-offer-error"),u=l.querySelector("#ws-offer-cancel"),y=l.querySelector("#ws-offer-submit");u?.addEventListener("click",m),y?.addEventListener("click",async()=>{let w=(l.querySelector("#ws-offer-amount")?.value??"").trim(),g=o?l.querySelector("#ws-offer-expires")?.value??"":"";if(!w||Number(w)<=0){p&&(p.textContent="Enter a positive offer amount."),b.warn("Offer Made submit blocked \u2014 invalid amount");return}let _=Number(w);if(_<100){p&&(p.textContent=`That looks low \u2014 did you mean $${(_*1e3).toLocaleString("en-US")}?`);return}let E=window.location.pathname.match(/\/v2\/location\/([A-Za-z0-9]+)/),T=E?E[1]:null;if(!T){p&&(p.textContent="Couldn't resolve tenant from URL. Refresh and try again.");return}p&&(p.textContent=""),y&&(y.disabled=!0,y.textContent="Recording\u2026",y.style.opacity="0.7"),u&&(u.disabled=!0);try{let k=await vn({tenantId:T,contactId:t,kind:e,amount:_,expiresAt:g||null,userId:A()});if(!k.ok){p&&(p.textContent=k.error??"Something went wrong."),y&&(y.disabled=!1,y.textContent="Record Offer",y.style.opacity="1"),u&&(u.disabled=!1);return}b.info(`Offer Made (${e}) recorded for contact ${t}: $${_} on ${k.opp_pipeline} opp (stage: ${k.opp_stage_name??"?"})`),m()}catch(k){b.error("Offer Made webhook failed",k),p&&(p.textContent=k instanceof Error?k.message:"Network error \u2014 try again."),y&&(y.disabled=!1,y.textContent="Record Offer",y.style.opacity="1"),u&&(u.disabled=!1)}}),setTimeout(()=>{l.querySelector("#ws-offer-amount")?.focus()},0)},To="ws-crm-dead-deal-modal",gn=(t,e)=>{document.getElementById(To)?.remove();let o=document.createElement("div");o.id=To,o.style.cssText=`
     position: fixed;
     inset: 0;
     z-index: 999999;
@@ -279,18 +279,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: ${_.sans};
+    font-family: ${v.sans};
   `;let r=document.createElement("div");r.style.cssText=`
     width: min(460px, 92vw);
     background: ${s.graphite};
     border: 1px solid ${s.steel};
-    border-radius: ${w.lg};
+    border-radius: ${x.lg};
     padding: 24px 28px;
     color: ${s.bone};
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   `,r.innerHTML=`
     <div style="
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -310,7 +310,7 @@
 
     <label style="
       display: block;
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -322,9 +322,9 @@
         width: 100%;
         background: ${s.slate};
         border: 1px solid ${s.steel};
-        border-radius: ${w.sm};
+        border-radius: ${x.sm};
         color: ${s.bone};
-        font-family: ${_.sans};
+        font-family: ${v.sans};
         font-size: 14px;
         padding: 10px 12px;
         margin-bottom: 4px;
@@ -360,18 +360,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: ${_.sans};
+    font-family: ${v.sans};
   `;let r=document.createElement("div");r.style.cssText=`
     width: min(440px, 92vw);
     background: ${s.graphite};
     border: 1px solid ${s.steel};
-    border-radius: ${w.lg};
+    border-radius: ${x.lg};
     padding: 24px 28px;
     color: ${s.bone};
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   `,r.innerHTML=`
     <div style="
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -426,18 +426,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: ${_.sans};
+    font-family: ${v.sans};
   `;let o=document.createElement("div");o.style.cssText=`
     width: min(420px, 92vw);
     background: ${s.graphite};
     border: 1px solid ${s.steel};
-    border-radius: ${w.lg};
+    border-radius: ${x.lg};
     padding: 24px 28px;
     color: ${s.bone};
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   `,o.innerHTML=`
     <div style="
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -458,7 +458,7 @@
 
     <label style="
       display: block;
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -470,11 +470,11 @@
       align-items: center;
       background: ${s.slate};
       border: 1px solid ${s.steel};
-      border-radius: ${w.sm};
+      border-radius: ${x.sm};
       padding: 0 12px;
       margin-bottom: 8px;
     ">
-      <span style="color: ${s.ash}; font-family: ${_.mono}; font-size: 14px;">$</span>
+      <span style="color: ${s.ash}; font-family: ${v.mono}; font-size: 14px;">$</span>
       <input id="ws-mt-offer-amount" type="number" min="0" step="100" placeholder="0"
         style="
           flex: 1;
@@ -482,7 +482,7 @@
           border: none;
           outline: none;
           color: ${s.bone};
-          font-family: ${_.mono};
+          font-family: ${v.mono};
           font-size: 14px;
           padding: 10px 8px;
         " />
@@ -549,18 +549,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: ${_.sans};
+    font-family: ${v.sans};
   `;let o=document.createElement("div");o.style.cssText=`
     width: min(440px, 92vw);
     background: ${s.graphite};
     border: 1px solid ${s.steel};
-    border-radius: ${w.lg};
+    border-radius: ${x.lg};
     padding: 24px 28px;
     color: ${s.bone};
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   `,o.innerHTML=`
     <div style="
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -581,7 +581,7 @@
 
     <label style="
       display: block;
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -603,9 +603,9 @@
           width: 100%;
           background: ${s.slate};
           border: 1px solid ${s.steel};
-          border-radius: ${w.sm};
+          border-radius: ${x.sm};
           color: ${s.bone};
-          font-family: ${_.sans};
+          font-family: ${v.sans};
           font-size: 14px;
           padding: 10px 12px 10px 24px;
           outline: none;
@@ -625,8 +625,8 @@
         border: 1px solid ${s.steel};
         color: ${s.bone};
         padding: 8px 16px;
-        border-radius: ${w.sm};
-        font-family: ${_.sans};
+        border-radius: ${x.sm};
+        font-family: ${v.sans};
         font-size: 13px;
         cursor: pointer;
       ">Cancel</button>
@@ -635,8 +635,8 @@
         border: 1px solid ${s.amber};
         color: ${s.obsidian};
         padding: 8px 16px;
-        border-radius: ${w.sm};
-        font-family: ${_.sans};
+        border-radius: ${x.sm};
+        font-family: ${v.sans};
         font-size: 13px;
         font-weight: 500;
         cursor: pointer;
@@ -670,13 +670,13 @@
     overflow-y: auto;
     background: ${s.graphite};
     border: 1px solid ${s.steel};
-    border-radius: ${w.md};
+    border-radius: ${x.md};
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
     padding: 14px 16px;
-    font-family: ${_.sans};
+    font-family: ${v.sans};
   `;let i=t.length,a=t.filter(u=>u.filled).length,l=a===i,d=document.createElement("div");d.innerHTML=`
     <div style="
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -690,12 +690,12 @@
             margin: 6px 0 4px;
             padding: 6px 8px;
             background: ${s.slate};
-            border-radius: ${w.sm};
+            border-radius: ${x.sm};
             border-left: 2px solid ${s.amber};
           ">Previously sent: ${new Date(e).toLocaleString()}.
           Clicking Send again will re-send.</div>`:""}
-  `,r.appendChild(d);let c=["TC","ACQ","MT","DISPO","Property"],h={};t.forEach(u=>{h[u.group]||(h[u.group]=[]),h[u.group].push(u)});let m=[...c.filter(u=>h[u]),...Object.keys(h).filter(u=>!c.includes(u))];for(let u of m){let y=h[u],k=document.createElement("div");k.style.cssText="margin-top: 12px;";let g=document.createElement("div");g.style.cssText=`
-      font-family: ${_.mono};
+  `,r.appendChild(d);let c=["TC","ACQ","MT","DISPO","Property"],h={};t.forEach(u=>{h[u.group]||(h[u.group]=[]),h[u.group].push(u)});let m=[...c.filter(u=>h[u]),...Object.keys(h).filter(u=>!c.includes(u))];for(let u of m){let y=h[u],w=document.createElement("div");w.style.cssText="margin-top: 12px;";let g=document.createElement("div");g.style.cssText=`
+      font-family: ${v.mono};
       font-size: 9px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -703,17 +703,17 @@
       margin-bottom: 6px;
       padding-bottom: 4px;
       border-bottom: 1px solid ${s.steel};
-    `,g.textContent=u,k.appendChild(g),y.forEach(v=>{let f=document.createElement("div"),E=!v.filled&&v.navigable&&v.field_id;f.style.cssText=`
+    `,g.textContent=u,w.appendChild(g),y.forEach(_=>{let f=document.createElement("div"),E=!_.filled&&_.navigable&&_.field_id;f.style.cssText=`
         display: flex;
         align-items: center;
         gap: 10px;
         padding: 6px 8px;
-        border-radius: ${w.sm};
+        border-radius: ${x.sm};
         font-size: 12px;
-        color: ${v.filled?s.bone:s.ash};
+        color: ${_.filled?s.bone:s.ash};
         ${E?"cursor: pointer;":""}
         transition: background 0.1s ease;
-      `,E&&(f.addEventListener("mouseenter",()=>{f.style.background=s.slate}),f.addEventListener("mouseleave",()=>{f.style.background="transparent"}),f.addEventListener("click",I=>{I.stopPropagation(),v.field_id&&(ma(v.field_id,v.folder),B())}));let T=v.filled?`<span style="color: ${s.emerald}; font-size: 14px; line-height: 1; flex-shrink: 0;">\u2713</span>`:`<span style="color: ${s.amber}; font-size: 14px; line-height: 1; flex-shrink: 0;">\u25CB</span>`,x=E?`<span style="margin-left: auto; color: ${s.ash}; font-size: 11px;">\u2192</span>`:"";f.innerHTML=`${T}<span style="flex: 1;">${v.label}</span>${x}`,k.appendChild(f)}),r.appendChild(k)}document.body.appendChild(r);let p=u=>{let y=u.target;!r.contains(y)&&!o.contains(y)&&(B(),document.removeEventListener("click",p))};window.setTimeout(()=>document.addEventListener("click",p),0)},z=(t,e)=>{let o=t.querySelector(".ws-stc-label"),r=t.querySelector(".ws-stc-dot"),n=t.querySelector(".ws-stc-chevron"),i,a,l=s.bone,d,c="Send to Closing Office",h="",m="pointer",p="1";switch(e.status){case"checking":i="transparent",a=s.steel,l=s.ash,d=s.coolGray,c="Checking\u2026",m="wait",p="0.8";break;case"ready":i=s.emerald,a=s.emerald,l="#0a0e14",d="#0a0e14",c=e.previouslySentAt?"Re-send to Closing Office":"Send to Closing Office";break;case"incomplete":{let u=e.checks?.filter(k=>k.filled).length??0,y=e.checks?.length??0;i="transparent",a=s.amber,l=s.amber,d=s.amber,c=`${u} of ${y} fields ready`,h="\u25BE";break}case"sending":i=s.emerald,a=s.emerald,l="#0a0e14",d="#0a0e14",c="Sending\u2026",m="wait",p="0.8";break;case"sent":i=s.emerald,a=s.emerald,l="#0a0e14",d="#0a0e14",c="Sent \u2713";break;case"error":i="transparent",a=s.amber,l=s.amber,d=s.amber,c=e.message??"Try again";break}t.style.background=i,t.style.borderColor=a,t.style.color=l,t.style.cursor=m,t.style.opacity=p,r&&(r.style.background=d,r.style.boxShadow=e.status==="ready"||e.status==="sent"?`0 0 6px ${d}`:""),o&&(o.textContent=c),n&&(n.textContent=h)},ua=(t,e)=>{let o=document.createElement("button");o.id=K,o.type="button",o.dataset.oppId=t;let r=da(t),n=r?{status:r.checks.every(g=>g.filled)?"ready":"incomplete",checks:r.checks,previouslySentAt:r.previously_sent_at}:{status:"checking"};o.style.cssText=`
+      `,E&&(f.addEventListener("mouseenter",()=>{f.style.background=s.slate}),f.addEventListener("mouseleave",()=>{f.style.background="transparent"}),f.addEventListener("click",I=>{I.stopPropagation(),_.field_id&&(ma(_.field_id,_.folder),B())}));let T=_.filled?`<span style="color: ${s.emerald}; font-size: 14px; line-height: 1; flex-shrink: 0;">\u2713</span>`:`<span style="color: ${s.amber}; font-size: 14px; line-height: 1; flex-shrink: 0;">\u25CB</span>`,k=E?`<span style="margin-left: auto; color: ${s.ash}; font-size: 11px;">\u2192</span>`:"";f.innerHTML=`${T}<span style="flex: 1;">${_.label}</span>${k}`,w.appendChild(f)}),r.appendChild(w)}document.body.appendChild(r);let p=u=>{let y=u.target;!r.contains(y)&&!o.contains(y)&&(B(),document.removeEventListener("click",p))};window.setTimeout(()=>document.addEventListener("click",p),0)},z=(t,e)=>{let o=t.querySelector(".ws-stc-label"),r=t.querySelector(".ws-stc-dot"),n=t.querySelector(".ws-stc-chevron"),i,a,l=s.bone,d,c="Send to Closing Office",h="",m="pointer",p="1";switch(e.status){case"checking":i="transparent",a=s.steel,l=s.ash,d=s.coolGray,c="Checking\u2026",m="wait",p="0.8";break;case"ready":i=s.emerald,a=s.emerald,l="#0a0e14",d="#0a0e14",c=e.previouslySentAt?"Re-send to Closing Office":"Send to Closing Office";break;case"incomplete":{let u=e.checks?.filter(w=>w.filled).length??0,y=e.checks?.length??0;i="transparent",a=s.amber,l=s.amber,d=s.amber,c=`${u} of ${y} fields ready`,h="\u25BE";break}case"sending":i=s.emerald,a=s.emerald,l="#0a0e14",d="#0a0e14",c="Sending\u2026",m="wait",p="0.8";break;case"sent":i=s.emerald,a=s.emerald,l="#0a0e14",d="#0a0e14",c="Sent \u2713";break;case"error":i="transparent",a=s.amber,l=s.amber,d=s.amber,c=e.message??"Try again";break}t.style.background=i,t.style.borderColor=a,t.style.color=l,t.style.cursor=m,t.style.opacity=p,r&&(r.style.background=d,r.style.boxShadow=e.status==="ready"||e.status==="sent"?`0 0 6px ${d}`:""),o&&(o.textContent=c),n&&(n.textContent=h)},ua=(t,e)=>{let o=document.createElement("button");o.id=K,o.type="button",o.dataset.oppId=t;let r=da(t),n=r?{status:r.checks.every(g=>g.filled)?"ready":"incomplete",checks:r.checks,previouslySentAt:r.previously_sent_at}:{status:"checking"};o.style.cssText=`
     ${q}
     background: transparent;
     border: 1px solid ${s.steel};
@@ -729,7 +729,7 @@
     "></span>
     <span class="ws-stc-label">Checking\u2026</span>
     <span class="ws-stc-chevron" style="font-size: 10px; margin-left: 2px;"></span>
-  `,z(o,n);let i=new Set,a=async()=>{if(n.status==="sending")return;let g=await ba(t,e);if(!g){n={status:"error",message:"Check failed \u2014 click to retry"},z(o,n);return}if(g.rate_limited){u=Date.now()+p,n={status:"error",checks:n.checks,message:"Rate-limited by GHL \u2014 will retry in 5m"},z(o,n),b.warn(`[stc] dry_run rate-limited \u2014 cooling down until ${new Date(u).toLocaleTimeString()}`);return}if(!Array.isArray(g.checks)||g.checks.length===0){n={status:"error",message:g.error||"Check failed \u2014 click to retry"},z(o,n),b.warn("[stc] dry_run returned no checks:",g);return}let v=g.pipeline_name;if(v&&v!=="Transaction Coordination"){b.debug(`[stc] dry_run reports pipeline="${v}" (not TC) \u2014 retracting button + caching`),je.add(t),document.getElementById(K)?.remove(),document.getElementById(Q)?.remove(),B(),ye();return}let f=g.checks;if(n.checks&&n.checks.length===g.checks.length){let T=new Set;f=g.checks.map((x,I)=>n.checks[I]?.filled&&!x.filled?i.has(x.label)?x:(T.add(x.label),{...x,filled:!0}):x),i=T}else i=new Set;n={status:f.every(T=>T.filled)?"ready":"incomplete",checks:f,previouslySentAt:g.previously_sent_at??null},ca(t,{checks:f,previously_sent_at:g.previously_sent_at??null,pipeline_name:v,ts:Date.now()}),z(o,n),document.getElementById(Ve)&&qe(f,g.previously_sent_at,o)},l=async()=>{let g=!!n.previouslySentAt;n={status:"sending",checks:n.checks,previouslySentAt:n.previouslySentAt},z(o,n),B();try{let v=await ha(t,e,g);if(v.needs_confirm){n={status:"ready",checks:v.checks,previouslySentAt:v.previously_sent_at},z(o,n),v.checks&&qe(v.checks,v.previously_sent_at,o);return}if(v.ok){n={status:"sent",checks:v.checks,previouslySentAt:new Date().toISOString()},z(o,n),window.setTimeout(()=>{y()},3500);return}n={status:"error",checks:v.checks,message:v.error||"Validation failed"},z(o,n),v.checks&&qe(v.checks,v.previously_sent_at,o)}catch(v){b.error("[stc] send failed:",v),n={status:"error",message:"Network error \u2014 click to retry"},z(o,n)}};o.addEventListener("click",()=>{switch(n.status){case"ready":l();break;case"incomplete":{document.getElementById(Ve)?B():n.checks&&qe(n.checks,n.previouslySentAt,o);break}case"error":case"sent":y();break}});let d,c=!1,h=Date.now(),m=1e4,p=5*60*1e3,u=0,y=async()=>{if(!c){if(Date.now()<u){b.debug(`[stc] dry_run suppressed \u2014 rate-limit cooldown until ${new Date(u).toLocaleTimeString()}`);return}c=!0,h=Date.now();try{await a()}finally{c=!1}}};y();let k=document.querySelector(".hr-card.hr-modal.crm-opportunities-modal");if(k){let g=new MutationObserver(()=>{if(d!==void 0||c)return;let f=Date.now()-h,E=Math.max(1500,m-f);d=window.setTimeout(()=>{d=void 0,n.status!=="sending"&&y()},E)});g.observe(k,{childList:!0,subtree:!0,characterData:!0}),o.dataset.observerActive="1";let v=window.setInterval(()=>{document.body.contains(o)||(g.disconnect(),d!==void 0&&window.clearTimeout(d),window.clearInterval(v))},5e3)}return o},_a=[".hr-card.hr-modal.crm-opportunities-modal .ui-modal-heading .description",".crm-opportunities-modal .ui-modal-heading .description",".hr-card.hr-modal.crm-opportunities-modal .ui-modal-heading",".crm-opportunities-modal .ui-modal-heading",".hr-card.hr-modal.crm-opportunities-modal .hr-card-header__main",".crm-opportunities-modal .hr-card-header__main"],va=async()=>{for(let t of _a)try{let e=await C(t,{timeoutMs:1500});if(e)return b.debug(`[send-to-title-co] mount target: ${t}`),e}catch{}return b.warn(`[send-to-title-co] no mount target found. URL: ${window.location.pathname}`),null},je=new Set,Go=null,ya=t=>{t&&t!==Go&&(je.clear(),Go=t)},Ue=!1,Ft=async()=>{if(Ue){b.debug("[stc] mount:00-LOCKED ensureMounted already in-flight \u2014 skip");return}Ue=!0;try{await ga()}catch(t){b.error("[stc] ensureMountedImpl threw:",t)}finally{Ue=!1}},ga=async()=>{b.debug("[stc] mount:01 ensureMountedImpl entered");let t=We();if(!t||!t.locationId){b.debug(`[stc] mount:02-BAIL no ctx or no locationId. ctx=${JSON.stringify(t)}`),document.getElementById(K)?.remove(),document.getElementById(Q)?.remove(),B();return}if(b.debug(`[stc] mount:02 ctx ok \u2014 oppId=${t.oppId} locId=${t.locationId}`),ya(t.oppId),je.has(t.oppId)){b.debug(`[stc] mount:02-BAIL opp ${t.oppId} previously confirmed non-TC this session`),document.getElementById(K)?.remove(),document.getElementById(Q)?.remove(),B();return}let e=document.getElementById(K);if(e&&e.dataset.oppId===t.oppId){b.debug("[stc] mount:03-SKIP existing button for same opp");let l=M();l!==null&&l!=="Transaction Coordination"&&(e.remove(),document.getElementById(Q)?.remove(),B(),ye());return}e&&(b.debug("[stc] mount:03 removing stale existing button"),e.remove(),document.getElementById(Q)?.remove(),B()),b.debug("[stc] mount:04 calling findMountTarget");let o=await va();if(!o){b.debug("[stc] mount:04-BAIL findMountTarget returned null");return}b.debug(`[stc] mount:04 target found tag=${o.tagName} class="${o.className}"`);let r=M();if(r!==null&&r!=="Transaction Coordination"){b.debug(`[stc] mount:05-GATED DOM pipeline="${r}" \u2014 skipping mount`);return}let n=We();if(!n||n.oppId!==t.oppId||!n.locationId){b.debug(`[stc] mount:06-BAIL ctx changed during awaits. was=${t.oppId} now=${n?.oppId}`);return}b.debug("[stc] mount:06 building button (pipeline gate will run via dry_run)");let i=ua(t.oppId,n.locationId),a=document.createElement("span");a.id=Q,a.style.cssText=`
+  `,z(o,n);let i=new Set,a=async()=>{if(n.status==="sending")return;let g=await ba(t,e);if(!g){n={status:"error",message:"Check failed \u2014 click to retry"},z(o,n);return}if(g.rate_limited){u=Date.now()+p,n={status:"error",checks:n.checks,message:"Rate-limited by GHL \u2014 will retry in 5m"},z(o,n),b.warn(`[stc] dry_run rate-limited \u2014 cooling down until ${new Date(u).toLocaleTimeString()}`);return}if(!Array.isArray(g.checks)||g.checks.length===0){n={status:"error",message:g.error||"Check failed \u2014 click to retry"},z(o,n),b.warn("[stc] dry_run returned no checks:",g);return}let _=g.pipeline_name;if(_&&_!=="Transaction Coordination"){b.debug(`[stc] dry_run reports pipeline="${_}" (not TC) \u2014 retracting button + caching`),je.add(t),document.getElementById(K)?.remove(),document.getElementById(Q)?.remove(),B(),ye();return}let f=g.checks;if(n.checks&&n.checks.length===g.checks.length){let T=new Set;f=g.checks.map((k,I)=>n.checks[I]?.filled&&!k.filled?i.has(k.label)?k:(T.add(k.label),{...k,filled:!0}):k),i=T}else i=new Set;n={status:f.every(T=>T.filled)?"ready":"incomplete",checks:f,previouslySentAt:g.previously_sent_at??null},ca(t,{checks:f,previously_sent_at:g.previously_sent_at??null,pipeline_name:_,ts:Date.now()}),z(o,n),document.getElementById(Ve)&&qe(f,g.previously_sent_at,o)},l=async()=>{let g=!!n.previouslySentAt;n={status:"sending",checks:n.checks,previouslySentAt:n.previouslySentAt},z(o,n),B();try{let _=await ha(t,e,g);if(_.needs_confirm){n={status:"ready",checks:_.checks,previouslySentAt:_.previously_sent_at},z(o,n),_.checks&&qe(_.checks,_.previously_sent_at,o);return}if(_.ok){n={status:"sent",checks:_.checks,previouslySentAt:new Date().toISOString()},z(o,n),window.setTimeout(()=>{y()},3500);return}n={status:"error",checks:_.checks,message:_.error||"Validation failed"},z(o,n),_.checks&&qe(_.checks,_.previously_sent_at,o)}catch(_){b.error("[stc] send failed:",_),n={status:"error",message:"Network error \u2014 click to retry"},z(o,n)}};o.addEventListener("click",()=>{switch(n.status){case"ready":l();break;case"incomplete":{document.getElementById(Ve)?B():n.checks&&qe(n.checks,n.previouslySentAt,o);break}case"error":case"sent":y();break}});let d,c=!1,h=Date.now(),m=1e4,p=5*60*1e3,u=0,y=async()=>{if(!c){if(Date.now()<u){b.debug(`[stc] dry_run suppressed \u2014 rate-limit cooldown until ${new Date(u).toLocaleTimeString()}`);return}c=!0,h=Date.now();try{await a()}finally{c=!1}}};y();let w=document.querySelector(".hr-card.hr-modal.crm-opportunities-modal");if(w){let g=new MutationObserver(()=>{if(d!==void 0||c)return;let f=Date.now()-h,E=Math.max(1500,m-f);d=window.setTimeout(()=>{d=void 0,n.status!=="sending"&&y()},E)});g.observe(w,{childList:!0,subtree:!0,characterData:!0}),o.dataset.observerActive="1";let _=window.setInterval(()=>{document.body.contains(o)||(g.disconnect(),d!==void 0&&window.clearTimeout(d),window.clearInterval(_))},5e3)}return o},_a=[".hr-card.hr-modal.crm-opportunities-modal .ui-modal-heading .description",".crm-opportunities-modal .ui-modal-heading .description",".hr-card.hr-modal.crm-opportunities-modal .ui-modal-heading",".crm-opportunities-modal .ui-modal-heading",".hr-card.hr-modal.crm-opportunities-modal .hr-card-header__main",".crm-opportunities-modal .hr-card-header__main"],va=async()=>{for(let t of _a)try{let e=await C(t,{timeoutMs:1500});if(e)return b.debug(`[send-to-title-co] mount target: ${t}`),e}catch{}return b.warn(`[send-to-title-co] no mount target found. URL: ${window.location.pathname}`),null},je=new Set,Go=null,ya=t=>{t&&t!==Go&&(je.clear(),Go=t)},Ue=!1,Ft=async()=>{if(Ue){b.debug("[stc] mount:00-LOCKED ensureMounted already in-flight \u2014 skip");return}Ue=!0;try{await ga()}catch(t){b.error("[stc] ensureMountedImpl threw:",t)}finally{Ue=!1}},ga=async()=>{b.debug("[stc] mount:01 ensureMountedImpl entered");let t=We();if(!t||!t.locationId){b.debug(`[stc] mount:02-BAIL no ctx or no locationId. ctx=${JSON.stringify(t)}`),document.getElementById(K)?.remove(),document.getElementById(Q)?.remove(),B();return}if(b.debug(`[stc] mount:02 ctx ok \u2014 oppId=${t.oppId} locId=${t.locationId}`),ya(t.oppId),je.has(t.oppId)){b.debug(`[stc] mount:02-BAIL opp ${t.oppId} previously confirmed non-TC this session`),document.getElementById(K)?.remove(),document.getElementById(Q)?.remove(),B();return}let e=document.getElementById(K);if(e&&e.dataset.oppId===t.oppId){b.debug("[stc] mount:03-SKIP existing button for same opp");let l=M();l!==null&&l!=="Transaction Coordination"&&(e.remove(),document.getElementById(Q)?.remove(),B(),ye());return}e&&(b.debug("[stc] mount:03 removing stale existing button"),e.remove(),document.getElementById(Q)?.remove(),B()),b.debug("[stc] mount:04 calling findMountTarget");let o=await va();if(!o){b.debug("[stc] mount:04-BAIL findMountTarget returned null");return}b.debug(`[stc] mount:04 target found tag=${o.tagName} class="${o.className}"`);let r=M();if(r!==null&&r!=="Transaction Coordination"){b.debug(`[stc] mount:05-GATED DOM pipeline="${r}" \u2014 skipping mount`);return}let n=We();if(!n||n.oppId!==t.oppId||!n.locationId){b.debug(`[stc] mount:06-BAIL ctx changed during awaits. was=${t.oppId} now=${n?.oppId}`);return}b.debug("[stc] mount:06 building button (pipeline gate will run via dry_run)");let i=ua(t.oppId,n.locationId),a=document.createElement("span");a.id=Q,a.style.cssText=`
     display: inline-flex;
     align-items: center;
     margin-left: auto;
@@ -742,14 +742,14 @@
       align-items: center;
       padding: 0 12px;
       color: ${s.bone};
-      font-family: ${_.sans};
+      font-family: ${v.sans};
       font-size: 14px;
       font-weight: 500;
       text-decoration: none;
       cursor: pointer;
       pointer-events: auto;
       background: ${s.slate};
-      border-radius: ${w.sm};
+      border-radius: ${x.sm};
       z-index: 2;
     `,l.addEventListener("mouseenter",()=>{l.style.textDecoration="underline"}),l.addEventListener("mouseleave",()=>{l.style.textDecoration="none"}),l.addEventListener("click",d=>{d.preventDefault(),d.stopPropagation(),window.location.href=l.href}),i.appendChild(l)}}},Ke=()=>{document.getElementById(Ko)?.remove()},Fa=t=>{Ke();let e=document.createElement("div");e.id=Ko,e.style.cssText=`
     position: fixed;
@@ -759,13 +759,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: ${_.sans};
+    font-family: ${v.sans};
   `;let o=document.createElement("div");o.style.cssText=`
     width: min(520px, 92vw);
     max-height: 80vh;
     background: ${s.graphite};
     border: 1px solid ${s.steel};
-    border-radius: ${w.lg};
+    border-radius: ${x.lg};
     padding: 24px 28px;
     color: ${s.bone};
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
@@ -773,7 +773,7 @@
     flex-direction: column;
   `,o.innerHTML=`
     <div style="
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -797,9 +797,9 @@
         width: 100%;
         background: ${s.slate};
         border: 1px solid ${s.steel};
-        border-radius: ${w.sm};
+        border-radius: ${x.sm};
         color: ${s.bone};
-        font-family: ${_.sans};
+        font-family: ${v.sans};
         font-size: 14px;
         padding: 10px 12px;
         outline: none;
@@ -814,7 +814,7 @@
         min-height: 80px;
         max-height: 50vh;
         border: 1px solid ${s.steel};
-        border-radius: ${w.sm};
+        border-radius: ${x.sm};
         background: ${s.obsidian};
         margin-bottom: 16px;
       ">
@@ -848,7 +848,7 @@
           border: none;
           border-bottom: 1px solid ${s.steel};
           color: ${s.bone};
-          font-family: ${_.sans};
+          font-family: ${v.sans};
           font-size: 13px;
           cursor: pointer;
           transition: background 0.1s ease;
@@ -877,8 +877,8 @@
     margin-left: auto;
     flex-shrink: 0;
     vertical-align: middle;
-  `,r.classList.contains("description")&&(r.style.display="flex",r.style.alignItems="center",r.style.gap="16px",r.style.flexWrap="wrap"),l.appendChild(a),r.appendChild(l),b.debug(`Mounted Closing Agent picker on opp ${t.oppId}`),Na(t.oppId),qt(i.locationId)},fe=null,Bt=null,Rt=null,Xe=()=>{fe?.disconnect(),fe=null,Bt=null,Rt=null},Na=t=>{let e=document.querySelector(".hr-card.hr-modal.crm-opportunities-modal");e&&(fe&&Bt===t&&Rt===e||(Xe(),Bt=t,Rt=e,fe=new MutationObserver(()=>{let o=we();if(!o||o.oppId!==t||!o.locationId){Xe();return}document.getElementById(R)||Je(),qt(o.locationId)}),fe.observe(e,{childList:!0,subtree:!0})))},Pt=null,Ot,Ba=()=>{Pt||(Pt=new MutationObserver(()=>{Ot===void 0&&(Ot=window.setTimeout(()=>{Ot=void 0;let t=!!document.querySelector(".crm-opportunities-modal .ui-modal-heading .description"),e=!!document.getElementById(R);t&&!e&&!ge&&Je()},300))}),Pt.observe(document.body,{childList:!0,subtree:!0}))},Wo,Ra=()=>{Wo===void 0&&(Wo=window.setInterval(()=>{let t=we();if(!t||!t.locationId||!!!document.querySelector(".crm-opportunities-modal"))return;!!!document.getElementById(R)&&!ge&&(b.info("[closing-agent] safety-net: button missing on opp page \u2014 remounting"),Je()),qt(t.locationId)},2e3))},Zo=()=>{b.info("[closing-agent] mountClosingAgentPickerButton invoked"),Ba(),Ra(),Je()};var Ga="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contract/stage",Ut="ws-crm-prepare-contract-button",Qo="ws-crm-prepare-contract-menu",se="ws-crm-prepare-contract-modal",Ze="https://services.leadconnectorhq.com",Vt="__WS_CRM_CAPTURED_AUTH",za=50*60*1e3,rr=()=>{try{let t=localStorage.getItem(Vt);if(!t)return null;let e=JSON.parse(t);return e?.authorization?Date.now()-(e.capturedAt||0)>za?(localStorage.removeItem(Vt),null):e:null}catch{return null}},qa=t=>{try{localStorage.setItem(Vt,JSON.stringify(t))}catch{}},Qe=()=>{let t=rr(),e=window;if(e.__WS_CRM_DIAG=e.__WS_CRM_DIAG||{},e.__WS_CRM_DIAG.authChecks=(e.__WS_CRM_DIAG.authChecks||0)+1,console.log(`[ws-crm-customizer] [auth-check #${e.__WS_CRM_DIAG.authChecks}]`,t?`present (captured ${Date.now()-t.capturedAt}ms ago, ${t.authorization.slice(0,20)}\u2026)`:"NULL \u2014 interceptor has not captured a token yet"),!t)throw new Error("GHL auth not yet captured. Try clicking around the page (refresh, open a contact) to trigger a GHL API call, then retry.");let o={Authorization:t.authorization,Version:"2021-07-28",Channel:"APP",Source:"WEB_USER"};return t.tokenId&&(o["token-id"]=t.tokenId),o};var er=t=>t.includes("services.leadconnectorhq.com")&&/\/proposals\//.test(t),nr=30,tr=!1,Ua=()=>{if(tr)return;tr=!0;let t=window;t.__WS_CRM_DIAG=t.__WS_CRM_DIAG||{fetchCalls:0,xhrCalls:0,fetchAuthSeen:0,xhrAuthSeen:0,captured:0,lastSeenHeaders:null},t.__WS_CRM_PROPOSAL_CALLS=t.__WS_CRM_PROPOSAL_CALLS||[];let e=d=>{let c=t.__WS_CRM_PROPOSAL_CALLS;for(c.push(d);c.length>nr;)c.shift();return d};t.__WS_CRM_DUMP_PROPOSAL_CALLS=d=>{let c=t.__WS_CRM_PROPOSAL_CALLS||[],h=d?c.filter(m=>m.url.includes(d)):c;return console.log(`[ws-crm-customizer] ${h.length} proposal calls captured${d?` (filter="${d}")`:""}`),h.forEach((m,p)=>{console.log(`
-#${p+1} [${m.source}] ${m.method} ${m.url}`),console.log("  reqBody:",m.reqBody),console.log(`  \u2192 ${m.status??"?"}:`,m.resBody)}),h};let o=(d,c,h)=>{t.__WS_CRM_DIAG.lastSeenHeaders={url:d,headers:c,source:h};let m=c.authorization||c.Authorization;if(!m){t.__WS_CRM_DIAG.fetchCalls+t.__WS_CRM_DIAG.xhrCalls<=3&&console.log(`[ws-crm-customizer] [intercept:${h} no-auth]`,{url:d.split("?")[0],headerKeys:Object.keys(c)});return}h==="fetch"?t.__WS_CRM_DIAG.fetchAuthSeen++:t.__WS_CRM_DIAG.xhrAuthSeen++;let p=c["token-id"]||c["Token-Id"]||void 0,u=rr()?.authorization;qa({authorization:m,tokenId:p,capturedAt:Date.now()}),u!==m&&(t.__WS_CRM_DIAG.captured++,console.log(`[ws-crm-customizer] [intercept:${h}] captured GHL auth from ${d.split("?")[0]} (${m.slice(0,24)}\u2026)`))},r=window.fetch;window.fetch=async function(...d){let c=typeof d[0]=="string"?d[0]:d[0]instanceof URL?d[0].toString():d[0].url,h=d[1]||{};if(c&&c.includes("services.leadconnectorhq.com")){t.__WS_CRM_DIAG.fetchCalls++;let m=h.headers;!m&&d[0]instanceof Request&&(m=d[0].headers);let p={};if(m instanceof Headers)m.forEach((u,y)=>p[y.toLowerCase()]=u);else if(Array.isArray(m))m.forEach(([u,y])=>p[u.toLowerCase()]=y);else if(m&&typeof m=="object")for(let u of Object.keys(m))p[u.toLowerCase()]=m[u];o(c,p,"fetch")}if(c&&er(c)){let m=d[0]instanceof Request?d[0]:null,p=(h.method||m?.method||"GET").toUpperCase(),u=null;try{if(h.body!=null)u=typeof h.body=="string"?h.body:h.body instanceof URLSearchParams?h.body.toString():(()=>{try{return JSON.stringify(h.body)}catch{return"(non-serializable body)"}})();else if(m)try{u=await m.clone().text()}catch{}}catch{u=null}let y=e({ts:Date.now(),source:"fetch",method:p,url:c,reqBody:u});return r.apply(this,d).then(async k=>{try{y.status=k.status,y.resBody=await k.clone().text()}catch{}return k})}return r.apply(this,d)};let n=XMLHttpRequest.prototype,i=n.open,a=n.setRequestHeader,l=n.send;n.open=function(d,c,...h){return this.__wsCrmUrl=c,this.__wsCrmMethod=(d||"GET").toUpperCase(),this.__wsCrmHeaders={},i.call(this,d,c,...h)},n.setRequestHeader=function(d,c){return this.__wsCrmHeaders&&typeof d=="string"&&(this.__wsCrmHeaders[d.toLowerCase()]=c),a.call(this,d,c)},n.send=function(d){let c=this.__wsCrmUrl,h=this.__wsCrmMethod,m=this.__wsCrmHeaders;if(c&&c.includes("services.leadconnectorhq.com")&&m&&(t.__WS_CRM_DIAG.xhrCalls++,o(c,m,"xhr")),c&&er(c)){let p=null;try{d==null?p=null:typeof d=="string"?p=d:d instanceof URLSearchParams?p=d.toString():p="(non-string body)"}catch{p=null}let u=e({ts:Date.now(),source:"xhr",method:h||"GET",url:c,reqBody:p}),y=this;this.addEventListener("loadend",()=>{try{if(u.status=y.status,y.responseType===""||y.responseType==="text")u.resBody=y.responseText;else try{u.resBody=JSON.stringify(y.response)}catch{u.resBody=`(responseType=${y.responseType})`}}catch{}})}return l.call(this,d)},b.debug("[prepare-contract] interceptors installed (fetch + XHR)")},ar=()=>{let t=S();return!t||!t.locationId?null:{contactId:t.contactId,tenantId:t.locationId}},Va=t=>{let e=(t||"").trim().toLowerCase();return/^\[?\s*aa\s*\]?\s*[-\s]/i.test(e)||/assignment.*(contract|agreement)/i.test(e)?"AA":/^\[?\s*pa\s*\]?\s*[-\s]/i.test(e)||/purchase.*(contract|agreement)/i.test(e)?"PA":"passthrough"},Wa=async t=>{let e=`${Ze}/proposals/templates/bulk?type.in%5B%5D=proposal&type.in%5B%5D=estimate&locationId.eq=${encodeURIComponent(t)}&skip=0&limit=10`,o=await fetch(e,{method:"GET",headers:Qe()});if(!o.ok){let i="";try{i=await o.text()}catch{}let a=i?` \u2014 ${i.slice(0,200)}`:"";throw new Error(`Templates fetch returned ${o.status} ${o.statusText}${a}`)}let r=await o.json();console.log("[ws-crm-customizer] [templates response]",Array.isArray(r)?`array of ${r.length}`:`keys: ${Object.keys(r||{}).join(", ")}`,r);let n=[];return Array.isArray(r)?n=r:Array.isArray(r?.templates)?n=r.templates:Array.isArray(r?.items)?n=r.items:Array.isArray(r?.data)?n=r.data:Array.isArray(r?.results)?n=r.results:Array.isArray(r?.docs)?n=r.docs:r?.data&&Array.isArray(r.data.templates)?n=r.data.templates:r?.data&&Array.isArray(r.data.items)&&(n=r.data.items),n.map(i=>({id:(i._id??i.id??i.templateId)||"",name:i.name||i.title||"(unnamed template)",type:Va(i.name||i.title||"")})).filter(i=>!!i.id)},ja=async(t,e)=>{let o=await fetch(`${Ze}/opportunities/pipelines?locationId=${encodeURIComponent(t)}`,{method:"GET",headers:Qe()});if(!o.ok)throw new Error(`Pipelines fetch ${o.status}`);let n=((await o.json()).pipelines||[]).find(d=>/marketing\s*tracker/i.test(d.name));if(!n)throw new Error("No Marketing Tracker pipeline found on tenant");let i=await fetch(`${Ze}/opportunities/search?location_id=${encodeURIComponent(t)}&pipeline_id=${encodeURIComponent(n.id)}&contact_id=${encodeURIComponent(e)}&status=open&limit=20`,{method:"GET",headers:Qe()});if(!i.ok)throw new Error(`MT opp search ${i.status}`);return((await i.json()).opportunities||[]).map(d=>({id:d.id,name:d.name||"(unnamed opp)",propertyAddress:d.name||"",updatedAt:d.updatedAt||null})).sort((d,c)=>{let h=d.updatedAt?Date.parse(d.updatedAt):0;return(c.updatedAt?Date.parse(c.updatedAt):0)-h})},Ka=async t=>{let e=await fetch(Ga,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:t.tenantId,contact_id:t.contactId,template_id:t.templateId,template_type:t.templateType,opp_id:t.oppId,closing_date:t.closingDate,buyer_earnest_due_date:t.buyerEarnestDueDate,lender_source:t.lenderSource,triggered_by_user_id:t.userId,overrides:t.overrides}),credentials:"omit"});if(!e.ok)throw new Error(`Contract.Stage HTTP ${e.status}`);return await e.json()},Ya=async(t,e,o)=>{let r=`${Ze}/proposals/templates/to-proposal/${t}/${e}?locale=en-US&contactId=${encodeURIComponent(o)}`,n=await fetch(r,{method:"POST",headers:Qe()});if(!n.ok)throw new Error(`to-proposal HTTP ${n.status} ${n.statusText}`);let i=await n.json(),a=i._id||i.id||i.proposal?._id||i.proposal?.id;if(!a)throw new Error("to-proposal returned no proposal id");return a},Xa=(t,e)=>{let o=`/v2/location/${t}/payments/proposals-estimates/edit/${e}`;window.location.href=o},or="ws-crm-prepare-contract-toast",X=(t,e="info",o=4e3)=>{document.getElementById(or)?.remove();let r=document.createElement("div");r.id=or;let n=e==="error"?s.crimson:s.emerald;r.style.cssText=`
+  `,r.classList.contains("description")&&(r.style.display="flex",r.style.alignItems="center",r.style.gap="16px",r.style.flexWrap="wrap"),l.appendChild(a),r.appendChild(l),b.debug(`Mounted Closing Agent picker on opp ${t.oppId}`),Na(t.oppId),qt(i.locationId)},fe=null,Bt=null,Rt=null,Xe=()=>{fe?.disconnect(),fe=null,Bt=null,Rt=null},Na=t=>{let e=document.querySelector(".hr-card.hr-modal.crm-opportunities-modal");e&&(fe&&Bt===t&&Rt===e||(Xe(),Bt=t,Rt=e,fe=new MutationObserver(()=>{let o=we();if(!o||o.oppId!==t||!o.locationId){Xe();return}document.getElementById(R)||Je(),qt(o.locationId)}),fe.observe(e,{childList:!0,subtree:!0})))},Pt=null,Ot,Ba=()=>{Pt||(Pt=new MutationObserver(()=>{Ot===void 0&&(Ot=window.setTimeout(()=>{Ot=void 0;let t=!!document.querySelector(".crm-opportunities-modal .ui-modal-heading .description"),e=!!document.getElementById(R);t&&!e&&!ge&&Je()},300))}),Pt.observe(document.body,{childList:!0,subtree:!0}))},Wo,Ra=()=>{Wo===void 0&&(Wo=window.setInterval(()=>{let t=we();if(!t||!t.locationId||!!!document.querySelector(".crm-opportunities-modal"))return;!!!document.getElementById(R)&&!ge&&(b.info("[closing-agent] safety-net: button missing on opp page \u2014 remounting"),Je()),qt(t.locationId)},2e3))},Zo=()=>{b.info("[closing-agent] mountClosingAgentPickerButton invoked"),Ba(),Ra(),Je()};var Ga="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/contract/stage",Ut="ws-crm-prepare-contract-button",Qo="ws-crm-prepare-contract-menu",se="ws-crm-prepare-contract-modal",Ze="https://services.leadconnectorhq.com",Vt="__WS_CRM_CAPTURED_AUTH",za=50*60*1e3,rr=()=>{try{let t=localStorage.getItem(Vt);if(!t)return null;let e=JSON.parse(t);return e?.authorization?Date.now()-(e.capturedAt||0)>za?(localStorage.removeItem(Vt),null):e:null}catch{return null}},qa=t=>{try{localStorage.setItem(Vt,JSON.stringify(t))}catch{}},Qe=()=>{let t=rr(),e=window;if(e.__WS_CRM_DIAG=e.__WS_CRM_DIAG||{},e.__WS_CRM_DIAG.authChecks=(e.__WS_CRM_DIAG.authChecks||0)+1,console.log(`[ws-crm-customizer] [auth-check #${e.__WS_CRM_DIAG.authChecks}]`,t?`present (captured ${Date.now()-t.capturedAt}ms ago, ${t.authorization.slice(0,20)}\u2026)`:"NULL \u2014 interceptor has not captured a token yet"),!t)throw new Error("GHL auth not yet captured. Try clicking around the page (refresh, open a contact) to trigger a GHL API call, then retry.");let o={Authorization:t.authorization,Version:"2021-07-28",Channel:"APP",Source:"WEB_USER"};return t.tokenId&&(o["token-id"]=t.tokenId),o};var er=(t,e)=>t.includes("services.leadconnectorhq.com")?e&&e.toUpperCase()!=="GET"?!0:/\/(proposals|recipients?|document|estimate|sign)/i.test(t):!1,nr=80,tr=!1,Ua=()=>{if(tr)return;tr=!0;let t=window;t.__WS_CRM_DIAG=t.__WS_CRM_DIAG||{fetchCalls:0,xhrCalls:0,fetchAuthSeen:0,xhrAuthSeen:0,captured:0,lastSeenHeaders:null},t.__WS_CRM_PROPOSAL_CALLS=t.__WS_CRM_PROPOSAL_CALLS||[];let e=d=>{let c=t.__WS_CRM_PROPOSAL_CALLS;for(c.push(d);c.length>nr;)c.shift();return d};t.__WS_CRM_DUMP_PROPOSAL_CALLS=d=>{let c=t.__WS_CRM_PROPOSAL_CALLS||[],h=d?c.filter(m=>m.url.includes(d)):c;return console.log(`[ws-crm-customizer] ${h.length} proposal calls captured${d?` (filter="${d}")`:""}`),h.forEach((m,p)=>{console.log(`
+#${p+1} [${m.source}] ${m.method} ${m.url}`),console.log("  reqBody:",m.reqBody),console.log(`  \u2192 ${m.status??"?"}:`,m.resBody)}),h};let o=(d,c,h)=>{t.__WS_CRM_DIAG.lastSeenHeaders={url:d,headers:c,source:h};let m=c.authorization||c.Authorization;if(!m){t.__WS_CRM_DIAG.fetchCalls+t.__WS_CRM_DIAG.xhrCalls<=3&&console.log(`[ws-crm-customizer] [intercept:${h} no-auth]`,{url:d.split("?")[0],headerKeys:Object.keys(c)});return}h==="fetch"?t.__WS_CRM_DIAG.fetchAuthSeen++:t.__WS_CRM_DIAG.xhrAuthSeen++;let p=c["token-id"]||c["Token-Id"]||void 0,u=rr()?.authorization;qa({authorization:m,tokenId:p,capturedAt:Date.now()}),u!==m&&(t.__WS_CRM_DIAG.captured++,console.log(`[ws-crm-customizer] [intercept:${h}] captured GHL auth from ${d.split("?")[0]} (${m.slice(0,24)}\u2026)`))},r=window.fetch;window.fetch=async function(...d){let c=typeof d[0]=="string"?d[0]:d[0]instanceof URL?d[0].toString():d[0].url,h=d[1]||{};if(c&&c.includes("services.leadconnectorhq.com")){t.__WS_CRM_DIAG.fetchCalls++;let u=h.headers;!u&&d[0]instanceof Request&&(u=d[0].headers);let y={};if(u instanceof Headers)u.forEach((w,g)=>y[g.toLowerCase()]=w);else if(Array.isArray(u))u.forEach(([w,g])=>y[w.toLowerCase()]=g);else if(u&&typeof u=="object")for(let w of Object.keys(u))y[w.toLowerCase()]=u[w];o(c,y,"fetch")}let m=d[0]instanceof Request?d[0]:null,p=(h.method||m?.method||"GET").toUpperCase();if(c&&er(c,p)){let u=m,y=p,w=null;try{if(h.body!=null)w=typeof h.body=="string"?h.body:h.body instanceof URLSearchParams?h.body.toString():(()=>{try{return JSON.stringify(h.body)}catch{return"(non-serializable body)"}})();else if(u)try{w=await u.clone().text()}catch{}}catch{w=null}let g=e({ts:Date.now(),source:"fetch",method:y,url:c,reqBody:w});return r.apply(this,d).then(async _=>{try{g.status=_.status,g.resBody=await _.clone().text()}catch{}return _})}return r.apply(this,d)};let n=XMLHttpRequest.prototype,i=n.open,a=n.setRequestHeader,l=n.send;n.open=function(d,c,...h){return this.__wsCrmUrl=c,this.__wsCrmMethod=(d||"GET").toUpperCase(),this.__wsCrmHeaders={},i.call(this,d,c,...h)},n.setRequestHeader=function(d,c){return this.__wsCrmHeaders&&typeof d=="string"&&(this.__wsCrmHeaders[d.toLowerCase()]=c),a.call(this,d,c)},n.send=function(d){let c=this.__wsCrmUrl,h=this.__wsCrmMethod,m=this.__wsCrmHeaders;if(c&&c.includes("services.leadconnectorhq.com")&&m&&(t.__WS_CRM_DIAG.xhrCalls++,o(c,m,"xhr")),c&&h&&er(c,h)){let p=null;try{d==null?p=null:typeof d=="string"?p=d:d instanceof URLSearchParams?p=d.toString():p="(non-string body)"}catch{p=null}let u=e({ts:Date.now(),source:"xhr",method:h||"GET",url:c,reqBody:p}),y=this;this.addEventListener("loadend",()=>{try{if(u.status=y.status,y.responseType===""||y.responseType==="text")u.resBody=y.responseText;else try{u.resBody=JSON.stringify(y.response)}catch{u.resBody=`(responseType=${y.responseType})`}}catch{}})}return l.call(this,d)},b.debug("[prepare-contract] interceptors installed (fetch + XHR)")},ar=()=>{let t=S();return!t||!t.locationId?null:{contactId:t.contactId,tenantId:t.locationId}},Va=t=>{let e=(t||"").trim().toLowerCase();return/^\[?\s*aa\s*\]?\s*[-\s]/i.test(e)||/assignment.*(contract|agreement)/i.test(e)?"AA":/^\[?\s*pa\s*\]?\s*[-\s]/i.test(e)||/purchase.*(contract|agreement)/i.test(e)?"PA":"passthrough"},Wa=async t=>{let e=`${Ze}/proposals/templates/bulk?type.in%5B%5D=proposal&type.in%5B%5D=estimate&locationId.eq=${encodeURIComponent(t)}&skip=0&limit=10`,o=await fetch(e,{method:"GET",headers:Qe()});if(!o.ok){let i="";try{i=await o.text()}catch{}let a=i?` \u2014 ${i.slice(0,200)}`:"";throw new Error(`Templates fetch returned ${o.status} ${o.statusText}${a}`)}let r=await o.json();console.log("[ws-crm-customizer] [templates response]",Array.isArray(r)?`array of ${r.length}`:`keys: ${Object.keys(r||{}).join(", ")}`,r);let n=[];return Array.isArray(r)?n=r:Array.isArray(r?.templates)?n=r.templates:Array.isArray(r?.items)?n=r.items:Array.isArray(r?.data)?n=r.data:Array.isArray(r?.results)?n=r.results:Array.isArray(r?.docs)?n=r.docs:r?.data&&Array.isArray(r.data.templates)?n=r.data.templates:r?.data&&Array.isArray(r.data.items)&&(n=r.data.items),n.map(i=>({id:(i._id??i.id??i.templateId)||"",name:i.name||i.title||"(unnamed template)",type:Va(i.name||i.title||"")})).filter(i=>!!i.id)},ja=async(t,e)=>{let o=await fetch(`${Ze}/opportunities/pipelines?locationId=${encodeURIComponent(t)}`,{method:"GET",headers:Qe()});if(!o.ok)throw new Error(`Pipelines fetch ${o.status}`);let n=((await o.json()).pipelines||[]).find(d=>/marketing\s*tracker/i.test(d.name));if(!n)throw new Error("No Marketing Tracker pipeline found on tenant");let i=await fetch(`${Ze}/opportunities/search?location_id=${encodeURIComponent(t)}&pipeline_id=${encodeURIComponent(n.id)}&contact_id=${encodeURIComponent(e)}&status=open&limit=20`,{method:"GET",headers:Qe()});if(!i.ok)throw new Error(`MT opp search ${i.status}`);return((await i.json()).opportunities||[]).map(d=>({id:d.id,name:d.name||"(unnamed opp)",propertyAddress:d.name||"",updatedAt:d.updatedAt||null})).sort((d,c)=>{let h=d.updatedAt?Date.parse(d.updatedAt):0;return(c.updatedAt?Date.parse(c.updatedAt):0)-h})},Ka=async t=>{let e=await fetch(Ga,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tenant_id:t.tenantId,contact_id:t.contactId,template_id:t.templateId,template_type:t.templateType,opp_id:t.oppId,closing_date:t.closingDate,buyer_earnest_due_date:t.buyerEarnestDueDate,lender_source:t.lenderSource,triggered_by_user_id:t.userId,overrides:t.overrides}),credentials:"omit"});if(!e.ok)throw new Error(`Contract.Stage HTTP ${e.status}`);return await e.json()},Ya=async(t,e,o)=>{let r=`${Ze}/proposals/templates/to-proposal/${t}/${e}?locale=en-US&contactId=${encodeURIComponent(o)}`,n=await fetch(r,{method:"POST",headers:Qe()});if(!n.ok)throw new Error(`to-proposal HTTP ${n.status} ${n.statusText}`);let i=await n.json(),a=i._id||i.id||i.proposal?._id||i.proposal?.id;if(!a)throw new Error("to-proposal returned no proposal id");return a},Xa=(t,e)=>{let o=`/v2/location/${t}/payments/proposals-estimates/edit/${e}`;window.location.href=o},or="ws-crm-prepare-contract-toast",X=(t,e="info",o=4e3)=>{document.getElementById(or)?.remove();let r=document.createElement("div");r.id=or;let n=e==="error"?s.crimson:s.emerald;r.style.cssText=`
     position: fixed;
     bottom: 24px;
     right: 24px;
@@ -888,13 +888,13 @@
     color: ${s.bone};
     border: 1px solid ${n};
     border-left: 4px solid ${n};
-    border-radius: ${w.md};
-    font-family: ${_.sans};
+    border-radius: ${x.md};
+    font-family: ${v.sans};
     font-size: 13px;
     line-height: 1.4;
     padding: 12px 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-  `,r.textContent=t,document.body.appendChild(r),window.setTimeout(()=>r.remove(),o)},Ja=({tenantId:t,contactId:e,template:o,staged:r})=>{document.getElementById(se)?.remove();let n=r.debug||{},i=typeof n.propertyAddress=="string"?n.propertyAddress:"",a=typeof n.sellerName=="string"?n.sellerName:"",l=typeof n.purchasePrice=="number"?n.purchasePrice:0,d=typeof n.emd=="number"?n.emd:0,c=typeof n.cashAtClose=="number"?n.cashAtClose:l-d,h=n.daysToClose===void 0||n.daysToClose===null||n.daysToClose===""?"":String(n.daysToClose),m=n.inspectionDays===void 0||n.inspectionDays===null||n.inspectionDays===""?"":String(n.inspectionDays),p=typeof n.additionalTerms=="string"?n.additionalTerms:"",u=typeof n.currentOccupancy=="string"?n.currentOccupancy:"",y=typeof n.occupancyAtClose=="string"?n.occupancyAtClose:"",k=Array.isArray(n.occupancyOptions)&&n.occupancyOptions.length>0?n.occupancyOptions:["Vacant","Owner Occupied","Tenant Occupied","Squatter Occupied"],g=document.createElement("div");g.id=se,g.style.cssText=`
+  `,r.textContent=t,document.body.appendChild(r),window.setTimeout(()=>r.remove(),o)},Ja=({tenantId:t,contactId:e,template:o,staged:r})=>{document.getElementById(se)?.remove();let n=r.debug||{},i=typeof n.propertyAddress=="string"?n.propertyAddress:"",a=typeof n.sellerName=="string"?n.sellerName:"",l=typeof n.purchasePrice=="number"?n.purchasePrice:0,d=typeof n.emd=="number"?n.emd:0,c=typeof n.cashAtClose=="number"?n.cashAtClose:l-d,h=n.daysToClose===void 0||n.daysToClose===null||n.daysToClose===""?"":String(n.daysToClose),m=n.inspectionDays===void 0||n.inspectionDays===null||n.inspectionDays===""?"":String(n.inspectionDays),p=typeof n.additionalTerms=="string"?n.additionalTerms:"",u=typeof n.currentOccupancy=="string"?n.currentOccupancy:"",y=typeof n.occupancyAtClose=="string"?n.occupancyAtClose:"",w=Array.isArray(n.occupancyOptions)&&n.occupancyOptions.length>0?n.occupancyOptions:["Vacant","Owner Occupied","Tenant Occupied","Squatter Occupied"],g=document.createElement("div");g.id=se,g.style.cssText=`
     position: fixed;
     inset: 0;
     z-index: 999999;
@@ -902,17 +902,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: ${_.sans};
-  `;let v=document.createElement("div");v.style.cssText=`
+    font-family: ${v.sans};
+  `;let _=document.createElement("div");_.style.cssText=`
     width: min(520px, 92vw);
     background: ${s.graphite};
     border: 1px solid ${s.steel};
-    border-radius: ${w.lg};
+    border-radius: ${x.lg};
     padding: 24px 28px;
     color: ${s.bone};
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   `;let f=`
-    font-family: ${_.mono};
+    font-family: ${v.mono};
     font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -924,9 +924,9 @@
     flex: 1;
     background: ${s.slate};
     border: 1px solid ${s.steel};
-    border-radius: ${w.sm};
+    border-radius: ${x.sm};
     color: ${s.bone};
-    font-family: ${_.sans};
+    font-family: ${v.sans};
     font-size: 13px;
     padding: 8px 12px;
     outline: none;
@@ -940,7 +940,7 @@
     padding: 10px 0;
     text-align: right;
     word-break: break-word;
-  `,x=`
+  `,k=`
     display: flex;
     align-items: flex-start;
     gap: 12px;
@@ -956,9 +956,9 @@
     flex: 1;
     background: ${s.slate};
     border: 1px solid ${s.steel};
-    border-radius: ${w.sm};
+    border-radius: ${x.sm};
     color: ${s.bone};
-    font-family: ${_.sans};
+    font-family: ${v.sans};
     font-size: 13px;
     padding: 8px 12px;
     outline: none;
@@ -970,9 +970,9 @@
     background-size: 6px 6px;
     background-repeat: no-repeat;
     padding-right: 28px;
-  `,te=P=>['<option value="">(unset)</option>'].concat(k.map(V=>`<option value="${ae(V)}"${V===P?" selected":""}>${G(V)}</option>`)).join("");v.innerHTML=`
+  `,te=P=>['<option value="">(unset)</option>'].concat(w.map(V=>`<option value="${ae(V)}"${V===P?" selected":""}>${G(V)}</option>`)).join("");_.innerHTML=`
     <div style="
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -992,54 +992,54 @@
     ">Review and edit before opening the contract. Edits save back to the ACQ opportunity.</div>
 
     <div style="margin-bottom: 12px;">
-      <div style="${x}">
+      <div style="${k}">
         <div style="${f}">Property Address</div>
         <div style="${T}">${G(i||"(set on Property record)")}</div>
       </div>
-      <div style="${x}">
+      <div style="${k}">
         <div style="${f}">Seller Name</div>
         <input id="ws-pc-seller-name" type="text" value="${ae(a)}" placeholder="Seller name" style="${E}" />
       </div>
-      <div style="${x}">
+      <div style="${k}">
         <div style="${f}">Purchase Price</div>
         <div style="${I}">
           <span style="color: ${s.ash}; font-size: 13px;">$</span>
           <input id="ws-pc-purchase-price" type="number" min="0" step="0.01" value="${l}" style="${E}" />
         </div>
       </div>
-      <div style="${x}">
+      <div style="${k}">
         <div style="${f}">Earnest Deposit</div>
         <div style="${I}">
           <span style="color: ${s.ash}; font-size: 13px;">$</span>
           <input id="ws-pc-emd" type="number" min="0" step="0.01" value="${d}" style="${E}" />
         </div>
       </div>
-      <div style="${x}">
+      <div style="${k}">
         <div style="${f}">Cash at Close</div>
         <div style="${I}">
           <span style="color: ${s.ash}; font-size: 13px;">$</span>
           <input id="ws-pc-cash-at-close" type="number" min="0" step="0.01" value="${c}" style="${E}" />
         </div>
       </div>
-      <div style="${x}">
+      <div style="${k}">
         <div style="${f}">Days to Close</div>
         <input id="ws-pc-days-to-close" type="number" min="0" step="1" value="${ae(h)}" placeholder="e.g. 30" style="${E}" />
       </div>
-      <div style="${x}">
+      <div style="${k}">
         <div style="${f}">Inspection Period (Days)</div>
         <input id="ws-pc-inspection-days" type="number" min="0" step="1" value="${ae(m)}" placeholder="e.g. 10" style="${E}" />
       </div>
-      <div style="${x}">
+      <div style="${k}">
         <div style="${f}">Current Occupancy</div>
         <select id="ws-pc-current-occupancy" style="${$}">${te(u)}</select>
       </div>
-      <div style="${x}">
+      <div style="${k}">
         <div style="${f}">Occupancy at Close</div>
         <select id="ws-pc-occupancy-at-close" style="${$}">${te(y)}</select>
       </div>
-      <div style="${x} align-items: flex-start;">
+      <div style="${k} align-items: flex-start;">
         <div style="${f}">Additional Terms</div>
-        <textarea id="ws-pc-additional-terms" rows="3" placeholder="Any extra clauses, contingencies, or notes for the contract" style="${E} text-align: left; resize: vertical; min-height: 60px; font-family: ${_.sans};">${G(p)}</textarea>
+        <textarea id="ws-pc-additional-terms" rows="3" placeholder="Any extra clauses, contingencies, or notes for the contract" style="${E} text-align: left; resize: vertical; min-height: 60px; font-family: ${v.sans};">${G(p)}</textarea>
       </div>
     </div>
     <div style="
@@ -1061,25 +1061,25 @@
         background: transparent;
         border: 1px solid ${s.steel};
         color: ${s.bone};
-        font-family: ${_.sans};
+        font-family: ${v.sans};
         font-size: 13px;
         padding: 8px 16px;
-        border-radius: ${w.sm};
+        border-radius: ${x.sm};
         cursor: pointer;
       ">Cancel</button>
       <button id="ws-pc-submit" type="button" style="
         background: ${s.emerald};
         border: 1px solid ${s.emerald};
         color: ${s.bone};
-        font-family: ${_.sans};
+        font-family: ${v.sans};
         font-size: 13px;
         font-weight: 500;
         padding: 8px 16px;
-        border-radius: ${w.sm};
+        border-radius: ${x.sm};
         cursor: pointer;
       ">Open Contract</button>
     </div>
-  `,g.appendChild(v),document.body.appendChild(g);let lt=v.querySelector("#ws-pc-purchase-price"),dt=v.querySelector("#ws-pc-emd"),Te=v.querySelector("#ws-pc-cash-at-close"),Jt=!1;Te?.addEventListener("input",()=>{Jt=!0});let Zt=()=>{if(Jt)return;let P=Number(lt?.value||0),V=Number(dt?.value||0);Te&&(Te.value=String(Math.max(0,P-V)))};lt?.addEventListener("input",Zt),dt?.addEventListener("input",Zt);let Qt=()=>g.remove();g.addEventListener("click",P=>{P.target===g&&Qt()}),v.querySelector("#ws-pc-cancel")?.addEventListener("click",Qt);let U=v.querySelector("#ws-pc-submit"),Se=v.querySelector("#ws-pc-error");U?.addEventListener("click",async()=>{if(U){Se&&(Se.textContent=""),U.disabled=!0,U.textContent="Opening\u2026";try{let P=(v.querySelector("#ws-pc-seller-name")?.value||"").trim(),V=Number(lt?.value||0),eo=Number(dt?.value||0),to=Number(Te?.value||0),oo=(v.querySelector("#ws-pc-days-to-close")?.value??"").trim(),ro=(v.querySelector("#ws-pc-inspection-days")?.value??"").trim(),no=(v.querySelector("#ws-pc-additional-terms")?.value??"").trim(),ao=(v.querySelector("#ws-pc-current-occupancy")?.value??"").trim(),so=(v.querySelector("#ws-pc-occupancy-at-close")?.value??"").trim(),F={};if(P!==a&&(F.sellerName=P),V!==l&&(F.purchasePrice=V),eo!==d&&(F.emd=eo),to!==c&&(F.cashAtClose=to),oo!==h&&(F.daysToClose=oo),ro!==m&&(F.inspectionDays=ro),no!==p&&(F.additionalTerms=no),ao!==u&&(F.currentOccupancy=ao),so!==y&&(F.occupancyAtClose=so),Object.keys(F).length>0){b.info("[prepare-contract] PA modal submit with overrides:",F),U.textContent="Saving\u2026";let Ar=A(),Ir=await Wt({tenantId:t,contactId:e,template:o,userId:Ar,overrides:F});b.info("[prepare-contract] re-stage with overrides ok:",Ir),U.textContent="Opening\u2026"}else b.info("[prepare-contract] PA modal submit \u2014 no edits, skipping re-stage");await jt(t,e,o)}catch(P){U.disabled=!1,U.textContent="Open Contract",Se&&(Se.textContent=P.message||"Failed to open contract."),b.warn("[prepare-contract] PA confirm submit failed:",P)}}})},Za=({tenantId:t,contactId:e,template:o,mtOpps:r,userId:n})=>{document.getElementById(se)?.remove();let i=document.createElement("div");i.id=se,i.style.cssText=`
+  `,g.appendChild(_),document.body.appendChild(g);let lt=_.querySelector("#ws-pc-purchase-price"),dt=_.querySelector("#ws-pc-emd"),Te=_.querySelector("#ws-pc-cash-at-close"),Jt=!1;Te?.addEventListener("input",()=>{Jt=!0});let Zt=()=>{if(Jt)return;let P=Number(lt?.value||0),V=Number(dt?.value||0);Te&&(Te.value=String(Math.max(0,P-V)))};lt?.addEventListener("input",Zt),dt?.addEventListener("input",Zt);let Qt=()=>g.remove();g.addEventListener("click",P=>{P.target===g&&Qt()}),_.querySelector("#ws-pc-cancel")?.addEventListener("click",Qt);let U=_.querySelector("#ws-pc-submit"),Se=_.querySelector("#ws-pc-error");U?.addEventListener("click",async()=>{if(U){Se&&(Se.textContent=""),U.disabled=!0,U.textContent="Opening\u2026";try{let P=(_.querySelector("#ws-pc-seller-name")?.value||"").trim(),V=Number(lt?.value||0),eo=Number(dt?.value||0),to=Number(Te?.value||0),oo=(_.querySelector("#ws-pc-days-to-close")?.value??"").trim(),ro=(_.querySelector("#ws-pc-inspection-days")?.value??"").trim(),no=(_.querySelector("#ws-pc-additional-terms")?.value??"").trim(),ao=(_.querySelector("#ws-pc-current-occupancy")?.value??"").trim(),so=(_.querySelector("#ws-pc-occupancy-at-close")?.value??"").trim(),F={};if(P!==a&&(F.sellerName=P),V!==l&&(F.purchasePrice=V),eo!==d&&(F.emd=eo),to!==c&&(F.cashAtClose=to),oo!==h&&(F.daysToClose=oo),ro!==m&&(F.inspectionDays=ro),no!==p&&(F.additionalTerms=no),ao!==u&&(F.currentOccupancy=ao),so!==y&&(F.occupancyAtClose=so),Object.keys(F).length>0){b.info("[prepare-contract] PA modal submit with overrides:",F),U.textContent="Saving\u2026";let Ar=A(),Ir=await Wt({tenantId:t,contactId:e,template:o,userId:Ar,overrides:F});b.info("[prepare-contract] re-stage with overrides ok:",Ir),U.textContent="Opening\u2026"}else b.info("[prepare-contract] PA modal submit \u2014 no edits, skipping re-stage");await jt(t,e,o)}catch(P){U.disabled=!1,U.textContent="Open Contract",Se&&(Se.textContent=P.message||"Failed to open contract."),b.warn("[prepare-contract] PA confirm submit failed:",P)}}})},Za=({tenantId:t,contactId:e,template:o,mtOpps:r,userId:n})=>{document.getElementById(se)?.remove();let i=document.createElement("div");i.id=se,i.style.cssText=`
     position: fixed;
     inset: 0;
     z-index: 999999;
@@ -1087,12 +1087,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: ${_.sans};
+    font-family: ${v.sans};
   `;let a=document.createElement("div");a.style.cssText=`
     width: min(480px, 92vw);
     background: ${s.graphite};
     border: 1px solid ${s.steel};
-    border-radius: ${w.lg};
+    border-radius: ${x.lg};
     padding: 24px 28px;
     color: ${s.bone};
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
@@ -1100,14 +1100,14 @@
         <div style="
           background: ${s.crimsonGlow};
           border: 1px solid ${s.crimson};
-          border-radius: ${w.sm};
+          border-radius: ${x.sm};
           color: ${s.bone};
           padding: 10px 12px;
           font-size: 12px;
           margin-bottom: 16px;
         ">No open Marketing Tracker opp on this buyer. Can't generate an Assignment Agreement without an active deal.</div>`;if(r.length===1)return`
         <div style="
-          font-family: ${_.mono};
+          font-family: ${v.mono};
           font-size: 10px;
           letter-spacing: 0.1em;
           text-transform: uppercase;
@@ -1117,17 +1117,17 @@
         <div style="
           background: ${s.slate};
           border: 1px solid ${s.steel};
-          border-radius: ${w.sm};
+          border-radius: ${x.sm};
           padding: 10px 12px;
           margin-bottom: 16px;
           font-size: 13px;
           color: ${s.bone};
         ">${G(r[0].propertyAddress||r[0].name)}</div>
         <input type="hidden" id="ws-pc-opp-id" value="${ae(r[0].id)}" />
-      `;let g=r.map(v=>`<option value="${ae(v.id)}">${G(v.propertyAddress||v.name)}</option>`).join("");return`
+      `;let g=r.map(_=>`<option value="${ae(_.id)}">${G(_.propertyAddress||_.name)}</option>`).join("");return`
       <label style="
         display: block;
-        font-family: ${_.mono};
+        font-family: ${v.mono};
         font-size: 10px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -1138,9 +1138,9 @@
         width: 100%;
         background: ${s.slate};
         border: 1px solid ${s.steel};
-        border-radius: ${w.sm};
+        border-radius: ${x.sm};
         color: ${s.bone};
-        font-family: ${_.sans};
+        font-family: ${v.sans};
         font-size: 13px;
         padding: 10px 12px;
         margin-bottom: 16px;
@@ -1149,7 +1149,7 @@
       ">${g}</select>
     `})(),p=r.length===0;a.innerHTML=`
     <div style="
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -1172,7 +1172,7 @@
 
     <label style="
       display: block;
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -1183,9 +1183,9 @@
       width: 100%;
       background: ${s.slate};
       border: 1px solid ${s.steel};
-      border-radius: ${w.sm};
+      border-radius: ${x.sm};
       color: ${s.bone};
-      font-family: ${_.sans};
+      font-family: ${v.sans};
       font-size: 13px;
       padding: 10px 12px;
       margin-bottom: 16px;
@@ -1195,7 +1195,7 @@
 
     <label style="
       display: block;
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -1206,9 +1206,9 @@
       width: 100%;
       background: ${s.slate};
       border: 1px solid ${s.steel};
-      border-radius: ${w.sm};
+      border-radius: ${x.sm};
       color: ${s.bone};
-      font-family: ${_.sans};
+      font-family: ${v.sans};
       font-size: 13px;
       padding: 10px 12px;
       margin-bottom: 16px;
@@ -1218,7 +1218,7 @@
 
     <label style="
       display: block;
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -1229,9 +1229,9 @@
       width: 100%;
       background: ${s.slate};
       border: 1px solid ${s.steel};
-      border-radius: ${w.sm};
+      border-radius: ${x.sm};
       color: ${s.bone};
-      font-family: ${_.sans};
+      font-family: ${v.sans};
       font-size: 13px;
       padding: 10px 12px;
       margin-bottom: 16px;
@@ -1251,25 +1251,25 @@
         background: transparent;
         border: 1px solid ${s.steel};
         color: ${s.bone};
-        font-family: ${_.sans};
+        font-family: ${v.sans};
         font-size: 13px;
         padding: 8px 16px;
-        border-radius: ${w.sm};
+        border-radius: ${x.sm};
         cursor: pointer;
       ">Cancel</button>
       <button id="ws-pc-submit" type="button" ${p?"disabled":""} style="
         background: ${p?s.steel:s.emerald};
         border: 1px solid ${p?s.steel:s.emerald};
         color: ${s.bone};
-        font-family: ${_.sans};
+        font-family: ${v.sans};
         font-size: 13px;
         font-weight: 500;
         padding: 8px 16px;
-        border-radius: ${w.sm};
+        border-radius: ${x.sm};
         cursor: ${p?"not-allowed":"pointer"};
       ">Stage & Open Contract</button>
     </div>
-  `,i.appendChild(a),document.body.appendChild(i);let u=()=>i.remove();if(i.addEventListener("click",g=>{g.target===i&&u()}),a.querySelector("#ws-pc-cancel")?.addEventListener("click",u),p)return;let y=a.querySelector("#ws-pc-submit"),k=a.querySelector("#ws-pc-error");y?.addEventListener("click",async()=>{if(!y)return;let g=a.querySelector("#ws-pc-opp-id"),v=(a.querySelector("#ws-pc-closing-date")?.value??"").trim(),f=(a.querySelector("#ws-pc-emd-due-date")?.value??"").trim(),E=(a.querySelector("#ws-pc-lender-source")?.value??"").trim(),T=(g?.value||"").trim();if(!T){k&&(k.textContent="Pick a subject property.");return}if(!v){k&&(k.textContent="Closing Date is required.");return}k&&(k.textContent=""),y.disabled=!0,y.textContent="Preparing\u2026";try{await Wt({tenantId:t,contactId:e,template:o,oppId:T,closingDate:v,buyerEarnestDueDate:f,lenderSource:E,userId:n}),await jt(t,e,o),u()}catch(x){y.disabled=!1,y.textContent="Stage & Open Contract",k&&(k.textContent=x.message||"Failed to prepare contract."),b.warn("[prepare-contract] AA submit failed:",x)}})},Wt=async t=>{b.info(`[prepare-contract] staging \u2014 template "${t.template.name}" (${t.template.type})`);let e=await Ka({tenantId:t.tenantId,contactId:t.contactId,templateId:t.template.id,templateType:t.template.type,oppId:t.oppId,closingDate:t.closingDate,buyerEarnestDueDate:t.buyerEarnestDueDate,lenderSource:t.lenderSource,userId:t.userId,overrides:t.overrides});if(b.info(`[prepare-contract] stage response: ok=${e.ok}`,e),!e.ok)throw new Error(e.error||"Contract.Stage returned not ok");return e},jt=async(t,e,o)=>{b.info(`[prepare-contract] creating proposal from template ${o.id} for contact ${e}`);let r=await Ya(t,o.id,e);b.info(`[prepare-contract] proposal created with pre-assigned contact: ${r}, redirecting`),Xa(t,r)};var Qa=async t=>{let e=ar();if(!e){X("Could not resolve contact context.","error");return}document.getElementById(Qo)?.remove();let o=document.createElement("div");o.id=Qo,o.style.cssText=`
+  `,i.appendChild(a),document.body.appendChild(i);let u=()=>i.remove();if(i.addEventListener("click",g=>{g.target===i&&u()}),a.querySelector("#ws-pc-cancel")?.addEventListener("click",u),p)return;let y=a.querySelector("#ws-pc-submit"),w=a.querySelector("#ws-pc-error");y?.addEventListener("click",async()=>{if(!y)return;let g=a.querySelector("#ws-pc-opp-id"),_=(a.querySelector("#ws-pc-closing-date")?.value??"").trim(),f=(a.querySelector("#ws-pc-emd-due-date")?.value??"").trim(),E=(a.querySelector("#ws-pc-lender-source")?.value??"").trim(),T=(g?.value||"").trim();if(!T){w&&(w.textContent="Pick a subject property.");return}if(!_){w&&(w.textContent="Closing Date is required.");return}w&&(w.textContent=""),y.disabled=!0,y.textContent="Preparing\u2026";try{await Wt({tenantId:t,contactId:e,template:o,oppId:T,closingDate:_,buyerEarnestDueDate:f,lenderSource:E,userId:n}),await jt(t,e,o),u()}catch(k){y.disabled=!1,y.textContent="Stage & Open Contract",w&&(w.textContent=k.message||"Failed to prepare contract."),b.warn("[prepare-contract] AA submit failed:",k)}})},Wt=async t=>{b.info(`[prepare-contract] staging \u2014 template "${t.template.name}" (${t.template.type})`);let e=await Ka({tenantId:t.tenantId,contactId:t.contactId,templateId:t.template.id,templateType:t.template.type,oppId:t.oppId,closingDate:t.closingDate,buyerEarnestDueDate:t.buyerEarnestDueDate,lenderSource:t.lenderSource,userId:t.userId,overrides:t.overrides});if(b.info(`[prepare-contract] stage response: ok=${e.ok}`,e),!e.ok)throw new Error(e.error||"Contract.Stage returned not ok");return e},jt=async(t,e,o)=>{b.info(`[prepare-contract] creating proposal from template ${o.id} for contact ${e}`);let r=await Ya(t,o.id,e);b.info(`[prepare-contract] proposal created with pre-assigned contact: ${r}, redirecting`),Xa(t,r)};var Qa=async t=>{let e=ar();if(!e){X("Could not resolve contact context.","error");return}document.getElementById(Qo)?.remove();let o=document.createElement("div");o.id=Qo,o.style.cssText=`
     position: absolute;
     top: calc(100% + 6px);
     right: 0;
@@ -1280,13 +1280,13 @@
     overflow-y: auto;
     background: ${s.graphite};
     border: 1px solid ${s.steel};
-    border-radius: ${w.md};
+    border-radius: ${x.md};
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     padding: 6px 0;
-    font-family: ${_.sans};
+    font-family: ${v.sans};
   `,o.innerHTML=`
     <div style="
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -1308,7 +1308,7 @@
       background: transparent;
       border: none;
       color: ${s.coolGray};
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -1321,7 +1321,7 @@
       background: transparent;
       border: none;
       color: ${s.bone};
-      font-family: ${_.sans};
+      font-family: ${v.sans};
       font-size: 13px;
       text-align: left;
       padding: 10px 14px;
@@ -1330,7 +1330,7 @@
     `;let d=a.type==="PA"?s.emerald:a.type==="AA"?s.blue:s.coolGray;l.innerHTML=`
       <div style="display: flex; align-items: baseline; gap: 8px;">
         <span style="
-          font-family: ${_.mono};
+          font-family: ${v.mono};
           font-size: 9px;
           letter-spacing: 0.1em;
           text-transform: uppercase;
@@ -1350,7 +1350,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: ${_.sans};
+    font-family: ${v.sans};
   `;let n=document.createElement("div");n.style.cssText=`
     width: min(720px, 92vw);
     max-height: 86vh;
@@ -1358,13 +1358,13 @@
     flex-direction: column;
     background: ${s.graphite};
     border: 1px solid ${s.steel};
-    border-radius: ${w.lg};
+    border-radius: ${x.lg};
     padding: 24px 28px;
     color: ${s.bone};
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   `,n.innerHTML=`
     <div style="
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -1381,16 +1381,16 @@
       color: ${s.ash};
       margin-bottom: 14px;
       line-height: 1.4;
-    ">To capture GHL's recipient-add call: navigate to a proposal, click "Add Recipient" inside the editor, pick a contact. Then re-open this viewer.</div>
+    ">v0.14.19 widened the capture: every services.* write + any URL with proposal/recipient/document/estimate/sign in it. To find GHL's recipient-add call: clear buffer \u2192 open a proposal \u2192 manually add a recipient \u2192 check viewer. POSTs/PUTs are the interesting rows.</div>
     <textarea readonly style="
       flex: 1;
       width: 100%;
       min-height: 320px;
       background: ${s.slate};
       border: 1px solid ${s.steel};
-      border-radius: ${w.sm};
+      border-radius: ${x.sm};
       color: ${s.bone};
-      font-family: ${_.mono};
+      font-family: ${v.mono};
       font-size: 11px;
       padding: 10px 12px;
       outline: none;
@@ -1404,31 +1404,31 @@
         background: transparent;
         border: 1px solid ${s.steel};
         color: ${s.coolGray};
-        font-family: ${_.sans};
+        font-family: ${v.sans};
         font-size: 13px;
         padding: 8px 16px;
-        border-radius: ${w.sm};
+        border-radius: ${x.sm};
         cursor: pointer;
       ">Clear Buffer</button>
       <button id="ws-pc-copy" type="button" style="
         background: transparent;
         border: 1px solid ${s.steel};
         color: ${s.bone};
-        font-family: ${_.sans};
+        font-family: ${v.sans};
         font-size: 13px;
         padding: 8px 16px;
-        border-radius: ${w.sm};
+        border-radius: ${x.sm};
         cursor: pointer;
       ">Copy to Clipboard</button>
       <button id="ws-pc-close" type="button" style="
         background: ${s.emerald};
         border: 1px solid ${s.emerald};
         color: ${s.bone};
-        font-family: ${_.sans};
+        font-family: ${v.sans};
         font-size: 13px;
         font-weight: 500;
         padding: 8px 16px;
-        border-radius: ${w.sm};
+        border-radius: ${x.sm};
         cursor: pointer;
       ">Close</button>
     </div>
@@ -1436,9 +1436,9 @@
     position: relative;
     background: ${s.slate};
     border: 1px solid ${s.steel};
-    border-radius: ${w.sm};
+    border-radius: ${x.sm};
     color: ${s.bone};
-    font-family: ${_.sans};
+    font-family: ${v.sans};
     font-size: 13px;
     padding: 6px 12px;
     cursor: pointer;
@@ -13874,7 +13874,7 @@ html body .hr-dialog .hr-button--primary:hover .hr-button__content {
 /* END HR-DIALOG BLOCK */
 
 /* END REINVEST OS THEME */
-`,ss=[{selector:".hr-input__input-el, .hr-input__textarea-el, [class*='hr-input'] input, [class*='hr-input'] textarea",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".hr-data-table-wrapper, .hr-data-table-wrapper-responsive, .hr-data-table-wrapper-header, .hr-data-table-wrapper-footer, .hr-data-table, .hr-data-table__body, .hr-table-freezer-wrapper, [class*='hr-data-table-wrapper'], [class*='hr-table-freezer']",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".n-data-table-tr, tr.n-data-table-tr",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".back-to-sites, .n-tabs-nav, .n-tabs-nav-scroll-content, .n-tabs-nav-scroll-wrapper, .n-tabs-wrapper, .n-tabs-tab-wrapper, .n-tabs-tab-pad",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:"#setup-guide-button, .setup-guide-button-container",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:".default-avatar, .n-avatar.default-avatar",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:"#steps-sidebar, .steps-sidebar",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".search-box",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:".my-table.tabulator, .tabulator, .tabulator-tableholder, .tabulator-table, .tabulator-header, .tabulator-headers, .tabulator-footer, .tabulator-row, .table-container, .cardWrapper, .quick-filter-bar, #skeleton-loader, .skeleton-loader",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".tabulator-col, .tabulator-frozen, .tabulator-frozen-left, .tabulator-frozen-right",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:".mb-2\\.5.bg-white, div.bg-white, .bg-white.px-3, .mx-auto > .bg-white",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-data-table__header, .hr-data-table__cell-header, thead.hr-data-table__header",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:".hr-wrapper-container, .platform-ui__highrise, .full-screen.platform-ui__highrise, [class*='platform-ui__highrise'], .hl_topbar-tabs, .hl_wrapper",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-collapse-item__header, .hr-collapse-item__header-main, .hr-collapse-item__title",styles:{color:"#EDEEF0","background-color":"#12161D"}},{selector:".hr-collapse-item__content, .hr-collapse-item__content-inner, .hr-collapse-item__content-wrap",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-tabs, .hr-tabs-nav, .hr-tabs-nav-scroll-content, .hr-tabs-content, .hr-tabs-pane, .hr-tabs-rail, .hr-tabs-tab-wrapper",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-tabs-capsule",styles:{"background-color":"transparent",background:"transparent",border:"none"}},{selector:".hr-avatar:not(.default-avatar), .hr-avatar:not(.default-avatar) .hr-avatar__text, .hr-avatar:not(.default-avatar) .hr-avatar__text p, .hr-avatar:not(.default-avatar) p, .hr-avatar:not(.default-avatar) span, .hr-avatar:not(.default-avatar) div, [class*='avatar']:not([class*='dropdown']):not([class*='option-avatar']):not([class*='option']):not(.default-avatar), [class*='avatar']:not([class*='dropdown']):not([class*='option-avatar']):not([class*='option']):not(.default-avatar) span, [class*='avatar']:not([class*='dropdown']):not([class*='option-avatar']):not([class*='option']):not(.default-avatar) p, [class*='avatar']:not([class*='dropdown']):not([class*='option-avatar']):not([class*='option']):not(.default-avatar) div",styles:{color:"#0A0D12","-webkit-text-fill-color":"#0A0D12","font-weight":"600"}},{selector:".default-avatar, .default-avatar *",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0",stroke:"#EDEEF0","font-weight":"600"}},{selector:".hr-button--tertiary",styles:{"background-color":"#1A1F28",color:"#0FB57E"}},{selector:".hr-text:not([role='button']):not(.cursor-pointer)",styles:{color:"#EDEEF0"}},{selector:"[class*='field-value'], [class*='field-display'], [class*='empty-value'], [class*='field-empty'], [class*='value-display'], [class*='display-value']",styles:{color:"#9098A3","-webkit-text-fill-color":"#9098A3"}},{selector:".hr-select__value, .hr-select__display, .hr-select-trigger, .hr-select-trigger__value, .hr-base-select__value, .hr-base-select__display, [class*='select__value'], [class*='select__display'], [class*='select-trigger']",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".hr-select, .hr-select__input, .hr-select__inner, .hr-select-trigger, .hr-base-select, .hr-base-select__inner, .el-select, .el-select__wrapper, .el-input__wrapper, .el-input__inner, [role='combobox'], [aria-haspopup='listbox']",styles:{"background-color":"#1A1F28","border-color":"#252C36"}},{selector:"input[type='date'], input[type='datetime-local'], input[type='time'], input[type='month'], input[type='week'], .hr-date-picker, .hr-date-input, .hr-datepicker, .hr-time-picker, [class*='date-picker'], [class*='datepicker'], [class*='date-input'], [class*='time-picker'], [class*='time-input']",styles:{"background-color":"#1A1F28","border-color":"#252C36",color:"#EDEEF0"}},{selector:"[class*='F7F9FD'], [class*='F7F9FB'], [class*='F9FAFB'], [class*='eff4ff'], [class*='EFF4FF'], [class*='ECEEF2'], [class*='eceef2']",styles:{"background-color":"#12161D"}},{selector:"[style*='background-color: white'], [style*='background-color:white'], [style*='background-color: #fff'], [style*='background-color:#fff'], [style*='background-color: #FFF'], [style*='background-color:#FFF'], [style*='background-color: #ffffff'], [style*='background-color:#ffffff'], [style*='background-color: #FFFFFF'], [style*='background-color:#FFFFFF'], [style*='background-color: rgb(255, 255, 255)'], [style*='background-color:rgb(255, 255, 255)'], [style*='background-color: rgb(255,255,255)'], [style*='background-color:rgb(255,255,255)']",styles:{"background-color":"#12161D"}},{selector:".chart-container.hl-card, [class*='chart-container'][class*='hl-card'], .dashboard-widget-type-custom .hl-card, .dashboard-widget-module-custom .hl-card",styles:{"background-color":"#12161D"}},{selector:".bg-gray-50, .bg-white, .bg-gray-100",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".n-base-select-menu, .n-popselect-menu, .n-popover, .n-dropdown, .n-dropdown-menu, .hr-base-select-menu, .hr-popselect-menu, .hr-popover, .hr-dropdown, .hr-dropdown-menu",styles:{"background-color":"#12161D",color:"#EDEEF0","border-color":"#252C36","--n-option-color":"transparent","--n-option-color-hover":"#1A1F28","--n-option-color-active":"rgba(15, 181, 126, 0.12)","--n-option-color-active-hover":"rgba(15, 181, 126, 0.12)","--n-option-text-color":"#EDEEF0","--n-option-text-color-hover":"#EDEEF0","--n-option-text-color-active":"#0FB57E","--n-option-text-color-disabled":"#9098A3","--n-color":"transparent","--n-color-hover":"#1A1F28","--n-color-active":"rgba(15, 181, 126, 0.12)","--n-text-color":"#EDEEF0","--n-text-color-hover":"#EDEEF0","--n-text-color-active":"#0FB57E","--n-text-color-disabled":"#9098A3"}},{selector:".n-dropdown-option--disabled, .n-dropdown-option--disabled .n-dropdown-option-body, .n-dropdown-option--disabled .n-dropdown-option-body__label, .n-dropdown-option--disabled .n-dropdown-option-body__prefix, .n-dropdown-option--disabled .n-dropdown-option-body__suffix, .n-dropdown-option[aria-disabled='true'], .n-dropdown-option[aria-disabled='true'] .n-dropdown-option-body, .n-dropdown-option[aria-disabled='true'] .n-dropdown-option-body__label, .n-dropdown-option[aria-disabled='true'] .n-dropdown-option-body__prefix, .n-dropdown-option[aria-disabled='true'] .n-dropdown-option-body__suffix, .n-base-select-option--disabled, .n-base-select-option--disabled *, .n-base-select-option[aria-disabled='true'], .n-base-select-option[aria-disabled='true'] *, .hr-dropdown-option--disabled, .hr-dropdown-option--disabled *, .hr-dropdown-option[aria-disabled='true'], .hr-dropdown-option[aria-disabled='true'] *, .hr-base-select-option--disabled, .hr-base-select-option--disabled *, .hr-base-select-option[aria-disabled='true'], .hr-base-select-option[aria-disabled='true'] *",styles:{"background-color":"transparent",color:"#9098A3","-webkit-text-fill-color":"#9098A3"}},{selector:".hl-card-header [role='heading'], .hl-card-header p[role='heading'], [class*='hl-card-header'] [role='heading']",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".n-button:not(.n-button--primary-type):not(.n-button--error-type):not(.n-button--warning-type):not(.n-button--success-type):not(.n-button--info-type)",styles:{"background-color":"#1A1F28"}}],is=t=>{if(!t||t[0]!=="#")return t;let e=t.slice(1);if(e.length===3&&(e=e[0]+e[0]+e[1]+e[1]+e[2]+e[2]),e.length!==6&&e.length!==8)return t;let o=parseInt(e.slice(0,2),16),r=parseInt(e.slice(2,4),16),n=parseInt(e.slice(4,6),16);if(isNaN(o)||isNaN(r)||isNaN(n))return t;if(e.length===8){let i=parseInt(e.slice(6,8),16)/255;return`rgba(${o}, ${r}, ${n}, ${i})`}return`rgb(${o}, ${r}, ${n})`},ls=new Set(["color","background-color","background","border-color","border-top-color","border-right-color","border-bottom-color","border-left-color","fill","stroke","-webkit-text-fill-color","caret-color","outline-color"]),ds=["#inventory-table","#inventory","[id^='collections-']","[id^='products-']","[id^='reviews-']",".sites-container","[data-testid='wordpress-app-dashboard']","[data-testid$='-app-dashboard']","[data-testid$='-dashboard']:not([data-testid*='widget']):not([data-testid*='card'])","#wordpress-management-app","[id$='-management-app']"],Kt=new WeakSet,ir=()=>{try{if(!document.body)return;document.body.querySelectorAll("*").forEach(e=>{try{if(Kt.has(e)&&e.style.getPropertyValue("background-color")==="rgb(18, 22, 29)"||e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']")||e.closest(".hl_header, header.hl_header, header.app-header"))return;let o=e.tagName;if(o==="INPUT"||o==="TEXTAREA"||o==="SELECT"||o==="SCRIPT"||o==="STYLE"||o==="SVG"||o==="PATH"||o==="IMG")return;let n=window.getComputedStyle(e).backgroundColor;if(!n||n==="rgba(0, 0, 0, 0)"||n==="transparent")return;let i=n.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/);if(!i)return;let a=+i[1],l=+i[2],d=+i[3];if((i[4]!==void 0?+i[4]:1)<.5||a<230||l<230||d<230)return;if(e.style.getPropertyValue("background-color")==="rgb(18, 22, 29)"){Kt.add(e);return}e.style.setProperty("background-color","rgb(18, 22, 29)","important"),e.style.setProperty("color","rgb(237, 238, 240)","important"),Kt.add(e)}catch{}})}catch{}},lr=new WeakSet,xe=()=>{document.querySelectorAll(ds.join(", ")).forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let o=e.querySelectorAll("*");[e,...Array.from(o)].forEach(r=>{if(lr.has(r)&&r.style.getPropertyValue("background-color")==="rgb(18, 22, 29)"||r.id?.startsWith("ws-crm-")||r.tagName==="INPUT"||r.tagName==="TEXTAREA"||r.tagName==="SELECT"||r.tagName==="SCRIPT"||r.tagName==="STYLE"||r.tagName==="SVG"||r.tagName==="PATH")return;let i=window.getComputedStyle(r).backgroundColor;if(!i||i==="rgba(0, 0, 0, 0)"||i==="transparent")return;let a=i.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!a)return;let l=+a[1],d=+a[2],c=+a[3];l<230||d<230||c<230||(r.style.setProperty("background-color","#12161D","important"),r.style.setProperty("color","#EDEEF0","important"),lr.add(r))})})},dr=()=>{document.querySelectorAll(".hr-header-lite-left, .hr-header-lite-right, .hr-header-lite-content, .hr-header-lite-icon-item, [class*='hr-header-lite']:not([class*='container']):not([class*='wrapper']), .hr-breadcrumb, .hr-breadcrumb-item, .hr-breadcrumb-item__link, .hr-breadcrumb-item__separator").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let o=e.getAttribute("style")||"";(o.includes("background-color: rgb(26, 31, 40)")||o.includes("background-color: #1A1F28")||o.includes("background-color: #1a1f28"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("border-color"),e.style.removeProperty("border-style"),e.style.removeProperty("border-width"),e.style.removeProperty("border-radius"))})},et=()=>{document.querySelectorAll(".hr-header-lite-container-v2, [id^='hr-header-lite-v-']").forEach(e=>{let o=e.parentElement,r=0;for(;o&&r<6&&o!==document.body;){if(r+=1,o.id?.startsWith("ws-crm-")||o.classList.contains("hl_header")||o.classList.contains("app-header")||o.tagName==="MAIN"||o.tagName==="BODY")return;let a=window.getComputedStyle(o).backgroundColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/);if(a){let l=+a[1],d=+a[2],c=+a[3];(a[4]!==void 0?+a[4]:1)>=.5&&l>=180&&d>=180&&c>=180&&l+d+c>=600&&o.style.getPropertyValue("background-color")!=="rgb(18, 22, 29)"&&(o.style.setProperty("background-color","rgb(18, 22, 29)","important"),o.style.setProperty("color","rgb(237, 238, 240)","important"))}o=o.parentElement}})},cr=()=>{let t="rgb(144, 152, 163)";document.querySelectorAll(".primary-property-name, .primary-property-name *, .folder-name, .folder-name *, .hr-form-item-label__asterisk, span.hr-form-item-label__asterisk").forEach(o=>{if(o.id?.startsWith("ws-crm-")||o.closest("[id^='ws-crm-']"))return;(o.getAttribute("style")||"").includes(t)&&(o.style.removeProperty("color"),o.style.removeProperty("-webkit-text-fill-color"))})},ke=()=>{for(let t of ss){let e;try{e=document.querySelectorAll(t.selector)}catch{continue}e.forEach(o=>{for(let[r,n]of Object.entries(t.styles)){let i=o.style.getPropertyPriority(r),a=o.style.getPropertyValue(r),l=ls.has(r)?is(n):n;i==="important"&&a===l||o.style.setProperty(r,n,"important")}})}},st="#1A1F28",cs=26,bs=31,hs=40,br=new Set,hr=new Set,tt=()=>{document.body.querySelectorAll("*").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']")||e.children.length>0||(e.textContent||"").trim()!=="--")return;let r=e.getBoundingClientRect();if(r.width===0||r.height===0||r.width>800)return;e.style.setProperty("display","none","important");let n=e.className?.toString()||"<no class>";!hr.has(n)&&n!=="<no class>"&&(hr.add(n),b.debug(`Hid empty "--" leaf: "${n}"`))})},ps=["M3 6","M5 6","M2 6","M6 6","M9 3h6","M16 6v","M19 6v","M5 6V","M16.5 4","48.816","2.991","14.74 9","9.26 9","2.244","M19 4h-","M19 7l-"],ms=["trash","Trash","TRASH","delete","Delete","DELETE"],us=()=>{document.querySelectorAll("button.hr-button, button.n-button, button.icon-only, .hr-button.icon-only, .n-button.icon-only").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']")||e.getAttribute("data-reos-trash")==="true")return;let o=e.querySelector("svg");if(!o)return;let r=!1,n=(o.getAttribute("class")||"")+" "+(o.getAttribute("data-icon")||"");if(ms.some(i=>n.includes(i))&&(r=!0),r||o.querySelectorAll("path").forEach(a=>{if(r)return;let l=a.getAttribute("d")||"";ps.some(d=>l.includes(d))&&(r=!0)}),!r){let i=(e.id||"").toLowerCase(),a=(e.getAttribute("aria-label")||"").toLowerCase(),l=(e.getAttribute("title")||"").toLowerCase();(i.includes("delete")||i.includes("remove")||i.includes("trash")||a.includes("delete")||a.includes("remove")||a.includes("trash")||l.includes("delete")||l.includes("remove")||l.includes("trash"))&&(r=!0)}r&&e.setAttribute("data-reos-trash","true")})},_s=new Set(["Delete Reminder","Delete","Remove","Trash","Edit","Copy","Duplicate","Add another reminder","Add","Close","Dismiss"]),vs=()=>{document.querySelectorAll(".hr-tooltip, .hr-popover-shared, [role='tooltip']").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let o=(e.textContent||"").trim();o.length===0||o.length>40||_s.has(o)&&e.style.display!=="none"&&(e.style.setProperty("display","none","important"),e.style.setProperty("visibility","hidden","important"),e.style.setProperty("opacity","0","important"),e.style.setProperty("pointer-events","none","important"))})},pr=new Set,mr=new WeakSet,ys=()=>{document.body.querySelectorAll("*").forEach(e=>{if(mr.has(e)&&e.style.getPropertyValue("color")==="rgb(237, 238, 240)"||e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let o=(e.className?.toString()||"").toLowerCase();if(o.includes("ai-button")||o.includes("ask-ai")||o.includes("bg-clip-text")||o.includes("text-transparent")||e.closest("[class*='ai-button'], [class*='ask-ai'], [class*='bg-clip-text'], [class*='text-transparent']"))return;let r=e.tagName.toLowerCase();if(r==="svg"||r==="path"||r==="circle"||r==="rect"||r==="polygon"||r==="polyline"||r==="line"||r==="g")return;let n=!1;for(let m of Array.from(e.childNodes))if(m.nodeType===Node.TEXT_NODE&&(m.textContent||"").trim()){n=!0;break}if(!n)return;let i=Array.from(e.children);if(i.length>0&&i.every(m=>{let p=m.tagName.toLowerCase();return p==="svg"||p==="img"})&&!n)return;let d=window.getComputedStyle(e).color;if(!(d==="rgb(255, 255, 255)"||d==="rgba(255, 255, 255, 1)"||d==="#ffffff"||d==="white"))return;e.style.setProperty("color","#EDEEF0","important"),e.style.setProperty("-webkit-text-fill-color","#EDEEF0","important"),mr.add(e);let h=e.className?.toString()||"<no class>";!pr.has(h)&&h!=="<no class>"&&(pr.add(h),b.debug(`Remapped pure-white text -> bone: "${h}"`))})},ur=new Set,gs=()=>{let t=document.querySelectorAll(".hl_header, header.hl_header, header.app-header, .hl_header--controls, .top-bar, .topbar"),e="rgb(18, 22, 29)";document.querySelectorAll(".hr-content-switcher svg, .hr-content-switcher svg *, .hr-content-switcher i, .hr-radio-button svg, .hr-radio-button svg *, .hr-radio-button i, [class*='hr-content-switcher'] svg, [class*='hr-content-switcher'] svg *, [class*='hr-content-switcher'] i").forEach(r=>{if(r.closest(".hl_header"))return;let n=r.getAttribute("style")||"";(n.includes(e)||n.includes("#12161D")||n.includes("#12161d"))&&(r.style.removeProperty("fill"),r.style.removeProperty("stroke"),r.style.removeProperty("color"))}),t.forEach(r=>{r.querySelectorAll("button, a, [role='button'], [class*='rounded-full'], [class*='rounded-md'], [class*='rounded-xl'], [class*='pill'], span[class*='rounded'], div[class*='rounded']").forEach(i=>{if(i.closest("[id^='ws-crm-']"))return;let a=(i.className?.toString()||"").toLowerCase();if(a.includes("avatar"))return;let l=window.getComputedStyle(i),d=l.backgroundColor,c=l.backgroundImage||"",h=!1;if(c!=="none"&&c.includes("gradient"))h=!0;else if(d&&d!=="rgba(0, 0, 0, 0)"&&d!=="transparent"){let T=d.match(/rgba?\(\d+,\s*\d+,\s*\d+,\s*([\d.]+)\)/);if(T&&parseFloat(T[1])<.6)return;let x=d.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(x){let I=parseInt(x[1],10),$=parseInt(x[2],10),te=parseInt(x[3],10);(I>=60||$>=60||te>=60)&&(I>230&&$>230&&te>230||(I>=80||$>=80||te>=80)&&(h=!0))}}if(!h)return;let p=(i.textContent||"").trim(),u=a,y=Array.from(i.querySelectorAll("*")).map(T=>(T.className?.toString()||"").toLowerCase()).join(" "),k=p.toLowerCase()==="ask ai"||u.includes("ai-button")||u.includes("ask-ai")||u.includes("askai"),g=u.includes("bg-clip-text")||u.includes("text-transparent")||y.includes("bg-clip-text")||y.includes("text-transparent"),v=Array.from(i.querySelectorAll("*")).some(T=>{let x=window.getComputedStyle(T),I=x.getPropertyValue("-webkit-background-clip")||"",$=x.getPropertyValue("background-clip")||"";return I.includes("text")||$.includes("text")});if(k||g||v){let T=["color","-webkit-text-fill-color","fill","stroke","background","background-color","background-image","background-clip","-webkit-background-clip","text-shadow"],x=I=>{T.forEach($=>I.style.removeProperty($))};x(i),i.querySelectorAll("*").forEach(x);return}let f="#12161D";i.style.setProperty("color",f,"important"),i.querySelectorAll("*").forEach(T=>{let x=T.tagName.toLowerCase();x==="svg"||x==="path"||x==="circle"||x==="rect"||x==="polygon"||x==="polyline"||x==="line"||x==="g"?(T.style.setProperty("fill",f,"important"),T.style.setProperty("stroke",f,"important"),T.style.setProperty("color",f,"important")):(T.style.setProperty("color",f,"important"),T.style.setProperty("-webkit-text-fill-color",f,"important"))});let E=i.className?.toString()||"<no class>";!ur.has(E)&&E!=="<no class>"&&(ur.add(E),b.debug(`Darkened SVG icons on colored button: "${E}"`))})})},_r=new Set,fs=()=>{document.querySelectorAll("[class*='avatar']").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;if((e.className?.toString()||"").toLowerCase().includes("default-avatar")){e.querySelectorAll(".n-avatar__text, [class*='avatar__text']").forEach(d=>{(d.getAttribute("style")||"").includes("translateY(11px)")&&d.style.removeProperty("transform")});return}let r=e.getBoundingClientRect();if(r.width===0||r.height===0||r.width<20||r.width>64||r.height<20||r.height>64)return;let n=r.top+r.height/2;(e.parentElement||e).querySelectorAll("svg, img").forEach(d=>{let c=d;if(c.closest("[id^='ws-crm-']"))return;let h=d.getBoundingClientRect();if(h.width===0||h.width>28||h.height>28)return;let m=h.left<r.right&&h.right>r.left,p=h.top<r.bottom&&h.bottom>r.top;if(!(m&&p)||h.top+h.height/2<n)return;let y=h.width*h.height/(r.width*r.height);if(y>.55)return;let k=c,g=c.parentElement,v=0;for(;g&&g!==e&&v<3;){let E=g.getBoundingClientRect();if(E.width>0&&E.width<=30&&E.height<=30)k=g;else break;g=g.parentElement,v++}k.style.setProperty("transform","translateY(11px)","important");let f=(k.className?.toString()||"")+" "+k.tagName;_r.has(f)||(_r.add(f),b.debug(`Dropped activity badge 11px (${h.width.toFixed(0)}x${h.height.toFixed(0)} icon, ratio ${y.toFixed(2)}): "${f}"`))})})},ws="brightness(0) saturate(100%) invert(54%) sepia(78%) saturate(442%) hue-rotate(122deg) brightness(96%) contrast(89%)",xs=()=>{document.querySelectorAll("aside.default-bg-color a, [class*='sidebar'] a").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;let o=(e.className?.toString()||"").toLowerCase();o.includes("active")||o.includes("router-link-active")?(e.style.setProperty("color","#0FB57E","important"),e.style.setProperty("-webkit-text-fill-color","#0FB57E","important"),e.style.setProperty("opacity","1","important"),e.querySelectorAll("span, p, div").forEach(n=>{n.style.setProperty("color","#0FB57E","important"),n.style.setProperty("-webkit-text-fill-color","#0FB57E","important")}),e.querySelectorAll("img").forEach(n=>{n.style.setProperty("filter",ws,"important")}),e.querySelectorAll("svg").forEach(n=>{n.style.setProperty("color","#0FB57E","important"),n.style.setProperty("stroke","#0FB57E","important")})):((e.style.color==="rgb(18, 22, 29)"||e.style.color==="#12161D"||e.style.color==="#0FB57E"||e.style.color==="rgb(15, 181, 126)")&&(e.style.removeProperty("color"),e.style.removeProperty("-webkit-text-fill-color")),e.querySelectorAll("span, p, div").forEach(n=>{let i=n.style.color;(i==="rgb(18, 22, 29)"||i==="#12161D"||i==="#0FB57E"||i==="rgb(15, 181, 126)")&&(n.style.removeProperty("color"),n.style.removeProperty("-webkit-text-fill-color"))}),e.querySelectorAll("img").forEach(n=>{n.style.filter&&n.style.filter.includes("hue-rotate(122")&&n.style.removeProperty("filter")}))})},vr=new Set,ks=()=>{document.querySelectorAll(".n-dialog, [class*='n-dialog'], [class*='dialog'], [role='dialog']").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;e.querySelectorAll("div, span, i").forEach(r=>{if(r.closest("[id^='ws-crm-']"))return;let n=r.getBoundingClientRect();if(n.width===0||n.height===0||n.width>56||n.height>56||!r.querySelector("svg"))return;let a=window.getComputedStyle(r).backgroundColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!a)return;let l=parseInt(a[1],10),d=parseInt(a[2],10),c=parseInt(a[3],10);if(!(l>200&&d>200&&c>200))return;r.style.setProperty("background-color","transparent","important"),r.style.setProperty("background","transparent","important"),r.style.setProperty("box-shadow","none","important"),r.style.setProperty("border","none","important");let h=r.className?.toString()||"<no class>";!vr.has(h)&&h!=="<no class>"&&(vr.add(h),b.debug(`Stripped dialog icon circle (${n.width.toFixed(0)}x${n.height.toFixed(0)}, rgb(${l},${d},${c})): "${h}"`))})})},yr=new Set,Es=()=>{document.querySelectorAll("[class*='ai-button'], [class*='ask-ai'], [class*='askai']").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;let o=e.parentElement,r=0;for(;o&&r<3&&!o.closest("[id^='ws-crm-']");){let n=(o.className?.toString()||"").toLowerCase();if(!(n.includes("ai-button")||n.includes("ask-ai")||n.includes("askai"))){let a=o.getBoundingClientRect();if(a.width>0&&a.height>0&&a.width<=400&&a.height<=80){o.style.setProperty("background-color","#12161D","important"),o.style.setProperty("background-image","none","important");let l=o.className?.toString()||"<no class>";!yr.has(l)&&l!=="<no class>"&&(yr.add(l),b.debug(`Painted Ask AI wrapper graphite: "${l}"`))}}o=o.parentElement,r++}})},gr=new Set,Ts=()=>{let t=Array.from(document.querySelectorAll("#contact-conversation-panel, [class*='conversation-panel'], [class*='message-list'], [class*='activity-log'], .hl_header, header.hl_header, [class*='topbar'], [class*='top-bar'], header.app-header, .modal, .modal-content, [class*='modal'], [class*='dialog'], [role='dialog'], [class*='popover'], [class*='popup'], [class*='dropdown-menu'], [class*='select-menu'], [class*='popselect'], [class*='base-select'], .n-base-select-menu, .n-popselect, .n-popover")),e=document.querySelectorAll("div, section, aside"),o=[];e.forEach(n=>{if(n.id?.startsWith("ws-crm-")||n.closest("[id^='ws-crm-']"))return;let i=window.getComputedStyle(n);if(i.position!=="fixed"&&i.position!=="absolute")return;let a=parseInt(i.zIndex,10);if(!isFinite(a)||a<50)return;let l=n.getBoundingClientRect();l.width<240||l.height<120||l.width>1500||l.height>900||o.push(n)}),[...t,...o].forEach(n=>{n.querySelectorAll("*").forEach(a=>{if(a.id?.startsWith("ws-crm-")||a.closest("[id^='ws-crm-']"))return;let l=(a.className?.toString()||"").toLowerCase();if(l.includes("avatar")||l.includes("notification-dot")||l.includes("indicator"))return;if(l.includes("sidebar-option-button")||a.closest(".sidebar-option-button")||a.closest("nav[class*='w-13']")){let g=a.getAttribute("style")||"";(g.includes("background-color")||g.includes("color"))&&(a.style.removeProperty("background-color"),a.style.removeProperty("color"));return}if(l.includes("tabulator")||l.includes("tabulator-page")||a.closest("[class*='tabulator']")){(a.getAttribute("style")||"").includes("background-color")&&a.style.removeProperty("background-color");return}if(l.includes("hr-card")||a.closest(".hr-card")||a.id&&a.id.startsWith("opportunity-")){let g=a.getAttribute("style")||"";(g.includes("background-color")||g.includes("color"))&&(a.style.removeProperty("background-color"),a.style.removeProperty("color"));return}if(l.includes("ai-button")||l.includes("ask-ai")||l.includes("bg-clip-text")||l.includes("text-transparent")||a.closest("[class*='ai-button'], [class*='ask-ai'], [class*='bg-clip-text'], [class*='text-transparent']"))return;let d=window.getComputedStyle(a).backgroundColor;if(!d||d==="rgba(0, 0, 0, 0)"||d==="transparent")return;let c=d.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!c)return;let h=parseInt(c[1],10),m=parseInt(c[2],10),p=parseInt(c[3],10);if(!(h>200&&m>200&&p>200))return;let y=a.getBoundingClientRect();if(y.width<24||y.height<16||y.width>1400)return;a.style.setProperty("background-color","#12161D","important"),a.style.setProperty("color","#EDEEF0","important");let k=a.className?.toString()||"<no class>";!gr.has(k)&&k!=="<no class>"&&(gr.add(k),b.debug(`Coerced light bg (${y.width.toFixed(0)}x${y.height.toFixed(0)}, rgb(${h},${m},${p})): "${k}"`))})})},fr=new Set,Ss=()=>{let t="input, select, textarea, [class*='hr-input'], [class*='hr-select'], [class*='hr-base-select'], [class*='hr-date-picker'], [class*='hr-datepicker']";document.body.querySelectorAll("*").forEach(o=>{if(o.id?.startsWith("ws-crm-")||o.closest("[id^='ws-crm-']")||o.children.length>0)return;let r=(o.textContent||"").trim();if(r.length===0||r.length>80||r==="--"||o.closest(t)||o.closest("[class*='avatar'], [class*='hr-avatar']")||o.closest("[class*='collapse-item__header'], [class*='hr-collapse-item__header'], [class*='collapse-header'], [class*='folder-header']")||o.closest("[class*='hr-tabs-tab'], [class*='tab-label'], [class*='tabs-nav'], [role='tab']"))return;if(o.matches("[role='heading']")||o.closest("[role='heading']")||o.matches("h1, h2, h3")||o.closest(".hl-card-header, [class*='hl-card-header'], [class*='card-header']")){o.matches("h1, h2, h3")&&(o.getAttribute("style")||"").includes("color")&&(o.style.removeProperty("color"),o.style.removeProperty("-webkit-text-fill-color"));return}if(o.closest(".hr-alert, .hr-alert-body, [class*='hr-alert']")){let f=o.getAttribute("style")||"";(f.includes("color")||f.includes("background"))&&(o.style.removeProperty("color"),o.style.removeProperty("-webkit-text-fill-color"),o.style.removeProperty("background-color"));return}if(o.closest("#SettingTexasSmsBlock")||o.matches("p.ui-text-sm-medium")&&o.parentElement?.classList?.contains("flex")&&o.parentElement?.classList?.contains("items-center")&&o.parentElement?.children?.length===1){(o.getAttribute("style")||"").includes("color")&&(o.style.removeProperty("color"),o.style.removeProperty("-webkit-text-fill-color"));return}if(o.closest(".hr-button, .n-button")||o.matches(".hr-button__content, .n-button__content")||o.closest(".hr-button__content, .n-button__content")){(o.getAttribute("style")||"").includes("color")&&(o.style.removeProperty("color"),o.style.removeProperty("-webkit-text-fill-color"));return}if(o.closest(".bg-primary-50, [class*='bg-primary-50']")){(o.getAttribute("style")||"").includes("color")&&(o.style.removeProperty("color"),o.style.removeProperty("-webkit-text-fill-color"));return}let n=o,i=null;for(let f=0;f<4&&n;f++){let E=n.nextElementSibling;if(E&&(E.matches(t)||E.querySelector(t)!==null)){i=E;break}n=n.parentElement}if(!i)return;let a=o.getBoundingClientRect();if(a.width===0||a.height===0||a.width>400||a.height>60)return;o.style.setProperty("color","#9098A3","important"),o.style.setProperty("-webkit-text-fill-color","#9098A3","important");let l=i,d=l.getBoundingClientRect(),c=l.className?.toString()||"",h=c.includes("schedule-ui-form-weekly-schedule-checkbox")||l.closest(".schedule-ui-form-weekly-schedule-checkbox")!==null,m=c.includes("hl-form-item")||c.includes("n-form-item--top-labelled")||l.closest(".hl-form-item")!==null,p=".hr-input, .hr-input-number, .hr-base-select, .hr-select, .hr-date-picker, .hr-datepicker",u=(c.includes("hr-form-item-blank")||c.includes("hr-form-item")||l.matches(p))&&(l.matches(p)||l.querySelector(p)!==null);u&&(l.getAttribute("style")||"").includes("background-color")&&(l.style.removeProperty("background-color"),l.style.removeProperty("border-color"),l.style.removeProperty("border-style"),l.style.removeProperty("border-width"),l.style.removeProperty("border-radius"));let y=c.includes("hr-radio")||l.closest(".hr-radio, [class*='hr-radio']")!==null;y&&(l.getAttribute("style")||"").includes("background-color")&&(l.style.removeProperty("background-color"),l.style.removeProperty("border-color"),l.style.removeProperty("border-style"),l.style.removeProperty("border-width"),l.style.removeProperty("border-radius"));let k=c.includes("hr-breadcrumb")||l.closest(".hr-breadcrumb, [class*='hr-breadcrumb']")!==null;k&&(l.getAttribute("style")||"").includes("background-color")&&(l.style.removeProperty("background-color"),l.style.removeProperty("border-color"),l.style.removeProperty("border-style"),l.style.removeProperty("border-width"),l.style.removeProperty("border-radius"));let g=c.includes("hr-header-lite")||l.closest("[class*='hr-header-lite']")!==null;g&&(l.getAttribute("style")||"").includes("background-color")&&(l.style.removeProperty("background-color"),l.style.removeProperty("border-color"),l.style.removeProperty("border-style"),l.style.removeProperty("border-width"),l.style.removeProperty("border-radius")),!h&&!m&&!u&&!y&&!k&&!g&&d.width>0&&d.width<=800&&d.height>0&&d.height<=100&&(l.style.setProperty("background-color",st,"important"),l.style.setProperty("border-color","#252C36","important"),l.style.setProperty("border-style","solid","important"),l.style.setProperty("border-width","1px","important"),l.style.setProperty("border-radius","4px","important"));let v=o.className?.toString()||"<no class>";!fr.has(v)&&v!=="<no class>"&&(fr.add(v),b.debug(`Colored field label "${r.slice(0,30)}": "${v}"`))})},wr=new Set,Cs=()=>{document.querySelectorAll("[class*='avatar']").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;let o=(e.className?.toString()||"").toLowerCase();if(o.includes("dropdown")||o.includes("option-avatar"))return;let r=e.getBoundingClientRect();if(r.width===0||r.height===0||r.height>80||e.querySelector("svg, img")!==null)return;let i=(e.textContent||"").trim();if(i.length===0||i.length>4)return;let a=Math.min(r.width,r.height),l=Math.max(16,Math.min(24,Math.round(a*.6)));e.style.setProperty("font-size",`${l}px`,"important"),e.style.setProperty("line-height","1","important"),e.style.setProperty("display","flex","important"),e.style.setProperty("align-items","center","important"),e.style.setProperty("justify-content","center","important"),e.style.setProperty("text-align","center","important"),e.querySelectorAll("*").forEach(c=>{c.tagName==="svg"||c.tagName==="SVG"||c.tagName!=="IMG"&&(c.style.setProperty("font-size",`${l}px`,"important"),c.style.setProperty("line-height","1","important"),c.style.setProperty("text-align","center","important"))});let d=e.className?.toString()||"<no class>";!wr.has(d)&&d!=="<no class>"&&(wr.add(d),b.debug(`Resized avatar text to ${l}px (circle ${a.toFixed(0)}px): "${d}"`))})},xr=new Set,As=new Set(["Enter Dashboard Name"]),Is=()=>{document.querySelectorAll("input:not([type='checkbox']):not([type='radio']):not([type='button']):not([type='submit']):not([type='reset']):not([type='hidden']):not([type='file']), textarea, select").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;let o=e.getBoundingClientRect();if(o.width===0||o.height===0)return;let r=e.placeholder||"";if(As.has(r)){(e.getAttribute("style")||"").includes("background-color")&&(e.style.removeProperty("background-color"),e.style.removeProperty("border-color"));return}e.style.setProperty("background-color",st,"important"),e.style.setProperty("border-color","#252C36","important"),e.style.setProperty("color","#EDEEF0","important"),e.style.setProperty("-webkit-text-fill-color","#EDEEF0","important");let n=e.closest(".hr-input-wrapper, .hr-input, .hr-input__input");n&&(n.style.setProperty("background-color",st,"important"),n.style.setProperty("border-color","#252C36","important"));let i=e.className?.toString()||"<no class>";!xr.has(i)&&i!=="<no class>"&&(xr.add(i),b.debug(`Forced input slate bg: "${i}"`))})},ot=()=>{document.body.querySelectorAll("*").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']")||e.closest("[class*='collapse-item__header'], [class*='hr-collapse-item__header'], [class*='collapse-header'], [class*='folder-header']")||e.id==="chat-filter"||e.id==="phone-calls"||e.id==="archive-conversation"||e.id==="star-toggle"||e.id==="read-toggle"||e.id==="delete-conversation")return;if(e.closest(".hr-tooltip, .hr-popover-shared, .hr-popover, [class*='hr-tooltip'], [class*='hr-popover']")){let p=e.getAttribute("style")||"";(p.includes("background-color")||p.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"));return}if(e.closest(".hr-base-select-menu, .hr-select-menu, .hr-select__menu-container, .hr-dropdown-menu, [class*='hr-base-select-menu']")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}let o=e.className?.toString()||"";if(o.includes("bg-inherit")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(e.closest(".pipeline-ribbon")&&o.split(" ").includes("count")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.split(" ").includes("tabulator-page")){let p=e.getAttribute("style")||"";(p.includes("background-color")||p.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"));return}if(["tabulator-cell","tabulator-row","tabulator-col","tabulator-header","tabulator-tableholder","tabulator-table"].some(p=>o.includes(p))){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.includes("schedule-ui-form-weekly-schedule-checkbox")){let p=e.getAttribute("style")||"";(p.includes("background-color")||p.includes("border-color")||p.includes("border-style")||p.includes("border-width"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("border-color"),e.style.removeProperty("border-style"),e.style.removeProperty("border-width"));return}if(o.includes("n-button")&&o.includes("icon-only")&&!o.includes("quaternary")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.includes("hr-button--tertiary-type")||o.includes("n-button--tertiary-type")){let p=e.getAttribute("style")||"";(p.includes("background-color")||p.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"),e.style.removeProperty("-webkit-text-fill-color"),e.style.removeProperty("border-color"),e.style.removeProperty("border-style"),e.style.removeProperty("border-width"),e.style.removeProperty("border-radius"));return}if(o.includes("hr-data-table-td")||o.includes("hr-data-table-tr")||o.includes("hr-data-table__body-cell")||o.includes("hr-data-table__cell")||o.includes("hr-data-table__header-cell")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.includes("n-data-table-td--fixed-right")||o.includes("n-data-table-td--last-col")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(e.classList.contains("hr-tabs")||o.includes("hr-tabs-tab-wrapper")||o.includes("hr-tabs-nav")||o.includes("hr-tabs-nav-scroll-content")||o.includes("hr-tabs-content")||o.includes("hr-tabs-pane")||o.includes("hr-tabs-rail")||o.includes("hr-tabs-wrapper")||o.includes("hr-tabs-pane-wrapper")||o.includes("hr-tab-pane")){let p=e.getAttribute("style")||"";(p.includes("background-color: rgb(26, 31, 40)")||p.includes("background-color: #1A1F28")||p.includes("background-color: #1a1f28"))&&e.style.removeProperty("background-color");return}if(o.includes("hr-date-panel")||o.includes("n-date-panel")||e.closest(".hr-date-panel, .n-date-panel")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.includes("hr-tag")&&o.includes("ui-default")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if((o.includes("bg-purple-50")||o.includes("bg-purple-100"))&&(o.includes("rounded-lg")||o.includes("rounded-md")||o.includes("rounded-full"))){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.includes("n-alert")||e.closest(".n-alert")||o.includes("hl-warning")||o.includes("hl-error")||o.includes("hl-info")||o.includes("hl-success")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.includes("hr-card")||e.closest(".hr-card")||e.id&&e.id.startsWith("opportunity-")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.includes("bg-gray-50")||o.includes("bg-gray-100")||o.includes("bg-gray-200")||o.includes("bg-white")||o.includes("bg-blue-50")||o.includes("bg-blue-100")||o.includes("bg-sky-50")||o.includes("bg-indigo-50")||o.includes("bg-slate-50")||o.includes("bg-neutral-50")||o.includes("bg-zinc-50")||o.includes("bg-stone-50")||o.includes("F7F9FD")||o.includes("F9FAFB")||o.includes("ECEEF2")||o.includes("eceef2")||o.includes("EFF4FF")||o.includes("eff4ff")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.includes("hr-collapse-item")||o.includes("hr-collapse hr-accordion")||o.includes("hr-accordion"))return;if(o.includes("sidebar-option-button")||e.closest(".sidebar-option-button")||e.closest("nav[class*='w-13']")){let p=e.getAttribute("style")||"";(p.includes("background-color")||p.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"));return}if(e.closest(".inbox-panel, .conversation-list-container, [class*='conversation-list-container']")){let p=e.getAttribute("style")||"";(p.includes("background-color")||p.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"));return}let n=window.getComputedStyle(e).backgroundColor;if(!n||n==="rgba(0, 0, 0, 0)"||n==="transparent")return;let i=n.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!i)return;let a=parseInt(i[1],10),l=parseInt(i[2],10),d=parseInt(i[3],10);if(!(a<cs&&l<bs&&d<hs))return;let h=e.getBoundingClientRect();if(h.width===0||h.height===0||h.width>800||h.height>200)return;e.style.setProperty("background-color",st,"important");let m=e.className?.toString()||"<no class>";!br.has(m)&&m!=="<no class>"&&(br.add(m),b.debug(`Coerced dark bg to slate (${h.width.toFixed(0)}x${h.height.toFixed(0)}, rgb(${a},${l},${d})): "${m}"`))})},rt=()=>{let t="#4B8BF5",e=["#155EEF","#155eef","#004EEB","#004eeb","#175CD3","#175cd3"],o="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";document.querySelectorAll("img[src^='data:image/svg+xml;base64,']:not([data-reos-recolored-v3])").forEach(i=>{i.setAttribute("data-reos-recolored","1"),i.setAttribute("data-reos-recolored-v2","1"),i.setAttribute("data-reos-recolored-v3","1");let l=(i.getAttribute("src")||"").match(/^data:image\/svg\+xml;base64,(.+)$/);if(!l)return;let d;try{d=atob(l[1])}catch{return}let c=d,h=!1;if(e.forEach(u=>{c.includes(u)&&(c=c.split(u).join(t),h=!0)}),["#F8F9FC","#f8f9fc","#F9FAFB","#f9fafb","#F2F4F7","#f2f4f7"].forEach(u=>{c.includes(u)&&(c=c.split(u).join("transparent"),h=!0)}),i.closest(".toolbar_button, .editor-toolbar, [class*='toolbar']")!==null&&["#000000","#000","#040E13","#040e13","#111827","#111","#101828","#101"].forEach(y=>{c.includes(y)&&(c=c.split(y).join("#EDEEF0"),h=!0)}),!!h)try{let u=btoa(c);i.setAttribute("src",`data:image/svg+xml;base64,${u}`)}catch{}}),document.querySelectorAll(".hl-checkbox-group-item img:not([data-reos-masked]):not([data-reos-recolored]), .hl-checkbox-group-item-icon img:not([data-reos-masked]):not([data-reos-recolored]), .hl-checkbox-group-item-container img:not([data-reos-masked]):not([data-reos-recolored])").forEach(i=>{let a=i.getAttribute("src")||"";if(!a||a.startsWith("data:")||!/\.svg(?:[?#]|$)/i.test(a))return;i.setAttribute("data-reos-masked","1");let l=`url("${a}")`;i.style.setProperty("-webkit-mask-image",l,"important"),i.style.setProperty("-webkit-mask-size","contain","important"),i.style.setProperty("-webkit-mask-repeat","no-repeat","important"),i.style.setProperty("-webkit-mask-position","center","important"),i.style.setProperty("mask-image",l,"important"),i.style.setProperty("mask-size","contain","important"),i.style.setProperty("mask-repeat","no-repeat","important"),i.style.setProperty("mask-position","center","important"),i.style.setProperty("background-color","var(--reos-blue)","important"),i.setAttribute("src",o)})},nt=()=>{document.querySelectorAll("[class*='n-date-panel']").forEach(e=>{[...e.classList].forEach(o=>{if(o.startsWith("n-date-panel")){let r="hr-date-panel"+o.slice(12);e.classList.contains(r)||e.classList.add(r)}})})},Ls=()=>{document.querySelectorAll("button.hr-button.hr-button--3xs:not(.hr-button--primary-type), button.hr-button.hr-button--xs:not(.hr-button--primary-type), #manage-association-btn").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let o=e.getAttribute("style")||"";(o.includes("background-color")||o.includes("background:"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("background"))})},Ee=()=>{let t=r=>{r.style.getPropertyValue("background-color")!=="rgb(26, 31, 40)"&&r.style.setProperty("background-color","rgb(26, 31, 40)","important")},e=document.querySelector(".crm-opportunities-modal");e&&e.querySelectorAll(".hr-base-selection").forEach(n=>{t(n),n.querySelectorAll("div, span").forEach(a=>{if(a.id?.startsWith("ws-crm-"))return;let l=window.getComputedStyle(a).backgroundColor;l==="rgba(0, 0, 0, 0)"||l==="transparent"||!l||t(a)})}),document.querySelectorAll(".hr-upload-dragger").forEach(r=>{t(r);let n=r.querySelector(".ui-upload-icon");n&&(n.style.setProperty("background-color","transparent","important"),n.style.setProperty("background","transparent","important"));let i="rgb(150, 162, 173)",a="rgb(0, 191, 124)",l=c=>{let h=r.querySelector(".ui-upload-icon svg");h&&(h.style.setProperty("color",c,"important"),h.style.setProperty("stroke",c,"important")),r.querySelectorAll(".ui-upload-icon svg path").forEach(m=>{m.style.setProperty("stroke",c,"important")})},d=!1;try{d=r.matches(":hover")}catch{}l(d?a:i),r.dataset.hoverBound!=="1"&&(r.dataset.hoverBound="1",r.addEventListener("mouseenter",()=>l(a)),r.addEventListener("mouseleave",()=>l(i)))})},Yt=new WeakSet,Ms=()=>{document.querySelectorAll('iframe[title="Email"]').forEach(e=>{if(!Yt.has(e))try{let o=e.contentDocument||e.contentWindow?.document;if(!o||!o.head)return;if(o.querySelector("style[data-ws-crm-email-fix]")){Yt.add(e);return}let r=o.createElement("style");r.setAttribute("data-ws-crm-email-fix","1"),r.textContent=`
+`,ss=[{selector:".hr-input__input-el, .hr-input__textarea-el, [class*='hr-input'] input, [class*='hr-input'] textarea",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".hr-data-table-wrapper, .hr-data-table-wrapper-responsive, .hr-data-table-wrapper-header, .hr-data-table-wrapper-footer, .hr-data-table, .hr-data-table__body, .hr-table-freezer-wrapper, [class*='hr-data-table-wrapper'], [class*='hr-table-freezer']",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".n-data-table-tr, tr.n-data-table-tr",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".back-to-sites, .n-tabs-nav, .n-tabs-nav-scroll-content, .n-tabs-nav-scroll-wrapper, .n-tabs-wrapper, .n-tabs-tab-wrapper, .n-tabs-tab-pad",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:"#setup-guide-button, .setup-guide-button-container",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:".default-avatar, .n-avatar.default-avatar",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:"#steps-sidebar, .steps-sidebar",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".search-box",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:".my-table.tabulator, .tabulator, .tabulator-tableholder, .tabulator-table, .tabulator-header, .tabulator-headers, .tabulator-footer, .tabulator-row, .table-container, .cardWrapper, .quick-filter-bar, #skeleton-loader, .skeleton-loader",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".tabulator-col, .tabulator-frozen, .tabulator-frozen-left, .tabulator-frozen-right",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:".mb-2\\.5.bg-white, div.bg-white, .bg-white.px-3, .mx-auto > .bg-white",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-data-table__header, .hr-data-table__cell-header, thead.hr-data-table__header",styles:{"background-color":"#1A1F28",color:"#EDEEF0"}},{selector:".hr-wrapper-container, .platform-ui__highrise, .full-screen.platform-ui__highrise, [class*='platform-ui__highrise'], .hl_topbar-tabs, .hl_wrapper",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-collapse-item__header, .hr-collapse-item__header-main, .hr-collapse-item__title",styles:{color:"#EDEEF0","background-color":"#12161D"}},{selector:".hr-collapse-item__content, .hr-collapse-item__content-inner, .hr-collapse-item__content-wrap",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-tabs, .hr-tabs-nav, .hr-tabs-nav-scroll-content, .hr-tabs-content, .hr-tabs-pane, .hr-tabs-rail, .hr-tabs-tab-wrapper",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".hr-tabs-capsule",styles:{"background-color":"transparent",background:"transparent",border:"none"}},{selector:".hr-avatar:not(.default-avatar), .hr-avatar:not(.default-avatar) .hr-avatar__text, .hr-avatar:not(.default-avatar) .hr-avatar__text p, .hr-avatar:not(.default-avatar) p, .hr-avatar:not(.default-avatar) span, .hr-avatar:not(.default-avatar) div, [class*='avatar']:not([class*='dropdown']):not([class*='option-avatar']):not([class*='option']):not(.default-avatar), [class*='avatar']:not([class*='dropdown']):not([class*='option-avatar']):not([class*='option']):not(.default-avatar) span, [class*='avatar']:not([class*='dropdown']):not([class*='option-avatar']):not([class*='option']):not(.default-avatar) p, [class*='avatar']:not([class*='dropdown']):not([class*='option-avatar']):not([class*='option']):not(.default-avatar) div",styles:{color:"#0A0D12","-webkit-text-fill-color":"#0A0D12","font-weight":"600"}},{selector:".default-avatar, .default-avatar *",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0",stroke:"#EDEEF0","font-weight":"600"}},{selector:".hr-button--tertiary",styles:{"background-color":"#1A1F28",color:"#0FB57E"}},{selector:".hr-text:not([role='button']):not(.cursor-pointer)",styles:{color:"#EDEEF0"}},{selector:"[class*='field-value'], [class*='field-display'], [class*='empty-value'], [class*='field-empty'], [class*='value-display'], [class*='display-value']",styles:{color:"#9098A3","-webkit-text-fill-color":"#9098A3"}},{selector:".hr-select__value, .hr-select__display, .hr-select-trigger, .hr-select-trigger__value, .hr-base-select__value, .hr-base-select__display, [class*='select__value'], [class*='select__display'], [class*='select-trigger']",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".hr-select, .hr-select__input, .hr-select__inner, .hr-select-trigger, .hr-base-select, .hr-base-select__inner, .el-select, .el-select__wrapper, .el-input__wrapper, .el-input__inner, [role='combobox'], [aria-haspopup='listbox']",styles:{"background-color":"#1A1F28","border-color":"#252C36"}},{selector:"input[type='date'], input[type='datetime-local'], input[type='time'], input[type='month'], input[type='week'], .hr-date-picker, .hr-date-input, .hr-datepicker, .hr-time-picker, [class*='date-picker'], [class*='datepicker'], [class*='date-input'], [class*='time-picker'], [class*='time-input']",styles:{"background-color":"#1A1F28","border-color":"#252C36",color:"#EDEEF0"}},{selector:"[class*='F7F9FD'], [class*='F7F9FB'], [class*='F9FAFB'], [class*='eff4ff'], [class*='EFF4FF'], [class*='ECEEF2'], [class*='eceef2']",styles:{"background-color":"#12161D"}},{selector:"[style*='background-color: white'], [style*='background-color:white'], [style*='background-color: #fff'], [style*='background-color:#fff'], [style*='background-color: #FFF'], [style*='background-color:#FFF'], [style*='background-color: #ffffff'], [style*='background-color:#ffffff'], [style*='background-color: #FFFFFF'], [style*='background-color:#FFFFFF'], [style*='background-color: rgb(255, 255, 255)'], [style*='background-color:rgb(255, 255, 255)'], [style*='background-color: rgb(255,255,255)'], [style*='background-color:rgb(255,255,255)']",styles:{"background-color":"#12161D"}},{selector:".chart-container.hl-card, [class*='chart-container'][class*='hl-card'], .dashboard-widget-type-custom .hl-card, .dashboard-widget-module-custom .hl-card",styles:{"background-color":"#12161D"}},{selector:".bg-gray-50, .bg-white, .bg-gray-100",styles:{"background-color":"#12161D",color:"#EDEEF0"}},{selector:".n-base-select-menu, .n-popselect-menu, .n-popover, .n-dropdown, .n-dropdown-menu, .hr-base-select-menu, .hr-popselect-menu, .hr-popover, .hr-dropdown, .hr-dropdown-menu",styles:{"background-color":"#12161D",color:"#EDEEF0","border-color":"#252C36","--n-option-color":"transparent","--n-option-color-hover":"#1A1F28","--n-option-color-active":"rgba(15, 181, 126, 0.12)","--n-option-color-active-hover":"rgba(15, 181, 126, 0.12)","--n-option-text-color":"#EDEEF0","--n-option-text-color-hover":"#EDEEF0","--n-option-text-color-active":"#0FB57E","--n-option-text-color-disabled":"#9098A3","--n-color":"transparent","--n-color-hover":"#1A1F28","--n-color-active":"rgba(15, 181, 126, 0.12)","--n-text-color":"#EDEEF0","--n-text-color-hover":"#EDEEF0","--n-text-color-active":"#0FB57E","--n-text-color-disabled":"#9098A3"}},{selector:".n-dropdown-option--disabled, .n-dropdown-option--disabled .n-dropdown-option-body, .n-dropdown-option--disabled .n-dropdown-option-body__label, .n-dropdown-option--disabled .n-dropdown-option-body__prefix, .n-dropdown-option--disabled .n-dropdown-option-body__suffix, .n-dropdown-option[aria-disabled='true'], .n-dropdown-option[aria-disabled='true'] .n-dropdown-option-body, .n-dropdown-option[aria-disabled='true'] .n-dropdown-option-body__label, .n-dropdown-option[aria-disabled='true'] .n-dropdown-option-body__prefix, .n-dropdown-option[aria-disabled='true'] .n-dropdown-option-body__suffix, .n-base-select-option--disabled, .n-base-select-option--disabled *, .n-base-select-option[aria-disabled='true'], .n-base-select-option[aria-disabled='true'] *, .hr-dropdown-option--disabled, .hr-dropdown-option--disabled *, .hr-dropdown-option[aria-disabled='true'], .hr-dropdown-option[aria-disabled='true'] *, .hr-base-select-option--disabled, .hr-base-select-option--disabled *, .hr-base-select-option[aria-disabled='true'], .hr-base-select-option[aria-disabled='true'] *",styles:{"background-color":"transparent",color:"#9098A3","-webkit-text-fill-color":"#9098A3"}},{selector:".hl-card-header [role='heading'], .hl-card-header p[role='heading'], [class*='hl-card-header'] [role='heading']",styles:{color:"#EDEEF0","-webkit-text-fill-color":"#EDEEF0"}},{selector:".n-button:not(.n-button--primary-type):not(.n-button--error-type):not(.n-button--warning-type):not(.n-button--success-type):not(.n-button--info-type)",styles:{"background-color":"#1A1F28"}}],is=t=>{if(!t||t[0]!=="#")return t;let e=t.slice(1);if(e.length===3&&(e=e[0]+e[0]+e[1]+e[1]+e[2]+e[2]),e.length!==6&&e.length!==8)return t;let o=parseInt(e.slice(0,2),16),r=parseInt(e.slice(2,4),16),n=parseInt(e.slice(4,6),16);if(isNaN(o)||isNaN(r)||isNaN(n))return t;if(e.length===8){let i=parseInt(e.slice(6,8),16)/255;return`rgba(${o}, ${r}, ${n}, ${i})`}return`rgb(${o}, ${r}, ${n})`},ls=new Set(["color","background-color","background","border-color","border-top-color","border-right-color","border-bottom-color","border-left-color","fill","stroke","-webkit-text-fill-color","caret-color","outline-color"]),ds=["#inventory-table","#inventory","[id^='collections-']","[id^='products-']","[id^='reviews-']",".sites-container","[data-testid='wordpress-app-dashboard']","[data-testid$='-app-dashboard']","[data-testid$='-dashboard']:not([data-testid*='widget']):not([data-testid*='card'])","#wordpress-management-app","[id$='-management-app']"],Kt=new WeakSet,ir=()=>{try{if(!document.body)return;document.body.querySelectorAll("*").forEach(e=>{try{if(Kt.has(e)&&e.style.getPropertyValue("background-color")==="rgb(18, 22, 29)"||e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']")||e.closest(".hl_header, header.hl_header, header.app-header"))return;let o=e.tagName;if(o==="INPUT"||o==="TEXTAREA"||o==="SELECT"||o==="SCRIPT"||o==="STYLE"||o==="SVG"||o==="PATH"||o==="IMG")return;let n=window.getComputedStyle(e).backgroundColor;if(!n||n==="rgba(0, 0, 0, 0)"||n==="transparent")return;let i=n.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/);if(!i)return;let a=+i[1],l=+i[2],d=+i[3];if((i[4]!==void 0?+i[4]:1)<.5||a<230||l<230||d<230)return;if(e.style.getPropertyValue("background-color")==="rgb(18, 22, 29)"){Kt.add(e);return}e.style.setProperty("background-color","rgb(18, 22, 29)","important"),e.style.setProperty("color","rgb(237, 238, 240)","important"),Kt.add(e)}catch{}})}catch{}},lr=new WeakSet,xe=()=>{document.querySelectorAll(ds.join(", ")).forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let o=e.querySelectorAll("*");[e,...Array.from(o)].forEach(r=>{if(lr.has(r)&&r.style.getPropertyValue("background-color")==="rgb(18, 22, 29)"||r.id?.startsWith("ws-crm-")||r.tagName==="INPUT"||r.tagName==="TEXTAREA"||r.tagName==="SELECT"||r.tagName==="SCRIPT"||r.tagName==="STYLE"||r.tagName==="SVG"||r.tagName==="PATH")return;let i=window.getComputedStyle(r).backgroundColor;if(!i||i==="rgba(0, 0, 0, 0)"||i==="transparent")return;let a=i.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!a)return;let l=+a[1],d=+a[2],c=+a[3];l<230||d<230||c<230||(r.style.setProperty("background-color","#12161D","important"),r.style.setProperty("color","#EDEEF0","important"),lr.add(r))})})},dr=()=>{document.querySelectorAll(".hr-header-lite-left, .hr-header-lite-right, .hr-header-lite-content, .hr-header-lite-icon-item, [class*='hr-header-lite']:not([class*='container']):not([class*='wrapper']), .hr-breadcrumb, .hr-breadcrumb-item, .hr-breadcrumb-item__link, .hr-breadcrumb-item__separator").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let o=e.getAttribute("style")||"";(o.includes("background-color: rgb(26, 31, 40)")||o.includes("background-color: #1A1F28")||o.includes("background-color: #1a1f28"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("border-color"),e.style.removeProperty("border-style"),e.style.removeProperty("border-width"),e.style.removeProperty("border-radius"))})},et=()=>{document.querySelectorAll(".hr-header-lite-container-v2, [id^='hr-header-lite-v-']").forEach(e=>{let o=e.parentElement,r=0;for(;o&&r<6&&o!==document.body;){if(r+=1,o.id?.startsWith("ws-crm-")||o.classList.contains("hl_header")||o.classList.contains("app-header")||o.tagName==="MAIN"||o.tagName==="BODY")return;let a=window.getComputedStyle(o).backgroundColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/);if(a){let l=+a[1],d=+a[2],c=+a[3];(a[4]!==void 0?+a[4]:1)>=.5&&l>=180&&d>=180&&c>=180&&l+d+c>=600&&o.style.getPropertyValue("background-color")!=="rgb(18, 22, 29)"&&(o.style.setProperty("background-color","rgb(18, 22, 29)","important"),o.style.setProperty("color","rgb(237, 238, 240)","important"))}o=o.parentElement}})},cr=()=>{let t="rgb(144, 152, 163)";document.querySelectorAll(".primary-property-name, .primary-property-name *, .folder-name, .folder-name *, .hr-form-item-label__asterisk, span.hr-form-item-label__asterisk").forEach(o=>{if(o.id?.startsWith("ws-crm-")||o.closest("[id^='ws-crm-']"))return;(o.getAttribute("style")||"").includes(t)&&(o.style.removeProperty("color"),o.style.removeProperty("-webkit-text-fill-color"))})},ke=()=>{for(let t of ss){let e;try{e=document.querySelectorAll(t.selector)}catch{continue}e.forEach(o=>{for(let[r,n]of Object.entries(t.styles)){let i=o.style.getPropertyPriority(r),a=o.style.getPropertyValue(r),l=ls.has(r)?is(n):n;i==="important"&&a===l||o.style.setProperty(r,n,"important")}})}},st="#1A1F28",cs=26,bs=31,hs=40,br=new Set,hr=new Set,tt=()=>{document.body.querySelectorAll("*").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']")||e.children.length>0||(e.textContent||"").trim()!=="--")return;let r=e.getBoundingClientRect();if(r.width===0||r.height===0||r.width>800)return;e.style.setProperty("display","none","important");let n=e.className?.toString()||"<no class>";!hr.has(n)&&n!=="<no class>"&&(hr.add(n),b.debug(`Hid empty "--" leaf: "${n}"`))})},ps=["M3 6","M5 6","M2 6","M6 6","M9 3h6","M16 6v","M19 6v","M5 6V","M16.5 4","48.816","2.991","14.74 9","9.26 9","2.244","M19 4h-","M19 7l-"],ms=["trash","Trash","TRASH","delete","Delete","DELETE"],us=()=>{document.querySelectorAll("button.hr-button, button.n-button, button.icon-only, .hr-button.icon-only, .n-button.icon-only").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']")||e.getAttribute("data-reos-trash")==="true")return;let o=e.querySelector("svg");if(!o)return;let r=!1,n=(o.getAttribute("class")||"")+" "+(o.getAttribute("data-icon")||"");if(ms.some(i=>n.includes(i))&&(r=!0),r||o.querySelectorAll("path").forEach(a=>{if(r)return;let l=a.getAttribute("d")||"";ps.some(d=>l.includes(d))&&(r=!0)}),!r){let i=(e.id||"").toLowerCase(),a=(e.getAttribute("aria-label")||"").toLowerCase(),l=(e.getAttribute("title")||"").toLowerCase();(i.includes("delete")||i.includes("remove")||i.includes("trash")||a.includes("delete")||a.includes("remove")||a.includes("trash")||l.includes("delete")||l.includes("remove")||l.includes("trash"))&&(r=!0)}r&&e.setAttribute("data-reos-trash","true")})},_s=new Set(["Delete Reminder","Delete","Remove","Trash","Edit","Copy","Duplicate","Add another reminder","Add","Close","Dismiss"]),vs=()=>{document.querySelectorAll(".hr-tooltip, .hr-popover-shared, [role='tooltip']").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let o=(e.textContent||"").trim();o.length===0||o.length>40||_s.has(o)&&e.style.display!=="none"&&(e.style.setProperty("display","none","important"),e.style.setProperty("visibility","hidden","important"),e.style.setProperty("opacity","0","important"),e.style.setProperty("pointer-events","none","important"))})},pr=new Set,mr=new WeakSet,ys=()=>{document.body.querySelectorAll("*").forEach(e=>{if(mr.has(e)&&e.style.getPropertyValue("color")==="rgb(237, 238, 240)"||e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let o=(e.className?.toString()||"").toLowerCase();if(o.includes("ai-button")||o.includes("ask-ai")||o.includes("bg-clip-text")||o.includes("text-transparent")||e.closest("[class*='ai-button'], [class*='ask-ai'], [class*='bg-clip-text'], [class*='text-transparent']"))return;let r=e.tagName.toLowerCase();if(r==="svg"||r==="path"||r==="circle"||r==="rect"||r==="polygon"||r==="polyline"||r==="line"||r==="g")return;let n=!1;for(let m of Array.from(e.childNodes))if(m.nodeType===Node.TEXT_NODE&&(m.textContent||"").trim()){n=!0;break}if(!n)return;let i=Array.from(e.children);if(i.length>0&&i.every(m=>{let p=m.tagName.toLowerCase();return p==="svg"||p==="img"})&&!n)return;let d=window.getComputedStyle(e).color;if(!(d==="rgb(255, 255, 255)"||d==="rgba(255, 255, 255, 1)"||d==="#ffffff"||d==="white"))return;e.style.setProperty("color","#EDEEF0","important"),e.style.setProperty("-webkit-text-fill-color","#EDEEF0","important"),mr.add(e);let h=e.className?.toString()||"<no class>";!pr.has(h)&&h!=="<no class>"&&(pr.add(h),b.debug(`Remapped pure-white text -> bone: "${h}"`))})},ur=new Set,gs=()=>{let t=document.querySelectorAll(".hl_header, header.hl_header, header.app-header, .hl_header--controls, .top-bar, .topbar"),e="rgb(18, 22, 29)";document.querySelectorAll(".hr-content-switcher svg, .hr-content-switcher svg *, .hr-content-switcher i, .hr-radio-button svg, .hr-radio-button svg *, .hr-radio-button i, [class*='hr-content-switcher'] svg, [class*='hr-content-switcher'] svg *, [class*='hr-content-switcher'] i").forEach(r=>{if(r.closest(".hl_header"))return;let n=r.getAttribute("style")||"";(n.includes(e)||n.includes("#12161D")||n.includes("#12161d"))&&(r.style.removeProperty("fill"),r.style.removeProperty("stroke"),r.style.removeProperty("color"))}),t.forEach(r=>{r.querySelectorAll("button, a, [role='button'], [class*='rounded-full'], [class*='rounded-md'], [class*='rounded-xl'], [class*='pill'], span[class*='rounded'], div[class*='rounded']").forEach(i=>{if(i.closest("[id^='ws-crm-']"))return;let a=(i.className?.toString()||"").toLowerCase();if(a.includes("avatar"))return;let l=window.getComputedStyle(i),d=l.backgroundColor,c=l.backgroundImage||"",h=!1;if(c!=="none"&&c.includes("gradient"))h=!0;else if(d&&d!=="rgba(0, 0, 0, 0)"&&d!=="transparent"){let T=d.match(/rgba?\(\d+,\s*\d+,\s*\d+,\s*([\d.]+)\)/);if(T&&parseFloat(T[1])<.6)return;let k=d.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(k){let I=parseInt(k[1],10),$=parseInt(k[2],10),te=parseInt(k[3],10);(I>=60||$>=60||te>=60)&&(I>230&&$>230&&te>230||(I>=80||$>=80||te>=80)&&(h=!0))}}if(!h)return;let p=(i.textContent||"").trim(),u=a,y=Array.from(i.querySelectorAll("*")).map(T=>(T.className?.toString()||"").toLowerCase()).join(" "),w=p.toLowerCase()==="ask ai"||u.includes("ai-button")||u.includes("ask-ai")||u.includes("askai"),g=u.includes("bg-clip-text")||u.includes("text-transparent")||y.includes("bg-clip-text")||y.includes("text-transparent"),_=Array.from(i.querySelectorAll("*")).some(T=>{let k=window.getComputedStyle(T),I=k.getPropertyValue("-webkit-background-clip")||"",$=k.getPropertyValue("background-clip")||"";return I.includes("text")||$.includes("text")});if(w||g||_){let T=["color","-webkit-text-fill-color","fill","stroke","background","background-color","background-image","background-clip","-webkit-background-clip","text-shadow"],k=I=>{T.forEach($=>I.style.removeProperty($))};k(i),i.querySelectorAll("*").forEach(k);return}let f="#12161D";i.style.setProperty("color",f,"important"),i.querySelectorAll("*").forEach(T=>{let k=T.tagName.toLowerCase();k==="svg"||k==="path"||k==="circle"||k==="rect"||k==="polygon"||k==="polyline"||k==="line"||k==="g"?(T.style.setProperty("fill",f,"important"),T.style.setProperty("stroke",f,"important"),T.style.setProperty("color",f,"important")):(T.style.setProperty("color",f,"important"),T.style.setProperty("-webkit-text-fill-color",f,"important"))});let E=i.className?.toString()||"<no class>";!ur.has(E)&&E!=="<no class>"&&(ur.add(E),b.debug(`Darkened SVG icons on colored button: "${E}"`))})})},_r=new Set,fs=()=>{document.querySelectorAll("[class*='avatar']").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;if((e.className?.toString()||"").toLowerCase().includes("default-avatar")){e.querySelectorAll(".n-avatar__text, [class*='avatar__text']").forEach(d=>{(d.getAttribute("style")||"").includes("translateY(11px)")&&d.style.removeProperty("transform")});return}let r=e.getBoundingClientRect();if(r.width===0||r.height===0||r.width<20||r.width>64||r.height<20||r.height>64)return;let n=r.top+r.height/2;(e.parentElement||e).querySelectorAll("svg, img").forEach(d=>{let c=d;if(c.closest("[id^='ws-crm-']"))return;let h=d.getBoundingClientRect();if(h.width===0||h.width>28||h.height>28)return;let m=h.left<r.right&&h.right>r.left,p=h.top<r.bottom&&h.bottom>r.top;if(!(m&&p)||h.top+h.height/2<n)return;let y=h.width*h.height/(r.width*r.height);if(y>.55)return;let w=c,g=c.parentElement,_=0;for(;g&&g!==e&&_<3;){let E=g.getBoundingClientRect();if(E.width>0&&E.width<=30&&E.height<=30)w=g;else break;g=g.parentElement,_++}w.style.setProperty("transform","translateY(11px)","important");let f=(w.className?.toString()||"")+" "+w.tagName;_r.has(f)||(_r.add(f),b.debug(`Dropped activity badge 11px (${h.width.toFixed(0)}x${h.height.toFixed(0)} icon, ratio ${y.toFixed(2)}): "${f}"`))})})},ws="brightness(0) saturate(100%) invert(54%) sepia(78%) saturate(442%) hue-rotate(122deg) brightness(96%) contrast(89%)",xs=()=>{document.querySelectorAll("aside.default-bg-color a, [class*='sidebar'] a").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;let o=(e.className?.toString()||"").toLowerCase();o.includes("active")||o.includes("router-link-active")?(e.style.setProperty("color","#0FB57E","important"),e.style.setProperty("-webkit-text-fill-color","#0FB57E","important"),e.style.setProperty("opacity","1","important"),e.querySelectorAll("span, p, div").forEach(n=>{n.style.setProperty("color","#0FB57E","important"),n.style.setProperty("-webkit-text-fill-color","#0FB57E","important")}),e.querySelectorAll("img").forEach(n=>{n.style.setProperty("filter",ws,"important")}),e.querySelectorAll("svg").forEach(n=>{n.style.setProperty("color","#0FB57E","important"),n.style.setProperty("stroke","#0FB57E","important")})):((e.style.color==="rgb(18, 22, 29)"||e.style.color==="#12161D"||e.style.color==="#0FB57E"||e.style.color==="rgb(15, 181, 126)")&&(e.style.removeProperty("color"),e.style.removeProperty("-webkit-text-fill-color")),e.querySelectorAll("span, p, div").forEach(n=>{let i=n.style.color;(i==="rgb(18, 22, 29)"||i==="#12161D"||i==="#0FB57E"||i==="rgb(15, 181, 126)")&&(n.style.removeProperty("color"),n.style.removeProperty("-webkit-text-fill-color"))}),e.querySelectorAll("img").forEach(n=>{n.style.filter&&n.style.filter.includes("hue-rotate(122")&&n.style.removeProperty("filter")}))})},vr=new Set,ks=()=>{document.querySelectorAll(".n-dialog, [class*='n-dialog'], [class*='dialog'], [role='dialog']").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;e.querySelectorAll("div, span, i").forEach(r=>{if(r.closest("[id^='ws-crm-']"))return;let n=r.getBoundingClientRect();if(n.width===0||n.height===0||n.width>56||n.height>56||!r.querySelector("svg"))return;let a=window.getComputedStyle(r).backgroundColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!a)return;let l=parseInt(a[1],10),d=parseInt(a[2],10),c=parseInt(a[3],10);if(!(l>200&&d>200&&c>200))return;r.style.setProperty("background-color","transparent","important"),r.style.setProperty("background","transparent","important"),r.style.setProperty("box-shadow","none","important"),r.style.setProperty("border","none","important");let h=r.className?.toString()||"<no class>";!vr.has(h)&&h!=="<no class>"&&(vr.add(h),b.debug(`Stripped dialog icon circle (${n.width.toFixed(0)}x${n.height.toFixed(0)}, rgb(${l},${d},${c})): "${h}"`))})})},yr=new Set,Es=()=>{document.querySelectorAll("[class*='ai-button'], [class*='ask-ai'], [class*='askai']").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;let o=e.parentElement,r=0;for(;o&&r<3&&!o.closest("[id^='ws-crm-']");){let n=(o.className?.toString()||"").toLowerCase();if(!(n.includes("ai-button")||n.includes("ask-ai")||n.includes("askai"))){let a=o.getBoundingClientRect();if(a.width>0&&a.height>0&&a.width<=400&&a.height<=80){o.style.setProperty("background-color","#12161D","important"),o.style.setProperty("background-image","none","important");let l=o.className?.toString()||"<no class>";!yr.has(l)&&l!=="<no class>"&&(yr.add(l),b.debug(`Painted Ask AI wrapper graphite: "${l}"`))}}o=o.parentElement,r++}})},gr=new Set,Ts=()=>{let t=Array.from(document.querySelectorAll("#contact-conversation-panel, [class*='conversation-panel'], [class*='message-list'], [class*='activity-log'], .hl_header, header.hl_header, [class*='topbar'], [class*='top-bar'], header.app-header, .modal, .modal-content, [class*='modal'], [class*='dialog'], [role='dialog'], [class*='popover'], [class*='popup'], [class*='dropdown-menu'], [class*='select-menu'], [class*='popselect'], [class*='base-select'], .n-base-select-menu, .n-popselect, .n-popover")),e=document.querySelectorAll("div, section, aside"),o=[];e.forEach(n=>{if(n.id?.startsWith("ws-crm-")||n.closest("[id^='ws-crm-']"))return;let i=window.getComputedStyle(n);if(i.position!=="fixed"&&i.position!=="absolute")return;let a=parseInt(i.zIndex,10);if(!isFinite(a)||a<50)return;let l=n.getBoundingClientRect();l.width<240||l.height<120||l.width>1500||l.height>900||o.push(n)}),[...t,...o].forEach(n=>{n.querySelectorAll("*").forEach(a=>{if(a.id?.startsWith("ws-crm-")||a.closest("[id^='ws-crm-']"))return;let l=(a.className?.toString()||"").toLowerCase();if(l.includes("avatar")||l.includes("notification-dot")||l.includes("indicator"))return;if(l.includes("sidebar-option-button")||a.closest(".sidebar-option-button")||a.closest("nav[class*='w-13']")){let g=a.getAttribute("style")||"";(g.includes("background-color")||g.includes("color"))&&(a.style.removeProperty("background-color"),a.style.removeProperty("color"));return}if(l.includes("tabulator")||l.includes("tabulator-page")||a.closest("[class*='tabulator']")){(a.getAttribute("style")||"").includes("background-color")&&a.style.removeProperty("background-color");return}if(l.includes("hr-card")||a.closest(".hr-card")||a.id&&a.id.startsWith("opportunity-")){let g=a.getAttribute("style")||"";(g.includes("background-color")||g.includes("color"))&&(a.style.removeProperty("background-color"),a.style.removeProperty("color"));return}if(l.includes("ai-button")||l.includes("ask-ai")||l.includes("bg-clip-text")||l.includes("text-transparent")||a.closest("[class*='ai-button'], [class*='ask-ai'], [class*='bg-clip-text'], [class*='text-transparent']"))return;let d=window.getComputedStyle(a).backgroundColor;if(!d||d==="rgba(0, 0, 0, 0)"||d==="transparent")return;let c=d.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!c)return;let h=parseInt(c[1],10),m=parseInt(c[2],10),p=parseInt(c[3],10);if(!(h>200&&m>200&&p>200))return;let y=a.getBoundingClientRect();if(y.width<24||y.height<16||y.width>1400)return;a.style.setProperty("background-color","#12161D","important"),a.style.setProperty("color","#EDEEF0","important");let w=a.className?.toString()||"<no class>";!gr.has(w)&&w!=="<no class>"&&(gr.add(w),b.debug(`Coerced light bg (${y.width.toFixed(0)}x${y.height.toFixed(0)}, rgb(${h},${m},${p})): "${w}"`))})})},fr=new Set,Ss=()=>{let t="input, select, textarea, [class*='hr-input'], [class*='hr-select'], [class*='hr-base-select'], [class*='hr-date-picker'], [class*='hr-datepicker']";document.body.querySelectorAll("*").forEach(o=>{if(o.id?.startsWith("ws-crm-")||o.closest("[id^='ws-crm-']")||o.children.length>0)return;let r=(o.textContent||"").trim();if(r.length===0||r.length>80||r==="--"||o.closest(t)||o.closest("[class*='avatar'], [class*='hr-avatar']")||o.closest("[class*='collapse-item__header'], [class*='hr-collapse-item__header'], [class*='collapse-header'], [class*='folder-header']")||o.closest("[class*='hr-tabs-tab'], [class*='tab-label'], [class*='tabs-nav'], [role='tab']"))return;if(o.matches("[role='heading']")||o.closest("[role='heading']")||o.matches("h1, h2, h3")||o.closest(".hl-card-header, [class*='hl-card-header'], [class*='card-header']")){o.matches("h1, h2, h3")&&(o.getAttribute("style")||"").includes("color")&&(o.style.removeProperty("color"),o.style.removeProperty("-webkit-text-fill-color"));return}if(o.closest(".hr-alert, .hr-alert-body, [class*='hr-alert']")){let f=o.getAttribute("style")||"";(f.includes("color")||f.includes("background"))&&(o.style.removeProperty("color"),o.style.removeProperty("-webkit-text-fill-color"),o.style.removeProperty("background-color"));return}if(o.closest("#SettingTexasSmsBlock")||o.matches("p.ui-text-sm-medium")&&o.parentElement?.classList?.contains("flex")&&o.parentElement?.classList?.contains("items-center")&&o.parentElement?.children?.length===1){(o.getAttribute("style")||"").includes("color")&&(o.style.removeProperty("color"),o.style.removeProperty("-webkit-text-fill-color"));return}if(o.closest(".hr-button, .n-button")||o.matches(".hr-button__content, .n-button__content")||o.closest(".hr-button__content, .n-button__content")){(o.getAttribute("style")||"").includes("color")&&(o.style.removeProperty("color"),o.style.removeProperty("-webkit-text-fill-color"));return}if(o.closest(".bg-primary-50, [class*='bg-primary-50']")){(o.getAttribute("style")||"").includes("color")&&(o.style.removeProperty("color"),o.style.removeProperty("-webkit-text-fill-color"));return}let n=o,i=null;for(let f=0;f<4&&n;f++){let E=n.nextElementSibling;if(E&&(E.matches(t)||E.querySelector(t)!==null)){i=E;break}n=n.parentElement}if(!i)return;let a=o.getBoundingClientRect();if(a.width===0||a.height===0||a.width>400||a.height>60)return;o.style.setProperty("color","#9098A3","important"),o.style.setProperty("-webkit-text-fill-color","#9098A3","important");let l=i,d=l.getBoundingClientRect(),c=l.className?.toString()||"",h=c.includes("schedule-ui-form-weekly-schedule-checkbox")||l.closest(".schedule-ui-form-weekly-schedule-checkbox")!==null,m=c.includes("hl-form-item")||c.includes("n-form-item--top-labelled")||l.closest(".hl-form-item")!==null,p=".hr-input, .hr-input-number, .hr-base-select, .hr-select, .hr-date-picker, .hr-datepicker",u=(c.includes("hr-form-item-blank")||c.includes("hr-form-item")||l.matches(p))&&(l.matches(p)||l.querySelector(p)!==null);u&&(l.getAttribute("style")||"").includes("background-color")&&(l.style.removeProperty("background-color"),l.style.removeProperty("border-color"),l.style.removeProperty("border-style"),l.style.removeProperty("border-width"),l.style.removeProperty("border-radius"));let y=c.includes("hr-radio")||l.closest(".hr-radio, [class*='hr-radio']")!==null;y&&(l.getAttribute("style")||"").includes("background-color")&&(l.style.removeProperty("background-color"),l.style.removeProperty("border-color"),l.style.removeProperty("border-style"),l.style.removeProperty("border-width"),l.style.removeProperty("border-radius"));let w=c.includes("hr-breadcrumb")||l.closest(".hr-breadcrumb, [class*='hr-breadcrumb']")!==null;w&&(l.getAttribute("style")||"").includes("background-color")&&(l.style.removeProperty("background-color"),l.style.removeProperty("border-color"),l.style.removeProperty("border-style"),l.style.removeProperty("border-width"),l.style.removeProperty("border-radius"));let g=c.includes("hr-header-lite")||l.closest("[class*='hr-header-lite']")!==null;g&&(l.getAttribute("style")||"").includes("background-color")&&(l.style.removeProperty("background-color"),l.style.removeProperty("border-color"),l.style.removeProperty("border-style"),l.style.removeProperty("border-width"),l.style.removeProperty("border-radius")),!h&&!m&&!u&&!y&&!w&&!g&&d.width>0&&d.width<=800&&d.height>0&&d.height<=100&&(l.style.setProperty("background-color",st,"important"),l.style.setProperty("border-color","#252C36","important"),l.style.setProperty("border-style","solid","important"),l.style.setProperty("border-width","1px","important"),l.style.setProperty("border-radius","4px","important"));let _=o.className?.toString()||"<no class>";!fr.has(_)&&_!=="<no class>"&&(fr.add(_),b.debug(`Colored field label "${r.slice(0,30)}": "${_}"`))})},wr=new Set,Cs=()=>{document.querySelectorAll("[class*='avatar']").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;let o=(e.className?.toString()||"").toLowerCase();if(o.includes("dropdown")||o.includes("option-avatar"))return;let r=e.getBoundingClientRect();if(r.width===0||r.height===0||r.height>80||e.querySelector("svg, img")!==null)return;let i=(e.textContent||"").trim();if(i.length===0||i.length>4)return;let a=Math.min(r.width,r.height),l=Math.max(16,Math.min(24,Math.round(a*.6)));e.style.setProperty("font-size",`${l}px`,"important"),e.style.setProperty("line-height","1","important"),e.style.setProperty("display","flex","important"),e.style.setProperty("align-items","center","important"),e.style.setProperty("justify-content","center","important"),e.style.setProperty("text-align","center","important"),e.querySelectorAll("*").forEach(c=>{c.tagName==="svg"||c.tagName==="SVG"||c.tagName!=="IMG"&&(c.style.setProperty("font-size",`${l}px`,"important"),c.style.setProperty("line-height","1","important"),c.style.setProperty("text-align","center","important"))});let d=e.className?.toString()||"<no class>";!wr.has(d)&&d!=="<no class>"&&(wr.add(d),b.debug(`Resized avatar text to ${l}px (circle ${a.toFixed(0)}px): "${d}"`))})},xr=new Set,As=new Set(["Enter Dashboard Name"]),Is=()=>{document.querySelectorAll("input:not([type='checkbox']):not([type='radio']):not([type='button']):not([type='submit']):not([type='reset']):not([type='hidden']):not([type='file']), textarea, select").forEach(e=>{if(e.closest("[id^='ws-crm-']"))return;let o=e.getBoundingClientRect();if(o.width===0||o.height===0)return;let r=e.placeholder||"";if(As.has(r)){(e.getAttribute("style")||"").includes("background-color")&&(e.style.removeProperty("background-color"),e.style.removeProperty("border-color"));return}e.style.setProperty("background-color",st,"important"),e.style.setProperty("border-color","#252C36","important"),e.style.setProperty("color","#EDEEF0","important"),e.style.setProperty("-webkit-text-fill-color","#EDEEF0","important");let n=e.closest(".hr-input-wrapper, .hr-input, .hr-input__input");n&&(n.style.setProperty("background-color",st,"important"),n.style.setProperty("border-color","#252C36","important"));let i=e.className?.toString()||"<no class>";!xr.has(i)&&i!=="<no class>"&&(xr.add(i),b.debug(`Forced input slate bg: "${i}"`))})},ot=()=>{document.body.querySelectorAll("*").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']")||e.closest("[class*='collapse-item__header'], [class*='hr-collapse-item__header'], [class*='collapse-header'], [class*='folder-header']")||e.id==="chat-filter"||e.id==="phone-calls"||e.id==="archive-conversation"||e.id==="star-toggle"||e.id==="read-toggle"||e.id==="delete-conversation")return;if(e.closest(".hr-tooltip, .hr-popover-shared, .hr-popover, [class*='hr-tooltip'], [class*='hr-popover']")){let p=e.getAttribute("style")||"";(p.includes("background-color")||p.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"));return}if(e.closest(".hr-base-select-menu, .hr-select-menu, .hr-select__menu-container, .hr-dropdown-menu, [class*='hr-base-select-menu']")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}let o=e.className?.toString()||"";if(o.includes("bg-inherit")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(e.closest(".pipeline-ribbon")&&o.split(" ").includes("count")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.split(" ").includes("tabulator-page")){let p=e.getAttribute("style")||"";(p.includes("background-color")||p.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"));return}if(["tabulator-cell","tabulator-row","tabulator-col","tabulator-header","tabulator-tableholder","tabulator-table"].some(p=>o.includes(p))){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.includes("schedule-ui-form-weekly-schedule-checkbox")){let p=e.getAttribute("style")||"";(p.includes("background-color")||p.includes("border-color")||p.includes("border-style")||p.includes("border-width"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("border-color"),e.style.removeProperty("border-style"),e.style.removeProperty("border-width"));return}if(o.includes("n-button")&&o.includes("icon-only")&&!o.includes("quaternary")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.includes("hr-button--tertiary-type")||o.includes("n-button--tertiary-type")){let p=e.getAttribute("style")||"";(p.includes("background-color")||p.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"),e.style.removeProperty("-webkit-text-fill-color"),e.style.removeProperty("border-color"),e.style.removeProperty("border-style"),e.style.removeProperty("border-width"),e.style.removeProperty("border-radius"));return}if(o.includes("hr-data-table-td")||o.includes("hr-data-table-tr")||o.includes("hr-data-table__body-cell")||o.includes("hr-data-table__cell")||o.includes("hr-data-table__header-cell")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.includes("n-data-table-td--fixed-right")||o.includes("n-data-table-td--last-col")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(e.classList.contains("hr-tabs")||o.includes("hr-tabs-tab-wrapper")||o.includes("hr-tabs-nav")||o.includes("hr-tabs-nav-scroll-content")||o.includes("hr-tabs-content")||o.includes("hr-tabs-pane")||o.includes("hr-tabs-rail")||o.includes("hr-tabs-wrapper")||o.includes("hr-tabs-pane-wrapper")||o.includes("hr-tab-pane")){let p=e.getAttribute("style")||"";(p.includes("background-color: rgb(26, 31, 40)")||p.includes("background-color: #1A1F28")||p.includes("background-color: #1a1f28"))&&e.style.removeProperty("background-color");return}if(o.includes("hr-date-panel")||o.includes("n-date-panel")||e.closest(".hr-date-panel, .n-date-panel")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.includes("hr-tag")&&o.includes("ui-default")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if((o.includes("bg-purple-50")||o.includes("bg-purple-100"))&&(o.includes("rounded-lg")||o.includes("rounded-md")||o.includes("rounded-full"))){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.includes("n-alert")||e.closest(".n-alert")||o.includes("hl-warning")||o.includes("hl-error")||o.includes("hl-info")||o.includes("hl-success")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.includes("hr-card")||e.closest(".hr-card")||e.id&&e.id.startsWith("opportunity-")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.includes("bg-gray-50")||o.includes("bg-gray-100")||o.includes("bg-gray-200")||o.includes("bg-white")||o.includes("bg-blue-50")||o.includes("bg-blue-100")||o.includes("bg-sky-50")||o.includes("bg-indigo-50")||o.includes("bg-slate-50")||o.includes("bg-neutral-50")||o.includes("bg-zinc-50")||o.includes("bg-stone-50")||o.includes("F7F9FD")||o.includes("F9FAFB")||o.includes("ECEEF2")||o.includes("eceef2")||o.includes("EFF4FF")||o.includes("eff4ff")){(e.getAttribute("style")||"").includes("background-color")&&e.style.removeProperty("background-color");return}if(o.includes("hr-collapse-item")||o.includes("hr-collapse hr-accordion")||o.includes("hr-accordion"))return;if(o.includes("sidebar-option-button")||e.closest(".sidebar-option-button")||e.closest("nav[class*='w-13']")){let p=e.getAttribute("style")||"";(p.includes("background-color")||p.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"));return}if(e.closest(".inbox-panel, .conversation-list-container, [class*='conversation-list-container']")){let p=e.getAttribute("style")||"";(p.includes("background-color")||p.includes("color"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("color"));return}let n=window.getComputedStyle(e).backgroundColor;if(!n||n==="rgba(0, 0, 0, 0)"||n==="transparent")return;let i=n.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(!i)return;let a=parseInt(i[1],10),l=parseInt(i[2],10),d=parseInt(i[3],10);if(!(a<cs&&l<bs&&d<hs))return;let h=e.getBoundingClientRect();if(h.width===0||h.height===0||h.width>800||h.height>200)return;e.style.setProperty("background-color",st,"important");let m=e.className?.toString()||"<no class>";!br.has(m)&&m!=="<no class>"&&(br.add(m),b.debug(`Coerced dark bg to slate (${h.width.toFixed(0)}x${h.height.toFixed(0)}, rgb(${a},${l},${d})): "${m}"`))})},rt=()=>{let t="#4B8BF5",e=["#155EEF","#155eef","#004EEB","#004eeb","#175CD3","#175cd3"],o="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";document.querySelectorAll("img[src^='data:image/svg+xml;base64,']:not([data-reos-recolored-v3])").forEach(i=>{i.setAttribute("data-reos-recolored","1"),i.setAttribute("data-reos-recolored-v2","1"),i.setAttribute("data-reos-recolored-v3","1");let l=(i.getAttribute("src")||"").match(/^data:image\/svg\+xml;base64,(.+)$/);if(!l)return;let d;try{d=atob(l[1])}catch{return}let c=d,h=!1;if(e.forEach(u=>{c.includes(u)&&(c=c.split(u).join(t),h=!0)}),["#F8F9FC","#f8f9fc","#F9FAFB","#f9fafb","#F2F4F7","#f2f4f7"].forEach(u=>{c.includes(u)&&(c=c.split(u).join("transparent"),h=!0)}),i.closest(".toolbar_button, .editor-toolbar, [class*='toolbar']")!==null&&["#000000","#000","#040E13","#040e13","#111827","#111","#101828","#101"].forEach(y=>{c.includes(y)&&(c=c.split(y).join("#EDEEF0"),h=!0)}),!!h)try{let u=btoa(c);i.setAttribute("src",`data:image/svg+xml;base64,${u}`)}catch{}}),document.querySelectorAll(".hl-checkbox-group-item img:not([data-reos-masked]):not([data-reos-recolored]), .hl-checkbox-group-item-icon img:not([data-reos-masked]):not([data-reos-recolored]), .hl-checkbox-group-item-container img:not([data-reos-masked]):not([data-reos-recolored])").forEach(i=>{let a=i.getAttribute("src")||"";if(!a||a.startsWith("data:")||!/\.svg(?:[?#]|$)/i.test(a))return;i.setAttribute("data-reos-masked","1");let l=`url("${a}")`;i.style.setProperty("-webkit-mask-image",l,"important"),i.style.setProperty("-webkit-mask-size","contain","important"),i.style.setProperty("-webkit-mask-repeat","no-repeat","important"),i.style.setProperty("-webkit-mask-position","center","important"),i.style.setProperty("mask-image",l,"important"),i.style.setProperty("mask-size","contain","important"),i.style.setProperty("mask-repeat","no-repeat","important"),i.style.setProperty("mask-position","center","important"),i.style.setProperty("background-color","var(--reos-blue)","important"),i.setAttribute("src",o)})},nt=()=>{document.querySelectorAll("[class*='n-date-panel']").forEach(e=>{[...e.classList].forEach(o=>{if(o.startsWith("n-date-panel")){let r="hr-date-panel"+o.slice(12);e.classList.contains(r)||e.classList.add(r)}})})},Ls=()=>{document.querySelectorAll("button.hr-button.hr-button--3xs:not(.hr-button--primary-type), button.hr-button.hr-button--xs:not(.hr-button--primary-type), #manage-association-btn").forEach(e=>{if(e.id?.startsWith("ws-crm-")||e.closest("[id^='ws-crm-']"))return;let o=e.getAttribute("style")||"";(o.includes("background-color")||o.includes("background:"))&&(e.style.removeProperty("background-color"),e.style.removeProperty("background"))})},Ee=()=>{let t=r=>{r.style.getPropertyValue("background-color")!=="rgb(26, 31, 40)"&&r.style.setProperty("background-color","rgb(26, 31, 40)","important")},e=document.querySelector(".crm-opportunities-modal");e&&e.querySelectorAll(".hr-base-selection").forEach(n=>{t(n),n.querySelectorAll("div, span").forEach(a=>{if(a.id?.startsWith("ws-crm-"))return;let l=window.getComputedStyle(a).backgroundColor;l==="rgba(0, 0, 0, 0)"||l==="transparent"||!l||t(a)})}),document.querySelectorAll(".hr-upload-dragger").forEach(r=>{t(r);let n=r.querySelector(".ui-upload-icon");n&&(n.style.setProperty("background-color","transparent","important"),n.style.setProperty("background","transparent","important"));let i="rgb(150, 162, 173)",a="rgb(0, 191, 124)",l=c=>{let h=r.querySelector(".ui-upload-icon svg");h&&(h.style.setProperty("color",c,"important"),h.style.setProperty("stroke",c,"important")),r.querySelectorAll(".ui-upload-icon svg path").forEach(m=>{m.style.setProperty("stroke",c,"important")})},d=!1;try{d=r.matches(":hover")}catch{}l(d?a:i),r.dataset.hoverBound!=="1"&&(r.dataset.hoverBound="1",r.addEventListener("mouseenter",()=>l(a)),r.addEventListener("mouseleave",()=>l(i)))})},Yt=new WeakSet,Ms=()=>{document.querySelectorAll('iframe[title="Email"]').forEach(e=>{if(!Yt.has(e))try{let o=e.contentDocument||e.contentWindow?.document;if(!o||!o.head)return;if(o.querySelector("style[data-ws-crm-email-fix]")){Yt.add(e);return}let r=o.createElement("style");r.setAttribute("data-ws-crm-email-fix","1"),r.textContent=`
         html, body {
           background-color: #FFFFFF !important;
           color: #101828 !important;

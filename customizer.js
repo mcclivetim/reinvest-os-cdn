@@ -1,5 +1,5 @@
-/* Wholesaling CRM Customizer v0.19.4 — built 2026-06-01T12:09:12.966Z */
-"use strict";var WholesalingCRMCustomizer=(()=>{var rt="[wholesaling-crm-customizer]",qn="__WS_CRM_DEBUG",Un=()=>!!window[qn],b={info(...t){console.log(rt,...t)},warn(...t){console.warn(rt,...t)},error(...t){console.error(rt,...t)},debug(...t){Un()&&console.log(rt,"[debug]",...t)}};var Vn=/\/v2\/location\/([A-Za-z0-9]+)/,Wn=new Set(["8ntUQzMflUkR0YvrRgVk"]),ge=()=>{let t=window.location.pathname.match(Vn);return t?t[1]:null},Xt=()=>{let t=ge();return t!==null&&Wn.has(t)};var er=/(?:\/contacts\/detail\/|\/contacts\/|\/objects\/contact\/detail\/|\/objects\/contact\/)([A-Za-z0-9]{16,})(?:[/?#]|$)/,Jt=/\/v2\/location\/([A-Za-z0-9]+)/,jn=t=>{let e=t.match(er);if(!e)return null;let o=t.match(Jt);return{contactId:e[1],locationId:o?o[1]:null,source:"url"}},Kn=()=>{let t=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']"];for(let e of t){let o=document.querySelector(e);if(!o)continue;let r=o.getAttribute("href")||o.href||"",a=r.match(er);if(!a)continue;let i=r.match(Jt)||window.location.pathname.match(Jt);return{contactId:a[1],locationId:i?i[1]:null,source:"dom"}}return null},$=()=>{let t=jn(window.location.pathname);return t||Kn()};var tr=()=>{let t=window.location.pathname;return t.includes("/contacts/detail/")?"contact-detail":t.includes("/contacts/smart-list")||t.includes("/contacts/")?"contact-list":t.includes("/opportunities/detail/")?"opportunity-detail":t.includes("/opportunities/")?"opportunity-list":t.includes("/calendars/")?"calendar":t.includes("/dashboard")?"dashboard":t.includes("/conversations")?"conversations":t.includes("/settings")?"settings":"other"},at="",Zt=null,fe="other",Qt=new Set,nt=()=>{let t=$()?.contactId??null;if(!(!(window.location.pathname!==at)&&!(t!==Zt))){at=window.location.pathname,Zt=t,fe=tr(),b.debug("Page/context changed:",fe,at,"contact:",t);for(let r of Qt)try{r(fe)}catch(a){b.error("Subscriber threw:",a)}}},it=t=>(Qt.add(t),setTimeout(()=>t(fe),0),()=>{Qt.delete(t)}),or=()=>{fe=tr(),at=window.location.pathname,Zt=$()?.contactId??null,b.debug("Router init, current page:",fe);let t=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(o,r,a){t(o,r,a),nt()},history.replaceState=function(o,r,a){e(o,r,a),nt()},window.addEventListener("popstate",nt),setInterval(nt,1e3)};var st="0.19.4",lt="2026-06-01T12:09:12.966Z";var A=(t,e={})=>{let{timeoutMs:o=8e3,pollMs:r=100,root:a=document}=e;return new Promise((i,s)=>{let l=a.querySelector(t);if(l){i(l);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=a.querySelector(t);h&&(p(),i(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=a.querySelector(t);h&&(p(),i(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${t}`),s(new Error(`Selector not found within ${o}ms: ${t}`))},o)})};var n={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},u={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},eo={purple:"#8B5CF6",green:n.emerald,orange:n.amber,red:n.crimson},rr=t=>{let e=t==="emerald"?n.emeraldGlow:t==="amber"?n.amberGlow:n.slate,o=t==="emerald"?n.emeraldBorder:t==="amber"?"rgba(232, 163, 60, 0.3)":n.steel,r=t==="emerald"?n.emerald:t==="amber"?n.amber:n.bone;return`
+/* Wholesaling CRM Customizer v0.19.5 — built 2026-06-01T12:16:51.245Z */
+"use strict";var WholesalingCRMCustomizer=(()=>{var rt="[wholesaling-crm-customizer]",qn="__WS_CRM_DEBUG",Un=()=>!!window[qn],b={info(...t){console.log(rt,...t)},warn(...t){console.warn(rt,...t)},error(...t){console.error(rt,...t)},debug(...t){Un()&&console.log(rt,"[debug]",...t)}};var Vn=/\/v2\/location\/([A-Za-z0-9]+)/,Wn=new Set(["8ntUQzMflUkR0YvrRgVk"]),ge=()=>{let t=window.location.pathname.match(Vn);return t?t[1]:null},Xt=()=>{let t=ge();return t!==null&&Wn.has(t)};var er=/(?:\/contacts\/detail\/|\/contacts\/|\/objects\/contact\/detail\/|\/objects\/contact\/)([A-Za-z0-9]{16,})(?:[/?#]|$)/,Jt=/\/v2\/location\/([A-Za-z0-9]+)/,jn=t=>{let e=t.match(er);if(!e)return null;let o=t.match(Jt);return{contactId:e[1],locationId:o?o[1]:null,source:"url"}},Kn=()=>{let t=["#contact-conversation-panel a[href*='/contacts/detail/']",".central-panel a[href*='/contacts/detail/']"];for(let e of t){let o=document.querySelector(e);if(!o)continue;let r=o.getAttribute("href")||o.href||"",a=r.match(er);if(!a)continue;let i=r.match(Jt)||window.location.pathname.match(Jt);return{contactId:a[1],locationId:i?i[1]:null,source:"dom"}}return null},$=()=>{let t=jn(window.location.pathname);return t||Kn()};var tr=()=>{let t=window.location.pathname;return t.includes("/contacts/detail/")?"contact-detail":t.includes("/contacts/smart-list")||t.includes("/contacts/")?"contact-list":t.includes("/opportunities/detail/")?"opportunity-detail":t.includes("/opportunities/")?"opportunity-list":t.includes("/calendars/")?"calendar":t.includes("/dashboard")?"dashboard":t.includes("/conversations")?"conversations":t.includes("/settings")?"settings":"other"},at="",Zt=null,fe="other",Qt=new Set,nt=()=>{let t=$()?.contactId??null;if(!(!(window.location.pathname!==at)&&!(t!==Zt))){at=window.location.pathname,Zt=t,fe=tr(),b.debug("Page/context changed:",fe,at,"contact:",t);for(let r of Qt)try{r(fe)}catch(a){b.error("Subscriber threw:",a)}}},it=t=>(Qt.add(t),setTimeout(()=>t(fe),0),()=>{Qt.delete(t)}),or=()=>{fe=tr(),at=window.location.pathname,Zt=$()?.contactId??null,b.debug("Router init, current page:",fe);let t=history.pushState.bind(history),e=history.replaceState.bind(history);history.pushState=function(o,r,a){t(o,r,a),nt()},history.replaceState=function(o,r,a){e(o,r,a),nt()},window.addEventListener("popstate",nt),setInterval(nt,1e3)};var st="0.19.5",lt="2026-06-01T12:16:51.246Z";var A=(t,e={})=>{let{timeoutMs:o=8e3,pollMs:r=100,root:a=document}=e;return new Promise((i,s)=>{let l=a.querySelector(t);if(l){i(l);return}let d,c,p=()=>{m&&m.disconnect(),d!==void 0&&window.clearTimeout(d),c!==void 0&&window.clearInterval(c)},m=new MutationObserver(()=>{let h=a.querySelector(t);h&&(p(),i(h))});m.observe(document.body,{childList:!0,subtree:!0}),c=window.setInterval(()=>{let h=a.querySelector(t);h&&(p(),i(h))},r),d=window.setTimeout(()=>{p(),b.warn(`waitForElement timed out for selector: ${t}`),s(new Error(`Selector not found within ${o}ms: ${t}`))},o)})};var n={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"},_={sm:"4px",md:"6px",lg:"10px",pill:"999px"},u={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},eo={purple:"#8B5CF6",green:n.emerald,orange:n.amber,red:n.crimson},rr=t=>{let e=t==="emerald"?n.emeraldGlow:t==="amber"?n.amberGlow:n.slate,o=t==="emerald"?n.emeraldBorder:t==="amber"?"rgba(232, 163, 60, 0.3)":n.steel,r=t==="emerald"?n.emerald:t==="amber"?n.amber:n.bone;return`
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -2267,26 +2267,31 @@ aside.default-bg-color a:hover,
 [class*="sidebar"] a:hover {
   opacity: 1 !important;
 }
-/* v0.19.4: custom-object icons (Properties, Buy-Box Entries) are inline
-   SVGs with stroke/fill='currentColor'. GHL ships them with both inline
-   emerald AND an external 'svg { opacity: 0.75 }' rule. v0.18.11
-   originally forced color to bone, but bone-at-75% reads brighter than
-   GHL's native sidebar icons (which ship at ash rgb 144,152,163 baked
-   into their CDN SVG files). To make the custom-object icons visually
-   match the natives:
-     1. Force color to rgb(144, 152, 163) \u2014 same ash as native CDN SVGs.
-     2. Force opacity to 1 to neutralize GHL's 0.75 opacity rule, so the
-        custom and native icons land on the same pixel value.
-   Skip active items \u2014 those stay emerald via the active rule below. */
-html body .sidebar-v2 a:not(.active):not(.exact-active):not([class*="active"]) svg,
-html body .sidebar-v2 a:not(.active):not(.exact-active):not([class*="active"]) svg *,
-html body .sidebar-v2-location a:not(.active):not(.exact-active):not([class*="active"]) svg,
-html body .sidebar-v2-location a:not(.active):not(.exact-active):not([class*="active"]) svg *,
-html body aside.default-bg-color a:not(.active):not(.exact-active):not([class*="active"]) svg,
-html body aside.default-bg-color a:not(.active):not(.exact-active):not([class*="active"]) svg *,
-html body [class*="sidebar"] a:not(.active):not(.exact-active):not([class*="active"]) svg,
-html body [class*="sidebar"] a:not(.active):not(.exact-active):not([class*="active"]) svg * {
-  color: rgb(144, 152, 163) !important;
+/* v0.19.5: paint non-active sidebar custom-object icons (inline SVGs
+   for Properties, Buy-Box Entries) AND Font Awesome glyphs (the
+   Support nav item uses i.fas.fa-life-ring) to bone so they visually
+   match the native CDN icons.
+
+   v0.19.4 was wrong: it set color to ash rgb(144,152,163) thinking
+   that matched natives. The cascade color value lied \u2014 the native
+   CDN icons are <img> tags whose displayed pixels come from the SVG
+   file painted with stroke='white' (verified via curl against
+   cdn.msgsndr.com/sidebar-v2/icon_calendar.svg). The cascade color on
+   an <img> is irrelevant; only the file's baked colors matter. So
+   natives ALWAYS render bone-ish white, regardless of cascade.
+
+   Custom-object inline SVGs render via currentColor \u2192 cascade color.
+   Font Awesome glyphs render via cascade color too. Both need bone
+   to match the native white-baked look.
+
+   Also force opacity:1 because GHL ships an external svg{opacity:.75}
+   rule that otherwise renders inline SVGs at 75% \u2014 visibly dimmer
+   than native imgs at opacity 1. */
+html body .sidebar-v2 a:not(.active):not(.exact-active):not([class*="active"]) :is(svg, svg *, i),
+html body .sidebar-v2-location a:not(.active):not(.exact-active):not([class*="active"]) :is(svg, svg *, i),
+html body aside.default-bg-color a:not(.active):not(.exact-active):not([class*="active"]) :is(svg, svg *, i),
+html body [class*="sidebar"] a:not(.active):not(.exact-active):not([class*="active"]) :is(svg, svg *, i) {
+  color: var(--reos-bone) !important;
   opacity: 1 !important;
 }
 /* v0.19.2: hide GHL's Ask AI top-bar pill. GHL renamed the feature

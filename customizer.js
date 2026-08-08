@@ -1,4 +1,4 @@
-/* Wholesaling CRM Customizer v0.127.2 — built 2026-08-08T17:24:15.249Z */
+/* Wholesaling CRM Customizer v0.128.0 — built 2026-08-08T17:49:12.429Z */
 "use strict";var WholesalingCRMCustomizer=(()=>{var Fa="[wholesaling-crm-customizer]",n_="__WS_CRM_DEBUG",a_=()=>!!window[n_],m={info(...e){console.log(Fa,...e)},warn(...e){console.warn(Fa,...e)},error(...e){console.error(Fa,...e)},debug(...e){a_()&&console.log(Fa,"[debug]",...e)}};var i_=/\/v2\/location\/([A-Za-z0-9]+)/,s_=new Set(["8ntUQzMflUkR0YvrRgVk"]),X=()=>{let e=window.location.pathname.match(i_);return e?e[1]:null},At=()=>{let e=X();return e===null?"agency":s_.has(e)?"hq":"tenant"},Bo=(...e)=>e.includes(At()),cl=new Map,te=(e,t)=>{cl.set(e,t)},_m=e=>{if(cl.size===0)return;let t=[];cl.forEach((o,r)=>{try{o(),t.push(r)}catch(a){console.error(`[surface] disposer "${r}" threw during ${e}:`,a)}}),console.log(`[surface] disposed ${t.length} feature(s) on ${e}: ${t.join(", ")}`)},dl=null,vm=null,pl=()=>{let e=At(),t=X(),o=dl!==null&&(e!==dl||t!==vm);return dl=e,vm=t,o};var fm=()=>At()==="hq";var n={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"};var v={sm:"4px",md:"6px",lg:"10px",pill:"999px"},h={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},ml={purple:"#8B5CF6",green:n.emerald,orange:n.amber,red:n.crimson},xm=e=>{let t=e==="emerald"?n.emeraldGlow:e==="amber"?n.amberGlow:n.slate,o=e==="emerald"?n.emeraldBorder:e==="amber"?"rgba(232, 163, 60, 0.3)":n.steel,r=e==="emerald"?n.emerald:e==="amber"?n.amber:n.bone;return`
     display: inline-flex;
     align-items: center;
@@ -248,7 +248,7 @@
     font-weight: 600; box-shadow: 0 6px 18px rgba(0,0,0,.35); user-select: none;
   `,o.innerHTML=`<span style="color:${n.emeraldBright};font-weight:700;">Demo</span>
     &nbsp;Outbound texting is simulated in this demo account \u2014 the live product sends
-    from your business number.`,document.body.appendChild(o)},ci=()=>{Km(),gt(null),document.getElementById(Tl)?.remove(),document.getElementById(Cl)?.remove(),Sl(),eu(),zo&&(document.removeEventListener("click",zo,!0),zo=null)},Il=()=>{if(te("demo-mode",ci),!ge()){ci();return}Ll(),V_(),ef(),tf(),Gm()};var tu=()=>{let e=window.location.pathname;return e.includes("/contacts/detail/")?"contact-detail":e.includes("/contacts/smart-list")||e.includes("/contacts/")?"contact-list":e.includes("/opportunities/detail/")?"opportunity-detail":e.includes("/opportunities")?"opportunity-list":e.includes("/calendars/")?"calendar":e.includes("/dashboard")?"dashboard":e.includes("/conversations")?"conversations":e.includes("/settings")?"settings":"other"},ui="",Al=null,Dt="other",Ml=new Set,mi=()=>{let e=V()?.contactId??null,t=window.location.pathname!==ui,o=e!==Al;if(!t&&!o)return;ui=window.location.pathname,Al=e;let r=tu(),a=r!==Dt;Dt=r;let i={pageTypeChanged:a,pathChanged:t,contactChanged:o};m.debug("Page/context changed:",Dt,ui,"contact:",e,i);for(let s of Ml)try{s(Dt,i)}catch(l){m.error("Subscriber threw:",l)}},je=e=>(Ml.add(e),setTimeout(()=>e(Dt),0),()=>{Ml.delete(e)}),ou=()=>{Dt=tu(),ui=window.location.pathname,Al=V()?.contactId??null,m.debug("Router init, current page:",Dt);let e=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(o,r,a){e(o,r,a),mi()},history.replaceState=function(o,r,a){t(o,r,a),mi()},window.addEventListener("popstate",mi),setInterval(mi,1e3)},Rt=()=>Dt;var of=/\/opportunities\/([A-Za-z0-9]{16,24})(?:[/?]|$)/,Ol=null,ru=!1,nu=e=>{let t=e.match(of);t&&(Ol=t[1])},au=()=>{if(!ru){ru=!0;try{let e=window.fetch.bind(window);window.fetch=(o,r)=>{try{let a=typeof o=="string"?o:o instanceof URL?o.href:o.url;a&&nu(a)}catch{}return e(o,r)};let t=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(o,r,...a){try{nu(typeof r=="string"?r:r.href)}catch{}return t.call(this,o,r,...a)},m.debug("[opp-id-capture] installed")}catch(e){m.warn("[opp-id-capture] install failed",e)}}},rf=".crm-opportunities-modal .ui-modal-heading .description",Ee=()=>!Ol||!document.querySelector(rf)?null:Ol;var iu=/\/contacts\/search/,du=new Map,su=!1,lu=(e,t)=>{if(!(typeof t!="string"||!t))try{let o=JSON.parse(t);if(!o?.locationId||o.page===void 0)return;du.set(o.locationId,{url:e,bodyRaw:t,capturedAt:Date.now()})}catch{}},cu=e=>du.get(e)??null,pu=()=>{if(!su){su=!0;try{let e=XMLHttpRequest.prototype,t=e.open,o=e.send;e.open=function(...r){try{let a=String(r[1]??"");iu.test(a)&&(this.__wsSearchUrl=a)}catch{}return t.apply(this,r)},e.send=function(r){try{let a=this.__wsSearchUrl;a&&lu(a,r)}catch{}return o.call(this,r)}}catch(e){m.warn("[search-capture] XHR tap install failed",e)}try{let e=window.fetch;window.fetch=function(...t){try{let o=typeof t[0]=="string"?t[0]:t[0]instanceof URL?t[0].href:t[0]?.url||"";iu.test(o)&&lu(o,t[1]?.body)}catch{}return e.apply(this,t)}}catch(e){m.warn("[search-capture] fetch tap install failed",e)}}};var bi="0.127.2",hi="2026-08-08T17:24:15.250Z";var nf="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/analytics/compute",af="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/callstats/sweep-run",gi="ws-crm-analytics-overlay",sf=[{key:"today",label:"Today"},{key:"yesterday",label:"Yesterday"},{key:"this_week",label:"This week"},{key:"last_week",label:"Last week"},{key:"this_month",label:"This month"},{key:"last_month",label:"Last month"},{key:"last_365",label:"Last 365 days"},{key:"all_time",label:"All time"},{key:"custom",label:"Custom"}],lf=[{key:"company",label:"Company"},{key:"acq",label:"Acquisitions"},{key:"dispo",label:"Disposition"},{key:"marketing",label:"Marketing"},{key:"tc",label:"Transactions"},{key:"velocity",label:"Velocity"}],Y={open:!1,range:"this_month",customStart:"",customEnd:"",tab:"company",loading:!1,error:null,data:null,cache:new Map},ye=e=>{let t=Number(e)||0;return"$"+Math.round(t).toLocaleString("en-US")},j=e=>(Number(e)||0).toLocaleString("en-US"),Bl=e=>{let t=Number(e);return!Number.isFinite(t)||t<=0?"\u2014":new Date(t).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})},on=e=>{let t=Math.round(Number(e)||0);if(t<60)return`${t}s`;let o=Math.floor(t/3600),r=Math.round(t%3600/60);return o>0?`${o}h ${r}m`:`${r}m`},df=()=>`${Y.range}|${Y.customStart}|${Y.customEnd}`,co=async(e=!1)=>{let t=df();if(!e&&Y.cache.has(t)){Y.data=Y.cache.get(t),Y.error=null,po();return}let o=X();if(!o){Y.error="Could not resolve the sub-account id from the URL.",po();return}Y.loading=!0,Y.error=null,po();try{let r={tenant_id:o,range:Y.range,tz_offset_minutes:new Date().getTimezoneOffset()};Y.range==="custom"&&(r.start=Y.customStart,r.end=Y.customEnd);let a=await fetch(nf,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(r)}),i=await a.json();if(!i||i.ok===!1)throw new Error(i&&i.error||`HTTP ${a.status}`);Y.data=i,Y.cache.set(t,i)}catch(r){Y.error=r instanceof Error?r.message:String(r)}finally{Y.loading=!1,po()}},F=(e,t,o)=>{let r=document.createElement(e);return r.style.cssText=t,o!==void 0&&(r.innerHTML=o),r},be=e=>String(e??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"),uo=`background:${n.graphite};border:1px solid ${n.slate};border-radius:${v.lg};padding:16px 18px;min-width:0;`,nn=`font-family:${h.mono};font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:${n.ash};margin:0 0 12px;`,Le=(e,t,o)=>{let r=F("div",uo+"flex:1;min-width:150px;");return r.appendChild(F("div",nn+"margin-bottom:8px;",be(e))),r.appendChild(F("div",`font-family:${h.sans};font-size:24px;font-weight:600;color:${n.bone};line-height:1.1;`,be(t))),o&&r.appendChild(F("div",`font-family:${h.sans};font-size:11px;color:${n.coolGray};margin-top:6px;`,be(o))),r},ve=(e,t)=>{let o=F("div",uo);if(o.appendChild(F("div",nn,be(e))),!t.length)return o.appendChild(F("div",`font-size:12px;color:${n.coolGray};`,"No data in this range")),o;let r=Math.max(...t.map(a=>a.barVal),1);for(let a of t.slice(0,12)){let i=F("div","margin:0 0 10px;"),s=F("div","display:flex;justify-content:space-between;gap:12px;margin-bottom:4px;");s.appendChild(F("span",`font-size:12px;color:${n.bone};overflow:hidden;text-overflow:ellipsis;white-space:nowrap;`,be(a.label)));let l=F("span",`font-size:12px;color:${n.bone};font-weight:600;white-space:nowrap;`,be(a.primary)+(a.secondary?` <span style="color:${n.coolGray};font-weight:400;">${be(a.secondary)}</span>`:""));s.appendChild(l),i.appendChild(s);let d=F("div",`height:6px;background:${n.slate};border-radius:3px;overflow:hidden;`);d.appendChild(F("div",`height:100%;width:${Math.max(2,Math.round(a.barVal/r*100))}%;background:${n.emerald};border-radius:3px;`)),i.appendChild(d),o.appendChild(i)}return t.length>12&&o.appendChild(F("div",`font-size:11px;color:${n.coolGray};`,`+${t.length-12} more`)),o},yi=(e,t,o)=>{let r=F("div",uo+"overflow-x:auto;");if(r.appendChild(F("div",nn,be(e))),!o.length)return r.appendChild(F("div",`font-size:12px;color:${n.coolGray};`,"No data in this range")),r;let a=`text-align:left;padding:6px 10px;font-family:${h.mono};font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:${n.ash};border-bottom:1px solid ${n.slate};white-space:nowrap;`,i=`padding:7px 10px;font-size:12px;color:${n.bone};border-bottom:1px solid ${n.slate};white-space:nowrap;`,s=`<table style="border-collapse:collapse;width:100%;min-width:480px;">
+    from your business number.`,document.body.appendChild(o)},ci=()=>{Km(),gt(null),document.getElementById(Tl)?.remove(),document.getElementById(Cl)?.remove(),Sl(),eu(),zo&&(document.removeEventListener("click",zo,!0),zo=null)},Il=()=>{if(te("demo-mode",ci),!ge()){ci();return}Ll(),V_(),ef(),tf(),Gm()};var tu=()=>{let e=window.location.pathname;return e.includes("/contacts/detail/")?"contact-detail":e.includes("/contacts/smart-list")||e.includes("/contacts/")?"contact-list":e.includes("/opportunities/detail/")?"opportunity-detail":e.includes("/opportunities")?"opportunity-list":e.includes("/calendars/")?"calendar":e.includes("/dashboard")?"dashboard":e.includes("/conversations")?"conversations":e.includes("/settings")?"settings":"other"},ui="",Al=null,Dt="other",Ml=new Set,mi=()=>{let e=V()?.contactId??null,t=window.location.pathname!==ui,o=e!==Al;if(!t&&!o)return;ui=window.location.pathname,Al=e;let r=tu(),a=r!==Dt;Dt=r;let i={pageTypeChanged:a,pathChanged:t,contactChanged:o};m.debug("Page/context changed:",Dt,ui,"contact:",e,i);for(let s of Ml)try{s(Dt,i)}catch(l){m.error("Subscriber threw:",l)}},je=e=>(Ml.add(e),setTimeout(()=>e(Dt),0),()=>{Ml.delete(e)}),ou=()=>{Dt=tu(),ui=window.location.pathname,Al=V()?.contactId??null,m.debug("Router init, current page:",Dt);let e=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(o,r,a){e(o,r,a),mi()},history.replaceState=function(o,r,a){t(o,r,a),mi()},window.addEventListener("popstate",mi),setInterval(mi,1e3)},Rt=()=>Dt;var of=/\/opportunities\/([A-Za-z0-9]{16,24})(?:[/?]|$)/,Ol=null,ru=!1,nu=e=>{let t=e.match(of);t&&(Ol=t[1])},au=()=>{if(!ru){ru=!0;try{let e=window.fetch.bind(window);window.fetch=(o,r)=>{try{let a=typeof o=="string"?o:o instanceof URL?o.href:o.url;a&&nu(a)}catch{}return e(o,r)};let t=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(o,r,...a){try{nu(typeof r=="string"?r:r.href)}catch{}return t.call(this,o,r,...a)},m.debug("[opp-id-capture] installed")}catch(e){m.warn("[opp-id-capture] install failed",e)}}},rf=".crm-opportunities-modal .ui-modal-heading .description",Ee=()=>!Ol||!document.querySelector(rf)?null:Ol;var iu=/\/contacts\/search/,du=new Map,su=!1,lu=(e,t)=>{if(!(typeof t!="string"||!t))try{let o=JSON.parse(t);if(!o?.locationId||o.page===void 0)return;du.set(o.locationId,{url:e,bodyRaw:t,capturedAt:Date.now()})}catch{}},cu=e=>du.get(e)??null,pu=()=>{if(!su){su=!0;try{let e=XMLHttpRequest.prototype,t=e.open,o=e.send;e.open=function(...r){try{let a=String(r[1]??"");iu.test(a)&&(this.__wsSearchUrl=a)}catch{}return t.apply(this,r)},e.send=function(r){try{let a=this.__wsSearchUrl;a&&lu(a,r)}catch{}return o.call(this,r)}}catch(e){m.warn("[search-capture] XHR tap install failed",e)}try{let e=window.fetch;window.fetch=function(...t){try{let o=typeof t[0]=="string"?t[0]:t[0]instanceof URL?t[0].href:t[0]?.url||"";iu.test(o)&&lu(o,t[1]?.body)}catch{}return e.apply(this,t)}}catch(e){m.warn("[search-capture] fetch tap install failed",e)}}};var bi="0.128.0",hi="2026-08-08T17:49:12.430Z";var nf="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/analytics/compute",af="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/callstats/sweep-run",gi="ws-crm-analytics-overlay",sf=[{key:"today",label:"Today"},{key:"yesterday",label:"Yesterday"},{key:"this_week",label:"This week"},{key:"last_week",label:"Last week"},{key:"this_month",label:"This month"},{key:"last_month",label:"Last month"},{key:"last_365",label:"Last 365 days"},{key:"all_time",label:"All time"},{key:"custom",label:"Custom"}],lf=[{key:"company",label:"Company"},{key:"acq",label:"Acquisitions"},{key:"dispo",label:"Disposition"},{key:"marketing",label:"Marketing"},{key:"tc",label:"Transactions"},{key:"velocity",label:"Velocity"}],Y={open:!1,range:"this_month",customStart:"",customEnd:"",tab:"company",loading:!1,error:null,data:null,cache:new Map},ye=e=>{let t=Number(e)||0;return"$"+Math.round(t).toLocaleString("en-US")},j=e=>(Number(e)||0).toLocaleString("en-US"),Bl=e=>{let t=Number(e);return!Number.isFinite(t)||t<=0?"\u2014":new Date(t).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})},on=e=>{let t=Math.round(Number(e)||0);if(t<60)return`${t}s`;let o=Math.floor(t/3600),r=Math.round(t%3600/60);return o>0?`${o}h ${r}m`:`${r}m`},df=()=>`${Y.range}|${Y.customStart}|${Y.customEnd}`,co=async(e=!1)=>{let t=df();if(!e&&Y.cache.has(t)){Y.data=Y.cache.get(t),Y.error=null,po();return}let o=X();if(!o){Y.error="Could not resolve the sub-account id from the URL.",po();return}Y.loading=!0,Y.error=null,po();try{let r={tenant_id:o,range:Y.range,tz_offset_minutes:new Date().getTimezoneOffset()};Y.range==="custom"&&(r.start=Y.customStart,r.end=Y.customEnd);let a=await fetch(nf,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(r)}),i=await a.json();if(!i||i.ok===!1)throw new Error(i&&i.error||`HTTP ${a.status}`);Y.data=i,Y.cache.set(t,i)}catch(r){Y.error=r instanceof Error?r.message:String(r)}finally{Y.loading=!1,po()}},F=(e,t,o)=>{let r=document.createElement(e);return r.style.cssText=t,o!==void 0&&(r.innerHTML=o),r},be=e=>String(e??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"),uo=`background:${n.graphite};border:1px solid ${n.slate};border-radius:${v.lg};padding:16px 18px;min-width:0;`,nn=`font-family:${h.mono};font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:${n.ash};margin:0 0 12px;`,Le=(e,t,o)=>{let r=F("div",uo+"flex:1;min-width:150px;");return r.appendChild(F("div",nn+"margin-bottom:8px;",be(e))),r.appendChild(F("div",`font-family:${h.sans};font-size:24px;font-weight:600;color:${n.bone};line-height:1.1;`,be(t))),o&&r.appendChild(F("div",`font-family:${h.sans};font-size:11px;color:${n.coolGray};margin-top:6px;`,be(o))),r},ve=(e,t)=>{let o=F("div",uo);if(o.appendChild(F("div",nn,be(e))),!t.length)return o.appendChild(F("div",`font-size:12px;color:${n.coolGray};`,"No data in this range")),o;let r=Math.max(...t.map(a=>a.barVal),1);for(let a of t.slice(0,12)){let i=F("div","margin:0 0 10px;"),s=F("div","display:flex;justify-content:space-between;gap:12px;margin-bottom:4px;");s.appendChild(F("span",`font-size:12px;color:${n.bone};overflow:hidden;text-overflow:ellipsis;white-space:nowrap;`,be(a.label)));let l=F("span",`font-size:12px;color:${n.bone};font-weight:600;white-space:nowrap;`,be(a.primary)+(a.secondary?` <span style="color:${n.coolGray};font-weight:400;">${be(a.secondary)}</span>`:""));s.appendChild(l),i.appendChild(s);let d=F("div",`height:6px;background:${n.slate};border-radius:3px;overflow:hidden;`);d.appendChild(F("div",`height:100%;width:${Math.max(2,Math.round(a.barVal/r*100))}%;background:${n.emerald};border-radius:3px;`)),i.appendChild(d),o.appendChild(i)}return t.length>12&&o.appendChild(F("div",`font-size:11px;color:${n.coolGray};`,`+${t.length-12} more`)),o},yi=(e,t,o)=>{let r=F("div",uo+"overflow-x:auto;");if(r.appendChild(F("div",nn,be(e))),!o.length)return r.appendChild(F("div",`font-size:12px;color:${n.coolGray};`,"No data in this range")),r;let a=`text-align:left;padding:6px 10px;font-family:${h.mono};font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:${n.ash};border-bottom:1px solid ${n.slate};white-space:nowrap;`,i=`padding:7px 10px;font-size:12px;color:${n.bone};border-bottom:1px solid ${n.slate};white-space:nowrap;`,s=`<table style="border-collapse:collapse;width:100%;min-width:480px;">
     <thead><tr>${t.map(l=>`<th style="${a}">${be(l)}</th>`).join("")}</tr></thead>
     <tbody>${o.map(l=>`<tr>${l.map(d=>`<td style="${i}">${be(d)}</td>`).join("")}</tr>`).join("")}</tbody>
   </table>`;return r.appendChild(F("div","",s)),r},ue=(e,t)=>{let o=F("div",`display:grid;grid-template-columns:${e};gap:14px;margin-bottom:14px;`);for(let r of t)o.appendChild(r);return o},rn=e=>{let t=F("div","display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;");for(let o of e)t.appendChild(o);return t},_t=e=>(e||[]).map(t=>({label:t.label,primary:j(t.count),barVal:t.count})),cf=e=>(e||[]).map(t=>({label:t.label,primary:ye(t.sum),secondary:`\xB7 ${j(t.count)} deal${t.count===1?"":"s"}`,barVal:t.sum})),bu=(e,t)=>{let o=e.calls||{};if(!o.available)return[F("div",`${uo}border-left:3px solid ${n.amber};border-radius:0 ${v.lg} ${v.lg} 0;font-size:12px;color:${n.ash};`,`<strong style="color:${n.bone};">Call metrics unavailable.</strong> ${be(o.note||"CallStats.Sweep runs every 30 minutes \u2014 check back shortly.")}`)];let r=t==="acq"?"Seller":"Buyer",a=o[t]||[],i=a.filter(c=>c.dials>0||c.connects>0||c.inbound>0).map(c=>({label:c.label,primary:`${j(c.dials)} dials`,secondary:`\xB7 ${j(c.connects)} connected \xB7 ${j(c.inbound)} inbound`,barVal:c.dials})),s=a.filter(c=>c.talk_seconds>0).map(c=>({label:c.label,primary:on(c.talk_seconds),secondary:c.talk_per_contract_seconds!=null?`\xB7 ${on(c.talk_per_contract_seconds)} per contract`:"",barVal:c.talk_seconds})),l=[ve(`${r} calls per rep (dials)`,i),ve(`${r} talk time per rep`,s)],d=(o.other||[]).filter(c=>c.dials>0||c.talk_seconds>0);return d.length&&l.push(ve("Unclassified calls per rep (contact is neither seller nor buyer)",d.map(c=>({label:c.label,primary:`${j(c.dials)} dials`,secondary:`\xB7 ${on(c.talk_seconds)} talk`,barVal:c.dials})))),l},pf=e=>e===0?n.coolGray:e>=80?n.emerald:e>=60?n.amber:n.crimson,mf=e=>e===0?n.steel:e>=80?n.emeraldBorder:e>=60?"rgba(232, 163, 60, 0.3)":"rgba(212, 63, 74, 0.3)",uf=(e,t)=>`color:${e} !important;-webkit-text-fill-color:${e} !important;${t}`,bf=e=>{let t=typeof e=="string"?e:"";if(!t)return"not viewed yet";let o=new Date(t.length<=10?`${t}T00:00:00`:t);if(Number.isNaN(o.getTime()))return"not viewed yet";let r=i=>new Date(i.getFullYear(),i.getMonth(),i.getDate()).getTime(),a=Math.round((r(new Date)-r(o))/864e5);return a<=0?"last today":a===1?"last yesterday":`${a} days ago`},hf=(e,t)=>{let o=Math.round(Number(e.deal_heat)||0),r=pf(o),a=mf(o),i=e.street&&String(e.street).trim()||"(no address)";return`
@@ -4119,58 +4119,6 @@ table tr:hover td,
   background: rgba(0, 0, 0, 0.6) !important;
 }
 
-html body .n-button {
-  --n-color: transparent !important;
-  --n-color-hover: var(--reos-graphite) !important;
-  --n-color-pressed: var(--reos-graphite) !important;
-  --n-color-focus: var(--reos-graphite) !important;
-  --n-color-disabled: var(--reos-slate) !important;
-  --n-text-color: var(--reos-bone) !important;
-  --n-text-color-hover: var(--reos-emerald) !important;
-  --n-text-color-pressed: var(--reos-emerald-bright) !important;
-  --n-text-color-focus: var(--reos-emerald) !important;
-  --n-text-color-disabled: var(--reos-cool-gray) !important;
-  --n-border: 1px solid var(--reos-cool-gray) !important;
-  --n-border-hover: 1px solid var(--reos-emerald) !important;
-  --n-border-pressed: 1px solid var(--reos-emerald-bright) !important;
-  --n-border-focus: 1px solid var(--reos-emerald) !important;
-  --n-border-disabled: 1px solid var(--reos-steel) !important;
-  --n-ripple-color: var(--reos-emerald) !important;
-  background-color: var(--reos-slate) !important;
-  color: var(--reos-bone) !important;
-  border: 1px solid var(--reos-cool-gray) !important;
-}
-html body .n-button__content {
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-}
-
-html body .n-button:not(.n-button--primary-type):not(.n-button--error-type):not(.n-button--warning-type):not(.n-button--success-type):not(.n-button--info-type),
-html body .n-button:not(.n-button--primary-type):not(.n-button--error-type):not(.n-button--warning-type):not(.n-button--success-type):not(.n-button--info-type) .n-button__content {
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-}
-
-html body .n-button .n-button__border,
-html body .n-button .n-button__state-border {
-  border: 1px solid var(--reos-cool-gray) !important;
-}
-html body .n-button:hover .n-button__border,
-html body .n-button:hover .n-button__state-border,
-html body .n-button:focus .n-button__border,
-html body .n-button:focus .n-button__state-border {
-  border: 1px solid var(--reos-emerald) !important;
-}
-
-html body .n-button .n-base-wave {
-  background: var(--reos-emerald-glow) !important;
-}
-
-html body .n-button:not(.n-button--primary-type):not(.n-button--error-type):not(.n-button--warning-type):not(.n-button--success-type):not(.n-button--info-type):hover,
-html body .n-button:not(.n-button--primary-type):not(.n-button--error-type):not(.n-button--warning-type):not(.n-button--success-type):not(.n-button--info-type):hover .n-button__content {
-  color: var(--reos-emerald) !important;
-  -webkit-text-fill-color: var(--reos-emerald) !important;
-}
 html body .n-button--primary-type {
   --n-color: var(--reos-emerald) !important;
   --n-color-hover: var(--reos-emerald-bright) !important;
@@ -4185,14 +4133,7 @@ html body .n-button--primary-type {
   background-color: var(--reos-emerald) !important;
   border-color: var(--reos-emerald) !important;
 }
-html body .n-button--primary-type .n-button__content {
-  color: var(--reos-obsidian) !important;
-  -webkit-text-fill-color: var(--reos-obsidian) !important;
-  font-weight: 600 !important;
-}
-html body .n-button:hover {
-  background-color: var(--reos-graphite) !important;
-}
+
 html body .n-button--primary-type:hover {
   background-color: var(--reos-emerald-bright) !important;
 }
@@ -4217,11 +4158,7 @@ html body .n-button--error-type {
   background-color: var(--reos-crimson) !important;
   border-color: var(--reos-crimson) !important;
 }
-html body .n-button--error-type .n-button__content {
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-  font-weight: 600 !important;
-}
+
 html body .n-button--error-type:hover {
   background-color: #B83642 !important;
   border-color: #B83642 !important;
@@ -4240,11 +4177,6 @@ html body .n-button--warning-type {
   background-color: var(--reos-amber) !important;
   border-color: var(--reos-amber) !important;
 }
-html body .n-button--warning-type .n-button__content {
-  color: var(--reos-obsidian) !important;
-  -webkit-text-fill-color: var(--reos-obsidian) !important;
-  font-weight: 600 !important;
-}
 
 html body .n-button--success-type {
   --n-color: var(--reos-emerald) !important;
@@ -4254,11 +4186,6 @@ html body .n-button--success-type {
   --n-text-color-hover: var(--reos-obsidian) !important;
   background-color: var(--reos-emerald) !important;
   border-color: var(--reos-emerald) !important;
-}
-html body .n-button--success-type .n-button__content {
-  color: var(--reos-obsidian) !important;
-  -webkit-text-fill-color: var(--reos-obsidian) !important;
-  font-weight: 600 !important;
 }
 
 html body .n-button--info-type {
@@ -4274,11 +4201,7 @@ html body .n-button--info-type {
   background-color: var(--reos-blue) !important;
   border-color: var(--reos-blue) !important;
 }
-html body .n-button--info-type .n-button__content {
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-  font-weight: 600 !important;
-}
+
 html body .n-button--info-type:hover {
   background-color: #3A78E0 !important;
   border-color: #3A78E0 !important;
@@ -4625,58 +4548,6 @@ html body .n-data-table:not(#__reos_never_id) {
   --n-merged-th-color-hover: var(--reos-slate) !important;
 }
 
-html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id),
-html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_never_id) {
-  background: transparent !important;
-  background-color: transparent !important;
-  border: none !important;
-  border-color: transparent !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  --n-color: transparent !important;
-  --n-color-hover: transparent !important;
-  --n-color-pressed: transparent !important;
-  --n-color-focus: transparent !important;
-  --n-color-disabled: transparent !important;
-  --n-border: 1px solid transparent !important;
-  --n-border-hover: 1px solid transparent !important;
-  --n-border-pressed: 1px solid transparent !important;
-  --n-border-focus: 1px solid transparent !important;
-  --n-border-disabled: 1px solid transparent !important;
-
-  --n-opacity-disabled: 1 !important;
-  opacity: 1 !important;
-}
-
-html body .n-button.n-button--default-type.icon-only.n-button--disabled:not(.quaternary):not(#__reos_never_id),
-html body button.n-button.icon-only.hl-text-btn.n-button--disabled:not(.quaternary):not(#__reos_never_id) {
-  opacity: 1 !important;
-}
-
-html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id) .n-button__border,
-html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id) .n-button__state-border,
-html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_never_id) .n-button__border,
-html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_never_id) .n-button__state-border {
-  border: none !important;
-  border-color: transparent !important;
-  display: none !important;
-}
-
-html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id) svg,
-html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id) svg path,
-html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_never_id) svg,
-html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_never_id) svg path {
-  color: var(--reos-ash) !important;
-  stroke: var(--reos-ash) !important;
-}
-html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id):hover svg,
-html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id):hover svg path,
-html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_never_id):hover svg,
-html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_never_id):hover svg path {
-  color: var(--reos-emerald) !important;
-  stroke: var(--reos-emerald) !important;
-}
-
 html body .n-form-item.hl-form-item:not(#__reos_never_id),
 html body .n-form-item.n-form-item--top-labelled:not(#__reos_never_id),
 html body .n-form-item.n-form-item--medium-size.hl-form-item:not(#__reos_never_id) {
@@ -4684,179 +4555,6 @@ html body .n-form-item.n-form-item--medium-size.hl-form-item:not(#__reos_never_i
   background: transparent !important;
   border: none !important;
   border-color: transparent !important;
-}
-
-html body .hr-button.hr-button--default-type:not(#__reos_never_id),
-html body button.hr-button.hr-button--default-type:not(#__reos_never_id) {
-  --n-color: transparent !important;
-  --n-color-hover: var(--reos-graphite) !important;
-  --n-color-pressed: var(--reos-graphite) !important;
-  --n-color-focus: var(--reos-graphite) !important;
-  --n-text-color: var(--reos-bone) !important;
-  --n-text-color-hover: var(--reos-emerald) !important;
-  --n-text-color-pressed: var(--reos-emerald-bright) !important;
-  --n-text-color-focus: var(--reos-emerald) !important;
-  --n-border: 1px solid var(--reos-cool-gray) !important;
-  --n-border-hover: 1px solid var(--reos-emerald) !important;
-  --n-border-pressed: 1px solid var(--reos-emerald-bright) !important;
-  --n-border-focus: 1px solid var(--reos-emerald) !important;
-  --n-ripple-color: var(--reos-emerald) !important;
-  background-color: var(--reos-slate) !important;
-  color: var(--reos-bone) !important;
-  border: 1px solid var(--reos-cool-gray) !important;
-}
-html body .hr-button.hr-button--default-type:not(#__reos_never_id):hover {
-  background-color: var(--reos-graphite) !important;
-  color: var(--reos-emerald) !important;
-  border-color: var(--reos-emerald) !important;
-}
-
-html body .hr-button.hr-button--default-type:not(#__reos_never_id) .hr-button__content,
-html body .hr-button.hr-button--default-type:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-}
-html body .hr-button.hr-button--default-type:not(#__reos_never_id):hover .hr-button__content,
-html body .hr-button.hr-button--default-type:not(#__reos_never_id):hover .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-emerald) !important;
-  -webkit-text-fill-color: var(--reos-emerald) !important;
-}
-
-html body .hr-button.hr-button--default-type.hr-button--text:not(#__reos_never_id),
-html body button.hr-button.hr-button--default-type.hr-button--text:not(#__reos_never_id),
-html body .hr-button.hr-button--text.hr-button--text:not(#__reos_never_id) {
-  background-color: transparent !important;
-  background: transparent !important;
-  border: none !important;
-  border-color: transparent !important;
-  border-width: 0 !important;
-  box-shadow: none !important;
-  --n-color: transparent !important;
-  --n-color-hover: transparent !important;
-  --n-color-pressed: transparent !important;
-  --n-color-focus: transparent !important;
-  --n-border: none !important;
-  --n-border-hover: none !important;
-  --n-border-pressed: none !important;
-  --n-border-focus: none !important;
-}
-html body .hr-button.hr-button--default-type.hr-button--text:not(#__reos_never_id):hover,
-html body button.hr-button.hr-button--default-type.hr-button--text:not(#__reos_never_id):hover {
-  background-color: transparent !important;
-  background: transparent !important;
-  border: none !important;
-  border-color: transparent !important;
-  color: var(--reos-emerald) !important;
-}
-
-html body .hr-button.hr-button--default-type.hr-button--text:not(#__reos_never_id) .hr-button__border,
-html body .hr-button.hr-button--default-type.hr-button--text:not(#__reos_never_id) .hr-button__state-border,
-html body .hr-button.hr-button--text.hr-button--text:not(#__reos_never_id) .hr-button__border,
-html body .hr-button.hr-button--text.hr-button--text:not(#__reos_never_id) .hr-button__state-border {
-  border: none !important;
-  border-color: transparent !important;
-  display: none !important;
-}
-
-html body .hr-button.hr-button--ghost.\\!p-0:not(#__reos_never_id),
-html body button.hr-button.hr-button--ghost.\\!p-0:not(#__reos_never_id) {
-  background-color: transparent !important;
-  background: transparent !important;
-  border: none !important;
-  border-color: transparent !important;
-  border-width: 0 !important;
-  box-shadow: none !important;
-}
-html body .hr-button.hr-button--ghost.\\!p-0:not(#__reos_never_id) .hr-button__border,
-html body .hr-button.hr-button--ghost.\\!p-0:not(#__reos_never_id) .hr-button__state-border {
-  border: none !important;
-  border-color: transparent !important;
-  display: none !important;
-}
-
-html body .hr-button.ui-active-btn:not(#__reos_never_id),
-html body button.hr-button.ui-active-btn:not(#__reos_never_id) {
-  background-color: var(--reos-graphite) !important;
-  border-color: var(--reos-emerald) !important;
-  --n-border: 1px solid var(--reos-emerald) !important;
-}
-html body .hr-button.ui-active-btn:not(#__reos_never_id) .hr-button__content,
-html body .hr-button.ui-active-btn:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-emerald) !important;
-  -webkit-text-fill-color: var(--reos-emerald) !important;
-}
-
-html body .hr-button:not(#__reos_never_id),
-html body .hr-button:hover:not(#__reos_never_id),
-html body .hr-button:focus:not(#__reos_never_id),
-html body .hr-button:focus-visible:not(#__reos_never_id),
-html body .hr-button:focus-within:not(#__reos_never_id),
-html body .hr-button:active:not(#__reos_never_id) {
-  box-shadow: none !important;
-  outline: none !important;
-  outline-offset: 0 !important;
-}
-
-html body .hr-button .hr-button__border:not(#__reos_never_id) {
-  border: 1px solid var(--reos-steel) !important;
-  border-color: var(--reos-steel) !important;
-  box-shadow: none !important;
-}
-html body .hr-button .hr-button__state-border:not(#__reos_never_id) {
-  border: 1px solid transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-}
-html body .hr-button:hover .hr-button__border:not(#__reos_never_id),
-html body .hr-button:focus-visible .hr-button__border:not(#__reos_never_id),
-html body .hr-button.ui-active-btn .hr-button__border:not(#__reos_never_id) {
-  border: 1px solid var(--reos-emerald) !important;
-  border-color: var(--reos-emerald) !important;
-}
-html body .hr-button:hover .hr-button__state-border:not(#__reos_never_id),
-html body .hr-button:focus-visible .hr-button__state-border:not(#__reos_never_id),
-html body .hr-button.ui-active-btn .hr-button__state-border:not(#__reos_never_id) {
-  border: 1px solid transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-}
-
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] svg,
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] svg path,
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] svg,
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] svg path,
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] svg,
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] svg path,
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] svg,
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] svg path {
-  color: var(--reos-crimson) !important;
-  stroke: var(--reos-crimson) !important;
-}
-
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] .hr-button__border,
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] .hr-button__border,
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] .hr-button__border,
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] .hr-button__border {
-  border: 1px solid var(--reos-steel) !important;
-  border-color: var(--reos-steel) !important;
-}
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] .hr-button__state-border,
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] .hr-button__state-border,
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] .hr-button__state-border,
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] .hr-button__state-border {
-  border: 1px solid transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-}
-
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"],
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"],
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"],
-html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] {
-  border-color: var(--reos-steel) !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-  outline: none !important;
 }
 
 html body :not(#__reos_never_id):hover[data-reos-trash="true"] svg,
@@ -4914,39 +4612,6 @@ html body button.contact-bulk-action-options:focus:not(#__reos_never_id) {
   outline: none !important;
 }
 
-html body button[id*="delete" i] .hr-button__border,
-html body button[id*="delete" i]:hover .hr-button__border,
-html body button[id*="remove" i] .hr-button__border,
-html body button[id*="remove" i]:hover .hr-button__border,
-html body button[aria-label*="Delete" i] .hr-button__border,
-html body button[aria-label*="Delete" i]:hover .hr-button__border,
-html body button[aria-label*="Remove" i] .hr-button__border,
-html body button[aria-label*="Remove" i]:hover .hr-button__border,
-html body button[id*="delete" i] .n-button__border,
-html body button[id*="delete" i]:hover .n-button__border,
-html body button[aria-label*="Delete" i] .n-button__border,
-html body button[aria-label*="Delete" i]:hover .n-button__border {
-  border: 1px solid var(--reos-steel) !important;
-  border-color: var(--reos-steel) !important;
-  box-shadow: none !important;
-}
-html body button[id*="delete" i] .hr-button__state-border,
-html body button[id*="delete" i]:hover .hr-button__state-border,
-html body button[id*="remove" i] .hr-button__state-border,
-html body button[id*="remove" i]:hover .hr-button__state-border,
-html body button[aria-label*="Delete" i] .hr-button__state-border,
-html body button[aria-label*="Delete" i]:hover .hr-button__state-border,
-html body button[aria-label*="Remove" i] .hr-button__state-border,
-html body button[aria-label*="Remove" i]:hover .hr-button__state-border,
-html body button[id*="delete" i] .n-button__state-border,
-html body button[id*="delete" i]:hover .n-button__state-border,
-html body button[aria-label*="Delete" i] .n-button__state-border,
-html body button[aria-label*="Delete" i]:hover .n-button__state-border {
-  border: 1px solid transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-}
-
 html body button[id*="delete" i]:not(#__reos_never_id) svg,
 html body button[id*="delete" i]:not(#__reos_never_id) svg path,
 html body button[id*="remove" i]:not(#__reos_never_id) svg,
@@ -4983,23 +4648,6 @@ html body button[data-reos-trash="true"]:focus-visible:not(#__reos_never_id) {
   outline-offset: 0 !important;
 }
 
-html body button[data-reos-trash="true"] .hr-button__border:not(#__reos_never_id),
-html body button[data-reos-trash="true"]:hover .hr-button__border:not(#__reos_never_id),
-html body button[data-reos-trash="true"] .n-button__border:not(#__reos_never_id),
-html body button[data-reos-trash="true"]:hover .n-button__border:not(#__reos_never_id) {
-  border: 1px solid var(--reos-steel) !important;
-  border-color: var(--reos-steel) !important;
-  box-shadow: none !important;
-}
-html body button[data-reos-trash="true"] .hr-button__state-border:not(#__reos_never_id),
-html body button[data-reos-trash="true"]:hover .hr-button__state-border:not(#__reos_never_id),
-html body button[data-reos-trash="true"] .n-button__state-border:not(#__reos_never_id),
-html body button[data-reos-trash="true"]:hover .n-button__state-border:not(#__reos_never_id) {
-  border: 1px solid transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-}
-
 html body button[data-reos-trash="true"]:not(#__reos_never_id) svg,
 html body button[data-reos-trash="true"]:not(#__reos_never_id) svg path {
   color: var(--reos-ash) !important;
@@ -5009,114 +4657,6 @@ html body button[data-reos-trash="true"]:hover:not(#__reos_never_id) svg,
 html body button[data-reos-trash="true"]:hover:not(#__reos_never_id) svg path {
   color: var(--reos-crimson) !important;
   stroke: var(--reos-crimson) !important;
-}
-
-html body .hr-button.hr-button--primary-type:not(#__reos_never_id) {
-  --n-color: var(--reos-emerald) !important;
-  --n-color-hover: var(--reos-emerald-bright) !important;
-  --n-color-pressed: var(--reos-emerald) !important;
-  --n-color-focus: var(--reos-emerald-bright) !important;
-  --n-text-color: var(--reos-obsidian) !important;
-  --n-text-color-hover: var(--reos-obsidian) !important;
-  --n-border: 1px solid var(--reos-emerald) !important;
-  background-color: var(--reos-emerald) !important;
-  color: var(--reos-obsidian) !important;
-  border-color: var(--reos-emerald) !important;
-}
-html body .hr-button.hr-button--primary-type:not(#__reos_never_id) .hr-button__content,
-html body .hr-button.hr-button--primary-type:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-obsidian) !important;
-  -webkit-text-fill-color: var(--reos-obsidian) !important;
-}
-
-html body .hr-button.hr-button--primary:not(.hr-button--primary-type):not(#__reos_never_id),
-html body button.hr-button.hr-button--primary:not(.hr-button--primary-type):not(#__reos_never_id) {
-  --n-color: var(--reos-emerald) !important;
-  --n-color-hover: var(--reos-emerald-bright) !important;
-  --n-color-pressed: var(--reos-emerald) !important;
-  --n-color-focus: var(--reos-emerald-bright) !important;
-  --n-text-color: var(--reos-bone) !important;
-  --n-text-color-hover: var(--reos-bone) !important;
-  --n-text-color-pressed: var(--reos-bone) !important;
-  --n-text-color-focus: var(--reos-bone) !important;
-  --n-border: 1px solid var(--reos-emerald) !important;
-  --n-border-hover: 1px solid var(--reos-emerald-bright) !important;
-  background-color: var(--reos-emerald) !important;
-  color: var(--reos-bone) !important;
-  border-color: var(--reos-emerald) !important;
-}
-html body .hr-button.hr-button--primary:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__content,
-html body .hr-button.hr-button--primary:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-}
-html body .hr-button.hr-button--primary:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__border,
-html body .hr-button.hr-button--primary:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__state-border {
-  border: 1px solid var(--reos-emerald) !important;
-  border-color: var(--reos-emerald) !important;
-}
-
-html body .hr-button.hr-button--secondary:not(#__reos_never_id),
-html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id),
-html body button.hr-button.hr-button--secondary.hr-button--icon-only:not(#__reos_never_id) {
-  --n-color: transparent !important;
-  --n-color-hover: transparent !important;
-  --n-color-pressed: transparent !important;
-  --n-color-focus: transparent !important;
-  --n-text-color: var(--reos-ash) !important;
-  --n-text-color-hover: var(--reos-emerald) !important;
-  --n-text-color-pressed: var(--reos-emerald-bright) !important;
-  --n-text-color-focus: var(--reos-emerald) !important;
-  --n-border: 1px solid var(--reos-steel) !important;
-  --n-border-hover: 1px solid var(--reos-emerald) !important;
-  --n-border-pressed: 1px solid var(--reos-emerald-bright) !important;
-  --n-border-focus: 1px solid var(--reos-emerald) !important;
-  background-color: transparent !important;
-  border: 1px solid var(--reos-steel) !important;
-  border-color: var(--reos-steel) !important;
-  color: var(--reos-ash) !important;
-}
-html body .hr-button.hr-button--secondary:not(#__reos_never_id):hover,
-html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id):hover {
-  background-color: transparent !important;
-  border-color: var(--reos-emerald) !important;
-  color: var(--reos-emerald) !important;
-}
-
-html body .hr-button.hr-button--secondary:not(#__reos_never_id) svg,
-html body .hr-button.hr-button--secondary:not(#__reos_never_id) svg path,
-html body .hr-button.hr-button--secondary:not(#__reos_never_id) i,
-html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id) svg,
-html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id) svg path,
-html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id) i {
-  color: var(--reos-ash) !important;
-  stroke: var(--reos-ash) !important;
-}
-html body .hr-button.hr-button--secondary:not(#__reos_never_id):hover svg,
-html body .hr-button.hr-button--secondary:not(#__reos_never_id):hover svg path,
-html body .hr-button.hr-button--secondary:not(#__reos_never_id):hover i,
-html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id):hover svg,
-html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id):hover svg path,
-html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id):hover i {
-  color: var(--reos-emerald) !important;
-  stroke: var(--reos-emerald) !important;
-}
-
-html body .hr-button.hr-button--secondary:not(#__reos_never_id) .hr-button__border,
-html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id) .hr-button__border {
-  border: 1px solid var(--reos-steel) !important;
-  border-color: var(--reos-steel) !important;
-}
-html body .hr-button.hr-button--secondary:not(#__reos_never_id):hover .hr-button__border,
-html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id):hover .hr-button__border {
-  border: 1px solid var(--reos-emerald) !important;
-  border-color: var(--reos-emerald) !important;
-}
-html body .hr-button.hr-button--secondary:not(#__reos_never_id) .hr-button__state-border,
-html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id) .hr-button__state-border {
-  border: 1px solid transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
 }
 
 html body .hr-radio-button.hr-content-switcher:not(#__reos_never_id),
@@ -5504,8 +5044,6 @@ html body .hr-data-table:not(#__reos_never_id) .hr-data-table-th {
   transition-duration: 0s !important;
 }
 
-html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id),
-html body button.hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id),
 html body .learn-more-button.learn-more-button.learn-more-button:not(#__reos_never_id) {
   background-color: transparent !important;
   background: transparent !important;
@@ -5528,50 +5066,6 @@ html body .learn-more-button.learn-more-button.learn-more-button:not(#__reos_nev
   padding: 0 !important;
   min-height: 0 !important;
   height: auto !important;
-}
-
-html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id):hover,
-html body button.hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id):hover {
-  background-color: transparent !important;
-  background: transparent !important;
-  border: none !important;
-  border-color: transparent !important;
-  color: var(--reos-emerald-bright) !important;
-}
-
-html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id) .hr-button__content,
-html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
-html body .learn-more-button.learn-more-button.learn-more-button:not(#__reos_never_id) .hr-button__content,
-html body .learn-more-button.learn-more-button.learn-more-button:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-blue) !important;
-  -webkit-text-fill-color: var(--reos-blue) !important;
-}
-html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id):hover .hr-button__content,
-html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id):hover .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
-html body .learn-more-button.learn-more-button.learn-more-button:not(#__reos_never_id):hover .hr-button__content,
-html body .learn-more-button.learn-more-button.learn-more-button:not(#__reos_never_id):hover .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-emerald-bright) !important;
-  -webkit-text-fill-color: var(--reos-emerald-bright) !important;
-}
-
-html body .hr-button.learn-more-button:not(#__reos_never_id) .hr-button__border,
-html body .hr-button.learn-more-button:not(#__reos_never_id) .hr-button__state-border,
-html body .hr-button.learn-more-button:not(#__reos_never_id) .hr-base-wave,
-html body .learn-more-button.learn-more-button:not(#__reos_never_id) .hr-button__border,
-html body .learn-more-button.learn-more-button:not(#__reos_never_id) .hr-button__state-border,
-html body .learn-more-button.learn-more-button:not(#__reos_never_id) .hr-base-wave {
-  display: none !important;
-  border: none !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-}
-html body .hr-button.learn-more-button:not(#__reos_never_id):hover .hr-button__border,
-html body .hr-button.learn-more-button:not(#__reos_never_id):hover .hr-button__state-border,
-html body .learn-more-button.learn-more-button:not(#__reos_never_id):hover .hr-button__border,
-html body .learn-more-button.learn-more-button:not(#__reos_never_id):hover .hr-button__state-border {
-  display: none !important;
-  border: none !important;
-  border-color: transparent !important;
 }
 
 html body .hr-radio-group:not(#__reos_never_id),
@@ -5636,18 +5130,6 @@ html body .hr-divider:not(#__reos_never_id) {
   --n-text-color: var(--reos-ash) !important;
 }
 
-html body .hr-button.hr-button--outline-type:not(#__reos_never_id),
-html body .hr-button.hr-button--outline-type.hr-button--secondary:not(#__reos_never_id) {
-  background-color: var(--reos-graphite) !important;
-  background: var(--reos-graphite) !important;
-  border-color: var(--reos-steel) !important;
-  color: var(--reos-bone) !important;
-}
-html body .hr-button.hr-button--outline-type:not(#__reos_never_id):hover {
-  background-color: var(--reos-graphite) !important;
-  border-color: var(--reos-emerald) !important;
-  color: var(--reos-emerald) !important;
-}
 html body .service-icon-container:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
   background: var(--reos-graphite) !important;
@@ -7054,17 +6536,6 @@ html body button[data-reos-ic="kebab"]:not(#__reos_never_id):active {
   box-shadow: none !important;
 }
 
-html body button[data-reos-ic="kebab"]:not(#__reos_never_id) .hr-button__border,
-html body button[data-reos-ic="kebab"]:not(#__reos_never_id) .hr-button__state-border,
-html body button[data-reos-ic="kebab"]:not(#__reos_never_id) .n-button__border,
-html body button[data-reos-ic="kebab"]:not(#__reos_never_id) .n-button__state-border,
-html body button[data-reos-ic="kebab"]:not(#__reos_never_id) .hr-base-wave,
-html body button[data-reos-ic="kebab"]:not(#__reos_never_id) .n-base-wave {
-  display: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
 html body svg path[d^="M12 9v4m0 4h.01M10.615 3.892"]:not(#__reos_never_id) {
   stroke: var(--reos-amber) !important;
   color: var(--reos-amber) !important;
@@ -7074,73 +6545,6 @@ html body svg path[d^="M12 9v4m0 4h.01M10.615 3.892"]:not(#__reos_never_id) {
 html body svg[data-reos-ic="warn"]:not(#__reos_never_id) {
   color: var(--reos-amber) !important;
   stroke: var(--reos-amber) !important;
-}
-
-html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id),
-html body button.hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id),
-html body .hr-button.ui-text-btn.ui-text-btn:not(#__reos_never_id) {
-  background-color: transparent !important;
-  background: transparent !important;
-  border: none !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-  color: var(--reos-blue) !important;
-  --n-color: transparent !important;
-  --n-color-hover: transparent !important;
-  --n-color-pressed: transparent !important;
-  --n-color-focus: transparent !important;
-  --n-border: none !important;
-  --n-border-hover: none !important;
-  --n-border-pressed: none !important;
-  --n-border-focus: none !important;
-  --n-text-color: var(--reos-blue) !important;
-  --n-text-color-hover: var(--reos-blue) !important;
-  --n-text-color-pressed: var(--reos-blue) !important;
-  --n-text-color-focus: var(--reos-blue) !important;
-  padding: 0 !important;
-  min-height: 0 !important;
-  height: auto !important;
-}
-
-html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id):hover,
-html body button.hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id):hover {
-  background-color: transparent !important;
-  background: transparent !important;
-  border: none !important;
-  color: var(--reos-blue) !important;
-}
-
-html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id) .hr-button__content,
-html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
-html body .hr-button.ui-text-btn.ui-text-btn:not(#__reos_never_id) .hr-button__content,
-html body .hr-button.ui-text-btn.ui-text-btn:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-blue) !important;
-  -webkit-text-fill-color: var(--reos-blue) !important;
-}
-html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id):hover .hr-button__content,
-html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id):hover .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-blue) !important;
-  -webkit-text-fill-color: var(--reos-blue) !important;
-}
-
-html body .hr-button.ui-text-btn:not(#__reos_never_id) svg,
-html body .hr-button.ui-text-btn:not(#__reos_never_id) svg path {
-  color: var(--reos-blue) !important;
-  stroke: var(--reos-blue) !important;
-}
-html body .hr-button.ui-text-btn:not(#__reos_never_id):hover svg,
-html body .hr-button.ui-text-btn:not(#__reos_never_id):hover svg path {
-  color: var(--reos-blue) !important;
-  stroke: var(--reos-blue) !important;
-}
-
-html body .hr-button.ui-text-btn:not(#__reos_never_id) .hr-button__border,
-html body .hr-button.ui-text-btn:not(#__reos_never_id) .hr-button__state-border,
-html body .hr-button.ui-text-btn:not(#__reos_never_id) .hr-base-wave,
-html body .hr-button.ui-text-btn:not(#__reos_never_id) .n-base-wave {
-  display: none !important;
-  border: none !important;
-  box-shadow: none !important;
 }
 
 html body .hr-tag.ui-default:not(#__reos_never_id),
@@ -7180,161 +6584,6 @@ html body .hr-card .card-footer:not(#__reos_never_id) {
   background: transparent !important;
   border-top-color: var(--reos-steel) !important;
   border-color: var(--reos-steel) !important;
-}
-
-html body .n-button.n-button--tertiary-type:not(#__reos_never_id),
-html body button.n-button.n-button--tertiary-type:not(#__reos_never_id) {
-  --n-color: transparent !important;
-  --n-color-hover: var(--reos-graphite) !important;
-  --n-color-pressed: var(--reos-graphite) !important;
-  --n-color-focus: var(--reos-graphite) !important;
-  --n-color-disabled: transparent !important;
-  --n-text-color: var(--reos-bone) !important;
-  --n-text-color-hover: var(--reos-emerald) !important;
-  --n-text-color-pressed: var(--reos-emerald-bright) !important;
-  --n-text-color-focus: var(--reos-emerald) !important;
-  --n-text-color-disabled: var(--reos-ash) !important;
-  --n-border: 1px solid var(--reos-steel) !important;
-  --n-border-hover: 1px solid var(--reos-emerald) !important;
-  --n-border-pressed: 1px solid var(--reos-emerald-bright) !important;
-  --n-border-focus: 1px solid var(--reos-emerald) !important;
-  --n-border-disabled: 1px solid var(--reos-steel) !important;
-  --n-ripple-color: var(--reos-emerald) !important;
-  background-color: var(--reos-graphite) !important;
-  color: var(--reos-bone) !important;
-  border: 1px solid var(--reos-steel) !important;
-}
-html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover {
-  background-color: var(--reos-graphite) !important;
-  color: var(--reos-emerald) !important;
-  border-color: var(--reos-emerald) !important;
-}
-
-html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-button__content,
-html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-}
-html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover .n-button__content,
-html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover .n-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-emerald) !important;
-  -webkit-text-fill-color: var(--reos-emerald) !important;
-}
-
-html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-button__border,
-html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-button__state-border {
-  border-color: var(--reos-steel) !important;
-}
-html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover .n-button__border,
-html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover .n-button__state-border {
-  border-color: var(--reos-emerald) !important;
-}
-
-html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-base-wave {
-  display: none !important;
-  background: transparent !important;
-  background-color: transparent !important;
-  opacity: 0 !important;
-}
-
-html body .n-button.n-button--tertiary-type.n-button--disabled:not(#__reos_never_id),
-html body .n-button.n-button--tertiary-type[disabled]:not(#__reos_never_id) {
-  opacity: 0.5 !important;
-  cursor: not-allowed !important;
-  background-color: var(--reos-graphite) !important;
-  color: var(--reos-ash) !important;
-  border-color: var(--reos-steel) !important;
-}
-html body .n-button.n-button--tertiary-type.n-button--disabled:not(#__reos_never_id):hover,
-html body .n-button.n-button--tertiary-type[disabled]:not(#__reos_never_id):hover {
-  background-color: var(--reos-graphite) !important;
-  color: var(--reos-ash) !important;
-  border-color: var(--reos-steel) !important;
-}
-html body .n-button.n-button--tertiary-type.n-button--disabled:not(#__reos_never_id) .n-button__content,
-html body .n-button.n-button--tertiary-type.n-button--disabled:not(#__reos_never_id) .n-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
-html body .n-button.n-button--tertiary-type[disabled]:not(#__reos_never_id) .n-button__content,
-html body .n-button.n-button--tertiary-type[disabled]:not(#__reos_never_id) .n-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-ash) !important;
-  -webkit-text-fill-color: var(--reos-ash) !important;
-}
-
-html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id),
-html body button.hr-button.hr-button--tertiary-type:not(#__reos_never_id) {
-  --n-color: transparent !important;
-  --n-color-hover: var(--reos-graphite) !important;
-  --n-color-pressed: var(--reos-graphite) !important;
-  --n-color-focus: var(--reos-graphite) !important;
-  --n-color-disabled: transparent !important;
-  --n-text-color: var(--reos-bone) !important;
-  --n-text-color-hover: var(--reos-emerald) !important;
-  --n-text-color-pressed: var(--reos-emerald-bright) !important;
-  --n-text-color-focus: var(--reos-emerald) !important;
-  --n-text-color-disabled: var(--reos-ash) !important;
-  --n-border: 1px solid var(--reos-steel) !important;
-  --n-border-hover: 1px solid var(--reos-emerald) !important;
-  --n-border-pressed: 1px solid var(--reos-emerald-bright) !important;
-  --n-border-focus: 1px solid var(--reos-emerald) !important;
-  --n-border-disabled: 1px solid var(--reos-steel) !important;
-  --n-ripple-color: var(--reos-emerald) !important;
-  background-color: var(--reos-graphite) !important;
-  color: var(--reos-bone) !important;
-  border: 1px solid var(--reos-steel) !important;
-}
-html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id):hover {
-  background-color: var(--reos-graphite) !important;
-  color: var(--reos-emerald) !important;
-  border-color: var(--reos-emerald) !important;
-}
-
-html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id) .hr-button__content,
-html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-}
-html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id):hover .hr-button__content,
-html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id):hover .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-emerald) !important;
-  -webkit-text-fill-color: var(--reos-emerald) !important;
-}
-
-html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id) .hr-button__border,
-html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id) .hr-button__state-border {
-  border-color: var(--reos-steel) !important;
-}
-html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id):hover .hr-button__border,
-html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id):hover .hr-button__state-border {
-  border-color: var(--reos-emerald) !important;
-}
-
-html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id) .hr-base-wave,
-html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id) .n-base-wave {
-  display: none !important;
-  background: transparent !important;
-  background-color: transparent !important;
-  opacity: 0 !important;
-}
-
-html body .hr-button.hr-button--tertiary-type.hr-button--disabled:not(#__reos_never_id),
-html body .hr-button.hr-button--tertiary-type[disabled]:not(#__reos_never_id) {
-  opacity: 0.5 !important;
-  cursor: not-allowed !important;
-  background-color: var(--reos-graphite) !important;
-  color: var(--reos-ash) !important;
-  border-color: var(--reos-steel) !important;
-}
-html body .hr-button.hr-button--tertiary-type.hr-button--disabled:not(#__reos_never_id):hover,
-html body .hr-button.hr-button--tertiary-type[disabled]:not(#__reos_never_id):hover {
-  background-color: var(--reos-graphite) !important;
-  color: var(--reos-ash) !important;
-  border-color: var(--reos-steel) !important;
-}
-html body .hr-button.hr-button--tertiary-type.hr-button--disabled:not(#__reos_never_id) .hr-button__content,
-html body .hr-button.hr-button--tertiary-type.hr-button--disabled:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
-html body .hr-button.hr-button--tertiary-type[disabled]:not(#__reos_never_id) .hr-button__content,
-html body .hr-button.hr-button--tertiary-type[disabled]:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-ash) !important;
-  -webkit-text-fill-color: var(--reos-ash) !important;
 }
 
 html body svg.text-purple-50:not(#__reos_never_id),
@@ -7421,8 +6670,7 @@ html body [class*="hr-alert"] .hr-select-icon-container:not(#__reos_never_id) {
 }
 
 html body .hl-checkbox-group-item:not(#__reos_never_id),
-html body button.hl-checkbox-group-item:not(#__reos_never_id),
-html body .n-button.hl-checkbox-group-item:not(#__reos_never_id) {
+html body button.hl-checkbox-group-item:not(#__reos_never_id) {
   box-shadow: none !important;
   outline: none !important;
   --n-box-shadow-focus: none !important;
@@ -7437,8 +6685,7 @@ html body .n-button.hl-checkbox-group-item:not(#__reos_never_id) {
   border-color: var(--reos-steel) !important;
 }
 html body .hl-checkbox-group-item:not(#__reos_never_id):hover,
-html body button.hl-checkbox-group-item:not(#__reos_never_id):hover,
-html body .n-button.hl-checkbox-group-item:not(#__reos_never_id):hover {
+html body button.hl-checkbox-group-item:not(#__reos_never_id):hover {
   box-shadow: none !important;
   outline: none !important;
   border-color: var(--reos-emerald) !important;
@@ -7451,14 +6698,6 @@ html body .hl-checkbox-group-item:not(#__reos_never_id):active {
   box-shadow: none !important;
   outline: none !important;
   border-color: var(--reos-emerald) !important;
-}
-
-html body .hl-checkbox-group-item:not(#__reos_never_id) .n-button__border,
-html body .hl-checkbox-group-item:not(#__reos_never_id) .n-button__state-border,
-html body .hl-checkbox-group-item:not(#__reos_never_id) .n-base-wave {
-  display: none !important;
-  border: none !important;
-  box-shadow: none !important;
 }
 
 html body .hl-checkbox-group-item:not(#__reos_never_id) p.text-gray-900,
@@ -8073,68 +7312,6 @@ html body .n-data-table-td.n-data-table-td--last-col:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
 }
 
-html body .n-data-table-td .n-button.n-button--default-type.quaternary.icon-only:not(#__reos_never_id),
-html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id) {
-  background-color: var(--reos-graphite) !important;
-  background: var(--reos-graphite) !important;
-  border: 1px solid var(--reos-steel) !important;
-  border-radius: 4px !important;
-  --n-color: transparent !important;
-  --n-color-hover: var(--reos-graphite) !important;
-  --n-color-pressed: var(--reos-graphite) !important;
-  --n-color-focus: var(--reos-graphite) !important;
-  --n-border: 1px solid var(--reos-steel) !important;
-  --n-border-hover: 1px solid var(--reos-emerald) !important;
-  --n-border-pressed: 1px solid var(--reos-emerald) !important;
-  --n-border-focus: 1px solid var(--reos-emerald) !important;
-  --n-text-color: var(--reos-blue) !important;
-  --n-text-color-hover: var(--reos-blue) !important;
-  --n-text-color-pressed: var(--reos-blue) !important;
-  --n-text-color-focus: var(--reos-blue) !important;
-}
-
-html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id):focus,
-html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id):active,
-html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id):focus-visible,
-html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id):focus-within,
-html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id):focus,
-html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id):active,
-html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id):focus-visible {
-  outline: none !important;
-  box-shadow: none !important;
-  background-color: var(--reos-graphite) !important;
-  background: var(--reos-graphite) !important;
-  border: 1px solid var(--reos-emerald) !important;
-}
-
-html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id) svg,
-html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id) svg path,
-html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id) svg,
-html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id) svg path {
-  color: var(--reos-blue) !important;
-  stroke: var(--reos-blue) !important;
-  fill: var(--reos-blue) !important;
-}
-
-html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id) :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use):not(svg):not(path):not(circle):not(g),
-html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id) :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use):not(svg):not(path):not(circle):not(g) {
-  background-color: transparent !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id) .n-base-wave,
-html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id) .n-button__border,
-html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id) .n-button__state-border,
-html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id) .n-base-wave,
-html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id) .n-button__border,
-html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id) .n-button__state-border {
-  display: none !important;
-  background: transparent !important;
-  opacity: 0 !important;
-  border: none !important;
-}
-
 html body .n-data-table:not(#__reos_never_id) .n-data-table-tr,
 html body .n-data-table:not(#__reos_never_id) .n-data-table-td,
 html body .n-data-table:not(#__reos_never_id) .n-data-table-th {
@@ -8396,9 +7573,7 @@ html body .ui-icon-container__ui-icon-success svg path:not(#__reos_never_id) {
 }
 
 html body button[aria-label*="close modal" i]:not(#__reos_never_id),
-html body button[id*="modal-close" i]:not(#__reos_never_id),
-html body .ui-modal .hr-button.icon-only.quaternary:not(#__reos_never_id),
-html body .hr-modal .hr-button.icon-only.quaternary:not(#__reos_never_id) {
+html body button[id*="modal-close" i]:not(#__reos_never_id) {
   --n-color: transparent !important;
   --n-color-hover: transparent !important;
   --n-color-pressed: transparent !important;
@@ -8419,50 +7594,16 @@ html body .hr-modal .hr-button.icon-only.quaternary:not(#__reos_never_id) {
 html body button[aria-label*="close modal" i]:not(#__reos_never_id) svg,
 html body button[aria-label*="close modal" i]:not(#__reos_never_id) svg path,
 html body button[id*="modal-close" i]:not(#__reos_never_id) svg,
-html body button[id*="modal-close" i]:not(#__reos_never_id) svg path,
-html body .ui-modal .hr-button.icon-only.quaternary:not(#__reos_never_id) svg,
-html body .ui-modal .hr-button.icon-only.quaternary:not(#__reos_never_id) svg path {
+html body button[id*="modal-close" i]:not(#__reos_never_id) svg path {
   color: var(--reos-ash) !important;
   stroke: var(--reos-ash) !important;
 }
 html body button[aria-label*="close modal" i]:hover:not(#__reos_never_id) svg,
 html body button[aria-label*="close modal" i]:hover:not(#__reos_never_id) svg path,
 html body button[id*="modal-close" i]:hover:not(#__reos_never_id) svg,
-html body button[id*="modal-close" i]:hover:not(#__reos_never_id) svg path,
-html body .ui-modal .hr-button.icon-only.quaternary:hover:not(#__reos_never_id) svg,
-html body .ui-modal .hr-button.icon-only.quaternary:hover:not(#__reos_never_id) svg path {
+html body button[id*="modal-close" i]:hover:not(#__reos_never_id) svg path {
   color: var(--reos-emerald) !important;
   stroke: var(--reos-emerald) !important;
-}
-
-html body .ui-modal .hr-button.hr-button--primary-type:not(#__reos_never_id),
-html body .hr-modal .hr-button.hr-button--primary-type:not(#__reos_never_id) {
-  --n-color: var(--reos-emerald) !important;
-  --n-color-hover: var(--reos-emerald-bright) !important;
-  --n-color-pressed: var(--reos-emerald) !important;
-  --n-color-focus: var(--reos-emerald-bright) !important;
-  --n-color-disabled: var(--reos-emerald) !important;
-  --n-ripple-color: var(--reos-emerald) !important;
-  --n-text-color: var(--reos-obsidian) !important;
-  --n-text-color-hover: var(--reos-obsidian) !important;
-  --n-text-color-pressed: var(--reos-obsidian) !important;
-  --n-text-color-focus: var(--reos-obsidian) !important;
-  --n-text-color-disabled: var(--reos-obsidian) !important;
-  --n-border: 1px solid var(--reos-emerald) !important;
-  --n-border-hover: 1px solid var(--reos-emerald-bright) !important;
-  --n-border-pressed: 1px solid var(--reos-emerald) !important;
-  --n-border-focus: 1px solid var(--reos-emerald-bright) !important;
-  --n-border-disabled: 1px solid var(--reos-emerald) !important;
-  background-color: var(--reos-emerald) !important;
-  color: var(--reos-obsidian) !important;
-  border-color: var(--reos-emerald) !important;
-}
-html body .ui-modal .hr-button.hr-button--primary-type:not(#__reos_never_id) .hr-button__content,
-html body .ui-modal .hr-button.hr-button--primary-type:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
-html body .hr-modal .hr-button.hr-button--primary-type:not(#__reos_never_id) .hr-button__content,
-html body .hr-modal .hr-button.hr-button--primary-type:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-obsidian) !important;
-  -webkit-text-fill-color: var(--reos-obsidian) !important;
 }
 
 html body .hr-modal-mask:not(#__reos_never_id),
@@ -9311,9 +8452,7 @@ html body .default-emails-menu .n-menu-item-content--selected .n-menu-item-conte
   color: var(--reos-emerald) !important;
 }
 
-html body #manage-association-btn:not(#__reos_never_id),
-html body #manage-association-btn:not(#__reos_never_id) .hr-button__content,
-html body #manage-association-btn:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
+html body #manage-association-btn:not(#__reos_never_id) {
   color: var(--reos-ash) !important;
   -webkit-text-fill-color: var(--reos-ash) !important;
 }
@@ -9323,8 +8462,6 @@ html body #manage-association-btn:not(#__reos_never_id) svg path {
   stroke: var(--reos-ash) !important;
 }
 html body #manage-association-btn:hover:not(#__reos_never_id),
-html body #manage-association-btn:hover:not(#__reos_never_id) .hr-button__content,
-html body #manage-association-btn:hover:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
 html body #manage-association-btn:hover:not(#__reos_never_id) svg,
 html body #manage-association-btn:hover:not(#__reos_never_id) svg path {
   color: var(--reos-bone) !important;
@@ -9586,39 +8723,7 @@ html body #manage-association-btn:not(#__reos_never_id):active {
   box-shadow: none !important;
   outline: none !important;
 }
-html body #manage-association-btn:not(#__reos_never_id) .hr-button__border,
-html body #manage-association-btn:not(#__reos_never_id) .hr-button__state-border {
-  display: none !important;
-  border: none !important;
-}
 
-html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id),
-html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id):hover,
-html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id):focus,
-html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id):active,
-html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id),
-html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id):hover,
-html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id):focus,
-html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id):active {
-  --n-border: none !important;
-  --n-border-hover: none !important;
-  --n-border-pressed: none !important;
-  --n-border-focus: none !important;
-  --n-border-disabled: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
-}
-html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__border,
-html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__state-border,
-html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__border,
-html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__state-border {
-  display: none !important;
-  border: none !important;
-}
-
-html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id),
-html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id),
 html body #manage-association-btn:not(#__reos_never_id) {
   --n-color: transparent !important;
   --n-color-hover: transparent !important;
@@ -9943,13 +9048,6 @@ html body .chat-bubble-internal-comment:not(#__reos_never_id) .text-gray-800,
 html body .chat-bubble-internal-comment:not(#__reos_never_id) .text-gray-900 {
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
-}
-
-html body #notes-form-container .hr-button:not(#__reos_never_id),
-html body #notes-form-container .hr-button__border:not(#__reos_never_id),
-html body #notes-form-container .hr-button__state-border:not(#__reos_never_id) {
-  border: none !important;
-  box-shadow: none !important;
 }
 
 html body .search-box:not(#__reos_never_id) input:not(#__reos_never_id) {
@@ -10489,20 +9587,10 @@ html body button#today-button:hover {
   background-color: transparent !important;
   background: transparent !important;
 }
-html body #today-button:hover .n-button__content,
 html body #today-button:hover div,
-html body button#today-button:hover .n-button__content,
 html body button#today-button:hover div {
   color: var(--reos-emerald) !important;
   -webkit-text-fill-color: var(--reos-emerald) !important;
-}
-
-html body #today-button .n-base-wave,
-html body button#today-button .n-base-wave {
-  display: none !important;
-  background-color: transparent !important;
-  background: transparent !important;
-  opacity: 0 !important;
 }
 
 html body .fc-timegrid-now-indicator-line:not(#__reos_never_id):not(#__reos_also_never),
@@ -10669,71 +9757,6 @@ html body [class*="icon-primary"]:not(#__reos_never_id) svg circle {
 html body div.reos-has-icon-primary:not(#__reos_never_id),
 html body div.reos-has-icon-primary:not(#__reos_never_id) {
   background-color: transparent !important;
-}
-
-html body .n-button.n-button--default-type:not(#__reos_never_id),
-html body button.n-button.n-button--default-type:not(#__reos_never_id) {
-  --n-color: transparent !important;
-  --n-color-hover: var(--reos-graphite) !important;
-  --n-color-pressed: var(--reos-graphite) !important;
-  --n-color-focus: var(--reos-graphite) !important;
-  --n-text-color: var(--reos-bone) !important;
-  --n-text-color-hover: var(--reos-emerald) !important;
-  --n-text-color-pressed: var(--reos-emerald-bright) !important;
-  --n-text-color-focus: var(--reos-emerald) !important;
-  --n-border: 1px solid var(--reos-cool-gray) !important;
-  --n-border-hover: 1px solid var(--reos-emerald) !important;
-  --n-border-pressed: 1px solid var(--reos-emerald-bright) !important;
-  --n-border-focus: 1px solid var(--reos-emerald) !important;
-  --n-ripple-color: var(--reos-emerald) !important;
-  background-color: var(--reos-slate) !important;
-  color: var(--reos-bone) !important;
-  border: 1px solid var(--reos-cool-gray) !important;
-}
-html body .n-button.n-button--default-type:not(#__reos_never_id):hover {
-  background-color: var(--reos-graphite) !important;
-  color: var(--reos-emerald) !important;
-  border-color: var(--reos-emerald) !important;
-}
-html body .n-button.n-button--default-type:not(#__reos_never_id):hover .n-button__content {
-  color: var(--reos-emerald) !important;
-  -webkit-text-fill-color: var(--reos-emerald) !important;
-}
-
-html body .n-button.n-button--default-type:not(#__reos_never_id):focus,
-html body .n-button.n-button--default-type:not(#__reos_never_id):active,
-html body .n-button.n-button--default-type:not(#__reos_never_id):focus-visible {
-  background-color: var(--reos-slate) !important;
-  color: var(--reos-bone) !important;
-  border-color: var(--reos-cool-gray) !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-html body .n-button.n-button--default-type:not(#__reos_never_id):focus .n-button__content,
-html body .n-button.n-button--default-type:not(#__reos_never_id):active .n-button__content,
-html body .n-button.n-button--default-type:not(#__reos_never_id):focus-visible .n-button__content {
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-}
-html body .n-button.n-button--default-type:not(#__reos_never_id) .n-button__border,
-html body .n-button.n-button--default-type:not(#__reos_never_id) .n-button__state-border {
-  border: 1px solid var(--reos-cool-gray) !important;
-}
-html body .n-button.n-button--default-type:not(#__reos_never_id):hover .n-button__border,
-html body .n-button.n-button--default-type:not(#__reos_never_id):hover .n-button__state-border {
-  border: 1px solid var(--reos-emerald) !important;
-}
-html body .n-button.n-button--default-type:not(#__reos_never_id):focus .n-button__border,
-html body .n-button.n-button--default-type:not(#__reos_never_id):focus .n-button__state-border,
-html body .n-button.n-button--default-type:not(#__reos_never_id):active .n-button__border,
-html body .n-button.n-button--default-type:not(#__reos_never_id):active .n-button__state-border {
-  border: 1px solid var(--reos-cool-gray) !important;
-}
-
-html body .n-button.n-button--default-type:not(#__reos_never_id) .n-base-wave {
-  background: transparent !important;
-  opacity: 0 !important;
-  display: none !important;
 }
 
 html body .n-checkbox,
@@ -11046,16 +10069,10 @@ html body span.contact-options-button :is(span,div,p,a,li,ul,i,em,b,strong,small
   border: none !important;
 }
 
-html body .contact-options-button .n-base-wave,
-html body .contact-options-button .hr-base-wave,
-html body .contact-options-button .n-base-wave,
 html body .contact-options-button .fc-timegrid-now-indicator-arrow,
 html body .contact-options-button .fc-timegrid-now-indicator-container,
 html body .contact-options-button .fc-timegrid-now-indicator-line,
-html body .contact-options-button .hr-progress-graph-line--indicator-outside,
-html body span.contact-options-button .n-base-wave,
-html body span.contact-options-button .hr-base-wave,
-html body span.contact-options-button .n-base-wave {
+html body .contact-options-button .hr-progress-graph-line--indicator-outside {
   display: none !important;
   background: transparent !important;
   opacity: 0 !important;
@@ -11654,9 +10671,6 @@ html body .default-avatar:not(#__reos_never_id) i {
   stroke: var(--reos-bone) !important;
 }
 
-.hr-button {
-}
-
 .hr-button--tertiary {
   background: var(--reos-slate) !important;
   color: var(--reos-emerald) !important;
@@ -12179,14 +11193,6 @@ html body #custom-fields-add-edit-field-drawer #custom-fields-add-edit-field-sav
   --n-border-focus: 1px solid var(--reos-emerald) !important;
 }
 
-html body #custom-fields-add-edit-field-drawer #custom-fields-add-edit-field-save:hover .hr-button__content-default-slot,
-html body #custom-fields-add-edit-field-drawer #custom-fields-add-edit-field-save:hover .hr-button__content,
-html body #custom-fields-add-edit-field-drawer #custom-fields-add-edit-field-save:focus .hr-button__content-default-slot,
-html body #custom-fields-add-edit-field-drawer #custom-fields-add-edit-field-save:focus .hr-button__content {
-  color: var(--reos-emerald) !important;
-  -webkit-text-fill-color: var(--reos-emerald) !important;
-}
-
 html body #custom-fields-add-edit-field-drawer .border-gray-200,
 html body #custom-fields-add-edit-field-drawer .hr-section-footer {
   border-color: var(--reos-steel) !important;
@@ -12361,14 +11367,6 @@ html body .hr-dialog .hr-button--primary {
   --n-border-focus: 1px solid var(--reos-emerald) !important;
 }
 
-html body .hr-dialog button[id$="-confirm"]:hover .hr-button__content-default-slot,
-html body .hr-dialog button[id$="-confirm"]:hover .hr-button__content,
-html body .hr-dialog .hr-button--primary:hover .hr-button__content-default-slot,
-html body .hr-dialog .hr-button--primary:hover .hr-button__content {
-  color: var(--reos-emerald) !important;
-  -webkit-text-fill-color: var(--reos-emerald) !important;
-}
-
 html body ul.dropDownList {
   background-color: #12161d !important;
 }
@@ -12399,24 +11397,8 @@ html body .askai-composer-bar--focused::before {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(15, 181, 126, 0.22) !important;
 }
 
-html body .askai-left-panel .hr-button .hr-icon-inner:not(#__reos_never_id),
-html body .askai-left-panel .hr-button .hr-icon-inner:not(#__reos_never_id) svg {
-  color: var(--reos-bone) !important;
-}
-html body .askai-left-panel .hr-button .hr-icon-inner:not(#__reos_never_id) svg[fill="none"] path {
-  stroke: var(--reos-bone) !important;
-}
-html body .askai-left-panel .hr-button .hr-icon-inner:not(#__reos_never_id) svg[fill="currentColor"] path {
-  fill: var(--reos-bone) !important;
-  stroke: none !important;
-}
-
 html body .askai-left-panel .askai-left-panel__menu-row-icon img {
   filter: brightness(0) invert(0.93) !important;
-}
-
-html body .askai-left-panel .hr-button.hr-button--default-type:not(#__reos_never_id) {
-  border-color: transparent !important;
 }
 
 html body .pz-modal .hr-icon-inner:not(#__reos_never_id),
@@ -12428,15 +11410,832 @@ html body .pz-modal .pz-modal__nav-item--active:not(#__reos_never_id):not(#__reo
   border-color: #252C36 !important; background-color: #1A1F28 !important; box-shadow: none !important; cursor: default !important;
 }
 html body .pz-modal .pz-modal__nav-item--active:not(#__reos_never_id):not(#__reos_never_id):not(#__reos_never_id) .pz-modal__nav-label,
-html body .pz-modal .pz-modal__nav-item--active:not(#__reos_never_id):not(#__reos_never_id):not(#__reos_never_id):hover .pz-modal__nav-label,
-html body .pz-modal .pz-modal__nav-item--active:not(#__reos_never_id):not(#__reos_never_id):not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
-html body .pz-modal .pz-modal__nav-item--active:not(#__reos_never_id):not(#__reos_never_id):not(#__reos_never_id):hover .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
+html body .pz-modal .pz-modal__nav-item--active:not(#__reos_never_id):not(#__reos_never_id):not(#__reos_never_id):hover .pz-modal__nav-label {
   color: #EDEEF0 !important; -webkit-text-fill-color: #EDEEF0 !important;
 }
 html body .pz-modal .pz-modal__nav-item--active:not(#__reos_never_id):not(#__reos_never_id):not(#__reos_never_id) .hr-icon-inner svg path,
 html body .pz-modal .pz-modal__nav-item--active:not(#__reos_never_id):not(#__reos_never_id):not(#__reos_never_id):hover .hr-icon-inner svg path { stroke: #EDEEF0 !important; }
+
+html body .n-button {
+  --n-color: transparent !important;
+  --n-color-hover: var(--reos-graphite) !important;
+  --n-color-pressed: var(--reos-graphite) !important;
+  --n-color-focus: var(--reos-graphite) !important;
+  --n-color-disabled: var(--reos-slate) !important;
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-hover: var(--reos-emerald) !important;
+  --n-text-color-pressed: var(--reos-emerald-bright) !important;
+  --n-text-color-focus: var(--reos-emerald) !important;
+  --n-text-color-disabled: var(--reos-cool-gray) !important;
+  --n-border: 1px solid var(--reos-cool-gray) !important;
+  --n-border-hover: 1px solid var(--reos-emerald) !important;
+  --n-border-pressed: 1px solid var(--reos-emerald-bright) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  --n-border-disabled: 1px solid var(--reos-steel) !important;
+  --n-ripple-color: var(--reos-emerald) !important;
+  background-color: var(--reos-slate) !important;
+  color: var(--reos-bone) !important;
+  border: 1px solid var(--reos-cool-gray) !important;
+}
+html body .n-button .n-base-wave {
+  background: var(--reos-emerald-glow) !important;
+}
+html body .n-button:hover {
+  background-color: var(--reos-graphite) !important;
+}
+html body .n-button--primary-type .n-button__content,
+html body .n-button--warning-type .n-button__content,
+html body .n-button--success-type .n-button__content {
+  color: var(--reos-obsidian) !important;
+  -webkit-text-fill-color: var(--reos-obsidian) !important;
+  font-weight: 600 !important;
+}
+html body .n-button--error-type .n-button__content,
+html body .n-button--info-type .n-button__content {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+  font-weight: 600 !important;
+}
+html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id),
+html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_never_id) {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  --n-color: transparent !important;
+  --n-color-hover: transparent !important;
+  --n-color-pressed: transparent !important;
+  --n-color-focus: transparent !important;
+  --n-color-disabled: transparent !important;
+  --n-border: 1px solid transparent !important;
+  --n-border-hover: 1px solid transparent !important;
+  --n-border-pressed: 1px solid transparent !important;
+  --n-border-focus: 1px solid transparent !important;
+  --n-border-disabled: 1px solid transparent !important;
+
+  --n-opacity-disabled: 1 !important;
+  opacity: 1 !important;
+}
+html body .n-button.n-button--default-type.icon-only.n-button--disabled:not(.quaternary):not(#__reos_never_id),
+html body button.n-button.icon-only.hl-text-btn.n-button--disabled:not(.quaternary):not(#__reos_never_id) {
+  opacity: 1 !important;
+}
+html body .hr-button.hr-button--default-type.hr-button--text:not(#__reos_never_id),
+html body button.hr-button.hr-button--default-type.hr-button--text:not(#__reos_never_id),
+html body .hr-button.hr-button--text.hr-button--text:not(#__reos_never_id) {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+  --n-color: transparent !important;
+  --n-color-hover: transparent !important;
+  --n-color-pressed: transparent !important;
+  --n-color-focus: transparent !important;
+  --n-border: none !important;
+  --n-border-hover: none !important;
+  --n-border-pressed: none !important;
+  --n-border-focus: none !important;
+}
+html body .hr-button.hr-button--default-type.hr-button--text:not(#__reos_never_id):hover,
+html body button.hr-button.hr-button--default-type.hr-button--text:not(#__reos_never_id):hover {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  color: var(--reos-emerald) !important;
+}
+html body .hr-button.hr-button--ghost.\\!p-0:not(#__reos_never_id),
+html body button.hr-button.hr-button--ghost.\\!p-0:not(#__reos_never_id) {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+}
+html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id) .n-button__border,
+html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id) .n-button__state-border,
+html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_never_id) .n-button__border,
+html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_never_id) .n-button__state-border,
+html body .hr-button.hr-button--default-type.hr-button--text:not(#__reos_never_id) .hr-button__border,
+html body .hr-button.hr-button--default-type.hr-button--text:not(#__reos_never_id) .hr-button__state-border,
+html body .hr-button.hr-button--text.hr-button--text:not(#__reos_never_id) .hr-button__border,
+html body .hr-button.hr-button--text.hr-button--text:not(#__reos_never_id) .hr-button__state-border,
+html body .hr-button.hr-button--ghost.\\!p-0:not(#__reos_never_id) .hr-button__border,
+html body .hr-button.hr-button--ghost.\\!p-0:not(#__reos_never_id) .hr-button__state-border {
+  border: none !important;
+  border-color: transparent !important;
+  display: none !important;
+}
+html body .hr-button.ui-active-btn:not(#__reos_never_id),
+html body button.hr-button.ui-active-btn:not(#__reos_never_id) {
+  background-color: var(--reos-graphite) !important;
+  border-color: var(--reos-emerald) !important;
+  --n-border: 1px solid var(--reos-emerald) !important;
+}
+html body .hr-button:not(#__reos_never_id),
+html body .hr-button:hover:not(#__reos_never_id),
+html body .hr-button:focus:not(#__reos_never_id),
+html body .hr-button:focus-visible:not(#__reos_never_id),
+html body .hr-button:focus-within:not(#__reos_never_id),
+html body .hr-button:active:not(#__reos_never_id) {
+  box-shadow: none !important;
+  outline: none !important;
+  outline-offset: 0 !important;
+}
+html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] svg,
+html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] svg path {
+  color: var(--reos-crimson) !important;
+  stroke: var(--reos-crimson) !important;
+}
+html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] {
+  border-color: var(--reos-steel) !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+html body .hr-button .hr-button__border:not(#__reos_never_id),
+html body button[id*="delete" i] .hr-button__border,
+html body button[id*="delete" i]:hover .hr-button__border,
+html body button[id*="remove" i] .hr-button__border,
+html body button[id*="remove" i]:hover .hr-button__border,
+html body button[aria-label*="Delete" i] .hr-button__border,
+html body button[aria-label*="Delete" i]:hover .hr-button__border,
+html body button[aria-label*="Remove" i] .hr-button__border,
+html body button[aria-label*="Remove" i]:hover .hr-button__border,
+html body button[id*="delete" i] .n-button__border,
+html body button[id*="delete" i]:hover .n-button__border,
+html body button[aria-label*="Delete" i] .n-button__border,
+html body button[aria-label*="Delete" i]:hover .n-button__border,
+html body button[data-reos-trash="true"] .hr-button__border:not(#__reos_never_id),
+html body button[data-reos-trash="true"]:hover .hr-button__border:not(#__reos_never_id),
+html body button[data-reos-trash="true"] .n-button__border:not(#__reos_never_id),
+html body button[data-reos-trash="true"]:hover .n-button__border:not(#__reos_never_id) {
+  border: 1px solid var(--reos-steel) !important;
+  border-color: var(--reos-steel) !important;
+  box-shadow: none !important;
+}
+html body .hr-button.hr-button--primary-type:not(#__reos_never_id) {
+  --n-color: var(--reos-emerald) !important;
+  --n-color-hover: var(--reos-emerald-bright) !important;
+  --n-color-pressed: var(--reos-emerald) !important;
+  --n-color-focus: var(--reos-emerald-bright) !important;
+  --n-text-color: var(--reos-obsidian) !important;
+  --n-text-color-hover: var(--reos-obsidian) !important;
+  --n-border: 1px solid var(--reos-emerald) !important;
+  background-color: var(--reos-emerald) !important;
+  color: var(--reos-obsidian) !important;
+  border-color: var(--reos-emerald) !important;
+}
+html body .hr-button.hr-button--primary:not(.hr-button--primary-type):not(#__reos_never_id),
+html body button.hr-button.hr-button--primary:not(.hr-button--primary-type):not(#__reos_never_id) {
+  --n-color: var(--reos-emerald) !important;
+  --n-color-hover: var(--reos-emerald-bright) !important;
+  --n-color-pressed: var(--reos-emerald) !important;
+  --n-color-focus: var(--reos-emerald-bright) !important;
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-hover: var(--reos-bone) !important;
+  --n-text-color-pressed: var(--reos-bone) !important;
+  --n-text-color-focus: var(--reos-bone) !important;
+  --n-border: 1px solid var(--reos-emerald) !important;
+  --n-border-hover: 1px solid var(--reos-emerald-bright) !important;
+  background-color: var(--reos-emerald) !important;
+  color: var(--reos-bone) !important;
+  border-color: var(--reos-emerald) !important;
+}
+html body .hr-button.hr-button--secondary:not(#__reos_never_id),
+html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id),
+html body button.hr-button.hr-button--secondary.hr-button--icon-only:not(#__reos_never_id) {
+  --n-color: transparent !important;
+  --n-color-hover: transparent !important;
+  --n-color-pressed: transparent !important;
+  --n-color-focus: transparent !important;
+  --n-text-color: var(--reos-ash) !important;
+  --n-text-color-hover: var(--reos-emerald) !important;
+  --n-text-color-pressed: var(--reos-emerald-bright) !important;
+  --n-text-color-focus: var(--reos-emerald) !important;
+  --n-border: 1px solid var(--reos-steel) !important;
+  --n-border-hover: 1px solid var(--reos-emerald) !important;
+  --n-border-pressed: 1px solid var(--reos-emerald-bright) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  background-color: transparent !important;
+  border: 1px solid var(--reos-steel) !important;
+  border-color: var(--reos-steel) !important;
+  color: var(--reos-ash) !important;
+}
+html body .hr-button.hr-button--secondary:not(#__reos_never_id):hover,
+html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id):hover {
+  background-color: transparent !important;
+  border-color: var(--reos-emerald) !important;
+  color: var(--reos-emerald) !important;
+}
+html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] .hr-button__border,
+html body .hr-button.hr-button--secondary:not(#__reos_never_id) .hr-button__border,
+html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id) .hr-button__border {
+  border: 1px solid var(--reos-steel) !important;
+  border-color: var(--reos-steel) !important;
+}
+html body .hr-button:hover .hr-button__border:not(#__reos_never_id),
+html body .hr-button:focus-visible .hr-button__border:not(#__reos_never_id),
+html body .hr-button.ui-active-btn .hr-button__border:not(#__reos_never_id),
+html body .hr-button.hr-button--primary:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__border,
+html body .hr-button.hr-button--primary:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__state-border,
+html body .hr-button.hr-button--secondary:not(#__reos_never_id):hover .hr-button__border,
+html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id):hover .hr-button__border {
+  border: 1px solid var(--reos-emerald) !important;
+  border-color: var(--reos-emerald) !important;
+}
+html body .hr-button .hr-button__state-border:not(#__reos_never_id),
+html body .hr-button:hover .hr-button__state-border:not(#__reos_never_id),
+html body .hr-button:focus-visible .hr-button__state-border:not(#__reos_never_id),
+html body .hr-button.ui-active-btn .hr-button__state-border:not(#__reos_never_id),
+html body .hr-button:not(#__reos_never_id):hover[data-reos-trash="true"] .hr-button__state-border,
+html body button[id*="delete" i] .hr-button__state-border,
+html body button[id*="delete" i]:hover .hr-button__state-border,
+html body button[id*="remove" i] .hr-button__state-border,
+html body button[id*="remove" i]:hover .hr-button__state-border,
+html body button[aria-label*="Delete" i] .hr-button__state-border,
+html body button[aria-label*="Delete" i]:hover .hr-button__state-border,
+html body button[aria-label*="Remove" i] .hr-button__state-border,
+html body button[aria-label*="Remove" i]:hover .hr-button__state-border,
+html body button[id*="delete" i] .n-button__state-border,
+html body button[id*="delete" i]:hover .n-button__state-border,
+html body button[aria-label*="Delete" i] .n-button__state-border,
+html body button[aria-label*="Delete" i]:hover .n-button__state-border,
+html body button[data-reos-trash="true"] .hr-button__state-border:not(#__reos_never_id),
+html body button[data-reos-trash="true"]:hover .hr-button__state-border:not(#__reos_never_id),
+html body button[data-reos-trash="true"] .n-button__state-border:not(#__reos_never_id),
+html body button[data-reos-trash="true"]:hover .n-button__state-border:not(#__reos_never_id),
+html body .hr-button.hr-button--secondary:not(#__reos_never_id) .hr-button__state-border,
+html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id) .hr-button__state-border {
+  border: 1px solid transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id),
+html body button.hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id) {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--reos-blue) !important;
+  --n-color: transparent !important;
+  --n-color-hover: transparent !important;
+  --n-color-pressed: transparent !important;
+  --n-color-focus: transparent !important;
+  --n-border: none !important;
+  --n-border-hover: none !important;
+  --n-border-pressed: none !important;
+  --n-border-focus: none !important;
+  --n-text-color: var(--reos-blue) !important;
+  --n-text-color-hover: var(--reos-emerald-bright) !important;
+  --n-text-color-pressed: var(--reos-emerald) !important;
+  --n-text-color-focus: var(--reos-emerald-bright) !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id):hover,
+html body button.hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id):hover {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  color: var(--reos-emerald-bright) !important;
+}
+html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id):hover .hr-button__content,
+html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id):hover .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .learn-more-button.learn-more-button.learn-more-button:not(#__reos_never_id):hover .hr-button__content,
+html body .learn-more-button.learn-more-button.learn-more-button:not(#__reos_never_id):hover .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
+  color: var(--reos-emerald-bright) !important;
+  -webkit-text-fill-color: var(--reos-emerald-bright) !important;
+}
+html body .hr-button.learn-more-button:not(#__reos_never_id) .hr-button__border,
+html body .hr-button.learn-more-button:not(#__reos_never_id) .hr-button__state-border,
+html body .hr-button.learn-more-button:not(#__reos_never_id) .hr-base-wave,
+html body .learn-more-button.learn-more-button:not(#__reos_never_id) .hr-button__border,
+html body .learn-more-button.learn-more-button:not(#__reos_never_id) .hr-button__state-border,
+html body .learn-more-button.learn-more-button:not(#__reos_never_id) .hr-base-wave {
+  display: none !important;
+  border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+html body .hr-button.learn-more-button:not(#__reos_never_id):hover .hr-button__border,
+html body .hr-button.learn-more-button:not(#__reos_never_id):hover .hr-button__state-border,
+html body .learn-more-button.learn-more-button:not(#__reos_never_id):hover .hr-button__border,
+html body .learn-more-button.learn-more-button:not(#__reos_never_id):hover .hr-button__state-border {
+  display: none !important;
+  border: none !important;
+  border-color: transparent !important;
+}
+html body .hr-button.hr-button--outline-type:not(#__reos_never_id),
+html body .hr-button.hr-button--outline-type.hr-button--secondary:not(#__reos_never_id) {
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+  border-color: var(--reos-steel) !important;
+  color: var(--reos-bone) !important;
+}
+html body .hr-button.hr-button--outline-type:not(#__reos_never_id):hover {
+  background-color: var(--reos-graphite) !important;
+  border-color: var(--reos-emerald) !important;
+  color: var(--reos-emerald) !important;
+}
+html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id),
+html body button.hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id),
+html body .hr-button.ui-text-btn.ui-text-btn:not(#__reos_never_id) {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--reos-blue) !important;
+  --n-color: transparent !important;
+  --n-color-hover: transparent !important;
+  --n-color-pressed: transparent !important;
+  --n-color-focus: transparent !important;
+  --n-border: none !important;
+  --n-border-hover: none !important;
+  --n-border-pressed: none !important;
+  --n-border-focus: none !important;
+  --n-text-color: var(--reos-blue) !important;
+  --n-text-color-hover: var(--reos-blue) !important;
+  --n-text-color-pressed: var(--reos-blue) !important;
+  --n-text-color-focus: var(--reos-blue) !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id):hover,
+html body button.hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id):hover {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  color: var(--reos-blue) !important;
+}
+html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id) .hr-button__content,
+html body .hr-button.hr-button--default-type.learn-more-button:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .learn-more-button.learn-more-button.learn-more-button:not(#__reos_never_id) .hr-button__content,
+html body .learn-more-button.learn-more-button.learn-more-button:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id) .hr-button__content,
+html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .hr-button.ui-text-btn.ui-text-btn:not(#__reos_never_id) .hr-button__content,
+html body .hr-button.ui-text-btn.ui-text-btn:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id):hover .hr-button__content,
+html body .hr-button.hr-button--default-type.ui-text-btn:not(#__reos_never_id):hover .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
+  color: var(--reos-blue) !important;
+  -webkit-text-fill-color: var(--reos-blue) !important;
+}
+html body .hr-button.ui-text-btn:not(#__reos_never_id) svg,
+html body .hr-button.ui-text-btn:not(#__reos_never_id) svg path,
+html body .hr-button.ui-text-btn:not(#__reos_never_id):hover svg,
+html body .hr-button.ui-text-btn:not(#__reos_never_id):hover svg path {
+  color: var(--reos-blue) !important;
+  stroke: var(--reos-blue) !important;
+}
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id),
+html body button.n-button.n-button--tertiary-type:not(#__reos_never_id),
+html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id),
+html body button.hr-button.hr-button--tertiary-type:not(#__reos_never_id) {
+  --n-color: transparent !important;
+  --n-color-hover: var(--reos-graphite) !important;
+  --n-color-pressed: var(--reos-graphite) !important;
+  --n-color-focus: var(--reos-graphite) !important;
+  --n-color-disabled: transparent !important;
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-hover: var(--reos-emerald) !important;
+  --n-text-color-pressed: var(--reos-emerald-bright) !important;
+  --n-text-color-focus: var(--reos-emerald) !important;
+  --n-text-color-disabled: var(--reos-ash) !important;
+  --n-border: 1px solid var(--reos-steel) !important;
+  --n-border-hover: 1px solid var(--reos-emerald) !important;
+  --n-border-pressed: 1px solid var(--reos-emerald-bright) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  --n-border-disabled: 1px solid var(--reos-steel) !important;
+  --n-ripple-color: var(--reos-emerald) !important;
+  background-color: var(--reos-graphite) !important;
+  color: var(--reos-bone) !important;
+  border: 1px solid var(--reos-steel) !important;
+}
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-button__border,
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-button__state-border,
+html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id) .hr-button__border,
+html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id) .hr-button__state-border {
+  border-color: var(--reos-steel) !important;
+}
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover .n-button__border,
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover .n-button__state-border,
+html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id):hover .hr-button__border,
+html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id):hover .hr-button__state-border {
+  border-color: var(--reos-emerald) !important;
+}
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-base-wave,
+html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id) .hr-base-wave,
+html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id) .n-base-wave {
+  display: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  opacity: 0 !important;
+}
+html body .n-button.n-button--tertiary-type.n-button--disabled:not(#__reos_never_id),
+html body .n-button.n-button--tertiary-type[disabled]:not(#__reos_never_id),
+html body .hr-button.hr-button--tertiary-type.hr-button--disabled:not(#__reos_never_id),
+html body .hr-button.hr-button--tertiary-type[disabled]:not(#__reos_never_id) {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  background-color: var(--reos-graphite) !important;
+  color: var(--reos-ash) !important;
+  border-color: var(--reos-steel) !important;
+}
+html body .n-button.n-button--tertiary-type.n-button--disabled:not(#__reos_never_id):hover,
+html body .n-button.n-button--tertiary-type[disabled]:not(#__reos_never_id):hover,
+html body .hr-button.hr-button--tertiary-type.hr-button--disabled:not(#__reos_never_id):hover,
+html body .hr-button.hr-button--tertiary-type[disabled]:not(#__reos_never_id):hover {
+  background-color: var(--reos-graphite) !important;
+  color: var(--reos-ash) !important;
+  border-color: var(--reos-steel) !important;
+}
+html body .n-button.hl-checkbox-group-item:not(#__reos_never_id) {
+  box-shadow: none !important;
+  outline: none !important;
+  --n-box-shadow-focus: none !important;
+  --n-box-shadow-hover: none !important;
+  --n-box-shadow-pressed: none !important;
+  --n-box-shadow-active: none !important;
+
+  --n-border: 1px solid var(--reos-steel) !important;
+  --n-border-hover: 1px solid var(--reos-emerald) !important;
+  --n-border-pressed: 1px solid var(--reos-emerald) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  border-color: var(--reos-steel) !important;
+}
+html body .n-button.hl-checkbox-group-item:not(#__reos_never_id):hover {
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: var(--reos-emerald) !important;
+  background-color: var(--reos-graphite) !important;
+}
+html body button[data-reos-ic="kebab"]:not(#__reos_never_id) .hr-button__border,
+html body button[data-reos-ic="kebab"]:not(#__reos_never_id) .hr-button__state-border,
+html body button[data-reos-ic="kebab"]:not(#__reos_never_id) .n-button__border,
+html body button[data-reos-ic="kebab"]:not(#__reos_never_id) .n-button__state-border,
+html body button[data-reos-ic="kebab"]:not(#__reos_never_id) .hr-base-wave,
+html body button[data-reos-ic="kebab"]:not(#__reos_never_id) .n-base-wave,
+html body .hr-button.ui-text-btn:not(#__reos_never_id) .hr-button__border,
+html body .hr-button.ui-text-btn:not(#__reos_never_id) .hr-button__state-border,
+html body .hr-button.ui-text-btn:not(#__reos_never_id) .hr-base-wave,
+html body .hr-button.ui-text-btn:not(#__reos_never_id) .n-base-wave,
+html body .hl-checkbox-group-item:not(#__reos_never_id) .n-button__border,
+html body .hl-checkbox-group-item:not(#__reos_never_id) .n-button__state-border,
+html body .hl-checkbox-group-item:not(#__reos_never_id) .n-base-wave {
+  display: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+html body .n-data-table-td .n-button.n-button--default-type.quaternary.icon-only:not(#__reos_never_id),
+html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id) {
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+  border: 1px solid var(--reos-steel) !important;
+  border-radius: 4px !important;
+  --n-color: transparent !important;
+  --n-color-hover: var(--reos-graphite) !important;
+  --n-color-pressed: var(--reos-graphite) !important;
+  --n-color-focus: var(--reos-graphite) !important;
+  --n-border: 1px solid var(--reos-steel) !important;
+  --n-border-hover: 1px solid var(--reos-emerald) !important;
+  --n-border-pressed: 1px solid var(--reos-emerald) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  --n-text-color: var(--reos-blue) !important;
+  --n-text-color-hover: var(--reos-blue) !important;
+  --n-text-color-pressed: var(--reos-blue) !important;
+  --n-text-color-focus: var(--reos-blue) !important;
+}
+html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id):focus,
+html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id):active,
+html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id):focus-visible,
+html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id):focus-within,
+html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id):focus,
+html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id):active,
+html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id):focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+  border: 1px solid var(--reos-emerald) !important;
+}
+html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id) svg,
+html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id) svg path,
+html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id) svg,
+html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id) svg path {
+  color: var(--reos-blue) !important;
+  stroke: var(--reos-blue) !important;
+  fill: var(--reos-blue) !important;
+}
+html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id) :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use):not(svg):not(path):not(circle):not(g),
+html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id) :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use):not(svg):not(path):not(circle):not(g) {
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id) .n-base-wave,
+html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id) .n-button__border,
+html body .n-data-table-td .n-button.quaternary.icon-only:not(#__reos_never_id) .n-button__state-border,
+html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id) .n-base-wave,
+html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id) .n-button__border,
+html body button.n-button.quaternary.icon-only[id$="-action-dropdown-trigger"]:not(#__reos_never_id) .n-button__state-border {
+  display: none !important;
+  background: transparent !important;
+  opacity: 0 !important;
+  border: none !important;
+}
+html body .ui-modal .hr-button.icon-only.quaternary:not(#__reos_never_id),
+html body .hr-modal .hr-button.icon-only.quaternary:not(#__reos_never_id) {
+  --n-color: transparent !important;
+  --n-color-hover: transparent !important;
+  --n-color-pressed: transparent !important;
+  --n-color-focus: transparent !important;
+  --n-text-color: var(--reos-ash) !important;
+  --n-text-color-hover: var(--reos-emerald) !important;
+  --n-text-color-pressed: var(--reos-emerald-bright) !important;
+  --n-text-color-focus: var(--reos-emerald) !important;
+  --n-border: 1px solid transparent !important;
+  --n-border-hover: 1px solid transparent !important;
+  --n-border-pressed: 1px solid transparent !important;
+  --n-border-focus: 1px solid transparent !important;
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id) svg,
+html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id) svg path,
+html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_never_id) svg,
+html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_never_id) svg path,
+html body .hr-button.hr-button--secondary:not(#__reos_never_id) svg,
+html body .hr-button.hr-button--secondary:not(#__reos_never_id) svg path,
+html body .hr-button.hr-button--secondary:not(#__reos_never_id) i,
+html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id) svg,
+html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id) svg path,
+html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id) i,
+html body .ui-modal .hr-button.icon-only.quaternary:not(#__reos_never_id) svg,
+html body .ui-modal .hr-button.icon-only.quaternary:not(#__reos_never_id) svg path {
+  color: var(--reos-ash) !important;
+  stroke: var(--reos-ash) !important;
+}
+html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id):hover svg,
+html body .n-button.n-button--default-type.icon-only:not(.quaternary):not(#__reos_never_id):hover svg path,
+html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_never_id):hover svg,
+html body button.n-button.icon-only.hl-text-btn:not(.quaternary):not(#__reos_never_id):hover svg path,
+html body .hr-button.hr-button--secondary:not(#__reos_never_id):hover svg,
+html body .hr-button.hr-button--secondary:not(#__reos_never_id):hover svg path,
+html body .hr-button.hr-button--secondary:not(#__reos_never_id):hover i,
+html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id):hover svg,
+html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id):hover svg path,
+html body .hr-button.hr-button--icon-only:not(.quaternary):not(#__reos_never_id):hover i,
+html body .ui-modal .hr-button.icon-only.quaternary:hover:not(#__reos_never_id) svg,
+html body .ui-modal .hr-button.icon-only.quaternary:hover:not(#__reos_never_id) svg path {
+  color: var(--reos-emerald) !important;
+  stroke: var(--reos-emerald) !important;
+}
+html body .ui-modal .hr-button.hr-button--primary-type:not(#__reos_never_id),
+html body .hr-modal .hr-button.hr-button--primary-type:not(#__reos_never_id) {
+  --n-color: var(--reos-emerald) !important;
+  --n-color-hover: var(--reos-emerald-bright) !important;
+  --n-color-pressed: var(--reos-emerald) !important;
+  --n-color-focus: var(--reos-emerald-bright) !important;
+  --n-color-disabled: var(--reos-emerald) !important;
+  --n-ripple-color: var(--reos-emerald) !important;
+  --n-text-color: var(--reos-obsidian) !important;
+  --n-text-color-hover: var(--reos-obsidian) !important;
+  --n-text-color-pressed: var(--reos-obsidian) !important;
+  --n-text-color-focus: var(--reos-obsidian) !important;
+  --n-text-color-disabled: var(--reos-obsidian) !important;
+  --n-border: 1px solid var(--reos-emerald) !important;
+  --n-border-hover: 1px solid var(--reos-emerald-bright) !important;
+  --n-border-pressed: 1px solid var(--reos-emerald) !important;
+  --n-border-focus: 1px solid var(--reos-emerald-bright) !important;
+  --n-border-disabled: 1px solid var(--reos-emerald) !important;
+  background-color: var(--reos-emerald) !important;
+  color: var(--reos-obsidian) !important;
+  border-color: var(--reos-emerald) !important;
+}
+html body .hr-button.hr-button--primary-type:not(#__reos_never_id) .hr-button__content,
+html body .hr-button.hr-button--primary-type:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .ui-modal .hr-button.hr-button--primary-type:not(#__reos_never_id) .hr-button__content,
+html body .ui-modal .hr-button.hr-button--primary-type:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .hr-modal .hr-button.hr-button--primary-type:not(#__reos_never_id) .hr-button__content,
+html body .hr-modal .hr-button.hr-button--primary-type:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
+  color: var(--reos-obsidian) !important;
+  -webkit-text-fill-color: var(--reos-obsidian) !important;
+}
+html body .n-button.n-button--tertiary-type.n-button--disabled:not(#__reos_never_id) .n-button__content,
+html body .n-button.n-button--tertiary-type.n-button--disabled:not(#__reos_never_id) .n-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .n-button.n-button--tertiary-type[disabled]:not(#__reos_never_id) .n-button__content,
+html body .n-button.n-button--tertiary-type[disabled]:not(#__reos_never_id) .n-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .hr-button.hr-button--tertiary-type.hr-button--disabled:not(#__reos_never_id) .hr-button__content,
+html body .hr-button.hr-button--tertiary-type.hr-button--disabled:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .hr-button.hr-button--tertiary-type[disabled]:not(#__reos_never_id) .hr-button__content,
+html body .hr-button.hr-button--tertiary-type[disabled]:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body #manage-association-btn:not(#__reos_never_id) .hr-button__content,
+html body #manage-association-btn:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
+  color: var(--reos-ash) !important;
+  -webkit-text-fill-color: var(--reos-ash) !important;
+}
+html body #manage-association-btn:hover:not(#__reos_never_id) .hr-button__content,
+html body #manage-association-btn:hover:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+  stroke: var(--reos-bone) !important;
+}
+html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id),
+html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id):hover,
+html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id):focus,
+html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id):active,
+html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id),
+html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id):hover,
+html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id):focus,
+html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id):active {
+  --n-border: none !important;
+  --n-border-hover: none !important;
+  --n-border-pressed: none !important;
+  --n-border-focus: none !important;
+  --n-border-disabled: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+html body #manage-association-btn:not(#__reos_never_id) .hr-button__border,
+html body #manage-association-btn:not(#__reos_never_id) .hr-button__state-border,
+html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__border,
+html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__state-border,
+html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__border,
+html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__state-border {
+  display: none !important;
+  border: none !important;
+}
+html body button.hr-button.hr-button--3xs:not(.hr-button--primary-type):not(#__reos_never_id),
+html body button.hr-button.hr-button--xs:not(.hr-button--primary-type):not(#__reos_never_id) {
+  --n-color: transparent !important;
+  --n-color-hover: transparent !important;
+  --n-color-pressed: transparent !important;
+  --n-color-focus: transparent !important;
+  --n-color-disabled: transparent !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+html body #notes-form-container .hr-button:not(#__reos_never_id),
+html body #notes-form-container .hr-button__border:not(#__reos_never_id),
+html body #notes-form-container .hr-button__state-border:not(#__reos_never_id) {
+  border: none !important;
+  box-shadow: none !important;
+}
+html body #today-button .n-base-wave,
+html body button#today-button .n-base-wave {
+  display: none !important;
+  background-color: transparent !important;
+  background: transparent !important;
+  opacity: 0 !important;
+}
+html body .hr-button.hr-button--default-type:not(#__reos_never_id),
+html body button.hr-button.hr-button--default-type:not(#__reos_never_id),
+html body .n-button.n-button--default-type:not(#__reos_never_id),
+html body button.n-button.n-button--default-type:not(#__reos_never_id) {
+  --n-color: transparent !important;
+  --n-color-hover: var(--reos-graphite) !important;
+  --n-color-pressed: var(--reos-graphite) !important;
+  --n-color-focus: var(--reos-graphite) !important;
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-hover: var(--reos-emerald) !important;
+  --n-text-color-pressed: var(--reos-emerald-bright) !important;
+  --n-text-color-focus: var(--reos-emerald) !important;
+  --n-border: 1px solid var(--reos-cool-gray) !important;
+  --n-border-hover: 1px solid var(--reos-emerald) !important;
+  --n-border-pressed: 1px solid var(--reos-emerald-bright) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  --n-ripple-color: var(--reos-emerald) !important;
+  background-color: var(--reos-slate) !important;
+  color: var(--reos-bone) !important;
+  border: 1px solid var(--reos-cool-gray) !important;
+}
+html body .hr-button.hr-button--default-type:not(#__reos_never_id):hover,
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover,
+html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id):hover,
+html body .n-button.n-button--default-type:not(#__reos_never_id):hover {
+  background-color: var(--reos-graphite) !important;
+  color: var(--reos-emerald) !important;
+  border-color: var(--reos-emerald) !important;
+}
+html body .n-button.n-button--default-type:not(#__reos_never_id):focus,
+html body .n-button.n-button--default-type:not(#__reos_never_id):active,
+html body .n-button.n-button--default-type:not(#__reos_never_id):focus-visible {
+  background-color: var(--reos-slate) !important;
+  color: var(--reos-bone) !important;
+  border-color: var(--reos-cool-gray) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+html body .n-button__content,
+html body .n-button:not(.n-button--primary-type):not(.n-button--error-type):not(.n-button--warning-type):not(.n-button--success-type):not(.n-button--info-type),
+html body .n-button:not(.n-button--primary-type):not(.n-button--error-type):not(.n-button--warning-type):not(.n-button--success-type):not(.n-button--info-type) .n-button__content,
+html body .hr-button.hr-button--default-type:not(#__reos_never_id) .hr-button__content,
+html body .hr-button.hr-button--default-type:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .hr-button.hr-button--primary:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__content,
+html body .hr-button.hr-button--primary:not(.hr-button--primary-type):not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-button__content,
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id) .n-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id) .hr-button__content,
+html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .n-button.n-button--default-type:not(#__reos_never_id):focus .n-button__content,
+html body .n-button.n-button--default-type:not(#__reos_never_id):active .n-button__content,
+html body .n-button.n-button--default-type:not(#__reos_never_id):focus-visible .n-button__content {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+html body .n-button:hover .n-button__border,
+html body .n-button:hover .n-button__state-border,
+html body .n-button:focus .n-button__border,
+html body .n-button:focus .n-button__state-border,
+html body .n-button.n-button--default-type:not(#__reos_never_id):hover .n-button__border,
+html body .n-button.n-button--default-type:not(#__reos_never_id):hover .n-button__state-border {
+  border: 1px solid var(--reos-emerald) !important;
+}
+html body .n-button .n-button__border,
+html body .n-button .n-button__state-border,
+html body .n-button.n-button--default-type:not(#__reos_never_id) .n-button__border,
+html body .n-button.n-button--default-type:not(#__reos_never_id) .n-button__state-border,
+html body .n-button.n-button--default-type:not(#__reos_never_id):focus .n-button__border,
+html body .n-button.n-button--default-type:not(#__reos_never_id):focus .n-button__state-border,
+html body .n-button.n-button--default-type:not(#__reos_never_id):active .n-button__border,
+html body .n-button.n-button--default-type:not(#__reos_never_id):active .n-button__state-border {
+  border: 1px solid var(--reos-cool-gray) !important;
+}
+html body .n-button.n-button--default-type:not(#__reos_never_id) .n-base-wave {
+  background: transparent !important;
+  opacity: 0 !important;
+  display: none !important;
+}
+html body .contact-options-button .n-base-wave,
+html body .contact-options-button .hr-base-wave,
+html body span.contact-options-button .n-base-wave,
+html body span.contact-options-button .hr-base-wave {
+  display: none !important;
+  background: transparent !important;
+  opacity: 0 !important;
+}
+.hr-button {
+}
+html body .n-button:not(.n-button--primary-type):not(.n-button--error-type):not(.n-button--warning-type):not(.n-button--success-type):not(.n-button--info-type):hover,
+html body .n-button:not(.n-button--primary-type):not(.n-button--error-type):not(.n-button--warning-type):not(.n-button--success-type):not(.n-button--info-type):hover .n-button__content,
+html body .hr-button.hr-button--default-type:not(#__reos_never_id):hover .hr-button__content,
+html body .hr-button.hr-button--default-type:not(#__reos_never_id):hover .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .hr-button.ui-active-btn:not(#__reos_never_id) .hr-button__content,
+html body .hr-button.ui-active-btn:not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover .n-button__content,
+html body .n-button.n-button--tertiary-type:not(#__reos_never_id):hover .n-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id):hover .hr-button__content,
+html body .hr-button.hr-button--tertiary-type:not(#__reos_never_id):hover .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body #today-button:hover .n-button__content,
+html body button#today-button:hover .n-button__content,
+html body .n-button.n-button--default-type:not(#__reos_never_id):hover .n-button__content,
+html body #custom-fields-add-edit-field-drawer #custom-fields-add-edit-field-save:hover .hr-button__content-default-slot,
+html body #custom-fields-add-edit-field-drawer #custom-fields-add-edit-field-save:hover .hr-button__content,
+html body #custom-fields-add-edit-field-drawer #custom-fields-add-edit-field-save:focus .hr-button__content-default-slot,
+html body #custom-fields-add-edit-field-drawer #custom-fields-add-edit-field-save:focus .hr-button__content,
+html body .hr-dialog button[id$="-confirm"]:hover .hr-button__content-default-slot,
+html body .hr-dialog button[id$="-confirm"]:hover .hr-button__content,
+html body .hr-dialog .hr-button--primary:hover .hr-button__content-default-slot,
+html body .hr-dialog .hr-button--primary:hover .hr-button__content {
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
+}
+html body .askai-left-panel .hr-button .hr-icon-inner:not(#__reos_never_id),
+html body .askai-left-panel .hr-button .hr-icon-inner:not(#__reos_never_id) svg {
+  color: var(--reos-bone) !important;
+}
+html body .askai-left-panel .hr-button .hr-icon-inner:not(#__reos_never_id) svg[fill="none"] path {
+  stroke: var(--reos-bone) !important;
+}
+html body .askai-left-panel .hr-button .hr-icon-inner:not(#__reos_never_id) svg[fill="currentColor"] path {
+  fill: var(--reos-bone) !important;
+  stroke: none !important;
+}
+html body .askai-left-panel .hr-button.hr-button--default-type:not(#__reos_never_id) {
+  border-color: transparent !important;
+}
+html body .pz-modal .pz-modal__nav-item--active:not(#__reos_never_id):not(#__reos_never_id):not(#__reos_never_id) .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .pz-modal .pz-modal__nav-item--active:not(#__reos_never_id):not(#__reos_never_id):not(#__reos_never_id):hover .hr-button__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
+  color: #EDEEF0 !important; -webkit-text-fill-color: #EDEEF0 !important;
+}
 html body .pz-modal .pz-modal__nav-item--active:not(#__reos_never_id):not(#__reos_never_id):not(#__reos_never_id) .hr-button__border,
 html body .pz-modal .pz-modal__nav-item--active:not(#__reos_never_id):not(#__reos_never_id):not(#__reos_never_id) .hr-button__state-border { border-color: #252C36 !important; }
+
 html body .pz-modal .pz-modal__manage-btn:not(#__reos_never_id) {
   background-color: #1A1F28 !important; border: 1px solid #252C36 !important; color: #EDEEF0 !important;
 }

@@ -1,4 +1,4 @@
-/* Wholesaling CRM Customizer v0.128.0 — built 2026-08-08T17:49:12.429Z */
+/* Wholesaling CRM Customizer v0.129.0 — built 2026-08-08T22:17:37.717Z */
 "use strict";var WholesalingCRMCustomizer=(()=>{var Fa="[wholesaling-crm-customizer]",n_="__WS_CRM_DEBUG",a_=()=>!!window[n_],m={info(...e){console.log(Fa,...e)},warn(...e){console.warn(Fa,...e)},error(...e){console.error(Fa,...e)},debug(...e){a_()&&console.log(Fa,"[debug]",...e)}};var i_=/\/v2\/location\/([A-Za-z0-9]+)/,s_=new Set(["8ntUQzMflUkR0YvrRgVk"]),X=()=>{let e=window.location.pathname.match(i_);return e?e[1]:null},At=()=>{let e=X();return e===null?"agency":s_.has(e)?"hq":"tenant"},Bo=(...e)=>e.includes(At()),cl=new Map,te=(e,t)=>{cl.set(e,t)},_m=e=>{if(cl.size===0)return;let t=[];cl.forEach((o,r)=>{try{o(),t.push(r)}catch(a){console.error(`[surface] disposer "${r}" threw during ${e}:`,a)}}),console.log(`[surface] disposed ${t.length} feature(s) on ${e}: ${t.join(", ")}`)},dl=null,vm=null,pl=()=>{let e=At(),t=X(),o=dl!==null&&(e!==dl||t!==vm);return dl=e,vm=t,o};var fm=()=>At()==="hq";var n={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"};var v={sm:"4px",md:"6px",lg:"10px",pill:"999px"},h={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},ml={purple:"#8B5CF6",green:n.emerald,orange:n.amber,red:n.crimson},xm=e=>{let t=e==="emerald"?n.emeraldGlow:e==="amber"?n.amberGlow:n.slate,o=e==="emerald"?n.emeraldBorder:e==="amber"?"rgba(232, 163, 60, 0.3)":n.steel,r=e==="emerald"?n.emerald:e==="amber"?n.amber:n.bone;return`
     display: inline-flex;
     align-items: center;
@@ -248,7 +248,7 @@
     font-weight: 600; box-shadow: 0 6px 18px rgba(0,0,0,.35); user-select: none;
   `,o.innerHTML=`<span style="color:${n.emeraldBright};font-weight:700;">Demo</span>
     &nbsp;Outbound texting is simulated in this demo account \u2014 the live product sends
-    from your business number.`,document.body.appendChild(o)},ci=()=>{Km(),gt(null),document.getElementById(Tl)?.remove(),document.getElementById(Cl)?.remove(),Sl(),eu(),zo&&(document.removeEventListener("click",zo,!0),zo=null)},Il=()=>{if(te("demo-mode",ci),!ge()){ci();return}Ll(),V_(),ef(),tf(),Gm()};var tu=()=>{let e=window.location.pathname;return e.includes("/contacts/detail/")?"contact-detail":e.includes("/contacts/smart-list")||e.includes("/contacts/")?"contact-list":e.includes("/opportunities/detail/")?"opportunity-detail":e.includes("/opportunities")?"opportunity-list":e.includes("/calendars/")?"calendar":e.includes("/dashboard")?"dashboard":e.includes("/conversations")?"conversations":e.includes("/settings")?"settings":"other"},ui="",Al=null,Dt="other",Ml=new Set,mi=()=>{let e=V()?.contactId??null,t=window.location.pathname!==ui,o=e!==Al;if(!t&&!o)return;ui=window.location.pathname,Al=e;let r=tu(),a=r!==Dt;Dt=r;let i={pageTypeChanged:a,pathChanged:t,contactChanged:o};m.debug("Page/context changed:",Dt,ui,"contact:",e,i);for(let s of Ml)try{s(Dt,i)}catch(l){m.error("Subscriber threw:",l)}},je=e=>(Ml.add(e),setTimeout(()=>e(Dt),0),()=>{Ml.delete(e)}),ou=()=>{Dt=tu(),ui=window.location.pathname,Al=V()?.contactId??null,m.debug("Router init, current page:",Dt);let e=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(o,r,a){e(o,r,a),mi()},history.replaceState=function(o,r,a){t(o,r,a),mi()},window.addEventListener("popstate",mi),setInterval(mi,1e3)},Rt=()=>Dt;var of=/\/opportunities\/([A-Za-z0-9]{16,24})(?:[/?]|$)/,Ol=null,ru=!1,nu=e=>{let t=e.match(of);t&&(Ol=t[1])},au=()=>{if(!ru){ru=!0;try{let e=window.fetch.bind(window);window.fetch=(o,r)=>{try{let a=typeof o=="string"?o:o instanceof URL?o.href:o.url;a&&nu(a)}catch{}return e(o,r)};let t=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(o,r,...a){try{nu(typeof r=="string"?r:r.href)}catch{}return t.call(this,o,r,...a)},m.debug("[opp-id-capture] installed")}catch(e){m.warn("[opp-id-capture] install failed",e)}}},rf=".crm-opportunities-modal .ui-modal-heading .description",Ee=()=>!Ol||!document.querySelector(rf)?null:Ol;var iu=/\/contacts\/search/,du=new Map,su=!1,lu=(e,t)=>{if(!(typeof t!="string"||!t))try{let o=JSON.parse(t);if(!o?.locationId||o.page===void 0)return;du.set(o.locationId,{url:e,bodyRaw:t,capturedAt:Date.now()})}catch{}},cu=e=>du.get(e)??null,pu=()=>{if(!su){su=!0;try{let e=XMLHttpRequest.prototype,t=e.open,o=e.send;e.open=function(...r){try{let a=String(r[1]??"");iu.test(a)&&(this.__wsSearchUrl=a)}catch{}return t.apply(this,r)},e.send=function(r){try{let a=this.__wsSearchUrl;a&&lu(a,r)}catch{}return o.call(this,r)}}catch(e){m.warn("[search-capture] XHR tap install failed",e)}try{let e=window.fetch;window.fetch=function(...t){try{let o=typeof t[0]=="string"?t[0]:t[0]instanceof URL?t[0].href:t[0]?.url||"";iu.test(o)&&lu(o,t[1]?.body)}catch{}return e.apply(this,t)}}catch(e){m.warn("[search-capture] fetch tap install failed",e)}}};var bi="0.128.0",hi="2026-08-08T17:49:12.430Z";var nf="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/analytics/compute",af="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/callstats/sweep-run",gi="ws-crm-analytics-overlay",sf=[{key:"today",label:"Today"},{key:"yesterday",label:"Yesterday"},{key:"this_week",label:"This week"},{key:"last_week",label:"Last week"},{key:"this_month",label:"This month"},{key:"last_month",label:"Last month"},{key:"last_365",label:"Last 365 days"},{key:"all_time",label:"All time"},{key:"custom",label:"Custom"}],lf=[{key:"company",label:"Company"},{key:"acq",label:"Acquisitions"},{key:"dispo",label:"Disposition"},{key:"marketing",label:"Marketing"},{key:"tc",label:"Transactions"},{key:"velocity",label:"Velocity"}],Y={open:!1,range:"this_month",customStart:"",customEnd:"",tab:"company",loading:!1,error:null,data:null,cache:new Map},ye=e=>{let t=Number(e)||0;return"$"+Math.round(t).toLocaleString("en-US")},j=e=>(Number(e)||0).toLocaleString("en-US"),Bl=e=>{let t=Number(e);return!Number.isFinite(t)||t<=0?"\u2014":new Date(t).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})},on=e=>{let t=Math.round(Number(e)||0);if(t<60)return`${t}s`;let o=Math.floor(t/3600),r=Math.round(t%3600/60);return o>0?`${o}h ${r}m`:`${r}m`},df=()=>`${Y.range}|${Y.customStart}|${Y.customEnd}`,co=async(e=!1)=>{let t=df();if(!e&&Y.cache.has(t)){Y.data=Y.cache.get(t),Y.error=null,po();return}let o=X();if(!o){Y.error="Could not resolve the sub-account id from the URL.",po();return}Y.loading=!0,Y.error=null,po();try{let r={tenant_id:o,range:Y.range,tz_offset_minutes:new Date().getTimezoneOffset()};Y.range==="custom"&&(r.start=Y.customStart,r.end=Y.customEnd);let a=await fetch(nf,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(r)}),i=await a.json();if(!i||i.ok===!1)throw new Error(i&&i.error||`HTTP ${a.status}`);Y.data=i,Y.cache.set(t,i)}catch(r){Y.error=r instanceof Error?r.message:String(r)}finally{Y.loading=!1,po()}},F=(e,t,o)=>{let r=document.createElement(e);return r.style.cssText=t,o!==void 0&&(r.innerHTML=o),r},be=e=>String(e??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"),uo=`background:${n.graphite};border:1px solid ${n.slate};border-radius:${v.lg};padding:16px 18px;min-width:0;`,nn=`font-family:${h.mono};font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:${n.ash};margin:0 0 12px;`,Le=(e,t,o)=>{let r=F("div",uo+"flex:1;min-width:150px;");return r.appendChild(F("div",nn+"margin-bottom:8px;",be(e))),r.appendChild(F("div",`font-family:${h.sans};font-size:24px;font-weight:600;color:${n.bone};line-height:1.1;`,be(t))),o&&r.appendChild(F("div",`font-family:${h.sans};font-size:11px;color:${n.coolGray};margin-top:6px;`,be(o))),r},ve=(e,t)=>{let o=F("div",uo);if(o.appendChild(F("div",nn,be(e))),!t.length)return o.appendChild(F("div",`font-size:12px;color:${n.coolGray};`,"No data in this range")),o;let r=Math.max(...t.map(a=>a.barVal),1);for(let a of t.slice(0,12)){let i=F("div","margin:0 0 10px;"),s=F("div","display:flex;justify-content:space-between;gap:12px;margin-bottom:4px;");s.appendChild(F("span",`font-size:12px;color:${n.bone};overflow:hidden;text-overflow:ellipsis;white-space:nowrap;`,be(a.label)));let l=F("span",`font-size:12px;color:${n.bone};font-weight:600;white-space:nowrap;`,be(a.primary)+(a.secondary?` <span style="color:${n.coolGray};font-weight:400;">${be(a.secondary)}</span>`:""));s.appendChild(l),i.appendChild(s);let d=F("div",`height:6px;background:${n.slate};border-radius:3px;overflow:hidden;`);d.appendChild(F("div",`height:100%;width:${Math.max(2,Math.round(a.barVal/r*100))}%;background:${n.emerald};border-radius:3px;`)),i.appendChild(d),o.appendChild(i)}return t.length>12&&o.appendChild(F("div",`font-size:11px;color:${n.coolGray};`,`+${t.length-12} more`)),o},yi=(e,t,o)=>{let r=F("div",uo+"overflow-x:auto;");if(r.appendChild(F("div",nn,be(e))),!o.length)return r.appendChild(F("div",`font-size:12px;color:${n.coolGray};`,"No data in this range")),r;let a=`text-align:left;padding:6px 10px;font-family:${h.mono};font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:${n.ash};border-bottom:1px solid ${n.slate};white-space:nowrap;`,i=`padding:7px 10px;font-size:12px;color:${n.bone};border-bottom:1px solid ${n.slate};white-space:nowrap;`,s=`<table style="border-collapse:collapse;width:100%;min-width:480px;">
+    from your business number.`,document.body.appendChild(o)},ci=()=>{Km(),gt(null),document.getElementById(Tl)?.remove(),document.getElementById(Cl)?.remove(),Sl(),eu(),zo&&(document.removeEventListener("click",zo,!0),zo=null)},Il=()=>{if(te("demo-mode",ci),!ge()){ci();return}Ll(),V_(),ef(),tf(),Gm()};var tu=()=>{let e=window.location.pathname;return e.includes("/contacts/detail/")?"contact-detail":e.includes("/contacts/smart-list")||e.includes("/contacts/")?"contact-list":e.includes("/opportunities/detail/")?"opportunity-detail":e.includes("/opportunities")?"opportunity-list":e.includes("/calendars/")?"calendar":e.includes("/dashboard")?"dashboard":e.includes("/conversations")?"conversations":e.includes("/settings")?"settings":"other"},ui="",Al=null,Dt="other",Ml=new Set,mi=()=>{let e=V()?.contactId??null,t=window.location.pathname!==ui,o=e!==Al;if(!t&&!o)return;ui=window.location.pathname,Al=e;let r=tu(),a=r!==Dt;Dt=r;let i={pageTypeChanged:a,pathChanged:t,contactChanged:o};m.debug("Page/context changed:",Dt,ui,"contact:",e,i);for(let s of Ml)try{s(Dt,i)}catch(l){m.error("Subscriber threw:",l)}},je=e=>(Ml.add(e),setTimeout(()=>e(Dt),0),()=>{Ml.delete(e)}),ou=()=>{Dt=tu(),ui=window.location.pathname,Al=V()?.contactId??null,m.debug("Router init, current page:",Dt);let e=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(o,r,a){e(o,r,a),mi()},history.replaceState=function(o,r,a){t(o,r,a),mi()},window.addEventListener("popstate",mi),setInterval(mi,1e3)},Rt=()=>Dt;var of=/\/opportunities\/([A-Za-z0-9]{16,24})(?:[/?]|$)/,Ol=null,ru=!1,nu=e=>{let t=e.match(of);t&&(Ol=t[1])},au=()=>{if(!ru){ru=!0;try{let e=window.fetch.bind(window);window.fetch=(o,r)=>{try{let a=typeof o=="string"?o:o instanceof URL?o.href:o.url;a&&nu(a)}catch{}return e(o,r)};let t=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(o,r,...a){try{nu(typeof r=="string"?r:r.href)}catch{}return t.call(this,o,r,...a)},m.debug("[opp-id-capture] installed")}catch(e){m.warn("[opp-id-capture] install failed",e)}}},rf=".crm-opportunities-modal .ui-modal-heading .description",Ee=()=>!Ol||!document.querySelector(rf)?null:Ol;var iu=/\/contacts\/search/,du=new Map,su=!1,lu=(e,t)=>{if(!(typeof t!="string"||!t))try{let o=JSON.parse(t);if(!o?.locationId||o.page===void 0)return;du.set(o.locationId,{url:e,bodyRaw:t,capturedAt:Date.now()})}catch{}},cu=e=>du.get(e)??null,pu=()=>{if(!su){su=!0;try{let e=XMLHttpRequest.prototype,t=e.open,o=e.send;e.open=function(...r){try{let a=String(r[1]??"");iu.test(a)&&(this.__wsSearchUrl=a)}catch{}return t.apply(this,r)},e.send=function(r){try{let a=this.__wsSearchUrl;a&&lu(a,r)}catch{}return o.call(this,r)}}catch(e){m.warn("[search-capture] XHR tap install failed",e)}try{let e=window.fetch;window.fetch=function(...t){try{let o=typeof t[0]=="string"?t[0]:t[0]instanceof URL?t[0].href:t[0]?.url||"";iu.test(o)&&lu(o,t[1]?.body)}catch{}return e.apply(this,t)}}catch(e){m.warn("[search-capture] fetch tap install failed",e)}}};var bi="0.129.0",hi="2026-08-08T22:17:37.718Z";var nf="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/analytics/compute",af="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/callstats/sweep-run",gi="ws-crm-analytics-overlay",sf=[{key:"today",label:"Today"},{key:"yesterday",label:"Yesterday"},{key:"this_week",label:"This week"},{key:"last_week",label:"Last week"},{key:"this_month",label:"This month"},{key:"last_month",label:"Last month"},{key:"last_365",label:"Last 365 days"},{key:"all_time",label:"All time"},{key:"custom",label:"Custom"}],lf=[{key:"company",label:"Company"},{key:"acq",label:"Acquisitions"},{key:"dispo",label:"Disposition"},{key:"marketing",label:"Marketing"},{key:"tc",label:"Transactions"},{key:"velocity",label:"Velocity"}],Y={open:!1,range:"this_month",customStart:"",customEnd:"",tab:"company",loading:!1,error:null,data:null,cache:new Map},ye=e=>{let t=Number(e)||0;return"$"+Math.round(t).toLocaleString("en-US")},j=e=>(Number(e)||0).toLocaleString("en-US"),Bl=e=>{let t=Number(e);return!Number.isFinite(t)||t<=0?"\u2014":new Date(t).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})},on=e=>{let t=Math.round(Number(e)||0);if(t<60)return`${t}s`;let o=Math.floor(t/3600),r=Math.round(t%3600/60);return o>0?`${o}h ${r}m`:`${r}m`},df=()=>`${Y.range}|${Y.customStart}|${Y.customEnd}`,co=async(e=!1)=>{let t=df();if(!e&&Y.cache.has(t)){Y.data=Y.cache.get(t),Y.error=null,po();return}let o=X();if(!o){Y.error="Could not resolve the sub-account id from the URL.",po();return}Y.loading=!0,Y.error=null,po();try{let r={tenant_id:o,range:Y.range,tz_offset_minutes:new Date().getTimezoneOffset()};Y.range==="custom"&&(r.start=Y.customStart,r.end=Y.customEnd);let a=await fetch(nf,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(r)}),i=await a.json();if(!i||i.ok===!1)throw new Error(i&&i.error||`HTTP ${a.status}`);Y.data=i,Y.cache.set(t,i)}catch(r){Y.error=r instanceof Error?r.message:String(r)}finally{Y.loading=!1,po()}},F=(e,t,o)=>{let r=document.createElement(e);return r.style.cssText=t,o!==void 0&&(r.innerHTML=o),r},be=e=>String(e??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"),uo=`background:${n.graphite};border:1px solid ${n.slate};border-radius:${v.lg};padding:16px 18px;min-width:0;`,nn=`font-family:${h.mono};font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:${n.ash};margin:0 0 12px;`,Le=(e,t,o)=>{let r=F("div",uo+"flex:1;min-width:150px;");return r.appendChild(F("div",nn+"margin-bottom:8px;",be(e))),r.appendChild(F("div",`font-family:${h.sans};font-size:24px;font-weight:600;color:${n.bone};line-height:1.1;`,be(t))),o&&r.appendChild(F("div",`font-family:${h.sans};font-size:11px;color:${n.coolGray};margin-top:6px;`,be(o))),r},ve=(e,t)=>{let o=F("div",uo);if(o.appendChild(F("div",nn,be(e))),!t.length)return o.appendChild(F("div",`font-size:12px;color:${n.coolGray};`,"No data in this range")),o;let r=Math.max(...t.map(a=>a.barVal),1);for(let a of t.slice(0,12)){let i=F("div","margin:0 0 10px;"),s=F("div","display:flex;justify-content:space-between;gap:12px;margin-bottom:4px;");s.appendChild(F("span",`font-size:12px;color:${n.bone};overflow:hidden;text-overflow:ellipsis;white-space:nowrap;`,be(a.label)));let l=F("span",`font-size:12px;color:${n.bone};font-weight:600;white-space:nowrap;`,be(a.primary)+(a.secondary?` <span style="color:${n.coolGray};font-weight:400;">${be(a.secondary)}</span>`:""));s.appendChild(l),i.appendChild(s);let d=F("div",`height:6px;background:${n.slate};border-radius:3px;overflow:hidden;`);d.appendChild(F("div",`height:100%;width:${Math.max(2,Math.round(a.barVal/r*100))}%;background:${n.emerald};border-radius:3px;`)),i.appendChild(d),o.appendChild(i)}return t.length>12&&o.appendChild(F("div",`font-size:11px;color:${n.coolGray};`,`+${t.length-12} more`)),o},yi=(e,t,o)=>{let r=F("div",uo+"overflow-x:auto;");if(r.appendChild(F("div",nn,be(e))),!o.length)return r.appendChild(F("div",`font-size:12px;color:${n.coolGray};`,"No data in this range")),r;let a=`text-align:left;padding:6px 10px;font-family:${h.mono};font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:${n.ash};border-bottom:1px solid ${n.slate};white-space:nowrap;`,i=`padding:7px 10px;font-size:12px;color:${n.bone};border-bottom:1px solid ${n.slate};white-space:nowrap;`,s=`<table style="border-collapse:collapse;width:100%;min-width:480px;">
     <thead><tr>${t.map(l=>`<th style="${a}">${be(l)}</th>`).join("")}</tr></thead>
     <tbody>${o.map(l=>`<tr>${l.map(d=>`<td style="${i}">${be(d)}</td>`).join("")}</tr>`).join("")}</tbody>
   </table>`;return r.appendChild(F("div","",s)),r},ue=(e,t)=>{let o=F("div",`display:grid;grid-template-columns:${e};gap:14px;margin-bottom:14px;`);for(let r of t)o.appendChild(r);return o},rn=e=>{let t=F("div","display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;");for(let o of e)t.appendChild(o);return t},_t=e=>(e||[]).map(t=>({label:t.label,primary:j(t.count),barVal:t.count})),cf=e=>(e||[]).map(t=>({label:t.label,primary:ye(t.sum),secondary:`\xB7 ${j(t.count)} deal${t.count===1?"":"s"}`,barVal:t.sum})),bu=(e,t)=>{let o=e.calls||{};if(!o.available)return[F("div",`${uo}border-left:3px solid ${n.amber};border-radius:0 ${v.lg} ${v.lg} 0;font-size:12px;color:${n.ash};`,`<strong style="color:${n.bone};">Call metrics unavailable.</strong> ${be(o.note||"CallStats.Sweep runs every 30 minutes \u2014 check back shortly.")}`)];let r=t==="acq"?"Seller":"Buyer",a=o[t]||[],i=a.filter(c=>c.dials>0||c.connects>0||c.inbound>0).map(c=>({label:c.label,primary:`${j(c.dials)} dials`,secondary:`\xB7 ${j(c.connects)} connected \xB7 ${j(c.inbound)} inbound`,barVal:c.dials})),s=a.filter(c=>c.talk_seconds>0).map(c=>({label:c.label,primary:on(c.talk_seconds),secondary:c.talk_per_contract_seconds!=null?`\xB7 ${on(c.talk_per_contract_seconds)} per contract`:"",barVal:c.talk_seconds})),l=[ve(`${r} calls per rep (dials)`,i),ve(`${r} talk time per rep`,s)],d=(o.other||[]).filter(c=>c.dials>0||c.talk_seconds>0);return d.length&&l.push(ve("Unclassified calls per rep (contact is neither seller nor buyer)",d.map(c=>({label:c.label,primary:`${j(c.dials)} dials`,secondary:`\xB7 ${on(c.talk_seconds)} talk`,barVal:c.dials})))),l},pf=e=>e===0?n.coolGray:e>=80?n.emerald:e>=60?n.amber:n.crimson,mf=e=>e===0?n.steel:e>=80?n.emeraldBorder:e>=60?"rgba(232, 163, 60, 0.3)":"rgba(212, 63, 74, 0.3)",uf=(e,t)=>`color:${e} !important;-webkit-text-fill-color:${e} !important;${t}`,bf=e=>{let t=typeof e=="string"?e:"";if(!t)return"not viewed yet";let o=new Date(t.length<=10?`${t}T00:00:00`:t);if(Number.isNaN(o.getTime()))return"not viewed yet";let r=i=>new Date(i.getFullYear(),i.getMonth(),i.getDate()).getTime(),a=Math.round((r(new Date)-r(o))/864e5);return a<=0?"last today":a===1?"last yesterday":`${a} days ago`},hf=(e,t)=>{let o=Math.round(Number(e.deal_heat)||0),r=pf(o),a=mf(o),i=e.street&&String(e.street).trim()||"(no address)";return`
@@ -3516,9 +3516,6 @@ html body {
 .monetary,
 .custom-inline-phone,
 .fa-phone,
-.hr-input-phone,
-.hr-input-phone-dropdown__chevron,
-.hr-input-phone-dropdown__country,
 .phone-call-icon,
 .phone-icon,
 .phone-number-input,
@@ -3937,12 +3934,6 @@ input:not([type="checkbox"]):not([type="radio"]),
 textarea,
 select,
 .form-control,
-.hr-input,
-.hr-input-wrapper,
-.hr-input__input,
-.hr-input__input-el,
-.hr-textarea,
-.hr-textarea-wrapper,
 .hr-select,
 .hr-select-wrapper,
 [class*="hr-input"] input,
@@ -3953,81 +3944,34 @@ select,
   border-radius: 4px !important;
 }
 
-html body .hr-input:not(#__reos_never_id),
-html body .hr-input-wrapper:not(#__reos_never_id),
-html body .hr-input__input:not(#__reos_never_id),
-html body .hr-textarea:not(#__reos_never_id),
-html body .hr-textarea-wrapper:not(#__reos_never_id),
 html body .hr-select:not(#__reos_never_id),
-html body .hr-select-wrapper:not(#__reos_never_id),
-html body .hr-input-wrapper:not(#__reos_never_id),
-html body .hr-input__input:not(#__reos_never_id) {
+html body .hr-select-wrapper:not(#__reos_never_id) {
   border: none !important;
   border-color: transparent !important;
   box-shadow: none !important;
   background-color: var(--reos-slate) !important;
 }
 
-html body .hr-input__state-border:not(#__reos_never_id),
-html body .hr-input .hr-input__state-border:not(#__reos_never_id),
-html body .hr-input-wrapper .hr-input__state-border:not(#__reos_never_id) {
-  border: 1px solid var(--reos-steel) !important;
-  border-color: var(--reos-steel) !important;
-  box-shadow: none !important;
-  border-radius: 4px !important;
-}
-
-html body .hr-input:not(#__reos_never_id):hover .hr-input__state-border,
-html body .hr-input-wrapper:not(#__reos_never_id):hover .hr-input__state-border,
-html body .hr-input__input:not(#__reos_never_id):hover .hr-input__state-border,
-html body .hr-input__input:not(#__reos_never_id):hover ~ .hr-input__state-border,
-html body .hr-input__state-border:not(#__reos_never_id) {
-  border-color: var(--reos-steel) !important;
-}
-
-html body .hr-input:not(#__reos_never_id),
-html body .hr-input-wrapper:not(#__reos_never_id),
-html body .hr-input__input:not(#__reos_never_id),
-html body .hr-input:not(#__reos_never_id) {
-  --n-border: 1px solid var(--reos-steel) !important;
-  --n-border-hover: 1px solid var(--reos-steel) !important;
-  --n-border-focus: 1px solid var(--reos-emerald) !important;
-  --n-border-disabled: 1px solid var(--reos-steel) !important;
-  --n-box-shadow: none !important;
-  --n-box-shadow-focus: none !important;
-  --n-box-shadow-focus-warning: none !important;
-  --n-box-shadow-focus-error: none !important;
-}
-
-html body input.hr-input__input-el:not(#__reos_never_id),
-html body .hr-input__input > input:not(#__reos_never_id),
 html body [class*="hr-input"] > input:not(#__reos_never_id) {
   border: none !important;
   border-color: transparent !important;
   outline: none !important;
   background: transparent !important;
 }
-.hr-input__input-el,
-.hr-textarea textarea,
 [class*="hr-input"] input {
   color: var(--reos-bone) !important;
   background: transparent !important;
 }
-input:focus:not([type="checkbox"]):not([type="radio"]):not(.n-base-selection-input):not(.n-input__input-el),
 textarea:focus,
 select:focus,
-.form-control:focus,
-.hr-input--focus,
-.hr-input--focused {
+.form-control:focus {
   border-color: var(--reos-emerald) !important;
   box-shadow: 0 0 0 1px var(--reos-emerald) !important;
   outline: none !important;
 }
 
 html body .n-base-selection-input:focus,
-html body .n-base-selection-input:focus-visible,
-html body .n-input__input-el:focus,
-html body .n-input__input-el:focus-visible {
+html body .n-base-selection-input:focus-visible {
   border-color: var(--reos-steel) !important;
   box-shadow: none !important;
   outline: none !important;
@@ -4048,8 +3992,7 @@ html body input[type="checkbox"]:checked:focus-visible {
   outline: none !important;
 }
 input::placeholder,
-textarea::placeholder,
-.hr-input__placeholder {
+textarea::placeholder {
   color: var(--reos-cool-gray) !important;
 }
 
@@ -4421,17 +4364,12 @@ html body .n-tag.hr-tag--primary:not(#__reos_never_id) .n-tag__content :is(span,
   stroke: var(--reos-blue) !important;
 }
 
-html body .n-input,
-html body .n-input-wrapper,
 html body .n-base-selection,
 html body .n-base-selection-input {
   background-color: var(--reos-slate) !important;
   color: var(--reos-bone) !important;
   border-color: var(--reos-cool-gray) !important;
 }
-html body .n-input__input-el,
-html body .n-input__textarea-el,
-html body .n-input__placeholder,
 html body .n-base-selection-input__content,
 html body .n-base-selection-label,
 html body .n-base-selection-placeholder {
@@ -4439,7 +4377,6 @@ html body .n-base-selection-placeholder {
   -webkit-text-fill-color: var(--reos-bone) !important;
   background-color: transparent !important;
 }
-html body .n-input__placeholder,
 html body .n-base-selection-placeholder {
   color: var(--reos-ash) !important;
   -webkit-text-fill-color: var(--reos-ash) !important;
@@ -4450,7 +4387,6 @@ html body .hr-base-selection-placeholder__inner:not(#__reos_never_id) {
   color: var(--reos-ash) !important;
   -webkit-text-fill-color: var(--reos-ash) !important;
 }
-html body .n-input--focus,
 html body .n-base-selection--focus {
   border-color: var(--reos-emerald) !important;
 }
@@ -4890,42 +4826,11 @@ html body .hr-breadcrumb-item.hr-breadcrumb-item--clickable:not(#__reos_never_id
   stroke: var(--reos-emerald) !important;
 }
 
-html body .hr-input:not(#__reos_never_id) .hr-input__border {
-  border: 1px solid transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-}
-
-html body .hr-input__placeholder:not(#__reos_never_id),
-html body .hr-input__placeholder:not(#__reos_never_id) span,
-html body .n-input__placeholder:not(#__reos_never_id),
-html body .n-input__placeholder:not(#__reos_never_id) span {
-  color: var(--reos-cool-gray) !important;
-  -webkit-text-fill-color: var(--reos-cool-gray) !important;
-}
-
-html body input.hr-input__input-el::placeholder,
-html body input.n-input__input-el::placeholder {
-  opacity: 0 !important;
-}
-
 html body .is-editor-empty:not(#__reos_never_id)::before,
 html body p.is-editor-empty:not(#__reos_never_id)::before,
 html body [data-placeholder]:not(#__reos_never_id)::before {
   color: var(--reos-cool-gray) !important;
   -webkit-text-fill-color: var(--reos-cool-gray) !important;
-}
-html body .hr-input.hr-input--focus:not(#__reos_never_id) .hr-input__state-border,
-html body .hr-input:not(#__reos_never_id):focus-within .hr-input__state-border {
-  box-shadow: none !important;
-  border: 1px solid var(--reos-emerald) !important;
-}
-html body input.hr-input__input-el:focus,
-html body input.hr-input__input-el:focus-visible {
-  border-color: var(--reos-steel) !important;
-  box-shadow: none !important;
-  outline: none !important;
-  caret-color: var(--reos-bone) !important;
 }
 
 html body h2:not(#__reos_never_id) {
@@ -5223,26 +5128,6 @@ html body .user-select-card:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
   background: var(--reos-graphite) !important;
   border-color: var(--reos-steel) !important;
-}
-html body .hr-input-group-label__border:not(#__reos_never_id),
-html body .hr-input-group-label__border.hr-input-group-label__border:not(#__reos_never_id) {
-  border: none !important;
-  border-color: transparent !important;
-  background-color: transparent !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  display: none !important;
-}
-
-html body .hr-input-group-label:not(#__reos_never_id),
-html body .hr-input-group-label.ui-input-group-label:not(#__reos_never_id) {
-  --n-group-label-color: var(--reos-graphite) !important;
-  --n-group-label-border: 1px solid var(--reos-steel) !important;
-  --n-group-label-text-color: var(--reos-ash) !important;
-  background-color: var(--reos-graphite) !important;
-  background: var(--reos-graphite) !important;
-  border-color: var(--reos-steel) !important;
-  color: var(--reos-ash) !important;
 }
 
 html body .hr-base-selection:not(#__reos_never_id) {
@@ -5779,42 +5664,6 @@ html body .border-gray-50:not(#__reos_never_id) {
 
 html body .border:not(#__reos_never_id) {
   border-color: var(--reos-steel) !important;
-}
-
-html body .hr-input__inline-text:not(#__reos_never_id),
-html body .hr-input__inline-text.has-value:not(#__reos_never_id) {
-  --n-text-color: var(--reos-bone) !important;
-  --n-text-color-hover: var(--reos-bone) !important;
-  --n-text-color-disabled: var(--reos-cool-gray) !important;
-  --n-placeholder-color: var(--reos-ash) !important;
-  --n-placeholder-color-disabled: var(--reos-cool-gray) !important;
-  --n-background-color: transparent !important;
-  --n-color-disabled: transparent !important;
-  --n-background-color-disabled: transparent !important;
-  --n-background-color-hover-disabled: transparent !important;
-  --n-icon-color: var(--reos-ash) !important;
-  --n-icon-color-disabled: var(--reos-cool-gray) !important;
-  --n-border: none !important;
-  --n-border-hover: 1px solid var(--reos-steel) !important;
-  --n-border-focus: 1px solid var(--reos-emerald) !important;
-  --n-caret-color: var(--reos-emerald) !important;
-  color: var(--reos-bone) !important;
-  background-color: transparent !important;
-}
-html body .hr-input__inline-text:not(#__reos_never_id):hover {
-  background-color: var(--reos-slate) !important;
-}
-
-html body .hr-input__text-content:not(#__reos_never_id),
-html body .hr-input__text-content--active:not(#__reos_never_id),
-html body .n-p.hr-input__text-content--active:not(#__reos_never_id),
-html body .hr-input__text-content:not(#__reos_never_id) p,
-html body .hr-input__text-content--active:not(#__reos_never_id) p {
-  --n-text-color: var(--reos-bone) !important;
-  --n-text-color-hover: var(--reos-bone) !important;
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-  background-color: transparent !important;
 }
 
 html body .keypad:not(#__reos_never_id),
@@ -7343,20 +7192,11 @@ html body .n-form-item-blank.n-form-item-blank.n-form-item-blank--error:not(#__r
   border-width: 0 !important;
   border-color: transparent !important;
 }
-html body input.n-input__input-el.n-input__input-el:not(#__reos_never_id),
 html body input.n-base-selection-input.n-base-selection-input:not(#__reos_never_id) {
   border: none !important;
   border-width: 0 !important;
   border-color: transparent !important;
   caret-color: var(--reos-bone) !important;
-}
-html body .n-input:not(#__reos_never_id),
-html body .n-input .n-input-wrapper:not(#__reos_never_id),
-html body .n-input .n-input__input:not(#__reos_never_id) {
-  caret-color: var(--reos-bone) !important;
-  --n-caret-color: var(--reos-bone) !important;
-  --n-caret-color-warning: var(--reos-bone) !important;
-  --n-caret-color-error: var(--reos-bone) !important;
 }
 
 html body input.hr-base-selection-input:not(#__reos_never_id),
@@ -7387,36 +7227,7 @@ html body .n-base-selection.n-base-selection--active .n-base-selection__state-bo
   box-shadow: none !important;
 }
 
-html body .n-input.n-input--focus:not(#__reos_never_id) .n-input__state-border,
-html body .hl-input-text.hl-input-text.n-input--focus:not(#__reos_never_id) .n-input__state-border,
-html body .n-input.n-input.n-input--focus:not(#__reos_never_id) .n-input__state-border {
-  box-shadow: none !important;
-  border: 1px solid var(--reos-emerald) !important;
-  border-color: var(--reos-emerald) !important;
-}
-html body .n-input.n-input:not(#__reos_never_id) .n-input__border,
-html body .hl-input-text.hl-input-text:not(#__reos_never_id) .n-input__border {
-
-  border: 1px solid transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-}
-html body .n-input.n-input:not(#__reos_never_id):hover .n-input__state-border,
-html body .hl-input-text.hl-input-text:not(#__reos_never_id):hover .n-input__state-border {
-  box-shadow: none !important;
-  border: 1px solid var(--reos-emerald) !important;
-}
-
-html body .n-input .n-input__border,
-html body .n-input .n-input__state-border,
-html body .hl-input-text .n-input__border,
-html body .hl-input-text .n-input__state-border {
-  transition: none !important;
-  transition-duration: 0s !important;
-}
-
 html body .n-base-suffix__arrow,
-html body .n-input__suffix,
 html body .n-base-selection .n-base-suffix {
   color: var(--reos-ash) !important;
   fill: var(--reos-ash) !important;
@@ -8286,7 +8097,6 @@ html body .hr-data-table-wrapper .hr-header-lite-right,
 html body .hr-data-table-wrapper .hr-header-lite-icon-item,
 html body .hr-data-table-wrapper .hr-space,
 html body .hr-data-table-wrapper .hr-space-inner,
-html body .hr-data-table-wrapper .hr-input-container,
 html body .hr-data-table-wrapper .hr-drawer-header-item,
 html body .hr-data-table-wrapper .hr-table-header-dialog-popup,
 html body [class*="hr-data-table-wrapper"] .hr-table-header-container,
@@ -8294,8 +8104,7 @@ html body [class*="hr-data-table-wrapper"] .hr-header-lite-container,
 html body [class*="hr-data-table-wrapper"] .hr-header-lite-content,
 html body [class*="hr-data-table-wrapper"] .hr-header-lite-left,
 html body [class*="hr-data-table-wrapper"] .hr-header-lite-right,
-html body [class*="hr-data-table-wrapper"] .hr-header-lite-icon-item,
-html body [class*="hr-data-table-wrapper"] .hr-input-container {
+html body [class*="hr-data-table-wrapper"] .hr-header-lite-icon-item {
   background-color: transparent !important;
   background: transparent !important;
   color: var(--reos-bone) !important;
@@ -8513,7 +8322,6 @@ html body .crm-opportunities-modal:not(#__reos_never_id) .hr-form-item-label__te
 }
 
 html body .crm-opportunities-modal:not(#__reos_never_id) .hr-base-selection,
-html body .crm-opportunities-modal:not(#__reos_never_id) .hr-input,
 html body .crm-opportunities-modal:not(#__reos_never_id) .hr-date-picker {
   --n-color: var(--reos-slate) !important;
   --n-color-active: var(--reos-slate) !important;
@@ -11033,8 +10841,6 @@ html body #custom-fields-add-edit-field-drawer .hr-form-item-label__text :is(spa
 }
 
 html body #custom-fields-add-edit-field-drawer .hr-base-selection,
-html body #custom-fields-add-edit-field-drawer .hr-input,
-html body #custom-fields-add-edit-field-drawer .hr-input-container,
 html body #custom-fields-add-edit-field-drawer .hr-select {
   --n-color: var(--reos-slate) !important;
   --n-color-active: var(--reos-slate) !important;
@@ -11055,39 +10861,11 @@ html body #custom-fields-add-edit-field-drawer .hr-select {
   background-color: var(--reos-slate) !important;
 }
 
-html body #custom-fields-add-edit-field-drawer .hr-input__inline-text,
-html body #custom-fields-add-edit-field-drawer .hr-input__inline-text :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
-html body #custom-fields-add-edit-field-drawer .hr-input__text-content,
-html body #custom-fields-add-edit-field-drawer .hr-input__text-content--active,
-html body #custom-fields-add-edit-field-drawer .hr-input__inline-text .hr-p {
-  --n-text-color: var(--reos-bone) !important;
-  --n-text-color-hover: var(--reos-bone) !important;
-  --n-text-color-disabled: var(--reos-ash) !important;
-  --n-placeholder-color: var(--reos-ash) !important;
-  --n-color: transparent !important;
-  --n-color-focus: transparent !important;
-  --n-background-color: transparent !important;
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-}
-
 html body #custom-fields-add-edit-field-drawer table p.hr-p,
 html body #custom-fields-add-edit-field-drawer .hr-data-table__body p,
 html body #custom-fields-add-edit-field-drawer .hr-data-table__body span {
   color: var(--reos-bone) !important;
   -webkit-text-fill-color: var(--reos-bone) !important;
-}
-
-html body #custom-fields-add-edit-field-drawer .hr-input__input-el,
-html body #custom-fields-add-edit-field-drawer .hr-input__textarea-el {
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-  background-color: var(--reos-slate) !important;
-}
-html body #custom-fields-add-edit-field-drawer .hr-input__input,
-html body #custom-fields-add-edit-field-drawer .hr-input-wrapper {
-  background-color: var(--reos-slate) !important;
-  border-color: var(--reos-steel) !important;
 }
 
 html body #custom-fields-add-edit-field-drawer .hr-data-table__body .hr-icon-inner {
@@ -11204,10 +10982,6 @@ html body #custom-fields-add-edit-field-drawer .hr-form-item-label__asterisk {
   color: var(--reos-crimson) !important;
 }
 
-html body #custom-fields-add-edit-field-drawer .hr-input-word-count {
-  color: var(--reos-ash) !important;
-}
-
 html body #custom-fields-add-edit-field-drawer button[id^="delete-button-"] {
   background: transparent !important;
   background-color: transparent !important;
@@ -11260,8 +11034,6 @@ html body .hr-dialog .hr-form-item-label__asterisk {
   color: var(--reos-crimson) !important;
 }
 
-html body .hr-dialog .hr-input-container,
-html body .hr-dialog .hr-input,
 html body .hr-dialog .hr-base-selection,
 html body .hr-dialog .hr-select {
   --n-color: var(--reos-slate) !important;
@@ -11281,9 +11053,6 @@ html body .hr-dialog .hr-select {
   --n-box-shadow-active: 0 0 0 2px var(--reos-emerald-glow) !important;
   --n-caret-color: var(--reos-emerald) !important;
 }
-html body .hr-dialog .hr-input__input,
-html body .hr-dialog .hr-input-wrapper,
-html body .hr-dialog .hr-input__input-el,
 html body .hr-dialog .hr-base-selection-tags {
   background-color: var(--reos-slate) !important;
   border-color: var(--reos-steel) !important;
@@ -11317,12 +11086,6 @@ html body .hr-dialog .hr-form-item-feedback--error p,
 html body .hr-dialog .hr-form-item-feedback--error span {
   color: var(--reos-crimson) !important;
   -webkit-text-fill-color: var(--reos-crimson) !important;
-}
-html body .hr-dialog .hr-form-item-blank--error .hr-input,
-html body .hr-dialog .hr-form-item-blank--error .hr-input-container {
-  --n-border: 1px solid var(--reos-crimson) !important;
-  --n-border-hover: 1px solid var(--reos-crimson) !important;
-  --n-border-focus: 1px solid var(--reos-crimson) !important;
 }
 
 html body .hr-dialog .hr-divider {
@@ -11387,11 +11150,337 @@ html body .askai-composer-bar::before {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(15, 181, 126, 0.05) !important;
 }
 
+.hr-input-phone,
+.hr-input-phone-dropdown__chevron,
+.hr-input-phone-dropdown__country {
+  font-feature-settings: 'tnum' 1 !important;
+}
+.hr-input,
+.hr-input-wrapper,
+.hr-input__input,
+.hr-input__input-el,
+.hr-textarea,
+.hr-textarea-wrapper {
+  background: var(--reos-slate) !important;
+  border-color: var(--reos-steel) !important;
+  color: var(--reos-bone) !important;
+  border-radius: 4px !important;
+}
+html body .hr-input:not(#__reos_never_id),
+html body .hr-input-wrapper:not(#__reos_never_id),
+html body .hr-input__input:not(#__reos_never_id),
+html body .hr-textarea:not(#__reos_never_id),
+html body .hr-textarea-wrapper:not(#__reos_never_id) {
+  border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  background-color: var(--reos-slate) !important;
+}
+html body .hr-input__state-border:not(#__reos_never_id),
+html body .hr-input .hr-input__state-border:not(#__reos_never_id),
+html body .hr-input-wrapper .hr-input__state-border:not(#__reos_never_id) {
+  border: 1px solid var(--reos-steel) !important;
+  border-color: var(--reos-steel) !important;
+  box-shadow: none !important;
+  border-radius: 4px !important;
+}
+html body .hr-input:not(#__reos_never_id):hover .hr-input__state-border,
+html body .hr-input-wrapper:not(#__reos_never_id):hover .hr-input__state-border,
+html body .hr-input__input:not(#__reos_never_id):hover .hr-input__state-border,
+html body .hr-input__input:not(#__reos_never_id):hover ~ .hr-input__state-border,
+html body .hr-input__state-border:not(#__reos_never_id) {
+  border-color: var(--reos-steel) !important;
+}
+html body .hr-input:not(#__reos_never_id),
+html body .hr-input-wrapper:not(#__reos_never_id),
+html body .hr-input__input:not(#__reos_never_id) {
+  --n-border: 1px solid var(--reos-steel) !important;
+  --n-border-hover: 1px solid var(--reos-steel) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  --n-border-disabled: 1px solid var(--reos-steel) !important;
+  --n-box-shadow: none !important;
+  --n-box-shadow-focus: none !important;
+  --n-box-shadow-focus-warning: none !important;
+  --n-box-shadow-focus-error: none !important;
+}
+html body input.hr-input__input-el:not(#__reos_never_id),
+html body .hr-input__input > input:not(#__reos_never_id) {
+  border: none !important;
+  border-color: transparent !important;
+  outline: none !important;
+  background: transparent !important;
+}
+.hr-input__input-el,
+.hr-textarea textarea {
+  color: var(--reos-bone) !important;
+  background: transparent !important;
+}
+input:focus:not([type="checkbox"]):not([type="radio"]):not(.n-base-selection-input):not(.n-input__input-el),
+.hr-input--focus,
+.hr-input--focused {
+  border-color: var(--reos-emerald) !important;
+  box-shadow: 0 0 0 1px var(--reos-emerald) !important;
+  outline: none !important;
+}
+html body .n-input__input-el:focus,
+html body .n-input__input-el:focus-visible {
+  border-color: var(--reos-steel) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.hr-input__placeholder {
+  color: var(--reos-cool-gray) !important;
+}
+html body .n-input,
+html body .n-input-wrapper {
+  background-color: var(--reos-slate) !important;
+  color: var(--reos-bone) !important;
+  border-color: var(--reos-cool-gray) !important;
+}
+html body .n-input__input-el,
+html body .n-input__textarea-el,
+html body .n-input__placeholder {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+  background-color: transparent !important;
+}
+html body .n-input__placeholder {
+  color: var(--reos-ash) !important;
+  -webkit-text-fill-color: var(--reos-ash) !important;
+}
+html body .n-input--focus {
+  border-color: var(--reos-emerald) !important;
+}
+html body .hr-input__placeholder:not(#__reos_never_id),
+html body .hr-input__placeholder:not(#__reos_never_id) span,
+html body .n-input__placeholder:not(#__reos_never_id),
+html body .n-input__placeholder:not(#__reos_never_id) span {
+  color: var(--reos-cool-gray) !important;
+  -webkit-text-fill-color: var(--reos-cool-gray) !important;
+}
+html body input.hr-input__input-el::placeholder,
+html body input.n-input__input-el::placeholder {
+  opacity: 0 !important;
+}
+html body input.hr-input__input-el:focus,
+html body input.hr-input__input-el:focus-visible {
+  border-color: var(--reos-steel) !important;
+  box-shadow: none !important;
+  outline: none !important;
+  caret-color: var(--reos-bone) !important;
+}
+html body .hr-input-group-label__border:not(#__reos_never_id),
+html body .hr-input-group-label__border.hr-input-group-label__border:not(#__reos_never_id) {
+  border: none !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  display: none !important;
+}
+html body .hr-input-group-label:not(#__reos_never_id),
+html body .hr-input-group-label.ui-input-group-label:not(#__reos_never_id) {
+  --n-group-label-color: var(--reos-graphite) !important;
+  --n-group-label-border: 1px solid var(--reos-steel) !important;
+  --n-group-label-text-color: var(--reos-ash) !important;
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+  border-color: var(--reos-steel) !important;
+  color: var(--reos-ash) !important;
+}
+html body .hr-input__inline-text:not(#__reos_never_id),
+html body .hr-input__inline-text.has-value:not(#__reos_never_id) {
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-hover: var(--reos-bone) !important;
+  --n-text-color-disabled: var(--reos-cool-gray) !important;
+  --n-placeholder-color: var(--reos-ash) !important;
+  --n-placeholder-color-disabled: var(--reos-cool-gray) !important;
+  --n-background-color: transparent !important;
+  --n-color-disabled: transparent !important;
+  --n-background-color-disabled: transparent !important;
+  --n-background-color-hover-disabled: transparent !important;
+  --n-icon-color: var(--reos-ash) !important;
+  --n-icon-color-disabled: var(--reos-cool-gray) !important;
+  --n-border: none !important;
+  --n-border-hover: 1px solid var(--reos-steel) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  --n-caret-color: var(--reos-emerald) !important;
+  color: var(--reos-bone) !important;
+  background-color: transparent !important;
+}
+html body .hr-input__inline-text:not(#__reos_never_id):hover {
+  background-color: var(--reos-slate) !important;
+}
+html body .hr-input__text-content:not(#__reos_never_id),
+html body .hr-input__text-content--active:not(#__reos_never_id),
+html body .n-p.hr-input__text-content--active:not(#__reos_never_id),
+html body .hr-input__text-content:not(#__reos_never_id) p,
+html body .hr-input__text-content--active:not(#__reos_never_id) p {
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-hover: var(--reos-bone) !important;
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+  background-color: transparent !important;
+}
+html body input.n-input__input-el.n-input__input-el:not(#__reos_never_id) {
+  border: none !important;
+  border-width: 0 !important;
+  border-color: transparent !important;
+  caret-color: var(--reos-bone) !important;
+}
+html body .n-input:not(#__reos_never_id),
+html body .n-input .n-input-wrapper:not(#__reos_never_id),
+html body .n-input .n-input__input:not(#__reos_never_id) {
+  caret-color: var(--reos-bone) !important;
+  --n-caret-color: var(--reos-bone) !important;
+  --n-caret-color-warning: var(--reos-bone) !important;
+  --n-caret-color-error: var(--reos-bone) !important;
+}
+html body .n-input.n-input--focus:not(#__reos_never_id) .n-input__state-border,
+html body .hl-input-text.hl-input-text.n-input--focus:not(#__reos_never_id) .n-input__state-border,
+html body .n-input.n-input.n-input--focus:not(#__reos_never_id) .n-input__state-border {
+  box-shadow: none !important;
+  border: 1px solid var(--reos-emerald) !important;
+  border-color: var(--reos-emerald) !important;
+}
+html body .hr-input:not(#__reos_never_id) .hr-input__border,
+html body .n-input.n-input:not(#__reos_never_id) .n-input__border,
+html body .hl-input-text.hl-input-text:not(#__reos_never_id) .n-input__border {
+  border: 1px solid transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+html body .hr-input.hr-input--focus:not(#__reos_never_id) .hr-input__state-border,
+html body .hr-input:not(#__reos_never_id):focus-within .hr-input__state-border,
+html body .n-input.n-input:not(#__reos_never_id):hover .n-input__state-border,
+html body .hl-input-text.hl-input-text:not(#__reos_never_id):hover .n-input__state-border {
+  box-shadow: none !important;
+  border: 1px solid var(--reos-emerald) !important;
+}
+html body .n-input .n-input__border,
+html body .n-input .n-input__state-border,
+html body .hl-input-text .n-input__border,
+html body .hl-input-text .n-input__state-border {
+  transition: none !important;
+  transition-duration: 0s !important;
+}
+html body .n-input__suffix {
+  color: var(--reos-ash) !important;
+  fill: var(--reos-ash) !important;
+}
+html body .hr-data-table-wrapper .hr-input-container,
+html body [class*="hr-data-table-wrapper"] .hr-input-container {
+  background-color: transparent !important;
+  background: transparent !important;
+  color: var(--reos-bone) !important;
+  border-color: var(--reos-steel) !important;
+  box-shadow: none !important;
+}
+html body .crm-opportunities-modal:not(#__reos_never_id) .hr-input {
+  --n-color: var(--reos-slate) !important;
+  --n-color-active: var(--reos-slate) !important;
+  --n-color-focus: var(--reos-slate) !important;
+  --n-color-disabled: var(--reos-graphite) !important;
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-disabled: var(--reos-ash) !important;
+  --n-placeholder-color: var(--reos-ash) !important;
+  --n-border: 1px solid var(--reos-steel) !important;
+  --n-border-disabled: 1px solid var(--reos-steel) !important;
+  --n-border-hover: 1px solid var(--reos-emerald) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  --n-border-active: 1px solid var(--reos-emerald) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--reos-emerald-glow) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--reos-emerald-glow) !important;
+  --n-caret-color: var(--reos-emerald) !important;
+}
+html body #custom-fields-add-edit-field-drawer .hr-input,
+html body #custom-fields-add-edit-field-drawer .hr-input-container {
+  --n-color: var(--reos-slate) !important;
+  --n-color-active: var(--reos-slate) !important;
+  --n-color-focus: var(--reos-slate) !important;
+  --n-color-disabled: var(--reos-graphite) !important;
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-disabled: var(--reos-bone) !important;
+  --n-placeholder-color: var(--reos-ash) !important;
+  --n-placeholder-color-disabled: var(--reos-ash) !important;
+  --n-border: 1px solid var(--reos-steel) !important;
+  --n-border-disabled: 1px solid var(--reos-steel) !important;
+  --n-border-hover: 1px solid var(--reos-emerald) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  --n-border-active: 1px solid var(--reos-emerald) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--reos-emerald-glow) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--reos-emerald-glow) !important;
+  --n-caret-color: var(--reos-emerald) !important;
+  background-color: var(--reos-slate) !important;
+}
+html body #custom-fields-add-edit-field-drawer .hr-input__inline-text,
+html body #custom-fields-add-edit-field-drawer .hr-input__inline-text :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body #custom-fields-add-edit-field-drawer .hr-input__text-content,
+html body #custom-fields-add-edit-field-drawer .hr-input__text-content--active,
+html body #custom-fields-add-edit-field-drawer .hr-input__inline-text .hr-p {
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-hover: var(--reos-bone) !important;
+  --n-text-color-disabled: var(--reos-ash) !important;
+  --n-placeholder-color: var(--reos-ash) !important;
+  --n-color: transparent !important;
+  --n-color-focus: transparent !important;
+  --n-background-color: transparent !important;
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+html body #custom-fields-add-edit-field-drawer .hr-input__input-el,
+html body #custom-fields-add-edit-field-drawer .hr-input__textarea-el {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+  background-color: var(--reos-slate) !important;
+}
+html body #custom-fields-add-edit-field-drawer .hr-input__input,
+html body #custom-fields-add-edit-field-drawer .hr-input-wrapper {
+  background-color: var(--reos-slate) !important;
+  border-color: var(--reos-steel) !important;
+}
+html body #custom-fields-add-edit-field-drawer .hr-input-word-count {
+  color: var(--reos-ash) !important;
+}
+html body .hr-dialog .hr-input-container,
+html body .hr-dialog .hr-input {
+  --n-color: var(--reos-slate) !important;
+  --n-color-active: var(--reos-slate) !important;
+  --n-color-focus: var(--reos-slate) !important;
+  --n-color-disabled: var(--reos-graphite) !important;
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-disabled: var(--reos-ash) !important;
+  --n-placeholder-color: var(--reos-ash) !important;
+  --n-placeholder-color-disabled: var(--reos-ash) !important;
+  --n-border: 1px solid var(--reos-steel) !important;
+  --n-border-disabled: 1px solid var(--reos-steel) !important;
+  --n-border-hover: 1px solid var(--reos-emerald) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  --n-border-active: 1px solid var(--reos-emerald) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--reos-emerald-glow) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--reos-emerald-glow) !important;
+  --n-caret-color: var(--reos-emerald) !important;
+}
+html body .hr-dialog .hr-input__input,
+html body .hr-dialog .hr-input-wrapper,
+html body .hr-dialog .hr-input__input-el {
+  background-color: var(--reos-slate) !important;
+  border-color: var(--reos-steel) !important;
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+html body .hr-dialog .hr-form-item-blank--error .hr-input,
+html body .hr-dialog .hr-form-item-blank--error .hr-input-container {
+  --n-border: 1px solid var(--reos-crimson) !important;
+  --n-border-hover: 1px solid var(--reos-crimson) !important;
+  --n-border-focus: 1px solid var(--reos-crimson) !important;
+}
 html body .askai-composer-bar .hr-input__textarea-el,
 html body .askai-composer-bar .hr-input__state-border {
   box-shadow: none !important;
   border-color: transparent !important;
 }
+
 html body .askai-composer-bar--focused::before {
   border-color: rgba(15, 181, 126, 0.5) !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(15, 181, 126, 0.22) !important;

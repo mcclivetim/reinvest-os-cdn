@@ -1,4 +1,4 @@
-/* Wholesaling CRM Customizer v0.140.1 — built 2026-08-13T21:10:19.477Z */
+/* Wholesaling CRM Customizer v0.140.2 — built 2026-08-13T21:18:12.646Z */
 "use strict";var WholesalingCRMCustomizer=(()=>{var li="[wholesaling-crm-customizer]",j_="__WS_CRM_DEBUG",U_=()=>!!window[j_],m={info(...e){console.log(li,...e)},warn(...e){console.warn(li,...e)},error(...e){console.error(li,...e)},debug(...e){U_()&&console.log(li,"[debug]",...e)}};var G_=/\/v2\/location\/([A-Za-z0-9]+)/,K_=new Set(["8ntUQzMflUkR0YvrRgVk"]),X=()=>{let e=window.location.pathname.match(G_);return e?e[1]:null},Rt=()=>{let e=X();return e===null?"agency":K_.has(e)?"hq":"tenant"},Yo=(...e)=>e.includes(Rt()),Pl=new Map,ee=(e,t)=>{Pl.set(e,t)},Gm=e=>{if(Pl.size===0)return;let t=[];Pl.forEach((o,r)=>{try{o(),t.push(r)}catch(a){console.error(`[surface] disposer "${r}" threw during ${e}:`,a)}}),console.log(`[surface] disposed ${t.length} feature(s) on ${e}: ${t.join(", ")}`)},Ol=null,Um=null,Bl=()=>{let e=Rt(),t=X(),o=Ol!==null&&(e!==Ol||t!==Um);return Ol=e,Um=t,o};var Km=()=>Rt()==="hq";var n={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"};var v={sm:"4px",md:"6px",lg:"10px",pill:"999px"},h={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},Hl={purple:"#8B5CF6",green:n.emerald,orange:n.amber,red:n.crimson},Vm=e=>{let t=e==="emerald"?n.emeraldGlow:e==="amber"?n.amberGlow:n.slate,o=e==="emerald"?n.emeraldBorder:e==="amber"?"rgba(232, 163, 60, 0.3)":n.steel,r=e==="emerald"?n.emerald:e==="amber"?n.amber:n.bone;return`
     display: inline-flex;
     align-items: center;
@@ -248,7 +248,7 @@
     font-weight: 600; box-shadow: 0 6px 18px rgba(0,0,0,.35); user-select: none;
   `,o.innerHTML=`<span style="color:${n.emeraldBright};font-weight:700;">Demo</span>
     &nbsp;Outbound texting is simulated in this demo account \u2014 the live product sends
-    from your business number.`,document.body.appendChild(o)},Ai=()=>{fu(),wt(null),document.getElementById(Jl)?.remove(),document.getElementById(Zl)?.remove(),Ql(),Cu(),er&&(document.removeEventListener("click",er,!0),er=null)},ed=()=>{if(ee("demo-mode",Ai),!ge()){Ai();return}Xl(),Bf(),Ff(),qf(),_u()};var Su=()=>{let e=window.location.pathname;return e.includes("/contacts/detail/")?"contact-detail":e.includes("/contacts/smart-list")||e.includes("/contacts/")?"contact-list":e.includes("/opportunities/detail/")?"opportunity-detail":e.includes("/opportunities")?"opportunity-list":e.includes("/calendars/")?"calendar":e.includes("/dashboard")?"dashboard":e.includes("/conversations")?"conversations":e.includes("/settings")?"settings":"other"},Pi="",td=null,jt="other",od=new Set,Oi=()=>{let e=V()?.contactId??null,t=window.location.pathname!==Pi,o=e!==td;if(!t&&!o)return;Pi=window.location.pathname,td=e;let r=Su(),a=r!==jt;jt=r;let i={pageTypeChanged:a,pathChanged:t,contactChanged:o};m.debug("Page/context changed:",jt,Pi,"contact:",e,i);for(let s of od)try{s(jt,i)}catch(d){m.error("Subscriber threw:",d)}},Ve=e=>(od.add(e),setTimeout(()=>e(jt),0),()=>{od.delete(e)}),Lu=()=>{jt=Su(),Pi=window.location.pathname,td=V()?.contactId??null,m.debug("Router init, current page:",jt);let e=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(o,r,a){e(o,r,a),Oi()},history.replaceState=function(o,r,a){t(o,r,a),Oi()},window.addEventListener("popstate",Oi),setInterval(Oi,1e3)},Ut=()=>jt;var Wf=/\/opportunities\/([A-Za-z0-9]{16,24})(?:[/?]|$)/,rd=null,Iu=!1,Au=e=>{let t=e.match(Wf);t&&(rd=t[1])},Mu=()=>{if(!Iu){Iu=!0;try{let e=window.fetch.bind(window);window.fetch=(o,r)=>{try{let a=typeof o=="string"?o:o instanceof URL?o.href:o.url;a&&Au(a)}catch{}return e(o,r)};let t=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(o,r,...a){try{Au(typeof r=="string"?r:r.href)}catch{}return t.call(this,o,r,...a)},m.debug("[opp-id-capture] installed")}catch(e){m.warn("[opp-id-capture] install failed",e)}}},jf=".crm-opportunities-modal .ui-modal-heading .description",$e=()=>!rd||!document.querySelector(jf)?null:rd;var Ou=/\/contacts\/search/,Hu=new Map,Pu=!1,Bu=(e,t)=>{if(!(typeof t!="string"||!t))try{let o=JSON.parse(t);if(!o?.locationId||o.page===void 0)return;Hu.set(o.locationId,{url:e,bodyRaw:t,capturedAt:Date.now()})}catch{}},Du=e=>Hu.get(e)??null,Ru=()=>{if(!Pu){Pu=!0;try{let e=XMLHttpRequest.prototype,t=e.open,o=e.send;e.open=function(...r){try{let a=String(r[1]??"");Ou.test(a)&&(this.__wsSearchUrl=a)}catch{}return t.apply(this,r)},e.send=function(r){try{let a=this.__wsSearchUrl;a&&Bu(a,r)}catch{}return o.call(this,r)}}catch(e){m.warn("[search-capture] XHR tap install failed",e)}try{let e=window.fetch;window.fetch=function(...t){try{let o=typeof t[0]=="string"?t[0]:t[0]instanceof URL?t[0].href:t[0]?.url||"";Ou.test(o)&&Bu(o,t[1]?.body)}catch{}return e.apply(this,t)}}catch(e){m.warn("[search-capture] fetch tap install failed",e)}}};var vn="0.140.1",Bi="2026-08-13T21:10:19.477Z";var Uf="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/analytics/compute",Gf="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/callstats/sweep-run",Hi="ws-crm-analytics-overlay",Kf=[{key:"today",label:"Today"},{key:"yesterday",label:"Yesterday"},{key:"this_week",label:"This week"},{key:"last_week",label:"Last week"},{key:"this_month",label:"This month"},{key:"last_month",label:"Last month"},{key:"last_365",label:"Last 365 days"},{key:"all_time",label:"All time"},{key:"custom",label:"Custom"}],Vf=[{key:"company",label:"Company"},{key:"acq",label:"Acquisitions"},{key:"dispo",label:"Disposition"},{key:"marketing",label:"Marketing"},{key:"tc",label:"Transactions"},{key:"velocity",label:"Velocity"}],Y={open:!1,range:"this_month",customStart:"",customEnd:"",tab:"company",loading:!1,error:null,data:null,cache:new Map},ye=e=>{let t=Number(e)||0;return"$"+Math.round(t).toLocaleString("en-US")},j=e=>(Number(e)||0).toLocaleString("en-US"),ad=e=>{let t=Number(e);return!Number.isFinite(t)||t<=0?"\u2014":new Date(t).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})},fn=e=>{let t=Math.round(Number(e)||0);if(t<60)return`${t}s`;let o=Math.floor(t/3600),r=Math.round(t%3600/60);return o>0?`${o}h ${r}m`:`${r}m`},Yf=()=>`${Y.range}|${Y.customStart}|${Y.customEnd}`,_o=async(e=!1)=>{let t=Yf();if(!e&&Y.cache.has(t)){Y.data=Y.cache.get(t),Y.error=null,fo();return}let o=X();if(!o){Y.error="Could not resolve the sub-account id from the URL.",fo();return}Y.loading=!0,Y.error=null,fo();try{let r={tenant_id:o,range:Y.range,tz_offset_minutes:new Date().getTimezoneOffset()};Y.range==="custom"&&(r.start=Y.customStart,r.end=Y.customEnd);let a=await fetch(Uf,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(r)}),i=await a.json();if(!i||i.ok===!1)throw new Error(i&&i.error||`HTTP ${a.status}`);Y.data=i,Y.cache.set(t,i)}catch(r){Y.error=r instanceof Error?r.message:String(r)}finally{Y.loading=!1,fo()}},F=(e,t,o)=>{let r=document.createElement(e);return r.style.cssText=t,o!==void 0&&(r.innerHTML=o),r},be=e=>String(e??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"),wo=`background:${n.graphite};border:1px solid ${n.slate};border-radius:${v.lg};padding:16px 18px;min-width:0;`,wn=`font-family:${h.mono};font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:${n.ash};margin:0 0 12px;`,Ae=(e,t,o)=>{let r=F("div",wo+"flex:1;min-width:150px;");return r.appendChild(F("div",wn+"margin-bottom:8px;",be(e))),r.appendChild(F("div",`font-family:${h.sans};font-size:24px;font-weight:600;color:${n.bone};line-height:1.1;`,be(t))),o&&r.appendChild(F("div",`font-family:${h.sans};font-size:11px;color:${n.coolGray};margin-top:6px;`,be(o))),r},ve=(e,t)=>{let o=F("div",wo);if(o.appendChild(F("div",wn,be(e))),!t.length)return o.appendChild(F("div",`font-size:12px;color:${n.coolGray};`,"No data in this range")),o;let r=Math.max(...t.map(a=>a.barVal),1);for(let a of t.slice(0,12)){let i=F("div","margin:0 0 10px;"),s=F("div","display:flex;justify-content:space-between;gap:12px;margin-bottom:4px;");s.appendChild(F("span",`font-size:12px;color:${n.bone};overflow:hidden;text-overflow:ellipsis;white-space:nowrap;`,be(a.label)));let d=F("span",`font-size:12px;color:${n.bone};font-weight:600;white-space:nowrap;`,be(a.primary)+(a.secondary?` <span style="color:${n.coolGray};font-weight:400;">${be(a.secondary)}</span>`:""));s.appendChild(d),i.appendChild(s);let l=F("div",`height:6px;background:${n.slate};border-radius:3px;overflow:hidden;`);l.appendChild(F("div",`height:100%;width:${Math.max(2,Math.round(a.barVal/r*100))}%;background:${n.emerald};border-radius:3px;`)),i.appendChild(l),o.appendChild(i)}return t.length>12&&o.appendChild(F("div",`font-size:11px;color:${n.coolGray};`,`+${t.length-12} more`)),o},Di=(e,t,o)=>{let r=F("div",wo+"overflow-x:auto;");if(r.appendChild(F("div",wn,be(e))),!o.length)return r.appendChild(F("div",`font-size:12px;color:${n.coolGray};`,"No data in this range")),r;let a=`text-align:left;padding:6px 10px;font-family:${h.mono};font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:${n.ash};border-bottom:1px solid ${n.slate};white-space:nowrap;`,i=`padding:7px 10px;font-size:12px;color:${n.bone};border-bottom:1px solid ${n.slate};white-space:nowrap;`,s=`<table style="border-collapse:collapse;width:100%;min-width:480px;">
+    from your business number.`,document.body.appendChild(o)},Ai=()=>{fu(),wt(null),document.getElementById(Jl)?.remove(),document.getElementById(Zl)?.remove(),Ql(),Cu(),er&&(document.removeEventListener("click",er,!0),er=null)},ed=()=>{if(ee("demo-mode",Ai),!ge()){Ai();return}Xl(),Bf(),Ff(),qf(),_u()};var Su=()=>{let e=window.location.pathname;return e.includes("/contacts/detail/")?"contact-detail":e.includes("/contacts/smart-list")||e.includes("/contacts/")?"contact-list":e.includes("/opportunities/detail/")?"opportunity-detail":e.includes("/opportunities")?"opportunity-list":e.includes("/calendars/")?"calendar":e.includes("/dashboard")?"dashboard":e.includes("/conversations")?"conversations":e.includes("/settings")?"settings":"other"},Pi="",td=null,jt="other",od=new Set,Oi=()=>{let e=V()?.contactId??null,t=window.location.pathname!==Pi,o=e!==td;if(!t&&!o)return;Pi=window.location.pathname,td=e;let r=Su(),a=r!==jt;jt=r;let i={pageTypeChanged:a,pathChanged:t,contactChanged:o};m.debug("Page/context changed:",jt,Pi,"contact:",e,i);for(let s of od)try{s(jt,i)}catch(d){m.error("Subscriber threw:",d)}},Ve=e=>(od.add(e),setTimeout(()=>e(jt),0),()=>{od.delete(e)}),Lu=()=>{jt=Su(),Pi=window.location.pathname,td=V()?.contactId??null,m.debug("Router init, current page:",jt);let e=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(o,r,a){e(o,r,a),Oi()},history.replaceState=function(o,r,a){t(o,r,a),Oi()},window.addEventListener("popstate",Oi),setInterval(Oi,1e3)},Ut=()=>jt;var Wf=/\/opportunities\/([A-Za-z0-9]{16,24})(?:[/?]|$)/,rd=null,Iu=!1,Au=e=>{let t=e.match(Wf);t&&(rd=t[1])},Mu=()=>{if(!Iu){Iu=!0;try{let e=window.fetch.bind(window);window.fetch=(o,r)=>{try{let a=typeof o=="string"?o:o instanceof URL?o.href:o.url;a&&Au(a)}catch{}return e(o,r)};let t=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(o,r,...a){try{Au(typeof r=="string"?r:r.href)}catch{}return t.call(this,o,r,...a)},m.debug("[opp-id-capture] installed")}catch(e){m.warn("[opp-id-capture] install failed",e)}}},jf=".crm-opportunities-modal .ui-modal-heading .description",$e=()=>!rd||!document.querySelector(jf)?null:rd;var Ou=/\/contacts\/search/,Hu=new Map,Pu=!1,Bu=(e,t)=>{if(!(typeof t!="string"||!t))try{let o=JSON.parse(t);if(!o?.locationId||o.page===void 0)return;Hu.set(o.locationId,{url:e,bodyRaw:t,capturedAt:Date.now()})}catch{}},Du=e=>Hu.get(e)??null,Ru=()=>{if(!Pu){Pu=!0;try{let e=XMLHttpRequest.prototype,t=e.open,o=e.send;e.open=function(...r){try{let a=String(r[1]??"");Ou.test(a)&&(this.__wsSearchUrl=a)}catch{}return t.apply(this,r)},e.send=function(r){try{let a=this.__wsSearchUrl;a&&Bu(a,r)}catch{}return o.call(this,r)}}catch(e){m.warn("[search-capture] XHR tap install failed",e)}try{let e=window.fetch;window.fetch=function(...t){try{let o=typeof t[0]=="string"?t[0]:t[0]instanceof URL?t[0].href:t[0]?.url||"";Ou.test(o)&&Bu(o,t[1]?.body)}catch{}return e.apply(this,t)}}catch(e){m.warn("[search-capture] fetch tap install failed",e)}}};var vn="0.140.2",Bi="2026-08-13T21:18:12.647Z";var Uf="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/analytics/compute",Gf="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/callstats/sweep-run",Hi="ws-crm-analytics-overlay",Kf=[{key:"today",label:"Today"},{key:"yesterday",label:"Yesterday"},{key:"this_week",label:"This week"},{key:"last_week",label:"Last week"},{key:"this_month",label:"This month"},{key:"last_month",label:"Last month"},{key:"last_365",label:"Last 365 days"},{key:"all_time",label:"All time"},{key:"custom",label:"Custom"}],Vf=[{key:"company",label:"Company"},{key:"acq",label:"Acquisitions"},{key:"dispo",label:"Disposition"},{key:"marketing",label:"Marketing"},{key:"tc",label:"Transactions"},{key:"velocity",label:"Velocity"}],Y={open:!1,range:"this_month",customStart:"",customEnd:"",tab:"company",loading:!1,error:null,data:null,cache:new Map},ye=e=>{let t=Number(e)||0;return"$"+Math.round(t).toLocaleString("en-US")},j=e=>(Number(e)||0).toLocaleString("en-US"),ad=e=>{let t=Number(e);return!Number.isFinite(t)||t<=0?"\u2014":new Date(t).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})},fn=e=>{let t=Math.round(Number(e)||0);if(t<60)return`${t}s`;let o=Math.floor(t/3600),r=Math.round(t%3600/60);return o>0?`${o}h ${r}m`:`${r}m`},Yf=()=>`${Y.range}|${Y.customStart}|${Y.customEnd}`,_o=async(e=!1)=>{let t=Yf();if(!e&&Y.cache.has(t)){Y.data=Y.cache.get(t),Y.error=null,fo();return}let o=X();if(!o){Y.error="Could not resolve the sub-account id from the URL.",fo();return}Y.loading=!0,Y.error=null,fo();try{let r={tenant_id:o,range:Y.range,tz_offset_minutes:new Date().getTimezoneOffset()};Y.range==="custom"&&(r.start=Y.customStart,r.end=Y.customEnd);let a=await fetch(Uf,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(r)}),i=await a.json();if(!i||i.ok===!1)throw new Error(i&&i.error||`HTTP ${a.status}`);Y.data=i,Y.cache.set(t,i)}catch(r){Y.error=r instanceof Error?r.message:String(r)}finally{Y.loading=!1,fo()}},F=(e,t,o)=>{let r=document.createElement(e);return r.style.cssText=t,o!==void 0&&(r.innerHTML=o),r},be=e=>String(e??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"),wo=`background:${n.graphite};border:1px solid ${n.slate};border-radius:${v.lg};padding:16px 18px;min-width:0;`,wn=`font-family:${h.mono};font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:${n.ash};margin:0 0 12px;`,Ae=(e,t,o)=>{let r=F("div",wo+"flex:1;min-width:150px;");return r.appendChild(F("div",wn+"margin-bottom:8px;",be(e))),r.appendChild(F("div",`font-family:${h.sans};font-size:24px;font-weight:600;color:${n.bone};line-height:1.1;`,be(t))),o&&r.appendChild(F("div",`font-family:${h.sans};font-size:11px;color:${n.coolGray};margin-top:6px;`,be(o))),r},ve=(e,t)=>{let o=F("div",wo);if(o.appendChild(F("div",wn,be(e))),!t.length)return o.appendChild(F("div",`font-size:12px;color:${n.coolGray};`,"No data in this range")),o;let r=Math.max(...t.map(a=>a.barVal),1);for(let a of t.slice(0,12)){let i=F("div","margin:0 0 10px;"),s=F("div","display:flex;justify-content:space-between;gap:12px;margin-bottom:4px;");s.appendChild(F("span",`font-size:12px;color:${n.bone};overflow:hidden;text-overflow:ellipsis;white-space:nowrap;`,be(a.label)));let d=F("span",`font-size:12px;color:${n.bone};font-weight:600;white-space:nowrap;`,be(a.primary)+(a.secondary?` <span style="color:${n.coolGray};font-weight:400;">${be(a.secondary)}</span>`:""));s.appendChild(d),i.appendChild(s);let l=F("div",`height:6px;background:${n.slate};border-radius:3px;overflow:hidden;`);l.appendChild(F("div",`height:100%;width:${Math.max(2,Math.round(a.barVal/r*100))}%;background:${n.emerald};border-radius:3px;`)),i.appendChild(l),o.appendChild(i)}return t.length>12&&o.appendChild(F("div",`font-size:11px;color:${n.coolGray};`,`+${t.length-12} more`)),o},Di=(e,t,o)=>{let r=F("div",wo+"overflow-x:auto;");if(r.appendChild(F("div",wn,be(e))),!o.length)return r.appendChild(F("div",`font-size:12px;color:${n.coolGray};`,"No data in this range")),r;let a=`text-align:left;padding:6px 10px;font-family:${h.mono};font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:${n.ash};border-bottom:1px solid ${n.slate};white-space:nowrap;`,i=`padding:7px 10px;font-size:12px;color:${n.bone};border-bottom:1px solid ${n.slate};white-space:nowrap;`,s=`<table style="border-collapse:collapse;width:100%;min-width:480px;">
     <thead><tr>${t.map(d=>`<th style="${a}">${be(d)}</th>`).join("")}</tr></thead>
     <tbody>${o.map(d=>`<tr>${d.map(l=>`<td style="${i}">${be(l)}</td>`).join("")}</tr>`).join("")}</tbody>
   </table>`;return r.appendChild(F("div","",s)),r},ue=(e,t)=>{let o=F("div",`display:grid;grid-template-columns:${e};gap:14px;margin-bottom:14px;`);for(let r of t)o.appendChild(r);return o},xn=e=>{let t=F("div","display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;");for(let o of e)t.appendChild(o);return t},$t=e=>(e||[]).map(t=>({label:t.label,primary:j(t.count),barVal:t.count})),Jf=e=>(e||[]).map(t=>({label:t.label,primary:ye(t.sum),secondary:`\xB7 ${j(t.count)} deal${t.count===1?"":"s"}`,barVal:t.sum})),Fu=(e,t)=>{let o=e.calls||{};if(!o.available)return[F("div",`${wo}border-left:3px solid ${n.amber};border-radius:0 ${v.lg} ${v.lg} 0;font-size:12px;color:${n.ash};`,`<strong style="color:${n.bone};">Call metrics unavailable.</strong> ${be(o.note||"CallStats.Sweep runs every 30 minutes \u2014 check back shortly.")}`)];let r=t==="acq"?"Seller":"Buyer",a=o[t]||[],i=a.filter(c=>c.dials>0||c.connects>0||c.inbound>0).map(c=>({label:c.label,primary:`${j(c.dials)} dials`,secondary:`\xB7 ${j(c.connects)} connected \xB7 ${j(c.inbound)} inbound`,barVal:c.dials})),s=a.filter(c=>c.talk_seconds>0).map(c=>({label:c.label,primary:fn(c.talk_seconds),secondary:c.talk_per_contract_seconds!=null?`\xB7 ${fn(c.talk_per_contract_seconds)} per contract`:"",barVal:c.talk_seconds})),d=[ve(`${r} calls per rep (dials)`,i),ve(`${r} talk time per rep`,s)],l=(o.other||[]).filter(c=>c.dials>0||c.talk_seconds>0);return l.length&&d.push(ve("Unclassified calls per rep (contact is neither seller nor buyer)",l.map(c=>({label:c.label,primary:`${j(c.dials)} dials`,secondary:`\xB7 ${fn(c.talk_seconds)} talk`,barVal:c.dials})))),d},Zf=e=>e===0?n.coolGray:e>=80?n.emerald:e>=60?n.amber:n.crimson,Qf=e=>e===0?n.steel:e>=80?n.emeraldBorder:e>=60?"rgba(232, 163, 60, 0.3)":"rgba(212, 63, 74, 0.3)",Xf=(e,t)=>`color:${e} !important;-webkit-text-fill-color:${e} !important;${t}`,ex=e=>{let t=typeof e=="string"?e:"";if(!t)return"not viewed yet";let o=new Date(t.length<=10?`${t}T00:00:00`:t);if(Number.isNaN(o.getTime()))return"not viewed yet";let r=i=>new Date(i.getFullYear(),i.getMonth(),i.getDate()).getTime(),a=Math.round((r(new Date)-r(o))/864e5);return a<=0?"last today":a===1?"last yesterday":`${a} days ago`},tx=(e,t)=>{let o=Math.round(Number(e.deal_heat)||0),r=Zf(o),a=Qf(o),i=e.street&&String(e.street).trim()||"(no address)";return`
@@ -3511,9 +3511,6 @@ html body {
 .phone-call-icon,
 .phone-icon,
 .phone-number-input,
-.hr-date-picker,
-.hr-date-picker-icon,
-.hr-datepicker__trigger-wrapper,
 .ui-datepicker,
 .fc-timeGridWeek-view,
 .fc-timegrid,
@@ -5281,316 +5278,6 @@ html body .text-purple-900:not(#__reos_never_id) {
   border-color: var(--reos-emerald) !important;
 }
 
-html body .hr-date-panel:not(#__reos_never_id) {
-  --n-panel-color: var(--reos-slate) !important;
-  --n-panel-text-color: var(--reos-bone) !important;
-  --n-panel-header-divider-color: var(--reos-steel) !important;
-  --n-panel-action-divider-color: var(--reos-steel) !important;
-  --n-calendar-title-color-hover: var(--reos-graphite) !important;
-  --n-calendar-title-text-color: var(--reos-bone) !important;
-  --n-calendar-days-divider-color: var(--reos-steel) !important;
-  --n-calendar-days-text-color: var(--reos-ash) !important;
-  --n-calendar-divider-color: var(--reos-steel) !important;
-  --n-item-text-color: var(--reos-bone) !important;
-  --n-item-color-included: var(--reos-emerald-glow) !important;
-  --n-item-color-disabled: transparent !important;
-  --n-item-color-hover: transparent !important;
-  --n-item-color-active: transparent !important;
-  --n-item-text-color-disabled: var(--reos-steel) !important;
-  --n-item-text-color-active: var(--reos-obsidian) !important;
-  --n-arrow-color: var(--reos-ash) !important;
-  --n-icon-color: var(--reos-ash) !important;
-  --n-icon-color-disabled: var(--reos-steel) !important;
-  background-color: var(--reos-slate) !important;
-  background: var(--reos-slate) !important;
-  border: 1px solid var(--reos-steel) !important;
-  color: var(--reos-bone) !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-calendar,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-weekdays,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-dates,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-actions {
-  background-color: var(--reos-slate) !important;
-  background: var(--reos-slate) !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use):not(#__reos_never_id) {
-  border-color: transparent !important;
-  border-width: 0 !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__text,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__month-year {
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-weekdays__day,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-weekdays {
-  color: var(--reos-ash) !important;
-  -webkit-text-fill-color: var(--reos-ash) !important;
-}
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-weekdays {
-  background-color: var(--reos-slate) !important;
-  background: var(--reos-slate) !important;
-
-  box-shadow: 0 1px 0 0 var(--reos-steel) !important;
-  margin-bottom: 4px !important;
-  padding-bottom: 4px !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date {
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--excluded,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--excluded :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-ash) !important;
-  -webkit-text-fill-color: var(--reos-ash) !important;
-  opacity: 1 !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--disabled,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--disabled :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-steel) !important;
-  -webkit-text-fill-color: var(--reos-steel) !important;
-  opacity: 1 !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--excluded.hr-date-panel-date--disabled,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--excluded.hr-date-panel-date--disabled :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-steel) !important;
-  -webkit-text-fill-color: var(--reos-steel) !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) {
-  --n-item-color: transparent !important;
-}
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__trigger,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__trigger::before,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__trigger::after {
-  background-color: transparent !important;
-  background: transparent !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date {
-  z-index: 1 !important;
-}
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__trigger {
-  z-index: 0 !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date:not(.hr-date-panel-date--disabled):hover {
-  background-color: var(--reos-graphite) !important;
-  background: var(--reos-graphite) !important;
-  border-radius: 4px !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--current {
-  background-color: transparent !important;
-  background: transparent !important;
-  color: var(--reos-blue) !important;
-  -webkit-text-fill-color: var(--reos-blue) !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--selected {
-  background-color: var(--reos-emerald) !important;
-  background: var(--reos-emerald) !important;
-  border-radius: 4px !important;
-  color: var(--reos-obsidian) !important;
-  -webkit-text-fill-color: var(--reos-obsidian) !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--current .hr-date-panel-date__sup,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__sup {
-  display: none !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--selected {
-  color: var(--reos-obsidian) !important;
-  -webkit-text-fill-color: var(--reos-obsidian) !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--covered .hr-date-panel-date__trigger,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--covered .hr-date-panel-date__trigger::before,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--included .hr-date-panel-date__trigger,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--included .hr-date-panel-date__trigger::before {
-  background-color: var(--reos-emerald-glow) !important;
-  background: var(--reos-emerald-glow) !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel__vertical-divider,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel__divider {
-  background-color: var(--reos-steel) !important;
-  background: var(--reos-steel) !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-actions {
-  border-top: 1px solid var(--reos-steel) !important;
-  background-color: var(--reos-slate) !important;
-  background: var(--reos-slate) !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__prev,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__next,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-prev,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next {
-  color: var(--reos-ash) !important;
-  background-color: transparent !important;
-  background: transparent !important;
-  border: none !important;
-  border-width: 0 !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__prev:hover,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__next:hover,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-prev:hover,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next:hover {
-  color: var(--reos-emerald) !important;
-  background-color: transparent !important;
-  background: transparent !important;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__prev:focus,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__prev:focus-visible,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__next:focus,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__next:focus-visible,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-prev:focus,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-prev:focus-visible,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next:focus,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next:focus-visible {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__prev svg,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__next svg,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-prev svg,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next svg,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__prev svg g,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__next svg g,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-prev svg g,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next svg g,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__prev svg path,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__next svg path,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-prev svg path,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next svg path {
-  stroke: none !important;
-  stroke-width: 0 !important;
-  shape-rendering: geometricPrecision !important;
-  filter: none !important;
-}
-
-html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__prev svg,
-html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__next svg,
-html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__fast-prev svg,
-html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__fast-next svg,
-html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__prev svg path,
-html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__next svg path,
-html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__fast-prev svg path,
-html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__fast-next svg path {
-  stroke: var(--reos-ash) !important;
-  stroke-width: 2 !important;
-  fill: none !important;
-}
-html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__prev:hover svg,
-html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__prev:hover svg path,
-html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__next:hover svg,
-html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__next:hover svg path,
-html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__fast-prev:hover svg,
-html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__fast-prev:hover svg path,
-html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__fast-next:hover svg,
-html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__fast-next:hover svg path {
-  stroke: var(--reos-emerald) !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__trigger,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__trigger::before,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__trigger::after {
-  box-shadow: none !important;
-  outline: none !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--selected,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--active,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date[class*="-selected"],
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date[class*="-active"] {
-  background-color: var(--reos-emerald) !important;
-  background: var(--reos-emerald) !important;
-  border-radius: 4px !important;
-  color: var(--reos-obsidian) !important;
-  -webkit-text-fill-color: var(--reos-obsidian) !important;
-}
-
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date::after,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date::before,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date:hover::after,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--selected::after,
-html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--current::after {
-  background-color: transparent !important;
-  background: transparent !important;
-  border: none !important;
-  border-color: transparent !important;
-  border-width: 0 !important;
-  box-shadow: none !important;
-}
-
-html body .hr-time-picker-panel:not(#__reos_never_id),
-html body .hr-time-picker-panel:not(#__reos_never_id) .time-view,
-html body .hr-time-picker-panel:not(#__reos_never_id) .columns-container,
-html body .hr-time-picker-panel:not(#__reos_never_id) .column-item {
-  background-color: var(--reos-slate) !important;
-  background: var(--reos-slate) !important;
-}
-
-html body .hr-time-picker-panel:not(#__reos_never_id) .panel-header,
-html body .hr-time-picker-panel:not(#__reos_never_id) .header-title {
-  color: var(--reos-ash) !important;
-  -webkit-text-fill-color: var(--reos-ash) !important;
-}
-
-html body .hr-time-picker-panel:not(#__reos_never_id) .list-item {
-  background-color: transparent !important;
-  background: transparent !important;
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-}
-
-html body .hr-time-picker-panel:not(#__reos_never_id) .list-item:hover {
-  background-color: var(--reos-graphite) !important;
-  background: var(--reos-graphite) !important;
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-}
-
-html body .hr-time-picker-panel:not(#__reos_never_id) .list-item.item-selected,
-html body .hr-time-picker-panel:not(#__reos_never_id) .list-item.item-selected:hover {
-  background-color: var(--reos-graphite) !important;
-  background: var(--reos-graphite) !important;
-  border: 1px solid var(--reos-emerald) !important;
-  border-color: var(--reos-emerald) !important;
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-}
-
-html body .hr-time-picker-panel:not(#__reos_never_id) .hr-divider {
-  background-color: var(--reos-steel) !important;
-  background: var(--reos-steel) !important;
-}
-
 html body .ui-empty-icon:not(#__reos_never_id) {
   background-color: transparent !important;
   background: transparent !important;
@@ -6958,13 +6645,6 @@ html body .hr-base-select-group-header {
   color: var(--reos-ash) !important;
 }
 
-html body .n-date-picker,
-html body .n-date-picker-panel {
-  background-color: var(--reos-slate) !important;
-  color: var(--reos-bone) !important;
-  border-color: var(--reos-cool-gray) !important;
-}
-
 html body .n-divider:not(#__reos_never_id) {
   background-color: transparent !important;
   background: transparent !important;
@@ -7604,24 +7284,6 @@ html body .crm-opportunities-modal:not(#__reos_never_id) .text-base.font-medium 
 html body .crm-opportunities-modal:not(#__reos_never_id) .hr-form-item-label__text {
   color: #B7BDC6 !important;
   -webkit-text-fill-color: #B7BDC6 !important;
-}
-
-html body .crm-opportunities-modal:not(#__reos_never_id) .hr-date-picker {
-  --n-color: var(--reos-slate) !important;
-  --n-color-active: var(--reos-slate) !important;
-  --n-color-focus: var(--reos-slate) !important;
-  --n-color-disabled: var(--reos-graphite) !important;
-  --n-text-color: var(--reos-bone) !important;
-  --n-text-color-disabled: var(--reos-ash) !important;
-  --n-placeholder-color: var(--reos-ash) !important;
-  --n-border: 1px solid var(--reos-steel) !important;
-  --n-border-disabled: 1px solid var(--reos-steel) !important;
-  --n-border-hover: 1px solid var(--reos-emerald) !important;
-  --n-border-focus: 1px solid var(--reos-emerald) !important;
-  --n-border-active: 1px solid var(--reos-emerald) !important;
-  --n-box-shadow-focus: 0 0 0 2px var(--reos-emerald-glow) !important;
-  --n-box-shadow-active: 0 0 0 2px var(--reos-emerald-glow) !important;
-  --n-caret-color: var(--reos-emerald) !important;
 }
 
 html body .crm-opportunities-modal:not(#__reos_never_id) .hr-checkbox {
@@ -9042,8 +8704,7 @@ html body .cf-filter-tag-trigger[data-reos-ic="contact-options"],
 html body .date-trigger[data-reos-ic="contact-options"],
 html body .hr-collapse-item--trigger-area-arrow[data-reos-ic="contact-options"],
 html body .hr-collapse-item--trigger-area-extra[data-reos-ic="contact-options"],
-html body .hr-collapse-item--trigger-area-main[data-reos-ic="contact-options"],
-html body .hr-datepicker__trigger-wrapper[data-reos-ic="contact-options"] {
+html body .hr-collapse-item--trigger-area-main[data-reos-ic="contact-options"] {
   background-color: var(--reos-graphite) !important;
   background: var(--reos-graphite) !important;
   border: 1px solid var(--reos-steel) !important;
@@ -9534,13 +9195,6 @@ input[type="datetime-local"],
 input[type="time"],
 input[type="month"],
 input[type="week"],
-.hr-date-picker,
-.hr-date-input,
-.hr-datepicker,
-.hr-time-picker,
-.hr-date-picker:not([class*="menu"]):not([class*="popover"]):not([class*="overlay"]):not([class*="popup"]),
-.hr-date-picker-icon:not([class*="menu"]):not([class*="popover"]):not([class*="overlay"]):not([class*="popup"]),
-.hr-datepicker__trigger-wrapper:not([class*="menu"]):not([class*="popover"]):not([class*="overlay"]):not([class*="popup"]),
 .ui-datepicker:not([class*="menu"]):not([class*="popover"]):not([class*="overlay"]):not([class*="popup"]) {
   background: var(--reos-slate) !important;
   background-color: var(--reos-slate) !important;
@@ -11452,7 +11106,6 @@ html body .hr-data-table-wrapper-footer .hr-dropdown-cntr {
   color: var(--reos-bone) !important;
   border-color: var(--reos-steel) !important;
 }
-html body .tabulator-row .hr-datepicker__trigger-wrapper,
 html body .tabulator-row button[data-reos-ic="kebab"],
 html body .tabulator-cell button[data-reos-ic="kebab"],
 html body .tabulator-row .hr-dropdown__trigger-wrapper {
@@ -11462,10 +11115,327 @@ html body .tabulator-row .hr-dropdown__trigger-wrapper {
   border-radius: 4px !important;
   padding: 4px !important;
 }
-html body .tabulator-row .hr-datepicker__trigger-wrapper:hover,
 html body .tabulator-row .hr-dropdown__trigger-wrapper:hover {
   border-color: var(--reos-emerald) !important;
 }
+
+.hr-date-picker,
+.hr-date-picker-icon,
+.hr-datepicker__trigger-wrapper {
+  font-feature-settings: 'tnum' 1 !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) {
+  --n-panel-color: var(--reos-slate) !important;
+  --n-panel-text-color: var(--reos-bone) !important;
+  --n-panel-header-divider-color: var(--reos-steel) !important;
+  --n-panel-action-divider-color: var(--reos-steel) !important;
+  --n-calendar-title-color-hover: var(--reos-graphite) !important;
+  --n-calendar-title-text-color: var(--reos-bone) !important;
+  --n-calendar-days-divider-color: var(--reos-steel) !important;
+  --n-calendar-days-text-color: var(--reos-ash) !important;
+  --n-calendar-divider-color: var(--reos-steel) !important;
+  --n-item-text-color: var(--reos-bone) !important;
+  --n-item-color-included: var(--reos-emerald-glow) !important;
+  --n-item-color-disabled: transparent !important;
+  --n-item-color-hover: transparent !important;
+  --n-item-color-active: transparent !important;
+  --n-item-text-color-disabled: var(--reos-steel) !important;
+  --n-item-text-color-active: var(--reos-obsidian) !important;
+  --n-arrow-color: var(--reos-ash) !important;
+  --n-icon-color: var(--reos-ash) !important;
+  --n-icon-color-disabled: var(--reos-steel) !important;
+  background-color: var(--reos-slate) !important;
+  background: var(--reos-slate) !important;
+  border: 1px solid var(--reos-steel) !important;
+  color: var(--reos-bone) !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use):not(#__reos_never_id) {
+  border-color: transparent !important;
+  border-width: 0 !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-weekdays {
+  background-color: var(--reos-slate) !important;
+  background: var(--reos-slate) !important;
+
+  box-shadow: 0 1px 0 0 var(--reos-steel) !important;
+  margin-bottom: 4px !important;
+  padding-bottom: 4px !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__text,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__month-year,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--excluded,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--excluded :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
+  color: var(--reos-ash) !important;
+  -webkit-text-fill-color: var(--reos-ash) !important;
+  opacity: 1 !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--disabled,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--disabled :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
+  color: var(--reos-steel) !important;
+  -webkit-text-fill-color: var(--reos-steel) !important;
+  opacity: 1 !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--excluded.hr-date-panel-date--disabled,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--excluded.hr-date-panel-date--disabled :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
+  color: var(--reos-steel) !important;
+  -webkit-text-fill-color: var(--reos-steel) !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) {
+  --n-item-color: transparent !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__trigger,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__trigger::before,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__trigger::after {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date {
+  z-index: 1 !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__trigger {
+  z-index: 0 !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date:not(.hr-date-panel-date--disabled):hover {
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+  border-radius: 4px !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--current {
+  background-color: transparent !important;
+  background: transparent !important;
+  color: var(--reos-blue) !important;
+  -webkit-text-fill-color: var(--reos-blue) !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--current .hr-date-panel-date__sup,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__sup {
+  display: none !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--selected {
+  color: var(--reos-obsidian) !important;
+  -webkit-text-fill-color: var(--reos-obsidian) !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--covered .hr-date-panel-date__trigger,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--covered .hr-date-panel-date__trigger::before,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--included .hr-date-panel-date__trigger,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--included .hr-date-panel-date__trigger::before {
+  background-color: var(--reos-emerald-glow) !important;
+  background: var(--reos-emerald-glow) !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-actions {
+  border-top: 1px solid var(--reos-steel) !important;
+  background-color: var(--reos-slate) !important;
+  background: var(--reos-slate) !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__prev,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__next,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-prev,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next {
+  color: var(--reos-ash) !important;
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__prev:hover,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__next:hover,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-prev:hover,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next:hover {
+  color: var(--reos-emerald) !important;
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__prev:focus,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__prev:focus-visible,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__next:focus,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__next:focus-visible,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-prev:focus,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-prev:focus-visible,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next:focus,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__prev svg,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__next svg,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-prev svg,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next svg,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__prev svg g,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__next svg g,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-prev svg g,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next svg g,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__prev svg path,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__next svg path,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-prev svg path,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month__fast-next svg path {
+  stroke: none !important;
+  stroke-width: 0 !important;
+  shape-rendering: geometricPrecision !important;
+  filter: none !important;
+}
+html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__prev svg,
+html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__next svg,
+html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__fast-prev svg,
+html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__fast-next svg,
+html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__prev svg path,
+html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__next svg path,
+html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__fast-prev svg path,
+html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__fast-next svg path {
+  stroke: var(--reos-ash) !important;
+  stroke-width: 2 !important;
+  fill: none !important;
+}
+html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__prev:hover svg,
+html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__prev:hover svg path,
+html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__next:hover svg,
+html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__next:hover svg path,
+html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__fast-prev:hover svg,
+html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__fast-prev:hover svg path,
+html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__fast-next:hover svg,
+html body .hr-date-panel.hr-datepicker__new:not(#__reos_never_id) .hr-date-panel-month__fast-next:hover svg path {
+  stroke: var(--reos-emerald) !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__trigger,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__trigger::before,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date__trigger::after {
+  box-shadow: none !important;
+  outline: none !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--selected,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--active,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date[class*="-selected"],
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date[class*="-active"] {
+  background-color: var(--reos-emerald) !important;
+  background: var(--reos-emerald) !important;
+  border-radius: 4px !important;
+  color: var(--reos-obsidian) !important;
+  -webkit-text-fill-color: var(--reos-obsidian) !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date::after,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date::before,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date:hover::after,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--selected::after,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-date--current::after {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-calendar,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-month,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-weekdays,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-dates,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-actions,
+html body .hr-time-picker-panel:not(#__reos_never_id),
+html body .hr-time-picker-panel:not(#__reos_never_id) .time-view,
+html body .hr-time-picker-panel:not(#__reos_never_id) .columns-container,
+html body .hr-time-picker-panel:not(#__reos_never_id) .column-item {
+  background-color: var(--reos-slate) !important;
+  background: var(--reos-slate) !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-weekdays__day,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel-weekdays,
+html body .hr-time-picker-panel:not(#__reos_never_id) .panel-header,
+html body .hr-time-picker-panel:not(#__reos_never_id) .header-title {
+  color: var(--reos-ash) !important;
+  -webkit-text-fill-color: var(--reos-ash) !important;
+}
+html body .hr-time-picker-panel:not(#__reos_never_id) .list-item {
+  background-color: transparent !important;
+  background: transparent !important;
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+html body .hr-time-picker-panel:not(#__reos_never_id) .list-item:hover {
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+html body .hr-time-picker-panel:not(#__reos_never_id) .list-item.item-selected,
+html body .hr-time-picker-panel:not(#__reos_never_id) .list-item.item-selected:hover {
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+  border: 1px solid var(--reos-emerald) !important;
+  border-color: var(--reos-emerald) !important;
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel__vertical-divider,
+html body .hr-date-panel:not(#__reos_never_id) .hr-date-panel__divider,
+html body .hr-time-picker-panel:not(#__reos_never_id) .hr-divider {
+  background-color: var(--reos-steel) !important;
+  background: var(--reos-steel) !important;
+}
+html body .n-date-picker,
+html body .n-date-picker-panel {
+  background-color: var(--reos-slate) !important;
+  color: var(--reos-bone) !important;
+  border-color: var(--reos-cool-gray) !important;
+}
+html body .crm-opportunities-modal:not(#__reos_never_id) .hr-date-picker {
+  --n-color: var(--reos-slate) !important;
+  --n-color-active: var(--reos-slate) !important;
+  --n-color-focus: var(--reos-slate) !important;
+  --n-color-disabled: var(--reos-graphite) !important;
+  --n-text-color: var(--reos-bone) !important;
+  --n-text-color-disabled: var(--reos-ash) !important;
+  --n-placeholder-color: var(--reos-ash) !important;
+  --n-border: 1px solid var(--reos-steel) !important;
+  --n-border-disabled: 1px solid var(--reos-steel) !important;
+  --n-border-hover: 1px solid var(--reos-emerald) !important;
+  --n-border-focus: 1px solid var(--reos-emerald) !important;
+  --n-border-active: 1px solid var(--reos-emerald) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--reos-emerald-glow) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--reos-emerald-glow) !important;
+  --n-caret-color: var(--reos-emerald) !important;
+}
+html body .hr-datepicker__trigger-wrapper[data-reos-ic="contact-options"] {
+  background-color: var(--reos-graphite) !important;
+  background: var(--reos-graphite) !important;
+  border: 1px solid var(--reos-steel) !important;
+  border-radius: 4px !important;
+  padding: 4px !important;
+}
+.hr-date-picker,
+.hr-date-input,
+.hr-datepicker,
+.hr-time-picker,
+.hr-date-picker:not([class*="menu"]):not([class*="popover"]):not([class*="overlay"]):not([class*="popup"]),
+.hr-date-picker-icon:not([class*="menu"]):not([class*="popover"]):not([class*="overlay"]):not([class*="popup"]),
+.hr-datepicker__trigger-wrapper:not([class*="menu"]):not([class*="popover"]):not([class*="overlay"]):not([class*="popup"]) {
+  background: var(--reos-slate) !important;
+  background-color: var(--reos-slate) !important;
+  border: 1px solid var(--reos-steel) !important;
+  color: var(--reos-bone) !important;
+  border-radius: 4px !important;
+}
+html body .tabulator-row .hr-datepicker__trigger-wrapper {
+  background-color: var(--reos-slate) !important;
+  background: var(--reos-slate) !important;
+  border: 1px solid var(--reos-steel) !important;
+  border-radius: 4px !important;
+  padding: 4px !important;
+}
+html body .tabulator-row .hr-datepicker__trigger-wrapper:hover {
+  border-color: var(--reos-emerald) !important;
+}
+
 html body .hr-data-table-wrapper .hr-table-header-container,
 html body .hr-data-table-wrapper .hr-header-lite-container,
 html body .hr-data-table-wrapper .hr-header-lite-content,

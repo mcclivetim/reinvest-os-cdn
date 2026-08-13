@@ -1,4 +1,4 @@
-/* Wholesaling CRM Customizer v0.139.0 — built 2026-08-13T16:28:57.366Z */
+/* Wholesaling CRM Customizer v0.140.0 — built 2026-08-13T20:58:32.525Z */
 "use strict";var WholesalingCRMCustomizer=(()=>{var li="[wholesaling-crm-customizer]",j_="__WS_CRM_DEBUG",U_=()=>!!window[j_],m={info(...e){console.log(li,...e)},warn(...e){console.warn(li,...e)},error(...e){console.error(li,...e)},debug(...e){U_()&&console.log(li,"[debug]",...e)}};var G_=/\/v2\/location\/([A-Za-z0-9]+)/,K_=new Set(["8ntUQzMflUkR0YvrRgVk"]),X=()=>{let e=window.location.pathname.match(G_);return e?e[1]:null},Rt=()=>{let e=X();return e===null?"agency":K_.has(e)?"hq":"tenant"},Yo=(...e)=>e.includes(Rt()),Pl=new Map,ee=(e,t)=>{Pl.set(e,t)},Gm=e=>{if(Pl.size===0)return;let t=[];Pl.forEach((o,r)=>{try{o(),t.push(r)}catch(a){console.error(`[surface] disposer "${r}" threw during ${e}:`,a)}}),console.log(`[surface] disposed ${t.length} feature(s) on ${e}: ${t.join(", ")}`)},Ol=null,Um=null,Bl=()=>{let e=Rt(),t=X(),o=Ol!==null&&(e!==Ol||t!==Um);return Ol=e,Um=t,o};var Km=()=>Rt()==="hq";var n={obsidian:"#0A0D12",graphite:"#12161D",slate:"#1A1F28",steel:"#252C36",bone:"#EDEEF0",ash:"#9098A3",coolGray:"#5A6470",emerald:"#0FB57E",emeraldBright:"#14C98B",blue:"#4B8BF5",amber:"#E8A33C",crimson:"#D43F4A",emeraldGlow:"rgba(15, 181, 126, 0.12)",emeraldBorder:"rgba(15, 181, 126, 0.3)",blueGlow:"rgba(75, 139, 245, 0.12)",amberGlow:"rgba(232, 163, 60, 0.12)",crimsonGlow:"rgba(212, 63, 74, 0.12)"};var v={sm:"4px",md:"6px",lg:"10px",pill:"999px"},h={sans:"'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",mono:"'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"},Hl={purple:"#8B5CF6",green:n.emerald,orange:n.amber,red:n.crimson},Vm=e=>{let t=e==="emerald"?n.emeraldGlow:e==="amber"?n.amberGlow:n.slate,o=e==="emerald"?n.emeraldBorder:e==="amber"?"rgba(232, 163, 60, 0.3)":n.steel,r=e==="emerald"?n.emerald:e==="amber"?n.amber:n.bone;return`
     display: inline-flex;
     align-items: center;
@@ -248,7 +248,7 @@
     font-weight: 600; box-shadow: 0 6px 18px rgba(0,0,0,.35); user-select: none;
   `,o.innerHTML=`<span style="color:${n.emeraldBright};font-weight:700;">Demo</span>
     &nbsp;Outbound texting is simulated in this demo account \u2014 the live product sends
-    from your business number.`,document.body.appendChild(o)},Ai=()=>{fu(),wt(null),document.getElementById(Jl)?.remove(),document.getElementById(Zl)?.remove(),Ql(),Cu(),er&&(document.removeEventListener("click",er,!0),er=null)},ed=()=>{if(ee("demo-mode",Ai),!ge()){Ai();return}Xl(),Bf(),Ff(),qf(),_u()};var Su=()=>{let e=window.location.pathname;return e.includes("/contacts/detail/")?"contact-detail":e.includes("/contacts/smart-list")||e.includes("/contacts/")?"contact-list":e.includes("/opportunities/detail/")?"opportunity-detail":e.includes("/opportunities")?"opportunity-list":e.includes("/calendars/")?"calendar":e.includes("/dashboard")?"dashboard":e.includes("/conversations")?"conversations":e.includes("/settings")?"settings":"other"},Pi="",td=null,jt="other",od=new Set,Oi=()=>{let e=V()?.contactId??null,t=window.location.pathname!==Pi,o=e!==td;if(!t&&!o)return;Pi=window.location.pathname,td=e;let r=Su(),a=r!==jt;jt=r;let i={pageTypeChanged:a,pathChanged:t,contactChanged:o};m.debug("Page/context changed:",jt,Pi,"contact:",e,i);for(let s of od)try{s(jt,i)}catch(d){m.error("Subscriber threw:",d)}},Ve=e=>(od.add(e),setTimeout(()=>e(jt),0),()=>{od.delete(e)}),Lu=()=>{jt=Su(),Pi=window.location.pathname,td=V()?.contactId??null,m.debug("Router init, current page:",jt);let e=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(o,r,a){e(o,r,a),Oi()},history.replaceState=function(o,r,a){t(o,r,a),Oi()},window.addEventListener("popstate",Oi),setInterval(Oi,1e3)},Ut=()=>jt;var Wf=/\/opportunities\/([A-Za-z0-9]{16,24})(?:[/?]|$)/,rd=null,Iu=!1,Au=e=>{let t=e.match(Wf);t&&(rd=t[1])},Mu=()=>{if(!Iu){Iu=!0;try{let e=window.fetch.bind(window);window.fetch=(o,r)=>{try{let a=typeof o=="string"?o:o instanceof URL?o.href:o.url;a&&Au(a)}catch{}return e(o,r)};let t=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(o,r,...a){try{Au(typeof r=="string"?r:r.href)}catch{}return t.call(this,o,r,...a)},m.debug("[opp-id-capture] installed")}catch(e){m.warn("[opp-id-capture] install failed",e)}}},jf=".crm-opportunities-modal .ui-modal-heading .description",$e=()=>!rd||!document.querySelector(jf)?null:rd;var Ou=/\/contacts\/search/,Hu=new Map,Pu=!1,Bu=(e,t)=>{if(!(typeof t!="string"||!t))try{let o=JSON.parse(t);if(!o?.locationId||o.page===void 0)return;Hu.set(o.locationId,{url:e,bodyRaw:t,capturedAt:Date.now()})}catch{}},Du=e=>Hu.get(e)??null,Ru=()=>{if(!Pu){Pu=!0;try{let e=XMLHttpRequest.prototype,t=e.open,o=e.send;e.open=function(...r){try{let a=String(r[1]??"");Ou.test(a)&&(this.__wsSearchUrl=a)}catch{}return t.apply(this,r)},e.send=function(r){try{let a=this.__wsSearchUrl;a&&Bu(a,r)}catch{}return o.call(this,r)}}catch(e){m.warn("[search-capture] XHR tap install failed",e)}try{let e=window.fetch;window.fetch=function(...t){try{let o=typeof t[0]=="string"?t[0]:t[0]instanceof URL?t[0].href:t[0]?.url||"";Ou.test(o)&&Bu(o,t[1]?.body)}catch{}return e.apply(this,t)}}catch(e){m.warn("[search-capture] fetch tap install failed",e)}}};var vn="0.139.0",Bi="2026-08-13T16:28:57.367Z";var Uf="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/analytics/compute",Gf="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/callstats/sweep-run",Hi="ws-crm-analytics-overlay",Kf=[{key:"today",label:"Today"},{key:"yesterday",label:"Yesterday"},{key:"this_week",label:"This week"},{key:"last_week",label:"Last week"},{key:"this_month",label:"This month"},{key:"last_month",label:"Last month"},{key:"last_365",label:"Last 365 days"},{key:"all_time",label:"All time"},{key:"custom",label:"Custom"}],Vf=[{key:"company",label:"Company"},{key:"acq",label:"Acquisitions"},{key:"dispo",label:"Disposition"},{key:"marketing",label:"Marketing"},{key:"tc",label:"Transactions"},{key:"velocity",label:"Velocity"}],Y={open:!1,range:"this_month",customStart:"",customEnd:"",tab:"company",loading:!1,error:null,data:null,cache:new Map},ye=e=>{let t=Number(e)||0;return"$"+Math.round(t).toLocaleString("en-US")},j=e=>(Number(e)||0).toLocaleString("en-US"),ad=e=>{let t=Number(e);return!Number.isFinite(t)||t<=0?"\u2014":new Date(t).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})},fn=e=>{let t=Math.round(Number(e)||0);if(t<60)return`${t}s`;let o=Math.floor(t/3600),r=Math.round(t%3600/60);return o>0?`${o}h ${r}m`:`${r}m`},Yf=()=>`${Y.range}|${Y.customStart}|${Y.customEnd}`,_o=async(e=!1)=>{let t=Yf();if(!e&&Y.cache.has(t)){Y.data=Y.cache.get(t),Y.error=null,fo();return}let o=X();if(!o){Y.error="Could not resolve the sub-account id from the URL.",fo();return}Y.loading=!0,Y.error=null,fo();try{let r={tenant_id:o,range:Y.range,tz_offset_minutes:new Date().getTimezoneOffset()};Y.range==="custom"&&(r.start=Y.customStart,r.end=Y.customEnd);let a=await fetch(Uf,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(r)}),i=await a.json();if(!i||i.ok===!1)throw new Error(i&&i.error||`HTTP ${a.status}`);Y.data=i,Y.cache.set(t,i)}catch(r){Y.error=r instanceof Error?r.message:String(r)}finally{Y.loading=!1,fo()}},F=(e,t,o)=>{let r=document.createElement(e);return r.style.cssText=t,o!==void 0&&(r.innerHTML=o),r},be=e=>String(e??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"),wo=`background:${n.graphite};border:1px solid ${n.slate};border-radius:${v.lg};padding:16px 18px;min-width:0;`,wn=`font-family:${h.mono};font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:${n.ash};margin:0 0 12px;`,Ae=(e,t,o)=>{let r=F("div",wo+"flex:1;min-width:150px;");return r.appendChild(F("div",wn+"margin-bottom:8px;",be(e))),r.appendChild(F("div",`font-family:${h.sans};font-size:24px;font-weight:600;color:${n.bone};line-height:1.1;`,be(t))),o&&r.appendChild(F("div",`font-family:${h.sans};font-size:11px;color:${n.coolGray};margin-top:6px;`,be(o))),r},ve=(e,t)=>{let o=F("div",wo);if(o.appendChild(F("div",wn,be(e))),!t.length)return o.appendChild(F("div",`font-size:12px;color:${n.coolGray};`,"No data in this range")),o;let r=Math.max(...t.map(a=>a.barVal),1);for(let a of t.slice(0,12)){let i=F("div","margin:0 0 10px;"),s=F("div","display:flex;justify-content:space-between;gap:12px;margin-bottom:4px;");s.appendChild(F("span",`font-size:12px;color:${n.bone};overflow:hidden;text-overflow:ellipsis;white-space:nowrap;`,be(a.label)));let d=F("span",`font-size:12px;color:${n.bone};font-weight:600;white-space:nowrap;`,be(a.primary)+(a.secondary?` <span style="color:${n.coolGray};font-weight:400;">${be(a.secondary)}</span>`:""));s.appendChild(d),i.appendChild(s);let l=F("div",`height:6px;background:${n.slate};border-radius:3px;overflow:hidden;`);l.appendChild(F("div",`height:100%;width:${Math.max(2,Math.round(a.barVal/r*100))}%;background:${n.emerald};border-radius:3px;`)),i.appendChild(l),o.appendChild(i)}return t.length>12&&o.appendChild(F("div",`font-size:11px;color:${n.coolGray};`,`+${t.length-12} more`)),o},Di=(e,t,o)=>{let r=F("div",wo+"overflow-x:auto;");if(r.appendChild(F("div",wn,be(e))),!o.length)return r.appendChild(F("div",`font-size:12px;color:${n.coolGray};`,"No data in this range")),r;let a=`text-align:left;padding:6px 10px;font-family:${h.mono};font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:${n.ash};border-bottom:1px solid ${n.slate};white-space:nowrap;`,i=`padding:7px 10px;font-size:12px;color:${n.bone};border-bottom:1px solid ${n.slate};white-space:nowrap;`,s=`<table style="border-collapse:collapse;width:100%;min-width:480px;">
+    from your business number.`,document.body.appendChild(o)},Ai=()=>{fu(),wt(null),document.getElementById(Jl)?.remove(),document.getElementById(Zl)?.remove(),Ql(),Cu(),er&&(document.removeEventListener("click",er,!0),er=null)},ed=()=>{if(ee("demo-mode",Ai),!ge()){Ai();return}Xl(),Bf(),Ff(),qf(),_u()};var Su=()=>{let e=window.location.pathname;return e.includes("/contacts/detail/")?"contact-detail":e.includes("/contacts/smart-list")||e.includes("/contacts/")?"contact-list":e.includes("/opportunities/detail/")?"opportunity-detail":e.includes("/opportunities")?"opportunity-list":e.includes("/calendars/")?"calendar":e.includes("/dashboard")?"dashboard":e.includes("/conversations")?"conversations":e.includes("/settings")?"settings":"other"},Pi="",td=null,jt="other",od=new Set,Oi=()=>{let e=V()?.contactId??null,t=window.location.pathname!==Pi,o=e!==td;if(!t&&!o)return;Pi=window.location.pathname,td=e;let r=Su(),a=r!==jt;jt=r;let i={pageTypeChanged:a,pathChanged:t,contactChanged:o};m.debug("Page/context changed:",jt,Pi,"contact:",e,i);for(let s of od)try{s(jt,i)}catch(d){m.error("Subscriber threw:",d)}},Ve=e=>(od.add(e),setTimeout(()=>e(jt),0),()=>{od.delete(e)}),Lu=()=>{jt=Su(),Pi=window.location.pathname,td=V()?.contactId??null,m.debug("Router init, current page:",jt);let e=history.pushState.bind(history),t=history.replaceState.bind(history);history.pushState=function(o,r,a){e(o,r,a),Oi()},history.replaceState=function(o,r,a){t(o,r,a),Oi()},window.addEventListener("popstate",Oi),setInterval(Oi,1e3)},Ut=()=>jt;var Wf=/\/opportunities\/([A-Za-z0-9]{16,24})(?:[/?]|$)/,rd=null,Iu=!1,Au=e=>{let t=e.match(Wf);t&&(rd=t[1])},Mu=()=>{if(!Iu){Iu=!0;try{let e=window.fetch.bind(window);window.fetch=(o,r)=>{try{let a=typeof o=="string"?o:o instanceof URL?o.href:o.url;a&&Au(a)}catch{}return e(o,r)};let t=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(o,r,...a){try{Au(typeof r=="string"?r:r.href)}catch{}return t.call(this,o,r,...a)},m.debug("[opp-id-capture] installed")}catch(e){m.warn("[opp-id-capture] install failed",e)}}},jf=".crm-opportunities-modal .ui-modal-heading .description",$e=()=>!rd||!document.querySelector(jf)?null:rd;var Ou=/\/contacts\/search/,Hu=new Map,Pu=!1,Bu=(e,t)=>{if(!(typeof t!="string"||!t))try{let o=JSON.parse(t);if(!o?.locationId||o.page===void 0)return;Hu.set(o.locationId,{url:e,bodyRaw:t,capturedAt:Date.now()})}catch{}},Du=e=>Hu.get(e)??null,Ru=()=>{if(!Pu){Pu=!0;try{let e=XMLHttpRequest.prototype,t=e.open,o=e.send;e.open=function(...r){try{let a=String(r[1]??"");Ou.test(a)&&(this.__wsSearchUrl=a)}catch{}return t.apply(this,r)},e.send=function(r){try{let a=this.__wsSearchUrl;a&&Bu(a,r)}catch{}return o.call(this,r)}}catch(e){m.warn("[search-capture] XHR tap install failed",e)}try{let e=window.fetch;window.fetch=function(...t){try{let o=typeof t[0]=="string"?t[0]:t[0]instanceof URL?t[0].href:t[0]?.url||"";Ou.test(o)&&Bu(o,t[1]?.body)}catch{}return e.apply(this,t)}}catch(e){m.warn("[search-capture] fetch tap install failed",e)}}};var vn="0.140.0",Bi="2026-08-13T20:58:32.526Z";var Uf="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/analytics/compute",Gf="https://n8n.srv942822.hstgr.cloud/webhook/reinvest-os/callstats/sweep-run",Hi="ws-crm-analytics-overlay",Kf=[{key:"today",label:"Today"},{key:"yesterday",label:"Yesterday"},{key:"this_week",label:"This week"},{key:"last_week",label:"Last week"},{key:"this_month",label:"This month"},{key:"last_month",label:"Last month"},{key:"last_365",label:"Last 365 days"},{key:"all_time",label:"All time"},{key:"custom",label:"Custom"}],Vf=[{key:"company",label:"Company"},{key:"acq",label:"Acquisitions"},{key:"dispo",label:"Disposition"},{key:"marketing",label:"Marketing"},{key:"tc",label:"Transactions"},{key:"velocity",label:"Velocity"}],Y={open:!1,range:"this_month",customStart:"",customEnd:"",tab:"company",loading:!1,error:null,data:null,cache:new Map},ye=e=>{let t=Number(e)||0;return"$"+Math.round(t).toLocaleString("en-US")},j=e=>(Number(e)||0).toLocaleString("en-US"),ad=e=>{let t=Number(e);return!Number.isFinite(t)||t<=0?"\u2014":new Date(t).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})},fn=e=>{let t=Math.round(Number(e)||0);if(t<60)return`${t}s`;let o=Math.floor(t/3600),r=Math.round(t%3600/60);return o>0?`${o}h ${r}m`:`${r}m`},Yf=()=>`${Y.range}|${Y.customStart}|${Y.customEnd}`,_o=async(e=!1)=>{let t=Yf();if(!e&&Y.cache.has(t)){Y.data=Y.cache.get(t),Y.error=null,fo();return}let o=X();if(!o){Y.error="Could not resolve the sub-account id from the URL.",fo();return}Y.loading=!0,Y.error=null,fo();try{let r={tenant_id:o,range:Y.range,tz_offset_minutes:new Date().getTimezoneOffset()};Y.range==="custom"&&(r.start=Y.customStart,r.end=Y.customEnd);let a=await fetch(Uf,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(r)}),i=await a.json();if(!i||i.ok===!1)throw new Error(i&&i.error||`HTTP ${a.status}`);Y.data=i,Y.cache.set(t,i)}catch(r){Y.error=r instanceof Error?r.message:String(r)}finally{Y.loading=!1,fo()}},F=(e,t,o)=>{let r=document.createElement(e);return r.style.cssText=t,o!==void 0&&(r.innerHTML=o),r},be=e=>String(e??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"),wo=`background:${n.graphite};border:1px solid ${n.slate};border-radius:${v.lg};padding:16px 18px;min-width:0;`,wn=`font-family:${h.mono};font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:${n.ash};margin:0 0 12px;`,Ae=(e,t,o)=>{let r=F("div",wo+"flex:1;min-width:150px;");return r.appendChild(F("div",wn+"margin-bottom:8px;",be(e))),r.appendChild(F("div",`font-family:${h.sans};font-size:24px;font-weight:600;color:${n.bone};line-height:1.1;`,be(t))),o&&r.appendChild(F("div",`font-family:${h.sans};font-size:11px;color:${n.coolGray};margin-top:6px;`,be(o))),r},ve=(e,t)=>{let o=F("div",wo);if(o.appendChild(F("div",wn,be(e))),!t.length)return o.appendChild(F("div",`font-size:12px;color:${n.coolGray};`,"No data in this range")),o;let r=Math.max(...t.map(a=>a.barVal),1);for(let a of t.slice(0,12)){let i=F("div","margin:0 0 10px;"),s=F("div","display:flex;justify-content:space-between;gap:12px;margin-bottom:4px;");s.appendChild(F("span",`font-size:12px;color:${n.bone};overflow:hidden;text-overflow:ellipsis;white-space:nowrap;`,be(a.label)));let d=F("span",`font-size:12px;color:${n.bone};font-weight:600;white-space:nowrap;`,be(a.primary)+(a.secondary?` <span style="color:${n.coolGray};font-weight:400;">${be(a.secondary)}</span>`:""));s.appendChild(d),i.appendChild(s);let l=F("div",`height:6px;background:${n.slate};border-radius:3px;overflow:hidden;`);l.appendChild(F("div",`height:100%;width:${Math.max(2,Math.round(a.barVal/r*100))}%;background:${n.emerald};border-radius:3px;`)),i.appendChild(l),o.appendChild(i)}return t.length>12&&o.appendChild(F("div",`font-size:11px;color:${n.coolGray};`,`+${t.length-12} more`)),o},Di=(e,t,o)=>{let r=F("div",wo+"overflow-x:auto;");if(r.appendChild(F("div",wn,be(e))),!o.length)return r.appendChild(F("div",`font-size:12px;color:${n.coolGray};`,"No data in this range")),r;let a=`text-align:left;padding:6px 10px;font-family:${h.mono};font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:${n.ash};border-bottom:1px solid ${n.slate};white-space:nowrap;`,i=`padding:7px 10px;font-size:12px;color:${n.bone};border-bottom:1px solid ${n.slate};white-space:nowrap;`,s=`<table style="border-collapse:collapse;width:100%;min-width:480px;">
     <thead><tr>${t.map(d=>`<th style="${a}">${be(d)}</th>`).join("")}</tr></thead>
     <tbody>${o.map(d=>`<tr>${d.map(l=>`<td style="${i}">${be(l)}</td>`).join("")}</tr>`).join("")}</tbody>
   </table>`;return r.appendChild(F("div","",s)),r},ue=(e,t)=>{let o=F("div",`display:grid;grid-template-columns:${e};gap:14px;margin-bottom:14px;`);for(let r of t)o.appendChild(r);return o},xn=e=>{let t=F("div","display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;");for(let o of e)t.appendChild(o);return t},$t=e=>(e||[]).map(t=>({label:t.label,primary:j(t.count),barVal:t.count})),Jf=e=>(e||[]).map(t=>({label:t.label,primary:ye(t.sum),secondary:`\xB7 ${j(t.count)} deal${t.count===1?"":"s"}`,barVal:t.sum})),Fu=(e,t)=>{let o=e.calls||{};if(!o.available)return[F("div",`${wo}border-left:3px solid ${n.amber};border-radius:0 ${v.lg} ${v.lg} 0;font-size:12px;color:${n.ash};`,`<strong style="color:${n.bone};">Call metrics unavailable.</strong> ${be(o.note||"CallStats.Sweep runs every 30 minutes \u2014 check back shortly.")}`)];let r=t==="acq"?"Seller":"Buyer",a=o[t]||[],i=a.filter(c=>c.dials>0||c.connects>0||c.inbound>0).map(c=>({label:c.label,primary:`${j(c.dials)} dials`,secondary:`\xB7 ${j(c.connects)} connected \xB7 ${j(c.inbound)} inbound`,barVal:c.dials})),s=a.filter(c=>c.talk_seconds>0).map(c=>({label:c.label,primary:fn(c.talk_seconds),secondary:c.talk_per_contract_seconds!=null?`\xB7 ${fn(c.talk_per_contract_seconds)} per contract`:"",barVal:c.talk_seconds})),d=[ve(`${r} calls per rep (dials)`,i),ve(`${r} talk time per rep`,s)],l=(o.other||[]).filter(c=>c.dials>0||c.talk_seconds>0);return l.length&&d.push(ve("Unclassified calls per rep (contact is neither seller nor buyer)",l.map(c=>({label:c.label,primary:`${j(c.dials)} dials`,secondary:`\xB7 ${fn(c.talk_seconds)} talk`,barVal:c.dials})))),d},Zf=e=>e===0?n.coolGray:e>=80?n.emerald:e>=60?n.amber:n.crimson,Qf=e=>e===0?n.steel:e>=80?n.emeraldBorder:e>=60?"rgba(232, 163, 60, 0.3)":"rgba(212, 63, 74, 0.3)",Xf=(e,t)=>`color:${e} !important;-webkit-text-fill-color:${e} !important;${t}`,ex=e=>{let t=typeof e=="string"?e:"";if(!t)return"not viewed yet";let o=new Date(t.length<=10?`${t}T00:00:00`:t);if(Number.isNaN(o.getTime()))return"not viewed yet";let r=i=>new Date(i.getFullYear(),i.getMonth(),i.getDate()).getTime(),a=Math.round((r(new Date)-r(o))/864e5);return a<=0?"last today":a===1?"last yesterday":`${a} days ago`},tx=(e,t)=>{let o=Math.round(Number(e.deal_heat)||0),r=Zf(o),a=Qf(o),i=e.street&&String(e.street).trim()||"(no address)";return`
@@ -4136,118 +4136,6 @@ html body .border-blue-700:not([class*="border-blue-50"]):not([class*="border-bl
   border-color: var(--reos-blue) !important;
 }
 
-html body .n-tag {
-  background-color: var(--reos-slate) !important;
-  color: var(--reos-bone) !important;
-  border: 1px solid var(--reos-cool-gray) !important;
-}
-html body .n-tag__content,
-html body .n-tag__icon {
-  color: var(--reos-bone) !important;
-  -webkit-text-fill-color: var(--reos-bone) !important;
-}
-
-html body .n-tag--success-type {
-  background-color: rgba(15, 181, 126, 0.15) !important;
-  color: var(--reos-emerald) !important;
-  border-color: var(--reos-emerald) !important;
-}
-html body .n-tag--success-type .n-tag__content {
-  color: var(--reos-emerald) !important;
-  -webkit-text-fill-color: var(--reos-emerald) !important;
-}
-
-html body .n-tag.hl-success:not(#__reos_never_id),
-html body [class*="hl-success"].n-tag:not(#__reos_never_id),
-html body .n-tag.hr-tag--success:not(#__reos_never_id) {
-  --n-color: var(--reos-emerald-glow) !important;
-  --n-color-hover: rgba(15, 181, 126, 0.18) !important;
-  --n-color-pressed: rgba(15, 181, 126, 0.22) !important;
-  --n-text-color: var(--reos-emerald) !important;
-  --n-text-color-hover: var(--reos-emerald-bright) !important;
-  --n-border: 1px solid var(--reos-emerald) !important;
-  --n-close-icon-color: var(--reos-emerald) !important;
-  --n-close-icon-color-hover: var(--reos-emerald-bright) !important;
-  background-color: var(--reos-emerald-glow) !important;
-  color: var(--reos-emerald) !important;
-  border-color: var(--reos-emerald) !important;
-}
-html body .n-tag.hl-warning:not(#__reos_never_id),
-html body [class*="hl-warning"].n-tag:not(#__reos_never_id),
-html body .n-tag.hr-tag--warning:not(#__reos_never_id) {
-  --n-color: rgba(232, 163, 60, 0.12) !important;
-  --n-color-hover: rgba(232, 163, 60, 0.18) !important;
-  --n-text-color: var(--reos-amber) !important;
-  --n-text-color-hover: var(--reos-amber) !important;
-  --n-border: 1px solid var(--reos-amber) !important;
-  --n-close-icon-color: var(--reos-amber) !important;
-  background-color: rgba(232, 163, 60, 0.12) !important;
-  color: var(--reos-amber) !important;
-  border-color: var(--reos-amber) !important;
-}
-html body .n-tag.hl-error:not(#__reos_never_id),
-html body [class*="hl-error"].n-tag:not(#__reos_never_id),
-html body .n-tag.hr-tag--error:not(#__reos_never_id) {
-  --n-color: rgba(212, 63, 74, 0.12) !important;
-  --n-color-hover: rgba(212, 63, 74, 0.18) !important;
-  --n-text-color: var(--reos-crimson) !important;
-  --n-text-color-hover: var(--reos-crimson) !important;
-  --n-border: 1px solid var(--reos-crimson) !important;
-  --n-close-icon-color: var(--reos-crimson) !important;
-  background-color: rgba(212, 63, 74, 0.12) !important;
-  color: var(--reos-crimson) !important;
-  border-color: var(--reos-crimson) !important;
-}
-html body .n-tag.hl-info:not(#__reos_never_id),
-html body [class*="hl-info"].n-tag:not(#__reos_never_id),
-html body .n-tag.hr-tag--info:not(#__reos_never_id),
-html body .n-tag.hr-tag--primary:not(#__reos_never_id) {
-  --n-color: rgba(75, 139, 245, 0.12) !important;
-  --n-color-hover: rgba(75, 139, 245, 0.18) !important;
-  --n-text-color: var(--reos-blue) !important;
-  --n-text-color-hover: var(--reos-blue) !important;
-  --n-border: 1px solid var(--reos-blue) !important;
-  --n-close-icon-color: var(--reos-blue) !important;
-  background-color: rgba(75, 139, 245, 0.12) !important;
-  color: var(--reos-blue) !important;
-  border-color: var(--reos-blue) !important;
-}
-
-html body .n-tag.hl-success:not(#__reos_never_id) .n-tag__content,
-html body .n-tag.hl-success:not(#__reos_never_id) .n-tag__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
-html body .n-tag.hl-success:not(#__reos_never_id) svg,
-html body .n-tag.hl-success:not(#__reos_never_id) svg path {
-  color: var(--reos-emerald) !important;
-  -webkit-text-fill-color: var(--reos-emerald) !important;
-  stroke: var(--reos-emerald) !important;
-}
-html body .n-tag.hl-warning:not(#__reos_never_id) .n-tag__content,
-html body .n-tag.hl-warning:not(#__reos_never_id) .n-tag__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
-html body .n-tag.hl-warning:not(#__reos_never_id) svg,
-html body .n-tag.hl-warning:not(#__reos_never_id) svg path {
-  color: var(--reos-amber) !important;
-  -webkit-text-fill-color: var(--reos-amber) !important;
-  stroke: var(--reos-amber) !important;
-}
-html body .n-tag.hl-error:not(#__reos_never_id) .n-tag__content,
-html body .n-tag.hl-error:not(#__reos_never_id) .n-tag__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
-html body .n-tag.hl-error:not(#__reos_never_id) svg,
-html body .n-tag.hl-error:not(#__reos_never_id) svg path {
-  color: var(--reos-crimson) !important;
-  -webkit-text-fill-color: var(--reos-crimson) !important;
-  stroke: var(--reos-crimson) !important;
-}
-html body .n-tag.hl-info:not(#__reos_never_id) .n-tag__content,
-html body .n-tag.hl-info:not(#__reos_never_id) .n-tag__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
-html body .n-tag.hl-info:not(#__reos_never_id) svg,
-html body .n-tag.hl-info:not(#__reos_never_id) svg path,
-html body .n-tag.hr-tag--primary:not(#__reos_never_id) .n-tag__content,
-html body .n-tag.hr-tag--primary:not(#__reos_never_id) .n-tag__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-blue) !important;
-  -webkit-text-fill-color: var(--reos-blue) !important;
-  stroke: var(--reos-blue) !important;
-}
-
 html body .ghl-table-container:not(#__reos_never_id) {
   border-color: var(--reos-steel) !important;
   box-shadow: none !important;
@@ -6042,29 +5930,6 @@ html body svg[data-reos-ic="warn"]:not(#__reos_never_id) {
   stroke: var(--reos-amber) !important;
 }
 
-html body .hr-tag.ui-default:not(#__reos_never_id),
-html body .hr-tag.hr-tag--round.ui-default:not(#__reos_never_id) {
-  background-color: transparent !important;
-  background: transparent !important;
-  border: none !important;
-  border-color: transparent !important;
-  color: var(--reos-blue) !important;
-}
-html body .hr-tag.ui-default:not(#__reos_never_id) .hr-tag__content,
-html body .hr-tag.ui-default:not(#__reos_never_id) .hr-tag__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
-html body .hr-tag.ui-default:not(#__reos_never_id) .n-tag__content,
-html body .hr-tag.ui-default:not(#__reos_never_id) .n-tag__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
-  color: var(--reos-blue) !important;
-  -webkit-text-fill-color: var(--reos-blue) !important;
-  background-color: transparent !important;
-}
-
-html body .hr-tag.ui-default:not(#__reos_never_id) .hr-tag__border,
-html body .hr-tag.ui-default:not(#__reos_never_id) .n-tag__border {
-  display: none !important;
-  border: none !important;
-}
-
 html body .card-header:not(#__reos_never_id) {
   background-color: var(--reos-graphite) !important;
   background: var(--reos-graphite) !important;
@@ -7748,15 +7613,6 @@ html body .crm-opportunities-modal:not(#__reos_never_id) .hr-date-picker {
   --n-box-shadow-focus: 0 0 0 2px var(--reos-emerald-glow) !important;
   --n-box-shadow-active: 0 0 0 2px var(--reos-emerald-glow) !important;
   --n-caret-color: var(--reos-emerald) !important;
-}
-
-html body .crm-opportunities-modal:not(#__reos_never_id) .hr-tag {
-  --n-color: var(--reos-slate) !important;
-  --n-text-color: var(--reos-bone) !important;
-  --n-border: 1px solid var(--reos-steel) !important;
-  --n-close-icon-color: var(--reos-ash) !important;
-  --n-close-icon-color-hover: var(--reos-bone) !important;
-  --n-close-color-hover: var(--reos-steel) !important;
 }
 
 html body .crm-opportunities-modal:not(#__reos_never_id) .hr-checkbox {
@@ -9610,8 +9466,7 @@ html body .default-avatar:not(#__reos_never_id) i {
   color: var(--reos-bone) !important;
 }
 .hr-collapse-item,
-.hr-collapse,
-.hr-tag {
+.hr-collapse {
   background: var(--reos-graphite) !important;
   border-color: var(--reos-steel) !important;
 }
@@ -12321,14 +12176,7 @@ html body .hr-dialog .hr-form-item-label__asterisk {
   --n-asterisk-color: var(--reos-crimson) !important;
   color: var(--reos-crimson) !important;
 }
-html body .hr-dialog .hr-tag {
-  --n-color: var(--reos-slate) !important;
-  --n-text-color: var(--reos-bone) !important;
-  --n-border: 1px solid var(--reos-steel) !important;
-  --n-close-icon-color: var(--reos-ash) !important;
-  --n-close-icon-color-hover: var(--reos-bone) !important;
-  --n-close-color-hover: var(--reos-steel) !important;
-}
+
 html body .hr-modal .ui-modal-heading .description:not(#__reos_never_id),
 html body .hr-dialog p.text-gray-500,
 html body .hr-dialog p.text-gray-600,
@@ -12646,6 +12494,149 @@ html body .border-primary-500:not(#__reos_never_id):not(#__reos_a):not(#__reos_b
 html body .border-primary-600:not(#__reos_never_id):not(#__reos_a):not(#__reos_b),
 html body .border-primary-400:not(#__reos_never_id):not(#__reos_a):not(#__reos_b) {
   border-color: var(--reos-emerald) !important;
+}
+
+html body .n-tag {
+  background-color: var(--reos-slate) !important;
+  color: var(--reos-bone) !important;
+  border: 1px solid var(--reos-cool-gray) !important;
+}
+html body .n-tag__content,
+html body .n-tag__icon {
+  color: var(--reos-bone) !important;
+  -webkit-text-fill-color: var(--reos-bone) !important;
+}
+html body .n-tag--success-type {
+  background-color: rgba(15, 181, 126, 0.15) !important;
+  color: var(--reos-emerald) !important;
+  border-color: var(--reos-emerald) !important;
+}
+html body .n-tag--success-type .n-tag__content {
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
+}
+html body .n-tag.hl-success:not(#__reos_never_id),
+html body [class*="hl-success"].n-tag:not(#__reos_never_id),
+html body .n-tag.hr-tag--success:not(#__reos_never_id) {
+  --n-color: var(--reos-emerald-glow) !important;
+  --n-color-hover: rgba(15, 181, 126, 0.18) !important;
+  --n-color-pressed: rgba(15, 181, 126, 0.22) !important;
+  --n-text-color: var(--reos-emerald) !important;
+  --n-text-color-hover: var(--reos-emerald-bright) !important;
+  --n-border: 1px solid var(--reos-emerald) !important;
+  --n-close-icon-color: var(--reos-emerald) !important;
+  --n-close-icon-color-hover: var(--reos-emerald-bright) !important;
+  background-color: var(--reos-emerald-glow) !important;
+  color: var(--reos-emerald) !important;
+  border-color: var(--reos-emerald) !important;
+}
+html body .n-tag.hl-warning:not(#__reos_never_id),
+html body [class*="hl-warning"].n-tag:not(#__reos_never_id),
+html body .n-tag.hr-tag--warning:not(#__reos_never_id) {
+  --n-color: rgba(232, 163, 60, 0.12) !important;
+  --n-color-hover: rgba(232, 163, 60, 0.18) !important;
+  --n-text-color: var(--reos-amber) !important;
+  --n-text-color-hover: var(--reos-amber) !important;
+  --n-border: 1px solid var(--reos-amber) !important;
+  --n-close-icon-color: var(--reos-amber) !important;
+  background-color: rgba(232, 163, 60, 0.12) !important;
+  color: var(--reos-amber) !important;
+  border-color: var(--reos-amber) !important;
+}
+html body .n-tag.hl-error:not(#__reos_never_id),
+html body [class*="hl-error"].n-tag:not(#__reos_never_id),
+html body .n-tag.hr-tag--error:not(#__reos_never_id) {
+  --n-color: rgba(212, 63, 74, 0.12) !important;
+  --n-color-hover: rgba(212, 63, 74, 0.18) !important;
+  --n-text-color: var(--reos-crimson) !important;
+  --n-text-color-hover: var(--reos-crimson) !important;
+  --n-border: 1px solid var(--reos-crimson) !important;
+  --n-close-icon-color: var(--reos-crimson) !important;
+  background-color: rgba(212, 63, 74, 0.12) !important;
+  color: var(--reos-crimson) !important;
+  border-color: var(--reos-crimson) !important;
+}
+html body .n-tag.hl-info:not(#__reos_never_id),
+html body [class*="hl-info"].n-tag:not(#__reos_never_id),
+html body .n-tag.hr-tag--info:not(#__reos_never_id),
+html body .n-tag.hr-tag--primary:not(#__reos_never_id) {
+  --n-color: rgba(75, 139, 245, 0.12) !important;
+  --n-color-hover: rgba(75, 139, 245, 0.18) !important;
+  --n-text-color: var(--reos-blue) !important;
+  --n-text-color-hover: var(--reos-blue) !important;
+  --n-border: 1px solid var(--reos-blue) !important;
+  --n-close-icon-color: var(--reos-blue) !important;
+  background-color: rgba(75, 139, 245, 0.12) !important;
+  color: var(--reos-blue) !important;
+  border-color: var(--reos-blue) !important;
+}
+html body .n-tag.hl-success:not(#__reos_never_id) .n-tag__content,
+html body .n-tag.hl-success:not(#__reos_never_id) .n-tag__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .n-tag.hl-success:not(#__reos_never_id) svg,
+html body .n-tag.hl-success:not(#__reos_never_id) svg path {
+  color: var(--reos-emerald) !important;
+  -webkit-text-fill-color: var(--reos-emerald) !important;
+  stroke: var(--reos-emerald) !important;
+}
+html body .n-tag.hl-warning:not(#__reos_never_id) .n-tag__content,
+html body .n-tag.hl-warning:not(#__reos_never_id) .n-tag__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .n-tag.hl-warning:not(#__reos_never_id) svg,
+html body .n-tag.hl-warning:not(#__reos_never_id) svg path {
+  color: var(--reos-amber) !important;
+  -webkit-text-fill-color: var(--reos-amber) !important;
+  stroke: var(--reos-amber) !important;
+}
+html body .n-tag.hl-error:not(#__reos_never_id) .n-tag__content,
+html body .n-tag.hl-error:not(#__reos_never_id) .n-tag__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .n-tag.hl-error:not(#__reos_never_id) svg,
+html body .n-tag.hl-error:not(#__reos_never_id) svg path {
+  color: var(--reos-crimson) !important;
+  -webkit-text-fill-color: var(--reos-crimson) !important;
+  stroke: var(--reos-crimson) !important;
+}
+html body .n-tag.hl-info:not(#__reos_never_id) .n-tag__content,
+html body .n-tag.hl-info:not(#__reos_never_id) .n-tag__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .n-tag.hl-info:not(#__reos_never_id) svg,
+html body .n-tag.hl-info:not(#__reos_never_id) svg path,
+html body .n-tag.hr-tag--primary:not(#__reos_never_id) .n-tag__content,
+html body .n-tag.hr-tag--primary:not(#__reos_never_id) .n-tag__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
+  color: var(--reos-blue) !important;
+  -webkit-text-fill-color: var(--reos-blue) !important;
+  stroke: var(--reos-blue) !important;
+}
+html body .hr-tag.ui-default:not(#__reos_never_id),
+html body .hr-tag.hr-tag--round.ui-default:not(#__reos_never_id) {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  color: var(--reos-blue) !important;
+}
+html body .hr-tag.ui-default:not(#__reos_never_id) .hr-tag__content,
+html body .hr-tag.ui-default:not(#__reos_never_id) .hr-tag__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use),
+html body .hr-tag.ui-default:not(#__reos_never_id) .n-tag__content,
+html body .hr-tag.ui-default:not(#__reos_never_id) .n-tag__content :is(span,div,p,a,li,ul,i,em,b,strong,small,label,img,button,input,textarea,svg,path,g,circle,rect,line,polyline,use) {
+  color: var(--reos-blue) !important;
+  -webkit-text-fill-color: var(--reos-blue) !important;
+  background-color: transparent !important;
+}
+html body .hr-tag.ui-default:not(#__reos_never_id) .hr-tag__border,
+html body .hr-tag.ui-default:not(#__reos_never_id) .n-tag__border {
+  display: none !important;
+  border: none !important;
+}
+.hr-tag {
+  background: var(--reos-graphite) !important;
+  border-color: var(--reos-steel) !important;
+}
+html body .crm-opportunities-modal:not(#__reos_never_id) .hr-tag,
+html body .hr-dialog .hr-tag {
+  --n-color: var(--reos-slate) !important;
+  --n-text-color: var(--reos-bone) !important;
+  --n-border: 1px solid var(--reos-steel) !important;
+  --n-close-icon-color: var(--reos-ash) !important;
+  --n-close-icon-color-hover: var(--reos-bone) !important;
+  --n-close-color-hover: var(--reos-steel) !important;
 }
 html body .n-tag.hl-border-hidden:not(#__reos_never_id):not(#__reos_a):not(#__reos_b),
 html body .hr-tag.hl-border-hidden:not(#__reos_never_id):not(#__reos_a):not(#__reos_b) {
